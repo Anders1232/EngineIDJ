@@ -27,3 +27,11 @@
 *.exe
 *.out
 *.app
+
+#configuração local do Qt
+*.user
+
+#compilados
+bin/*
+JOGO*
+dep/*
