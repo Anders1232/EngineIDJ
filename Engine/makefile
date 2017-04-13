@@ -7,7 +7,6 @@ COMPILER = g++
 RMDIR = rm -rf
 #comando para remover arquivos
 RM = rm -f
-CD= cd
 
 #Flags para geração automática de dependências
 DEP_FLAGS = -MT $@ -MMD -MP -MF $(DEP_PATH)/$.d
@@ -16,25 +15,15 @@ LIBS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lm
 FLAGS= -std=c++11 -Wall -pedantic -Wextra -fmax-errors=5 -fdiagnostics-color
 #FLAGS= -std=c++11 -Wall -pedantic -Wextra -fmax-errors=5
 
-GAME_PATH= Game
-ENGINE_PATH= Engine
-
-GAME_INC_PATH = -I$(GAME_PATH)/include
-GAME_SRC_PATH = $(GAME_PATH)/src
-GAME_BIN_PATH = $(GAME_PATH)/bin
-GAME_DEP_PATH = $(GAME_PATH)/dep
-ENGINE_INC_PATH = -I$(ENGINE_PATH)/include
-ENGINE_SRC_PATH = $(ENGINE_PATH)/src
-ENGINE_BIN_PATH = $(ENGINE_PATH)/bin
-ENGINE_DEP_PATH = $(ENGINE_PATH)/dep
+INC_PATH = -Iinclude
+SRC_PATH = src
+BIN_PATH = bin
+DEP_PATH = dep
 
 #Uma lista de arquivos por extensão:
-GAME_CPP_FILES= $(wildcard $(GAME_SRC_PATH)/*.cpp)
-GAME_OBJ_FILES= $(addprefix $(GAME_BIN_PATH)/,$(notdir $(CPP_FILES:.cpp=.o)))
-GAME_DEP_FILES = $(wildcard $(GAME_DEP_PATH)/*.d)
-ENGINE_CPP_FILES= $(wildcard $(ENGINE_SRC_PATH)/*.cpp)
-ENGINE_OBJ_FILES= $(addprefix $(ENGINE_BIN_PATH)/,$(notdir $(CPP_FILES:.cpp=.o)))
-ENGINE_DEP_FILES = $(wildcard $(ENGINE_DEP_PATH)/*.d)
+CPP_FILES= $(wildcard $(SRC_PATH)/*.cpp)
+OBJ_FILES= $(addprefix $(BIN_PATH)/,$(notdir $(CPP_FILES:.cpp=.o)))
+DEP_FILES = $(wildcard $(DEP_PATH)/*.d)
 
 #Nome do executável
 EXEC = JOGO
@@ -73,44 +62,24 @@ endif
 
 all: $(EXEC)
 
-$(EXEC): $(ENGINE_OBJ_FILES) $(GAME_OBJ_FILES)
+$(EXEC): $(OBJ_FILES)
 	$(COMPILER) -o $@ $^ $(LIBS)
 
+$(BIN_PATH)/%.o: $(SRC_PATH)/%.cpp
 
-.PHONY: $(ENGINE_BIN_PATH)/%.o
-$(ENGINE_BIN_PATH)/%.o: $(ENGINE_SRC_PATH)/%.cpp
+ifeq ($(OS), Windows_NT)
+	@if not exist $(DEP_PATH) @ mkdir $(DEP_PATH)
+	@if not exist $(BIN_PATH) @ mkdir $(BIN_PATH)
+else
+	@mkdir -p $(DEP_PATH) $(BIN_PATH)
+endif
 
-#ifeq ($(OS), Windows_NT)
-#	@if not exist $(ENGINE_DEP_PATH) @ mkdir $(ENGINE_DEP_PATH)
-#	@if not exist $(ENGINE_BIN_PATH) @ mkdir $(ENGINE_BIN_PATH)
-#else
-#	@mkdir -p $(ENGINE_DEP_PATH) $(ENGINE_BIN_PATH)
-#endif
+	$(COMPILER) $(DEP_FLAGS) -c -o $@ $< $(INC_PATH) $(FLAGS)
 
-#	$(COMPILER) $(DEP_FLAGS) -c -o $@ $< $(ENGINE_INC_PATH) $(FLAGS)
-
-#-include $(ENGINE_DEP_FILES)
-	CD $(ENGINE_PATH) && make objects
-
-.PHONY: $(GAME_BIN_PATH)/%.o
-$(GAME_BIN_PATH)/%.o: $(GAME_SRC_PATH)/%.cpp
-
-#ifeq ($(OS), Windows_NT)
-#	@if not exist $(GAME_DEP_PATH) @ mkdir $(GAME_DEP_PATH)
-#	@if not exist $(GAME_BIN_PATH) @ mkdir $(GAME_BIN_PATH)
-#else
-#	@mkdir -p $(GAME_DEP_PATH) $(GAME_BIN_PATH)
-#endif
-
-#	$(COMPILER) $(DEP_FLAGS) -c -o $@ $< $(GAME_INC_PATH) $(FLAGS)
-
-#-include $(GAME_DEP_FILES)
-
-	CD $(GAME_PATH) && make objects
-
+-include $(DEP_FILES)
 
 clean:
-	$(RMDIR) $(ENGINE_BIN_PATH) $(ENGINE_DEP_PATH) $(GAME_BIN_PATH) $(GAME_DEP_PATH)
+	$(RMDIR) $(BIN_PATH) $(DEP_PATH)
 	$(RM) $(EXEC)
 
 .PHONY: debug clean release again
@@ -123,8 +92,8 @@ debug: all
 release: FLAGS += -O3 -mtune=native
 release: all
 
-again: clean
-again: all
+objects: $(OBJ_FILES)
+	echo "Arquivos objeto da engine compilados."
 
 
 
