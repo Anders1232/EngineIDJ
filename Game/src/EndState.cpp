@@ -1,6 +1,6 @@
 #include "EndState.h"
 
-EndState::EndState(StateData stateData):
+EndState::EndState(EndStateData stateData):
 	bg((stateData.playerVictory)?"img/win.jpg":"img/lose.jpg"),
 	music((stateData.playerVictory)?"audio/endStateWin.ogg": "audio/endStateLose.ogg"),
 	instruction

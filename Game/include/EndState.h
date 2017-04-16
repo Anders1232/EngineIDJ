@@ -5,14 +5,14 @@
 #include "Sprite.h"
 #include "Music.h"
 #include "Text.h"
-#include "StateData.h"
+#include "EndStateData.h"
 
 #define END_STATE_FONT_SIZE (40)
 
 class EndState: public State
 {
 	public:
-		EndState(StateData stateData);
+		EndState(EndStateData stateData);
 		void Update(float dt);
 		void Render() const;
 		void Pause();

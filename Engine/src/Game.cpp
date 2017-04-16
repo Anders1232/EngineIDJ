@@ -112,7 +112,7 @@ void Game::Push(State* state)
 {
 	if(nullptr != storedState)
 	{
-		std::cout << WHERE << "Não era para ter um state aqui...\n";
+		std::cout << WHERE << "[WARNING]Não era para ter um state aqui...\n";
 	}
 	storedState= state;
 }

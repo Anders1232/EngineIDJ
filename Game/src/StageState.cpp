@@ -5,6 +5,7 @@
 #include "Alien.h"
 #include "Penguins.h"
 #include "Collision.h"
+#include "EndStateData.h"
 
 #ifdef _WIN32
 	#include <SDL.h>
@@ -78,12 +79,12 @@ void StageState::Update(float dt)
 	if(nullptr == Penguins::player)
 	{
 		popRequested= true;
-		Game::GetInstance().Push(new EndState(StateData(false)));
+		Game::GetInstance().Push(new EndState(EndStateData(false)));
 	}
 	else if (0 == Alien::alienCount)
 	{
 		popRequested= true;
-		Game::GetInstance().Push(new EndState(StateData(true)));
+		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
 }
 
