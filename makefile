@@ -7,7 +7,7 @@ COMPILER = g++
 RMDIR = rm -rf
 #comando para remover arquivos
 RM = rm -f
-CD= cd
+CD = cd
 
 #Flags para geração automática de dependências
 DEP_FLAGS = -MT $@ -MMD -MP -MF $(DEP_PATH)/$.d
@@ -30,10 +30,10 @@ ENGINE_DEP_PATH = $(ENGINE_PATH)/dep
 
 #Uma lista de arquivos por extensão:
 GAME_CPP_FILES= $(wildcard $(GAME_SRC_PATH)/*.cpp)
-GAME_OBJ_FILES= $(addprefix $(GAME_BIN_PATH)/,$(notdir $(CPP_FILES:.cpp=.o)))
+GAME_OBJ_FILES= $(addprefix $(GAME_BIN_PATH)/,$(notdir $(GAME_CPP_FILES:.cpp=.o)))
 GAME_DEP_FILES = $(wildcard $(GAME_DEP_PATH)/*.d)
 ENGINE_CPP_FILES= $(wildcard $(ENGINE_SRC_PATH)/*.cpp)
-ENGINE_OBJ_FILES= $(addprefix $(ENGINE_BIN_PATH)/,$(notdir $(CPP_FILES:.cpp=.o)))
+ENGINE_OBJ_FILES= $(addprefix $(ENGINE_BIN_PATH)/,$(notdir $(ENGINE_CPP_FILES:.cpp=.o)))
 ENGINE_DEP_FILES = $(wildcard $(ENGINE_DEP_PATH)/*.d)
 
 #Nome do executável
@@ -90,7 +90,7 @@ $(ENGINE_BIN_PATH)/%.o: $(ENGINE_SRC_PATH)/%.cpp
 #	$(COMPILER) $(DEP_FLAGS) -c -o $@ $< $(ENGINE_INC_PATH) $(FLAGS)
 
 #-include $(ENGINE_DEP_FILES)
-	CD $(ENGINE_PATH) && make objects
+	$(CD) $(ENGINE_PATH) && make objects
 
 .PHONY: $(GAME_BIN_PATH)/%.o
 $(GAME_BIN_PATH)/%.o: $(GAME_SRC_PATH)/%.cpp
@@ -106,11 +106,13 @@ $(GAME_BIN_PATH)/%.o: $(GAME_SRC_PATH)/%.cpp
 
 #-include $(GAME_DEP_FILES)
 
-	CD $(GAME_PATH) && make objects
+	$(CD) $(GAME_PATH) && make objects
 
 
 clean:
-	$(RMDIR) $(ENGINE_BIN_PATH) $(ENGINE_DEP_PATH) $(GAME_BIN_PATH) $(GAME_DEP_PATH)
+	$(CD) $(ENGINE_PATH) && make clean
+	$(CD) $(GAME_PATH) && make clean
+#	$(RMDIR) $(ENGINE_BIN_PATH) $(ENGINE_DEP_PATH) $(GAME_BIN_PATH) $(GAME_DEP_PATH)
 	$(RM) $(EXEC)
 
 .PHONY: debug clean release again
