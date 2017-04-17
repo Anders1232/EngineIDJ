@@ -9,7 +9,7 @@ Engine/include/Music.h
 Engine/include/Rect.h
 Engine/include/Resources.h
 Engine/include/Sound.h
-Engine/include/Sprite.hMediaWiki
+Engine/include/Sprite.h
 Engine/include/State.h
 Engine/include/StateData.h
 Engine/include/Text.h
