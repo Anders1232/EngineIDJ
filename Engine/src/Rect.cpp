@@ -44,5 +44,9 @@ void Rect::SetWidthAndHeight(Vec2 const &vec)
 	h= vec.y;
 }
 
+Rect Rect::operator*(float const zoom)const
+{
+	return Rect(x*zoom, y*zoom, w*zoom, h*zoom);
+}
 
 

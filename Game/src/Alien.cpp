@@ -87,7 +87,7 @@ void Alien::Update(float dt)
 }
 void Alien::Render(void)
 {
-	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, rotation);
+	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, rotation, true);
 	for(unsigned int count=0; count < minionArray.size(); count++)
 	{
 		minionArray[count].Render();

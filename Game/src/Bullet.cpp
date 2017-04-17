@@ -32,7 +32,7 @@ void Bullet::Update(float dt)
 void Bullet::Render(void)
 {
 //	std::cout << WHERE << " rotation= " <<rotation <<endl;
-	sp.Render(box.x- Camera::pos.x, box.y- Camera::pos.y, rotation);
+	sp.Render(box.x- Camera::pos.x, box.y- Camera::pos.y, rotation, true);
 }
 bool Bullet::IsDead(void)
 {

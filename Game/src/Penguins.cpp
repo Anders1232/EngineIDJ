@@ -87,8 +87,8 @@ void Penguins::Update(float dt)
 }
 void Penguins::Render(void)
 {
-	bodySP.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, rotation*CONVERSAO_GRAUS_RADIANOS);
-	cannonSp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, cannonAngle);
+	bodySP.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, rotation*CONVERSAO_GRAUS_RADIANOS, true);
+	cannonSp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, cannonAngle, true);
 }
 bool Penguins::IsDead(void)
 {

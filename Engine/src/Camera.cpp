@@ -9,6 +9,10 @@
 GameObject* Camera::focus= nullptr;
 Vec2 Camera::pos;
 Vec2 Camera::speed;
+float Camera::currentZoom= 1.0;
+float Camera::minZoom= CAMERA_DEFAULT_MIN_ZOOM;
+float Camera::maxZoom= CAMERA_DEFAULT_MAX_ZOOM;
+bool Camera::zoomFixed= CAMERA_DEFAULT_ZOOMABLE;
 
 //#define KEYPRESS
 
@@ -26,6 +30,7 @@ void Camera::Update(float dt)
 	{
 		//centrar a câmera na tela
 		pos= focus->box.Center()- (Game::GetInstance().GetWindowDimensions()*0.5);
+		pos= pos * Camera::GetZoom();
 	}
 	else
 	{
@@ -64,6 +69,28 @@ void Camera::Update(float dt)
 			pos.y -= CAMERA_MOVE_SPEED*dt;
 		}
 	}
+}
+
+void Camera::ForceZoom(float newZoom)
+{
+	currentZoom= newZoom;
+}
+void Camera::SetZoomnable(bool zoomnable)
+{
+	zoomFixed= zoomnable;
+}
+void Camera::Zoom(float deltaZoom)
+{
+	currentZoom+= deltaZoom;
+}
+void Camera::SetZoomLimits(float minZoom, float maxZoom)
+{
+	Camera::minZoom= (minZoom == 0)? CAMERA_DEFAULT_MIN_ZOOM : minZoom;
+	Camera::maxZoom= (maxZoom == 0)? CAMERA_DEFAULT_MAX_ZOOM : maxZoom;
+}
+float Camera::GetZoom(void)
+{
+	return currentZoom;
 }
 
 

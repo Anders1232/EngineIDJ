@@ -1,5 +1,6 @@
 #include "InputManager.h"
 #include "string.h"
+#include "Camera.h"
 
 InputManager::InputManager():quitRequested(false), updateCounter(0), mouseX(0), mouseY(0)
 {
@@ -62,6 +63,10 @@ void InputManager::Update(void)
 		else if(SDL_QUIT == event.type)
 		{
 			quitRequested=true;
+		}
+		else if(SDL_MOUSEWHEEL == event.type)
+		{
+			Camera::Zoom( ( (float)event.wheel.y ) / 200);
 		}
 	}
 }

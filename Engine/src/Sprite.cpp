@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Resources.h"
 #include "Error.h"
+#include "Camera.h"
 
 #define SPRITE_OPEN_X (0)//alterar esses valores altera a parte da textura que será renderizada
 #define SPRITE_OPEN_Y (0)
@@ -53,20 +54,20 @@ void Sprite::SetClip(int x, int y, int w, int h)
 	clipRect.h = h;
 }
 
-void Sprite::Render(int x, int y, float angle) const
+void Sprite::Render(int x, int y, float angle, bool zoom) const
 {
 	Game& game= Game::GetInstance();
-	SDL_Rect rect;
-	rect.x = x;
-	rect.y = y;
-	rect.w = clipRect.w;
-	rect.h = clipRect.h;
-/*	if(SDL_RenderCopy(game.GetRenderer(), texture, &clipRect, &rect) )//verifica se haverá erro#define SPRITE_OPEN_X (0)//alterar esses valores altera a parte da textura que será renderizada
-
-	{
-		Error(SDL_GetError());
-	}*/
+	Rect temp;
+	temp.x = x;
+	temp.y = y;
+	temp.w = clipRect.w;
+	temp.h = clipRect.h;
 //	std::cout << WHERE << "  rect.w = "<< rect.w<< endl;
+	if(zoom)
+	{
+		temp= temp*Camera::GetZoom();
+	}
+	SDL_Rect rect= temp;
 	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &rect, angle, NULL, SDL_FLIP_NONE) )//verifica se haverá erro
 	{
 		Error(SDL_GetError());

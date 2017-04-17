@@ -10,7 +10,7 @@ class TileSet
 {
 	public:
 		TileSet(int tileWidth, int tileHeight, string file);
-		void Render(unsigned int index, float x, float y);
+		void Render(unsigned int index, float x, float y, bool zoom= true);
 		int GetTileWidth(void);
 		int GetTileHeight(void);
 	private:

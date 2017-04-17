@@ -1,6 +1,7 @@
 #include "Tileset.h"
 #include "Error.h"
 #include "Game.h"
+#include "Camera.h"
 
 TileSet::TileSet(int tileWidth, int tileHeight, string file): tileSet(file), tileWidth(tileWidth), tileHeight(tileHeight)
 {
@@ -9,7 +10,7 @@ TileSet::TileSet(int tileWidth, int tileHeight, string file): tileSet(file), til
 	columns= tileSet.GetWidth()/tileWidth;
 }
 
-void TileSet::Render(unsigned int index, float x, float y)
+void TileSet::Render(unsigned int index, float x, float y, bool zoom)
 {
 	ASSERT(index < (unsigned int)rows*columns);
 	unsigned int desiredLine, desiredColumn;
@@ -20,11 +21,12 @@ void TileSet::Render(unsigned int index, float x, float y)
 	wantedSubSprite.y= desiredLine*tileHeight;
 	wantedSubSprite.w= tileWidth;
 	wantedSubSprite.h= tileHeight;
-	SDL_Rect destinyPosition;
-	destinyPosition.x=x;
-	destinyPosition.y=y;
-	destinyPosition.w= tileWidth;
-	destinyPosition.h= tileHeight;
+	Rect destinyRect(x, y, tileWidth, tileHeight);
+	if(zoom)
+	{
+		destinyRect= destinyRect*Camera::GetZoom();
+	}
+	SDL_Rect destinyPosition= destinyRect;
 	SDL_RenderCopy(Game::GetInstance().GetRenderer(), tileSet.GetTexture().get(),&wantedSubSprite, &destinyPosition);
 //	REPORT_I_WAS_HERE;
 }

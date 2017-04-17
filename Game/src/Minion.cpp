@@ -28,10 +28,13 @@ void Minion::Update(float dt)
 void Minion::Render(void)
 {
 //	std::cout << WHERE << " arc= " <<arc <<endl;
-	sp.Render(
+	sp.Render
+	(
 			box.x-Camera::pos.x,
 			box.y-Camera::pos.y,
-			arc*CONVERSAO_GRAUS_RADIANOS);
+			arc*CONVERSAO_GRAUS_RADIANOS,
+			true
+	);
 }
 bool Minion::IsDead(void)
 {
