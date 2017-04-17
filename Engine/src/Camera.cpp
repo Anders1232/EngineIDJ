@@ -29,8 +29,8 @@ void Camera::Update(float dt)
 	if(nullptr != focus)
 	{
 		//centrar a câmera na tela
-		pos= focus->box.Center()- (Game::GetInstance().GetWindowDimensions()*0.5);
-		pos= pos * Camera::GetZoom();
+		pos= (focus->box * Camera::GetZoom() ).Center()- (Game::GetInstance().GetWindowDimensions()*0.5)*Camera::GetZoom() ;
+//		pos= pos * Camera::GetZoom();
 	}
 	else
 	{

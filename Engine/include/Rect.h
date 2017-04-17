@@ -33,4 +33,6 @@ class Rect
 		float x,y, w, h;
 };
 
+#include <cmath>
+
 #endif // RECT_H
