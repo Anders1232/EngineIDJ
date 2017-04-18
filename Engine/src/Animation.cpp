@@ -22,7 +22,7 @@ void Animation::Update(float dt)
 }
 void Animation::Render(void)
 {
-	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, rotation);
+	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, rotation, true);
 }
 bool Animation::IsDead(void)
 {

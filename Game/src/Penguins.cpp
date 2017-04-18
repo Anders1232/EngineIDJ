@@ -72,7 +72,7 @@ void Penguins::Update(float dt)
 		rotation+= PENGUIM_VEC_ANGULAR*dt;
 	}
 	box= box + speed.Rotate(rotation)*dt;
-	cannonAngle= (inputManager.GetMousePos()-(box.Center()-Camera::pos)).Inclination()*CONVERSAO_GRAUS_RADIANOS;
+	cannonAngle= (inputManager.GetMousePos()-(box.Center()-Camera::pos)*Camera::GetZoom()).Inclination()*CONVERSAO_GRAUS_RADIANOS;
 	CheckMapLimits();
 
 	bulletsTimer.Update(dt);

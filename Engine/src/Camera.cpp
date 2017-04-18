@@ -12,7 +12,8 @@ Vec2 Camera::speed;
 float Camera::currentZoom= 1.0;
 float Camera::minZoom= CAMERA_DEFAULT_MIN_ZOOM;
 float Camera::maxZoom= CAMERA_DEFAULT_MAX_ZOOM;
-bool Camera::zoomFixed= CAMERA_DEFAULT_ZOOMABLE;
+bool Camera::zoomFixed= !CAMERA_DEFAULT_ZOOMABLE;
+float Camera::zoomSpeed= CAMERA_DEFAULT_ZOOM_SPEED;
 
 //#define KEYPRESS
 
@@ -29,7 +30,7 @@ void Camera::Update(float dt)
 	if(nullptr != focus)
 	{
 		//centrar a câmera na tela
-		pos= (focus->box * Camera::GetZoom() ).Center()- (Game::GetInstance().GetWindowDimensions()*0.5)*Camera::GetZoom() ;
+		pos= (focus->box).Center()- (Game::GetInstance().GetWindowDimensions()*0.5* (1./Camera::GetZoom()));
 //		pos= pos * Camera::GetZoom();
 	}
 	else
@@ -81,7 +82,18 @@ void Camera::SetZoomnable(bool zoomnable)
 }
 void Camera::Zoom(float deltaZoom)
 {
-	currentZoom+= deltaZoom;
+	if(!zoomFixed)
+	{
+		currentZoom+= deltaZoom*zoomSpeed;
+		if(CAMERA_DEFAULT_MAX_ZOOM < currentZoom)
+		{
+			currentZoom= CAMERA_DEFAULT_MAX_ZOOM;
+		}
+		else if(CAMERA_DEFAULT_MIN_ZOOM > currentZoom)
+		{
+			currentZoom= CAMERA_DEFAULT_MIN_ZOOM;
+		}
+	}
 }
 void Camera::SetZoomLimits(float minZoom, float maxZoom)
 {
@@ -91,6 +103,11 @@ void Camera::SetZoomLimits(float minZoom, float maxZoom)
 float Camera::GetZoom(void)
 {
 	return currentZoom;
+}
+
+void Camera::SetZoomSpeed(float newZoomSpeed)
+{
+	zoomSpeed= newZoomSpeed;
 }
 
 
