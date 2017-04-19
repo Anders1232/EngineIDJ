@@ -1,8 +1,9 @@
 #include "InputManager.h"
 #include "string.h"
-#include "Camera.h"
+#include "Error.h"
+//#include "Camera.h"
 
-InputManager::InputManager():quitRequested(false), updateCounter(0), mouseX(0), mouseY(0)
+InputManager::InputManager():quitRequested(false), updateCounter(0), mouseX(0), mouseY(0), mouseScroolUpdate(0)
 {
 	memset(keyState, 0, 416*sizeof(bool));
 	memset(keyUpdate, 0, 416*sizeof(int));
@@ -66,7 +67,10 @@ void InputManager::Update(void)
 		}
 		else if(SDL_MOUSEWHEEL == event.type)
 		{
-			Camera::Zoom( ( (float)event.wheel.y ) / 200);
+//			mouseScroolState= (SDL_MOUSEWHEEL_FLIPPED== event.wheel.direction)? Vec2(event.wheel.x*(-1), event.wheel.y*(-1)) : Vec2(event.wheel.x, event.wheel.y);
+			TEMP_REPORT_I_WAS_HERE;
+			mouseScroolState= Vec2(event.wheel.x, event.wheel.y);
+			mouseScroolUpdate= updateCounter;
 		}
 	}
 }
@@ -117,6 +121,15 @@ bool InputManager::QuitRequested(void) const
 Vec2 InputManager::GetMousePos() const
 {
 	return Vec2(mouseX, mouseY);
+}
+Vec2 InputManager::MouseScroll(void) const
+{
+	return mouseScroolState;
+}
+bool InputManager::IsMouseScrolling(void) const
+{
+	std::cout<< WHERE << "\tmouseScroolUpdate= " << mouseScroolUpdate << "\tupdateCounter= " << updateCounter << END_LINE;
+	return (mouseScroolUpdate == updateCounter);
 }
 
 

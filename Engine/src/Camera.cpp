@@ -70,6 +70,10 @@ void Camera::Update(float dt)
 			pos.y -= CAMERA_MOVE_SPEED*dt;
 		}
 	}
+	if(INPUT_MANAGER.IsMouseScrolling())
+	{
+		Camera::Zoom( ( (float)INPUT_MANAGER.MouseScroll().y ) / 200);
+	}
 }
 
 void Camera::ForceZoom(float newZoom)

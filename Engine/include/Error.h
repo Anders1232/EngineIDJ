@@ -4,6 +4,12 @@
 #include <iostream>
 #include "stdlib.h"
 
+#ifdef _WIN32
+	#define END_LINE "\r\n"
+#else
+	#define END_LINE "\n"
+#endif
+
 using std::endl;
 
 #define DEBUG 0
