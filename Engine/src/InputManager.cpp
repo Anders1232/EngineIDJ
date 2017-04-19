@@ -68,7 +68,6 @@ void InputManager::Update(void)
 		else if(SDL_MOUSEWHEEL == event.type)
 		{
 //			mouseScroolState= (SDL_MOUSEWHEEL_FLIPPED== event.wheel.direction)? Vec2(event.wheel.x*(-1), event.wheel.y*(-1)) : Vec2(event.wheel.x, event.wheel.y);
-			TEMP_REPORT_I_WAS_HERE;
 			mouseScroolState= Vec2(event.wheel.x, event.wheel.y);
 			mouseScroolUpdate= updateCounter;
 		}

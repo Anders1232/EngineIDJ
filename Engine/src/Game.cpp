@@ -8,6 +8,14 @@ Game* Game::instance= nullptr;
 
 Game::Game(std::string title,int width, int height):dt(0.0),  inputManager(InputManager::GetInstance())//, frameStart(SDL_GetTicks())
 {
+	SDL_version compiled;
+	SDL_version linked;
+
+	SDL_VERSION(&compiled);
+	SDL_GetVersion(&linked);
+	printf("Compiled against SDL version %d.%d.%d "END_LINE, compiled.major, compiled.minor, compiled.patch);
+	printf("Linked against SDL version %d.%d.%d"END_LINE, linked.major, linked.minor, linked.patch);
+
 	frameStart= SDL_GetTicks();
 	srand(time(NULL));
 	if(nullptr != Game::instance)
