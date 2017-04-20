@@ -28,6 +28,8 @@ class Vec2
 		Vec2& operator=(Vec2 const &b);
 		Vec2& operator+=(Vec2 const &b);
 		Vec2& operator-=(Vec2 const &b);
+		bool operator==(Vec2 const &b) const;
+		bool operator!=(Vec2 const &b) const;
 		Vec2 MemberMult(float const &b)const;
 		float Magnitude(void)const;
 		void Normalize(void);
@@ -40,5 +42,7 @@ class Vec2
 		float x;
 		float y;
 };
+
+#define MARGEM_ERRO_COMPARACAO (0.1)
 
 #endif // VEC2OP_H

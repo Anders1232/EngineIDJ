@@ -41,9 +41,11 @@ class InputManager
 		bool MousePress(int button) const;
 		bool MouseRelease(int button) const;
 		bool IsMouseDown(int button) const;
+		bool IsMouseScrolling(void) const;
 		int GetMouseX(void) const;
 		int GetMouseY(void) const;
 		Vec2 GetMousePos(void) const;
+		Vec2 MouseScroll(void) const;
 		bool QuitRequested(void) const;
 		static InputManager& GetInstance(void);
 	private:
@@ -57,6 +59,9 @@ class InputManager
 		int mouseY;
 		bool keyState[416];
 		int keyUpdate[416];
+		int mouseScroolUpdate;
+//		unsigned int
+		Vec2 mouseScroolState;
 };
 
 #endif // INPUTMANAGER_H

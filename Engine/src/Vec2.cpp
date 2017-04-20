@@ -87,5 +87,15 @@ Vec2 Vec2::MemberMult(float const &b)const
 {
 	return Vec2(x*b, y*b);
 }
+bool Vec2::operator==(Vec2 const &b) const
+{
+	return (x==b.x && y == b.y);
+}
+bool Vec2::operator!=(Vec2 const &b) const
+{
+	return !(*this == b);
+}
+
+
 
 
