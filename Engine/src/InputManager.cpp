@@ -127,7 +127,6 @@ Vec2 InputManager::MouseScroll(void) const
 }
 bool InputManager::IsMouseScrolling(void) const
 {
-	std::cout<< WHERE << "\tmouseScroolUpdate= " << mouseScroolUpdate << "\tupdateCounter= " << updateCounter << END_LINE;
 	return (mouseScroolUpdate == updateCounter);
 }
 

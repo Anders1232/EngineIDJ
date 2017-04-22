@@ -60,8 +60,8 @@ void Sprite::Render(int x, int y, float angle, bool zoom) const
 	Rect temp;
 	temp.x = x;
 	temp.y = y;
-	temp.w = clipRect.w;
-	temp.h = clipRect.h;
+	temp.w = GetWidth();
+	temp.h = GetHeight();
 //	std::cout << WHERE << "  rect.w = "<< rect.w<< endl;
 	if(zoom)
 	{
