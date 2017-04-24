@@ -7,8 +7,8 @@
 #define CAMERA_DEFAULT_MIN_ZOOM (0.7)
 #define CAMERA_DEFAULT_MAX_ZOOM (1.5)
 #define CAMERA_DEFAULT_ZOOMABLE (true)
-#define CAMERA_DEFAULT_ZOOM_SPEED (5.0)
-/*
+#define CAMERA_DEFAULT_ZOOM_SPEED (5.0/200.)
+/**
 	\brief A classe que modela a câmera
 	
 	A Câmera contém informações sobre qual posição da tela deve ser renderizada, qual objeto deve ficar centralizado(caso necessário).
@@ -21,11 +21,55 @@
 class Camera
 {
 	public:
+		/**
+			\brief Coloca a câmera para seguir o GameObject enviado.
+			\param newFocus objetos o qual a câmera deve acompanhar.
+			
+			Basicamente atribui newFocus ao focus.
+		*/
 		static void Follow(GameObject* newFocus);
+		/**
+			\brief Caso a câmera esteja seguindo um objeto, a câmera pare de seguir esse objeto.
+			
+			Basicamente atribui nullptr ao focus.
+		*/
 		static void Unfollow(void);
+		/**
+			\brief Atualiza o estado da câmera.
+			\param dt Intervalo de tempo transcorrido do frame anterior para o grame atual.
+			
+			Uma série de operações devem ser feitas:
+				- Se o mouse estiver seguindo algum GameObject, deve-se fazer o cálculo para que esse gameobject seja renderizado no centro tela levando em conta o zoom. Isso é calculado pela diferença:
+					- Do Vec2 relativo centro do box do GameObject
+					- Com a metade das dimensões da tela vezes o inverso do zoom da câmera.
+				- Caso contrário, devemos mover a câmera com base no input do usuário. Essa movimentação é feita da seguinte forma:
+					- Se a seta para a cima ou o botão "w" for pressionado decrementa-se o y da posição da câmera em Camera::speed * dt.
+					- Se a seta para a esquerda ou o botão "a" for pressionado decrementa-se o x da posição da câmera em Camera::speed * dt.
+					- Se a seta para a baixo ou o botão "s" for pressionado incrementa-se o y da posição da câmera em Camera::speed * dt.
+					- Se a seta para a direita ou o botão "d" for pressionado incrementa-se o x da posição da câmera em Camera::speed * dt.
+				- Se a rodinha do mouse(scroll) estiver em movimentação, chamar o método Camera::Zoom enviando o valor y do movimento feito no scroll.
+		*/
 		static void Update(float dt);
+		/**
+			\brief Ponto de início do que deve ser exibido na tela
+			\todo Verificar viabilidade de tornar privado.
+			
+			Contém a informação do ponto no jogo que corresponde ao (0,0) da janela do jogo.
+		*/
 		static Vec2 pos;
-		static Vec2 speed;
+		/**
+			\brief Armazena a velocidade de movimento da câmera quando não está focalizada em nenhum objeto.
+			\todo Verificar viabilidade de tornar privado.
+			
+			Contém a velocidade de movimento da câmera na tela.
+		*/
+		static float speed;
+		/**
+			\brief Armazena a velocidade de movimento da câmera quando não está focalizada em nenhum objeto.
+			\todo Verificar viabilidade de tornar privado.
+			
+			Contém a velocidade de movimento da câmera na tela.
+		*/
 		static void ForceZoom(float newZoom);
 		static void SetZoomable(bool zoomable);
 		static void Zoom(float deltaZoom);
@@ -33,7 +77,7 @@ class Camera
 		static float GetZoom(void);
 		static void SetZoomSpeed(float newZoomSpeed);
 	private:
-		/*! \brief Construtor privado não implementado.
+		/*! \brief Construtor privado que não deve ser implementado.
 		 *
 		 *	Essa classe deve ser estática e se alguém tentar de alguma forma instanciar dará erro na compilação/ligação.
 		 */

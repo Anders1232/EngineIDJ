@@ -8,14 +8,13 @@
 
 GameObject* Camera::focus= nullptr;
 Vec2 Camera::pos;
-Vec2 Camera::speed;
+float Camera::speed= CAMERA_MOVE_SPEED;
 float Camera::currentZoom= 1.0;
 float Camera::minZoom= CAMERA_DEFAULT_MIN_ZOOM;
 float Camera::maxZoom= CAMERA_DEFAULT_MAX_ZOOM;
 bool Camera::zoomFixed= !CAMERA_DEFAULT_ZOOMABLE;
 float Camera::zoomSpeed= CAMERA_DEFAULT_ZOOM_SPEED;
 
-//#define KEYPRESS
 
 void Camera::Follow(GameObject* newFocus)
 {
@@ -35,44 +34,28 @@ void Camera::Update(float dt)
 	}
 	else
 	{
-#ifdef KEYPRESS
-		if(INPUT_MANAGER.KeyPress(LEFT_ARROW_KEY) || INPUT_MANAGER.KeyPress('a'))
-#else
 		if(INPUT_MANAGER.IsKeyDown(LEFT_ARROW_KEY) || INPUT_MANAGER.IsKeyDown('a'))
-#endif
 		{
-			pos.x -= CAMERA_MOVE_SPEED * dt;
-			if(pos.x <0 ) pos.x=0;
+			pos.x -= speed * dt;
+//			if(pos.x <0 ) pos.x=0;
 		}
-#ifdef KEYPRESS
-		if(INPUT_MANAGER.KeyPress(RIGHT_ARROW_KEY) | INPUT_MANAGER.KeyPress('d'))
-#else
 		if(INPUT_MANAGER.IsKeyDown(RIGHT_ARROW_KEY) | INPUT_MANAGER.IsKeyDown('d'))
-#endif
 		{
-			pos.x += CAMERA_MOVE_SPEED*dt;
+			pos.x += speed*dt;
 		}
-#ifdef KEYPRESS
-		if(INPUT_MANAGER.KeyPress(DOWN_ARROW_KEY) || INPUT_MANAGER.KeyPress('s'))
-#else
 		if(INPUT_MANAGER.IsKeyDown(DOWN_ARROW_KEY) | INPUT_MANAGER.IsKeyDown('s'))
-#endif
 		{
-			pos.y += CAMERA_MOVE_SPEED*dt;
+			pos.y += speed*dt;
 //			if(pos.y <0 ) pos.y=0;
 		}
-#ifdef KEYPRESS
-		if(INPUT_MANAGER.KeyPress(UP_ARROW_KEY) | INPUT_MANAGER.KeyPress('w'))
-#else
 		if(INPUT_MANAGER.IsKeyDown(UP_ARROW_KEY) | INPUT_MANAGER.IsKeyDown('w'))
-#endif
 		{
-			pos.y -= CAMERA_MOVE_SPEED*dt;
+			pos.y -= speed*dt;
 		}
 	}
 	if(INPUT_MANAGER.IsMouseScrolling())
 	{
-		Camera::Zoom( ( (float)INPUT_MANAGER.MouseScroll().y ) / 200);
+		Camera::Zoom( (float)INPUT_MANAGER.MouseScroll().y );
 	}
 }
 

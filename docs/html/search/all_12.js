@@ -29,7 +29,7 @@ var searchData=
   ['sound_2eh',['Sound.h',['../Sound_8h.html',1,'']]],
   ['soundtable',['soundTable',['../classResources.html#abbd116a3bc870ba6578a89b4aa08908c',1,'Resources']]],
   ['sp',['sp',['../classAnimation.html#abf968c115c1d8c88da797215d58ad516',1,'Animation::sp()'],['../classAlien.html#a353c0cf8e9bb3b689b34866b3c3ac0f7',1,'Alien::sp()'],['../classBullet.html#a3b796813022508f0f5f821c2a90ac863',1,'Bullet::sp()'],['../classMinion.html#a691b1b9f494fcd1f0b8c04c28ab3fa36',1,'Minion::sp()']]],
-  ['speed',['speed',['../classCamera.html#aa0d0a54eb56182723dbd0ce61e0b3e8d',1,'Camera::speed()'],['../classAlien.html#a3acafe16e399a54c4d2511aad4f96cd4',1,'Alien::speed()'],['../classBullet.html#a9674d36173dafc258455bbaa9b39b326',1,'Bullet::speed()'],['../classPenguins.html#a7465442ffa391ddbe59486cf8475abcb',1,'Penguins::speed()']]],
+  ['speed',['speed',['../classCamera.html#a2960f533df18fe6d7d574c316c6d217a',1,'Camera::speed()'],['../classAlien.html#a3acafe16e399a54c4d2511aad4f96cd4',1,'Alien::speed()'],['../classBullet.html#a9674d36173dafc258455bbaa9b39b326',1,'Bullet::speed()'],['../classPenguins.html#a7465442ffa391ddbe59486cf8475abcb',1,'Penguins::speed()']]],
   ['sprite',['Sprite',['../classSprite.html',1,'Sprite'],['../classSprite.html#abee3d268d8e467d9e23bfe0693e64144',1,'Sprite::Sprite(void)'],['../classSprite.html#a5b32e7b8aede63b8a2720ecfa670d0e3',1,'Sprite::Sprite(std::string file, float frameTime=1, int frameCount=1)']]],
   ['sprite_2ecpp',['Sprite.cpp',['../Sprite_8cpp.html',1,'']]],
   ['sprite_2eh',['Sprite.h',['../Sprite_8h.html',1,'']]],
