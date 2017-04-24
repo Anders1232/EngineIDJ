@@ -80,9 +80,9 @@ void Camera::ForceZoom(float newZoom)
 {
 	currentZoom= newZoom;
 }
-void Camera::SetZoomnable(bool zoomnable)
+void Camera::SetZoomable(bool zoomable)
 {
-	zoomFixed= zoomnable;
+	zoomFixed= zoomable;
 }
 void Camera::Zoom(float deltaZoom)
 {

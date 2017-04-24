@@ -98,7 +98,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="dynheader">
 Diagrama de colaboração para Camera:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCamera__coll__graph.svg" width="327" height="396"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCamera__coll__graph.svg" width="327" height="396"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -111,8 +112,8 @@ Métodos Públicos Estáticos</h2></td></tr>
 <tr class="separator:a3d528df411b986596b652b61120ff302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dc4b1fd7f5e03ffb25d306fe81ee4c0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#a7dc4b1fd7f5e03ffb25d306fe81ee4c0">ForceZoom</a> (float newZoom)</td></tr>
 <tr class="separator:a7dc4b1fd7f5e03ffb25d306fe81ee4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2919142c206574be101efc1230eb3c8d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#a2919142c206574be101efc1230eb3c8d">SetZoomnable</a> (bool zoomnable)</td></tr>
-<tr class="separator:a2919142c206574be101efc1230eb3c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3912a07e55bb225146fdaedb333c4452"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#a3912a07e55bb225146fdaedb333c4452">SetZoomable</a> (bool zoomable)</td></tr>
+<tr class="separator:a3912a07e55bb225146fdaedb333c4452"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6638a961e2fefbe69d4d7d0a0591fb6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#ad6638a961e2fefbe69d4d7d0a0591fb6">Zoom</a> (float deltaZoom)</td></tr>
 <tr class="separator:ad6638a961e2fefbe69d4d7d0a0591fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa320e33bcbe395cdad9f63887ea15689"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#aa320e33bcbe395cdad9f63887ea15689">SetZoomLimits</a> (float <a class="el" href="classCamera.html#a65d5a8e5533b568224d9fc488bfdcb28">minZoom</a>=0, float <a class="el" href="classCamera.html#af418b7887d39c773d73cb179c497a8da">maxZoom</a>=0)</td></tr>
@@ -132,6 +133,7 @@ Atributos Estáticos Públicos</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Métodos Privados</h2></td></tr>
 <tr class="memitem:a01f94c3543f56ede7af49dc778f19331"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#a01f94c3543f56ede7af49dc778f19331">Camera</a> ()</td></tr>
+<tr class="memdesc:a01f94c3543f56ede7af49dc778f19331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor privado não implementado.  <a href="#a01f94c3543f56ede7af49dc778f19331">Mais...</a><br /></td></tr>
 <tr class="separator:a01f94c3543f56ede7af49dc778f19331"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
@@ -170,6 +172,9 @@ Atributos Privados Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Construtor privado não implementado. </p>
+<p>Essa classe deve ser estática e se alguém tentar de alguma forma instanciar dará erro na compilação/ligação. </p>
 
 </div>
 </div>
@@ -246,6 +251,30 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a3912a07e55bb225146fdaedb333c4452"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Camera::SetZoomable </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>zoomable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="aa320e33bcbe395cdad9f63887ea15689"></a>
 <div class="memitem">
 <div class="memproto">
@@ -269,30 +298,6 @@ Atributos Privados Estáticos</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2919142c206574be101efc1230eb3c8d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Camera::SetZoomnable </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>zoomnable</em></td><td>)</td>
-          <td></td>
         </tr>
       </table>
   </td>
@@ -418,6 +423,7 @@ Atributos Privados Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Armazena o valor do zoom atual, informando em quantas vezes os objetos devem ser ampliados. Ele deve estar estre o minZoom e o maxZoom, a não ser que o método ForceZoom seja usado. Os métodos Zoom e ForceZoom alteram seu valor. </p>
 
 </div>
 </div>
@@ -438,6 +444,7 @@ Atributos Privados Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Gameobject que ficará centralizado na câmera. Caso seja nullptr a câmera se moverá pelas setinhas/WASD. </p>
 
 </div>
 </div>
@@ -458,6 +465,7 @@ Atributos Privados Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Armazena o valor mínimo que o zoom pode ter. Esse limite é ignorado pelo método ForceZoom. É alterado pelo SetZoomLimits. </p>
 
 </div>
 </div>
@@ -478,6 +486,7 @@ Atributos Privados Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Armazena o valor mínimo que o zoom pode ter. Esse limite é ignorado pelo método ForceZoom. É alterado pelo SetZoomLimits. </p>
 
 </div>
 </div>
@@ -538,6 +547,7 @@ Atributos Privados Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Se for verdadeiro, o zoom não será alterado pelo método Zoom. Caso contrário o método Zoom pode mudar o valor corrente do zoom. É alterado pelo método SetZoomnable. </p>
 
 </div>
 </div>
@@ -558,6 +568,7 @@ Atributos Privados Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Armazena a velocidade com a qual o zoom deve ocorrer. O argumento do método Zoom é multiplicado por esse valor para depois ser somado ao currentZoom. </p>
 
 </div>
 </div>
@@ -568,7 +579,7 @@ Atributos Privados Estáticos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Abril de 2017 13:33:13 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Segunda, 24 de Abril de 2017 15:31:10 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
