@@ -74,23 +74,12 @@ endif
 all: $(EXEC)
 
 $(EXEC): $(ENGINE_OBJ_FILES) $(GAME_OBJ_FILES)
-	$(COMPILER) -o $@ $^ $(LIBS)
+	$(COMPILER) -o $@ $^ $(LIBS) $(FLAGS)
 
 
 .PHONY: $(ENGINE_BIN_PATH)/%.o
 $(ENGINE_BIN_PATH)/%.o: $(ENGINE_SRC_PATH)/%.cpp
-
-#ifeq ($(OS), Windows_NT)
-#	@if not exist $(ENGINE_DEP_PATH) @ mkdir $(ENGINE_DEP_PATH)
-#	@if not exist $(ENGINE_BIN_PATH) @ mkdir $(ENGINE_BIN_PATH)
-#else
-#	@mkdir -p $(ENGINE_DEP_PATH) $(ENGINE_BIN_PATH)
-#endif
-
-#	$(COMPILER) $(DEP_FLAGS) -c -o $@ $< $(ENGINE_INC_PATH) $(FLAGS)
-
-#-include $(ENGINE_DEP_FILES)
-	$(CD) $(ENGINE_PATH) && make objects
+	$(CD) $(ENGINE_PATH) && make $(DEBUG_OU_RELEASE) objects
 
 .PHONY: $(GAME_BIN_PATH)/%.o
 $(GAME_BIN_PATH)/%.o: $(GAME_SRC_PATH)/%.cpp
@@ -106,7 +95,7 @@ $(GAME_BIN_PATH)/%.o: $(GAME_SRC_PATH)/%.cpp
 
 #-include $(GAME_DEP_FILES)
 
-	$(CD) $(GAME_PATH) && make objects
+	$(CD) $(GAME_PATH) && make $(DEBUG_OU_RELEASE) objects
 
 
 clean:
@@ -119,11 +108,18 @@ clean:
 #regra pra debug
 print-% : ; @echo $* = $($*)
 
+#debug: FLAGS += -g -O0
+#debug: all
+debug: DEBUG_OU_RELEASE = fdebug
 debug: FLAGS += -g -O0
 debug: all
 
+#release: FLAGS += -O3 -mtune=native
+#release: all
+release: DEBUG_OU_RELEASE = frelease
 release: FLAGS += -O3 -mtune=native
 release: all
+
 
 again: clean
 again: all

@@ -89,8 +89,14 @@ print-% : ; @echo $* = $($*)
 debug: FLAGS += -g -O0
 debug: all
 
+fdebug: FLAGS += -g -O0
+fdebug: objects
+
 release: FLAGS += -O3 -mtune=native
 release: all
+
+frelease: FLAGS += -O3 -mtune=native
+frelease: objects
 
 objects: $(OBJ_FILES)
 	echo "Arquivos objeto da engine compilados."
