@@ -1,0 +1,147 @@
+\hypertarget{classMinion}{\section{Referência da Classe Minion}
+\label{classMinion}\index{Minion@{Minion}}
+}
+
+
+{\ttfamily \#include $<$Minion.\+h$>$}
+
+
+
+Diagrama de Hierarquia para Minion\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classMinion__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboração para Minion\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMinion__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMinion_a40ae7be8aa16177d2453b6102388c0f2}{Minion} (\hyperlink{classGameObject}{Game\+Object} $\ast$minion\+Center, float arc\+Offset=0)
+\item 
+void \hyperlink{classMinion_a5a9a53136ca0ee5fd5766410ff9acaa6}{Update} (float dt)
+\item 
+void \hyperlink{classMinion_af62874486a43cd5d4ecc84d9361c58dc}{Render} (void)
+\item 
+bool \hyperlink{classMinion_a9743cf683c7860011c56523818cc14cb}{Is\+Dead} (void)
+\item 
+void \hyperlink{classMinion_a43716aa99bb6afef3c40590a259de6b3}{Shoot} (\hyperlink{classVec2}{Vec2} pos)
+\item 
+void \hyperlink{classMinion_a908a2d009bad951df8bfd40067074059}{Notify\+Collision} (\hyperlink{classGameObject}{Game\+Object} \&other)
+\item 
+bool \hyperlink{classMinion_a27b0afce19e3ab3e4c76615d5902207e}{Is} (string type)
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGameObject}{Game\+Object} $\ast$ \hyperlink{classMinion_aec145adaab9c6ecfb35b7ec1624ab111}{center}
+\item 
+\hyperlink{classSprite}{Sprite} \hyperlink{classMinion_a691b1b9f494fcd1f0b8c04c28ab3fa36}{sp}
+\item 
+float \hyperlink{classMinion_a32bbf5d39ca2f909c19c0ff9141336be}{arc}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classMinion_a40ae7be8aa16177d2453b6102388c0f2}{\index{Minion@{Minion}!Minion@{Minion}}
+\index{Minion@{Minion}!Minion@{Minion}}
+\subsubsection[{Minion}]{\setlength{\rightskip}{0pt plus 5cm}Minion\+::\+Minion (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Object} $\ast$}]{minion\+Center, }
+\item[{float}]{arc\+Offset = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classMinion_a40ae7be8aa16177d2453b6102388c0f2}
+
+
+\subsection{Métodos}
+\hypertarget{classMinion_a27b0afce19e3ab3e4c76615d5902207e}{\index{Minion@{Minion}!Is@{Is}}
+\index{Is@{Is}!Minion@{Minion}}
+\subsubsection[{Is}]{\setlength{\rightskip}{0pt plus 5cm}bool Minion\+::\+Is (
+\begin{DoxyParamCaption}
+\item[{string}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMinion_a27b0afce19e3ab3e4c76615d5902207e}
+
+
+Implementa \hyperlink{classGameObject_a3ddba599a800d774463c7082b7ef4801}{Game\+Object}.
+
+\hypertarget{classMinion_a9743cf683c7860011c56523818cc14cb}{\index{Minion@{Minion}!Is\+Dead@{Is\+Dead}}
+\index{Is\+Dead@{Is\+Dead}!Minion@{Minion}}
+\subsubsection[{Is\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}bool Minion\+::\+Is\+Dead (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMinion_a9743cf683c7860011c56523818cc14cb}
+
+
+Implementa \hyperlink{classGameObject_a076afa2ea9190c49046f86a0946b4543}{Game\+Object}.
+
+\hypertarget{classMinion_a908a2d009bad951df8bfd40067074059}{\index{Minion@{Minion}!Notify\+Collision@{Notify\+Collision}}
+\index{Notify\+Collision@{Notify\+Collision}!Minion@{Minion}}
+\subsubsection[{Notify\+Collision}]{\setlength{\rightskip}{0pt plus 5cm}void Minion\+::\+Notify\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Object} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMinion_a908a2d009bad951df8bfd40067074059}
+
+
+Implementa \hyperlink{classGameObject_aa627e6c2913983fc5f108c1c4d303eb8}{Game\+Object}.
+
+\hypertarget{classMinion_af62874486a43cd5d4ecc84d9361c58dc}{\index{Minion@{Minion}!Render@{Render}}
+\index{Render@{Render}!Minion@{Minion}}
+\subsubsection[{Render}]{\setlength{\rightskip}{0pt plus 5cm}void Minion\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMinion_af62874486a43cd5d4ecc84d9361c58dc}
+
+
+Implementa \hyperlink{classGameObject_a976b9c0d72212389603802f95b3f3424}{Game\+Object}.
+
+\hypertarget{classMinion_a43716aa99bb6afef3c40590a259de6b3}{\index{Minion@{Minion}!Shoot@{Shoot}}
+\index{Shoot@{Shoot}!Minion@{Minion}}
+\subsubsection[{Shoot}]{\setlength{\rightskip}{0pt plus 5cm}void Minion\+::\+Shoot (
+\begin{DoxyParamCaption}
+\item[{{\bf Vec2}}]{pos}
+\end{DoxyParamCaption}
+)}}\label{classMinion_a43716aa99bb6afef3c40590a259de6b3}
+\hypertarget{classMinion_a5a9a53136ca0ee5fd5766410ff9acaa6}{\index{Minion@{Minion}!Update@{Update}}
+\index{Update@{Update}!Minion@{Minion}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void Minion\+::\+Update (
+\begin{DoxyParamCaption}
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMinion_a5a9a53136ca0ee5fd5766410ff9acaa6}
+
+
+Implementa \hyperlink{classGameObject_a93ed63df640deb516a020530e7f8e045}{Game\+Object}.
+
+
+
+\subsection{Atributos}
+\hypertarget{classMinion_a32bbf5d39ca2f909c19c0ff9141336be}{\index{Minion@{Minion}!arc@{arc}}
+\index{arc@{arc}!Minion@{Minion}}
+\subsubsection[{arc}]{\setlength{\rightskip}{0pt plus 5cm}float Minion\+::arc\hspace{0.3cm}{\ttfamily [private]}}}\label{classMinion_a32bbf5d39ca2f909c19c0ff9141336be}
+\hypertarget{classMinion_aec145adaab9c6ecfb35b7ec1624ab111}{\index{Minion@{Minion}!center@{center}}
+\index{center@{center}!Minion@{Minion}}
+\subsubsection[{center}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\+Object}$\ast$ Minion\+::center\hspace{0.3cm}{\ttfamily [private]}}}\label{classMinion_aec145adaab9c6ecfb35b7ec1624ab111}
+\hypertarget{classMinion_a691b1b9f494fcd1f0b8c04c28ab3fa36}{\index{Minion@{Minion}!sp@{sp}}
+\index{sp@{sp}!Minion@{Minion}}
+\subsubsection[{sp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite} Minion\+::sp\hspace{0.3cm}{\ttfamily [private]}}}\label{classMinion_a691b1b9f494fcd1f0b8c04c28ab3fa36}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Game/include/\hyperlink{Minion_8h}{Minion.\+h}\item 
+Game/src/\hyperlink{Minion_8cpp}{Minion.\+cpp}\end{DoxyCompactItemize}

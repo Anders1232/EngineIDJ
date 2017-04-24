@@ -1,0 +1,102 @@
+\hypertarget{classSound}{\section{Referência da Classe Sound}
+\label{classSound}\index{Sound@{Sound}}
+}
+
+
+{\ttfamily \#include $<$Sound.\+h$>$}
+
+
+
+Diagrama de colaboração para Sound\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{classSound__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSound_a539c205cdf06fe2c621fd77c37bcfac9}{Sound} ()
+\item 
+\hyperlink{classSound_af2c277cdc12b7df1de53e5b855e4f09c}{Sound} (string file)
+\item 
+void \hyperlink{classSound_a2719199f31d8abfc0bd9a6814e4e169d}{Play} (int times)
+\item 
+void \hyperlink{classSound_ae391c15fe26a0091e601be32eef0bce5}{Stop} (void)
+\item 
+void \hyperlink{classSound_afa261d68708b917bf60d704238b56f87}{Open} (string file)
+\item 
+bool \hyperlink{classSound_a9e67e48d34d9ca3d31f0da846ada923b}{Is\+Open} (void)
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ Mix\+\_\+\+Chunk $>$ \hyperlink{classSound_a44bbda770ac76c7455b60d3d63b663a7}{sound}
+\item 
+int \hyperlink{classSound_af3895edf5a39772f1de32cfbfff90909}{channel}
+\end{DoxyCompactItemize}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classSound_a539c205cdf06fe2c621fd77c37bcfac9}{\index{Sound@{Sound}!Sound@{Sound}}
+\index{Sound@{Sound}!Sound@{Sound}}
+\subsubsection[{Sound}]{\setlength{\rightskip}{0pt plus 5cm}Sound\+::\+Sound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSound_a539c205cdf06fe2c621fd77c37bcfac9}
+\hypertarget{classSound_af2c277cdc12b7df1de53e5b855e4f09c}{\index{Sound@{Sound}!Sound@{Sound}}
+\index{Sound@{Sound}!Sound@{Sound}}
+\subsubsection[{Sound}]{\setlength{\rightskip}{0pt plus 5cm}Sound\+::\+Sound (
+\begin{DoxyParamCaption}
+\item[{string}]{file}
+\end{DoxyParamCaption}
+)}}\label{classSound_af2c277cdc12b7df1de53e5b855e4f09c}
+
+
+\subsection{Métodos}
+\hypertarget{classSound_a9e67e48d34d9ca3d31f0da846ada923b}{\index{Sound@{Sound}!Is\+Open@{Is\+Open}}
+\index{Is\+Open@{Is\+Open}!Sound@{Sound}}
+\subsubsection[{Is\+Open}]{\setlength{\rightskip}{0pt plus 5cm}bool Sound\+::\+Is\+Open (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classSound_a9e67e48d34d9ca3d31f0da846ada923b}
+\hypertarget{classSound_afa261d68708b917bf60d704238b56f87}{\index{Sound@{Sound}!Open@{Open}}
+\index{Open@{Open}!Sound@{Sound}}
+\subsubsection[{Open}]{\setlength{\rightskip}{0pt plus 5cm}void Sound\+::\+Open (
+\begin{DoxyParamCaption}
+\item[{string}]{file}
+\end{DoxyParamCaption}
+)}}\label{classSound_afa261d68708b917bf60d704238b56f87}
+\hypertarget{classSound_a2719199f31d8abfc0bd9a6814e4e169d}{\index{Sound@{Sound}!Play@{Play}}
+\index{Play@{Play}!Sound@{Sound}}
+\subsubsection[{Play}]{\setlength{\rightskip}{0pt plus 5cm}void Sound\+::\+Play (
+\begin{DoxyParamCaption}
+\item[{int}]{times}
+\end{DoxyParamCaption}
+)}}\label{classSound_a2719199f31d8abfc0bd9a6814e4e169d}
+\hypertarget{classSound_ae391c15fe26a0091e601be32eef0bce5}{\index{Sound@{Sound}!Stop@{Stop}}
+\index{Stop@{Stop}!Sound@{Sound}}
+\subsubsection[{Stop}]{\setlength{\rightskip}{0pt plus 5cm}void Sound\+::\+Stop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classSound_ae391c15fe26a0091e601be32eef0bce5}
+
+
+\subsection{Atributos}
+\hypertarget{classSound_af3895edf5a39772f1de32cfbfff90909}{\index{Sound@{Sound}!channel@{channel}}
+\index{channel@{channel}!Sound@{Sound}}
+\subsubsection[{channel}]{\setlength{\rightskip}{0pt plus 5cm}int Sound\+::channel\hspace{0.3cm}{\ttfamily [private]}}}\label{classSound_af3895edf5a39772f1de32cfbfff90909}
+\hypertarget{classSound_a44bbda770ac76c7455b60d3d63b663a7}{\index{Sound@{Sound}!sound@{sound}}
+\index{sound@{sound}!Sound@{Sound}}
+\subsubsection[{sound}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<$Mix\+\_\+\+Chunk$>$ Sound\+::sound\hspace{0.3cm}{\ttfamily [private]}}}\label{classSound_a44bbda770ac76c7455b60d3d63b663a7}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/\hyperlink{Sound_8h}{Sound.\+h}\item 
+Engine/src/\hyperlink{Sound_8cpp}{Sound.\+cpp}\end{DoxyCompactItemize}

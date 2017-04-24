@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Projeto IDJ - Towers Of Madness: Código-Fonte de Game/include/Alien.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projeto IDJ - Towers Of Madness
+   </div>
+   <div id="projectbrief">TowerDefenseLovecraftnianoZombicida</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definições e Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c33286056d2acf479cd8641ef845fec1.html">Game</a></li><li class="navelem"><a class="el" href="dir_a56613a6b795b5624452287469afc550.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Alien.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Alien_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ALIEN_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ALIEN_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Minion_8h.html">Minion.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Gameobject_8h.html">Gameobject.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Sprite_8h.html">Sprite.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vec2_8h.html">Vec2.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Timer_8h.html">Timer.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="Alien_8h.html#a57afdcb96d64357cc2c80f280565dc8f">   12</a></span>&#160;<span class="preprocessor">#define ALIEN_MOVE_SPEED (300)</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="Alien_8h.html#adbd75077fbf0940c7518a36c52f3d393">   13</a></span>&#160;<span class="preprocessor">#define MIN_DISTANCE_BETWEEN_ALIENS (100)</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using</span> std::queue;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">using</span> std::vector;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classAlien.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAlien.html">Alien</a>: <span class="keyword">public</span> <a class="code" href="classGameObject.html">GameObject</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="classAlien.html#ac5669bcecd6fb077cb7e6450a72105f4">Alien</a>(<span class="keywordtype">float</span> X, <span class="keywordtype">float</span> y, <span class="keywordtype">int</span> nMinions);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="classAlien.html#a2db6b66f06d32b6c8c689255e35e2f92">~Alien</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classAlien.html#a5bcca286b1a9d8f3fc56a2e8d5636b19">Update</a>(<span class="keywordtype">float</span> dt);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classAlien.html#a43e7b457eb4f8c41deae1a37aaf8622c">Render</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classAlien.html#a27d2042c7097c2d37bb0268575ec8bad">IsDead</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classAlien.html#a47baef9f1b44ad393b268812b752bd3a">NotifyCollision</a>(<a class="code" href="classGameObject.html">GameObject</a> &amp;other);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classAlien.html#a9697e1dc132cc829d787c8bd586a01a2">Is</a>(<span class="keywordtype">string</span> type);</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classAlien.html#abde06bf01bdb2d9786b7815d0db5d17d">   28</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classAlien.html#abde06bf01bdb2d9786b7815d0db5d17d">alienCount</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classAlien.html#ae23fef43ed399f4b117ccf0520173455">   30</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="classAlien.html#ae23fef43ed399f4b117ccf0520173455">AlienState</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classAlien.html#ae23fef43ed399f4b117ccf0520173455afbdbebbbfd9cfe581a6934b67727c99b">   32</a></span>&#160;            <a class="code" href="classAlien.html#ae23fef43ed399f4b117ccf0520173455afbdbebbbfd9cfe581a6934b67727c99b">MOVING</a>,</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classAlien.html#ae23fef43ed399f4b117ccf0520173455a2a5c16b3119d8a7466ca285159173710">   33</a></span>&#160;            <a class="code" href="classAlien.html#ae23fef43ed399f4b117ccf0520173455a2a5c16b3119d8a7466ca285159173710">RESTING</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        } <a class="code" href="classAlien.html#a595501207125bf8bb67a2b07c6e580dd">state</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classAlien.html#a353c0cf8e9bb3b689b34866b3c3ac0f7">   35</a></span>&#160;        <a class="code" href="classSprite.html">Sprite</a> <a class="code" href="classAlien.html#a353c0cf8e9bb3b689b34866b3c3ac0f7">sp</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classAlien.html#a3acafe16e399a54c4d2511aad4f96cd4">   36</a></span>&#160;        <a class="code" href="classVec2.html">Vec2</a> <a class="code" href="classAlien.html#a3acafe16e399a54c4d2511aad4f96cd4">speed</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classAlien.html#ad88d130f8e4538ecbeede37e05f2bf32">   37</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classAlien.html#ad88d130f8e4538ecbeede37e05f2bf32">hp</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classAlien.html#a2ce0b76dc42b78ef26f1c524e428f682">   38</a></span>&#160;        vector&lt;Minion&gt; <a class="code" href="classAlien.html#a2ce0b76dc42b78ef26f1c524e428f682">minionArray</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classAlien.html#a1045a69ebda8020e122db9021398098a">   39</a></span>&#160;        <a class="code" href="classTimer.html">Timer</a> <a class="code" href="classAlien.html#a1045a69ebda8020e122db9021398098a">restTimer</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classAlien.html#a9534c5cc95f08a23c91ffd8ea7fbc116">   40</a></span>&#160;        <a class="code" href="classVec2.html">Vec2</a> <a class="code" href="classAlien.html#a9534c5cc95f08a23c91ffd8ea7fbc116">destination</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classAlien.html#a1364c1ebddf1cebfdcee250a2b1f82f9">GetNearestMinion</a>(<a class="code" href="classVec2.html">Vec2</a> targetPos);</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classAlien.html#a61538503ff1bde408267d85464191fe4">   42</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classAlien.html#a61538503ff1bde408267d85464191fe4">alienRestingCooldown</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classAlien.html#a39926c487410c1604b7d4f330ead6adf">CalculateRestingCooldown</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classAlien.html#a0f671a6a6f32d951a2406c87d9f18963">   44</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classAlien.html#a0f671a6a6f32d951a2406c87d9f18963">lastDistance</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif // ALIEN_H</span></div>
+<div class="ttc" id="classAlien_html_abde06bf01bdb2d9786b7815d0db5d17d"><div class="ttname"><a href="classAlien.html#abde06bf01bdb2d9786b7815d0db5d17d">Alien::alienCount</a></div><div class="ttdeci">static int alienCount</div><div class="ttdef"><b>Definition:</b> Alien.h:28</div></div>
+<div class="ttc" id="Vec2_8h_html"><div class="ttname"><a href="Vec2_8h.html">Vec2.h</a></div></div>
+<div class="ttc" id="classSprite_html"><div class="ttname"><a href="classSprite.html">Sprite</a></div><div class="ttdef"><b>Definition:</b> Sprite.h:21</div></div>
+<div class="ttc" id="classAlien_html_a43e7b457eb4f8c41deae1a37aaf8622c"><div class="ttname"><a href="classAlien.html#a43e7b457eb4f8c41deae1a37aaf8622c">Alien::Render</a></div><div class="ttdeci">void Render(void)</div><div class="ttdef"><b>Definition:</b> Alien.cpp:88</div></div>
+<div class="ttc" id="Timer_8h_html"><div class="ttname"><a href="Timer_8h.html">Timer.h</a></div></div>
+<div class="ttc" id="classAlien_html_a27d2042c7097c2d37bb0268575ec8bad"><div class="ttname"><a href="classAlien.html#a27d2042c7097c2d37bb0268575ec8bad">Alien::IsDead</a></div><div class="ttdeci">bool IsDead(void)</div><div class="ttdef"><b>Definition:</b> Alien.cpp:96</div></div>
+<div class="ttc" id="classAlien_html_a47baef9f1b44ad393b268812b752bd3a"><div class="ttname"><a href="classAlien.html#a47baef9f1b44ad393b268812b752bd3a">Alien::NotifyCollision</a></div><div class="ttdeci">void NotifyCollision(GameObject &amp;other)</div><div class="ttdef"><b>Definition:</b> Alien.cpp:106</div></div>
+<div class="ttc" id="classAlien_html_a9697e1dc132cc829d787c8bd586a01a2"><div class="ttname"><a href="classAlien.html#a9697e1dc132cc829d787c8bd586a01a2">Alien::Is</a></div><div class="ttdeci">bool Is(string type)</div><div class="ttdef"><b>Definition:</b> Alien.cpp:101</div></div>
+<div class="ttc" id="Gameobject_8h_html"><div class="ttname"><a href="Gameobject_8h.html">Gameobject.h</a></div></div>
+<div class="ttc" id="Minion_8h_html"><div class="ttname"><a href="Minion_8h.html">Minion.h</a></div></div>
+<div class="ttc" id="classAlien_html_ae23fef43ed399f4b117ccf0520173455a2a5c16b3119d8a7466ca285159173710"><div class="ttname"><a href="classAlien.html#ae23fef43ed399f4b117ccf0520173455a2a5c16b3119d8a7466ca285159173710">Alien::RESTING</a></div><div class="ttdef"><b>Definition:</b> Alien.h:33</div></div>
+<div class="ttc" id="Sprite_8h_html"><div class="ttname"><a href="Sprite_8h.html">Sprite.h</a></div></div>
+<div class="ttc" id="classAlien_html"><div class="ttname"><a href="classAlien.html">Alien</a></div><div class="ttdef"><b>Definition:</b> Alien.h:18</div></div>
+<div class="ttc" id="classAlien_html_a61538503ff1bde408267d85464191fe4"><div class="ttname"><a href="classAlien.html#a61538503ff1bde408267d85464191fe4">Alien::alienRestingCooldown</a></div><div class="ttdeci">float alienRestingCooldown</div><div class="ttdef"><b>Definition:</b> Alien.h:42</div></div>
+<div class="ttc" id="classAlien_html_a3acafe16e399a54c4d2511aad4f96cd4"><div class="ttname"><a href="classAlien.html#a3acafe16e399a54c4d2511aad4f96cd4">Alien::speed</a></div><div class="ttdeci">Vec2 speed</div><div class="ttdef"><b>Definition:</b> Alien.h:36</div></div>
+<div class="ttc" id="classGameObject_html"><div class="ttname"><a href="classGameObject.html">GameObject</a></div><div class="ttdef"><b>Definition:</b> Gameobject.h:22</div></div>
+<div class="ttc" id="classAlien_html_a0f671a6a6f32d951a2406c87d9f18963"><div class="ttname"><a href="classAlien.html#a0f671a6a6f32d951a2406c87d9f18963">Alien::lastDistance</a></div><div class="ttdeci">float lastDistance</div><div class="ttdef"><b>Definition:</b> Alien.h:44</div></div>
+<div class="ttc" id="classAlien_html_a595501207125bf8bb67a2b07c6e580dd"><div class="ttname"><a href="classAlien.html#a595501207125bf8bb67a2b07c6e580dd">Alien::state</a></div><div class="ttdeci">enum Alien::AlienState state</div></div>
+<div class="ttc" id="classAlien_html_a39926c487410c1604b7d4f330ead6adf"><div class="ttname"><a href="classAlien.html#a39926c487410c1604b7d4f330ead6adf">Alien::CalculateRestingCooldown</a></div><div class="ttdeci">float CalculateRestingCooldown(void)</div><div class="ttdef"><b>Definition:</b> Alien.cpp:140</div></div>
+<div class="ttc" id="classAlien_html_a2db6b66f06d32b6c8c689255e35e2f92"><div class="ttname"><a href="classAlien.html#a2db6b66f06d32b6c8c689255e35e2f92">Alien::~Alien</a></div><div class="ttdeci">~Alien(void)</div><div class="ttdef"><b>Definition:</b> Alien.cpp:32</div></div>
+<div class="ttc" id="classAlien_html_a1364c1ebddf1cebfdcee250a2b1f82f9"><div class="ttname"><a href="classAlien.html#a1364c1ebddf1cebfdcee250a2b1f82f9">Alien::GetNearestMinion</a></div><div class="ttdeci">int GetNearestMinion(Vec2 targetPos)</div><div class="ttdef"><b>Definition:</b> Alien.cpp:123</div></div>
+<div class="ttc" id="classAlien_html_ad88d130f8e4538ecbeede37e05f2bf32"><div class="ttname"><a href="classAlien.html#ad88d130f8e4538ecbeede37e05f2bf32">Alien::hp</a></div><div class="ttdeci">int hp</div><div class="ttdef"><b>Definition:</b> Alien.h:37</div></div>
+<div class="ttc" id="classAlien_html_ae23fef43ed399f4b117ccf0520173455afbdbebbbfd9cfe581a6934b67727c99b"><div class="ttname"><a href="classAlien.html#ae23fef43ed399f4b117ccf0520173455afbdbebbbfd9cfe581a6934b67727c99b">Alien::MOVING</a></div><div class="ttdef"><b>Definition:</b> Alien.h:32</div></div>
+<div class="ttc" id="classAlien_html_a5bcca286b1a9d8f3fc56a2e8d5636b19"><div class="ttname"><a href="classAlien.html#a5bcca286b1a9d8f3fc56a2e8d5636b19">Alien::Update</a></div><div class="ttdeci">void Update(float dt)</div><div class="ttdef"><b>Definition:</b> Alien.cpp:38</div></div>
+<div class="ttc" id="classAlien_html_a2ce0b76dc42b78ef26f1c524e428f682"><div class="ttname"><a href="classAlien.html#a2ce0b76dc42b78ef26f1c524e428f682">Alien::minionArray</a></div><div class="ttdeci">vector&lt; Minion &gt; minionArray</div><div class="ttdef"><b>Definition:</b> Alien.h:38</div></div>
+<div class="ttc" id="classVec2_html"><div class="ttname"><a href="classVec2.html">Vec2</a></div><div class="ttdef"><b>Definition:</b> Vec2.h:18</div></div>
+<div class="ttc" id="classAlien_html_ac5669bcecd6fb077cb7e6450a72105f4"><div class="ttname"><a href="classAlien.html#ac5669bcecd6fb077cb7e6450a72105f4">Alien::Alien</a></div><div class="ttdeci">Alien(float X, float y, int nMinions)</div><div class="ttdef"><b>Definition:</b> Alien.cpp:19</div></div>
+<div class="ttc" id="classTimer_html"><div class="ttname"><a href="classTimer.html">Timer</a></div><div class="ttdef"><b>Definition:</b> Timer.h:4</div></div>
+<div class="ttc" id="classAlien_html_a353c0cf8e9bb3b689b34866b3c3ac0f7"><div class="ttname"><a href="classAlien.html#a353c0cf8e9bb3b689b34866b3c3ac0f7">Alien::sp</a></div><div class="ttdeci">Sprite sp</div><div class="ttdef"><b>Definition:</b> Alien.h:35</div></div>
+<div class="ttc" id="classAlien_html_a1045a69ebda8020e122db9021398098a"><div class="ttname"><a href="classAlien.html#a1045a69ebda8020e122db9021398098a">Alien::restTimer</a></div><div class="ttdeci">Timer restTimer</div><div class="ttdef"><b>Definition:</b> Alien.h:39</div></div>
+<div class="ttc" id="classAlien_html_ae23fef43ed399f4b117ccf0520173455"><div class="ttname"><a href="classAlien.html#ae23fef43ed399f4b117ccf0520173455">Alien::AlienState</a></div><div class="ttdeci">AlienState</div><div class="ttdef"><b>Definition:</b> Alien.h:30</div></div>
+<div class="ttc" id="classAlien_html_a9534c5cc95f08a23c91ffd8ea7fbc116"><div class="ttname"><a href="classAlien.html#a9534c5cc95f08a23c91ffd8ea7fbc116">Alien::destination</a></div><div class="ttdeci">Vec2 destination</div><div class="ttdef"><b>Definition:</b> Alien.h:40</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Segunda, 24 de Abril de 2017 13:27:26 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

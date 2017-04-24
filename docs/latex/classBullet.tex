@@ -1,0 +1,168 @@
+\hypertarget{classBullet}{\section{Referência da Classe Bullet}
+\label{classBullet}\index{Bullet@{Bullet}}
+}
+
+
+{\ttfamily \#include $<$Bullet.\+h$>$}
+
+
+
+Diagrama de Hierarquia para Bullet\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classBullet__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboração para Bullet\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBullet__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBullet_a509f1d8e6f7629934574c15c835de0c8}{Bullet} (float x, float y, float angle, float \hyperlink{classBullet_a9674d36173dafc258455bbaa9b39b326}{speed}, float max\+Distance, float frame\+Time, int frame\+Count, string sprite, bool \hyperlink{classBullet_a57270bc61a381861bd548a7f2466bca2}{targets\+Player})
+\item 
+\hyperlink{classBullet_ab3c2b9c0b12c18aeace52bd289ddfce3}{$\sim$\+Bullet} (void)
+\item 
+void \hyperlink{classBullet_a5ca74d7990f25c518df1860b681079ea}{Update} (float dt)
+\item 
+void \hyperlink{classBullet_aace1e49986271afb6384d15bf40a0e92}{Render} (void)
+\item 
+bool \hyperlink{classBullet_a17cf15fdfa0c42931f21828feed2a77d}{Is\+Dead} (void)
+\item 
+void \hyperlink{classBullet_a272c1b019f46df9ad9bd45bd9ffb6e41}{Notify\+Collision} (\hyperlink{classGameObject}{Game\+Object} \&other)
+\item 
+bool \hyperlink{classBullet_aaa159cc9dcc3e7c780bbccc1ebc6d95a}{Is} (string type)
+\item 
+bool \hyperlink{classBullet_a293a665825d9e32c798d8fe669fcf695}{Targets\+Player} (void) const 
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSprite}{Sprite} \hyperlink{classBullet_a3b796813022508f0f5f821c2a90ac863}{sp}
+\item 
+\hyperlink{classVec2}{Vec2} \hyperlink{classBullet_a9674d36173dafc258455bbaa9b39b326}{speed}
+\item 
+float \hyperlink{classBullet_ac24a38eea713d69e34c090416177b426}{distance\+Left}
+\item 
+bool \hyperlink{classBullet_a57270bc61a381861bd548a7f2466bca2}{targets\+Player}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classBullet_a509f1d8e6f7629934574c15c835de0c8}{\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\subsubsection[{Bullet}]{\setlength{\rightskip}{0pt plus 5cm}Bullet\+::\+Bullet (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{angle, }
+\item[{float}]{speed, }
+\item[{float}]{max\+Distance, }
+\item[{float}]{frame\+Time, }
+\item[{int}]{frame\+Count, }
+\item[{string}]{sprite, }
+\item[{bool}]{targets\+Player}
+\end{DoxyParamCaption}
+)}}\label{classBullet_a509f1d8e6f7629934574c15c835de0c8}
+\hypertarget{classBullet_ab3c2b9c0b12c18aeace52bd289ddfce3}{\index{Bullet@{Bullet}!````~Bullet@{$\sim$\+Bullet}}
+\index{````~Bullet@{$\sim$\+Bullet}!Bullet@{Bullet}}
+\subsubsection[{$\sim$\+Bullet}]{\setlength{\rightskip}{0pt plus 5cm}Bullet\+::$\sim$\+Bullet (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classBullet_ab3c2b9c0b12c18aeace52bd289ddfce3}
+
+
+\subsection{Métodos}
+\hypertarget{classBullet_aaa159cc9dcc3e7c780bbccc1ebc6d95a}{\index{Bullet@{Bullet}!Is@{Is}}
+\index{Is@{Is}!Bullet@{Bullet}}
+\subsubsection[{Is}]{\setlength{\rightskip}{0pt plus 5cm}bool Bullet\+::\+Is (
+\begin{DoxyParamCaption}
+\item[{string}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBullet_aaa159cc9dcc3e7c780bbccc1ebc6d95a}
+
+
+Implementa \hyperlink{classGameObject_a3ddba599a800d774463c7082b7ef4801}{Game\+Object}.
+
+\hypertarget{classBullet_a17cf15fdfa0c42931f21828feed2a77d}{\index{Bullet@{Bullet}!Is\+Dead@{Is\+Dead}}
+\index{Is\+Dead@{Is\+Dead}!Bullet@{Bullet}}
+\subsubsection[{Is\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}bool Bullet\+::\+Is\+Dead (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBullet_a17cf15fdfa0c42931f21828feed2a77d}
+
+
+Implementa \hyperlink{classGameObject_a076afa2ea9190c49046f86a0946b4543}{Game\+Object}.
+
+\hypertarget{classBullet_a272c1b019f46df9ad9bd45bd9ffb6e41}{\index{Bullet@{Bullet}!Notify\+Collision@{Notify\+Collision}}
+\index{Notify\+Collision@{Notify\+Collision}!Bullet@{Bullet}}
+\subsubsection[{Notify\+Collision}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\+::\+Notify\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Object} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBullet_a272c1b019f46df9ad9bd45bd9ffb6e41}
+
+
+Implementa \hyperlink{classGameObject_aa627e6c2913983fc5f108c1c4d303eb8}{Game\+Object}.
+
+\hypertarget{classBullet_aace1e49986271afb6384d15bf40a0e92}{\index{Bullet@{Bullet}!Render@{Render}}
+\index{Render@{Render}!Bullet@{Bullet}}
+\subsubsection[{Render}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBullet_aace1e49986271afb6384d15bf40a0e92}
+
+
+Implementa \hyperlink{classGameObject_a976b9c0d72212389603802f95b3f3424}{Game\+Object}.
+
+\hypertarget{classBullet_a293a665825d9e32c798d8fe669fcf695}{\index{Bullet@{Bullet}!Targets\+Player@{Targets\+Player}}
+\index{Targets\+Player@{Targets\+Player}!Bullet@{Bullet}}
+\subsubsection[{Targets\+Player}]{\setlength{\rightskip}{0pt plus 5cm}bool Bullet\+::\+Targets\+Player (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classBullet_a293a665825d9e32c798d8fe669fcf695}
+\hypertarget{classBullet_a5ca74d7990f25c518df1860b681079ea}{\index{Bullet@{Bullet}!Update@{Update}}
+\index{Update@{Update}!Bullet@{Bullet}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void Bullet\+::\+Update (
+\begin{DoxyParamCaption}
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classBullet_a5ca74d7990f25c518df1860b681079ea}
+
+
+Implementa \hyperlink{classGameObject_a93ed63df640deb516a020530e7f8e045}{Game\+Object}.
+
+
+
+\subsection{Atributos}
+\hypertarget{classBullet_ac24a38eea713d69e34c090416177b426}{\index{Bullet@{Bullet}!distance\+Left@{distance\+Left}}
+\index{distance\+Left@{distance\+Left}!Bullet@{Bullet}}
+\subsubsection[{distance\+Left}]{\setlength{\rightskip}{0pt plus 5cm}float Bullet\+::distance\+Left\hspace{0.3cm}{\ttfamily [private]}}}\label{classBullet_ac24a38eea713d69e34c090416177b426}
+\hypertarget{classBullet_a3b796813022508f0f5f821c2a90ac863}{\index{Bullet@{Bullet}!sp@{sp}}
+\index{sp@{sp}!Bullet@{Bullet}}
+\subsubsection[{sp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite} Bullet\+::sp\hspace{0.3cm}{\ttfamily [private]}}}\label{classBullet_a3b796813022508f0f5f821c2a90ac863}
+\hypertarget{classBullet_a9674d36173dafc258455bbaa9b39b326}{\index{Bullet@{Bullet}!speed@{speed}}
+\index{speed@{speed}!Bullet@{Bullet}}
+\subsubsection[{speed}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Bullet\+::speed\hspace{0.3cm}{\ttfamily [private]}}}\label{classBullet_a9674d36173dafc258455bbaa9b39b326}
+\hypertarget{classBullet_a57270bc61a381861bd548a7f2466bca2}{\index{Bullet@{Bullet}!targets\+Player@{targets\+Player}}
+\index{targets\+Player@{targets\+Player}!Bullet@{Bullet}}
+\subsubsection[{targets\+Player}]{\setlength{\rightskip}{0pt plus 5cm}bool Bullet\+::targets\+Player\hspace{0.3cm}{\ttfamily [private]}}}\label{classBullet_a57270bc61a381861bd548a7f2466bca2}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Game/include/\hyperlink{Bullet_8h}{Bullet.\+h}\item 
+Game/src/\hyperlink{Bullet_8cpp}{Bullet.\+cpp}\end{DoxyCompactItemize}

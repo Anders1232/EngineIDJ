@@ -1,0 +1,7 @@
+<map id="Penguins" name="Penguins">
+<area shape="rect" id="node2" href="$classGameObject.html" title="GameObject" alt="" coords="57,304,151,331"/>
+<area shape="rect" id="node3" href="$classRect.html" title="Rect" alt="" coords="5,155,56,181"/>
+<area shape="rect" id="node5" href="$classVec2.html" title="Vec2" alt="" coords="277,237,329,264"/>
+<area shape="rect" id="node6" href="$classSprite.html" title="Sprite" alt="" coords="473,304,529,331"/>
+<area shape="rect" id="node10" href="$classTimer.html" title="Timer" alt="" coords="731,237,786,264"/>
+</map>

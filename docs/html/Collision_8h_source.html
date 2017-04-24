@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Projeto IDJ - Towers Of Madness: Código-Fonte de Engine/include/Collision.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projeto IDJ - Towers Of Madness
+   </div>
+   <div id="projectbrief">TowerDefenseLovecraftnianoZombicida</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definições e Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a class="el" href="dir_1dfe4a86cee15d5d6902f8c724dcf913.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Collision.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Collision_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//Collision.h#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Rect_8h.html">Rect.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classCollision.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCollision.html">Collision</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="comment">// Observação: IsColliding espera ângulos em radianos!</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="comment">// Para usar graus, forneça a sua própria implementação de Rotate,</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="comment">// ou transforme os ângulos no corpo de IsColliding.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classCollision.html#a8bfb131379c86c409bf38c68ef25fae6">   12</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classCollision.html#a8bfb131379c86c409bf38c68ef25fae6">IsColliding</a>(<a class="code" href="classRect.html">Rect</a>&amp; a, <a class="code" href="classRect.html">Rect</a>&amp; b, <span class="keywordtype">float</span> angleOfA, <span class="keywordtype">float</span> angleOfB)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            <a class="code" href="classVec2.html">Vec2</a> A[] = { <a class="code" href="classVec2.html">Vec2</a>( a.<a class="code" href="classRect.html#a29bc9b88a8c5537620f05ac7069f48cc">x</a>, a.<a class="code" href="classRect.html#a4ea33d8210fa0b8b0d6ef3f7e06e6b27">y</a> + a.<a class="code" href="classRect.html#aa10c9b8950c6b23a0b2bf0d39f2be904">h</a> ),</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                          <a class="code" href="classVec2.html">Vec2</a>( a.<a class="code" href="classRect.html#a29bc9b88a8c5537620f05ac7069f48cc">x</a> + a.<a class="code" href="classRect.html#a049f7ee5e7eb0475229bf3ed9b3bad44">w</a>, a.<a class="code" href="classRect.html#a4ea33d8210fa0b8b0d6ef3f7e06e6b27">y</a> + a.<a class="code" href="classRect.html#aa10c9b8950c6b23a0b2bf0d39f2be904">h</a> ),</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                          <a class="code" href="classVec2.html">Vec2</a>( a.<a class="code" href="classRect.html#a29bc9b88a8c5537620f05ac7069f48cc">x</a> + a.<a class="code" href="classRect.html#a049f7ee5e7eb0475229bf3ed9b3bad44">w</a>, a.<a class="code" href="classRect.html#a4ea33d8210fa0b8b0d6ef3f7e06e6b27">y</a> ),</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                          <a class="code" href="classVec2.html">Vec2</a>( a.<a class="code" href="classRect.html#a29bc9b88a8c5537620f05ac7069f48cc">x</a>, a.<a class="code" href="classRect.html#a4ea33d8210fa0b8b0d6ef3f7e06e6b27">y</a> )</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                        };</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <a class="code" href="classVec2.html">Vec2</a> B[] = { <a class="code" href="classVec2.html">Vec2</a>( b.<a class="code" href="classRect.html#a29bc9b88a8c5537620f05ac7069f48cc">x</a>, b.<a class="code" href="classRect.html#a4ea33d8210fa0b8b0d6ef3f7e06e6b27">y</a> + b.<a class="code" href="classRect.html#aa10c9b8950c6b23a0b2bf0d39f2be904">h</a> ),</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                          <a class="code" href="classVec2.html">Vec2</a>( b.<a class="code" href="classRect.html#a29bc9b88a8c5537620f05ac7069f48cc">x</a> + b.<a class="code" href="classRect.html#a049f7ee5e7eb0475229bf3ed9b3bad44">w</a>, b.<a class="code" href="classRect.html#a4ea33d8210fa0b8b0d6ef3f7e06e6b27">y</a> + b.<a class="code" href="classRect.html#aa10c9b8950c6b23a0b2bf0d39f2be904">h</a> ),</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                          <a class="code" href="classVec2.html">Vec2</a>( b.<a class="code" href="classRect.html#a29bc9b88a8c5537620f05ac7069f48cc">x</a> + b.<a class="code" href="classRect.html#a049f7ee5e7eb0475229bf3ed9b3bad44">w</a>, b.<a class="code" href="classRect.html#a4ea33d8210fa0b8b0d6ef3f7e06e6b27">y</a> ),</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                          <a class="code" href="classVec2.html">Vec2</a>( b.<a class="code" href="classRect.html#a29bc9b88a8c5537620f05ac7069f48cc">x</a>, b.<a class="code" href="classRect.html#a4ea33d8210fa0b8b0d6ef3f7e06e6b27">y</a> )</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                        };</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; v : A)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                v = <a class="code" href="classCollision.html#af6176da5535324240ccf1557910ac89e">Rotate</a>(v - a.<a class="code" href="classRect.html#ac42ead7988bf077364ce61231980bff2">Center</a>(), angleOfA) + a.<a class="code" href="classRect.html#ac42ead7988bf077364ce61231980bff2">Center</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; v : B)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                v = <a class="code" href="classCollision.html#af6176da5535324240ccf1557910ac89e">Rotate</a>(v - b.<a class="code" href="classRect.html#ac42ead7988bf077364ce61231980bff2">Center</a>(), angleOfB) + b.<a class="code" href="classRect.html#ac42ead7988bf077364ce61231980bff2">Center</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="classVec2.html">Vec2</a> axes[] = { <a class="code" href="classCollision.html#ab739e01f1393b68b28cb8b45f42bf2d4">Norm</a>(A[0] - A[1]), <a class="code" href="classCollision.html#ab739e01f1393b68b28cb8b45f42bf2d4">Norm</a>(A[1] - A[2]), <a class="code" href="classCollision.html#ab739e01f1393b68b28cb8b45f42bf2d4">Norm</a>(B[0] - B[1]), <a class="code" href="classCollision.html#ab739e01f1393b68b28cb8b45f42bf2d4">Norm</a>(B[1] - B[2]) };</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; axis : axes) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <span class="keywordtype">float</span> P[4];</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i) P[i] = <a class="code" href="classCollision.html#a8e858eea6ac033ac5e2a31946618c5c4">Dot</a>(A[i], axis);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keywordtype">float</span> minA = *std::min_element(P, P + 4);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordtype">float</span> maxA = *std::max_element(P, P + 4);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i) P[i] = <a class="code" href="classCollision.html#a8e858eea6ac033ac5e2a31946618c5c4">Dot</a>(B[i], axis);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordtype">float</span> minB = *std::min_element(P, P + 4);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordtype">float</span> maxB = *std::max_element(P, P + 4);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">if</span> (maxA &lt; minB || minA &gt; maxB)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classCollision.html#a0c594c1d2a6733d602c39c1d11e410ad">   56</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="classCollision.html#a0c594c1d2a6733d602c39c1d11e410ad">Mag</a>(<span class="keyword">const</span> <a class="code" href="classVec2.html">Vec2</a>&amp; p) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> std::sqrt(p.<a class="code" href="classVec2.html#adf8ee322d4b4bcc04146762c018d731f">x</a> * p.<a class="code" href="classVec2.html#adf8ee322d4b4bcc04146762c018d731f">x</a> + p.<a class="code" href="classVec2.html#a30543787e62f6d915543cf1dfb04c094">y</a> * p.<a class="code" href="classVec2.html#a30543787e62f6d915543cf1dfb04c094">y</a>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classCollision.html#ab739e01f1393b68b28cb8b45f42bf2d4">   60</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code" href="classVec2.html">Vec2</a> <a class="code" href="classCollision.html#ab739e01f1393b68b28cb8b45f42bf2d4">Norm</a>(<span class="keyword">const</span> <a class="code" href="classVec2.html">Vec2</a>&amp; p) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">return</span> p * (1.f / <a class="code" href="classCollision.html#a0c594c1d2a6733d602c39c1d11e410ad">Mag</a>(p));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classCollision.html#a8e858eea6ac033ac5e2a31946618c5c4">   64</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="classCollision.html#a8e858eea6ac033ac5e2a31946618c5c4">Dot</a>(<span class="keyword">const</span> <a class="code" href="classVec2.html">Vec2</a>&amp; a, <span class="keyword">const</span> <a class="code" href="classVec2.html">Vec2</a>&amp; b) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> a.<a class="code" href="classVec2.html#adf8ee322d4b4bcc04146762c018d731f">x</a> * b.<a class="code" href="classVec2.html#adf8ee322d4b4bcc04146762c018d731f">x</a> + a.<a class="code" href="classVec2.html#a30543787e62f6d915543cf1dfb04c094">y</a> * b.<a class="code" href="classVec2.html#a30543787e62f6d915543cf1dfb04c094">y</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classCollision.html#af6176da5535324240ccf1557910ac89e">   68</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code" href="classVec2.html">Vec2</a> <a class="code" href="classCollision.html#af6176da5535324240ccf1557910ac89e">Rotate</a>(<span class="keyword">const</span> <a class="code" href="classVec2.html">Vec2</a>&amp; p, <span class="keywordtype">float</span> angle) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordtype">float</span> cs = std::cos(angle), sn = std::sin(angle);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classVec2.html">Vec2</a> ( p.<a class="code" href="classVec2.html#adf8ee322d4b4bcc04146762c018d731f">x</a> * cs - p.<a class="code" href="classVec2.html#a30543787e62f6d915543cf1dfb04c094">y</a> * sn, p.<a class="code" href="classVec2.html#adf8ee322d4b4bcc04146762c018d731f">x</a> * sn + p.<a class="code" href="classVec2.html#a30543787e62f6d915543cf1dfb04c094">y</a> * cs );</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">// Aqui estão três operadores que sua classe Vec2 deve precisar, se já não tiver. </span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">// Se sua classe tiver métodos para Mag, Norm, Dot e/ou Rotate, você pode substituir</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">// os usos desses métodos por usos dos seus, mas garanta que deem resultados corretos.</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">// Vec2 operator+(const Vec2&amp; rhs) const {</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">//  return Vec2(x + rhs.x, y + rhs.y);</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">// }</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">// Vec2 operator-(const Vec2&amp; rhs) const {</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">//  return Vec2(x - rhs.x, y - rhs.y);</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">// }</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">// Vec2 operator*(const float rhs) const {</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">//  return Vec2(x * rhs, y * rhs);</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">// }</span></div>
+<div class="ttc" id="classCollision_html_a8bfb131379c86c409bf38c68ef25fae6"><div class="ttname"><a href="classCollision.html#a8bfb131379c86c409bf38c68ef25fae6">Collision::IsColliding</a></div><div class="ttdeci">static bool IsColliding(Rect &amp;a, Rect &amp;b, float angleOfA, float angleOfB)</div><div class="ttdef"><b>Definition:</b> Collision.h:12</div></div>
+<div class="ttc" id="classRect_html_aa10c9b8950c6b23a0b2bf0d39f2be904"><div class="ttname"><a href="classRect.html#aa10c9b8950c6b23a0b2bf0d39f2be904">Rect::h</a></div><div class="ttdeci">float h</div><div class="ttdef"><b>Definition:</b> Rect.h:33</div></div>
+<div class="ttc" id="classRect_html_a29bc9b88a8c5537620f05ac7069f48cc"><div class="ttname"><a href="classRect.html#a29bc9b88a8c5537620f05ac7069f48cc">Rect::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition:</b> Rect.h:33</div></div>
+<div class="ttc" id="classRect_html"><div class="ttname"><a href="classRect.html">Rect</a></div><div class="ttdef"><b>Definition:</b> Rect.h:19</div></div>
+<div class="ttc" id="classCollision_html_a8e858eea6ac033ac5e2a31946618c5c4"><div class="ttname"><a href="classCollision.html#a8e858eea6ac033ac5e2a31946618c5c4">Collision::Dot</a></div><div class="ttdeci">static float Dot(const Vec2 &amp;a, const Vec2 &amp;b)</div><div class="ttdef"><b>Definition:</b> Collision.h:64</div></div>
+<div class="ttc" id="classRect_html_ac42ead7988bf077364ce61231980bff2"><div class="ttname"><a href="classRect.html#ac42ead7988bf077364ce61231980bff2">Rect::Center</a></div><div class="ttdeci">Vec2 Center(void) const </div><div class="ttdef"><b>Definition:</b> Rect.cpp:36</div></div>
+<div class="ttc" id="Rect_8h_html"><div class="ttname"><a href="Rect_8h.html">Rect.h</a></div></div>
+<div class="ttc" id="classCollision_html_af6176da5535324240ccf1557910ac89e"><div class="ttname"><a href="classCollision.html#af6176da5535324240ccf1557910ac89e">Collision::Rotate</a></div><div class="ttdeci">static Vec2 Rotate(const Vec2 &amp;p, float angle)</div><div class="ttdef"><b>Definition:</b> Collision.h:68</div></div>
+<div class="ttc" id="classCollision_html_ab739e01f1393b68b28cb8b45f42bf2d4"><div class="ttname"><a href="classCollision.html#ab739e01f1393b68b28cb8b45f42bf2d4">Collision::Norm</a></div><div class="ttdeci">static Vec2 Norm(const Vec2 &amp;p)</div><div class="ttdef"><b>Definition:</b> Collision.h:60</div></div>
+<div class="ttc" id="classCollision_html"><div class="ttname"><a href="classCollision.html">Collision</a></div><div class="ttdef"><b>Definition:</b> Collision.h:6</div></div>
+<div class="ttc" id="classVec2_html_adf8ee322d4b4bcc04146762c018d731f"><div class="ttname"><a href="classVec2.html#adf8ee322d4b4bcc04146762c018d731f">Vec2::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition:</b> Vec2.h:42</div></div>
+<div class="ttc" id="classVec2_html_a30543787e62f6d915543cf1dfb04c094"><div class="ttname"><a href="classVec2.html#a30543787e62f6d915543cf1dfb04c094">Vec2::y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition:</b> Vec2.h:43</div></div>
+<div class="ttc" id="classRect_html_a049f7ee5e7eb0475229bf3ed9b3bad44"><div class="ttname"><a href="classRect.html#a049f7ee5e7eb0475229bf3ed9b3bad44">Rect::w</a></div><div class="ttdeci">float w</div><div class="ttdef"><b>Definition:</b> Rect.h:33</div></div>
+<div class="ttc" id="classCollision_html_a0c594c1d2a6733d602c39c1d11e410ad"><div class="ttname"><a href="classCollision.html#a0c594c1d2a6733d602c39c1d11e410ad">Collision::Mag</a></div><div class="ttdeci">static float Mag(const Vec2 &amp;p)</div><div class="ttdef"><b>Definition:</b> Collision.h:56</div></div>
+<div class="ttc" id="classRect_html_a4ea33d8210fa0b8b0d6ef3f7e06e6b27"><div class="ttname"><a href="classRect.html#a4ea33d8210fa0b8b0d6ef3f7e06e6b27">Rect::y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition:</b> Rect.h:33</div></div>
+<div class="ttc" id="classVec2_html"><div class="ttname"><a href="classVec2.html">Vec2</a></div><div class="ttdef"><b>Definition:</b> Vec2.h:18</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Segunda, 24 de Abril de 2017 13:27:26 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

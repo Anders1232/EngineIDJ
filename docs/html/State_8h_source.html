@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Projeto IDJ - Towers Of Madness: Código-Fonte de Engine/include/State.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projeto IDJ - Towers Of Madness
+   </div>
+   <div id="projectbrief">TowerDefenseLovecraftnianoZombicida</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definições e Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a class="el" href="dir_1dfe4a86cee15d5d6902f8c724dcf913.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">State.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="State_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef STATE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define STATE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Gameobject_8h.html">Gameobject.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classState.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classState.html">State</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <a class="code" href="classState.html#aef73d18751fc737c6b4f0893660a0d81">State</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classState.html#a42d951e307f5b6d1966e15f417cc4101">~State</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classState.html#ad79561dfb4e1a6b722a3d9c84b06e91c">Update</a>(<span class="keywordtype">float</span> dt)=0;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classState.html#ad1f023e61676d0cef92afbaba48ec7ca">Render</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classState.html#ae9fa377b30f06fdd809a1557bfbc190a">Pause</a>(<span class="keywordtype">void</span>)=0;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classState.html#ac6d3f8b50530eec89e1344bab93f1006">Resume</a>(<span class="keywordtype">void</span>)=0;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classState.html#a431d5f711e028c788a9fdccaf99ff74e">AddObject</a>(<a class="code" href="classGameObject.html">GameObject</a> *<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classState.html#af898168550c4a26b71e4f9ddb0e1f338">PopRequested</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classState.html#a1645048aadaadad50404ff1868e11bb2">QuitRequested</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classState.html#abb605ec5fe585d227fbf267e0e6c80a9">UpdateArray</a>(<span class="keywordtype">float</span> dt);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classState.html#a9a7458d8c801f4d02fd1732a300c8b97">RenderArray</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classState.html#a9d7c1082cc6592646acec05a6e46f145">   23</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classState.html#a9d7c1082cc6592646acec05a6e46f145">popRequested</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classState.html#aa96884ddc05e8f23841298af662ae733">   24</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classState.html#aa96884ddc05e8f23841298af662ae733">quitRequested</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classState.html#a08eaf3c9720d7f90ce579630ca938687">   25</a></span>&#160;        std::vector&lt;std::unique_ptr&lt;GameObject&gt;&gt; <a class="code" href="classState.html#a08eaf3c9720d7f90ce579630ca938687">objectArray</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif // STATE_H</span></div>
+<div class="ttc" id="classState_html_a431d5f711e028c788a9fdccaf99ff74e"><div class="ttname"><a href="classState.html#a431d5f711e028c788a9fdccaf99ff74e">State::AddObject</a></div><div class="ttdeci">virtual void AddObject(GameObject *object)</div><div class="ttdef"><b>Definition:</b> State.cpp:9</div></div>
+<div class="ttc" id="classState_html_ac6d3f8b50530eec89e1344bab93f1006"><div class="ttname"><a href="classState.html#ac6d3f8b50530eec89e1344bab93f1006">State::Resume</a></div><div class="ttdeci">virtual void Resume(void)=0</div></div>
+<div class="ttc" id="classState_html_af898168550c4a26b71e4f9ddb0e1f338"><div class="ttname"><a href="classState.html#af898168550c4a26b71e4f9ddb0e1f338">State::PopRequested</a></div><div class="ttdeci">bool PopRequested(void)</div><div class="ttdef"><b>Definition:</b> State.cpp:13</div></div>
+<div class="ttc" id="classState_html_aef73d18751fc737c6b4f0893660a0d81"><div class="ttname"><a href="classState.html#aef73d18751fc737c6b4f0893660a0d81">State::State</a></div><div class="ttdeci">State(void)</div><div class="ttdef"><b>Definition:</b> State.cpp:3</div></div>
+<div class="ttc" id="classState_html_a1645048aadaadad50404ff1868e11bb2"><div class="ttname"><a href="classState.html#a1645048aadaadad50404ff1868e11bb2">State::QuitRequested</a></div><div class="ttdeci">bool QuitRequested(void)</div><div class="ttdef"><b>Definition:</b> State.cpp:17</div></div>
+<div class="ttc" id="classState_html_a9d7c1082cc6592646acec05a6e46f145"><div class="ttname"><a href="classState.html#a9d7c1082cc6592646acec05a6e46f145">State::popRequested</a></div><div class="ttdeci">bool popRequested</div><div class="ttdef"><b>Definition:</b> State.h:23</div></div>
+<div class="ttc" id="classState_html_aa96884ddc05e8f23841298af662ae733"><div class="ttname"><a href="classState.html#aa96884ddc05e8f23841298af662ae733">State::quitRequested</a></div><div class="ttdeci">bool quitRequested</div><div class="ttdef"><b>Definition:</b> State.h:24</div></div>
+<div class="ttc" id="Gameobject_8h_html"><div class="ttname"><a href="Gameobject_8h.html">Gameobject.h</a></div></div>
+<div class="ttc" id="classState_html_a08eaf3c9720d7f90ce579630ca938687"><div class="ttname"><a href="classState.html#a08eaf3c9720d7f90ce579630ca938687">State::objectArray</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; GameObject &gt; &gt; objectArray</div><div class="ttdef"><b>Definition:</b> State.h:25</div></div>
+<div class="ttc" id="classState_html"><div class="ttname"><a href="classState.html">State</a></div><div class="ttdef"><b>Definition:</b> State.h:8</div></div>
+<div class="ttc" id="classState_html_a42d951e307f5b6d1966e15f417cc4101"><div class="ttname"><a href="classState.html#a42d951e307f5b6d1966e15f417cc4101">State::~State</a></div><div class="ttdeci">virtual ~State(void)</div><div class="ttdef"><b>Definition:</b> State.cpp:6</div></div>
+<div class="ttc" id="classState_html_a9a7458d8c801f4d02fd1732a300c8b97"><div class="ttname"><a href="classState.html#a9a7458d8c801f4d02fd1732a300c8b97">State::RenderArray</a></div><div class="ttdeci">virtual void RenderArray(void)</div><div class="ttdef"><b>Definition:</b> State.cpp:32</div></div>
+<div class="ttc" id="classGameObject_html"><div class="ttname"><a href="classGameObject.html">GameObject</a></div><div class="ttdef"><b>Definition:</b> Gameobject.h:22</div></div>
+<div class="ttc" id="classState_html_ae9fa377b30f06fdd809a1557bfbc190a"><div class="ttname"><a href="classState.html#ae9fa377b30f06fdd809a1557bfbc190a">State::Pause</a></div><div class="ttdeci">virtual void Pause(void)=0</div></div>
+<div class="ttc" id="classState_html_ad1f023e61676d0cef92afbaba48ec7ca"><div class="ttname"><a href="classState.html#ad1f023e61676d0cef92afbaba48ec7ca">State::Render</a></div><div class="ttdeci">virtual void Render(void) const =0</div></div>
+<div class="ttc" id="classState_html_ad79561dfb4e1a6b722a3d9c84b06e91c"><div class="ttname"><a href="classState.html#ad79561dfb4e1a6b722a3d9c84b06e91c">State::Update</a></div><div class="ttdeci">virtual void Update(float dt)=0</div></div>
+<div class="ttc" id="classState_html_abb605ec5fe585d227fbf267e0e6c80a9"><div class="ttname"><a href="classState.html#abb605ec5fe585d227fbf267e0e6c80a9">State::UpdateArray</a></div><div class="ttdeci">virtual void UpdateArray(float dt)</div><div class="ttdef"><b>Definition:</b> State.cpp:21</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Segunda, 24 de Abril de 2017 13:27:26 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

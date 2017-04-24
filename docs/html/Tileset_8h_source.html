@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Projeto IDJ - Towers Of Madness: Código-Fonte de Engine/include/Tileset.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projeto IDJ - Towers Of Madness
+   </div>
+   <div id="projectbrief">TowerDefenseLovecraftnianoZombicida</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definições e Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0b6ee6e7e9547e675db4add2e5de97da.html">Engine</a></li><li class="navelem"><a class="el" href="dir_1dfe4a86cee15d5d6902f8c724dcf913.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Tileset.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Tileset_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TILESET_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TILESET_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Sprite_8h.html">Sprite.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> std::string;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classTileSet.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTileSet.html">TileSet</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="classTileSet.html#a671a1040ef1ba7600a6ea21faa950819">TileSet</a>(<span class="keywordtype">int</span> <a class="code" href="classTileSet.html#a9ba9087a6da877f78af6cdf9afb0af7c">tileWidth</a>, <span class="keywordtype">int</span> <a class="code" href="classTileSet.html#a9409211e1c5560f969b737714be977c0">tileHeight</a>, <span class="keywordtype">string</span> file);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classTileSet.html#a110acfa6e07aa9e5af1798065f23b0f1">Render</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index, <span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">bool</span> zoom= <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classTileSet.html#a4114a74c06ab5241d904cce67538ae17">GetTileWidth</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classTileSet.html#a965e951eb3ccfd6e318b27c710d973a0">GetTileHeight</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classTileSet.html#adbd7ac102ce306e4f367c32cfa576979">   17</a></span>&#160;        <a class="code" href="classSprite.html">Sprite</a> <a class="code" href="classTileSet.html#adbd7ac102ce306e4f367c32cfa576979">tileSet</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classTileSet.html#abdfce26ff299e8904107edc22529e28f">   18</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classTileSet.html#abdfce26ff299e8904107edc22529e28f">rows</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classTileSet.html#a47ae11f9d04f9da3fbaba834fdbc62cf">   19</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classTileSet.html#a47ae11f9d04f9da3fbaba834fdbc62cf">columns</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classTileSet.html#a9ba9087a6da877f78af6cdf9afb0af7c">   20</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classTileSet.html#a9ba9087a6da877f78af6cdf9afb0af7c">tileWidth</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classTileSet.html#a9409211e1c5560f969b737714be977c0">   21</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classTileSet.html#a9409211e1c5560f969b737714be977c0">tileHeight</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif // TILESET_H</span></div>
+<div class="ttc" id="classTileSet_html_adbd7ac102ce306e4f367c32cfa576979"><div class="ttname"><a href="classTileSet.html#adbd7ac102ce306e4f367c32cfa576979">TileSet::tileSet</a></div><div class="ttdeci">Sprite tileSet</div><div class="ttdef"><b>Definition:</b> Tileset.h:17</div></div>
+<div class="ttc" id="classTileSet_html_a9409211e1c5560f969b737714be977c0"><div class="ttname"><a href="classTileSet.html#a9409211e1c5560f969b737714be977c0">TileSet::tileHeight</a></div><div class="ttdeci">int tileHeight</div><div class="ttdef"><b>Definition:</b> Tileset.h:21</div></div>
+<div class="ttc" id="classSprite_html"><div class="ttname"><a href="classSprite.html">Sprite</a></div><div class="ttdef"><b>Definition:</b> Sprite.h:21</div></div>
+<div class="ttc" id="classTileSet_html_a671a1040ef1ba7600a6ea21faa950819"><div class="ttname"><a href="classTileSet.html#a671a1040ef1ba7600a6ea21faa950819">TileSet::TileSet</a></div><div class="ttdeci">TileSet(int tileWidth, int tileHeight, string file)</div><div class="ttdef"><b>Definition:</b> Tileset.cpp:6</div></div>
+<div class="ttc" id="classTileSet_html_a47ae11f9d04f9da3fbaba834fdbc62cf"><div class="ttname"><a href="classTileSet.html#a47ae11f9d04f9da3fbaba834fdbc62cf">TileSet::columns</a></div><div class="ttdeci">int columns</div><div class="ttdef"><b>Definition:</b> Tileset.h:19</div></div>
+<div class="ttc" id="Sprite_8h_html"><div class="ttname"><a href="Sprite_8h.html">Sprite.h</a></div></div>
+<div class="ttc" id="classTileSet_html_a965e951eb3ccfd6e318b27c710d973a0"><div class="ttname"><a href="classTileSet.html#a965e951eb3ccfd6e318b27c710d973a0">TileSet::GetTileHeight</a></div><div class="ttdeci">int GetTileHeight(void)</div><div class="ttdef"><b>Definition:</b> Tileset.cpp:34</div></div>
+<div class="ttc" id="classTileSet_html_abdfce26ff299e8904107edc22529e28f"><div class="ttname"><a href="classTileSet.html#abdfce26ff299e8904107edc22529e28f">TileSet::rows</a></div><div class="ttdeci">int rows</div><div class="ttdef"><b>Definition:</b> Tileset.h:18</div></div>
+<div class="ttc" id="classTileSet_html_a110acfa6e07aa9e5af1798065f23b0f1"><div class="ttname"><a href="classTileSet.html#a110acfa6e07aa9e5af1798065f23b0f1">TileSet::Render</a></div><div class="ttdeci">void Render(unsigned int index, float x, float y, bool zoom=true)</div><div class="ttdef"><b>Definition:</b> Tileset.cpp:13</div></div>
+<div class="ttc" id="classTileSet_html_a9ba9087a6da877f78af6cdf9afb0af7c"><div class="ttname"><a href="classTileSet.html#a9ba9087a6da877f78af6cdf9afb0af7c">TileSet::tileWidth</a></div><div class="ttdeci">int tileWidth</div><div class="ttdef"><b>Definition:</b> Tileset.h:20</div></div>
+<div class="ttc" id="classTileSet_html"><div class="ttname"><a href="classTileSet.html">TileSet</a></div><div class="ttdef"><b>Definition:</b> Tileset.h:9</div></div>
+<div class="ttc" id="classTileSet_html_a4114a74c06ab5241d904cce67538ae17"><div class="ttname"><a href="classTileSet.html#a4114a74c06ab5241d904cce67538ae17">TileSet::GetTileWidth</a></div><div class="ttdeci">int GetTileWidth(void)</div><div class="ttdef"><b>Definition:</b> Tileset.cpp:39</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Segunda, 24 de Abril de 2017 13:27:26 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

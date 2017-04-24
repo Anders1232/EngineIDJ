@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Projeto IDJ - Towers Of Madness: Referência do Arquivo Game/src/Penguins.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projeto IDJ - Towers Of Madness
+   </div>
+   <div id="projectbrief">TowerDefenseLovecraftnianoZombicida</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definições e Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c33286056d2acf479cd8641ef845fec1.html">Game</a></li><li class="navelem"><a class="el" href="dir_d858f423bf5825f9a3db826b6a54a3cc.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definições e Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo Penguins.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="Penguins_8h_source.html">Penguins.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="InputManager_8h_source.html">InputManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Camera_8h_source.html">Camera.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Error_8h_source.html">Error.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Bullet_8h_source.html">Bullet.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Game_8h_source.html">Game.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Animation_8h_source.html">Animation.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Sound_8h_source.html">Sound.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para Penguins.cpp:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="Penguins_8cpp__incl.svg" width="1054" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:a7b4e482173f5add478267fdaca8dc3e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Penguins_8cpp.html#a7b4e482173f5add478267fdaca8dc3e2">PENGUIM_LINEAR_SPEED</a>&#160;&#160;&#160;(150)</td></tr>
+<tr class="separator:a7b4e482173f5add478267fdaca8dc3e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e97e49dbd2e4eae44230bd5fc6337dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Penguins_8cpp.html#a6e97e49dbd2e4eae44230bd5fc6337dc">PENGUIM_CANNON_ANGLE</a>&#160;&#160;&#160;(20)</td></tr>
+<tr class="separator:a6e97e49dbd2e4eae44230bd5fc6337dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46c4b27aba2ba04dc2e019fa631fcc36"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Penguins_8cpp.html#a46c4b27aba2ba04dc2e019fa631fcc36">PENGUIM_HP</a>&#160;&#160;&#160;(10000)</td></tr>
+<tr class="separator:a46c4b27aba2ba04dc2e019fa631fcc36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4201b17bc90b682c4b6d7fb6a6dc0aa4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Penguins_8cpp.html#a4201b17bc90b682c4b6d7fb6a6dc0aa4">PENGUIM_MAX_SPEED</a>&#160;&#160;&#160;(200.)</td></tr>
+<tr class="separator:a4201b17bc90b682c4b6d7fb6a6dc0aa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac00deb9bf889ea49745bf5b24e058daf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Penguins_8cpp.html#ac00deb9bf889ea49745bf5b24e058daf">PENGUIM_ACELERACAO</a>&#160;&#160;&#160;(1.1)</td></tr>
+<tr class="separator:ac00deb9bf889ea49745bf5b24e058daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f71ff7d4044c57ca759f8259b0255b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Penguins_8cpp.html#a2f71ff7d4044c57ca759f8259b0255b7">PENGUIM_VEC_ANGULAR</a>&#160;&#160;&#160;(2.)</td></tr>
+<tr class="separator:a2f71ff7d4044c57ca759f8259b0255b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2865f950b3ff30f2225af4a0dfce151f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Penguins_8cpp.html#a2865f950b3ff30f2225af4a0dfce151f">PENGUIM_BULLET_SPEED</a>&#160;&#160;&#160;(180)</td></tr>
+<tr class="separator:a2865f950b3ff30f2225af4a0dfce151f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26b1e0ab853a8defe2161087ea2c6700"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Penguins_8cpp.html#a26b1e0ab853a8defe2161087ea2c6700">PENGUIM_BULLET_FRAMETIME</a>&#160;&#160;&#160;(0.5)</td></tr>
+<tr class="separator:a26b1e0ab853a8defe2161087ea2c6700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab68cd2ce30495b40738490a134eb2397"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Penguins_8cpp.html#ab68cd2ce30495b40738490a134eb2397">PENGUIM_BULLET_MAX_DISTANCE</a>&#160;&#160;&#160;(<a class="el" href="Penguins_8cpp.html#a037035ec691a474e7e2edc8456f01e1e">PENGUIM_BULLET_FRAME_COUNT</a>*<a class="el" href="Penguins_8cpp.html#a26b1e0ab853a8defe2161087ea2c6700">PENGUIM_BULLET_FRAMETIME</a>*<a class="el" href="Penguins_8cpp.html#a2865f950b3ff30f2225af4a0dfce151f">PENGUIM_BULLET_SPEED</a>)</td></tr>
+<tr class="separator:ab68cd2ce30495b40738490a134eb2397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a037035ec691a474e7e2edc8456f01e1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Penguins_8cpp.html#a037035ec691a474e7e2edc8456f01e1e">PENGUIM_BULLET_FRAME_COUNT</a>&#160;&#160;&#160;(4)</td></tr>
+<tr class="separator:a037035ec691a474e7e2edc8456f01e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a011e14355884cb3a7c4aa3254cd8eb78"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Penguins_8cpp.html#a011e14355884cb3a7c4aa3254cd8eb78">PENGUIN_CANNON_LENGHT</a>&#160;&#160;&#160;(50)</td></tr>
+<tr class="separator:a011e14355884cb3a7c4aa3254cd8eb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7681c4980e01ad540444dbfab93fa5f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Penguins_8cpp.html#af7681c4980e01ad540444dbfab93fa5f">PENGUIM_DAMAGE_PER_BULLET</a>&#160;&#160;&#160;(15)</td></tr>
+<tr class="separator:af7681c4980e01ad540444dbfab93fa5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afee3680b4597bbefb97b40ecf7d6a728"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Penguins_8cpp.html#afee3680b4597bbefb97b40ecf7d6a728">PENGUIM_BULLET_COODOWN</a>&#160;&#160;&#160;(1./3.)</td></tr>
+<tr class="separator:afee3680b4597bbefb97b40ecf7d6a728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Definições e macros</h2>
+<a class="anchor" id="ac00deb9bf889ea49745bf5b24e058daf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PENGUIM_ACELERACAO&#160;&#160;&#160;(1.1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afee3680b4597bbefb97b40ecf7d6a728"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PENGUIM_BULLET_COODOWN&#160;&#160;&#160;(1./3.)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a037035ec691a474e7e2edc8456f01e1e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PENGUIM_BULLET_FRAME_COUNT&#160;&#160;&#160;(4)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a26b1e0ab853a8defe2161087ea2c6700"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PENGUIM_BULLET_FRAMETIME&#160;&#160;&#160;(0.5)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab68cd2ce30495b40738490a134eb2397"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PENGUIM_BULLET_MAX_DISTANCE&#160;&#160;&#160;(<a class="el" href="Penguins_8cpp.html#a037035ec691a474e7e2edc8456f01e1e">PENGUIM_BULLET_FRAME_COUNT</a>*<a class="el" href="Penguins_8cpp.html#a26b1e0ab853a8defe2161087ea2c6700">PENGUIM_BULLET_FRAMETIME</a>*<a class="el" href="Penguins_8cpp.html#a2865f950b3ff30f2225af4a0dfce151f">PENGUIM_BULLET_SPEED</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2865f950b3ff30f2225af4a0dfce151f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PENGUIM_BULLET_SPEED&#160;&#160;&#160;(180)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6e97e49dbd2e4eae44230bd5fc6337dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PENGUIM_CANNON_ANGLE&#160;&#160;&#160;(20)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af7681c4980e01ad540444dbfab93fa5f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PENGUIM_DAMAGE_PER_BULLET&#160;&#160;&#160;(15)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a46c4b27aba2ba04dc2e019fa631fcc36"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PENGUIM_HP&#160;&#160;&#160;(10000)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7b4e482173f5add478267fdaca8dc3e2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PENGUIM_LINEAR_SPEED&#160;&#160;&#160;(150)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4201b17bc90b682c4b6d7fb6a6dc0aa4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PENGUIM_MAX_SPEED&#160;&#160;&#160;(200.)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2f71ff7d4044c57ca759f8259b0255b7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PENGUIM_VEC_ANGULAR&#160;&#160;&#160;(2.)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a011e14355884cb3a7c4aa3254cd8eb78"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PENGUIN_CANNON_LENGHT&#160;&#160;&#160;(50)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Segunda, 24 de Abril de 2017 13:27:26 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

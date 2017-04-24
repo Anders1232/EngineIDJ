@@ -1,0 +1,4 @@
+<map id="TileMap" name="TileMap">
+<area shape="rect" id="node2" href="$classTileSet.html" title="TileSet" alt="" coords="50,289,112,316"/>
+<area shape="rect" id="node3" href="$classSprite.html" title="Sprite" alt="" coords="205,155,261,181"/>
+</map>

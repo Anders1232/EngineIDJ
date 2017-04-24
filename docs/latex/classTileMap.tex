@@ -1,0 +1,164 @@
+\hypertarget{classTileMap}{\section{Referência da Classe Tile\+Map}
+\label{classTileMap}\index{Tile\+Map@{Tile\+Map}}
+}
+
+
+{\ttfamily \#include $<$Tile\+Map.\+h$>$}
+
+
+
+Diagrama de colaboração para Tile\+Map\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTileMap__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTileMap_acf6fe3a182047153ec9c25fadc55056c}{Tile\+Map} (string file, \hyperlink{classTileSet}{Tile\+Set} $\ast$\hyperlink{classTileMap_a24b2ea7aecfd795f1e13dfa9b0b3cb76}{tile\+Set})
+\item 
+int \& \hyperlink{classTileMap_a3b8dec192ee9ccca2b4476821235cc0a}{At} (int x, int y, int z=0) const 
+\item 
+void \hyperlink{classTileMap_a7ec4f6245f0e772c256f5b9240ce67ee}{Render} (int camera\+X=0, int camera\+Y=0) const 
+\item 
+void \hyperlink{classTileMap_a08748800b6fb6bd307acd3693a39d679}{Render\+Layer} (int layer, int camera\+X=0, int camera\+Y=0) const 
+\item 
+int \hyperlink{classTileMap_a072dbe1dbd793712baefe154c3058ab2}{Get\+Width} (void) const 
+\item 
+int \hyperlink{classTileMap_a9fe48260088655aa252b4d40e60f1390}{Get\+Height} (void) const 
+\item 
+int \hyperlink{classTileMap_aeb8c6a4101e449c33d963041345d918e}{Get\+Depth} (void) const 
+\end{DoxyCompactItemize}
+\subsection*{Métodos Privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classTileMap_af79b1c89448feb571b799a3642dab5f9}{Load} (string file)
+\item 
+void \hyperlink{classTileMap_aeaeb5ed2cc7e621ab2fe9f5ee26b2b69}{Set\+Tile\+Set} (\hyperlink{classTileSet}{Tile\+Set} $\ast$\hyperlink{classTileMap_a24b2ea7aecfd795f1e13dfa9b0b3cb76}{tile\+Set})
+\item 
+int \hyperlink{classTileMap_adda18b2c09dbcc6cfb91b39ae9bee271}{Calculate\+Parallax\+Scrolling} (int num, int camera, int layer) const 
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \hyperlink{classTileMap_ac1d3ce0587c4e615682b71fd96295e0e}{tile\+Matrix}
+\item 
+\hyperlink{classTileSet}{Tile\+Set} $\ast$ \hyperlink{classTileMap_a24b2ea7aecfd795f1e13dfa9b0b3cb76}{tile\+Set}
+\item 
+int \hyperlink{classTileMap_ae2361e840eacaebbbbc91541ded00655}{map\+Width}
+\item 
+int \hyperlink{classTileMap_a8fec89ca278b51de7f3e38831d9fb161}{map\+Height}
+\item 
+int \hyperlink{classTileMap_a9f9975834cc5f1acad95d72828858862}{map\+Depth}
+\end{DoxyCompactItemize}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classTileMap_acf6fe3a182047153ec9c25fadc55056c}{\index{Tile\+Map@{Tile\+Map}!Tile\+Map@{Tile\+Map}}
+\index{Tile\+Map@{Tile\+Map}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{Tile\+Map}]{\setlength{\rightskip}{0pt plus 5cm}Tile\+Map\+::\+Tile\+Map (
+\begin{DoxyParamCaption}
+\item[{string}]{file, }
+\item[{{\bf Tile\+Set} $\ast$}]{tile\+Set}
+\end{DoxyParamCaption}
+)}}\label{classTileMap_acf6fe3a182047153ec9c25fadc55056c}
+
+
+\subsection{Métodos}
+\hypertarget{classTileMap_a3b8dec192ee9ccca2b4476821235cc0a}{\index{Tile\+Map@{Tile\+Map}!At@{At}}
+\index{At@{At}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{At}]{\setlength{\rightskip}{0pt plus 5cm}int \& Tile\+Map\+::\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{z = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const}}\label{classTileMap_a3b8dec192ee9ccca2b4476821235cc0a}
+\hypertarget{classTileMap_adda18b2c09dbcc6cfb91b39ae9bee271}{\index{Tile\+Map@{Tile\+Map}!Calculate\+Parallax\+Scrolling@{Calculate\+Parallax\+Scrolling}}
+\index{Calculate\+Parallax\+Scrolling@{Calculate\+Parallax\+Scrolling}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{Calculate\+Parallax\+Scrolling}]{\setlength{\rightskip}{0pt plus 5cm}int Tile\+Map\+::\+Calculate\+Parallax\+Scrolling (
+\begin{DoxyParamCaption}
+\item[{int}]{num, }
+\item[{int}]{camera, }
+\item[{int}]{layer}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}}\label{classTileMap_adda18b2c09dbcc6cfb91b39ae9bee271}
+\hypertarget{classTileMap_aeb8c6a4101e449c33d963041345d918e}{\index{Tile\+Map@{Tile\+Map}!Get\+Depth@{Get\+Depth}}
+\index{Get\+Depth@{Get\+Depth}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{Get\+Depth}]{\setlength{\rightskip}{0pt plus 5cm}int Tile\+Map\+::\+Get\+Depth (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classTileMap_aeb8c6a4101e449c33d963041345d918e}
+\hypertarget{classTileMap_a9fe48260088655aa252b4d40e60f1390}{\index{Tile\+Map@{Tile\+Map}!Get\+Height@{Get\+Height}}
+\index{Get\+Height@{Get\+Height}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{Get\+Height}]{\setlength{\rightskip}{0pt plus 5cm}int Tile\+Map\+::\+Get\+Height (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classTileMap_a9fe48260088655aa252b4d40e60f1390}
+\hypertarget{classTileMap_a072dbe1dbd793712baefe154c3058ab2}{\index{Tile\+Map@{Tile\+Map}!Get\+Width@{Get\+Width}}
+\index{Get\+Width@{Get\+Width}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{Get\+Width}]{\setlength{\rightskip}{0pt plus 5cm}int Tile\+Map\+::\+Get\+Width (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classTileMap_a072dbe1dbd793712baefe154c3058ab2}
+\hypertarget{classTileMap_af79b1c89448feb571b799a3642dab5f9}{\index{Tile\+Map@{Tile\+Map}!Load@{Load}}
+\index{Load@{Load}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{Load}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+Map\+::\+Load (
+\begin{DoxyParamCaption}
+\item[{string}]{file}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classTileMap_af79b1c89448feb571b799a3642dab5f9}
+\hypertarget{classTileMap_a7ec4f6245f0e772c256f5b9240ce67ee}{\index{Tile\+Map@{Tile\+Map}!Render@{Render}}
+\index{Render@{Render}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{Render}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+Map\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{int}]{camera\+X = {\ttfamily 0}, }
+\item[{int}]{camera\+Y = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const}}\label{classTileMap_a7ec4f6245f0e772c256f5b9240ce67ee}
+\hypertarget{classTileMap_a08748800b6fb6bd307acd3693a39d679}{\index{Tile\+Map@{Tile\+Map}!Render\+Layer@{Render\+Layer}}
+\index{Render\+Layer@{Render\+Layer}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{Render\+Layer}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+Map\+::\+Render\+Layer (
+\begin{DoxyParamCaption}
+\item[{int}]{layer, }
+\item[{int}]{camera\+X = {\ttfamily 0}, }
+\item[{int}]{camera\+Y = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const}}\label{classTileMap_a08748800b6fb6bd307acd3693a39d679}
+\hypertarget{classTileMap_aeaeb5ed2cc7e621ab2fe9f5ee26b2b69}{\index{Tile\+Map@{Tile\+Map}!Set\+Tile\+Set@{Set\+Tile\+Set}}
+\index{Set\+Tile\+Set@{Set\+Tile\+Set}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{Set\+Tile\+Set}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+Map\+::\+Set\+Tile\+Set (
+\begin{DoxyParamCaption}
+\item[{{\bf Tile\+Set} $\ast$}]{tile\+Set}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classTileMap_aeaeb5ed2cc7e621ab2fe9f5ee26b2b69}
+
+
+\subsection{Atributos}
+\hypertarget{classTileMap_a9f9975834cc5f1acad95d72828858862}{\index{Tile\+Map@{Tile\+Map}!map\+Depth@{map\+Depth}}
+\index{map\+Depth@{map\+Depth}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{map\+Depth}]{\setlength{\rightskip}{0pt plus 5cm}int Tile\+Map\+::map\+Depth\hspace{0.3cm}{\ttfamily [private]}}}\label{classTileMap_a9f9975834cc5f1acad95d72828858862}
+\hypertarget{classTileMap_a8fec89ca278b51de7f3e38831d9fb161}{\index{Tile\+Map@{Tile\+Map}!map\+Height@{map\+Height}}
+\index{map\+Height@{map\+Height}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{map\+Height}]{\setlength{\rightskip}{0pt plus 5cm}int Tile\+Map\+::map\+Height\hspace{0.3cm}{\ttfamily [private]}}}\label{classTileMap_a8fec89ca278b51de7f3e38831d9fb161}
+\hypertarget{classTileMap_ae2361e840eacaebbbbc91541ded00655}{\index{Tile\+Map@{Tile\+Map}!map\+Width@{map\+Width}}
+\index{map\+Width@{map\+Width}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{map\+Width}]{\setlength{\rightskip}{0pt plus 5cm}int Tile\+Map\+::map\+Width\hspace{0.3cm}{\ttfamily [private]}}}\label{classTileMap_ae2361e840eacaebbbbc91541ded00655}
+\hypertarget{classTileMap_ac1d3ce0587c4e615682b71fd96295e0e}{\index{Tile\+Map@{Tile\+Map}!tile\+Matrix@{tile\+Matrix}}
+\index{tile\+Matrix@{tile\+Matrix}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{tile\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$int$>$ Tile\+Map\+::tile\+Matrix\hspace{0.3cm}{\ttfamily [private]}}}\label{classTileMap_ac1d3ce0587c4e615682b71fd96295e0e}
+\hypertarget{classTileMap_a24b2ea7aecfd795f1e13dfa9b0b3cb76}{\index{Tile\+Map@{Tile\+Map}!tile\+Set@{tile\+Set}}
+\index{tile\+Set@{tile\+Set}!Tile\+Map@{Tile\+Map}}
+\subsubsection[{tile\+Set}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tile\+Set}$\ast$ Tile\+Map\+::tile\+Set\hspace{0.3cm}{\ttfamily [private]}}}\label{classTileMap_a24b2ea7aecfd795f1e13dfa9b0b3cb76}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/\hyperlink{TileMap_8h}{Tile\+Map.\+h}\item 
+Engine/src/\hyperlink{TileMap_8cpp}{Tile\+Map.\+cpp}\end{DoxyCompactItemize}

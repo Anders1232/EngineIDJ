@@ -1,0 +1,155 @@
+\hypertarget{classStageState}{\section{Referência da Classe Stage\+State}
+\label{classStageState}\index{Stage\+State@{Stage\+State}}
+}
+
+
+{\ttfamily \#include $<$Stage\+State.\+h$>$}
+
+
+
+Diagrama de Hierarquia para Stage\+State\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=145pt]{classStageState__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboração para Stage\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classStageState__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classStageState_a83447a9a485bd3cf9f2c0d293343ec42}{Stage\+State} (void)
+\item 
+\hyperlink{classStageState_aaf42c9072c4d2503c8566135ef2a10da}{$\sim$\+Stage\+State} (void)
+\item 
+void \hyperlink{classStageState_ae77d7d804ee36c434faf52ace163e85a}{Update} (float dt)
+\item 
+void \hyperlink{classStageState_a6539a58d85b9367d6c027c3348f1b538}{Render} (void) const 
+\item 
+void \hyperlink{classStageState_a7551ce8a236840e075f6f38f44140e59}{Pause} (void)
+\item 
+void \hyperlink{classStageState_a1ca42c08929c560284b04a08362e0c8c}{Resume} (void)
+\end{DoxyCompactItemize}
+\subsection*{Métodos Privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classStageState_a4d8a6aaeb5c87f9cd829ad10825ce06f}{Create\+Alien} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSprite}{Sprite} \hyperlink{classStageState_aa52c55dee219d1bbd1690e8c3c8e34f6}{bg}
+\item 
+\hyperlink{classTileMap}{Tile\+Map} $\ast$ \hyperlink{classStageState_a1c795e4b3e5c0522709a6060e52291e4}{tile\+Map}
+\item 
+\hyperlink{classTileSet}{Tile\+Set} \hyperlink{classStageState_ac1ef17645d0585767eaf96693a88d9bb}{tile\+Set}
+\item 
+\hyperlink{classInputManager}{Input\+Manager} \& \hyperlink{classStageState_acbf7ba483ee1ae6fe7d20f22b5c721b3}{input\+Manager}
+\item 
+\hyperlink{classMusic}{Music} \hyperlink{classStageState_a60c8325a1df466aff9f24ea167178350}{music}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classStageState_a83447a9a485bd3cf9f2c0d293343ec42}{\index{Stage\+State@{Stage\+State}!Stage\+State@{Stage\+State}}
+\index{Stage\+State@{Stage\+State}!Stage\+State@{Stage\+State}}
+\subsubsection[{Stage\+State}]{\setlength{\rightskip}{0pt plus 5cm}Stage\+State\+::\+Stage\+State (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classStageState_a83447a9a485bd3cf9f2c0d293343ec42}
+\hypertarget{classStageState_aaf42c9072c4d2503c8566135ef2a10da}{\index{Stage\+State@{Stage\+State}!````~Stage\+State@{$\sim$\+Stage\+State}}
+\index{````~Stage\+State@{$\sim$\+Stage\+State}!Stage\+State@{Stage\+State}}
+\subsubsection[{$\sim$\+Stage\+State}]{\setlength{\rightskip}{0pt plus 5cm}Stage\+State\+::$\sim$\+Stage\+State (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classStageState_aaf42c9072c4d2503c8566135ef2a10da}
+
+
+\subsection{Métodos}
+\hypertarget{classStageState_a4d8a6aaeb5c87f9cd829ad10825ce06f}{\index{Stage\+State@{Stage\+State}!Create\+Alien@{Create\+Alien}}
+\index{Create\+Alien@{Create\+Alien}!Stage\+State@{Stage\+State}}
+\subsubsection[{Create\+Alien}]{\setlength{\rightskip}{0pt plus 5cm}void Stage\+State\+::\+Create\+Alien (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classStageState_a4d8a6aaeb5c87f9cd829ad10825ce06f}
+\hypertarget{classStageState_a7551ce8a236840e075f6f38f44140e59}{\index{Stage\+State@{Stage\+State}!Pause@{Pause}}
+\index{Pause@{Pause}!Stage\+State@{Stage\+State}}
+\subsubsection[{Pause}]{\setlength{\rightskip}{0pt plus 5cm}void Stage\+State\+::\+Pause (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classStageState_a7551ce8a236840e075f6f38f44140e59}
+
+
+Implementa \hyperlink{classState_ae9fa377b30f06fdd809a1557bfbc190a}{State}.
+
+\hypertarget{classStageState_a6539a58d85b9367d6c027c3348f1b538}{\index{Stage\+State@{Stage\+State}!Render@{Render}}
+\index{Render@{Render}!Stage\+State@{Stage\+State}}
+\subsubsection[{Render}]{\setlength{\rightskip}{0pt plus 5cm}void Stage\+State\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classStageState_a6539a58d85b9367d6c027c3348f1b538}
+
+
+Implementa \hyperlink{classState_ad1f023e61676d0cef92afbaba48ec7ca}{State}.
+
+\hypertarget{classStageState_a1ca42c08929c560284b04a08362e0c8c}{\index{Stage\+State@{Stage\+State}!Resume@{Resume}}
+\index{Resume@{Resume}!Stage\+State@{Stage\+State}}
+\subsubsection[{Resume}]{\setlength{\rightskip}{0pt plus 5cm}void Stage\+State\+::\+Resume (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classStageState_a1ca42c08929c560284b04a08362e0c8c}
+
+
+Implementa \hyperlink{classState_ac6d3f8b50530eec89e1344bab93f1006}{State}.
+
+\hypertarget{classStageState_ae77d7d804ee36c434faf52ace163e85a}{\index{Stage\+State@{Stage\+State}!Update@{Update}}
+\index{Update@{Update}!Stage\+State@{Stage\+State}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void Stage\+State\+::\+Update (
+\begin{DoxyParamCaption}
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classStageState_ae77d7d804ee36c434faf52ace163e85a}
+
+
+Implementa \hyperlink{classState_ad79561dfb4e1a6b722a3d9c84b06e91c}{State}.
+
+
+
+\subsection{Atributos}
+\hypertarget{classStageState_aa52c55dee219d1bbd1690e8c3c8e34f6}{\index{Stage\+State@{Stage\+State}!bg@{bg}}
+\index{bg@{bg}!Stage\+State@{Stage\+State}}
+\subsubsection[{bg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite} Stage\+State\+::bg\hspace{0.3cm}{\ttfamily [private]}}}\label{classStageState_aa52c55dee219d1bbd1690e8c3c8e34f6}
+\hypertarget{classStageState_acbf7ba483ee1ae6fe7d20f22b5c721b3}{\index{Stage\+State@{Stage\+State}!input\+Manager@{input\+Manager}}
+\index{input\+Manager@{input\+Manager}!Stage\+State@{Stage\+State}}
+\subsubsection[{input\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Input\+Manager}\& Stage\+State\+::input\+Manager\hspace{0.3cm}{\ttfamily [private]}}}\label{classStageState_acbf7ba483ee1ae6fe7d20f22b5c721b3}
+\hypertarget{classStageState_a60c8325a1df466aff9f24ea167178350}{\index{Stage\+State@{Stage\+State}!music@{music}}
+\index{music@{music}!Stage\+State@{Stage\+State}}
+\subsubsection[{music}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Music} Stage\+State\+::music\hspace{0.3cm}{\ttfamily [private]}}}\label{classStageState_a60c8325a1df466aff9f24ea167178350}
+\hypertarget{classStageState_a1c795e4b3e5c0522709a6060e52291e4}{\index{Stage\+State@{Stage\+State}!tile\+Map@{tile\+Map}}
+\index{tile\+Map@{tile\+Map}!Stage\+State@{Stage\+State}}
+\subsubsection[{tile\+Map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tile\+Map}$\ast$ Stage\+State\+::tile\+Map\hspace{0.3cm}{\ttfamily [private]}}}\label{classStageState_a1c795e4b3e5c0522709a6060e52291e4}
+\hypertarget{classStageState_ac1ef17645d0585767eaf96693a88d9bb}{\index{Stage\+State@{Stage\+State}!tile\+Set@{tile\+Set}}
+\index{tile\+Set@{tile\+Set}!Stage\+State@{Stage\+State}}
+\subsubsection[{tile\+Set}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tile\+Set} Stage\+State\+::tile\+Set\hspace{0.3cm}{\ttfamily [private]}}}\label{classStageState_ac1ef17645d0585767eaf96693a88d9bb}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Game/include/\hyperlink{StageState_8h}{Stage\+State.\+h}\item 
+Game/src/\hyperlink{StageState_8cpp}{Stage\+State.\+cpp}\end{DoxyCompactItemize}

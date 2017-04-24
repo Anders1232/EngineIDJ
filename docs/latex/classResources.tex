@@ -1,0 +1,164 @@
+\hypertarget{classResources}{\section{Referência da Classe Resources}
+\label{classResources}\index{Resources@{Resources}}
+}
+
+
+{\ttfamily \#include $<$Resources.\+h$>$}
+
+
+
+Diagrama de colaboração para Resources\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classResources__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr\\*
+$<$ S\+D\+L\+\_\+\+Texture $>$ \hyperlink{classResources_a557aa346c974a8bce80017dbabd653d9}{Get\+Image} (string file)
+\item 
+static std\+::shared\+\_\+ptr$<$ Mix\+\_\+\+Music $>$ \hyperlink{classResources_a9ed99125bc4d75514e1175fab6f9badf}{Get\+Music} (string file)
+\item 
+static std\+::shared\+\_\+ptr$<$ Mix\+\_\+\+Chunk $>$ \hyperlink{classResources_ae6e4e0202dec020da8f6654f685e8b98}{Get\+Sound} (string file)
+\item 
+static std\+::shared\+\_\+ptr$<$ T\+T\+F\+\_\+\+Font $>$ \hyperlink{classResources_a661a92ea82fb73e31092059d6fc383c3}{Get\+Font} (string file, int font\+Size)
+\item 
+static void \hyperlink{classResources_a6a704f9988d9189d2d028ab5dcc64496}{Clear\+Resources} (void)
+\end{DoxyCompactItemize}
+\subsection*{Métodos Privados}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classResources_ab09435991b8c485f92e0aa1fd00828b9}{Resources} ()
+\end{DoxyCompactItemize}
+\subsection*{Métodos Privados Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classResources_a6f83b82e64c61691b60e6aed70b6ab68}{Clear\+Images} (void)
+\item 
+static void \hyperlink{classResources_a37aa5ada5adf925b8862f65d207244d1}{Clear\+Music} (void)
+\item 
+static void \hyperlink{classResources_a07885930484a8dd953c2e144ac8be6c5}{Clear\+Sound} (void)
+\item 
+static void \hyperlink{classResources_abfa5ce49b74cb81a0f3c7a47d94e0eda}{Clear\+Fonts} (void)
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unordered\+\_\+map\\*
+$<$ string, std\+::shared\+\_\+ptr\\*
+$<$ S\+D\+L\+\_\+\+Texture $>$ $>$ \hyperlink{classResources_abb18128c6fd91ee3afe41c1947c42b02}{image\+Table}
+\item 
+static std\+::unordered\+\_\+map\\*
+$<$ string, std\+::shared\+\_\+ptr\\*
+$<$ Mix\+\_\+\+Music $>$ $>$ \hyperlink{classResources_a6fa55a3d59924e7fbbcf734e01cfaa46}{music\+Table}
+\item 
+static std\+::unordered\+\_\+map\\*
+$<$ string, std\+::shared\+\_\+ptr\\*
+$<$ Mix\+\_\+\+Chunk $>$ $>$ \hyperlink{classResources_abbd116a3bc870ba6578a89b4aa08908c}{sound\+Table}
+\item 
+static std\+::unordered\+\_\+map\\*
+$<$ string, std\+::shared\+\_\+ptr\\*
+$<$ T\+T\+F\+\_\+\+Font $>$ $>$ \hyperlink{classResources_ab3665e0c725cd7f4dbf65b128f87d0d5}{font\+Table}
+\end{DoxyCompactItemize}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classResources_ab09435991b8c485f92e0aa1fd00828b9}{\index{Resources@{Resources}!Resources@{Resources}}
+\index{Resources@{Resources}!Resources@{Resources}}
+\subsubsection[{Resources}]{\setlength{\rightskip}{0pt plus 5cm}Resources\+::\+Resources (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classResources_ab09435991b8c485f92e0aa1fd00828b9}
+
+
+\subsection{Métodos}
+\hypertarget{classResources_abfa5ce49b74cb81a0f3c7a47d94e0eda}{\index{Resources@{Resources}!Clear\+Fonts@{Clear\+Fonts}}
+\index{Clear\+Fonts@{Clear\+Fonts}!Resources@{Resources}}
+\subsubsection[{Clear\+Fonts}]{\setlength{\rightskip}{0pt plus 5cm}void Resources\+::\+Clear\+Fonts (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classResources_abfa5ce49b74cb81a0f3c7a47d94e0eda}
+\hypertarget{classResources_a6f83b82e64c61691b60e6aed70b6ab68}{\index{Resources@{Resources}!Clear\+Images@{Clear\+Images}}
+\index{Clear\+Images@{Clear\+Images}!Resources@{Resources}}
+\subsubsection[{Clear\+Images}]{\setlength{\rightskip}{0pt plus 5cm}void Resources\+::\+Clear\+Images (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classResources_a6f83b82e64c61691b60e6aed70b6ab68}
+\hypertarget{classResources_a37aa5ada5adf925b8862f65d207244d1}{\index{Resources@{Resources}!Clear\+Music@{Clear\+Music}}
+\index{Clear\+Music@{Clear\+Music}!Resources@{Resources}}
+\subsubsection[{Clear\+Music}]{\setlength{\rightskip}{0pt plus 5cm}void Resources\+::\+Clear\+Music (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classResources_a37aa5ada5adf925b8862f65d207244d1}
+\hypertarget{classResources_a6a704f9988d9189d2d028ab5dcc64496}{\index{Resources@{Resources}!Clear\+Resources@{Clear\+Resources}}
+\index{Clear\+Resources@{Clear\+Resources}!Resources@{Resources}}
+\subsubsection[{Clear\+Resources}]{\setlength{\rightskip}{0pt plus 5cm}void Resources\+::\+Clear\+Resources (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classResources_a6a704f9988d9189d2d028ab5dcc64496}
+\hypertarget{classResources_a07885930484a8dd953c2e144ac8be6c5}{\index{Resources@{Resources}!Clear\+Sound@{Clear\+Sound}}
+\index{Clear\+Sound@{Clear\+Sound}!Resources@{Resources}}
+\subsubsection[{Clear\+Sound}]{\setlength{\rightskip}{0pt plus 5cm}void Resources\+::\+Clear\+Sound (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classResources_a07885930484a8dd953c2e144ac8be6c5}
+\hypertarget{classResources_a661a92ea82fb73e31092059d6fc383c3}{\index{Resources@{Resources}!Get\+Font@{Get\+Font}}
+\index{Get\+Font@{Get\+Font}!Resources@{Resources}}
+\subsubsection[{Get\+Font}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<$ T\+T\+F\+\_\+\+Font $>$ Resources\+::\+Get\+Font (
+\begin{DoxyParamCaption}
+\item[{string}]{file, }
+\item[{int}]{font\+Size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classResources_a661a92ea82fb73e31092059d6fc383c3}
+\hypertarget{classResources_a557aa346c974a8bce80017dbabd653d9}{\index{Resources@{Resources}!Get\+Image@{Get\+Image}}
+\index{Get\+Image@{Get\+Image}!Resources@{Resources}}
+\subsubsection[{Get\+Image}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Texture $>$ Resources\+::\+Get\+Image (
+\begin{DoxyParamCaption}
+\item[{string}]{file}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classResources_a557aa346c974a8bce80017dbabd653d9}
+\hypertarget{classResources_a9ed99125bc4d75514e1175fab6f9badf}{\index{Resources@{Resources}!Get\+Music@{Get\+Music}}
+\index{Get\+Music@{Get\+Music}!Resources@{Resources}}
+\subsubsection[{Get\+Music}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<$ Mix\+\_\+\+Music $>$ Resources\+::\+Get\+Music (
+\begin{DoxyParamCaption}
+\item[{string}]{file}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classResources_a9ed99125bc4d75514e1175fab6f9badf}
+\hypertarget{classResources_ae6e4e0202dec020da8f6654f685e8b98}{\index{Resources@{Resources}!Get\+Sound@{Get\+Sound}}
+\index{Get\+Sound@{Get\+Sound}!Resources@{Resources}}
+\subsubsection[{Get\+Sound}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<$ Mix\+\_\+\+Chunk $>$ Resources\+::\+Get\+Sound (
+\begin{DoxyParamCaption}
+\item[{string}]{file}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classResources_ae6e4e0202dec020da8f6654f685e8b98}
+
+
+\subsection{Atributos}
+\hypertarget{classResources_ab3665e0c725cd7f4dbf65b128f87d0d5}{\index{Resources@{Resources}!font\+Table@{font\+Table}}
+\index{font\+Table@{font\+Table}!Resources@{Resources}}
+\subsubsection[{font\+Table}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unordered\+\_\+map$<$ string, std\+::shared\+\_\+ptr$<$ T\+T\+F\+\_\+\+Font $>$ $>$ Resources\+::font\+Table\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classResources_ab3665e0c725cd7f4dbf65b128f87d0d5}
+\hypertarget{classResources_abb18128c6fd91ee3afe41c1947c42b02}{\index{Resources@{Resources}!image\+Table@{image\+Table}}
+\index{image\+Table@{image\+Table}!Resources@{Resources}}
+\subsubsection[{image\+Table}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unordered\+\_\+map$<$ string, std\+::shared\+\_\+ptr$<$ S\+D\+L\+\_\+\+Texture $>$ $>$ Resources\+::image\+Table\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classResources_abb18128c6fd91ee3afe41c1947c42b02}
+\hypertarget{classResources_a6fa55a3d59924e7fbbcf734e01cfaa46}{\index{Resources@{Resources}!music\+Table@{music\+Table}}
+\index{music\+Table@{music\+Table}!Resources@{Resources}}
+\subsubsection[{music\+Table}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unordered\+\_\+map$<$ string, std\+::shared\+\_\+ptr$<$ Mix\+\_\+\+Music $>$ $>$ Resources\+::music\+Table\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classResources_a6fa55a3d59924e7fbbcf734e01cfaa46}
+\hypertarget{classResources_abbd116a3bc870ba6578a89b4aa08908c}{\index{Resources@{Resources}!sound\+Table@{sound\+Table}}
+\index{sound\+Table@{sound\+Table}!Resources@{Resources}}
+\subsubsection[{sound\+Table}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unordered\+\_\+map$<$ string, std\+::shared\+\_\+ptr$<$ Mix\+\_\+\+Chunk $>$ $>$ Resources\+::sound\+Table\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classResources_abbd116a3bc870ba6578a89b4aa08908c}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/\hyperlink{Resources_8h}{Resources.\+h}\item 
+Engine/src/\hyperlink{Resources_8cpp}{Resources.\+cpp}\end{DoxyCompactItemize}

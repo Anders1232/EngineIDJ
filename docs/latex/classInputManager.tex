@@ -1,0 +1,238 @@
+\hypertarget{classInputManager}{\section{Referência da Classe Input\+Manager}
+\label{classInputManager}\index{Input\+Manager@{Input\+Manager}}
+}
+
+
+{\ttfamily \#include $<$Input\+Manager.\+h$>$}
+
+
+
+Diagrama de colaboração para Input\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInputManager__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classInputManager_afc344b3b2e204cfb39ee17b33bcc5eab}{Update} (void)
+\item 
+bool \hyperlink{classInputManager_a6793bc63304cafeaf45151d083946f42}{Key\+Press} (int key) const 
+\item 
+bool \hyperlink{classInputManager_a161025491900d61e6090d6f6e576934f}{Key\+Release} (int key) const 
+\item 
+bool \hyperlink{classInputManager_a97d25d372ab28dbc119b5a0919e38244}{Is\+Key\+Down} (int key) const 
+\item 
+bool \hyperlink{classInputManager_ad07e913718fc94601dfccb5c3a6fb0ae}{Mouse\+Press} (int button) const 
+\item 
+bool \hyperlink{classInputManager_a0056b265c8790bf862f6bff283349985}{Mouse\+Release} (int button) const 
+\item 
+bool \hyperlink{classInputManager_a410c6f6a0fa13dfd938d6d26a524fc19}{Is\+Mouse\+Down} (int button) const 
+\item 
+bool \hyperlink{classInputManager_aeb81e9386db70d1cc204e45963ec9077}{Is\+Mouse\+Scrolling} (void) const 
+\item 
+int \hyperlink{classInputManager_aaa3f36152ef8fdec75c0e3f5307979fb}{Get\+Mouse\+X} (void) const 
+\item 
+int \hyperlink{classInputManager_a3883f6471f5d124fd51990af3fdff24d}{Get\+Mouse\+Y} (void) const 
+\item 
+\hyperlink{classVec2}{Vec2} \hyperlink{classInputManager_a8609a7850d6c037642539c19ab53a4e8}{Get\+Mouse\+Pos} (void) const 
+\item 
+\hyperlink{classVec2}{Vec2} \hyperlink{classInputManager_acfca74249b64db2cb2a3b67c0e944696}{Mouse\+Scroll} (void) const 
+\item 
+bool \hyperlink{classInputManager_a0c96a7ae70931d034a78a8e97b70dd27}{Quit\+Requested} (void) const 
+\end{DoxyCompactItemize}
+\subsection*{Métodos Públicos Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classInputManager}{Input\+Manager} \& \hyperlink{classInputManager_a1f095ed502f0bd09390d05cdc0acdcd9}{Get\+Instance} (void)
+\end{DoxyCompactItemize}
+\subsection*{Métodos Privados}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classInputManager_a8be46886da639b26d67181c29dab6d6c}{Input\+Manager} ()
+\item 
+\hyperlink{classInputManager_af518290877dd183606709d5852db5491}{$\sim$\+Input\+Manager} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classInputManager_af0f48b36a7d8e0f2c0b24057143b29c7}{mouse\+State} \mbox{[}6\mbox{]}
+\item 
+int \hyperlink{classInputManager_a1226f8af91792ac5ac5adda5fa2f0db0}{mouse\+Update} \mbox{[}6\mbox{]}
+\item 
+bool \hyperlink{classInputManager_a078d1f2f8af5f17005f21f7407dbca57}{quit\+Requested}
+\item 
+int \hyperlink{classInputManager_a96541a9ebd43184f92449f9daf94724f}{update\+Counter}
+\item 
+int \hyperlink{classInputManager_a29fddcf9d741e4de04492ad76b7cb3af}{mouse\+X}
+\item 
+int \hyperlink{classInputManager_afb189c58dd5ee470a3202c685c5c7f1e}{mouse\+Y}
+\item 
+bool \hyperlink{classInputManager_a3c6b0a27b387bfb4b2fc669db0f68bad}{key\+State} \mbox{[}416\mbox{]}
+\item 
+int \hyperlink{classInputManager_ae8ce3bc2865693cbb548ef2f1603f991}{key\+Update} \mbox{[}416\mbox{]}
+\item 
+int \hyperlink{classInputManager_a646fc44d21853e1354aaacc6a27e79ca}{mouse\+Scrool\+Update}
+\item 
+\hyperlink{classVec2}{Vec2} \hyperlink{classInputManager_a9c9d5ed1da1b205d9311ec4a9bab06ea}{mouse\+Scrool\+State}
+\end{DoxyCompactItemize}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classInputManager_a8be46886da639b26d67181c29dab6d6c}{\index{Input\+Manager@{Input\+Manager}!Input\+Manager@{Input\+Manager}}
+\index{Input\+Manager@{Input\+Manager}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Input\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}Input\+Manager\+::\+Input\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classInputManager_a8be46886da639b26d67181c29dab6d6c}
+\hypertarget{classInputManager_af518290877dd183606709d5852db5491}{\index{Input\+Manager@{Input\+Manager}!````~Input\+Manager@{$\sim$\+Input\+Manager}}
+\index{````~Input\+Manager@{$\sim$\+Input\+Manager}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{$\sim$\+Input\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}Input\+Manager\+::$\sim$\+Input\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classInputManager_af518290877dd183606709d5852db5491}
+
+
+\subsection{Métodos}
+\hypertarget{classInputManager_a1f095ed502f0bd09390d05cdc0acdcd9}{\index{Input\+Manager@{Input\+Manager}!Get\+Instance@{Get\+Instance}}
+\index{Get\+Instance@{Get\+Instance}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Get\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Input\+Manager} \& Input\+Manager\+::\+Get\+Instance (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classInputManager_a1f095ed502f0bd09390d05cdc0acdcd9}
+\hypertarget{classInputManager_a8609a7850d6c037642539c19ab53a4e8}{\index{Input\+Manager@{Input\+Manager}!Get\+Mouse\+Pos@{Get\+Mouse\+Pos}}
+\index{Get\+Mouse\+Pos@{Get\+Mouse\+Pos}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Get\+Mouse\+Pos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Input\+Manager\+::\+Get\+Mouse\+Pos (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classInputManager_a8609a7850d6c037642539c19ab53a4e8}
+\hypertarget{classInputManager_aaa3f36152ef8fdec75c0e3f5307979fb}{\index{Input\+Manager@{Input\+Manager}!Get\+Mouse\+X@{Get\+Mouse\+X}}
+\index{Get\+Mouse\+X@{Get\+Mouse\+X}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Get\+Mouse\+X}]{\setlength{\rightskip}{0pt plus 5cm}int Input\+Manager\+::\+Get\+Mouse\+X (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classInputManager_aaa3f36152ef8fdec75c0e3f5307979fb}
+\hypertarget{classInputManager_a3883f6471f5d124fd51990af3fdff24d}{\index{Input\+Manager@{Input\+Manager}!Get\+Mouse\+Y@{Get\+Mouse\+Y}}
+\index{Get\+Mouse\+Y@{Get\+Mouse\+Y}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Get\+Mouse\+Y}]{\setlength{\rightskip}{0pt plus 5cm}int Input\+Manager\+::\+Get\+Mouse\+Y (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classInputManager_a3883f6471f5d124fd51990af3fdff24d}
+\hypertarget{classInputManager_a97d25d372ab28dbc119b5a0919e38244}{\index{Input\+Manager@{Input\+Manager}!Is\+Key\+Down@{Is\+Key\+Down}}
+\index{Is\+Key\+Down@{Is\+Key\+Down}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Is\+Key\+Down}]{\setlength{\rightskip}{0pt plus 5cm}bool Input\+Manager\+::\+Is\+Key\+Down (
+\begin{DoxyParamCaption}
+\item[{int}]{key}
+\end{DoxyParamCaption}
+) const}}\label{classInputManager_a97d25d372ab28dbc119b5a0919e38244}
+\hypertarget{classInputManager_a410c6f6a0fa13dfd938d6d26a524fc19}{\index{Input\+Manager@{Input\+Manager}!Is\+Mouse\+Down@{Is\+Mouse\+Down}}
+\index{Is\+Mouse\+Down@{Is\+Mouse\+Down}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Is\+Mouse\+Down}]{\setlength{\rightskip}{0pt plus 5cm}bool Input\+Manager\+::\+Is\+Mouse\+Down (
+\begin{DoxyParamCaption}
+\item[{int}]{button}
+\end{DoxyParamCaption}
+) const}}\label{classInputManager_a410c6f6a0fa13dfd938d6d26a524fc19}
+\hypertarget{classInputManager_aeb81e9386db70d1cc204e45963ec9077}{\index{Input\+Manager@{Input\+Manager}!Is\+Mouse\+Scrolling@{Is\+Mouse\+Scrolling}}
+\index{Is\+Mouse\+Scrolling@{Is\+Mouse\+Scrolling}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Is\+Mouse\+Scrolling}]{\setlength{\rightskip}{0pt plus 5cm}bool Input\+Manager\+::\+Is\+Mouse\+Scrolling (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classInputManager_aeb81e9386db70d1cc204e45963ec9077}
+\hypertarget{classInputManager_a6793bc63304cafeaf45151d083946f42}{\index{Input\+Manager@{Input\+Manager}!Key\+Press@{Key\+Press}}
+\index{Key\+Press@{Key\+Press}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Key\+Press}]{\setlength{\rightskip}{0pt plus 5cm}bool Input\+Manager\+::\+Key\+Press (
+\begin{DoxyParamCaption}
+\item[{int}]{key}
+\end{DoxyParamCaption}
+) const}}\label{classInputManager_a6793bc63304cafeaf45151d083946f42}
+\hypertarget{classInputManager_a161025491900d61e6090d6f6e576934f}{\index{Input\+Manager@{Input\+Manager}!Key\+Release@{Key\+Release}}
+\index{Key\+Release@{Key\+Release}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Key\+Release}]{\setlength{\rightskip}{0pt plus 5cm}bool Input\+Manager\+::\+Key\+Release (
+\begin{DoxyParamCaption}
+\item[{int}]{key}
+\end{DoxyParamCaption}
+) const}}\label{classInputManager_a161025491900d61e6090d6f6e576934f}
+\hypertarget{classInputManager_ad07e913718fc94601dfccb5c3a6fb0ae}{\index{Input\+Manager@{Input\+Manager}!Mouse\+Press@{Mouse\+Press}}
+\index{Mouse\+Press@{Mouse\+Press}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Mouse\+Press}]{\setlength{\rightskip}{0pt plus 5cm}bool Input\+Manager\+::\+Mouse\+Press (
+\begin{DoxyParamCaption}
+\item[{int}]{button}
+\end{DoxyParamCaption}
+) const}}\label{classInputManager_ad07e913718fc94601dfccb5c3a6fb0ae}
+\hypertarget{classInputManager_a0056b265c8790bf862f6bff283349985}{\index{Input\+Manager@{Input\+Manager}!Mouse\+Release@{Mouse\+Release}}
+\index{Mouse\+Release@{Mouse\+Release}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Mouse\+Release}]{\setlength{\rightskip}{0pt plus 5cm}bool Input\+Manager\+::\+Mouse\+Release (
+\begin{DoxyParamCaption}
+\item[{int}]{button}
+\end{DoxyParamCaption}
+) const}}\label{classInputManager_a0056b265c8790bf862f6bff283349985}
+\hypertarget{classInputManager_acfca74249b64db2cb2a3b67c0e944696}{\index{Input\+Manager@{Input\+Manager}!Mouse\+Scroll@{Mouse\+Scroll}}
+\index{Mouse\+Scroll@{Mouse\+Scroll}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Mouse\+Scroll}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Input\+Manager\+::\+Mouse\+Scroll (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classInputManager_acfca74249b64db2cb2a3b67c0e944696}
+\hypertarget{classInputManager_a0c96a7ae70931d034a78a8e97b70dd27}{\index{Input\+Manager@{Input\+Manager}!Quit\+Requested@{Quit\+Requested}}
+\index{Quit\+Requested@{Quit\+Requested}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Quit\+Requested}]{\setlength{\rightskip}{0pt plus 5cm}bool Input\+Manager\+::\+Quit\+Requested (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classInputManager_a0c96a7ae70931d034a78a8e97b70dd27}
+\hypertarget{classInputManager_afc344b3b2e204cfb39ee17b33bcc5eab}{\index{Input\+Manager@{Input\+Manager}!Update@{Update}}
+\index{Update@{Update}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void Input\+Manager\+::\+Update (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classInputManager_afc344b3b2e204cfb39ee17b33bcc5eab}
+
+
+\subsection{Atributos}
+\hypertarget{classInputManager_a3c6b0a27b387bfb4b2fc669db0f68bad}{\index{Input\+Manager@{Input\+Manager}!key\+State@{key\+State}}
+\index{key\+State@{key\+State}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{key\+State}]{\setlength{\rightskip}{0pt plus 5cm}bool Input\+Manager\+::key\+State\mbox{[}416\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}}\label{classInputManager_a3c6b0a27b387bfb4b2fc669db0f68bad}
+\hypertarget{classInputManager_ae8ce3bc2865693cbb548ef2f1603f991}{\index{Input\+Manager@{Input\+Manager}!key\+Update@{key\+Update}}
+\index{key\+Update@{key\+Update}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{key\+Update}]{\setlength{\rightskip}{0pt plus 5cm}int Input\+Manager\+::key\+Update\mbox{[}416\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}}\label{classInputManager_ae8ce3bc2865693cbb548ef2f1603f991}
+\hypertarget{classInputManager_a9c9d5ed1da1b205d9311ec4a9bab06ea}{\index{Input\+Manager@{Input\+Manager}!mouse\+Scrool\+State@{mouse\+Scrool\+State}}
+\index{mouse\+Scrool\+State@{mouse\+Scrool\+State}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{mouse\+Scrool\+State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Input\+Manager\+::mouse\+Scrool\+State\hspace{0.3cm}{\ttfamily [private]}}}\label{classInputManager_a9c9d5ed1da1b205d9311ec4a9bab06ea}
+\hypertarget{classInputManager_a646fc44d21853e1354aaacc6a27e79ca}{\index{Input\+Manager@{Input\+Manager}!mouse\+Scrool\+Update@{mouse\+Scrool\+Update}}
+\index{mouse\+Scrool\+Update@{mouse\+Scrool\+Update}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{mouse\+Scrool\+Update}]{\setlength{\rightskip}{0pt plus 5cm}int Input\+Manager\+::mouse\+Scrool\+Update\hspace{0.3cm}{\ttfamily [private]}}}\label{classInputManager_a646fc44d21853e1354aaacc6a27e79ca}
+\hypertarget{classInputManager_af0f48b36a7d8e0f2c0b24057143b29c7}{\index{Input\+Manager@{Input\+Manager}!mouse\+State@{mouse\+State}}
+\index{mouse\+State@{mouse\+State}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{mouse\+State}]{\setlength{\rightskip}{0pt plus 5cm}bool Input\+Manager\+::mouse\+State\mbox{[}6\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}}\label{classInputManager_af0f48b36a7d8e0f2c0b24057143b29c7}
+\hypertarget{classInputManager_a1226f8af91792ac5ac5adda5fa2f0db0}{\index{Input\+Manager@{Input\+Manager}!mouse\+Update@{mouse\+Update}}
+\index{mouse\+Update@{mouse\+Update}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{mouse\+Update}]{\setlength{\rightskip}{0pt plus 5cm}int Input\+Manager\+::mouse\+Update\mbox{[}6\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}}\label{classInputManager_a1226f8af91792ac5ac5adda5fa2f0db0}
+\hypertarget{classInputManager_a29fddcf9d741e4de04492ad76b7cb3af}{\index{Input\+Manager@{Input\+Manager}!mouse\+X@{mouse\+X}}
+\index{mouse\+X@{mouse\+X}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{mouse\+X}]{\setlength{\rightskip}{0pt plus 5cm}int Input\+Manager\+::mouse\+X\hspace{0.3cm}{\ttfamily [private]}}}\label{classInputManager_a29fddcf9d741e4de04492ad76b7cb3af}
+\hypertarget{classInputManager_afb189c58dd5ee470a3202c685c5c7f1e}{\index{Input\+Manager@{Input\+Manager}!mouse\+Y@{mouse\+Y}}
+\index{mouse\+Y@{mouse\+Y}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{mouse\+Y}]{\setlength{\rightskip}{0pt plus 5cm}int Input\+Manager\+::mouse\+Y\hspace{0.3cm}{\ttfamily [private]}}}\label{classInputManager_afb189c58dd5ee470a3202c685c5c7f1e}
+\hypertarget{classInputManager_a078d1f2f8af5f17005f21f7407dbca57}{\index{Input\+Manager@{Input\+Manager}!quit\+Requested@{quit\+Requested}}
+\index{quit\+Requested@{quit\+Requested}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{quit\+Requested}]{\setlength{\rightskip}{0pt plus 5cm}bool Input\+Manager\+::quit\+Requested\hspace{0.3cm}{\ttfamily [private]}}}\label{classInputManager_a078d1f2f8af5f17005f21f7407dbca57}
+\hypertarget{classInputManager_a96541a9ebd43184f92449f9daf94724f}{\index{Input\+Manager@{Input\+Manager}!update\+Counter@{update\+Counter}}
+\index{update\+Counter@{update\+Counter}!Input\+Manager@{Input\+Manager}}
+\subsubsection[{update\+Counter}]{\setlength{\rightskip}{0pt plus 5cm}int Input\+Manager\+::update\+Counter\hspace{0.3cm}{\ttfamily [private]}}}\label{classInputManager_a96541a9ebd43184f92449f9daf94724f}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/\hyperlink{InputManager_8h}{Input\+Manager.\+h}\item 
+Engine/src/\hyperlink{InputManager_8cpp}{Input\+Manager.\+cpp}\end{DoxyCompactItemize}

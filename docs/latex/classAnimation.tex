@@ -1,0 +1,148 @@
+\hypertarget{classAnimation}{\section{Referência da Classe Animation}
+\label{classAnimation}\index{Animation@{Animation}}
+}
+
+
+{\ttfamily \#include $<$Animation.\+h$>$}
+
+
+
+Diagrama de Hierarquia para Animation\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classAnimation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboração para Animation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAnimation__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAnimation_a48d3ca5ecd4b4ca7f2f6fe10cf1f91d4}{Animation} (float x, float y, float \hyperlink{classGameObject_ac55f6ebdf4cfbab508680ad7290fb26c}{rotation}, string sprite, int frame\+Count, float frame\+Time, bool ends)
+\item 
+void \hyperlink{classAnimation_a1871db60d1fb351aeb77ada38dd4dd9c}{Update} (float dt)
+\item 
+void \hyperlink{classAnimation_a49749e3890cec3896e6f726323544c26}{Render} (void)
+\item 
+bool \hyperlink{classAnimation_ad1eaa9ff240cbcc114270ea174523702}{Is\+Dead} (void)
+\item 
+void \hyperlink{classAnimation_a611b21418311eb697ec4af1aaff92657}{Notify\+Collision} (\hyperlink{classGameObject}{Game\+Object} \&other)
+\item 
+bool \hyperlink{classAnimation_a166f36012f3092275648a74272e8ff0f}{Is} (string type)
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTimer}{Timer} \hyperlink{classAnimation_ad4e2674025e4f91143e574c09e213e38}{end\+Timer}
+\item 
+float \hyperlink{classAnimation_ab8b4a075f8bf097b7af6e732949235c6}{time\+Limit}
+\item 
+bool \hyperlink{classAnimation_aa8be050af14ac86c2cce45908bae750d}{onetime\+Only}
+\item 
+\hyperlink{classSprite}{Sprite} \hyperlink{classAnimation_abf968c115c1d8c88da797215d58ad516}{sp}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classAnimation_a48d3ca5ecd4b4ca7f2f6fe10cf1f91d4}{\index{Animation@{Animation}!Animation@{Animation}}
+\index{Animation@{Animation}!Animation@{Animation}}
+\subsubsection[{Animation}]{\setlength{\rightskip}{0pt plus 5cm}Animation\+::\+Animation (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{rotation, }
+\item[{string}]{sprite, }
+\item[{int}]{frame\+Count, }
+\item[{float}]{frame\+Time, }
+\item[{bool}]{ends}
+\end{DoxyParamCaption}
+)}}\label{classAnimation_a48d3ca5ecd4b4ca7f2f6fe10cf1f91d4}
+
+
+\subsection{Métodos}
+\hypertarget{classAnimation_a166f36012f3092275648a74272e8ff0f}{\index{Animation@{Animation}!Is@{Is}}
+\index{Is@{Is}!Animation@{Animation}}
+\subsubsection[{Is}]{\setlength{\rightskip}{0pt plus 5cm}bool Animation\+::\+Is (
+\begin{DoxyParamCaption}
+\item[{string}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classAnimation_a166f36012f3092275648a74272e8ff0f}
+
+
+Implementa \hyperlink{classGameObject_a3ddba599a800d774463c7082b7ef4801}{Game\+Object}.
+
+\hypertarget{classAnimation_ad1eaa9ff240cbcc114270ea174523702}{\index{Animation@{Animation}!Is\+Dead@{Is\+Dead}}
+\index{Is\+Dead@{Is\+Dead}!Animation@{Animation}}
+\subsubsection[{Is\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}bool Animation\+::\+Is\+Dead (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classAnimation_ad1eaa9ff240cbcc114270ea174523702}
+
+
+Implementa \hyperlink{classGameObject_a076afa2ea9190c49046f86a0946b4543}{Game\+Object}.
+
+\hypertarget{classAnimation_a611b21418311eb697ec4af1aaff92657}{\index{Animation@{Animation}!Notify\+Collision@{Notify\+Collision}}
+\index{Notify\+Collision@{Notify\+Collision}!Animation@{Animation}}
+\subsubsection[{Notify\+Collision}]{\setlength{\rightskip}{0pt plus 5cm}void Animation\+::\+Notify\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Object} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classAnimation_a611b21418311eb697ec4af1aaff92657}
+
+
+Implementa \hyperlink{classGameObject_aa627e6c2913983fc5f108c1c4d303eb8}{Game\+Object}.
+
+\hypertarget{classAnimation_a49749e3890cec3896e6f726323544c26}{\index{Animation@{Animation}!Render@{Render}}
+\index{Render@{Render}!Animation@{Animation}}
+\subsubsection[{Render}]{\setlength{\rightskip}{0pt plus 5cm}void Animation\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classAnimation_a49749e3890cec3896e6f726323544c26}
+
+
+Implementa \hyperlink{classGameObject_a976b9c0d72212389603802f95b3f3424}{Game\+Object}.
+
+\hypertarget{classAnimation_a1871db60d1fb351aeb77ada38dd4dd9c}{\index{Animation@{Animation}!Update@{Update}}
+\index{Update@{Update}!Animation@{Animation}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void Animation\+::\+Update (
+\begin{DoxyParamCaption}
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classAnimation_a1871db60d1fb351aeb77ada38dd4dd9c}
+
+
+Implementa \hyperlink{classGameObject_a93ed63df640deb516a020530e7f8e045}{Game\+Object}.
+
+
+
+\subsection{Atributos}
+\hypertarget{classAnimation_ad4e2674025e4f91143e574c09e213e38}{\index{Animation@{Animation}!end\+Timer@{end\+Timer}}
+\index{end\+Timer@{end\+Timer}!Animation@{Animation}}
+\subsubsection[{end\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Timer} Animation\+::end\+Timer\hspace{0.3cm}{\ttfamily [private]}}}\label{classAnimation_ad4e2674025e4f91143e574c09e213e38}
+\hypertarget{classAnimation_aa8be050af14ac86c2cce45908bae750d}{\index{Animation@{Animation}!onetime\+Only@{onetime\+Only}}
+\index{onetime\+Only@{onetime\+Only}!Animation@{Animation}}
+\subsubsection[{onetime\+Only}]{\setlength{\rightskip}{0pt plus 5cm}bool Animation\+::onetime\+Only\hspace{0.3cm}{\ttfamily [private]}}}\label{classAnimation_aa8be050af14ac86c2cce45908bae750d}
+\hypertarget{classAnimation_abf968c115c1d8c88da797215d58ad516}{\index{Animation@{Animation}!sp@{sp}}
+\index{sp@{sp}!Animation@{Animation}}
+\subsubsection[{sp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite} Animation\+::sp\hspace{0.3cm}{\ttfamily [private]}}}\label{classAnimation_abf968c115c1d8c88da797215d58ad516}
+\hypertarget{classAnimation_ab8b4a075f8bf097b7af6e732949235c6}{\index{Animation@{Animation}!time\+Limit@{time\+Limit}}
+\index{time\+Limit@{time\+Limit}!Animation@{Animation}}
+\subsubsection[{time\+Limit}]{\setlength{\rightskip}{0pt plus 5cm}float Animation\+::time\+Limit\hspace{0.3cm}{\ttfamily [private]}}}\label{classAnimation_ab8b4a075f8bf097b7af6e732949235c6}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/\hyperlink{Animation_8h}{Animation.\+h}\item 
+Engine/src/\hyperlink{Animation_8cpp}{Animation.\+cpp}\end{DoxyCompactItemize}

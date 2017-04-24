@@ -1,0 +1,196 @@
+\hypertarget{classPenguins}{\section{Referência da Classe Penguins}
+\label{classPenguins}\index{Penguins@{Penguins}}
+}
+
+
+{\ttfamily \#include $<$Penguins.\+h$>$}
+
+
+
+Diagrama de Hierarquia para Penguins\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classPenguins__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboração para Penguins\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPenguins__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPenguins_ac87a9d6a759c4870594a167e005aae9e}{Penguins} (float x, float y)
+\item 
+\hyperlink{classPenguins_a685a9c6e30a94476d4dadc8bcf845211}{$\sim$\+Penguins} ()
+\item 
+void \hyperlink{classPenguins_a63b378e640cd3a76cbe6afaf0c6578d7}{Update} (float dt)
+\item 
+void \hyperlink{classPenguins_a5af1c983add97265c7491d17d2dc019e}{Render} (void)
+\item 
+bool \hyperlink{classPenguins_ab76c07904df3da2d768f08eb3da3d1e0}{Is\+Dead} (void)
+\item 
+void \hyperlink{classPenguins_a20b86d9efb0eee5169658bc57f6fc61b}{Shoot} (void)
+\item 
+void \hyperlink{classPenguins_aba0e8bc9309f056d196cd0fd267fbe78}{Notify\+Collision} (\hyperlink{classGameObject}{Game\+Object} \&other)
+\item 
+bool \hyperlink{classPenguins_a73a0c4f96de975d6219b4d6016fac29e}{Is} (string type)
+\end{DoxyCompactItemize}
+\subsection*{Atributos Estáticos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classPenguins}{Penguins} $\ast$ \hyperlink{classPenguins_a7d530cec6ba98b902c6120a90d574c0f}{player} = nullptr
+\end{DoxyCompactItemize}
+\subsection*{Métodos Privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classPenguins_a5f1be8c9d5de19d15b3bbcf12e224956}{Check\+Map\+Limits} (void)
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSprite}{Sprite} \hyperlink{classPenguins_a8073784e6c016a2bd44a306cdc0d0027}{body\+S\+P}
+\item 
+\hyperlink{classSprite}{Sprite} \hyperlink{classPenguins_a7e2ee1ab898ff561288c79882862e6c0}{cannon\+Sp}
+\item 
+\hyperlink{classVec2}{Vec2} \hyperlink{classPenguins_a7465442ffa391ddbe59486cf8475abcb}{speed}
+\item 
+float \hyperlink{classPenguins_a43abb7eaf4714f886be6c25babcdcb30}{linear\+Speed}
+\item 
+float \hyperlink{classPenguins_a71d44d99bbac380b45df64501523ab45}{cannon\+Angle}
+\item 
+int \hyperlink{classPenguins_a1d82db553867d4b84d2ce30c037c5882}{hp}
+\item 
+\hyperlink{classTimer}{Timer} \hyperlink{classPenguins_a8067358ae8be93b771475815b9c9d8d4}{bullets\+Timer}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classPenguins_ac87a9d6a759c4870594a167e005aae9e}{\index{Penguins@{Penguins}!Penguins@{Penguins}}
+\index{Penguins@{Penguins}!Penguins@{Penguins}}
+\subsubsection[{Penguins}]{\setlength{\rightskip}{0pt plus 5cm}Penguins\+::\+Penguins (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)}}\label{classPenguins_ac87a9d6a759c4870594a167e005aae9e}
+\hypertarget{classPenguins_a685a9c6e30a94476d4dadc8bcf845211}{\index{Penguins@{Penguins}!````~Penguins@{$\sim$\+Penguins}}
+\index{````~Penguins@{$\sim$\+Penguins}!Penguins@{Penguins}}
+\subsubsection[{$\sim$\+Penguins}]{\setlength{\rightskip}{0pt plus 5cm}Penguins\+::$\sim$\+Penguins (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPenguins_a685a9c6e30a94476d4dadc8bcf845211}
+
+
+\subsection{Métodos}
+\hypertarget{classPenguins_a5f1be8c9d5de19d15b3bbcf12e224956}{\index{Penguins@{Penguins}!Check\+Map\+Limits@{Check\+Map\+Limits}}
+\index{Check\+Map\+Limits@{Check\+Map\+Limits}!Penguins@{Penguins}}
+\subsubsection[{Check\+Map\+Limits}]{\setlength{\rightskip}{0pt plus 5cm}void Penguins\+::\+Check\+Map\+Limits (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classPenguins_a5f1be8c9d5de19d15b3bbcf12e224956}
+\hypertarget{classPenguins_a73a0c4f96de975d6219b4d6016fac29e}{\index{Penguins@{Penguins}!Is@{Is}}
+\index{Is@{Is}!Penguins@{Penguins}}
+\subsubsection[{Is}]{\setlength{\rightskip}{0pt plus 5cm}bool Penguins\+::\+Is (
+\begin{DoxyParamCaption}
+\item[{string}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classPenguins_a73a0c4f96de975d6219b4d6016fac29e}
+
+
+Implementa \hyperlink{classGameObject_a3ddba599a800d774463c7082b7ef4801}{Game\+Object}.
+
+\hypertarget{classPenguins_ab76c07904df3da2d768f08eb3da3d1e0}{\index{Penguins@{Penguins}!Is\+Dead@{Is\+Dead}}
+\index{Is\+Dead@{Is\+Dead}!Penguins@{Penguins}}
+\subsubsection[{Is\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}bool Penguins\+::\+Is\+Dead (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classPenguins_ab76c07904df3da2d768f08eb3da3d1e0}
+
+
+Implementa \hyperlink{classGameObject_a076afa2ea9190c49046f86a0946b4543}{Game\+Object}.
+
+\hypertarget{classPenguins_aba0e8bc9309f056d196cd0fd267fbe78}{\index{Penguins@{Penguins}!Notify\+Collision@{Notify\+Collision}}
+\index{Notify\+Collision@{Notify\+Collision}!Penguins@{Penguins}}
+\subsubsection[{Notify\+Collision}]{\setlength{\rightskip}{0pt plus 5cm}void Penguins\+::\+Notify\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Object} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classPenguins_aba0e8bc9309f056d196cd0fd267fbe78}
+
+
+Implementa \hyperlink{classGameObject_aa627e6c2913983fc5f108c1c4d303eb8}{Game\+Object}.
+
+\hypertarget{classPenguins_a5af1c983add97265c7491d17d2dc019e}{\index{Penguins@{Penguins}!Render@{Render}}
+\index{Render@{Render}!Penguins@{Penguins}}
+\subsubsection[{Render}]{\setlength{\rightskip}{0pt plus 5cm}void Penguins\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classPenguins_a5af1c983add97265c7491d17d2dc019e}
+
+
+Implementa \hyperlink{classGameObject_a976b9c0d72212389603802f95b3f3424}{Game\+Object}.
+
+\hypertarget{classPenguins_a20b86d9efb0eee5169658bc57f6fc61b}{\index{Penguins@{Penguins}!Shoot@{Shoot}}
+\index{Shoot@{Shoot}!Penguins@{Penguins}}
+\subsubsection[{Shoot}]{\setlength{\rightskip}{0pt plus 5cm}void Penguins\+::\+Shoot (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classPenguins_a20b86d9efb0eee5169658bc57f6fc61b}
+\hypertarget{classPenguins_a63b378e640cd3a76cbe6afaf0c6578d7}{\index{Penguins@{Penguins}!Update@{Update}}
+\index{Update@{Update}!Penguins@{Penguins}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void Penguins\+::\+Update (
+\begin{DoxyParamCaption}
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classPenguins_a63b378e640cd3a76cbe6afaf0c6578d7}
+
+
+Implementa \hyperlink{classGameObject_a93ed63df640deb516a020530e7f8e045}{Game\+Object}.
+
+
+
+\subsection{Atributos}
+\hypertarget{classPenguins_a8073784e6c016a2bd44a306cdc0d0027}{\index{Penguins@{Penguins}!body\+S\+P@{body\+S\+P}}
+\index{body\+S\+P@{body\+S\+P}!Penguins@{Penguins}}
+\subsubsection[{body\+S\+P}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite} Penguins\+::body\+S\+P\hspace{0.3cm}{\ttfamily [private]}}}\label{classPenguins_a8073784e6c016a2bd44a306cdc0d0027}
+\hypertarget{classPenguins_a8067358ae8be93b771475815b9c9d8d4}{\index{Penguins@{Penguins}!bullets\+Timer@{bullets\+Timer}}
+\index{bullets\+Timer@{bullets\+Timer}!Penguins@{Penguins}}
+\subsubsection[{bullets\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Timer} Penguins\+::bullets\+Timer\hspace{0.3cm}{\ttfamily [private]}}}\label{classPenguins_a8067358ae8be93b771475815b9c9d8d4}
+\hypertarget{classPenguins_a71d44d99bbac380b45df64501523ab45}{\index{Penguins@{Penguins}!cannon\+Angle@{cannon\+Angle}}
+\index{cannon\+Angle@{cannon\+Angle}!Penguins@{Penguins}}
+\subsubsection[{cannon\+Angle}]{\setlength{\rightskip}{0pt plus 5cm}float Penguins\+::cannon\+Angle\hspace{0.3cm}{\ttfamily [private]}}}\label{classPenguins_a71d44d99bbac380b45df64501523ab45}
+\hypertarget{classPenguins_a7e2ee1ab898ff561288c79882862e6c0}{\index{Penguins@{Penguins}!cannon\+Sp@{cannon\+Sp}}
+\index{cannon\+Sp@{cannon\+Sp}!Penguins@{Penguins}}
+\subsubsection[{cannon\+Sp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite} Penguins\+::cannon\+Sp\hspace{0.3cm}{\ttfamily [private]}}}\label{classPenguins_a7e2ee1ab898ff561288c79882862e6c0}
+\hypertarget{classPenguins_a1d82db553867d4b84d2ce30c037c5882}{\index{Penguins@{Penguins}!hp@{hp}}
+\index{hp@{hp}!Penguins@{Penguins}}
+\subsubsection[{hp}]{\setlength{\rightskip}{0pt plus 5cm}int Penguins\+::hp\hspace{0.3cm}{\ttfamily [private]}}}\label{classPenguins_a1d82db553867d4b84d2ce30c037c5882}
+\hypertarget{classPenguins_a43abb7eaf4714f886be6c25babcdcb30}{\index{Penguins@{Penguins}!linear\+Speed@{linear\+Speed}}
+\index{linear\+Speed@{linear\+Speed}!Penguins@{Penguins}}
+\subsubsection[{linear\+Speed}]{\setlength{\rightskip}{0pt plus 5cm}float Penguins\+::linear\+Speed\hspace{0.3cm}{\ttfamily [private]}}}\label{classPenguins_a43abb7eaf4714f886be6c25babcdcb30}
+\hypertarget{classPenguins_a7d530cec6ba98b902c6120a90d574c0f}{\index{Penguins@{Penguins}!player@{player}}
+\index{player@{player}!Penguins@{Penguins}}
+\subsubsection[{player}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Penguins} $\ast$ Penguins\+::player = nullptr\hspace{0.3cm}{\ttfamily [static]}}}\label{classPenguins_a7d530cec6ba98b902c6120a90d574c0f}
+\hypertarget{classPenguins_a7465442ffa391ddbe59486cf8475abcb}{\index{Penguins@{Penguins}!speed@{speed}}
+\index{speed@{speed}!Penguins@{Penguins}}
+\subsubsection[{speed}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Penguins\+::speed\hspace{0.3cm}{\ttfamily [private]}}}\label{classPenguins_a7465442ffa391ddbe59486cf8475abcb}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Game/include/\hyperlink{Penguins_8h}{Penguins.\+h}\item 
+Game/src/\hyperlink{Penguins_8cpp}{Penguins.\+cpp}\end{DoxyCompactItemize}

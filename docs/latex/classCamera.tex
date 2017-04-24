@@ -1,0 +1,175 @@
+\hypertarget{classCamera}{\section{Referência da Classe Camera}
+\label{classCamera}\index{Camera@{Camera}}
+}
+
+
+{\ttfamily \#include $<$Camera.\+h$>$}
+
+
+
+Diagrama de colaboração para Camera\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{classCamera__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classCamera_a4290d7e4815d2e0726d88b743d44e8df}{Follow} (\hyperlink{classGameObject}{Game\+Object} $\ast$new\+Focus)
+\item 
+static void \hyperlink{classCamera_aa9ca7decdebf7147c9d6dc747e7d59e9}{Unfollow} (void)
+\item 
+static void \hyperlink{classCamera_a3d528df411b986596b652b61120ff302}{Update} (float dt)
+\item 
+static void \hyperlink{classCamera_a7dc4b1fd7f5e03ffb25d306fe81ee4c0}{Force\+Zoom} (float new\+Zoom)
+\item 
+static void \hyperlink{classCamera_a2919142c206574be101efc1230eb3c8d}{Set\+Zoomnable} (bool zoomnable)
+\item 
+static void \hyperlink{classCamera_ad6638a961e2fefbe69d4d7d0a0591fb6}{Zoom} (float delta\+Zoom)
+\item 
+static void \hyperlink{classCamera_aa320e33bcbe395cdad9f63887ea15689}{Set\+Zoom\+Limits} (float \hyperlink{classCamera_a65d5a8e5533b568224d9fc488bfdcb28}{min\+Zoom}=0, float \hyperlink{classCamera_af418b7887d39c773d73cb179c497a8da}{max\+Zoom}=0)
+\item 
+static float \hyperlink{classCamera_af6fe062fcf5e1e31224d4dd9f6cafa51}{Get\+Zoom} (void)
+\item 
+static void \hyperlink{classCamera_a4373a9b1baa7b98e4fe5859e0645baed}{Set\+Zoom\+Speed} (float new\+Zoom\+Speed)
+\end{DoxyCompactItemize}
+\subsection*{Atributos Estáticos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classVec2}{Vec2} \hyperlink{classCamera_a748c4e2867e34f45a431a1d2dcc6fee2}{pos}
+\item 
+static \hyperlink{classVec2}{Vec2} \hyperlink{classCamera_aa0d0a54eb56182723dbd0ce61e0b3e8d}{speed}
+\end{DoxyCompactItemize}
+\subsection*{Métodos Privados}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCamera_a01f94c3543f56ede7af49dc778f19331}{Camera} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classGameObject}{Game\+Object} $\ast$ \hyperlink{classCamera_a266c767efbe18088d7f79880f7e98998}{focus} = nullptr
+\item 
+static float \hyperlink{classCamera_ac867d6d379c0d052ae65d57c7c313970}{current\+Zoom} = 1.\+0
+\item 
+static float \hyperlink{classCamera_a65d5a8e5533b568224d9fc488bfdcb28}{min\+Zoom} = \hyperlink{Camera_8h_a00bdac33db330ffa8021dc36c85506fe}{C\+A\+M\+E\+R\+A\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+I\+N\+\_\+\+Z\+O\+O\+M}
+\item 
+static float \hyperlink{classCamera_af418b7887d39c773d73cb179c497a8da}{max\+Zoom} = \hyperlink{Camera_8h_a53a75501f4f47ca972ec050b09df05a3}{C\+A\+M\+E\+R\+A\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+X\+\_\+\+Z\+O\+O\+M}
+\item 
+static bool \hyperlink{classCamera_a7f235a90f57567a0012ed8f4a52634ce}{zoom\+Fixed} = !\hyperlink{Camera_8h_a719f5e3a817ca056a76495044f676277}{C\+A\+M\+E\+R\+A\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+Z\+O\+O\+M\+A\+B\+L\+E}
+\item 
+static float \hyperlink{classCamera_a7ec8dd2dcb2c3446ba88ad30e2e195d9}{zoom\+Speed} = \hyperlink{Camera_8h_a896eaf751ce7e99c97bfaa76ca33f150}{C\+A\+M\+E\+R\+A\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+Z\+O\+O\+M\+\_\+\+S\+P\+E\+E\+D}
+\end{DoxyCompactItemize}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classCamera_a01f94c3543f56ede7af49dc778f19331}{\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\subsubsection[{Camera}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classCamera_a01f94c3543f56ede7af49dc778f19331}
+
+
+\subsection{Métodos}
+\hypertarget{classCamera_a4290d7e4815d2e0726d88b743d44e8df}{\index{Camera@{Camera}!Follow@{Follow}}
+\index{Follow@{Follow}!Camera@{Camera}}
+\subsubsection[{Follow}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Follow (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Object} $\ast$}]{new\+Focus}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classCamera_a4290d7e4815d2e0726d88b743d44e8df}
+\hypertarget{classCamera_a7dc4b1fd7f5e03ffb25d306fe81ee4c0}{\index{Camera@{Camera}!Force\+Zoom@{Force\+Zoom}}
+\index{Force\+Zoom@{Force\+Zoom}!Camera@{Camera}}
+\subsubsection[{Force\+Zoom}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Force\+Zoom (
+\begin{DoxyParamCaption}
+\item[{float}]{new\+Zoom}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classCamera_a7dc4b1fd7f5e03ffb25d306fe81ee4c0}
+\hypertarget{classCamera_af6fe062fcf5e1e31224d4dd9f6cafa51}{\index{Camera@{Camera}!Get\+Zoom@{Get\+Zoom}}
+\index{Get\+Zoom@{Get\+Zoom}!Camera@{Camera}}
+\subsubsection[{Get\+Zoom}]{\setlength{\rightskip}{0pt plus 5cm}float Camera\+::\+Get\+Zoom (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classCamera_af6fe062fcf5e1e31224d4dd9f6cafa51}
+\hypertarget{classCamera_aa320e33bcbe395cdad9f63887ea15689}{\index{Camera@{Camera}!Set\+Zoom\+Limits@{Set\+Zoom\+Limits}}
+\index{Set\+Zoom\+Limits@{Set\+Zoom\+Limits}!Camera@{Camera}}
+\subsubsection[{Set\+Zoom\+Limits}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Set\+Zoom\+Limits (
+\begin{DoxyParamCaption}
+\item[{float}]{min\+Zoom = {\ttfamily 0}, }
+\item[{float}]{max\+Zoom = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classCamera_aa320e33bcbe395cdad9f63887ea15689}
+\hypertarget{classCamera_a2919142c206574be101efc1230eb3c8d}{\index{Camera@{Camera}!Set\+Zoomnable@{Set\+Zoomnable}}
+\index{Set\+Zoomnable@{Set\+Zoomnable}!Camera@{Camera}}
+\subsubsection[{Set\+Zoomnable}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Set\+Zoomnable (
+\begin{DoxyParamCaption}
+\item[{bool}]{zoomnable}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classCamera_a2919142c206574be101efc1230eb3c8d}
+\hypertarget{classCamera_a4373a9b1baa7b98e4fe5859e0645baed}{\index{Camera@{Camera}!Set\+Zoom\+Speed@{Set\+Zoom\+Speed}}
+\index{Set\+Zoom\+Speed@{Set\+Zoom\+Speed}!Camera@{Camera}}
+\subsubsection[{Set\+Zoom\+Speed}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Set\+Zoom\+Speed (
+\begin{DoxyParamCaption}
+\item[{float}]{new\+Zoom\+Speed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classCamera_a4373a9b1baa7b98e4fe5859e0645baed}
+\hypertarget{classCamera_aa9ca7decdebf7147c9d6dc747e7d59e9}{\index{Camera@{Camera}!Unfollow@{Unfollow}}
+\index{Unfollow@{Unfollow}!Camera@{Camera}}
+\subsubsection[{Unfollow}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Unfollow (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classCamera_aa9ca7decdebf7147c9d6dc747e7d59e9}
+\hypertarget{classCamera_a3d528df411b986596b652b61120ff302}{\index{Camera@{Camera}!Update@{Update}}
+\index{Update@{Update}!Camera@{Camera}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Update (
+\begin{DoxyParamCaption}
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classCamera_a3d528df411b986596b652b61120ff302}
+\hypertarget{classCamera_ad6638a961e2fefbe69d4d7d0a0591fb6}{\index{Camera@{Camera}!Zoom@{Zoom}}
+\index{Zoom@{Zoom}!Camera@{Camera}}
+\subsubsection[{Zoom}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Zoom (
+\begin{DoxyParamCaption}
+\item[{float}]{delta\+Zoom}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classCamera_ad6638a961e2fefbe69d4d7d0a0591fb6}
+
+
+\subsection{Atributos}
+\hypertarget{classCamera_ac867d6d379c0d052ae65d57c7c313970}{\index{Camera@{Camera}!current\+Zoom@{current\+Zoom}}
+\index{current\+Zoom@{current\+Zoom}!Camera@{Camera}}
+\subsubsection[{current\+Zoom}]{\setlength{\rightskip}{0pt plus 5cm}float Camera\+::current\+Zoom = 1.\+0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classCamera_ac867d6d379c0d052ae65d57c7c313970}
+\hypertarget{classCamera_a266c767efbe18088d7f79880f7e98998}{\index{Camera@{Camera}!focus@{focus}}
+\index{focus@{focus}!Camera@{Camera}}
+\subsubsection[{focus}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game\+Object} $\ast$ Camera\+::focus = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classCamera_a266c767efbe18088d7f79880f7e98998}
+\hypertarget{classCamera_af418b7887d39c773d73cb179c497a8da}{\index{Camera@{Camera}!max\+Zoom@{max\+Zoom}}
+\index{max\+Zoom@{max\+Zoom}!Camera@{Camera}}
+\subsubsection[{max\+Zoom}]{\setlength{\rightskip}{0pt plus 5cm}float Camera\+::max\+Zoom = {\bf C\+A\+M\+E\+R\+A\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+X\+\_\+\+Z\+O\+O\+M}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classCamera_af418b7887d39c773d73cb179c497a8da}
+\hypertarget{classCamera_a65d5a8e5533b568224d9fc488bfdcb28}{\index{Camera@{Camera}!min\+Zoom@{min\+Zoom}}
+\index{min\+Zoom@{min\+Zoom}!Camera@{Camera}}
+\subsubsection[{min\+Zoom}]{\setlength{\rightskip}{0pt plus 5cm}float Camera\+::min\+Zoom = {\bf C\+A\+M\+E\+R\+A\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+I\+N\+\_\+\+Z\+O\+O\+M}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classCamera_a65d5a8e5533b568224d9fc488bfdcb28}
+\hypertarget{classCamera_a748c4e2867e34f45a431a1d2dcc6fee2}{\index{Camera@{Camera}!pos@{pos}}
+\index{pos@{pos}!Camera@{Camera}}
+\subsubsection[{pos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Camera\+::pos\hspace{0.3cm}{\ttfamily [static]}}}\label{classCamera_a748c4e2867e34f45a431a1d2dcc6fee2}
+\hypertarget{classCamera_aa0d0a54eb56182723dbd0ce61e0b3e8d}{\index{Camera@{Camera}!speed@{speed}}
+\index{speed@{speed}!Camera@{Camera}}
+\subsubsection[{speed}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Camera\+::speed\hspace{0.3cm}{\ttfamily [static]}}}\label{classCamera_aa0d0a54eb56182723dbd0ce61e0b3e8d}
+\hypertarget{classCamera_a7f235a90f57567a0012ed8f4a52634ce}{\index{Camera@{Camera}!zoom\+Fixed@{zoom\+Fixed}}
+\index{zoom\+Fixed@{zoom\+Fixed}!Camera@{Camera}}
+\subsubsection[{zoom\+Fixed}]{\setlength{\rightskip}{0pt plus 5cm}bool Camera\+::zoom\+Fixed = !{\bf C\+A\+M\+E\+R\+A\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+Z\+O\+O\+M\+A\+B\+L\+E}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classCamera_a7f235a90f57567a0012ed8f4a52634ce}
+\hypertarget{classCamera_a7ec8dd2dcb2c3446ba88ad30e2e195d9}{\index{Camera@{Camera}!zoom\+Speed@{zoom\+Speed}}
+\index{zoom\+Speed@{zoom\+Speed}!Camera@{Camera}}
+\subsubsection[{zoom\+Speed}]{\setlength{\rightskip}{0pt plus 5cm}float Camera\+::zoom\+Speed = {\bf C\+A\+M\+E\+R\+A\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+Z\+O\+O\+M\+\_\+\+S\+P\+E\+E\+D}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classCamera_a7ec8dd2dcb2c3446ba88ad30e2e195d9}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/\hyperlink{Camera_8h}{Camera.\+h}\item 
+Engine/src/\hyperlink{Camera_8cpp}{Camera.\+cpp}\end{DoxyCompactItemize}

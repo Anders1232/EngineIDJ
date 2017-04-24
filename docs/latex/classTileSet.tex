@@ -1,0 +1,104 @@
+\hypertarget{classTileSet}{\section{Referência da Classe Tile\+Set}
+\label{classTileSet}\index{Tile\+Set@{Tile\+Set}}
+}
+
+
+{\ttfamily \#include $<$Tileset.\+h$>$}
+
+
+
+Diagrama de colaboração para Tile\+Set\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTileSet__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTileSet_a671a1040ef1ba7600a6ea21faa950819}{Tile\+Set} (int \hyperlink{classTileSet_a9ba9087a6da877f78af6cdf9afb0af7c}{tile\+Width}, int \hyperlink{classTileSet_a9409211e1c5560f969b737714be977c0}{tile\+Height}, string file)
+\item 
+void \hyperlink{classTileSet_a110acfa6e07aa9e5af1798065f23b0f1}{Render} (unsigned int index, float x, float y, bool zoom=true)
+\item 
+int \hyperlink{classTileSet_a4114a74c06ab5241d904cce67538ae17}{Get\+Tile\+Width} (void)
+\item 
+int \hyperlink{classTileSet_a965e951eb3ccfd6e318b27c710d973a0}{Get\+Tile\+Height} (void)
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSprite}{Sprite} \hyperlink{classTileSet_adbd7ac102ce306e4f367c32cfa576979}{tile\+Set}
+\item 
+int \hyperlink{classTileSet_abdfce26ff299e8904107edc22529e28f}{rows}
+\item 
+int \hyperlink{classTileSet_a47ae11f9d04f9da3fbaba834fdbc62cf}{columns}
+\item 
+int \hyperlink{classTileSet_a9ba9087a6da877f78af6cdf9afb0af7c}{tile\+Width}
+\item 
+int \hyperlink{classTileSet_a9409211e1c5560f969b737714be977c0}{tile\+Height}
+\end{DoxyCompactItemize}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classTileSet_a671a1040ef1ba7600a6ea21faa950819}{\index{Tile\+Set@{Tile\+Set}!Tile\+Set@{Tile\+Set}}
+\index{Tile\+Set@{Tile\+Set}!Tile\+Set@{Tile\+Set}}
+\subsubsection[{Tile\+Set}]{\setlength{\rightskip}{0pt plus 5cm}Tile\+Set\+::\+Tile\+Set (
+\begin{DoxyParamCaption}
+\item[{int}]{tile\+Width, }
+\item[{int}]{tile\+Height, }
+\item[{string}]{file}
+\end{DoxyParamCaption}
+)}}\label{classTileSet_a671a1040ef1ba7600a6ea21faa950819}
+
+
+\subsection{Métodos}
+\hypertarget{classTileSet_a965e951eb3ccfd6e318b27c710d973a0}{\index{Tile\+Set@{Tile\+Set}!Get\+Tile\+Height@{Get\+Tile\+Height}}
+\index{Get\+Tile\+Height@{Get\+Tile\+Height}!Tile\+Set@{Tile\+Set}}
+\subsubsection[{Get\+Tile\+Height}]{\setlength{\rightskip}{0pt plus 5cm}int Tile\+Set\+::\+Get\+Tile\+Height (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classTileSet_a965e951eb3ccfd6e318b27c710d973a0}
+\hypertarget{classTileSet_a4114a74c06ab5241d904cce67538ae17}{\index{Tile\+Set@{Tile\+Set}!Get\+Tile\+Width@{Get\+Tile\+Width}}
+\index{Get\+Tile\+Width@{Get\+Tile\+Width}!Tile\+Set@{Tile\+Set}}
+\subsubsection[{Get\+Tile\+Width}]{\setlength{\rightskip}{0pt plus 5cm}int Tile\+Set\+::\+Get\+Tile\+Width (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classTileSet_a4114a74c06ab5241d904cce67538ae17}
+\hypertarget{classTileSet_a110acfa6e07aa9e5af1798065f23b0f1}{\index{Tile\+Set@{Tile\+Set}!Render@{Render}}
+\index{Render@{Render}!Tile\+Set@{Tile\+Set}}
+\subsubsection[{Render}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+Set\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{index, }
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{bool}]{zoom = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}}\label{classTileSet_a110acfa6e07aa9e5af1798065f23b0f1}
+
+
+\subsection{Atributos}
+\hypertarget{classTileSet_a47ae11f9d04f9da3fbaba834fdbc62cf}{\index{Tile\+Set@{Tile\+Set}!columns@{columns}}
+\index{columns@{columns}!Tile\+Set@{Tile\+Set}}
+\subsubsection[{columns}]{\setlength{\rightskip}{0pt plus 5cm}int Tile\+Set\+::columns\hspace{0.3cm}{\ttfamily [private]}}}\label{classTileSet_a47ae11f9d04f9da3fbaba834fdbc62cf}
+\hypertarget{classTileSet_abdfce26ff299e8904107edc22529e28f}{\index{Tile\+Set@{Tile\+Set}!rows@{rows}}
+\index{rows@{rows}!Tile\+Set@{Tile\+Set}}
+\subsubsection[{rows}]{\setlength{\rightskip}{0pt plus 5cm}int Tile\+Set\+::rows\hspace{0.3cm}{\ttfamily [private]}}}\label{classTileSet_abdfce26ff299e8904107edc22529e28f}
+\hypertarget{classTileSet_a9409211e1c5560f969b737714be977c0}{\index{Tile\+Set@{Tile\+Set}!tile\+Height@{tile\+Height}}
+\index{tile\+Height@{tile\+Height}!Tile\+Set@{Tile\+Set}}
+\subsubsection[{tile\+Height}]{\setlength{\rightskip}{0pt plus 5cm}int Tile\+Set\+::tile\+Height\hspace{0.3cm}{\ttfamily [private]}}}\label{classTileSet_a9409211e1c5560f969b737714be977c0}
+\hypertarget{classTileSet_adbd7ac102ce306e4f367c32cfa576979}{\index{Tile\+Set@{Tile\+Set}!tile\+Set@{tile\+Set}}
+\index{tile\+Set@{tile\+Set}!Tile\+Set@{Tile\+Set}}
+\subsubsection[{tile\+Set}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite} Tile\+Set\+::tile\+Set\hspace{0.3cm}{\ttfamily [private]}}}\label{classTileSet_adbd7ac102ce306e4f367c32cfa576979}
+\hypertarget{classTileSet_a9ba9087a6da877f78af6cdf9afb0af7c}{\index{Tile\+Set@{Tile\+Set}!tile\+Width@{tile\+Width}}
+\index{tile\+Width@{tile\+Width}!Tile\+Set@{Tile\+Set}}
+\subsubsection[{tile\+Width}]{\setlength{\rightskip}{0pt plus 5cm}int Tile\+Set\+::tile\+Width\hspace{0.3cm}{\ttfamily [private]}}}\label{classTileSet_a9ba9087a6da877f78af6cdf9afb0af7c}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/\hyperlink{Tileset_8h}{Tileset.\+h}\item 
+Engine/src/\hyperlink{Tileset_8cpp}{Tileset.\+cpp}\end{DoxyCompactItemize}

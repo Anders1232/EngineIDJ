@@ -1,0 +1,140 @@
+\hypertarget{classGameObject}{\section{Referência da Classe Game\+Object}
+\label{classGameObject}\index{Game\+Object@{Game\+Object}}
+}
+
+
+{\ttfamily \#include $<$Gameobject.\+h$>$}
+
+
+
+Diagrama de Hierarquia para Game\+Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGameObject__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboração para Game\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{classGameObject__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGameObject_a78da814b13c8bf344ba0c5f72cb22af3}{Game\+Object} (void)
+\item 
+virtual \hyperlink{classGameObject_a3b086987a48c14ebe80939bd66d5f1c8}{$\sim$\+Game\+Object} (void)
+\item 
+virtual void \hyperlink{classGameObject_a93ed63df640deb516a020530e7f8e045}{Update} (float dt)=0
+\item 
+virtual void \hyperlink{classGameObject_a976b9c0d72212389603802f95b3f3424}{Render} (void)=0
+\item 
+virtual bool \hyperlink{classGameObject_a076afa2ea9190c49046f86a0946b4543}{Is\+Dead} (void)=0
+\item 
+virtual void \hyperlink{classGameObject_aa627e6c2913983fc5f108c1c4d303eb8}{Notify\+Collision} (\hyperlink{classGameObject}{Game\+Object} \&other)=0
+\item 
+virtual bool \hyperlink{classGameObject_a3ddba599a800d774463c7082b7ef4801}{Is} (string type)=0
+\end{DoxyCompactItemize}
+\subsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRect}{Rect} \hyperlink{classGameObject_ac8df90f2a6d41693cd7938e392ff6d0b}{box}
+\item 
+float \hyperlink{classGameObject_ac55f6ebdf4cfbab508680ad7290fb26c}{rotation}
+\end{DoxyCompactItemize}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classGameObject_a78da814b13c8bf344ba0c5f72cb22af3}{\index{Game\+Object@{Game\+Object}!Game\+Object@{Game\+Object}}
+\index{Game\+Object@{Game\+Object}!Game\+Object@{Game\+Object}}
+\subsubsection[{Game\+Object}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Object\+::\+Game\+Object (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classGameObject_a78da814b13c8bf344ba0c5f72cb22af3}
+\hypertarget{classGameObject_a3b086987a48c14ebe80939bd66d5f1c8}{\index{Game\+Object@{Game\+Object}!````~Game\+Object@{$\sim$\+Game\+Object}}
+\index{````~Game\+Object@{$\sim$\+Game\+Object}!Game\+Object@{Game\+Object}}
+\subsubsection[{$\sim$\+Game\+Object}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Object\+::$\sim$\+Game\+Object (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classGameObject_a3b086987a48c14ebe80939bd66d5f1c8}
+
+
+\subsection{Métodos}
+\hypertarget{classGameObject_a3ddba599a800d774463c7082b7ef4801}{\index{Game\+Object@{Game\+Object}!Is@{Is}}
+\index{Is@{Is}!Game\+Object@{Game\+Object}}
+\subsubsection[{Is}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Game\+Object\+::\+Is (
+\begin{DoxyParamCaption}
+\item[{string}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameObject_a3ddba599a800d774463c7082b7ef4801}
+
+
+Implementado por \hyperlink{classBullet_aaa159cc9dcc3e7c780bbccc1ebc6d95a}{Bullet}, \hyperlink{classAlien_a9697e1dc132cc829d787c8bd586a01a2}{Alien}, \hyperlink{classAnimation_a166f36012f3092275648a74272e8ff0f}{Animation}, \hyperlink{classPenguins_a73a0c4f96de975d6219b4d6016fac29e}{Penguins} e \hyperlink{classMinion_a27b0afce19e3ab3e4c76615d5902207e}{Minion}.
+
+\hypertarget{classGameObject_a076afa2ea9190c49046f86a0946b4543}{\index{Game\+Object@{Game\+Object}!Is\+Dead@{Is\+Dead}}
+\index{Is\+Dead@{Is\+Dead}!Game\+Object@{Game\+Object}}
+\subsubsection[{Is\+Dead}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Game\+Object\+::\+Is\+Dead (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameObject_a076afa2ea9190c49046f86a0946b4543}
+
+
+Implementado por \hyperlink{classBullet_a17cf15fdfa0c42931f21828feed2a77d}{Bullet}, \hyperlink{classAlien_a27d2042c7097c2d37bb0268575ec8bad}{Alien}, \hyperlink{classAnimation_ad1eaa9ff240cbcc114270ea174523702}{Animation}, \hyperlink{classPenguins_ab76c07904df3da2d768f08eb3da3d1e0}{Penguins} e \hyperlink{classMinion_a9743cf683c7860011c56523818cc14cb}{Minion}.
+
+\hypertarget{classGameObject_aa627e6c2913983fc5f108c1c4d303eb8}{\index{Game\+Object@{Game\+Object}!Notify\+Collision@{Notify\+Collision}}
+\index{Notify\+Collision@{Notify\+Collision}!Game\+Object@{Game\+Object}}
+\subsubsection[{Notify\+Collision}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Game\+Object\+::\+Notify\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+Object} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameObject_aa627e6c2913983fc5f108c1c4d303eb8}
+
+
+Implementado por \hyperlink{classBullet_a272c1b019f46df9ad9bd45bd9ffb6e41}{Bullet}, \hyperlink{classAlien_a47baef9f1b44ad393b268812b752bd3a}{Alien}, \hyperlink{classAnimation_a611b21418311eb697ec4af1aaff92657}{Animation}, \hyperlink{classPenguins_aba0e8bc9309f056d196cd0fd267fbe78}{Penguins} e \hyperlink{classMinion_a908a2d009bad951df8bfd40067074059}{Minion}.
+
+\hypertarget{classGameObject_a976b9c0d72212389603802f95b3f3424}{\index{Game\+Object@{Game\+Object}!Render@{Render}}
+\index{Render@{Render}!Game\+Object@{Game\+Object}}
+\subsubsection[{Render}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Game\+Object\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameObject_a976b9c0d72212389603802f95b3f3424}
+
+
+Implementado por \hyperlink{classBullet_aace1e49986271afb6384d15bf40a0e92}{Bullet}, \hyperlink{classAlien_a43e7b457eb4f8c41deae1a37aaf8622c}{Alien}, \hyperlink{classAnimation_a49749e3890cec3896e6f726323544c26}{Animation}, \hyperlink{classPenguins_a5af1c983add97265c7491d17d2dc019e}{Penguins} e \hyperlink{classMinion_af62874486a43cd5d4ecc84d9361c58dc}{Minion}.
+
+\hypertarget{classGameObject_a93ed63df640deb516a020530e7f8e045}{\index{Game\+Object@{Game\+Object}!Update@{Update}}
+\index{Update@{Update}!Game\+Object@{Game\+Object}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Game\+Object\+::\+Update (
+\begin{DoxyParamCaption}
+\item[{float}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classGameObject_a93ed63df640deb516a020530e7f8e045}
+
+
+Implementado por \hyperlink{classBullet_a5ca74d7990f25c518df1860b681079ea}{Bullet}, \hyperlink{classAlien_a5bcca286b1a9d8f3fc56a2e8d5636b19}{Alien}, \hyperlink{classAnimation_a1871db60d1fb351aeb77ada38dd4dd9c}{Animation}, \hyperlink{classPenguins_a63b378e640cd3a76cbe6afaf0c6578d7}{Penguins} e \hyperlink{classMinion_a5a9a53136ca0ee5fd5766410ff9acaa6}{Minion}.
+
+
+
+\subsection{Atributos}
+\hypertarget{classGameObject_ac8df90f2a6d41693cd7938e392ff6d0b}{\index{Game\+Object@{Game\+Object}!box@{box}}
+\index{box@{box}!Game\+Object@{Game\+Object}}
+\subsubsection[{box}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Rect} Game\+Object\+::box}}\label{classGameObject_ac8df90f2a6d41693cd7938e392ff6d0b}
+\hypertarget{classGameObject_ac55f6ebdf4cfbab508680ad7290fb26c}{\index{Game\+Object@{Game\+Object}!rotation@{rotation}}
+\index{rotation@{rotation}!Game\+Object@{Game\+Object}}
+\subsubsection[{rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+Object\+::rotation}}\label{classGameObject_ac55f6ebdf4cfbab508680ad7290fb26c}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/\hyperlink{Gameobject_8h}{Gameobject.\+h}\item 
+Engine/src/\hyperlink{Gameobject_8cpp}{Gameobject.\+cpp}\end{DoxyCompactItemize}

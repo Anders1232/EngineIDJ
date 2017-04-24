@@ -1,0 +1,175 @@
+\hypertarget{classText}{\section{Referência da Classe Text}
+\label{classText}\index{Text@{Text}}
+}
+
+
+{\ttfamily \#include $<$Text.\+h$>$}
+
+
+
+Diagrama de colaboração para Text\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classText__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classText_ab9d958002beef60e08b0e932267401d0}{Text} (string font\+File, int \hyperlink{classText_af1b0c4c5d94f1a5338398f37e7b9ebbe}{font\+Size}, \hyperlink{Text_8h_ad5957a553b7d89d4921c39cc3ad6bc45}{Text\+Style} \hyperlink{classText_aaf6b429b30c8e7b380aa2433cf1296ea}{style}, S\+D\+L\+\_\+\+Color \hyperlink{classText_ab0f771bd18d8e968f7aaee4a4e26e385}{color}, int x=0, int y=0)
+\item 
+\hyperlink{classText_a2d49e5c280e205125b149f7777ae30c7}{$\sim$\+Text} ()
+\item 
+void \hyperlink{classText_af32d96322e20f25f1a4ee99369d08a95}{Render} (int Camera\+X=0, int camera\+Y=0) const 
+\item 
+void \hyperlink{classText_a8c1865b3d0971b3611ae82e9ad85acb1}{Set\+Pos} (int x, int y, bool center\+X=false, bool center\+Y=false)
+\item 
+void \hyperlink{classText_abffaafcd871424690014ca0a74c45989}{Set\+Text} (string \hyperlink{classText_a7da8331e2da684bb0485a3ee7893b415}{text})
+\item 
+void \hyperlink{classText_a16b351605f583b6ece8c93fc8c4df279}{Set\+Color} (S\+D\+L\+\_\+\+Color \hyperlink{classText_ab0f771bd18d8e968f7aaee4a4e26e385}{color})
+\item 
+void \hyperlink{classText_acd7cd539df681365587e86144cc3c352}{Set\+Style} (\hyperlink{Text_8h_ad5957a553b7d89d4921c39cc3ad6bc45}{Text\+Style} \hyperlink{classText_aaf6b429b30c8e7b380aa2433cf1296ea}{style})
+\item 
+void \hyperlink{classText_a0d37b9c067e62e10ebd1f0f74dbb5e66}{Set\+Font\+Size} (int \hyperlink{classText_af1b0c4c5d94f1a5338398f37e7b9ebbe}{font\+Size})
+\item 
+\hyperlink{classVec2}{Vec2} \hyperlink{classText_aa2a449375e15e6abb2911fff0af26c66}{Get\+Size} (void) const 
+\end{DoxyCompactItemize}
+\subsection*{Métodos Privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classText_a5c794eef4ba7e0bd09a3039835f30e48}{Remake\+Texture} (void)
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ T\+T\+F\+\_\+\+Font $>$ \hyperlink{classText_a7c89817e7e1d08584cf1b51106ce5ba4}{font}
+\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \hyperlink{classText_aea2a82ef1d8b4d448b6b3e524bce2cc2}{texture}
+\item 
+string \hyperlink{classText_a7da8331e2da684bb0485a3ee7893b415}{text}
+\item 
+\hyperlink{Text_8h_ad5957a553b7d89d4921c39cc3ad6bc45}{Text\+Style} \hyperlink{classText_aaf6b429b30c8e7b380aa2433cf1296ea}{style}
+\item 
+int \hyperlink{classText_af1b0c4c5d94f1a5338398f37e7b9ebbe}{font\+Size}
+\item 
+S\+D\+L\+\_\+\+Color \hyperlink{classText_ab0f771bd18d8e968f7aaee4a4e26e385}{color}
+\item 
+\hyperlink{classRect}{Rect} \hyperlink{classText_a1a2dd837322b9adcd3a2a98f68e633c9}{box}
+\end{DoxyCompactItemize}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classText_ab9d958002beef60e08b0e932267401d0}{\index{Text@{Text}!Text@{Text}}
+\index{Text@{Text}!Text@{Text}}
+\subsubsection[{Text}]{\setlength{\rightskip}{0pt plus 5cm}Text\+::\+Text (
+\begin{DoxyParamCaption}
+\item[{string}]{font\+File, }
+\item[{int}]{font\+Size, }
+\item[{{\bf Text\+Style}}]{style, }
+\item[{S\+D\+L\+\_\+\+Color}]{color, }
+\item[{int}]{x = {\ttfamily 0}, }
+\item[{int}]{y = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classText_ab9d958002beef60e08b0e932267401d0}
+\hypertarget{classText_a2d49e5c280e205125b149f7777ae30c7}{\index{Text@{Text}!````~Text@{$\sim$\+Text}}
+\index{````~Text@{$\sim$\+Text}!Text@{Text}}
+\subsubsection[{$\sim$\+Text}]{\setlength{\rightskip}{0pt plus 5cm}Text\+::$\sim$\+Text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classText_a2d49e5c280e205125b149f7777ae30c7}
+
+
+\subsection{Métodos}
+\hypertarget{classText_aa2a449375e15e6abb2911fff0af26c66}{\index{Text@{Text}!Get\+Size@{Get\+Size}}
+\index{Get\+Size@{Get\+Size}!Text@{Text}}
+\subsubsection[{Get\+Size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Text\+::\+Get\+Size (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classText_aa2a449375e15e6abb2911fff0af26c66}
+\hypertarget{classText_a5c794eef4ba7e0bd09a3039835f30e48}{\index{Text@{Text}!Remake\+Texture@{Remake\+Texture}}
+\index{Remake\+Texture@{Remake\+Texture}!Text@{Text}}
+\subsubsection[{Remake\+Texture}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+::\+Remake\+Texture (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classText_a5c794eef4ba7e0bd09a3039835f30e48}
+\hypertarget{classText_af32d96322e20f25f1a4ee99369d08a95}{\index{Text@{Text}!Render@{Render}}
+\index{Render@{Render}!Text@{Text}}
+\subsubsection[{Render}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+::\+Render (
+\begin{DoxyParamCaption}
+\item[{int}]{Camera\+X = {\ttfamily 0}, }
+\item[{int}]{camera\+Y = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const}}\label{classText_af32d96322e20f25f1a4ee99369d08a95}
+\hypertarget{classText_a16b351605f583b6ece8c93fc8c4df279}{\index{Text@{Text}!Set\+Color@{Set\+Color}}
+\index{Set\+Color@{Set\+Color}!Text@{Text}}
+\subsubsection[{Set\+Color}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+::\+Set\+Color (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Color}]{color}
+\end{DoxyParamCaption}
+)}}\label{classText_a16b351605f583b6ece8c93fc8c4df279}
+\hypertarget{classText_a0d37b9c067e62e10ebd1f0f74dbb5e66}{\index{Text@{Text}!Set\+Font\+Size@{Set\+Font\+Size}}
+\index{Set\+Font\+Size@{Set\+Font\+Size}!Text@{Text}}
+\subsubsection[{Set\+Font\+Size}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+::\+Set\+Font\+Size (
+\begin{DoxyParamCaption}
+\item[{int}]{font\+Size}
+\end{DoxyParamCaption}
+)}}\label{classText_a0d37b9c067e62e10ebd1f0f74dbb5e66}
+\hypertarget{classText_a8c1865b3d0971b3611ae82e9ad85acb1}{\index{Text@{Text}!Set\+Pos@{Set\+Pos}}
+\index{Set\+Pos@{Set\+Pos}!Text@{Text}}
+\subsubsection[{Set\+Pos}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+::\+Set\+Pos (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{bool}]{center\+X = {\ttfamily false}, }
+\item[{bool}]{center\+Y = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classText_a8c1865b3d0971b3611ae82e9ad85acb1}
+\hypertarget{classText_acd7cd539df681365587e86144cc3c352}{\index{Text@{Text}!Set\+Style@{Set\+Style}}
+\index{Set\+Style@{Set\+Style}!Text@{Text}}
+\subsubsection[{Set\+Style}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+::\+Set\+Style (
+\begin{DoxyParamCaption}
+\item[{{\bf Text\+Style}}]{style}
+\end{DoxyParamCaption}
+)}}\label{classText_acd7cd539df681365587e86144cc3c352}
+\hypertarget{classText_abffaafcd871424690014ca0a74c45989}{\index{Text@{Text}!Set\+Text@{Set\+Text}}
+\index{Set\+Text@{Set\+Text}!Text@{Text}}
+\subsubsection[{Set\+Text}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+::\+Set\+Text (
+\begin{DoxyParamCaption}
+\item[{string}]{text}
+\end{DoxyParamCaption}
+)}}\label{classText_abffaafcd871424690014ca0a74c45989}
+
+
+\subsection{Atributos}
+\hypertarget{classText_a1a2dd837322b9adcd3a2a98f68e633c9}{\index{Text@{Text}!box@{box}}
+\index{box@{box}!Text@{Text}}
+\subsubsection[{box}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Rect} Text\+::box\hspace{0.3cm}{\ttfamily [private]}}}\label{classText_a1a2dd837322b9adcd3a2a98f68e633c9}
+\hypertarget{classText_ab0f771bd18d8e968f7aaee4a4e26e385}{\index{Text@{Text}!color@{color}}
+\index{color@{color}!Text@{Text}}
+\subsubsection[{color}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Color Text\+::color\hspace{0.3cm}{\ttfamily [private]}}}\label{classText_ab0f771bd18d8e968f7aaee4a4e26e385}
+\hypertarget{classText_a7c89817e7e1d08584cf1b51106ce5ba4}{\index{Text@{Text}!font@{font}}
+\index{font@{font}!Text@{Text}}
+\subsubsection[{font}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<$T\+T\+F\+\_\+\+Font$>$ Text\+::font\hspace{0.3cm}{\ttfamily [private]}}}\label{classText_a7c89817e7e1d08584cf1b51106ce5ba4}
+\hypertarget{classText_af1b0c4c5d94f1a5338398f37e7b9ebbe}{\index{Text@{Text}!font\+Size@{font\+Size}}
+\index{font\+Size@{font\+Size}!Text@{Text}}
+\subsubsection[{font\+Size}]{\setlength{\rightskip}{0pt plus 5cm}int Text\+::font\+Size\hspace{0.3cm}{\ttfamily [private]}}}\label{classText_af1b0c4c5d94f1a5338398f37e7b9ebbe}
+\hypertarget{classText_aaf6b429b30c8e7b380aa2433cf1296ea}{\index{Text@{Text}!style@{style}}
+\index{style@{style}!Text@{Text}}
+\subsubsection[{style}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Text\+Style} Text\+::style\hspace{0.3cm}{\ttfamily [private]}}}\label{classText_aaf6b429b30c8e7b380aa2433cf1296ea}
+\hypertarget{classText_a7da8331e2da684bb0485a3ee7893b415}{\index{Text@{Text}!text@{text}}
+\index{text@{text}!Text@{Text}}
+\subsubsection[{text}]{\setlength{\rightskip}{0pt plus 5cm}string Text\+::text\hspace{0.3cm}{\ttfamily [private]}}}\label{classText_a7da8331e2da684bb0485a3ee7893b415}
+\hypertarget{classText_aea2a82ef1d8b4d448b6b3e524bce2cc2}{\index{Text@{Text}!texture@{texture}}
+\index{texture@{texture}!Text@{Text}}
+\subsubsection[{texture}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Texture$\ast$ Text\+::texture\hspace{0.3cm}{\ttfamily [private]}}}\label{classText_aea2a82ef1d8b4d448b6b3e524bce2cc2}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/\hyperlink{Text_8h}{Text.\+h}\item 
+Engine/src/\hyperlink{Text_8cpp}{Text.\+cpp}\end{DoxyCompactItemize}

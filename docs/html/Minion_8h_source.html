@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Projeto IDJ - Towers Of Madness: Código-Fonte de Game/include/Minion.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projeto IDJ - Towers Of Madness
+   </div>
+   <div id="projectbrief">TowerDefenseLovecraftnianoZombicida</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definições e Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c33286056d2acf479cd8641ef845fec1.html">Game</a></li><li class="navelem"><a class="el" href="dir_a56613a6b795b5624452287469afc550.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Minion.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Minion_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MINION_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MINION_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Gameobject_8h.html">Gameobject.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vec2_8h.html">Vec2.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Sprite_8h.html">Sprite.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="Minion_8h.html#a4735d3a23cfbc5bc6cb9a6a5c1a69e0a">    8</a></span>&#160;<span class="preprocessor">#define VELOCIDADE_ANGULAR_MINION (2)</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="Minion_8h.html#af223def1d538ebcbd514252887d8862d">    9</a></span>&#160;<span class="preprocessor">#define MINION_DISTANCE_TO_CENTER (150)</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="Minion_8h.html#a08358d906d9f3d9fc8ccecc65fc358cb">   10</a></span>&#160;<span class="preprocessor">#define MINION_BULLET_SPEED (800)</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="Minion_8h.html#a1416f48355c6083564787db302495f0c">   11</a></span>&#160;<span class="preprocessor">#define MINION_BULLET_MAX_DISTANCE (500)</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classMinion.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMinion.html">Minion</a>: <span class="keyword">public</span> <a class="code" href="classGameObject.html">GameObject</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="classMinion.html#a40ae7be8aa16177d2453b6102388c0f2">Minion</a>(<a class="code" href="classGameObject.html">GameObject</a> *minionCenter, <span class="keywordtype">float</span> arcOffset =0);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classMinion.html#a5a9a53136ca0ee5fd5766410ff9acaa6">Update</a>(<span class="keywordtype">float</span> dt);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classMinion.html#af62874486a43cd5d4ecc84d9361c58dc">Render</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classMinion.html#a9743cf683c7860011c56523818cc14cb">IsDead</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classMinion.html#a43716aa99bb6afef3c40590a259de6b3">Shoot</a>(<a class="code" href="classVec2.html">Vec2</a> pos);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classMinion.html#a908a2d009bad951df8bfd40067074059">NotifyCollision</a>(<a class="code" href="classGameObject.html">GameObject</a> &amp;other);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classMinion.html#a27b0afce19e3ab3e4c76615d5902207e">Is</a>(<span class="keywordtype">string</span> type);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classMinion.html#aec145adaab9c6ecfb35b7ec1624ab111">   24</a></span>&#160;        <a class="code" href="classGameObject.html">GameObject</a> *<a class="code" href="classMinion.html#aec145adaab9c6ecfb35b7ec1624ab111">center</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classMinion.html#a691b1b9f494fcd1f0b8c04c28ab3fa36">   25</a></span>&#160;        <a class="code" href="classSprite.html">Sprite</a> <a class="code" href="classMinion.html#a691b1b9f494fcd1f0b8c04c28ab3fa36">sp</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classMinion.html#a32bbf5d39ca2f909c19c0ff9141336be">   26</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classMinion.html#a32bbf5d39ca2f909c19c0ff9141336be">arc</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif // MINION_H</span></div>
+<div class="ttc" id="classMinion_html_a40ae7be8aa16177d2453b6102388c0f2"><div class="ttname"><a href="classMinion.html#a40ae7be8aa16177d2453b6102388c0f2">Minion::Minion</a></div><div class="ttdeci">Minion(GameObject *minionCenter, float arcOffset=0)</div><div class="ttdef"><b>Definition:</b> Minion.cpp:12</div></div>
+<div class="ttc" id="classMinion_html_a43716aa99bb6afef3c40590a259de6b3"><div class="ttname"><a href="classMinion.html#a43716aa99bb6afef3c40590a259de6b3">Minion::Shoot</a></div><div class="ttdeci">void Shoot(Vec2 pos)</div><div class="ttdef"><b>Definition:</b> Minion.cpp:43</div></div>
+<div class="ttc" id="Vec2_8h_html"><div class="ttname"><a href="Vec2_8h.html">Vec2.h</a></div></div>
+<div class="ttc" id="classMinion_html_aec145adaab9c6ecfb35b7ec1624ab111"><div class="ttname"><a href="classMinion.html#aec145adaab9c6ecfb35b7ec1624ab111">Minion::center</a></div><div class="ttdeci">GameObject * center</div><div class="ttdef"><b>Definition:</b> Minion.h:24</div></div>
+<div class="ttc" id="classSprite_html"><div class="ttname"><a href="classSprite.html">Sprite</a></div><div class="ttdef"><b>Definition:</b> Sprite.h:21</div></div>
+<div class="ttc" id="classMinion_html_a908a2d009bad951df8bfd40067074059"><div class="ttname"><a href="classMinion.html#a908a2d009bad951df8bfd40067074059">Minion::NotifyCollision</a></div><div class="ttdeci">void NotifyCollision(GameObject &amp;other)</div><div class="ttdef"><b>Definition:</b> Minion.cpp:62</div></div>
+<div class="ttc" id="classMinion_html"><div class="ttname"><a href="classMinion.html">Minion</a></div><div class="ttdef"><b>Definition:</b> Minion.h:13</div></div>
+<div class="ttc" id="classMinion_html_a27b0afce19e3ab3e4c76615d5902207e"><div class="ttname"><a href="classMinion.html#a27b0afce19e3ab3e4c76615d5902207e">Minion::Is</a></div><div class="ttdeci">bool Is(string type)</div><div class="ttdef"><b>Definition:</b> Minion.cpp:69</div></div>
+<div class="ttc" id="classMinion_html_af62874486a43cd5d4ecc84d9361c58dc"><div class="ttname"><a href="classMinion.html#af62874486a43cd5d4ecc84d9361c58dc">Minion::Render</a></div><div class="ttdeci">void Render(void)</div><div class="ttdef"><b>Definition:</b> Minion.cpp:28</div></div>
+<div class="ttc" id="Gameobject_8h_html"><div class="ttname"><a href="Gameobject_8h.html">Gameobject.h</a></div></div>
+<div class="ttc" id="classMinion_html_a9743cf683c7860011c56523818cc14cb"><div class="ttname"><a href="classMinion.html#a9743cf683c7860011c56523818cc14cb">Minion::IsDead</a></div><div class="ttdeci">bool IsDead(void)</div><div class="ttdef"><b>Definition:</b> Minion.cpp:39</div></div>
+<div class="ttc" id="Sprite_8h_html"><div class="ttname"><a href="Sprite_8h.html">Sprite.h</a></div></div>
+<div class="ttc" id="classMinion_html_a32bbf5d39ca2f909c19c0ff9141336be"><div class="ttname"><a href="classMinion.html#a32bbf5d39ca2f909c19c0ff9141336be">Minion::arc</a></div><div class="ttdeci">float arc</div><div class="ttdef"><b>Definition:</b> Minion.h:26</div></div>
+<div class="ttc" id="classMinion_html_a691b1b9f494fcd1f0b8c04c28ab3fa36"><div class="ttname"><a href="classMinion.html#a691b1b9f494fcd1f0b8c04c28ab3fa36">Minion::sp</a></div><div class="ttdeci">Sprite sp</div><div class="ttdef"><b>Definition:</b> Minion.h:25</div></div>
+<div class="ttc" id="classGameObject_html"><div class="ttname"><a href="classGameObject.html">GameObject</a></div><div class="ttdef"><b>Definition:</b> Gameobject.h:22</div></div>
+<div class="ttc" id="classVec2_html"><div class="ttname"><a href="classVec2.html">Vec2</a></div><div class="ttdef"><b>Definition:</b> Vec2.h:18</div></div>
+<div class="ttc" id="classMinion_html_a5a9a53136ca0ee5fd5766410ff9acaa6"><div class="ttname"><a href="classMinion.html#a5a9a53136ca0ee5fd5766410ff9acaa6">Minion::Update</a></div><div class="ttdeci">void Update(float dt)</div><div class="ttdef"><b>Definition:</b> Minion.cpp:22</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Segunda, 24 de Abril de 2017 13:27:26 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

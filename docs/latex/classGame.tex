@@ -1,0 +1,189 @@
+\hypertarget{classGame}{\section{Referência da Classe Game}
+\label{classGame}\index{Game@{Game}}
+}
+
+
+{\ttfamily \#include $<$Game.\+h$>$}
+
+
+
+Diagrama de colaboração para Game\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGame__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGame_acf1ee7a59d78a51832e8878cfca81c5a}{Game} (std\+::string title, int width, int height)
+\item 
+\hyperlink{classGame_ae3d112ca6e0e55150d2fdbc704474530}{$\sim$\+Game} ()
+\item 
+S\+D\+L\+\_\+\+Renderer $\ast$ \hyperlink{classGame_a5749c6fc2bf3c98a4dc9c11e33f96c8b}{Get\+Renderer} (void) const 
+\item 
+\hyperlink{classState}{State} \& \hyperlink{classGame_a1f9d6f97e969424844881dd7ad2e353e}{Get\+Current\+State} (void) const 
+\item 
+void \hyperlink{classGame_ab5637c16d9580f8ec08b5830baff35bd}{Push} (\hyperlink{classState}{State} $\ast$state)
+\item 
+void \hyperlink{classGame_a7415a437ef79fd22feb4d26f714f9c0f}{Run} (void)
+\item 
+float \hyperlink{classGame_aa2feacb19b45ff0ec0935ea1a6f9c9ab}{Get\+Delta\+Time} (void) const 
+\item 
+\hyperlink{classVec2}{Vec2} \hyperlink{classGame_adbeb87bbabcc73f936e149c2d83d9d33}{Get\+Window\+Dimensions} (void) const 
+\end{DoxyCompactItemize}
+\subsection*{Métodos Públicos Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classGame}{Game} \& \hyperlink{classGame_a25d213802ed39215e3ab2cb04edf46c8}{Get\+Instance} (void)
+\end{DoxyCompactItemize}
+\subsection*{Métodos Privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGame_afddce07e3e3d3ca05a6c2f2ca9e64940}{Calculate\+Delta\+Time} (void)
+\item 
+void \hyperlink{classGame_ae67b3fda973e4b05513d02c968b0ac17}{Update\+Stack} (void)
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{classGame_af21b5344d8b7796d5f425bdbe37a6c82}{frame\+Start}
+\item 
+float \hyperlink{classGame_a5184b0439c5cefb45050d0bfaca9ac97}{dt}
+\item 
+\hyperlink{classState}{State} $\ast$ \hyperlink{classGame_a46a38cae75b6557890d7c47ad8350a1d}{stored\+State}
+\item 
+S\+D\+L\+\_\+\+Window $\ast$ \hyperlink{classGame_adc376cc3011b5c8f1c3897626100174c}{window}
+\item 
+S\+D\+L\+\_\+\+Renderer $\ast$ \hyperlink{classGame_ae5164c37c0dc74cfb56041174017bf57}{renderer}
+\item 
+std\+::stack$<$ std\+::unique\+\_\+ptr\\*
+$<$ \hyperlink{classState}{State} $>$ $>$ \hyperlink{classGame_a2706caaad0c60784a6671efc9ee147f8}{state\+Stack}
+\item 
+\hyperlink{classInputManager}{Input\+Manager} \& \hyperlink{classGame_a57010b9ce85884e0f4059d8d8474e610}{input\+Manager}
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classGame}{Game} $\ast$ \hyperlink{classGame_aa469cdc0a30f4fd2d6d99b23f4fbf257}{instance} = nullptr
+\end{DoxyCompactItemize}
+
+
+\subsection{Construtores \& Destrutores}
+\hypertarget{classGame_acf1ee7a59d78a51832e8878cfca81c5a}{\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\subsubsection[{Game}]{\setlength{\rightskip}{0pt plus 5cm}Game\+::\+Game (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{title, }
+\item[{int}]{width, }
+\item[{int}]{height}
+\end{DoxyParamCaption}
+)}}\label{classGame_acf1ee7a59d78a51832e8878cfca81c5a}
+\hypertarget{classGame_ae3d112ca6e0e55150d2fdbc704474530}{\index{Game@{Game}!````~Game@{$\sim$\+Game}}
+\index{````~Game@{$\sim$\+Game}!Game@{Game}}
+\subsubsection[{$\sim$\+Game}]{\setlength{\rightskip}{0pt plus 5cm}Game\+::$\sim$\+Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame_ae3d112ca6e0e55150d2fdbc704474530}
+
+
+\subsection{Métodos}
+\hypertarget{classGame_afddce07e3e3d3ca05a6c2f2ca9e64940}{\index{Game@{Game}!Calculate\+Delta\+Time@{Calculate\+Delta\+Time}}
+\index{Calculate\+Delta\+Time@{Calculate\+Delta\+Time}!Game@{Game}}
+\subsubsection[{Calculate\+Delta\+Time}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::\+Calculate\+Delta\+Time (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_afddce07e3e3d3ca05a6c2f2ca9e64940}
+\hypertarget{classGame_a1f9d6f97e969424844881dd7ad2e353e}{\index{Game@{Game}!Get\+Current\+State@{Get\+Current\+State}}
+\index{Get\+Current\+State@{Get\+Current\+State}!Game@{Game}}
+\subsubsection[{Get\+Current\+State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State} \& Game\+::\+Get\+Current\+State (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classGame_a1f9d6f97e969424844881dd7ad2e353e}
+\hypertarget{classGame_aa2feacb19b45ff0ec0935ea1a6f9c9ab}{\index{Game@{Game}!Get\+Delta\+Time@{Get\+Delta\+Time}}
+\index{Get\+Delta\+Time@{Get\+Delta\+Time}!Game@{Game}}
+\subsubsection[{Get\+Delta\+Time}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+::\+Get\+Delta\+Time (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classGame_aa2feacb19b45ff0ec0935ea1a6f9c9ab}
+\hypertarget{classGame_a25d213802ed39215e3ab2cb04edf46c8}{\index{Game@{Game}!Get\+Instance@{Get\+Instance}}
+\index{Get\+Instance@{Get\+Instance}!Game@{Game}}
+\subsubsection[{Get\+Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game} \& Game\+::\+Get\+Instance (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classGame_a25d213802ed39215e3ab2cb04edf46c8}
+\hypertarget{classGame_a5749c6fc2bf3c98a4dc9c11e33f96c8b}{\index{Game@{Game}!Get\+Renderer@{Get\+Renderer}}
+\index{Get\+Renderer@{Get\+Renderer}!Game@{Game}}
+\subsubsection[{Get\+Renderer}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Renderer $\ast$ Game\+::\+Get\+Renderer (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classGame_a5749c6fc2bf3c98a4dc9c11e33f96c8b}
+\hypertarget{classGame_adbeb87bbabcc73f936e149c2d83d9d33}{\index{Game@{Game}!Get\+Window\+Dimensions@{Get\+Window\+Dimensions}}
+\index{Get\+Window\+Dimensions@{Get\+Window\+Dimensions}!Game@{Game}}
+\subsubsection[{Get\+Window\+Dimensions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Game\+::\+Get\+Window\+Dimensions (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{classGame_adbeb87bbabcc73f936e149c2d83d9d33}
+\hypertarget{classGame_ab5637c16d9580f8ec08b5830baff35bd}{\index{Game@{Game}!Push@{Push}}
+\index{Push@{Push}!Game@{Game}}
+\subsubsection[{Push}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::\+Push (
+\begin{DoxyParamCaption}
+\item[{{\bf State} $\ast$}]{state}
+\end{DoxyParamCaption}
+)}}\label{classGame_ab5637c16d9580f8ec08b5830baff35bd}
+\hypertarget{classGame_a7415a437ef79fd22feb4d26f714f9c0f}{\index{Game@{Game}!Run@{Run}}
+\index{Run@{Run}!Game@{Game}}
+\subsubsection[{Run}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::\+Run (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classGame_a7415a437ef79fd22feb4d26f714f9c0f}
+\hypertarget{classGame_ae67b3fda973e4b05513d02c968b0ac17}{\index{Game@{Game}!Update\+Stack@{Update\+Stack}}
+\index{Update\+Stack@{Update\+Stack}!Game@{Game}}
+\subsubsection[{Update\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::\+Update\+Stack (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_ae67b3fda973e4b05513d02c968b0ac17}
+
+
+\subsection{Atributos}
+\hypertarget{classGame_a5184b0439c5cefb45050d0bfaca9ac97}{\index{Game@{Game}!dt@{dt}}
+\index{dt@{dt}!Game@{Game}}
+\subsubsection[{dt}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+::dt\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a5184b0439c5cefb45050d0bfaca9ac97}
+\hypertarget{classGame_af21b5344d8b7796d5f425bdbe37a6c82}{\index{Game@{Game}!frame\+Start@{frame\+Start}}
+\index{frame\+Start@{frame\+Start}!Game@{Game}}
+\subsubsection[{frame\+Start}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Game\+::frame\+Start\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_af21b5344d8b7796d5f425bdbe37a6c82}
+\hypertarget{classGame_a57010b9ce85884e0f4059d8d8474e610}{\index{Game@{Game}!input\+Manager@{input\+Manager}}
+\index{input\+Manager@{input\+Manager}!Game@{Game}}
+\subsubsection[{input\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Input\+Manager}\& Game\+::input\+Manager\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a57010b9ce85884e0f4059d8d8474e610}
+\hypertarget{classGame_aa469cdc0a30f4fd2d6d99b23f4fbf257}{\index{Game@{Game}!instance@{instance}}
+\index{instance@{instance}!Game@{Game}}
+\subsubsection[{instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game} $\ast$ Game\+::instance = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classGame_aa469cdc0a30f4fd2d6d99b23f4fbf257}
+\hypertarget{classGame_ae5164c37c0dc74cfb56041174017bf57}{\index{Game@{Game}!renderer@{renderer}}
+\index{renderer@{renderer}!Game@{Game}}
+\subsubsection[{renderer}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Renderer$\ast$ Game\+::renderer\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_ae5164c37c0dc74cfb56041174017bf57}
+\hypertarget{classGame_a2706caaad0c60784a6671efc9ee147f8}{\index{Game@{Game}!state\+Stack@{state\+Stack}}
+\index{state\+Stack@{state\+Stack}!Game@{Game}}
+\subsubsection[{state\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}std\+::stack$<$std\+::unique\+\_\+ptr$<${\bf State}$>$ $>$ Game\+::state\+Stack\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a2706caaad0c60784a6671efc9ee147f8}
+\hypertarget{classGame_a46a38cae75b6557890d7c47ad8350a1d}{\index{Game@{Game}!stored\+State@{stored\+State}}
+\index{stored\+State@{stored\+State}!Game@{Game}}
+\subsubsection[{stored\+State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State}$\ast$ Game\+::stored\+State\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_a46a38cae75b6557890d7c47ad8350a1d}
+\hypertarget{classGame_adc376cc3011b5c8f1c3897626100174c}{\index{Game@{Game}!window@{window}}
+\index{window@{window}!Game@{Game}}
+\subsubsection[{window}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Window$\ast$ Game\+::window\hspace{0.3cm}{\ttfamily [private]}}}\label{classGame_adc376cc3011b5c8f1c3897626100174c}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/\hyperlink{Game_8h}{Game.\+h}\item 
+Engine/src/\hyperlink{Game_8cpp}{Game.\+cpp}\end{DoxyCompactItemize}
