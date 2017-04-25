@@ -1,8 +1,9 @@
 # JogoIDJ
 Repositório do jogo final de IDJ 2017-1. Precisamos decidir a licensa
 
-Acompanhamento do projeto: https://github.com/Anders1232/EngineIDJ/projects/1
+Link para documentação doxygen: https://anders1232.github.io/EngineIDJ
 
+Acompanhamento do projeto: https://github.com/Anders1232/EngineIDJ/projects/1
 
 Sistema de uso do repositório(em adaptação):
 - Branch dev saindo de master.
