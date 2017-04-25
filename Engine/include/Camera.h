@@ -65,16 +65,52 @@ class Camera
 		*/
 		static float speed;
 		/**
-			\brief Armazena a velocidade de movimento da câmera quando não está focalizada em nenhum objeto.
-			\todo Verificar viabilidade de tornar privado.
+			\brief Força um valor para o zoom.
+			\param newZoom novo valor para o Zoom
 			
-			Contém a velocidade de movimento da câmera na tela.
+			O valor informado se torna o zoom corrente. O novo valor do zoom pode extrapolar os limites existentes. Esse valor, mesmo que fora dos limites, será atribuído ao currentZoom.,
 		*/
 		static void ForceZoom(float newZoom);
+		/**
+			\brief Trava ou destrava o zoom.
+			\param newZoom novo valor para o Zoom
+
+			Caso o argumento da função seja true, as futuras chamadas à Zoom não terão mais efeito. Caso seja false as futuras chamadas à Zoom terão efeito. Esse efeito é obtido atribuindo à variável zoomFixed o oposto desse valor.
+		*/
 		static void SetZoomable(bool zoomable);
+		/**
+			\brief Altera o zoom corrente.
+			\param deltaZoom Variação no zoom.
+
+			O zoom corrente é alterado linearmente em deltaZoom*zoomSpeed. Só tem efeito se o valor de zoomFixed for falso.
+			Se o novo valor para o zoom extrapolar o limite superior, o valor do limite superior será atribuído ao currentZoom.
+			Se o novo valor para o zoom extrapolar o limite inferior, o valor do limite inferior será atribuído ao currentZoom.
+		*/
 		static void Zoom(float deltaZoom);
+		/**
+			\brief Estabelece os limites superior e inferior do zoom.
+			\param minZoom Novo limite inferior.
+			\param maxZoom Novo limite superior.
+
+			Se o valor de minZoom ou maxZoom for zero, o valor default será atribuído no lugar.
+		*/
 		static void SetZoomLimits(float minZoom=0, float maxZoom=0);// set to 0 is to set to default
+		/**
+			\brief Informa o valor do zoom corrente.
+
+			Se o valor for 1.0 significa que nenhum zoom está sendo aplicado.
+			Se for maior que 1.0 significa que as imagens devem ser ampliadas.
+			Se for menor que 1.0 significa que as imagens devem ser reduzidas.
+		*/
 		static float GetZoom(void);
+		/**
+			\brief Altera a sensibilidade do zoom.
+			\param newZoomSpeed Novo valor para sensibilidade o zoom.
+
+			Quanto maior o newZoomSpeed, mais sensível será o zoom.
+			Quanto menor o newZoomSpeed, menos sensível será o zoom.
+			Esse efeito é obtido atribuindo newZoomSpeed à zoomSpeed.
+		*/
 		static void SetZoomSpeed(float newZoomSpeed);
 	private:
 		/*! \brief Construtor privado que não deve ser implementado.
