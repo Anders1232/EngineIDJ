@@ -18,6 +18,12 @@ InputManager& InputManager::GetInstance(void)
 	static InputManager inputManager;
 	return inputManager;
 }
+
+#define AJUST_KEY(k)if(k >= 0x40000000)\
+{\
+	k=k-0x40000000+0x7F;\
+}
+
 void InputManager::Update(void)
 {
 	SDL_GetMouseState(&mouseX, &mouseY);
@@ -31,10 +37,7 @@ void InputManager::Update(void)
 			if(!event.key.repeat)
 			{
 				int keyCode= event.key.keysym.sym;
-				if(keyCode >= 0x40000000)
-				{
-					keyCode = keyCode- 0x40000000+ 0x7F;
-				}
+				AJUST_KEY(keyCode);
 				keyState[keyCode]= true;
 				keyUpdate[keyCode]= updateCounter;
 			}
@@ -44,12 +47,9 @@ void InputManager::Update(void)
 			if(!event.key.repeat)
 			{
 				int keyCode= event.key.keysym.sym;
-				if(keyCode >= 0x40000000)
-				{
-					keyCode = keyCode- 0x40000000+ 0x7F;
-				}
+				AJUST_KEY(keyCode);
 				keyState[keyCode]= false;
-//				keyUpdate[keyCode]= updateCounter;
+				keyUpdate[keyCode]= updateCounter;
 			}
 		}
 		else if(SDL_MOUSEBUTTONDOWN == event.type)
@@ -60,6 +60,7 @@ void InputManager::Update(void)
 		else if(SDL_MOUSEBUTTONUP == event.type)
 		{
 			mouseState[event.button.button]= false;
+			mouseUpdate[event.button.button]= updateCounter;
 		}
 		else if(SDL_QUIT == event.type)
 		{
@@ -67,15 +68,10 @@ void InputManager::Update(void)
 		}
 		else if(SDL_MOUSEWHEEL == event.type)
 		{
-//			mouseScroolState= (SDL_MOUSEWHEEL_FLIPPED== event.wheel.direction)? Vec2(event.wheel.x*(-1), event.wheel.y*(-1)) : Vec2(event.wheel.x, event.wheel.y);
 			mouseScroolState= Vec2(event.wheel.x, event.wheel.y);
 			mouseScroolUpdate= updateCounter;
 		}
 	}
-}
-#define AJUST_KEY(k)if(k >= 0x40000000)\
-{\
-	k=k-0x40000000+0x7F;\
 }
 
 bool InputManager::KeyPress(int key) const
@@ -86,7 +82,7 @@ bool InputManager::KeyPress(int key) const
 bool InputManager::KeyRelease(int key) const
 {
 	AJUST_KEY(key);
-	return ((false==keyState[key]) && keyUpdate[key]+1 ==updateCounter);
+	return ((false==keyState[key]) && keyUpdate[key] ==updateCounter);
 }
 bool InputManager::IsKeyDown(int key) const
 {
@@ -99,7 +95,7 @@ bool InputManager::MousePress(int button) const
 }
 bool InputManager::MouseRelease(int button) const
 {
-	return ((false == mouseState[button]) && mouseUpdate[button]+1 == updateCounter);
+	return ((false == mouseState[button]) && mouseUpdate[button] == updateCounter);
 }
 bool InputManager::IsMouseDown(int button) const
 {

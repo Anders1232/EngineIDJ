@@ -53,7 +53,7 @@
 </g>
 <!-- Node15 -->
 <g id="node15" class="node"><title>Node15</title>
-<g id="a_node15"><a xlink:href="classInputManager.html" target="_top" xlink:title="InputManager">
+<g id="a_node15"><a xlink:href="classInputManager.html" target="_top" xlink:title="A classe que organiza entradas do usuário. ">
 <polygon fill="white" stroke="black" points="493,-226.184 493,-245.184 569,-245.184 569,-226.184 493,-226.184"/>
 <text text-anchor="middle" x="531" y="-233.184" font-family="Helvetica,sans-Serif" font-size="10.00">InputManager</text>
 </a>

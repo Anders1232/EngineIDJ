@@ -30,38 +30,171 @@
 #define RIGHT_MOUSE_BUTTON SDL_BUTTON_RIGHT
 #define MIDDLE_MOUSE_BUTTON SDL_BUTTON_MIDDLE
 
+/**
+	\brief A classe que organiza entradas do usuário.
 
+	O InputManager organiza internamente as várias formas om as quais o usuário pode interafir com o programa. Sendo elas:
+		- Botões do teclado
+		- Posição do mouse
+		- Cliques do mouse
+		- Scroll do mouse
+	Observação: Os métodos que trabalham com o teclado precisam ter seus índices ajustados conforme o documentado em keyState. Para tal a função macro AJUST_KEY foi feita.
+*/
 class InputManager
 {
 	public:
+		/**
+			\brief Atualiza as informações internas.
+			\todo Verificar se o keyUpdate e o mouseUpdate devem ser atualizados nos casos de SDL_KEYUP e SDL_MOUSEBUTTONUP, respectivamente.
+
+			As seguintes ações são feitas:
+				- As coordenas do mouse na tela são atualizadas atraveś da chamada à SDL_GetMouseState passando como argumentos o endereço de mouseX e o endereço mouseY.
+				- quitRequested é setado para falso, pois se ele armazenava o valor verdadeiro ele pedido para fechar já foi tratado no frame anterior.
+				- o updateCounter é incrementado, o que faz que os inputs de frames anteriores sejam tratados como tal ao se comparar o valor de updateCounter com <input>Update.
+				- Faz-se um loop de SDL_Event passando por todos os eventos que ocorram no último frame, nesse loop interno faz-se as seguintes computações:
+					- Se o evento for SDL_KEYDOWN e não for repetido de algum frame anterior; atribui-se verdadeiro para o keyState da tecla correspondente e o keyUpdate de tecla em questão recebe o valor de updateCounter.
+					- Se o evento for SDL_KEYUP e não for repetido de algum frame anterior; atribui-se false para o keyState da tecla correspondente e o keyUpdate de tecla em questão recebe o valor de updateCounter.
+					- Se o evento for SDL_MOUSEBUTTONDOWN e não for repetido de algum frame anterior; atribui-se verdadeiro para o mouseState do botão correspondente e o mouseUpdate do botão em questão recebe o valor de updateCounter.
+					- Se o evento for SDL_MOUSEBUTTONUP e não for repetido de algum frame anterior; atribui-se false para o mouseState do botão correspondente e o mouseUpdate do botão em questão recebe o valor de updateCounter.
+					- Se o evento for SDL_QUIT o valor verdadeiro é atribuído para quitRequested.
+					- Se o evento for SDL_MOUSEWHEEL atribui-se o deslocamente feito no scrool à mouseScroolState e o mouseScroolUpdate de tecla em questão recebe o valor de updateCounter.
+		*/
 		void Update(void);
+		/**
+			\brief Informa se uma tecla do teclado foi pressionada no frame corrente
+			\param key Tecla do teclado cujo o estado é requierido
+			\return Booleano que informa se a tecla foi pressionada ou não no frame corrente.
+
+			Primeiramente, converte-se o argumento a um válido no vetor através da função macro AJUST_KEY. Retorna verdadeiro se o keyState da tecla for verdadeiro E o keyUpdate da tecla for igual ao updateCounter.
+			Caso contrário retorna-se o valor falso.
+		*/
 		bool KeyPress(int key) const;
+		/**
+			\brief Informa se uma tecla do teclado foi solta no frame corrente
+			\param key Tecla do teclado cujo o estado é requierido
+			\return Booleano que informa se a tecla foi solta ou não no frame corrente.
+
+			Primeiramente, converte-se o argumento a um válido no vetor através da função macro AJUST_KEY. Retorna verdadeiro se o keyState da tecla for falso E o keyUpdate da tecla for igual ao updateCounter.
+			Caso contrário retorna-se o valor falso.
+		*/
 		bool KeyRelease(int key) const;
+		/**
+			\brief Informa se uma tecla do teclado está pressionada no momento
+			\param key Tecla do teclado cujo o estado é requierido
+			\return Booleano que informa se a tecla está pressionada ou não.
+
+			Primeiramente, converte-se o argumento a um válido no vetor através da função macro AJUST_KEY. Retorna verdadeiro se o keyState da tecla for verdadeiro.
+			Caso contrário retorna-se o valor falso.
+		*/
 		bool IsKeyDown(int key) const;
+		/**
+			\brief Informa se um botão do mouse foi pressionado no frame corrente
+			\param key Botão do mouse cujo o estado é requierido
+			\return Booleano que informa se o botão foi pressionado ou não no frame corrente.
+
+			Retorna verdadeiro se o keyState da tecla for verdadeiro E o mouseUpdate do botão for igual ao updateCounter.
+			Caso contrário retorna-se o valor falso.
+			Recomenda-se o uso das macros LEFT_MOUSE_BUTTON, RIGHT_MOUSE_BUTTON e MIDDLE_MOUSE_BUTTON.
+		*/
 		bool MousePress(int button) const;
+		/**
+			\brief Informa se um botão do mouse foi solto no frame corrente
+			\param key Botão do mouse cujo o estado é requierido
+			\return Booleano que informa se o botão foi solta ou não no frame corrente.
+
+			Retorna verdadeiro se o keyState da tecla for falso E o mouseUpdate do botão for igual ao updateCounter.
+			Caso contrário retorna-se o valor falso.
+			Recomenda-se o uso das macros LEFT_MOUSE_BUTTON, RIGHT_MOUSE_BUTTON e MIDDLE_MOUSE_BUTTON.
+		*/
 		bool MouseRelease(int button) const;
+		/**
+			\brief Informa se um botão do mouse está pressionada no momento
+			\param key Botão do mouse cujo o estado é requierido
+			\return Booleano que informa se o botão está pressionado ou não.
+
+			Retorna verdadeiro se o mouseState do botão for verdadeiro.
+			Caso contrário retorna-se o valor falso.
+			Recomenda-se o uso das macros LEFT_MOUSE_BUTTON, RIGHT_MOUSE_BUTTON e MIDDLE_MOUSE_BUTTON.
+		*/
 		bool IsMouseDown(int button) const;
+		/**
+			\brief Informa se o scroll dp do mouse foi acionado no frame atual
+			\return Booleano que informa se o scroll está em uso ou não.
+
+			Retorna verdadeiro se o mouseScroolUpdate for igual a updateCounter.
+			Caso contrário retorna-se o valor falso.
+		*/
 		bool IsMouseScrolling(void) const;
+		/**
+			\brief Informa o valor do eixo X do mouse
+			\return valor X do mouse na janela
+
+			Esse valor é zero na borda esquerda da janela, cresce para a direita, decresce para a esquerda.
+		*/
 		int GetMouseX(void) const;
+		/**
+			\brief Informa o valor do eixo Y do mouse
+			\return valor Y do mouse na janela
+
+			Esse valor é zero na borda superior da janela, cresce para a baixo, decresce para a cima.
+		*/
 		int GetMouseY(void) const;
+		/**
+			\brief Informa em um Vec2 a posição (x, y) do mouse
+			\return Valor (x, y) do mouse
+
+			O eixo horizontal cresce para a direira e o eixo vertical cresce para baixo.
+			O eixo horizontal decresce para a esquerda e o eixo vertical decresce para cima.
+		*/
 		Vec2 GetMousePos(void) const;
+		/**
+			\brief Informa em um Vec2 o último scrool do mouse feito.
+			\return Valor (x, y) do scroll do mouse
+			\todo Fazer a correção dos sentidos de acordo com a direções. Essa correção só pode ser feita após a versão 2.0.4 da SDL2. Veja https://wiki.libsdl.org/SDL_MouseWheelEvent
+
+			O eixo horizontal cresce para a direira e o eixo vertical cresce para baixo.
+			O eixo horizontal decresce para a esquerda e o eixo vertical decresce para cima.
+		*/
 		Vec2 MouseScroll(void) const;
+		/**
+			\brief Informa se o usuário solicitou a saída do programa.
+			\return Booleano  com a informação solicitada.
+
+			Retorna verdadeiro se o evento SDL_QUIT ocorreu no frame atual.
+			Caso contrário retorna falso.
+		*/
 		bool QuitRequested(void) const;
+		/**
+			\brief Obtém referência para a instância estática do Inputmanager.
+			\return Referência para a instância estática do InputManager
+
+			O InputManager é um singleton, esse método retorna a instância estática do mesmo. Dentro do corpo desse método está a declaração dessa instância que é estática(no sentido de programação em C).
+			Essa instância estática é retornada.
+		*/
 		static InputManager& GetInstance(void);
 	private:
+		/**
+			\brief Inicializa os atributos
+
+			Todos os atributos internos não iniciados com zero ou falso, dependendo do tipo.
+		*/
 		InputManager();
+		/**
+			\brief Destrutor
+
+			O corpo desse método está vazio.
+		*/
 		~InputManager();
-		bool mouseState[6];
-		int mouseUpdate[6];
-		bool quitRequested;
-		int updateCounter;
-		int mouseX;
-		int mouseY;
-		bool keyState[416];
-		int keyUpdate[416];
-		int mouseScroolUpdate;
-//		unsigned int
-		Vec2 mouseScroolState;
+		bool mouseState[6];/**< Armazena a informação dos estados botões do mouse(pressionado ou não pressionado).*/
+		int mouseUpdate[6];/**< Armazena a informação de quando houve alguma modificação em cada posição do mouseState.*/
+		bool quitRequested;/**< Armazena a informação se botão de sair ou Alt+F4 foi pressionado.*/
+		int updateCounter;/**< Armazena a informação de quantas vezes o update foi chamada. É usado nos <input>Update para saber se a modificação no estado foi detectada no frame corrente.*/
+		int mouseX;/**< Armazena a posição X do mouse na janela.*/
+		int mouseY;/**< Armazena a posição Y do mouse na janela.*/
+		bool keyState[416];/**< Armazena as informações de quais botões do teclado estão pressionados. As 127 primeiras posições são relativas às suas correspondentes ASCII. As outras posições rastreiam o estado das teclas não-ASCII, como ctrl, shift, caps lock, F1...F12, etc.*/
+		int keyUpdate[416];/**< Armazena as informações de quando os estados dos botões no respectivo keyState foram modificadas. É usado junto com o updateCounter para saber quão recente a informação é.*/
+		int mouseScroolUpdate;/**< Armazena a informação de em qual timestamp(updateCounter) o mouseScrollState foi alterado.*/
+		Vec2 mouseScroolState;/**< Armazena a informação do último scroll feito no mouse.*/
 };
 
 #endif // INPUTMANAGER_H

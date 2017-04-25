@@ -1,5 +1,5 @@
 <map id="Game" name="Game">
 <area shape="rect" id="node7" href="$classVec2.html" title="Vec2" alt="" coords="163,235,215,261"/>
-<area shape="rect" id="node6" href="$classInputManager.html" title="InputManager" alt="" coords="447,236,548,263"/>
+<area shape="rect" id="node6" href="$classInputManager.html" title="A classe que organiza entradas do usuário. " alt="" coords="447,236,548,263"/>
 <area shape="rect" id="node9" href="$classState.html" title="State" alt="" coords="471,287,524,313"/>
 </map>
