@@ -31,7 +31,7 @@
 #define MIDDLE_MOUSE_BUTTON SDL_BUTTON_MIDDLE
 
 /**
-	\brief A classe que organiza entradas do usuário.
+	\brief Classe que organiza entradas do usuário.
 
 	O InputManager organiza internamente as várias formas om as quais o usuário pode interafir com o programa. Sendo elas:
 		- Botões do teclado

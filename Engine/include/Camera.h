@@ -9,7 +9,7 @@
 #define CAMERA_DEFAULT_ZOOMABLE (true)
 #define CAMERA_DEFAULT_ZOOM_SPEED (5.0/200.)
 /**
-	\brief A classe que modela a câmera
+	\brief Classe que modela a câmera
 	
 	A Câmera contém informações sobre qual posição da tela deve ser renderizada, qual objeto deve ficar centralizado(caso necessário).
 	Também é responsável por lidar o Zoom, rastreando informações como:
