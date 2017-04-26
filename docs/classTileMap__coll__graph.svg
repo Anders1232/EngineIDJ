@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="classTileSet.html" target="_top" xlink:title="TileSet">
+<g id="a_node2"><a xlink:href="classTileSet.html" target="_top" xlink:title="Classe responsável por modelar um tileset. ">
 <polygon fill="white" stroke="black" points="33.3066,-67.5 33.3066,-86.5 80.3066,-86.5 80.3066,-67.5 33.3066,-67.5"/>
 <text text-anchor="middle" x="56.8066" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">TileSet</text>
 </a>
