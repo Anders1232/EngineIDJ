@@ -41,9 +41,7 @@ void Sprite::Open(std::string file)
 	}
 	REPORT_I_WAS_HERE;
 	SetClip(SPRITE_OPEN_X, SPRITE_OPEN_Y, width/frameCount, height);
-//	std::cout << WHERE << "  width/frameCount = "<< width/frameCount << " frameCount= " << frameCount << endl;
 	REPORT_I_WAS_HERE;
-//	std::cout << __FILE__<<" | "<<__func__<<":"<<__LINE__<<"\t\t"<< "width=" << width << "\t height = " << height << std::endl;
 }
 
 void Sprite::SetClip(int x, int y, int w, int h)

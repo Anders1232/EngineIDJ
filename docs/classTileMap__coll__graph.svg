@@ -30,7 +30,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="classSprite.html" target="_top" xlink:title="Sprite">
+<g id="a_node3"><a xlink:href="classSprite.html" target="_top" xlink:title="Classe que modela uma sprite. ">
 <polygon fill="white" stroke="black" points="149.807,-168.5 149.807,-187.5 191.807,-187.5 191.807,-168.5 149.807,-168.5"/>
 <text text-anchor="middle" x="170.807" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">Sprite</text>
 </a>

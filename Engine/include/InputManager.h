@@ -182,7 +182,7 @@ class InputManager
 		/**
 			\brief Destrutor
 
-			O corpo desse método está vazio.
+			Como todos os atributos dessa classe são alocados estaticamente, nada precisa ser feito.
 		*/
 		~InputManager();
 		bool mouseState[6];/**< Armazena a informação dos estados botões do mouse(pressionado ou não pressionado).*/

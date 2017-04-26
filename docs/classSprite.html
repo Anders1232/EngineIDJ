@@ -92,6 +92,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!--header-->
 <div class="contents">
 
+<p>Classe que modela uma sprite.  
+ <a href="classSprite.html#details">Mais...</a></p>
+
 <p><code>#include &lt;Sprite.h&gt;</code></p>
 <div class="dynheader">
 Diagrama de colaboração para Sprite:</div>
@@ -102,44 +105,64 @@ Diagrama de colaboração para Sprite:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
 <tr class="memitem:abee3d268d8e467d9e23bfe0693e64144"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#abee3d268d8e467d9e23bfe0693e64144">Sprite</a> (void)</td></tr>
+<tr class="memdesc:abee3d268d8e467d9e23bfe0693e64144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um sprite não associado a uma imagem.  <a href="#abee3d268d8e467d9e23bfe0693e64144">Mais...</a><br /></td></tr>
 <tr class="separator:abee3d268d8e467d9e23bfe0693e64144"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b32e7b8aede63b8a2720ecfa670d0e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a5b32e7b8aede63b8a2720ecfa670d0e3">Sprite</a> (std::string file, float <a class="el" href="classSprite.html#a5d41b63da1b5ee4a734ce060ab876878">frameTime</a>=1, int <a class="el" href="classSprite.html#a8dc8d5c9530bad6113d37fe5e53e4668">frameCount</a>=1)</td></tr>
+<tr class="memdesc:a5b32e7b8aede63b8a2720ecfa670d0e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um sprite válida.  <a href="#a5b32e7b8aede63b8a2720ecfa670d0e3">Mais...</a><br /></td></tr>
 <tr class="separator:a5b32e7b8aede63b8a2720ecfa670d0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8accab430f9d90ae5117b57d67e32b84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a8accab430f9d90ae5117b57d67e32b84">~Sprite</a> ()</td></tr>
+<tr class="memdesc:a8accab430f9d90ae5117b57d67e32b84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor.  <a href="#a8accab430f9d90ae5117b57d67e32b84">Mais...</a><br /></td></tr>
 <tr class="separator:a8accab430f9d90ae5117b57d67e32b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0528ea8ae39cdf864e01e2b4aaca8dca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a0528ea8ae39cdf864e01e2b4aaca8dca">Open</a> (std::string file)</td></tr>
+<tr class="memdesc:a0528ea8ae39cdf864e01e2b4aaca8dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega uma imagem.  <a href="#a0528ea8ae39cdf864e01e2b4aaca8dca">Mais...</a><br /></td></tr>
 <tr class="separator:a0528ea8ae39cdf864e01e2b4aaca8dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ad46a400f83d41eaba2c2df77e0cf7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a3ad46a400f83d41eaba2c2df77e0cf7c">SetClip</a> (int x, int y, int w, int h)</td></tr>
+<tr class="memdesc:a3ad46a400f83d41eaba2c2df77e0cf7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seleciona o recorte da imagem que deve ser renderizado.  <a href="#a3ad46a400f83d41eaba2c2df77e0cf7c">Mais...</a><br /></td></tr>
 <tr class="separator:a3ad46a400f83d41eaba2c2df77e0cf7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42afe1ad83085fb323e388f5854d9b01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a42afe1ad83085fb323e388f5854d9b01">Render</a> (int x, int y, float angle=0, bool zoom=false) const </td></tr>
+<tr class="memdesc:a42afe1ad83085fb323e388f5854d9b01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza a imagem.  <a href="#a42afe1ad83085fb323e388f5854d9b01">Mais...</a><br /></td></tr>
 <tr class="separator:a42afe1ad83085fb323e388f5854d9b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3d43826d2f41185964ec4a1eb492248"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#ad3d43826d2f41185964ec4a1eb492248">GetWidth</a> (void) const </td></tr>
+<tr class="memdesc:ad3d43826d2f41185964ec4a1eb492248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa a largura do sprite.  <a href="#ad3d43826d2f41185964ec4a1eb492248">Mais...</a><br /></td></tr>
 <tr class="separator:ad3d43826d2f41185964ec4a1eb492248"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a5a7c73dd94f822b0a248de3621e5eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a2a5a7c73dd94f822b0a248de3621e5eb">GetHeight</a> (void) const </td></tr>
+<tr class="memdesc:a2a5a7c73dd94f822b0a248de3621e5eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa a altura do sprite.  <a href="#a2a5a7c73dd94f822b0a248de3621e5eb">Mais...</a><br /></td></tr>
 <tr class="separator:a2a5a7c73dd94f822b0a248de3621e5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27148c9990eeb0efa187ec41de2d3db0"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; SDL_Texture &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a27148c9990eeb0efa187ec41de2d3db0">GetTexture</a> (void) const </td></tr>
+<tr class="memdesc:a27148c9990eeb0efa187ec41de2d3db0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém a textura armazenada na <a class="el" href="classSprite.html" title="Classe que modela uma sprite. ">Sprite</a>.  <a href="#a27148c9990eeb0efa187ec41de2d3db0">Mais...</a><br /></td></tr>
 <tr class="separator:a27148c9990eeb0efa187ec41de2d3db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f1e62573dd91cb03dbad7aa54807b8c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a9f1e62573dd91cb03dbad7aa54807b8c">IsOpen</a> (void) const </td></tr>
+<tr class="memdesc:a9f1e62573dd91cb03dbad7aa54807b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se tem uma imagem carregada.  <a href="#a9f1e62573dd91cb03dbad7aa54807b8c">Mais...</a><br /></td></tr>
 <tr class="separator:a9f1e62573dd91cb03dbad7aa54807b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f5ac7fbd3e6efeca11cedb6b822df43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a1f5ac7fbd3e6efeca11cedb6b822df43">Update</a> (float dt)</td></tr>
+<tr class="memdesc:a1f5ac7fbd3e6efeca11cedb6b822df43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza o estado da sprite.  <a href="#a1f5ac7fbd3e6efeca11cedb6b822df43">Mais...</a><br /></td></tr>
 <tr class="separator:a1f5ac7fbd3e6efeca11cedb6b822df43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a351dd54dac6cadbbdec48f9e1d8a36c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a351dd54dac6cadbbdec48f9e1d8a36c0">SetFrame</a> (int frame)</td></tr>
+<tr class="memdesc:a351dd54dac6cadbbdec48f9e1d8a36c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Força a animação a ficar num frame específico.  <a href="#a351dd54dac6cadbbdec48f9e1d8a36c0">Mais...</a><br /></td></tr>
 <tr class="separator:a351dd54dac6cadbbdec48f9e1d8a36c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf5254476a027570a0112cf48979f3a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#adf5254476a027570a0112cf48979f3a5">SetFrameCount</a> (int <a class="el" href="classSprite.html#a8dc8d5c9530bad6113d37fe5e53e4668">frameCount</a>)</td></tr>
+<tr class="memdesc:adf5254476a027570a0112cf48979f3a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera a quantidade de frames do sprite animado.  <a href="#adf5254476a027570a0112cf48979f3a5">Mais...</a><br /></td></tr>
 <tr class="separator:adf5254476a027570a0112cf48979f3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ebb93cd7485a51ccc635819ded6349b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a8ebb93cd7485a51ccc635819ded6349b">SetFrameTime</a> (float <a class="el" href="classSprite.html#a5d41b63da1b5ee4a734ce060ab876878">frameTime</a>)</td></tr>
+<tr class="memdesc:a8ebb93cd7485a51ccc635819ded6349b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera o ritmo dos sprites animados.  <a href="#a8ebb93cd7485a51ccc635819ded6349b">Mais...</a><br /></td></tr>
 <tr class="separator:a8ebb93cd7485a51ccc635819ded6349b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad7bb29fc017ac2197dffec177c17e15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#aad7bb29fc017ac2197dffec177c17e15">SetScaleX</a> (float scale)</td></tr>
+<tr class="memdesc:aad7bb29fc017ac2197dffec177c17e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Força um valor para a escala horizontal do sprite.  <a href="#aad7bb29fc017ac2197dffec177c17e15">Mais...</a><br /></td></tr>
 <tr class="separator:aad7bb29fc017ac2197dffec177c17e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2853ee7687dc906b9be791d197a1b1b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a2853ee7687dc906b9be791d197a1b1b6">SetScaleY</a> (float scale)</td></tr>
+<tr class="memdesc:a2853ee7687dc906b9be791d197a1b1b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Força um valor para a escala vertical do sprite.  <a href="#a2853ee7687dc906b9be791d197a1b1b6">Mais...</a><br /></td></tr>
 <tr class="separator:a2853ee7687dc906b9be791d197a1b1b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54d18a18383575b04f397f5bec3113d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a54d18a18383575b04f397f5bec3113d0">SetScale</a> (float scale)</td></tr>
+<tr class="memdesc:a54d18a18383575b04f397f5bec3113d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Força um valor para a escala horizontal e vertical da sprite.  <a href="#a54d18a18383575b04f397f5bec3113d0">Mais...</a><br /></td></tr>
 <tr class="separator:a54d18a18383575b04f397f5bec3113d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42b3a6ed82560c5b97085cc127984cf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a42b3a6ed82560c5b97085cc127984cf4">ScaleX</a> (float scale)</td></tr>
+<tr class="memdesc:a42b3a6ed82560c5b97085cc127984cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera a escala horizontal do sprite.  <a href="#a42b3a6ed82560c5b97085cc127984cf4">Mais...</a><br /></td></tr>
 <tr class="separator:a42b3a6ed82560c5b97085cc127984cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4a9b4df6061cf7391403a4d03286ff0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#ad4a9b4df6061cf7391403a4d03286ff0">ScaleY</a> (float scale)</td></tr>
+<tr class="memdesc:ad4a9b4df6061cf7391403a4d03286ff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera a escala vertical do sprite.  <a href="#ad4a9b4df6061cf7391403a4d03286ff0">Mais...</a><br /></td></tr>
 <tr class="separator:ad4a9b4df6061cf7391403a4d03286ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8b31cd4deebedbbdf8ca3923a3064c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#aa8b31cd4deebedbbdf8ca3923a3064c6">Scale</a> (float scale)</td></tr>
+<tr class="memdesc:aa8b31cd4deebedbbdf8ca3923a3064c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera a escala vertical e horizontal do sprite.  <a href="#aa8b31cd4deebedbbdf8ca3923a3064c6">Mais...</a><br /></td></tr>
 <tr class="separator:aa8b31cd4deebedbbdf8ca3923a3064c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -165,7 +188,10 @@ Atributos Privados</h2></td></tr>
 <tr class="memitem:ac4085b0144253c09bc94151a53079104"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#ac4085b0144253c09bc94151a53079104">scaleY</a></td></tr>
 <tr class="separator:ac4085b0144253c09bc94151a53079104"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><p>Classe que modela uma sprite. </p>
+<p><a class="el" href="classSprite.html" title="Classe que modela uma sprite. ">Sprite</a> é uma imagem carregada na memória. Essa classe também traz uma séria de funcionalidades além disso, como escala, animações de sprite sheets e exibição a tela da imagem. </p>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a class="anchor" id="abee3d268d8e467d9e23bfe0693e64144"></a>
 <div class="memitem">
 <div class="memproto">
@@ -179,6 +205,10 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Cria um sprite não associado a uma imagem. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Futuras Atividades:</a></b></dt><dd>verificar a real necessidade disso.</dd></dl>
+<p>Uma instância de sprite é criada. A escala inicial(X e Y) é 1.0, supondo-se que não é um sprite sheet(frameCount=1, frameTime=0), o campo texture é inicializado com nullptr. </p>
 
 </div>
 </div>
@@ -212,6 +242,17 @@ Atributos Privados</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Cria um sprite válida. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Arquivo que contém a imagem. </td></tr>
+    <tr><td class="paramname">frameTime</td><td>tempo em segundos que cada imagem de um sprite sheet deve durar. </td></tr>
+    <tr><td class="paramname">frameCount</td><td>quantas imagens tem no sprite sheet. Caso o valor seja 1 significa que é um sprite não animado.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Uma instância de sprite é criada. A escala inicial(X e Y) é 1.0. o método Open é chamado para carregar a imagem. </p>
+
 </div>
 </div>
 <a class="anchor" id="a8accab430f9d90ae5117b57d67e32b84"></a>
@@ -226,6 +267,9 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destrutor. </p>
+<p>Como a desalocação a imagem é feita automaticamente pelo shared_ptr/Resources e todos os outros atritutos são alocados estaticamente, nada precisa ser feito. </p>
 
 </div>
 </div>
@@ -244,6 +288,9 @@ Atributos Privados</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Informa a altura do sprite. </p>
+<p>Retorna a largura do sprite. De qualquer forma essa altura é após ser alterado pela escala do sprite. </p>
+
 </div>
 </div>
 <a class="anchor" id="a27148c9990eeb0efa187ec41de2d3db0"></a>
@@ -259,6 +306,9 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Obtém a textura armazenada na <a class="el" href="classSprite.html" title="Classe que modela uma sprite. ">Sprite</a>. </p>
+<p>Com grandes poderes vêm grandes responsabilidades. </p>
 
 </div>
 </div>
@@ -276,6 +326,9 @@ Atributos Privados</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Informa a largura do sprite. </p>
+<p>Retorna a largura do sprite, no caso do sprite sheet é retornado a largura de um único sprite do sprite sheet. De qualquer forma essa largura é após ser alterado pela escala do sprite. </p>
+
 </div>
 </div>
 <a class="anchor" id="a9f1e62573dd91cb03dbad7aa54807b8c"></a>
@@ -292,6 +345,10 @@ Atributos Privados</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Verifica se tem uma imagem carregada. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Verdadeiro se a instância da <a class="el" href="classSprite.html" title="Classe que modela uma sprite. ">Sprite</a> contém uma imagem carregada, falso caso contrário.</dd></dl>
+<p>Isso é feito verificando se o atributo texture é diferente de nullptr. </p>
+
 </div>
 </div>
 <a class="anchor" id="a0528ea8ae39cdf864e01e2b4aaca8dca"></a>
@@ -307,6 +364,15 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Carrega uma imagem. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Arquivo que contém a imagem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Faz uso da classe <a class="el" href="classResources.html" title="Classe estática responsável por gestão dos recursos em memória. ">Resources</a> para obter o ponteiro para a imagem em memória, verifica o tamanho da imagem carregada para atribuir a width e height e chama o método SetClip da imagem, levando em consideração, caso seja uma sprite animada, quantas sprites fazem parte da animação. </p>
 
 </div>
 </div>
@@ -346,6 +412,18 @@ Atributos Privados</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Renderiza a imagem. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Ponto x da tela a partir do qual a imagem deve ser renderizada. </td></tr>
+    <tr><td class="paramname">y</td><td>Ponto y da tela a partir do qual a imagem deve ser renderizada. </td></tr>
+    <tr><td class="paramname">angle</td><td>Ângulo de rotação da imagem. </td></tr>
+    <tr><td class="paramname">zoom</td><td>Verdadeiro se a imagem deve sofrer zoom, falso caso contrário.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Renderiza o corte da imagem existente em clipRect nas posições (x, y) da informada nos argumentos. Os valores x, y, w e h da posição da tela serão multiplicados pelo valor de zoom contidos na câmera se o argumento zoom for verdadeiro. A imagem será rotacionada de acordo com o argumento angle. Os valores de w e h de destino alteram de acordo com a escala do objeto. </p>
+
 </div>
 </div>
 <a class="anchor" id="aa8b31cd4deebedbbdf8ca3923a3064c6"></a>
@@ -361,6 +439,15 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Altera a escala vertical e horizontal do sprite. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scale</td><td>Valor no qual a escala vertical e horizontal devem ser alteradas.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Atribui a scaleY produto de scaleX pelo argumento e atribui a scaleX produto de scaleX pelo argumento. </p>
 
 </div>
 </div>
@@ -378,6 +465,15 @@ Atributos Privados</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Altera a escala horizontal do sprite. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scale</td><td>Valor no qual a escala horizontal deve ser alterada.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Atribui a scaleX produto de scaleX pelo argumento. </p>
+
 </div>
 </div>
 <a class="anchor" id="ad4a9b4df6061cf7391403a4d03286ff0"></a>
@@ -393,6 +489,15 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Altera a escala vertical do sprite. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scale</td><td>Valor no qual a escala vertical deve ser alterada.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Atribui a scaleY produto de scaleY pelo argumento. </p>
 
 </div>
 </div>
@@ -432,6 +537,18 @@ Atributos Privados</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Seleciona o recorte da imagem que deve ser renderizado. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Ponto x inicial da imagem deve ser exibida. </td></tr>
+    <tr><td class="paramname">y</td><td>Ponto y inicial da imagem deve ser exibida. </td></tr>
+    <tr><td class="paramname">w</td><td>Largura em pixels da imagem. </td></tr>
+    <tr><td class="paramname">h</td><td>Altura em pixels da imagem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Atribui a clipRect os valores informados. </p>
+
 </div>
 </div>
 <a class="anchor" id="a351dd54dac6cadbbdec48f9e1d8a36c0"></a>
@@ -447,6 +564,15 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Força a animação a ficar num frame específico. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frame</td><td>Frame que deve ser colocado.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Atribui o frame informado ao currentFrame, usando a operação módulo para garantir que esse frame é válido. O campo x do clipRect é alterado para refletir essa mudança. </p>
 
 </div>
 </div>
@@ -464,6 +590,16 @@ Atributos Privados</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Altera a quantidade de frames do sprite animado. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frameCount</td><td>Novo valor para a quantidade de frames. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Futuras Atividades:</a></b></dt><dd>verificar a necessidade de existir SetFrameCount.</dd></dl>
+<p>O atribuito frameCount recebe o valor informado o width é recalculado usando o novo valor. </p>
+
 </div>
 </div>
 <a class="anchor" id="a8ebb93cd7485a51ccc635819ded6349b"></a>
@@ -479,6 +615,15 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Altera o ritmo dos sprites animados. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frameTime</td><td>Intervalo no qual se deveja que os sprites sejam trocados</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Atribui o argumento a frameTime. </p>
 
 </div>
 </div>
@@ -496,6 +641,15 @@ Atributos Privados</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Força um valor para a escala horizontal e vertical da sprite. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scale</td><td>Valor desejado para a escala.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Atribui o argumento a scaleY e scaleX. </p>
+
 </div>
 </div>
 <a class="anchor" id="aad7bb29fc017ac2197dffec177c17e15"></a>
@@ -511,6 +665,15 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Força um valor para a escala horizontal do sprite. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scale</td><td>Valor desejado para a escala.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Atribui o argumento a scaleX. </p>
 
 </div>
 </div>
@@ -528,6 +691,15 @@ Atributos Privados</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Força um valor para a escala vertical do sprite. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scale</td><td>Valor desejado para a escala.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Atribui o argumento a scaleY. </p>
+
 </div>
 </div>
 <a class="anchor" id="a1f5ac7fbd3e6efeca11cedb6b822df43"></a>
@@ -543,6 +715,18 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Atualiza o estado da sprite. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dt</td><td>Intervalo de tempo desde a última chamada a Update.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Verifica se o sprite carregado deve ser atualizado se for um sprite sheet. As seguintes operações são feitas:</p><ul>
+<li>Adiciona dt ao timeElapsed.</li>
+<li>Se o timeElapsed for maior que o tempo em que cada frame deve estar na tela(frametime) atribuimos ao currentFrame o valor do próximo frame e alteramos o valor x do clipRect para refletir essa operação. Colocando-o para o próximo sprite. </li>
+</ul>
 
 </div>
 </div>
@@ -564,6 +748,7 @@ Atributos Privados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Recorte do sprite que será exibido na tela. </p>
 
 </div>
 </div>
@@ -584,6 +769,7 @@ Atributos Privados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Indica qual "subsprite" de uma sprite animada está em exbição no momento. </p>
 
 </div>
 </div>
@@ -604,6 +790,7 @@ Atributos Privados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Quantidade de "subsprites" de um sprite animado. </p>
 
 </div>
 </div>
@@ -624,6 +811,7 @@ Atributos Privados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Tempo em segundos que cada "subsprite" deve aparecer na tela. </p>
 
 </div>
 </div>
@@ -644,6 +832,7 @@ Atributos Privados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Altura da textura em pixels. </p>
 
 </div>
 </div>
@@ -664,6 +853,7 @@ Atributos Privados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Escala horizontal do sprite. </p>
 
 </div>
 </div>
@@ -684,6 +874,7 @@ Atributos Privados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Escala vertical do sprite. </p>
 
 </div>
 </div>
@@ -704,6 +895,7 @@ Atributos Privados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Ponteiro para a textura manejada pelo sprite. </p>
 
 </div>
 </div>
@@ -724,6 +916,7 @@ Atributos Privados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Quantidade de tempo em segundos que o "subsprite" atual está sendo renderizados. </p>
 
 </div>
 </div>
@@ -744,6 +937,7 @@ Atributos Privados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Largura da textura em pixels. </p>
 
 </div>
 </div>
@@ -754,7 +948,7 @@ Atributos Privados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 25 de Abril de 2017 20:04:26 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 25 de Abril de 2017 22:50:54 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

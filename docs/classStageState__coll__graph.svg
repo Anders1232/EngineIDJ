@@ -94,7 +94,7 @@
 </g>
 <!-- Node7 -->
 <g id="node7" class="node"><title>Node7</title>
-<g id="a_node7"><a xlink:href="classSprite.html" target="_top" xlink:title="Sprite">
+<g id="a_node7"><a xlink:href="classSprite.html" target="_top" xlink:title="Classe que modela uma sprite. ">
 <polygon fill="white" stroke="black" points="268.5,-193.184 268.5,-212.184 310.5,-212.184 310.5,-193.184 268.5,-193.184"/>
 <text text-anchor="middle" x="289.5" y="-200.184" font-family="Helvetica,sans-Serif" font-size="10.00">Sprite</text>
 </a>
