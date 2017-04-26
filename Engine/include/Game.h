@@ -30,12 +30,47 @@
 
 #define MIXER_CHUCK_SIZE 1024
 
-
+/**
+	\brief Classe que modela o todo-poderoso Jogo
+	
+	Contém o loop principal do jogo, gerencia a pilha de estados do jogo, responsável por gerenciar a janela(no momento apenas informa as dimensões da janela).
+	Também calcula é o que calcula o delta time que é enviado ao update de várias entidades do jogo.
+*/
 class Game
 {
 	public:
+		/**
+			\brief Construtor
+			\param title Nome da janela.
+			\param width Largura da janela em pixels.
+			\param height Altura da janela em pixels
+			
+			Para fins de detecção de problemas futuros, a versão da SDL para a qual o jogo foi compilado e a versão na qual a SDL está sendo linkada no carregamento.
+			A deferença entre essas versões podem ser a causa de alguns bugs.
+			As seguintes tarefas são feitas:
+				- O contador de ticks é inicado.
+				- Verifica-se se já existe algum outra instância de jogo, se existir o jogo é fechado. Só deve haver uma instncia do jogo.
+				- A SDL é iniciada.
+				- A janela é criada com o o títlulo title, com dimensões width x width.
+				- O SDL_Renderer é inicializado.
+				- O mixer é inicializado.
+				- O sistema de áudio é inicializado(é uma inicialização diferente do mixer)
+				- O subsistema de fontes é inicializado.
+				- A variável storedState é inicializada com nullptr.
+		*/
 		Game(std::string title,int width, int height);
+		/**
+			\brief Destrutor
+			
+			A pilha de estados é esvaziada. Se tiver algum estado em storedState ele será deletado.
+			O ClearResources é chamado e os sistemas da SDL que foram inicializados são destruídos na ordem inversa em que foram inicializados. Par garantir que primeiro os subsistemas que não tem dependêntes sejam desalocados primeiros.
+		*/
 		~Game();
+		/**
+			\brief Obter instância do Game
+
+			Esquema básico do singleton. Retorna ainstância do singleton. Não se faz a chegagem por motrivos cronológicos
+		*/
 		static Game& GetInstance(void);
 		SDL_Renderer* GetRenderer(void) const;
 		State& GetCurrentState(void) const;
