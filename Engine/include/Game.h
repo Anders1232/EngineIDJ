@@ -67,14 +67,51 @@ class Game
 		*/
 		~Game();
 		/**
-			\brief Obter instância do Game
+			\brief Obtém referência do Game
+			\return Referência para Game
 
-			Esquema básico do singleton. Retorna ainstância do singleton. Não se faz a chegagem por motrivos cronológicos
+			Esquema básico do singleton. Retorna instância do singleton. Não se faz a chegagem da existência da instancia por motivos cronológicos(A primeira linha da main deve criar uma instncia de Game).
 		*/
 		static Game& GetInstance(void);
+		/**
+			\brief Obtém referência do SDL_Renderer
+			\return Referncia para SDL_Renderer
+
+			Retorna a referência do SDL_Renderer do Game
+		*/
 		SDL_Renderer* GetRenderer(void) const;
+		/**
+			\brief Obtém estado corrente do jogo.
+			\return Estado corrente do jogo.
+
+			Retorna o Estado que est no topo da pilha de estados.
+		*/
 		State& GetCurrentState(void) const;
+		/**
+			\brief Empilha um estado na pilha
+			\param state estado a ser empilhado.
+
+			O estado recebido como parâmetro é atribuído à storedState. Para que se torne o corrente no início do próximo frame.
+			Isso não é feito no exato momento da chamado pois pode gerar inconsistência no processamento do frame atual.
+		*/
 		void Push(State* state);
+		/**
+			\brief Realiza o loop principal.
+
+			As seguintes oerações são feitas:
+				-# Se o storedState tiver algum estado para empilhar, esse estado é empilhado.
+				-# Se a pilha estiver vazia, o método retorna. É necessário ter algum estado para ser rodado.
+				-# Enquanto a pilha de estados não estiver vazia(loop principal):
+					- Se o estado no topo da pilha pedir para o programa seja encerrado, esse loop é interrompido.
+					- Calcula-se o intervalo de tempo entre o últimoframe e o frame atual.
+					- O estado do inputManager é atualizado.
+					- O estado do State é atualizado.
+					- Renderiza-se o estado corrente.
+					- Força que o que foi renderizado apareça na tela
+					- Atualiza a pilha de estados.
+				-# Desempilha todos os estados da pilha de estados. Nesse ponto o jogo já terminou e estamos desalocando o que já foi alocado.
+				-# O ClearResources é chamado. Espera-se que nesse ponto não haja nenhuma outra referência pa
+		*/
 		void Run(void);
 		float GetDeltaTime(void) const;
 		Vec2 GetWindowDimensions(void) const;
