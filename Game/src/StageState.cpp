@@ -55,14 +55,7 @@ void StageState::Update(float dt)
 	{
 		quitRequested= true;
 	}
-	for(unsigned int cont=0; cont < objectArray.size(); cont++)
-	{
-		objectArray.at(cont)->Update(dt);
-		if(objectArray.at(cont)->IsDead())
-		{
-			objectArray.erase(objectArray.begin()+cont);
-		}
-	}
+	UpdateArray(dt);
 	for(unsigned int count1=0; count1 < objectArray.size()-1; count1++)
 	{
 		for(unsigned int count2= count1+1; count2 < objectArray.size(); count2++)
@@ -97,10 +90,7 @@ void StageState::Render(void) const
 	tileMap->RenderLayer(0, Camera::pos.x, Camera::pos.y);
 //	tileMap->Render(Camera::pos.x, Camera::pos.y);
 	REPORT_I_WAS_HERE;
-	for(unsigned int cont=0; cont < objectArray.size(); cont++)
-	{
-		objectArray[cont]->Render();
-	}
+	RenderArray();
 	tileMap->RenderLayer(1, Camera::pos.x, Camera::pos.y);
 }
 

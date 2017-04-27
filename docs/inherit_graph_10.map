@@ -1,5 +1,5 @@
 <map id="Gráfico de Hierarquia de Classes" name="Gráfico de Hierarquia de Classes">
-<area shape="rect" id="node1" href="$classState.html" title="State" alt="" coords="5,56,59,83"/>
+<area shape="rect" id="node1" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="5,56,59,83"/>
 <area shape="rect" id="node2" href="$classEndState.html" title="EndState" alt="" coords="112,5,188,32"/>
 <area shape="rect" id="node3" href="$classStageState.html" title="StageState" alt="" coords="107,56,193,83"/>
 <area shape="rect" id="node4" href="$classTitleState.html" title="TitleState" alt="" coords="111,107,189,133"/>

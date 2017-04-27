@@ -1,5 +1,5 @@
 <map id="StageState" name="StageState">
-<area shape="rect" id="node2" href="$classState.html" title="State" alt="" coords="687,73,740,99"/>
+<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="687,73,740,99"/>
 <area shape="rect" id="node15" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="663,186,764,213"/>
 <area shape="rect" id="node5" href="$classMusic.html" title="Music" alt="" coords="917,129,974,155"/>
 <area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="363,230,419,257"/>

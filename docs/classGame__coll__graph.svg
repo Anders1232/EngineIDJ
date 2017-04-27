@@ -126,7 +126,7 @@
 </g>
 <!-- Node9 -->
 <g id="node9" class="node"><title>Node9</title>
-<g id="a_node9"><a xlink:href="classState.html" target="_top" xlink:title="State">
+<g id="a_node9"><a xlink:href="classState.html" target="_top" xlink:title="Classe virtual que modela um estado do jogo. ">
 <polygon fill="white" stroke="black" points="349,-121.153 349,-140.153 389,-140.153 389,-121.153 349,-121.153"/>
 <text text-anchor="middle" x="369" y="-128.153" font-family="Helvetica,sans-Serif" font-size="10.00">State</text>
 </a>

@@ -26,6 +26,7 @@ void State::UpdateArray(float dt)
 		if(objectArray.at(cont)->IsDead())
 		{
 			objectArray.erase(objectArray.begin()+cont);
+			cont--;
 		}
 	}
 }
