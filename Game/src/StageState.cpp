@@ -90,7 +90,7 @@ void StageState::Render(void) const
 	tileMap->RenderLayer(0, Camera::pos.x, Camera::pos.y);
 //	tileMap->Render(Camera::pos.x, Camera::pos.y);
 	REPORT_I_WAS_HERE;
-	RenderArray();
+	State::RenderArray();
 	tileMap->RenderLayer(1, Camera::pos.x, Camera::pos.y);
 }
 

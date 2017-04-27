@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="classVec2.html" target="_top" xlink:title="Vec2">
+<g id="a_node2"><a xlink:href="classVec2.html" target="_top" xlink:title="Classe que modela um vetor(no sentido físico) ">
 <polygon fill="white" stroke="black" points="71.0687,-123 71.0687,-142 110.069,-142 110.069,-123 71.0687,-123"/>
 <text text-anchor="middle" x="90.5687" y="-130" font-family="Helvetica,sans-Serif" font-size="10.00">Vec2</text>
 </a>

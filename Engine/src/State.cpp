@@ -30,7 +30,7 @@ void State::UpdateArray(float dt)
 		}
 	}
 }
-void State::RenderArray(void)
+void State::RenderArray(void) const
 {
 	for(unsigned int cont=0; cont < objectArray.size(); cont++)
 	{

@@ -85,7 +85,7 @@ class State
 
 			Percorre todos os GameObjects do vetor de GameObjects chamando o método Render de cada um deles.
 		*/
-		virtual void RenderArray(void);
+		virtual void RenderArray(void) const;
 		bool popRequested;/**< Armazena a informação se o state solicitou desempilhamento.*/
 		bool quitRequested;/**< Armazena a informação se o state solicitou que o jogo seja fechado.*/
 		std::vector<std::unique_ptr<GameObject>> objectArray;/**< Vetor de GameObjects.*/

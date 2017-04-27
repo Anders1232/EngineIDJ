@@ -17,7 +17,7 @@ var searchData=
   ['setstyle',['SetStyle',['../classText.html#acd7cd539df681365587e86144cc3c352',1,'Text']]],
   ['settext',['SetText',['../classText.html#abffaafcd871424690014ca0a74c45989',1,'Text']]],
   ['settileset',['SetTileSet',['../classTileMap.html#aeaeb5ed2cc7e621ab2fe9f5ee26b2b69',1,'TileMap']]],
-  ['setwidthandheight',['SetWidthAndHeight',['../classRect.html#a5751026840c842f72e1f79cb82d9554c',1,'Rect::SetWidthAndHeight()'],['../classVec2.html#a782588fd0ba59659df8b2a221b58896d',1,'Vec2::SetWidthAndHeight()']]],
+  ['setwidthandheight',['SetWidthAndHeight',['../classRect.html#a5751026840c842f72e1f79cb82d9554c',1,'Rect']]],
   ['setzoomable',['SetZoomable',['../classCamera.html#a3912a07e55bb225146fdaedb333c4452',1,'Camera']]],
   ['setzoomlimits',['SetZoomLimits',['../classCamera.html#aa320e33bcbe395cdad9f63887ea15689',1,'Camera']]],
   ['setzoomspeed',['SetZoomSpeed',['../classCamera.html#a4373a9b1baa7b98e4fe5859e0645baed',1,'Camera']]],
