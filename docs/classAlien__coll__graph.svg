@@ -29,7 +29,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="classRect.html" target="_top" xlink:title="Rect">
+<g id="a_node3"><a xlink:href="classRect.html" target="_top" xlink:title="Classe que modela um rect. ">
 <polygon fill="white" stroke="black" points="0,-181.5 0,-200.5 38,-200.5 38,-181.5 0,-181.5"/>
 <text text-anchor="middle" x="19" y="-188.5" font-family="Helvetica,sans-Serif" font-size="10.00">Rect</text>
 </a>
