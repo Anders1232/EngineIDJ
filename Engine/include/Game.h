@@ -110,23 +110,48 @@ class Game
 					- Força que o que foi renderizado apareça na tela
 					- Atualiza a pilha de estados.
 				-# Desempilha todos os estados da pilha de estados. Nesse ponto o jogo já terminou e estamos desalocando o que já foi alocado.
-				-# O ClearResources é chamado. Espera-se que nesse ponto não haja nenhuma outra referência pa
+				-# O ClearResources é chamado. Espera-se que nesse ponto não haja nenhuma outra referência para qualquer recurso gerenciado pelo Resources.
 		*/
 		void Run(void);
+		/**
+			\brief Retorna do tempo passado desde o último frame.
+			\return Veja a descrição.
+
+			Retorna o intervalo de tempo do último frame ao atual calculado anteriormente pelo CalculateDeltaTime.
+		*/
 		float GetDeltaTime(void) const;
+		/**
+			\brief Informa as dimensões da janela corrente
+			\return Veja a descrição.
+
+			Retorna o intervalo de tempo do último frame ao atual calculado anteriormente pelo CalculateDeltaTime.
+		*/
 		Vec2 GetWindowDimensions(void) const;
 	private:
+		/**
+			\brief Calcula o tempo transcorrido desde a última chamada a essa função
+
+			Ela é chamada a cada frame para que seja calculado o tempo transcorrido desde o útimo frame.
+			Esse cálculo é feito a partir da diferença entre o valor retornado em SDL_GetTicks com o valor em frameStart. Atribui-se ao dt o resultado dessa operação dividida por mil(os ticks contam milésimos).
+			Depois atualiza-se o valor de frameStart com o que foi obitdo em SDL_GetTicks.
+		*/
 		void CalculateDeltaTime(void);
+		/**
+			\brief Atualiza a pilha de estados.
+
+			Primeiro verifica-se o estado no topo da pilha pediu para ser desempilhado e se tiver solicitado, essa ação é feita e o ClearResources é chamado.
+			Depois verifica-se se tem algum estado esperando para ser empilhado em storedState, se tiver, ele é empilhado.
+		*/
 		void UpdateStack(void);
 
-		unsigned int frameStart;
-		float dt;
-		static Game* instance;
-		State* storedState;
-		SDL_Window* window;
-		SDL_Renderer* renderer;
-		std::stack<std::unique_ptr<State>> stateStack;
-		InputManager &inputManager;
+		unsigned int frameStart;/**< Armazena a quantidade de ticks no momento do início do frame. Usado para calcular intervalos de tempo através de diferença da quantidade de ticks atual com o valor armazenado nessa variável.*/
+		float dt;/**< Armazena o intervalo de tempo em segundos desde o último frame. Esse valor é calculado a partir da diferença entre o frameStart com o SDL_GetTicks.*/
+		static Game* instance;/**< Instância estática do Game. Esquema básico de singleton.*/
+		State* storedState;/**< Armazena o estado que deve ser empilhado no fim do frame atual. Isso não pode acontecer no meio do frame para não gerar inconsistências.*/
+		SDL_Window* window;/**< Ponteiro para SDL_Window do game.*/
+		SDL_Renderer* renderer;/**< Ponteiro para o SDL_renderer do jogo.*/
+		std::stack<std::unique_ptr<State>> stateStack;/**< Pilha de estados.*/
+		InputManager &inputManager;/**< Gerenciador de entradas do usuário.*/
 };
 
 #endif // GAME_H
