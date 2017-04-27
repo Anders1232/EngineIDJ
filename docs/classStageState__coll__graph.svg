@@ -185,7 +185,7 @@
 </g>
 <!-- Node13 -->
 <g id="node13" class="node"><title>Node13</title>
-<g id="a_node13"><a xlink:href="classTileMap.html" target="_top" xlink:title="TileMap">
+<g id="a_node13"><a xlink:href="classTileMap.html" target="_top" xlink:title="Classe que modela o TileMap. ">
 <polygon fill="white" stroke="black" points="679.5,-92.184 679.5,-111.184 730.5,-111.184 730.5,-92.184 679.5,-92.184"/>
 <text text-anchor="middle" x="705" y="-99.184" font-family="Helvetica,sans-Serif" font-size="10.00">TileMap</text>
 </a>
