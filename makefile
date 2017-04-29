@@ -8,6 +8,8 @@ RMDIR = rm -rf
 #comando para remover arquivos
 RM = rm -f
 CD = cd
+#comando para executar o make
+MAKE = make
 
 #Flags para geração automática de dependências
 DEP_FLAGS = -MT $@ -MMD -MP -MF $(DEP_PATH)/$.d
@@ -47,6 +49,8 @@ ifeq ($(OS),Windows_NT)
 RMDIR= rd /s /q
 #comando para deletar um único arquivo
 RM = del
+#comando para fazer o make
+MAKE = mingw32-make
 
 #path da SDL
 SDL_PATH = C:/Tools/msys64/mingw64
@@ -79,7 +83,7 @@ $(EXEC): $(ENGINE_OBJ_FILES) $(GAME_OBJ_FILES)
 
 .PHONY: $(ENGINE_BIN_PATH)/%.o
 $(ENGINE_BIN_PATH)/%.o: $(ENGINE_SRC_PATH)/%.cpp
-	$(CD) $(ENGINE_PATH) && make $(DEBUG_OU_RELEASE) objects
+	$(CD) $(ENGINE_PATH) && $(MAKE) $(DEBUG_OU_RELEASE) objects
 
 .PHONY: $(GAME_BIN_PATH)/%.o
 $(GAME_BIN_PATH)/%.o: $(GAME_SRC_PATH)/%.cpp
@@ -95,12 +99,12 @@ $(GAME_BIN_PATH)/%.o: $(GAME_SRC_PATH)/%.cpp
 
 #-include $(GAME_DEP_FILES)
 
-	$(CD) $(GAME_PATH) && make $(DEBUG_OU_RELEASE) objects
+	$(CD) $(GAME_PATH) && $(MAKE) $(DEBUG_OU_RELEASE) objects
 
 
 clean:
-	$(CD) $(ENGINE_PATH) && make clean
-	$(CD) $(GAME_PATH) && make clean
+	$(CD) $(ENGINE_PATH) && $(MAKE) clean
+	$(CD) $(GAME_PATH) && $(MAKE) clean
 #	$(RMDIR) $(ENGINE_BIN_PATH) $(ENGINE_DEP_PATH) $(GAME_BIN_PATH) $(GAME_DEP_PATH)
 	$(RM) $(EXEC)
 
@@ -131,8 +135,13 @@ dclean:
 	$(RMDIR) docs
 	$(RM) doxygen_sqlite3.db
 
-
-
-
-
+help:
+	@echo.
+	@echo Available targets:
+	@echo - release:  Builds the release version (default target)
+	@echo - debug:    Builds the debug version
+	@echo - profile:  Builds a version to use with gprof (not implemented)
+	@echo - coverage: Builds a version to use with gcov (not implemented)
+	@echo - help:     Shows this help
+	@echo.
 
