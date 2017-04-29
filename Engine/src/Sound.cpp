@@ -14,7 +14,7 @@ void Sound::Play(int times)
 	{
 		Stop();
 	}
-	channel= Mix_PlayChannel(-1, sound.get(), times-1);
+	channel= Mix_PlayChannel(channel, sound.get(), times-1);
 }
 void Sound::Stop(void)
 {

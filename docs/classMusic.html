@@ -92,6 +92,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!--header-->
 <div class="contents">
 
+<p>Classe que modela músicas.  
+ <a href="classMusic.html#details">Mais...</a></p>
+
 <p><code>#include &lt;Music.h&gt;</code></p>
 <div class="dynheader">
 Diagrama de colaboração para Music:</div>
@@ -103,16 +106,22 @@ Diagrama de colaboração para Music:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
 <tr class="memitem:ab5143f67c021bc77894c8e91de2b916b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMusic.html#ab5143f67c021bc77894c8e91de2b916b">Music</a> ()</td></tr>
+<tr class="memdesc:ab5143f67c021bc77894c8e91de2b916b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão.  <a href="#ab5143f67c021bc77894c8e91de2b916b">Mais...</a><br /></td></tr>
 <tr class="separator:ab5143f67c021bc77894c8e91de2b916b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a769113513e796dd408b4deb7e758074d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMusic.html#a769113513e796dd408b4deb7e758074d">Music</a> (string file)</td></tr>
+<tr class="memdesc:a769113513e796dd408b4deb7e758074d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor.  <a href="#a769113513e796dd408b4deb7e758074d">Mais...</a><br /></td></tr>
 <tr class="separator:a769113513e796dd408b4deb7e758074d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b0eeff26dedfaab92bd127bce028b9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMusic.html#a0b0eeff26dedfaab92bd127bce028b9a">Play</a> (int times)</td></tr>
+<tr class="memdesc:a0b0eeff26dedfaab92bd127bce028b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toca a música.  <a href="#a0b0eeff26dedfaab92bd127bce028b9a">Mais...</a><br /></td></tr>
 <tr class="separator:a0b0eeff26dedfaab92bd127bce028b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76ee0c7654f3048045e1f1b7fde334c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMusic.html#a76ee0c7654f3048045e1f1b7fde334c3">Stop</a> (void)</td></tr>
+<tr class="memdesc:a76ee0c7654f3048045e1f1b7fde334c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrompe a música.  <a href="#a76ee0c7654f3048045e1f1b7fde334c3">Mais...</a><br /></td></tr>
 <tr class="separator:a76ee0c7654f3048045e1f1b7fde334c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae13bd9609c4bb402a04f53ec07890aa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMusic.html#ae13bd9609c4bb402a04f53ec07890aa3">Open</a> (string file)</td></tr>
+<tr class="memdesc:ae13bd9609c4bb402a04f53ec07890aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega uma música.  <a href="#ae13bd9609c4bb402a04f53ec07890aa3">Mais...</a><br /></td></tr>
 <tr class="separator:ae13bd9609c4bb402a04f53ec07890aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dd0d191e358d600f0ea8a1db75f833d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMusic.html#a7dd0d191e358d600f0ea8a1db75f833d">IsOpen</a> (void) const </td></tr>
+<tr class="memdesc:a7dd0d191e358d600f0ea8a1db75f833d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se tem um arquivo aberto.  <a href="#a7dd0d191e358d600f0ea8a1db75f833d">Mais...</a><br /></td></tr>
 <tr class="separator:a7dd0d191e358d600f0ea8a1db75f833d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -120,7 +129,10 @@ Atributos Privados</h2></td></tr>
 <tr class="memitem:a6cddb36711f395497d2daf3e3c955912"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Mix_Music &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMusic.html#a6cddb36711f395497d2daf3e3c955912">music</a></td></tr>
 <tr class="separator:a6cddb36711f395497d2daf3e3c955912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><p>Classe que modela músicas. </p>
+<p>Modela músicas e permite operações básicas como: abiri um arquivo de som, tocar som e para som(stop). Diferente de sons, apenas uma música pode ser tocada por vez. </p>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a class="anchor" id="ab5143f67c021bc77894c8e91de2b916b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -133,6 +145,10 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Construtor padrão. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Futuras Atividades:</a></b></dt><dd>Verificar a necessidade da existência desse contrutor.</dd></dl>
+<p>Cria uma instância não associada a nenhuma música. O uso da instâncis nesse estado pode causar problemas. </p>
 
 </div>
 </div>
@@ -149,6 +165,15 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Construtor. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Arquivo com música a ser utilizado.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Cria uma instância associando-a uma música. Todas as funcionalidades tornam-se disponíveis. </p>
 
 </div>
 </div>
@@ -167,6 +192,15 @@ Atributos Privados</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Verifica se tem um arquivo aberto. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">return</td><td>verdadeiro se essa instância está associada a uma música, falso caso contrário.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Verifica se a instância de <a class="el" href="classMusic.html" title="Classe que modela músicas. ">Music</a> está associada à música de algum arquivo. </p>
+
 </div>
 </div>
 <a class="anchor" id="ae13bd9609c4bb402a04f53ec07890aa3"></a>
@@ -182,6 +216,16 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Carrega uma música. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Arquivo com a música a ser utilizado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Futuras Atividades:</a></b></dt><dd>Colocar para parar a música que estiver em execução?</dd></dl>
+<p>Associa a instância à música contido no arquivo. </p>
 
 </div>
 </div>
@@ -199,6 +243,15 @@ Atributos Privados</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Toca a música. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">times</td><td>Número de vezes que a música deve repetir.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Toca a música. Caso times seja -1, o sem será tocado indefinidamente. </p>
+
 </div>
 </div>
 <a class="anchor" id="a76ee0c7654f3048045e1f1b7fde334c3"></a>
@@ -214,6 +267,9 @@ Atributos Privados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Interrompe a música. </p>
+<p>Interrompe a eecução da música associado à instância. </p>
 
 </div>
 </div>
@@ -235,6 +291,7 @@ Atributos Privados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Ponteiro para Mix_Music com a música. </p>
 
 </div>
 </div>
@@ -245,7 +302,7 @@ Atributos Privados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 28 de Abril de 2017 22:13:38 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Abril de 2017 22:28:45 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

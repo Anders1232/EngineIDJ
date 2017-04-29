@@ -69,7 +69,7 @@
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="classMusic.html" target="_top" xlink:title="Music">
+<g id="a_node5"><a xlink:href="classMusic.html" target="_top" xlink:title="Classe que modela músicas. ">
 <polygon fill="white" stroke="black" points="683.5,-269.184 683.5,-288.184 726.5,-288.184 726.5,-269.184 683.5,-269.184"/>
 <text text-anchor="middle" x="705" y="-276.184" font-family="Helvetica,sans-Serif" font-size="10.00">Music</text>
 </a>

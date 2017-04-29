@@ -26,6 +26,7 @@ using std::string;
 	\brief Classe que modela sons.
 
 	Modela sons e permite operações básicas como: abiri um arquivo de som, tocar som e para som(stop).
+	É permitido até a reprodução de 32 sons simultâneos(além da música). Cada som é tocado num canal diferente.
 */
 class Sound
 {
@@ -34,14 +35,14 @@ class Sound
 			\brief Construtor padrão.
 			\todo Verificar a necessidade da existência desse contrutor.
 
-			Cria uma instância não associada a nenhum som. O uso da instâncis nesse estado pode causar problemas.
+			Cria uma instância não associada a nenhum som. O uso da instância nesse estado pode causar problemas.
 		*/
 		Sound();
 		/**
 			\brief Construtor.
 			\param file Arquivo com som a ser utilizado.
 
-			Cria uma instância associando-a um som. Todas as funcionalidades do arquivo estão disponíveis.
+			Cria uma instância associando-a um som. Todas as funcionalidades tornam-se disponíveis.
 		*/
 		Sound(string file);
 		/**
