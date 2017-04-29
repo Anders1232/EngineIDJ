@@ -91,6 +91,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!--header-->
 <div class="contents">
 
+<p>Interface de comunicação entre States.  
+ <a href="classStateData.html#details">Mais...</a></p>
+
 <p><code>#include &lt;StateData.h&gt;</code></p>
 <div class="dynheader">
 Diagrama de Hierarquia para StateData:</div>
@@ -102,9 +105,13 @@ Diagrama de Hierarquia para StateData:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
 <tr class="memitem:a63b33546d704a06bf8f9df6b0590eae4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateData.html#a63b33546d704a06bf8f9df6b0590eae4">Is</a> (<a class="el" href="StateData_8h.html#a11e85d0fc3db733c13a8d9d030471c7d">StateDataType</a> typeToCheck) const =0</td></tr>
+<tr class="memdesc:a63b33546d704a06bf8f9df6b0590eae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa o tipo do <a class="el" href="classStateData.html" title="Interface de comunicação entre States. ">StateData</a>.  <a href="#a63b33546d704a06bf8f9df6b0590eae4">Mais...</a><br /></td></tr>
 <tr class="separator:a63b33546d704a06bf8f9df6b0590eae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Métodos</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><p>Interface de comunicação entre States. </p>
+<p>O objetivo dessa classe é conter informações para um state a ser construído. Para um <a class="el" href="classState.html" title="Classe virtual que modela um estado do jogo. ">State</a> conseguir saber que informações o <a class="el" href="classStateData.html" title="Interface de comunicação entre States. ">StateData</a> tem, existe o método Is, que irá identificar o <a class="el" href="classStateData.html" title="Interface de comunicação entre States. ">StateData</a>. Isso permite então o cast do <a class="el" href="classStateData.html" title="Interface de comunicação entre States. ">StateData</a> para o tipo correto. </p>
+</div><h2 class="groupheader">Métodos</h2>
 <a class="anchor" id="a63b33546d704a06bf8f9df6b0590eae4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -127,6 +134,9 @@ Métodos Públicos</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Informa o tipo do <a class="el" href="classStateData.html" title="Interface de comunicação entre States. ">StateData</a>. </p>
+<p>Iidentifica o tipo de <a class="el" href="classStateData.html" title="Interface de comunicação entre States. ">StateData</a> da instância. Isso permite então o cast correto do <a class="el" href="classStateData.html" title="Interface de comunicação entre States. ">StateData</a> para o tipo desejado. </p>
+
 <p>Implementado por <a class="el" href="classEndStateData.html#abce01a73395040307914a4aa62741463">EndStateData</a> e <a class="el" href="classEndStateData.html#abce01a73395040307914a4aa62741463">EndStateData</a>.</p>
 
 </div>
@@ -137,7 +147,7 @@ Métodos Públicos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 28 de Abril de 2017 21:10:12 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Abril de 2017 21:38:33 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
