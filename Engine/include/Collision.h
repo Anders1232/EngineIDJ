@@ -1,14 +1,23 @@
-//Collision.h#include <cmath>
+#include <cmath>
 #include <algorithm>
 
 #include "Rect.h"
 
+/**
+	\brief Classe header-only que implementa lógica de colisão.
+
+	Classe header-only com todos os métodos inline com objetivo de facilitar otimizações por parte do compilador.
+*/
 class Collision
 {
 	public:
-		// Observação: IsColliding espera ângulos em radianos!
-		// Para usar graus, forneça a sua própria implementação de Rotate,
-		// ou transforme os ângulos no corpo de IsColliding.
+		/**
+			\brief Verifica colisão.
+			\return Verdadeiro se estiverem colidindo, falso caso contrário.
+
+			Verifica colisão entre dois Rects levando em consideração seus ângulos.
+			Observação: IsColliding espera ângulos em radianos!
+		*/
 		static inline bool IsColliding(Rect& a, Rect& b, float angleOfA, float angleOfB)
 		{
 			Vec2 A[] = { Vec2( a.x, a.y + a.h ),
@@ -53,18 +62,41 @@ class Collision
 
 	private:
 
+		/**
+			\brief Método interno para obter Magnetude.
+			\todo Verificar se usamos o nosso no lugar.
+
+			Obtém a magnetude do Vec2 passado como argumento.
+		*/
 		static inline float Mag(const Vec2& p) {
 			return std::sqrt(p.x * p.x + p.y * p.y);
 		}
 
+		/**
+			\brief Método interno para obter vetor normalizado.
+			\todo Verificar se usamos o nosso no lugar.
+
+			Obtém o vetor normalizado do Vec2 passado como argumento.
+		*/
 		static inline Vec2 Norm(const Vec2& p) {
 			return p * (1.f / Mag(p));
 		}
 
+		/**
+			\brief Método interno para obter o produto escalar dos dois vetores.
+
+			Obtém o produto escalar dos Vec2 passados como argumento.
+		*/
 		static inline float Dot(const Vec2& a, const Vec2& b) {
 			return a.x * b.x + a.y * b.y;
 		}
 
+		/**
+			\brief Método interno para rotacionar vetor .
+			\todo Verificar se usamos o nosso no lugar.
+
+			Rotaciona o vetor do Vec2 passado como argumento em angle graus.
+		*/
 		static inline Vec2 Rotate(const Vec2& p, float angle) {
 			float cs = std::cos(angle), sn = std::sin(angle);
 			return Vec2 ( p.x * cs - p.y * sn, p.x * sn + p.y * cs );
