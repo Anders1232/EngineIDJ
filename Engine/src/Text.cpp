@@ -13,7 +13,8 @@ Text::Text
 //	text(),
 	style(style),
 	fontSize(fontSize),
-	color(color)
+	color(color),
+	fontFile(fontFile)
 {
 	box.x= x;
 	box.y= y;

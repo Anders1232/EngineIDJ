@@ -126,6 +126,7 @@ class Text
 		int fontSize;/**< Tamanho da fonte do texto.*/
 		SDL_Color color;/**< Cor do texto,*/
 		Rect box;/**< Posição a partir da qual o texto deve ser renderizado.*/
+		string fontFile; /**< String com o nome do arquivo com a fonte. É necessário para o caso em que a fonte seja modificada.*/
 };
 
 
