@@ -32,7 +32,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="classAnimation.html" target="_top" xlink:title="Animation">
+<g id="a_node3"><a xlink:href="classAnimation.html" target="_top" xlink:title="Classe que modela animações. ">
 <polygon fill="white" stroke="black" points="107,-114.5 107,-133.5 167,-133.5 167,-114.5 107,-114.5"/>
 <text text-anchor="middle" x="137" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">Animation</text>
 </a>

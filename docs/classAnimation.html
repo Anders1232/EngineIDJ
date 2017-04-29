@@ -92,6 +92,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!--header-->
 <div class="contents">
 
+<p>Classe que modela animações.  
+ <a href="classAnimation.html#details">Mais...</a></p>
+
 <p><code>#include &lt;Animation.h&gt;</code></p>
 <div class="dynheader">
 Diagrama de Hierarquia para Animation:</div>
@@ -109,21 +112,22 @@ Diagrama de colaboração para Animation:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
 <tr class="memitem:a48d3ca5ecd4b4ca7f2f6fe10cf1f91d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#a48d3ca5ecd4b4ca7f2f6fe10cf1f91d4">Animation</a> (float x, float y, float <a class="el" href="classGameObject.html#ac55f6ebdf4cfbab508680ad7290fb26c">rotation</a>, string sprite, int frameCount, float frameTime, bool ends)</td></tr>
+<tr class="memdesc:a48d3ca5ecd4b4ca7f2f6fe10cf1f91d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor.  <a href="#a48d3ca5ecd4b4ca7f2f6fe10cf1f91d4">Mais...</a><br /></td></tr>
 <tr class="separator:a48d3ca5ecd4b4ca7f2f6fe10cf1f91d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1871db60d1fb351aeb77ada38dd4dd9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#a1871db60d1fb351aeb77ada38dd4dd9c">Update</a> (float dt)</td></tr>
-<tr class="memdesc:a1871db60d1fb351aeb77ada38dd4dd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualizar estado.  <a href="#a1871db60d1fb351aeb77ada38dd4dd9c">Mais...</a><br /></td></tr>
+<tr class="memdesc:a1871db60d1fb351aeb77ada38dd4dd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza estado.  <a href="#a1871db60d1fb351aeb77ada38dd4dd9c">Mais...</a><br /></td></tr>
 <tr class="separator:a1871db60d1fb351aeb77ada38dd4dd9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49749e3890cec3896e6f726323544c26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#a49749e3890cec3896e6f726323544c26">Render</a> (void)</td></tr>
-<tr class="memdesc:a49749e3890cec3896e6f726323544c26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza o <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a>.  <a href="#a49749e3890cec3896e6f726323544c26">Mais...</a><br /></td></tr>
+<tr class="memdesc:a49749e3890cec3896e6f726323544c26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza animação.  <a href="#a49749e3890cec3896e6f726323544c26">Mais...</a><br /></td></tr>
 <tr class="separator:a49749e3890cec3896e6f726323544c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1eaa9ff240cbcc114270ea174523702"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#ad1eaa9ff240cbcc114270ea174523702">IsDead</a> (void)</td></tr>
-<tr class="memdesc:ad1eaa9ff240cbcc114270ea174523702"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa se esse gameObject não precisa mais existir.  <a href="#ad1eaa9ff240cbcc114270ea174523702">Mais...</a><br /></td></tr>
+<tr class="memdesc:ad1eaa9ff240cbcc114270ea174523702"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa se o objeto deve ser destruído.  <a href="#ad1eaa9ff240cbcc114270ea174523702">Mais...</a><br /></td></tr>
 <tr class="separator:ad1eaa9ff240cbcc114270ea174523702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a611b21418311eb697ec4af1aaff92657"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#a611b21418311eb697ec4af1aaff92657">NotifyCollision</a> (<a class="el" href="classGameObject.html">GameObject</a> &amp;other)</td></tr>
-<tr class="memdesc:a611b21418311eb697ec4af1aaff92657"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifica Colisão.  <a href="#a611b21418311eb697ec4af1aaff92657">Mais...</a><br /></td></tr>
+<tr class="memdesc:a611b21418311eb697ec4af1aaff92657"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifica colisão.  <a href="#a611b21418311eb697ec4af1aaff92657">Mais...</a><br /></td></tr>
 <tr class="separator:a611b21418311eb697ec4af1aaff92657"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a166f36012f3092275648a74272e8ff0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#a166f36012f3092275648a74272e8ff0f">Is</a> (string type)</td></tr>
-<tr class="memdesc:a166f36012f3092275648a74272e8ff0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa que tipo de <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> é.  <a href="#a166f36012f3092275648a74272e8ff0f">Mais...</a><br /></td></tr>
+<tr class="memdesc:a166f36012f3092275648a74272e8ff0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">informa o tipo de <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a>  <a href="#a166f36012f3092275648a74272e8ff0f">Mais...</a><br /></td></tr>
 <tr class="separator:a166f36012f3092275648a74272e8ff0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classGameObject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classGameObject')"><img src="closed.png" alt="-"/>&#160;Métodos Públicos inherited from <a class="el" href="classGameObject.html">GameObject</a></td></tr>
 <tr class="memitem:a78da814b13c8bf344ba0c5f72cb22af3 inherit pub_methods_classGameObject"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameObject.html#a78da814b13c8bf344ba0c5f72cb22af3">GameObject</a> (void)</td></tr>
@@ -152,7 +156,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ac55f6ebdf4cfbab508680ad7290fb26c inherit pub_attribs_classGameObject"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameObject.html#ac55f6ebdf4cfbab508680ad7290fb26c">rotation</a></td></tr>
 <tr class="separator:ac55f6ebdf4cfbab508680ad7290fb26c inherit pub_attribs_classGameObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><p>Classe que modela animações. </p>
+<p>As animações são um tipo de <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> que não se colidem e cujo objetivo é basicamente rodar uma animação e depois sumir, a não ser no caso dela ter que ser executada indefinidamente em loop. </p>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a class="anchor" id="a48d3ca5ecd4b4ca7f2f6fe10cf1f91d4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -207,6 +214,21 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Construtor. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordenada horizontal a partir da qual a animação deve ser renderizada. </td></tr>
+    <tr><td class="paramname">y</td><td>Coordenada vertical a partir da qual a animação deve ser renderizada. </td></tr>
+    <tr><td class="paramname">rotation</td><td>Ângulo de rotação da animação. </td></tr>
+    <tr><td class="paramname">sprite</td><td>Arquivo com spriteSheet da animação. </td></tr>
+    <tr><td class="paramname">frameCount</td><td>quantidade de sub-imagens na animação. </td></tr>
+    <tr><td class="paramname">frameTime</td><td>duração para cada frame da animação. </td></tr>
+    <tr><td class="paramname">ends</td><td>Verdadeiro se a animação deve rodar apenas uma vez, falso se a animação deve ser rodar indefinidamente.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Instancia uma animação com os argumentos dados. E inicializa um timer para contar por quanto tempo a animação deve rodar antes de ser destruída, no caso sela não ter que ser rodada enternamente. Caso a animação não deva rodar eternamente o tempo limite para a existência dessa animação é o produto de frameCount por frameTime. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Métodos</h2>
@@ -232,15 +254,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Informa que tipo de <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> é. </p>
-<dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">type</td><td>Tipo com o qual quer se verificar que esse <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> é. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Retorna</dt><dd>Verdadeiro se for do tipo perguntado, falso caso contrário;</dd></dl>
-<p>É usado no tratamento de colisão para que se identifique com quem colidiu. </p>
+<p>informa o tipo de <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> </p>
+<dl class="section return"><dt>Retorna</dt><dd>Verdadeiro se o argumento for "Animation", falso caso contrário.</dd></dl>
+<p>Usado pelos objetos que colidem com a animação para saber que tipo de <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> é. </p>
 
 <p>Implementa <a class="el" href="classGameObject.html#a3ddba599a800d774463c7082b7ef4801">GameObject</a>.</p>
 
@@ -268,9 +284,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Informa se esse gameObject não precisa mais existir. </p>
-<dl class="section return"><dt>Retorna</dt><dd>Verdadeiro se esse <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> não é mais necessário, false caso contrário.</dd></dl>
-<p>Deve ser usado no <a class="el" href="classState.html" title="Classe virtual que modela um estado do jogo. ">State</a> que o contém para o eliminar da sua estrutura de manipulação de gameObject e destruí-lo. </p>
+<p>Informa se o objeto deve ser destruído. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Verdadeiro se o objeto deve ser destruído, falso caso contrário.</dd></dl>
+<p>Isso é feito verificando se a animação NÃO deve rodar eternamente, se sim, usamos o timer para verificar se já estourou o tempo para a animação rodar. </p>
 
 <p>Implementa <a class="el" href="classGameObject.html#a076afa2ea9190c49046f86a0946b4543">GameObject</a>.</p>
 
@@ -298,14 +314,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Notifica Colisão. </p>
-<dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Referência para o gameobject com o qual se colidiu.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Deve realizar as ações para tratamento da colisão. </p>
+<p>Notifica colisão. </p>
+<p>Como a animação a princípio não interage com os outros gameObjects, o corpo desse método está vazio. </p>
 
 <p>Implementa <a class="el" href="classGameObject.html#aa627e6c2913983fc5f108c1c4d303eb8">GameObject</a>.</p>
 
@@ -333,8 +343,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Renderiza o <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a>. </p>
-<p>Esse método deve ter a lógica necessário para ser renderizado na tela. </p>
+<p>Renderiza animação. </p>
+<p>Renderiza a animação na tela. </p>
 
 <p>Implementa <a class="el" href="classGameObject.html#a976b9c0d72212389603802f95b3f3424">GameObject</a>.</p>
 
@@ -362,14 +372,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Atualizar estado. </p>
-<dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dt</td><td>tempo transcorrido desde a última chamada ao método.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>No corpo método o <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> deve atualizar seu estado, utilizando o argumento passado e quaisquer outras funcionalidades que necessitar. </p>
+<p>Atualiza estado. </p>
+<p>Atualiza o estado da animação e a contagem de tempo do timer. </p>
 
 <p>Implementa <a class="el" href="classGameObject.html#a93ed63df640deb516a020530e7f8e045">GameObject</a>.</p>
 
@@ -393,6 +397,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Temporizador cronomenta o tempo de existência da animação. Usado para verificar se a animação deve ser destruída. </p>
 
 </div>
 </div>
@@ -413,6 +418,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Verdadeiro se essa animação deve ser rodada apenas uma vez, falso se deve ser rodada em loop indefinidamente. </p>
 
 </div>
 </div>
@@ -433,6 +439,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p><a class="el" href="classSprite.html" title="Classe que modela uma sprite. ">Sprite</a> sheet da animação. </p>
 
 </div>
 </div>
@@ -453,6 +460,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Armazena o tempo que animação leva para rodar complemante uma vez. No caso em que a animação não deve rodar em loop esse é o tempo de a animação deve durar. </p>
 
 </div>
 </div>
@@ -463,7 +471,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 28 de Abril de 2017 22:28:45 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Abril de 2017 23:02:21 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
