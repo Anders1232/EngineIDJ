@@ -124,9 +124,12 @@ release: all
 again: clean
 again: all
 
+doc: dclean
+	doxygen Doxyfile
 
-
-
+dclean:
+	$(RMDIR) docs
+	$(RM) doxygen_sqlite3.db
 
 
 
