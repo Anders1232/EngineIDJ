@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "Tileset.h"
+#include "Vec2.h"
 
 #define TILE_VAZIO -1
 
@@ -71,6 +72,7 @@ class TileMap
 			Retorna o número de layers(profundidade) do tileMap.
 		*/
 		int GetDepth(void) const;
+		int GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const;
 	private:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
