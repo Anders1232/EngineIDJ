@@ -72,6 +72,17 @@ class TileMap
 			Retorna o número de layers(profundidade) do tileMap.
 		*/
 		int GetDepth(void) const;
+		/**
+			\brief Sobre qual tile o mouse está.
+			\param mousePos posição do mouse, é passado como referência por motivos de performance
+			\param affecteedByZoom verdadeiro se o tileMap está sofrendo zoom, falso caso contrário.
+			\param layer layer no tileMap do qual se quer obter a posição.
+			\todo Verificar se deve lançar exceção ao invés de retornar um valor negativo.
+
+			Retorna o número de layers(profundidade) do tileMap.Retorna o índice da posição do tileMap relativo à posição do mouse, esse valor pode ser enviado ao método TileMap::At para saber o conteúdo da posição.
+			O valor retornado será negativo e inválido se alguma coordenada do mouse tiver valor negativo.
+			Internamente usa-se busca binária para achar o tile correspondente.
+		*/
 		int GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const;
 	private:
 		/**

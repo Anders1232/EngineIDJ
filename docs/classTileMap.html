@@ -127,6 +127,9 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:aeb8c6a4101e449c33d963041345d918e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#aeb8c6a4101e449c33d963041345d918e">GetDepth</a> (void) const </td></tr>
 <tr class="memdesc:aeb8c6a4101e449c33d963041345d918e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa o número de layers do tileMap.  <a href="#aeb8c6a4101e449c33d963041345d918e">Mais...</a><br /></td></tr>
 <tr class="separator:aeb8c6a4101e449c33d963041345d918e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6c280210ec11a0aa9b5f5c2ba317817"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#af6c280210ec11a0aa9b5f5c2ba317817">GetTileMousePos</a> (<a class="el" href="classVec2.html">Vec2</a> const &amp;mousePos, bool affecteedByZoom, int layer) const </td></tr>
+<tr class="memdesc:af6c280210ec11a0aa9b5f5c2ba317817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobre qual tile o mouse está.  <a href="#af6c280210ec11a0aa9b5f5c2ba317817">Mais...</a><br /></td></tr>
+<tr class="separator:af6c280210ec11a0aa9b5f5c2ba317817"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Métodos Privados</h2></td></tr>
@@ -325,6 +328,50 @@ Atributos Privados</h2></td></tr>
 
 <p>Informa a altura do tileMap. </p>
 <p>Retorna a altura do tileMap em posições. </p>
+
+</div>
+</div>
+<a class="anchor" id="af6c280210ec11a0aa9b5f5c2ba317817"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TileMap::GetTileMousePos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classVec2.html">Vec2</a> const &amp;&#160;</td>
+          <td class="paramname"><em>mousePos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>affecteedByZoom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>layer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sobre qual tile o mouse está. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mousePos</td><td>posição do mouse, é passado como referência por motivos de performance </td></tr>
+    <tr><td class="paramname">affecteedByZoom</td><td>verdadeiro se o tileMap está sofrendo zoom, falso caso contrário. </td></tr>
+    <tr><td class="paramname">layer</td><td>layer no tileMap do qual se quer obter a posição. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Futuras Atividades:</a></b></dt><dd>Verificar se deve lançar exceção ao invés de retornar um valor negativo.</dd></dl>
+<p>Retorna o número de layers(profundidade) do tileMap.Retorna o índice da posição do tileMap relativo à posição do mouse, esse valor pode ser enviado ao método <a class="el" href="classTileMap.html#a3b8dec192ee9ccca2b4476821235cc0a" title="Obtém o índice do tileMap na posição informada. ">TileMap::At</a> para saber o conteúdo da posição. O valor retornado será negativo e inválido se alguma coordenada do mouse tiver valor negativo. Internamente usa-se busca binária para achar o tile correspondente. </p>
 
 </div>
 </div>
@@ -593,7 +640,7 @@ Atributos Privados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 28 de Abril de 2017 23:19:49 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 9 de Maio de 2017 20:05:47 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

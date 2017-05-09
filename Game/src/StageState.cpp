@@ -82,7 +82,7 @@ void StageState::Update(float dt)
 	if(InputManager::GetInstance().KeyPress('q'))
 	{
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos();
-		std::cout << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << std::endl;
+		std::cout << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << "tiles." << std::endl;
 	}
 }
 

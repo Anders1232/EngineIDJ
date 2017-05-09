@@ -101,6 +101,16 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 	}
 	int x, xDir= mapWidth-1, xEsq=0;
 	int tileWidth= CalculateParallaxScrolling(tileSet->GetTileWidth(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
+	if(position.x < 0)
+	{
+		cerr << WHERE << "Devo lançar exceção aqui?" << endl;
+		return -1;
+	}
+	if(position.y < 0)
+	{
+		cerr << WHERE << "Devo lançar exceção aqui?" << endl;
+		return -2;
+	}
 	while(1)//uma simplesBusca binária
 	{
 		x= (xEsq+xDir)/2;
