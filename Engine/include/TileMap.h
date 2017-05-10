@@ -80,7 +80,7 @@ class TileMap
 			\todo Verificar se deve lançar exceção ao invés de retornar um valor negativo.
 
 			Retorna o número de layers(profundidade) do tileMap.Retorna o índice da posição do tileMap relativo à posição do mouse, esse valor pode ser enviado ao método TileMap::At para saber o conteúdo da posição.
-			O valor retornado será negativo e inválido se alguma coordenada do mouse tiver valor negativo.
+			O valor retornado será negativo e inválido se alguma coordenada do mouse tiver fora dos limites do tileMap.
 			Internamente usa-se busca binária para achar o tile correspondente.
 		*/
 		int GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const;

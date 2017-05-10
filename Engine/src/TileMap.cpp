@@ -1,5 +1,6 @@
 #include <exception>
 #include <cstdio>
+#include <iostream>
 #include "TileMap.h"
 #include "Error.h"
 #include "Camera.h"
@@ -101,15 +102,26 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 	}
 	int x, xDir= mapWidth-1, xEsq=0;
 	int tileWidth= CalculateParallaxScrolling(tileSet->GetTileWidth(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
+	int tileHeight= CalculateParallaxScrolling(tileSet->GetTileHeight(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
 	if(position.x < 0)
 	{
-		cerr << WHERE << "Devo lançar exceção aqui?" << endl;
+		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
 		return -1;
 	}
 	if(position.y < 0)
 	{
-		cerr << WHERE << "Devo lançar exceção aqui?" << endl;
+		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
 		return -2;
+	}
+	if(position.x >= (GetWidth()-1)* tileWidth )
+	{
+		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
+		return -3;
+	}
+	if(position.y >= (GetHeight()-1)* tileHeight )
+	{
+		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
+		return -4;
 	}
 	while(1)//uma simplesBusca binária
 	{
@@ -131,7 +143,6 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 		}
 	}
 	int y, yDir= mapHeight-1, yEsq=0;
-	int tileHeight= CalculateParallaxScrolling(tileSet->GetTileHeight(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
 	while(1)//uma simplesBusca binária
 	{
 		y= (yEsq+yDir)/2;
