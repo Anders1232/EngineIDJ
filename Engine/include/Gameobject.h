@@ -13,9 +13,10 @@
 #else
 	#error "Unknown compiler"
 #endif
-
+#include <vector>
 #include "Rect.h"
 #include "string"
+#include "Component.h"
 
 using std::string;
 
@@ -77,6 +78,7 @@ class GameObject
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/
 	private:
+		vector<Component> components;
 
 };
 
