@@ -1,8 +1,0 @@
-<map id="Engine/include/TileMap.h" name="Engine/include/TileMap.h">
-<area shape="rect" id="node2" href="$TileMap_8cpp.html" title="Engine/src/TileMap.cpp" alt="" coords="5,80,164,107"/>
-<area shape="rect" id="node3" href="$StageState_8h.html" title="Game/include/StageState.h" alt="" coords="188,80,371,107"/>
-<area shape="rect" id="node4" href="$EndState_8h.html" title="Game/include/EndState.h" alt="" coords="97,155,267,181"/>
-<area shape="rect" id="node6" href="$StageState_8cpp.html" title="Game/src/StageState.cpp" alt="" coords="291,155,465,181"/>
-<area shape="rect" id="node7" href="$TitleState_8cpp.html" title="Game/src/TitleState.cpp" alt="" coords="489,155,653,181"/>
-<area shape="rect" id="node5" href="$EndState_8cpp.html" title="Game/src/EndState.cpp" alt="" coords="101,229,263,256"/>
-</map>

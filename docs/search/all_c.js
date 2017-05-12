@@ -33,7 +33,7 @@ var searchData=
   ['mousex',['mouseX',['../classInputManager.html#a29fddcf9d741e4de04492ad76b7cb3af',1,'InputManager']]],
   ['mousey',['mouseY',['../classInputManager.html#afb189c58dd5ee470a3202c685c5c7f1e',1,'InputManager']]],
   ['moving',['MOVING',['../classAlien.html#ae23fef43ed399f4b117ccf0520173455afbdbebbbfd9cfe581a6934b67727c99b',1,'Alien']]],
-  ['music',['Music',['../classMusic.html',1,'Music'],['../classMusic.html#a6cddb36711f395497d2daf3e3c955912',1,'Music::music()'],['../classEndState.html#ad053a1cc844baf965edafc3607da6868',1,'EndState::music()'],['../classStageState.html#a60c8325a1df466aff9f24ea167178350',1,'StageState::music()'],['../classMusic.html#ab5143f67c021bc77894c8e91de2b916b',1,'Music::Music()'],['../classMusic.html#a769113513e796dd408b4deb7e758074d',1,'Music::Music(string file)']]],
+  ['music',['Music',['../classMusic.html',1,'Music'],['../classMusic.html#ab5143f67c021bc77894c8e91de2b916b',1,'Music::Music()'],['../classMusic.html#a769113513e796dd408b4deb7e758074d',1,'Music::Music(string file)'],['../classMusic.html#a6cddb36711f395497d2daf3e3c955912',1,'Music::music()'],['../classEndState.html#ad053a1cc844baf965edafc3607da6868',1,'EndState::music()'],['../classStageState.html#a60c8325a1df466aff9f24ea167178350',1,'StageState::music()']]],
   ['music_2ecpp',['Music.cpp',['../Music_8cpp.html',1,'']]],
   ['music_2eh',['Music.h',['../Music_8h.html',1,'']]],
   ['music_5ffade_5fout_5ftime_5fmsec',['MUSIC_FADE_OUT_TIME_MSEC',['../Music_8h.html#a56d75cf0fabf795cc2ec85cdfa487bf2',1,'Music.h']]],

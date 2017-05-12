@@ -1,4 +1,0 @@
-<map id="TileMap" name="TileMap">
-<area shape="rect" id="node2" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="50,289,112,316"/>
-<area shape="rect" id="node3" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="205,155,261,181"/>
-</map>

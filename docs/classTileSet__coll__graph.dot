@@ -1,0 +1,17 @@
+digraph "TileSet"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="TileSet",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" tileSet" ,fontname="Helvetica"];
+  Node2 [label="Sprite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSprite.html",tooltip="Classe que modela uma sprite. "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" scaleY\nframeTime\ntimeElapsed\nscaleX" ,fontname="Helvetica"];
+  Node3 [label="float",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" clipRect" ,fontname="Helvetica"];
+  Node4 [label="SDL_Rect",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node5 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" width\ncurrentFrame\nheight\nframeCount" ,fontname="Helvetica"];
+  Node5 [label="int",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" texture" ,fontname="Helvetica"];
+  Node6 [label="shared_ptr\< SDL_Texture \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" tileHeight\nrows\ntileWidth\ncolumns" ,fontname="Helvetica"];
+}

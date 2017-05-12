@@ -1,0 +1,21 @@
+digraph "InputManager"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="InputManager",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" controllerStickState\nmouseScroolState" ,fontname="Helvetica"];
+  Node2 [label="Vec2",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classVec2.html",tooltip="Classe que modela um vetor(no sentido físico) "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" x\ny" ,fontname="Helvetica"];
+  Node3 [label="float",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mouseX\nmouseY\nmouseScroolUpdate\nupdateCounter\nmouseUpdate" ,fontname="Helvetica"];
+  Node4 [label="int",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" controllerStickUpdate\nquitRequested\nmouseState" ,fontname="Helvetica"];
+  Node5 [label="bool",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" controllerUpdate\nkeyUpdate" ,fontname="Helvetica"];
+  Node6 [label="unordered_map\< int,\l int \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node7 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" keyState\ncontrollerState" ,fontname="Helvetica"];
+  Node7 [label="unordered_map\< int,\l bool \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node8 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" padToController" ,fontname="Helvetica"];
+  Node8 [label="unordered_map\< int,\l SDL_GameController * \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

@@ -1,7 +1,6 @@
 var searchData=
 [
   ['addobject',['AddObject',['../classState.html#a431d5f711e028c788a9fdccaf99ff74e',1,'State']]],
-  ['ajust_5fkey',['AJUST_KEY',['../InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea',1,'InputManager.cpp']]],
   ['alien',['Alien',['../classAlien.html',1,'Alien'],['../classAlien.html#ac5669bcecd6fb077cb7e6450a72105f4',1,'Alien::Alien()']]],
   ['alien_2ecpp',['Alien.cpp',['../Alien_8cpp.html',1,'']]],
   ['alien_2eh',['Alien.h',['../Alien_8h.html',1,'']]],

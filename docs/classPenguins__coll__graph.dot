@@ -1,0 +1,31 @@
+digraph "Penguins"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Penguins",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="GameObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGameObject.html",tooltip="Classe virtual que especifica o funcionamento de um GameObject. "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" box" ,fontname="Helvetica"];
+  Node3 [label="Rect",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classRect.html",tooltip="Classe que modela um rect. "];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" w\nx\nh\ny" ,fontname="Helvetica"];
+  Node4 [label="float",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" rotation" ,fontname="Helvetica"];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" speed" ,fontname="Helvetica"];
+  Node5 [label="Vec2",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classVec2.html",tooltip="Classe que modela um vetor(no sentido físico) "];
+  Node4 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" x\ny" ,fontname="Helvetica"];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cannonAngle\nlinearSpeed" ,fontname="Helvetica"];
+  Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cannonSp\nbodySP" ,fontname="Helvetica"];
+  Node6 [label="Sprite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSprite.html",tooltip="Classe que modela uma sprite. "];
+  Node4 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" scaleY\nframeTime\ntimeElapsed\nscaleX" ,fontname="Helvetica"];
+  Node7 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" clipRect" ,fontname="Helvetica"];
+  Node7 [label="SDL_Rect",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node8 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" width\ncurrentFrame\nheight\nframeCount" ,fontname="Helvetica"];
+  Node8 [label="int",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node9 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" texture" ,fontname="Helvetica"];
+  Node9 [label="shared_ptr\< SDL_Texture \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" player" ,fontname="Helvetica"];
+  Node8 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" hp" ,fontname="Helvetica"];
+  Node10 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" bulletsTimer" ,fontname="Helvetica"];
+  Node10 [label="Timer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTimer.html",tooltip="Temporizador. "];
+  Node4 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" time" ,fontname="Helvetica"];
+}

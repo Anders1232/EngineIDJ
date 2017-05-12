@@ -3,15 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.8"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
 <title>Projeto IDJ - Towers Of Madness: Referência da Classe InputManager</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { searchBox.OnSelectItem(0); });
+  $(document).ready(function() { init_search(); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -21,7 +22,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Projeto IDJ - Towers Of Madness
    </div>
    <div id="projectbrief">TowerDefenseLovecraftnianoZombicida</div>
@@ -31,7 +32,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.8.8 -->
+<!-- Gerado por Doxygen 1.8.11 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </script>
@@ -72,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definições e Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+</div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="dynheader">
 Diagrama de colaboração para InputManager:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classInputManager__coll__graph.svg" width="415" height="304"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><!-- SVG 0 -->
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
@@ -176,10 +177,20 @@ Atributos Privados</h2></td></tr>
 <tr class="separator:a29fddcf9d741e4de04492ad76b7cb3af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb189c58dd5ee470a3202c685c5c7f1e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#afb189c58dd5ee470a3202c685c5c7f1e">mouseY</a></td></tr>
 <tr class="separator:afb189c58dd5ee470a3202c685c5c7f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c6b0a27b387bfb4b2fc669db0f68bad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#a3c6b0a27b387bfb4b2fc669db0f68bad">keyState</a> [416]</td></tr>
-<tr class="separator:a3c6b0a27b387bfb4b2fc669db0f68bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8ce3bc2865693cbb548ef2f1603f991"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#ae8ce3bc2865693cbb548ef2f1603f991">keyUpdate</a> [416]</td></tr>
-<tr class="separator:ae8ce3bc2865693cbb548ef2f1603f991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a308542fb8fcbda632c21fe169a1a8b82"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#a308542fb8fcbda632c21fe169a1a8b82">keyState</a></td></tr>
+<tr class="separator:a308542fb8fcbda632c21fe169a1a8b82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebbeb68f166c72529565b616df3ba978"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#aebbeb68f166c72529565b616df3ba978">keyUpdate</a></td></tr>
+<tr class="separator:aebbeb68f166c72529565b616df3ba978"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08996953a352dfac5a7beae11bfd0d5a"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, SDL_GameController * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#a08996953a352dfac5a7beae11bfd0d5a">padToController</a></td></tr>
+<tr class="separator:a08996953a352dfac5a7beae11bfd0d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a223465815735da41043f434567f0a96a"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#a223465815735da41043f434567f0a96a">controllerState</a></td></tr>
+<tr class="separator:a223465815735da41043f434567f0a96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53817858b539f080e0cebad2b03cc0d2"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#a53817858b539f080e0cebad2b03cc0d2">controllerUpdate</a></td></tr>
+<tr class="separator:a53817858b539f080e0cebad2b03cc0d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a601ad5cb9cceb6771dfecb3f0fc307a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVec2.html">Vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#a601ad5cb9cceb6771dfecb3f0fc307a9">controllerStickState</a></td></tr>
+<tr class="separator:a601ad5cb9cceb6771dfecb3f0fc307a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5159413e0c704cc15403eb767a65c327"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#a5159413e0c704cc15403eb767a65c327">controllerStickUpdate</a></td></tr>
+<tr class="separator:a5159413e0c704cc15403eb767a65c327"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a646fc44d21853e1354aaacc6a27e79ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#a646fc44d21853e1354aaacc6a27e79ca">mouseScroolUpdate</a></td></tr>
 <tr class="separator:a646fc44d21853e1354aaacc6a27e79ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c9d5ed1da1b205d9311ec4a9bab06ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVec2.html">Vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#a9c9d5ed1da1b205d9311ec4a9bab06ea">mouseScroolState</a></td></tr>
@@ -586,7 +597,7 @@ Atributos Privados</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Atributos</h2>
-<a class="anchor" id="a3c6b0a27b387bfb4b2fc669db0f68bad"></a>
+<a class="anchor" id="a223465815735da41043f434567f0a96a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -594,7 +605,91 @@ Atributos Privados</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool InputManager::keyState[416]</td>
+          <td class="memname">std::unordered_map&lt;int,bool&gt; InputManager::controllerState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Armazena as informações de quais botões do tcontrole estão pressionados. </p>
+
+</div>
+</div>
+<a class="anchor" id="a601ad5cb9cceb6771dfecb3f0fc307a9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classVec2.html">Vec2</a> InputManager::controllerStickState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Armazena a informação de em qual timestamp(updateCounter) o controllerStickState foi alterado. </p>
+
+</div>
+</div>
+<a class="anchor" id="a5159413e0c704cc15403eb767a65c327"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool InputManager::controllerStickUpdate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Armazena a informação do último stick feito no controle. </p>
+
+</div>
+</div>
+<a class="anchor" id="a53817858b539f080e0cebad2b03cc0d2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int,int&gt; InputManager::controllerUpdate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Armazena as informações de quando os estados dos botões do controle no respectivo keyState foram modificadas. É usado junto com o updateCounter para saber quão recente a informação é. </p>
+
+</div>
+</div>
+<a class="anchor" id="a308542fb8fcbda632c21fe169a1a8b82"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int,bool&gt; InputManager::keyState</td>
         </tr>
       </table>
   </td>
@@ -607,7 +702,7 @@ Atributos Privados</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae8ce3bc2865693cbb548ef2f1603f991"></a>
+<a class="anchor" id="aebbeb68f166c72529565b616df3ba978"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -615,7 +710,7 @@ Atributos Privados</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int InputManager::keyUpdate[416]</td>
+          <td class="memname">std::unordered_map&lt;int,int&gt; InputManager::keyUpdate</td>
         </tr>
       </table>
   </td>
@@ -754,6 +849,27 @@ Atributos Privados</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a08996953a352dfac5a7beae11bfd0d5a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int,SDL_GameController*&gt; InputManager::padToController</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Armazena a relação entre o indice de um controle e o seu referente ponteiro do tipo SDL_GameController </p>
+
+</div>
+</div>
 <a class="anchor" id="a078d1f2f8af5f17005f21f7407dbca57"></a>
 <div class="memitem">
 <div class="memproto">
@@ -803,9 +919,9 @@ Atributos Privados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 28 de Abril de 2017 23:19:49 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Quinta, 11 de Maio de 2017 18:46:47 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.8
+</a> 1.8.11
 </small></address>
 </body>
 </html>

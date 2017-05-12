@@ -16,6 +16,8 @@
 #endif
 
 #include "Vec2.h"
+#include <unordered_map>
+#include <cstdint>
 
 #define LEFT_ARROW_KEY SDLK_LEFT
 #define RIGHT_ARROW_KEY SDLK_RIGHT
@@ -191,8 +193,15 @@ class InputManager
 		int updateCounter;/**< Armazena a informação de quantas vezes o update foi chamada. É usado nos <input>Update para saber se a modificação no estado foi detectada no frame corrente.*/
 		int mouseX;/**< Armazena a posição X do mouse na janela.*/
 		int mouseY;/**< Armazena a posição Y do mouse na janela.*/
-		bool keyState[416];/**< Armazena as informações de quais botões do teclado estão pressionados. As 127 primeiras posições são relativas às suas correspondentes ASCII. As outras posições rastreiam o estado das teclas não-ASCII, como ctrl, shift, caps lock, F1...F12, etc.*/
-		int keyUpdate[416];/**< Armazena as informações de quando os estados dos botões no respectivo keyState foram modificadas. É usado junto com o updateCounter para saber quão recente a informação é.*/
+		std::unordered_map<int,bool> keyState;/**< Armazena as informações de quais botões do teclado estão pressionados. As 127 primeiras posições são relativas às suas correspondentes ASCII. As outras posições rastreiam o estado das teclas não-ASCII, como ctrl, shift, caps lock, F1...F12, etc.*/
+ 		std::unordered_map<int,int>keyUpdate;/**< Armazena as informações de quando os estados dos botões no respectivo keyState foram modificadas. É usado junto com o updateCounter para saber quão recente a informação é.*/
+ 		std::unordered_map<int,SDL_GameController*>padToController;/**< Armazena a relação entre o indice de um controle e o seu referente ponteiro do tipo SDL_GameController**/
+ 		
+ 		std::unordered_map<int,bool> controllerState;/**< Armazena as informações de quais botões do tcontrole estão pressionados.*/
+ 		std::unordered_map<int,int>	controllerUpdate;/**< Armazena as informações de quando os estados dos botões do controle no respectivo keyState foram modificadas. É usado junto com o updateCounter para saber quão recente a informação é.*/
+ 		Vec2 controllerStickState;/**< Armazena a informação de em qual timestamp(updateCounter) o controllerStickState foi alterado.*/
+ 		bool controllerStickUpdate;/**< Armazena a informação do último stick feito no controle.*/
+ 		
 		int mouseScroolUpdate;/**< Armazena a informação de em qual timestamp(updateCounter) o mouseScrollState foi alterado.*/
 		Vec2 mouseScroolState;/**< Armazena a informação do último scroll feito no mouse.*/
 };

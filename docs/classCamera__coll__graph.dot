@@ -1,0 +1,19 @@
+digraph "Camera"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Camera",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pos" ,fontname="Helvetica"];
+  Node2 [label="Vec2",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classVec2.html",tooltip="Classe que modela um vetor(no sentido físico) "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" x\ny" ,fontname="Helvetica"];
+  Node3 [label="float",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" focus" ,fontname="Helvetica"];
+  Node4 [label="GameObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGameObject.html",tooltip="Classe virtual que especifica o funcionamento de um GameObject. "];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" box" ,fontname="Helvetica"];
+  Node5 [label="Rect",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classRect.html",tooltip="Classe que modela um rect. "];
+  Node3 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" w\nx\nh\ny" ,fontname="Helvetica"];
+  Node3 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" rotation" ,fontname="Helvetica"];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" zoomSpeed\nspeed\nminZoom\nmaxZoom\ncurrentZoom" ,fontname="Helvetica"];
+  Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" zoomFixed" ,fontname="Helvetica"];
+  Node6 [label="bool",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

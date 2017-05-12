@@ -7,6 +7,10 @@ var searchData=
   ['cliprect',['clipRect',['../classSprite.html#a3451a65b4cd1b2ff3c11448dbdde43ac',1,'Sprite']]],
   ['color',['color',['../classText.html#ab0f771bd18d8e968f7aaee4a4e26e385',1,'Text']]],
   ['columns',['columns',['../classTileSet.html#a47ae11f9d04f9da3fbaba834fdbc62cf',1,'TileSet']]],
+  ['controllerstate',['controllerState',['../classInputManager.html#a223465815735da41043f434567f0a96a',1,'InputManager']]],
+  ['controllerstickstate',['controllerStickState',['../classInputManager.html#a601ad5cb9cceb6771dfecb3f0fc307a9',1,'InputManager']]],
+  ['controllerstickupdate',['controllerStickUpdate',['../classInputManager.html#a5159413e0c704cc15403eb767a65c327',1,'InputManager']]],
+  ['controllerupdate',['controllerUpdate',['../classInputManager.html#a53817858b539f080e0cebad2b03cc0d2',1,'InputManager']]],
   ['currentframe',['currentFrame',['../classSprite.html#a556cfc67b1b98691aa2e5b41f076fded',1,'Sprite']]],
   ['currentzoom',['currentZoom',['../classCamera.html#ac867d6d379c0d052ae65d57c7c313970',1,'Camera']]]
 ];
