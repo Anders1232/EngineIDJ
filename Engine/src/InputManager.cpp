@@ -80,7 +80,7 @@ void InputManager::Update(){
 				if(pad){
 
 					SDL_Joystick *joy = SDL_GameControllerGetJoystick(pad);
-					int instanceID = SDL_JoystickInstanceID(joy);
+					int instanceID = SDL_JoystickInstanceID(joy);//aparentenmente instanceID não está sendo usado.
 
 					padToController[event.cdevice.which] = pad;
 			
