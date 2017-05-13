@@ -197,7 +197,7 @@ class InputManager
  		std::unordered_map<int,int>keyUpdate;/**< Armazena as informações de quando os estados dos botões no respectivo keyState foram modificadas. É usado junto com o updateCounter para saber quão recente a informação é.*/
  		std::unordered_map<int,SDL_GameController*>padToController;/**< Armazena a relação entre o indice de um controle e o seu referente ponteiro do tipo SDL_GameController**/
  		
- 		std::unordered_map<int,bool> controllerState;/**< Armazena as informações de quais botões do tcontrole estão pressionados.*/
+ 		std::unordered_map<int,bool> controllerState;/**< Armazena as informações de quais botões do controle estão pressionados.*/
  		std::unordered_map<int,int>	controllerUpdate;/**< Armazena as informações de quando os estados dos botões do controle no respectivo keyState foram modificadas. É usado junto com o updateCounter para saber quão recente a informação é.*/
  		Vec2 controllerStickState;/**< Armazena a informação de em qual timestamp(updateCounter) o controllerStickState foi alterado.*/
  		bool controllerStickUpdate;/**< Armazena a informação do último stick feito no controle.*/
