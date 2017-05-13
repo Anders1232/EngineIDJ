@@ -24,6 +24,7 @@ var searchData=
   ['getsound',['GetSound',['../classResources.html#ae6e4e0202dec020da8f6654f685e8b98',1,'Resources']]],
   ['gettexture',['GetTexture',['../classSprite.html#a27148c9990eeb0efa187ec41de2d3db0',1,'Sprite']]],
   ['gettileheight',['GetTileHeight',['../classTileSet.html#a965e951eb3ccfd6e318b27c710d973a0',1,'TileSet']]],
+  ['gettilemousepos',['GetTileMousePos',['../classTileMap.html#af6c280210ec11a0aa9b5f5c2ba317817',1,'TileMap']]],
   ['gettilewidth',['GetTileWidth',['../classTileSet.html#a4114a74c06ab5241d904cce67538ae17',1,'TileSet']]],
   ['getwidth',['GetWidth',['../classSprite.html#ad3d43826d2f41185964ec4a1eb492248',1,'Sprite::GetWidth()'],['../classTileMap.html#a072dbe1dbd793712baefe154c3058ab2',1,'TileMap::GetWidth()']]],
   ['getwindowdimensions',['GetWindowDimensions',['../classGame.html#adbeb87bbabcc73f936e149c2d83d9d33',1,'Game']]],

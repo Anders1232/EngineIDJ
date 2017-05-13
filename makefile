@@ -87,39 +87,22 @@ $(ENGINE_BIN_PATH)/%.o: $(ENGINE_SRC_PATH)/%.cpp
 
 .PHONY: $(GAME_BIN_PATH)/%.o
 $(GAME_BIN_PATH)/%.o: $(GAME_SRC_PATH)/%.cpp
-
-#ifeq ($(OS), Windows_NT)
-#	@if not exist $(GAME_DEP_PATH) @ mkdir $(GAME_DEP_PATH)
-#	@if not exist $(GAME_BIN_PATH) @ mkdir $(GAME_BIN_PATH)
-#else
-#	@mkdir -p $(GAME_DEP_PATH) $(GAME_BIN_PATH)
-#endif
-
-#	$(COMPILER) $(DEP_FLAGS) -c -o $@ $< $(GAME_INC_PATH) $(FLAGS)
-
-#-include $(GAME_DEP_FILES)
-
 	$(CD) $(GAME_PATH) && $(MAKE) $(DEBUG_OU_RELEASE) objects
 
 
 clean:
 	$(CD) $(ENGINE_PATH) && $(MAKE) clean
 	$(CD) $(GAME_PATH) && $(MAKE) clean
-#	$(RMDIR) $(ENGINE_BIN_PATH) $(ENGINE_DEP_PATH) $(GAME_BIN_PATH) $(GAME_DEP_PATH)
 	$(RM) $(EXEC)
 
 .PHONY: debug clean release again
 #regra pra debug
 print-% : ; @echo $* = $($*)
 
-#debug: FLAGS += -g -O0
-#debug: all
 debug: DEBUG_OU_RELEASE = fdebug
 debug: FLAGS += -g -O0
 debug: all
 
-#release: FLAGS += -O3 -mtune=native
-#release: all
 release: DEBUG_OU_RELEASE = frelease
 release: FLAGS += -O3 -mtune=native
 release: all
@@ -140,6 +123,8 @@ help:
 	@echo Available targets:
 	@echo - release:  Builds the release version (default target)
 	@echo - debug:    Builds the debug version
+	@echo - doc:      Clean and generate Doxygen documentation
+	@echo - dclean:   Clean Doxygen documentation
 	@echo - profile:  Builds a version to use with gprof (not implemented)
 	@echo - coverage: Builds a version to use with gcov (not implemented)
 	@echo - help:     Shows this help
