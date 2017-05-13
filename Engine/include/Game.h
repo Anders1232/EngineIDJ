@@ -36,8 +36,7 @@
 	Contém o loop principal do jogo, gerencia a pilha de estados do jogo, responsável por gerenciar a janela(no momento apenas informa as dimensões da janela).
 	Também calcula é o que calcula o delta time que é enviado ao update de várias entidades do jogo.
 */
-class Game
-{
+class Game {
 	public:
 		/**
 			\brief Construtor

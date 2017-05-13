@@ -11,8 +11,7 @@ using std::string;
 
 	Um tileSet é uma imagem que contém várias subimagens, que são idexadas por sua posição no arquivo.
 */
-class TileSet
-{
+class TileSet {
 	public:
 		/**
 			\brief Instancia um tileSet.

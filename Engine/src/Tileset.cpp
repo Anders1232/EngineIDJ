@@ -3,15 +3,13 @@
 #include "Game.h"
 #include "Camera.h"
 
-TileSet::TileSet(int tileWidth, int tileHeight, string file): tileSet(file), tileWidth(tileWidth), tileHeight(tileHeight)
-{
+TileSet::TileSet(int tileWidth, int tileHeight, string file): tileSet(file), tileWidth(tileWidth), tileHeight(tileHeight) {
 	REPORT_I_WAS_HERE;
 	rows= tileSet.GetHeight()/tileHeight;
 	columns= tileSet.GetWidth()/tileWidth;
 }
 
-void TileSet::Render(unsigned int index, float x, float y, bool zoom)
-{
+void TileSet::Render(unsigned int index, float x, float y, bool zoom) {
 	ASSERT(index < (unsigned int)rows*columns);
 	unsigned int desiredLine, desiredColumn;
 	desiredLine= index/columns;
@@ -22,8 +20,7 @@ void TileSet::Render(unsigned int index, float x, float y, bool zoom)
 	wantedSubSprite.w= tileWidth;
 	wantedSubSprite.h= tileHeight;
 	Rect destinyRect(x, y, tileWidth, tileHeight);
-	if(zoom)
-	{
+	if(zoom) {
 		destinyRect= destinyRect*Camera::GetZoom();
 	}
 	SDL_Rect destinyPosition= destinyRect;
@@ -31,12 +28,10 @@ void TileSet::Render(unsigned int index, float x, float y, bool zoom)
 //	REPORT_I_WAS_HERE;
 }
 
-int TileSet::GetTileHeight(void)
-{
+int TileSet::GetTileHeight(void) {
 	return tileHeight;
 }
 
-int TileSet::GetTileWidth(void)
-{
+int TileSet::GetTileWidth(void) {
 	return tileWidth;
 }

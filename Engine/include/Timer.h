@@ -7,8 +7,7 @@
 	Implementa um cronômetro básico, com funções de resetar o contador e obter tempo.
 	O contador conta o tempo desde o momento em que é iniciado.
 */
-class Timer
-{
+class Timer {
 	public:
 		/**
 			\brief Construtor

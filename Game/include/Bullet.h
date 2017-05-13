@@ -8,8 +8,7 @@
 
 using std::string;
 
-class Bullet: public GameObject
-{
+class Bullet: public GameObject {
 	public:
 		Bullet(
 				float x,

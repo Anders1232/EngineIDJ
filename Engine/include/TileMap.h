@@ -14,8 +14,7 @@ using std::string;
 
 	Gerencia um tileMap,internamente possui um tileSet que é usado para renderizar o mapa.
 */
-class TileMap
-{
+class TileMap {
 	public:
 		/**
 			\brief Construtor.

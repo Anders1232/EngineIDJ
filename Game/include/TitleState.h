@@ -4,8 +4,7 @@
 #include "State.h"
 #include "Sprite.h"
 
-class TitleState: public State
-{
+class TitleState: public State {
 	public:
 		TitleState(void);
 		void Update(float dt);
