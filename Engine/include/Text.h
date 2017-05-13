@@ -28,8 +28,7 @@ using std::string;
 
 	Informa os modos de renderizar um texto.
 */
-enum TextStyle
-{
+enum TextStyle {
 	SOLID,/**< O texto é renderizado diretamente, sem nenhum tipo de tratamento visual.*/
 	SHARED,/**< o texto é renderizado em um retângulo da cor dada em um argumento SDL_Color no hora de renderizar.*/
 	BLENDED/**< Cria um texto com as bordas suavizadas (usando o canal alpha), para que ele se adapte melhor à região da tela onde for renderizado. É mais custoso de se renderizar que os outros dois, mas faz
@@ -42,8 +41,7 @@ uma diferença perceptível.*/
 	Os textos são lidos a partir de arquivos ttf, renderizados com base em um TextStyle, com um tamanho pré-informado e a partir de uma coordena (x, y).
 	Internamente gerencia uma textura desse texto pré-renderizado.
 */
-class Text
-{
+class Text {
 	public:
 		/**
 			\brief Construtor

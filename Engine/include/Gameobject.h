@@ -24,8 +24,7 @@ using std::string;
 	
 	Especifica quais métodos um gameObject deve ter para conseguir ser manipulado corretamente pela engine.
 */
-class GameObject
-{
+class GameObject {
 	public:
 		/**
 			\brief Construtor

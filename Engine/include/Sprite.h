@@ -23,8 +23,7 @@
 
 	Sprite é uma imagem carregada na memória. Essa classe também traz uma séria de funcionalidades além disso, como escala, animações de sprite sheets e exibição na tela da imagem.
 */
-class Sprite
-{
+class Sprite {
 	public:
 		/**
 			\brief Cria um sprite não associado a uma imagem.

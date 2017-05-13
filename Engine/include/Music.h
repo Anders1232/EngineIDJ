@@ -29,8 +29,7 @@ using std::string;
 	Modela músicas e permite operações básicas como: abiri um arquivo de som, tocar som e para som(stop).
 	Diferente de sons, apenas uma música pode ser tocada por vez.
 */
-class Music
-{
+class Music {
 	public:
 		/**
 			\brief Construtor padrão.

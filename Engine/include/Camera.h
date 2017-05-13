@@ -18,8 +18,7 @@
 		- Velocidade de zoom
 		- Zoom mínimo e máximo
 */
-class Camera
-{
+class Camera {
 	public:
 		/**
 			\brief Coloca a câmera para seguir o GameObject enviado.
