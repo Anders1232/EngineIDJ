@@ -10,8 +10,7 @@
 #define MINION_BULLET_SPEED (800)
 #define MINION_BULLET_MAX_DISTANCE (500)
 
-class Minion: public GameObject
-{
+class Minion: public GameObject {
 	public:
 		Minion(GameObject *minionCenter, float arcOffset =0);
 		void Update(float dt);

@@ -40,8 +40,7 @@
 		- Scroll do mouse
 	Observação: Os métodos que trabalham com o teclado precisam ter seus índices ajustados conforme o documentado em keyState. Para tal a função macro AJUST_KEY foi feita.
 */
-class InputManager
-{
+class InputManager {
 	public:
 		/**
 			\brief Atualiza as informações internas.

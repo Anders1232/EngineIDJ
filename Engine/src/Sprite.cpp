@@ -7,13 +7,11 @@
 #define SPRITE_OPEN_X (0)//alterar esses valores altera a parte da textura que será renderizada
 #define SPRITE_OPEN_Y (0)
 
-Sprite::Sprite(void): frameCount(1), currentFrame(0), timeElapsed(0), frameTime(0), scaleX(1.), scaleY(1.0)
-{
+Sprite::Sprite(void): frameCount(1), currentFrame(0), timeElapsed(0), frameTime(0), scaleX(1.), scaleY(1.0) {
 	texture= nullptr;
 }
 
-Sprite::Sprite(std::string file, float frameTime, int frameCount): frameCount(frameCount), currentFrame(0), timeElapsed(0), frameTime(frameTime), scaleX(1.), scaleY(1.0)
-{
+Sprite::Sprite(std::string file, float frameTime, int frameCount): frameCount(frameCount), currentFrame(0), timeElapsed(0), frameTime(frameTime), scaleX(1.), scaleY(1.0) {
 	REPORT_I_WAS_HERE;
 	texture=nullptr;
 	REPORT_I_WAS_HERE;
@@ -21,22 +19,18 @@ Sprite::Sprite(std::string file, float frameTime, int frameCount): frameCount(fr
 	REPORT_I_WAS_HERE;
 }
 
-Sprite::~Sprite()
-{
+Sprite::~Sprite() {
 }
 
-void Sprite::Open(std::string file)
-{
+void Sprite::Open(std::string file) {
 	REPORT_I_WAS_HERE;
 	texture= Resources::GetImage(file);
 	REPORT_I_WAS_HERE;
-	if(nullptr == texture)
-	{
+	if(nullptr == texture) {
 		Error(SDL_GetError());
 	}
 	REPORT_I_WAS_HERE;
-	if(SDL_QueryTexture(texture.get(), nullptr, nullptr, &width, &height))//verificar se houve erro na chamada
-	{
+	if(SDL_QueryTexture(texture.get(), nullptr, nullptr, &width, &height))//verificar se houve erro na chamada {
 		Error(SDL_GetError());
 	}
 	REPORT_I_WAS_HERE;
@@ -44,16 +38,14 @@ void Sprite::Open(std::string file)
 	REPORT_I_WAS_HERE;
 }
 
-void Sprite::SetClip(int x, int y, int w, int h)
-{
+void Sprite::SetClip(int x, int y, int w, int h) {
 	clipRect.x = x;
 	clipRect.y = y;
 	clipRect.w = w;
 	clipRect.h = h;
 }
 
-void Sprite::Render(int x, int y, float angle, bool zoom) const
-{
+void Sprite::Render(int x, int y, float angle, bool zoom) const {
 	Game& game= Game::GetInstance();
 	Rect temp;
 	temp.x = x;
@@ -61,73 +53,58 @@ void Sprite::Render(int x, int y, float angle, bool zoom) const
 	temp.w = GetWidth();
 	temp.h = GetHeight();
 //	std::cout << WHERE << "  rect.w = "<< rect.w<< endl;
-	if(zoom)
-	{
+	if(zoom) {
 		temp= temp*Camera::GetZoom();
 	}
 	SDL_Rect rect= temp;
-	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &rect, angle, NULL, SDL_FLIP_NONE) )//verifica se haverá erro
-	{
+	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &rect, angle, NULL, SDL_FLIP_NONE) )//verifica se haverá erro {
 		Error(SDL_GetError());
 	}
 }
 
-int Sprite::GetHeight(void) const
-{
+int Sprite::GetHeight(void) const {
 	return height*scaleY;
 }
 
-int Sprite::GetWidth(void) const
-{
+int Sprite::GetWidth(void) const {
 	return width/frameCount*scaleX;
 }
 
-bool Sprite::IsOpen(void) const
-{
+bool Sprite::IsOpen(void) const {
 	return (nullptr != texture);
 }
 
-/*void Sprite::Rotate(double angle)
-{
+/*void Sprite::Rotate(double angle) {
 	this->angle= angle;
 }
 */
-std::shared_ptr<SDL_Texture> Sprite::GetTexture(void) const
-{
+std::shared_ptr<SDL_Texture> Sprite::GetTexture(void) const {
 	return texture;
 }
 
-void Sprite::SetScaleX(float scale)
-{
+void Sprite::SetScaleX(float scale) {
 	scaleX= scale;
 }
-void Sprite::SetScaleY(float scale)
-{
+void Sprite::SetScaleY(float scale) {
 	scaleY= scale;
 }
-void Sprite::SetScale(float scale)
-{
+void Sprite::SetScale(float scale) {
 	scaleX= scale;
 	scaleY= scale;
 }
-void Sprite::ScaleX(float scale)
-{
+void Sprite::ScaleX(float scale) {
 	scaleX*= scale;
 }
-void Sprite::ScaleY(float scale)
-{
+void Sprite::ScaleY(float scale) {
 	scaleY *= scale;
 }
-void Sprite::Scale(float scale)
-{
+void Sprite::Scale(float scale) {
 	scaleX *= scale;
 	scaleY *= scale;
 }
-void Sprite::Update(float dt)
-{
+void Sprite::Update(float dt) {
 	timeElapsed+= dt;
-	if(timeElapsed> frameTime)
-	{
+	if(timeElapsed> frameTime) {
 		timeElapsed-= frameTime;
 		currentFrame= (currentFrame+1)%frameCount;
 		clipRect.x= currentFrame*(width/frameCount);
@@ -135,20 +112,17 @@ void Sprite::Update(float dt)
 	}
 }
 
-void Sprite::SetFrame(int frame)
-{
+void Sprite::SetFrame(int frame) {
 	currentFrame= frame%frameCount;
 	int newXRect= currentFrame*(width/frameCount);
 	clipRect.x= newXRect;
 }
 
-void Sprite::SetFrameCount(int frameCount)
-{
+void Sprite::SetFrameCount(int frameCount) {
 	this->frameCount= frameCount;
 	clipRect.w= width/frameCount;
 }
-void Sprite::SetFrameTime(float frameTime)
-{
+void Sprite::SetFrameTime(float frameTime) {
 	this->frameTime=frameTime;
 }
 
