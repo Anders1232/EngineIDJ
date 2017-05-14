@@ -46,6 +46,7 @@ Game/include/Minion.h
 Game/include/Penguins.h
 Game/include/StageState.h
 Game/include/TitleState.h
+Game/include/Face.h
 Game/src/Alien.cpp
 Game/src/Bullet.cpp
 Game/src/EndState.cpp
@@ -55,3 +56,4 @@ Game/src/Minion.cpp
 Game/src/Penguins.cpp
 Game/src/StageState.cpp
 Game/src/TitleState.cpp
+Game/src/Face.cpp

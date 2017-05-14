@@ -9,7 +9,7 @@ Face::Face(float x, float y){
 	box.y= y;
 	box.w= sp.GetWidth();
 	box.h= sp.GetHeight();
-	components.emplace_back( new DragAndDrop() );
+	components.emplace_back( new DragAndDrop(true) );
 }
 void Face::Damage(int damage)
 {
@@ -18,7 +18,10 @@ void Face::Damage(int damage)
 
 void Face::Update(float dt )
 {
-
+	for(int count =0; count < components.size(); count++)
+	{
+		components[count]->Update(*this);
+	}
 }
 void Face::Render()
 {
