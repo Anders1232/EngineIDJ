@@ -4,7 +4,7 @@
 
 Face::Face(float x, float y){
 
-	componentArray.emplace_back( new Dragable() )
+	componentArray.emplace_back( new DragAndDrop() );
 }
 void Face::Damage(int damage)
 {
