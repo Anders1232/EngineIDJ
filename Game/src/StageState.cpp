@@ -6,6 +6,7 @@
 #include "Penguins.h"
 #include "Collision.h"
 #include "EndStateData.h"
+#include "Face.h"
 
 #ifdef _WIN32
 	#include <SDL.h>
@@ -33,6 +34,8 @@ StageState::StageState(void): State(), bg("img/ocean.jpg"), tileSet(64, 64,"img/
 		CreateAlien();
 	}
 	objectArray.emplace_back(std::unique_ptr<Penguins>( new Penguins (704, 640) ) );
+	objectArray.push_back(std::unique_ptr<Face>( new Face (704, 640) ) );
+
 	music.Play(10);
 }
 

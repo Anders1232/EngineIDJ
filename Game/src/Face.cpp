@@ -4,12 +4,16 @@
 
 
 Face::Face(float x, float y){
-
+	sp.Open("img/penguinface.png");
+	box.x= x;
+	box.y= y;
+	box.w= sp.GetWidth();
+	box.h= sp.GetHeight();
 	components.emplace_back( new DragAndDrop() );
 }
 void Face::Damage(int damage)
 {
-
+	hitpoints = hitpoints - damage;
 }
 
 void Face::Update(float dt )
@@ -18,9 +22,10 @@ void Face::Update(float dt )
 }
 void Face::Render()
 {
+	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y);
 
 }
-bool Face::isDead()
+bool Face::IsDead(void)
 {
 	if(hitpoints<=0)
 		return true;
@@ -40,6 +45,10 @@ Rect Face::GetWorldRenderedRect( ) const{
 	rect = rect*Camera::GetZoom();
 	
 	return rect;
+}
+
+bool Face::Is(string type){
+	return type == "Face";
 }
 
 

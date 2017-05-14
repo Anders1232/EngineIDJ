@@ -13,11 +13,11 @@ class Face : public GameObject
 	
 		void Update(float dt );
 		void Render();
-		bool isDead();
+		bool IsDead(void);
 		
 		void NotifyCollision(GameObject &other);
 		Rect GetWorldRenderedRect(void) const;
-	
+		bool Is(string type);
 		~Face();
 	private:
 		int hitpoints;
