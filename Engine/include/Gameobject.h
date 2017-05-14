@@ -78,7 +78,7 @@ class GameObject
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/
 	private:
-		vector<Component> components;
+		vector<Component> componentArray;
 
 };
 

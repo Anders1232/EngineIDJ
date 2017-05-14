@@ -2,9 +2,9 @@
 #include "Face.h"
 
 
-Face::Face(float x, float y)
-{
+Face::Face(float x, float y){
 
+	componentArray.emplace_back( new Dragable() )
 }
 void Face::Damage(int damage)
 {
@@ -24,4 +24,6 @@ bool Face::isDead()
 	return false;
 }
 
-Face::~Face(){}
+Face::~Face(){
+
+}

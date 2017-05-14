@@ -1,8 +1,7 @@
 class Component
 {
 public:
-	Component();
-	void DragAndDrop();
-	~Component();
-	
+	virtual bool Is(int) =0;
+	virtual void Update()=0;
+
 };
