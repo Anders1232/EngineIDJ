@@ -13,13 +13,14 @@
 #else
 	#error "Unknown compiler"
 #endif
-#include <iostream>
 #include <vector>
+#include <memory>
 #include "Rect.h"
 #include "string"
 #include "Component.h"
 
 using std::string;
+using std::unique_ptr;
 
 /**
 	\brief Classe virtual que especifica o funcionamento de um GameObject.
@@ -85,8 +86,8 @@ class GameObject
 		virtual Rect GetWorldRenderedRect(void) const=0;
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/
-	private:
-		std::vector<Component> components;
+	protected:
+		std::vector<Component* > components;
 
 };
 

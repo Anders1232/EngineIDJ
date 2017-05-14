@@ -29,6 +29,7 @@ class Bullet: public GameObject
 		void NotifyCollision(GameObject &other);
 		bool Is(string type);
 		bool TargetsPlayer(void) const;
+		Rect GetWorldRenderedRect(void) const;
 	private:
 		Sprite sp;
 		Vec2 speed;

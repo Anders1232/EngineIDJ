@@ -1,10 +1,10 @@
-
 #include "Face.h"
+#include "DragAndDrop.h"
 
 
 Face::Face(float x, float y){
 
-	componentArray.emplace_back( new DragAndDrop() );
+	components.emplace_back( new DragAndDrop() );
 }
 void Face::Damage(int damage)
 {
