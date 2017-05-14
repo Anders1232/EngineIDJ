@@ -86,6 +86,11 @@ void StageState::Update(float dt)
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos();
 		std::cout << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << "tiles." << std::endl;
 	}
+	if(InputManager::GetInstance().KeyPress('e')){
+		printf("Face criado\n");
+		objectArray.emplace_back(std::unique_ptr<Face> (new Face(0, 0)));
+	}
+
 }
 
 void StageState::Render(void) const
