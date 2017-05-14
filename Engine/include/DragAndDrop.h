@@ -7,7 +7,7 @@ class DragAndDrop : public Component
 {
 	public:
 		DragAndDrop();
-		void Update();
+		void Update(GameObject &associated);
 		bool Is(ComponentType) const;
 	private:
 		bool isDragging;

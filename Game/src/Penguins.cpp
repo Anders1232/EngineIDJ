@@ -90,6 +90,33 @@ void Penguins::Render(void)
 	bodySP.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, rotation*CONVERSAO_GRAUS_RADIANOS, true);
 	cannonSp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, cannonAngle, true);
 }
+
+Rect Penguins::GetWorldRenderedRect(void) const
+{
+	Rect ret;
+	float bodyValue, cannonValue;
+
+	bodyValue= box.x-Camera::pos.x;
+	cannonValue= box.x-Camera::pos.x;
+	ret.x= (bodyValue < cannonValue)? bodyValue: cannonValue;
+
+	bodyValue= box.y-Camera::pos.y;
+	cannonValue= box.y-Camera::pos.y;
+	ret.y= (bodyValue < cannonValue)? bodyValue: cannonValue;
+
+	bodyValue= bodySP.GetWidth();
+	cannonValue= cannonSp.GetWidth();
+	ret.w= (bodyValue > cannonValue)? bodyValue: cannonValue;
+
+	bodyValue= bodySP.GetHeight();
+	cannonValue= cannonSp.GetHeight();
+	ret.h= (bodyValue > cannonValue)? bodyValue: cannonValue;
+
+	ret= ret* Camera::GetZoom();
+
+	return ret;
+}
+
 bool Penguins::IsDead(void)
 {
 	return (0>=hp);

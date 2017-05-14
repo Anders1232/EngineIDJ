@@ -20,6 +20,7 @@ class Minion: public GameObject
 		void Shoot(Vec2 pos);
 		void NotifyCollision(GameObject &other);
 		bool Is(string type);
+		Rect GetWorldRenderedRect(void) const;
 	private:
 		GameObject *center;
 		Sprite sp;
