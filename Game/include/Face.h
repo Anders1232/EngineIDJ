@@ -14,6 +14,9 @@ class Face : public GameObject
 		void Update(float dt );
 		void Render();
 		bool isDead();
+		
+		void NotifyCollision(GameObject &other);
+		Rect GetWorldRenderedRect(void) const;
 	
 		~Face();
 	private:
