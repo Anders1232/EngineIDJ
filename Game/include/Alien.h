@@ -26,6 +26,7 @@ class Alien: public GameObject
 		void NotifyCollision(GameObject &other);
 		bool Is(string type);
 		static int alienCount;
+		Rect GetWorldRenderedRect(void) const;
 	private:
 		enum AlienState
 		{

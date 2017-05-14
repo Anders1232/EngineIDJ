@@ -13,6 +13,7 @@
 #else
 	#error "Unknown compiler"
 #endif
+#include <iostream>
 #include <vector>
 #include "Rect.h"
 #include "string"
@@ -25,6 +26,12 @@ using std::string;
 	
 	Especifica quais métodos um gameObject deve ter para conseguir ser manipulado corretamente pela engine.
 */
+
+#ifndef COMPONENT
+class Component;
+#endif
+
+#define GAME_OBJECT
 class GameObject
 {
 	public:
@@ -75,10 +82,11 @@ class GameObject
 			É usado no tratamento de colisão para que se identifique com quem colidiu.
 		*/
 		virtual bool Is(string type)=0;
+		virtual Rect GetWorldRenderedRect(void) const=0;
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/
 	private:
-		vector<Component> componentArray;
+		std::vector<Component> components;
 
 };
 

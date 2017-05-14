@@ -22,6 +22,7 @@ class Penguins: public GameObject
 		void NotifyCollision(GameObject &other);
 		bool Is(string type);
 		static Penguins *player;
+		Rect GetWorldRenderedRect(void) const;
 	private:
 		Sprite bodySP;
 		Sprite cannonSp;
