@@ -44,7 +44,7 @@ Rect Bullet::GetWorldRenderedRect(void) const
 	rect.h= sp.GetHeight();
 	
 	rect= rect * Camera::GetZoom();
-	return rect;
+	return rect+Camera::pos;
 }
 bool Bullet::IsDead(void)
 {

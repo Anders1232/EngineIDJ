@@ -16,7 +16,7 @@ void DragAndDrop::Update(GameObject &associated)
 	{
 		//\todo ver se o zoom interfere aqui
 		Vec2 worldMousePos= inputManager.GetMousePos()+ Camera::pos;
-		std::cout << WHERE << "associated.GetWorldRenderedRect()= {" << associated.GetWorldRenderedRect().x, associated.GetWorldRenderedRect().y;
+		std::cout << WHERE << "associated.GetWorldRenderedRect()= {" << associated.GetWorldRenderedRect().x << ", " << associated.GetWorldRenderedRect().y << ", " << associated.GetWorldRenderedRect().w << ", " << associated.GetWorldRenderedRect().h << "}\n";
 		if(worldMousePos.IsInRect(associated.GetWorldRenderedRect()))
 		{
 			TEMP_REPORT_I_WAS_HERE;

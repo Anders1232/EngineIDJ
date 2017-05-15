@@ -3,13 +3,15 @@
 #include "Camera.h"
 
 
-Face::Face(float x, float y){
-	sp.Open("img/penguinface.png");
+Face::Face(float x, float y, Vec2 tileSize)
+	:sp("img/penguinface.png"){
 	box.x= x;
 	box.y= y;
+	sp.ScaleX(tileSize.x/sp.GetWidth());
+	sp.ScaleY(tileSize.y/sp.GetHeight());
 	box.w= sp.GetWidth();
 	box.h= sp.GetHeight();
-	components.emplace_back( new DragAndDrop(true) );
+	components.emplace_back( new DragAndDrop(false) );
 }
 void Face::Damage(int damage)
 {
@@ -47,7 +49,7 @@ Rect Face::GetWorldRenderedRect( ) const{
 	
 	rect = rect*Camera::GetZoom();
 	
-	return rect;
+	return rect+Camera::pos;
 }
 
 bool Face::Is(string type){

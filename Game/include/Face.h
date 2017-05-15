@@ -8,7 +8,7 @@
 class Face : public GameObject
 {
 	public:
-		Face(float x, float y);
+		Face(float x, float y, Vec2 tileSize);
 		void Damage(int damage);
 	
 		void Update(float dt );
