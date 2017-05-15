@@ -19,7 +19,7 @@ std::shared_ptr<SDL_Texture> Resources::GetImage(string file) {
 		imageTable[file]= std::shared_ptr<SDL_Texture>
 				(
 					ret,
-					[](SDL_Texture *texture)//meu primeiro uso de função labda em C++ {
+					[](SDL_Texture *texture) {//meu primeiro uso de função labda em C++ {
 						SDL_DestroyTexture(texture);
 					}
 				);
@@ -50,7 +50,7 @@ std::shared_ptr<Mix_Music> Resources::GetMusic(string file) {
 		musicTable[file]= std::shared_ptr<Mix_Music>
 				(
 					ret,
-					[](Mix_Music *music)//meu segundo uso de função labda em C++ {
+					[](Mix_Music *music) {//meu segundo uso de função labda em C++ {
 						Mix_FreeMusic(music);
 					}
 				);
@@ -89,7 +89,7 @@ std::shared_ptr<Mix_Chunk> Resources::GetSound(string file) {
 		soundTable[file]= std::shared_ptr<Mix_Chunk>
 				(
 					ret,
-					[](Mix_Chunk *chunck)//meu terceiro uso de função labda em C++ {
+					[](Mix_Chunk *chunck) {//meu terceiro uso de função labda em C++ {
 						Mix_FreeChunk(chunck);
 					}
 				);
@@ -108,7 +108,7 @@ std::shared_ptr<TTF_Font> Resources::GetFont(string file, int fontSize) {
 		fontTable[file+std::to_string(fontSize)]= std::shared_ptr<TTF_Font>
 				(
 					ret,
-					[](TTF_Font *font)//meu quarto uso de função labda em C++ {
+					[](TTF_Font *font) {//meu quarto uso de função labda em C++ {
 						TTF_CloseFont (font);
 					}
 				);
