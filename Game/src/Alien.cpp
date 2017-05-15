@@ -50,8 +50,8 @@ void Alien::Update(float dt) {
 	}
 	else if(MOVING == state) {
 //		if( DISTANCE_NEAR_ENOUGH > ( (destination-box.Center() ).Magnitude() ) )
-		if( lastDistance < ( (destination-box.Center() ).Magnitude() )  ||  DISTANCE_NEAR_ENOUGH > ( (destination-box.Center() ).Magnitude() ) )
-//		if( lastDistance < ( (destination-box.Center() ).Magnitude() ) ) {
+		if( lastDistance < ( (destination-box.Center() ).Magnitude() )  ||  DISTANCE_NEAR_ENOUGH > ( (destination-box.Center() ).Magnitude() ) ){
+//		if( lastDistance < ( (destination-box.Center() ).Magnitude() ) )
 //			lastDistance= (destination-box.Center() ).Magnitude();
 			box= box + destination-box.Center();
 			Vec2 targetPos= Penguins::player->box.Center();

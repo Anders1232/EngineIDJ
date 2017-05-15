@@ -22,7 +22,7 @@ Sprite::Sprite(std::string file, float frameTime, int frameCount): frameCount(fr
 Sprite::~Sprite() {
 }
 
-void Sprite::Open(std::string file) {
+void Sprite::Open(std::string file){
 	REPORT_I_WAS_HERE;
 	texture= Resources::GetImage(file);
 	REPORT_I_WAS_HERE;
@@ -30,7 +30,7 @@ void Sprite::Open(std::string file) {
 		Error(SDL_GetError());
 	}
 	REPORT_I_WAS_HERE;
-	if(SDL_QueryTexture(texture.get(), nullptr, nullptr, &width, &height)){//verificar se houve erro na chamada {
+	if(SDL_QueryTexture(texture.get(), nullptr, nullptr, &width, &height)){//verificar se houve erro na chamada
 		Error(SDL_GetError());
 	}
 	REPORT_I_WAS_HERE;
@@ -57,7 +57,7 @@ void Sprite::Render(int x, int y, float angle, bool zoom) const {
 		temp= temp*Camera::GetZoom();
 	}
 	SDL_Rect rect= temp;
-	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &rect, angle, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro {
+	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &rect, angle, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 		Error(SDL_GetError());
 	}
 }
