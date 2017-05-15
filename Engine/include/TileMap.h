@@ -84,7 +84,7 @@ class TileMap
 			Internamente usa-se busca binária para achar o tile correspondente.
 		*/
 		int GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const;
-	private:
+	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
 
