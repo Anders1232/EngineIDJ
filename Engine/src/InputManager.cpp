@@ -16,7 +16,7 @@ InputManager& InputManager::GetInstance(void) {
 	return inputManager;
 }
 
-#define AJUST_KEY(k)if(k >= 0x40000000)\ {\
+#define AJUST_KEY(k)if(k >= 0x40000000) {\
 	k=k-0x40000000+0x7F;\
 }
 

@@ -6,7 +6,7 @@
 
 Game* Game::instance= nullptr;
 
-Game::Game(std::string title,int width, int height):dt(0.0),  inputManager(InputManager::GetInstance())//, frameStart(SDL_GetTicks()) {
+Game::Game(std::string title,int width, int height):dt(0.0),  inputManager(InputManager::GetInstance()) {//, frameStart(SDL_GetTicks()) {
 	SDL_version compiled;
 	SDL_version linked;
 
