@@ -172,3 +172,11 @@ Vec2 Game::GetWindowDimensions(void) const {
 	return ret;
 }
 
+void Game::SetMaxFramerate(unsigned int newMaxFramerate) {
+	maxFramerate = newMaxFramerate;
+	frameDuration = 1000/newMaxFramerate;
+}
+
+unsigned int Game::GetMaxFramerate(void) const {
+	return maxFramerate;
+}

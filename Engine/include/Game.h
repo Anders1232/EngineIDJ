@@ -128,6 +128,20 @@ class Game {
 			Retorna o intervalo de tempo do último frame ao atual calculado anteriormente pelo CalculateDeltaTime.
 		*/
 		Vec2 GetWindowDimensions(void) const;
+		/**
+			\brief Altera o valor do limite de framerate
+			\param newMaxFramerate o novo valor máximo a ser usado controle de framerate
+
+			Altera as variáveis do controle de framerate de acordo com o argumento passado.
+		*/
+		void SetMaxFramerate(unsigned int newMaxFramerate);
+		/**
+			\brief Obtêm o valor de framerate máximo do controle de framerate
+			\return Beja a descrição.
+
+			Retorna o valor que está sendo utilizado pelo controle de framerate como quantidade máxima de frames por segundo.
+		*/
+		unsigned int GetMaxFramerate(void) const;
 	private:
 		/**
 			\brief Calcula o tempo transcorrido desde a última chamada a essa função
