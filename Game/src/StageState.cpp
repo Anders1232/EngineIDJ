@@ -23,7 +23,11 @@
 
 #define STATE_RENDER_X 0//esse valores calculam o offset em relação ao canto superior esquedo da imagem daquilo que será renderizado
 #define STATE_RENDER_Y 0
-StageState::StageState(void): State(), bg("img/ocean.jpg"), tileSet(64, 64,"img/tileset.png"), inputManager(InputManager::GetInstance()), music("audio/stageState.ogg")
+StageState::StageState(void): State(), bg("img/ocean.jpg"),
+										tileSet(64, 64,"img/tileset.png"),
+										inputManager(InputManager::GetInstance()),
+										music("audio/stageState.ogg"),
+										goTileMap("map/CollisionTileMap.txt")
 {
 	REPORT_I_WAS_HERE;
 	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet);
@@ -86,6 +90,10 @@ void StageState::Update(float dt)
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos();
 		std::cout << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << "tiles." << std::endl;
 	}
+	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
+		goTileMap.DragAndAddGameObject(new Face(500, 500, Vec2(64, 64) ) );
+	}
+	goTileMap.Update();
 }
 
 void StageState::Render(void) const
@@ -99,6 +107,7 @@ void StageState::Render(void) const
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
 	tileMap->RenderLayer(1, Camera::pos.x, Camera::pos.y);
+	goTileMap.Render();
 }
 
 void StageState::Pause(void)

@@ -9,8 +9,10 @@ class GameObjectTileMap : public TileMap
 	public:
 		GameObjectTileMap(string collisionTileMapFile);
 		void Update(void);
-	private:
+		void Render(int cameraX=0, int cameraY=0) const;
+		void DragAndAddGameObject(GameObject*);
 		void InsertGO(GameObject*);//insere numa posição válida do tileMap
+	private:
 		std::vector<GameObject*> gameObjectMatrix;//bidimensional??
 		GameObject *draggingGO;
 };

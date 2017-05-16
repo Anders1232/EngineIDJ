@@ -10,7 +10,6 @@ Text::Text
 	int y
 ):font(Resources::GetFont(fontFile, fontSize)),
 	texture(nullptr),
-//	text(),
 	style(style),
 	fontSize(fontSize),
 	color(color),
