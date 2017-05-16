@@ -1,8 +1,8 @@
 #include "Game.h"
 #include "Error.h"
 #include "Resources.h"
-#include<stdlib.h>
-#include<time.h>
+#include <stdlib.h>
+#include <time.h>
 
 Game* Game::instance= nullptr;
 
@@ -64,6 +64,9 @@ Game::Game(std::string title,int width, int height):dt(0.0),  inputManager(Input
 	REPORT_I_WAS_HERE;
 	storedState= nullptr;
 	REPORT_I_WAS_HERE;
+	capFramerate = true;
+	maxFramerate = INITIAL_FRAMERATE;
+	frameDuration = 1000/INITIAL_FRAMERATE;
 }
 
 Game::~Game() {
@@ -112,6 +115,12 @@ void Game::Run(void) {
 		return;//jogo terminou
 	}
 	while(!stateStack.empty()) {
+		if (capFramerate) {
+			float timeRemaining = frameDuration - (SDL_GetTicks() - frameStart);
+			if (0 < timeRemaining) {
+				SDL_Delay(timeRemaining);
+			}
+		}
 		if(stateStack.top()->QuitRequested()) {
 			break;
 		}
@@ -121,8 +130,6 @@ void Game::Run(void) {
 		stateStack.top()->Render();
 		SDL_RenderPresent(renderer);
 		UpdateStack();
-		SDL_Delay(33);
-//		SDL_Delay(15);
 	}
 	while(!stateStack.empty()) {
 		stateStack.pop();
