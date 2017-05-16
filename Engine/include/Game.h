@@ -39,6 +39,7 @@
 */
 class Game {
 	public:
+		bool capFramerate;/**< Flag para decidir se o framerate do jogo será limitado a um valor máximo ou não.*/
 		/**
 			\brief Construtor
 			\param title Nome da janela.
@@ -152,7 +153,6 @@ class Game {
 		SDL_Renderer* renderer;/**< Ponteiro para o SDL_renderer do jogo.*/
 		std::stack<std::unique_ptr<State>> stateStack;/**< Pilha de estados.*/
 		InputManager &inputManager;/**< Gerenciador de entradas do usuário.*/
-		bool capFramerate;/**< Flag para decidir se o framerate do jogo será limitado a um valor máximo ou não.*/
 		unsigned int maxFramerate;/**< Armazena o limite superior do framerate*/
 		float frameDuration;/**< Duração mínima de cada frame*/
 };
