@@ -66,7 +66,7 @@ Game::Game(std::string title,int width, int height):dt(0.0),  inputManager(Input
 	REPORT_I_WAS_HERE;
 	capFramerate = true;
 	maxFramerate = INITIAL_FRAMERATE;
-	frameDuration = 1000/INITIAL_FRAMERATE;
+	frameDuration = 1000.0/INITIAL_FRAMERATE;
 }
 
 Game::~Game() {
@@ -139,7 +139,7 @@ void Game::Run(void) {
 
 void Game::CalculateDeltaTime(void) {
 	u_int32_t newTick= SDL_GetTicks();
-	dt=((float)(newTick-frameStart))/1000;//converter de milissegundos para segundos
+	dt=((float)(newTick-frameStart))/1000.0;//converter de milissegundos para segundos
 	frameStart= newTick;
 }
 
@@ -174,7 +174,7 @@ Vec2 Game::GetWindowDimensions(void) const {
 
 void Game::SetMaxFramerate(unsigned int newMaxFramerate) {
 	maxFramerate = newMaxFramerate;
-	frameDuration = 1000/newMaxFramerate;
+	frameDuration = 1000.0/newMaxFramerate;
 }
 
 unsigned int Game::GetMaxFramerate(void) const {
