@@ -2,8 +2,8 @@
 #include "InputManager.h"
 #include "Error.h"
 
-GameObjectTileMap::GameObjectTileMap(std::string collisionTileMapFile, Vec2 tileSize)
-	: TileMap(collisionTileMapFile.c_str(), nullptr), gameObjectMatrix(GetWidth()*GetHeight()*GetDepth(), nullptr), draggingGO(nullptr){
+GameObjectTileMap::GameObjectTileMap(std::sting tileMapFile, std::string collisionTileMapFile, Vec2 tileSize)
+	: TileMap(tileMapFile.c_str(), nullptr), gameObjectMatrix(GetWidth()*GetHeight()*GetDepth(), nullptr), draggingGO(nullptr){
 }
 
 void GameObjectTileMap::DragAndAddGameObject(GameObject *obj){

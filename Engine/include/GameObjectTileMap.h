@@ -14,6 +14,7 @@ class GameObjectTileMap : public TileMap
 		void InsertGO(GameObject*);//insere numa posição válida do tileMap
 	private:
 		std::vector<GameObject*> gameObjectMatrix;//bidimensional??
+		std::vector<int> collisionTileMap;
 		GameObject *draggingGO;
 };
 
