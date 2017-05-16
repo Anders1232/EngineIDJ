@@ -137,7 +137,7 @@ class Game {
 		void SetMaxFramerate(unsigned int newMaxFramerate);
 		/**
 			\brief Obtêm o valor de framerate máximo do controle de framerate
-			\return Beja a descrição.
+			\return Veja a descrição.
 
 			Retorna o valor que está sendo utilizado pelo controle de framerate como quantidade máxima de frames por segundo.
 		*/
