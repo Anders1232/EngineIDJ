@@ -180,3 +180,7 @@ void Game::SetMaxFramerate(unsigned int newMaxFramerate) {
 unsigned int Game::GetMaxFramerate(void) const {
 	return maxFramerate;
 }
+
+float Game::GetCurrentFramerate(void) const {
+	return 1.0/dt;
+}

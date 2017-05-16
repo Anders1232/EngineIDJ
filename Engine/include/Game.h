@@ -142,6 +142,13 @@ class Game {
 			Retorna o valor que está sendo utilizado pelo controle de framerate como quantidade máxima de frames por segundo.
 		*/
 		unsigned int GetMaxFramerate(void) const;
+		/**
+			\brief Obtêm o fps atual do jogo
+			\return Veja a descrição
+
+			Retorna a quantos frames por segundo o jogo está rodando. Se a limitação de framerate estiver ativada, o retorno dessa função será no máximo o valor obtido por GetMaxFramerate().
+		*/
+		float GetCurrentFramerate(void) const;
 	private:
 		/**
 			\brief Calcula o tempo transcorrido desde a última chamada a essa função
