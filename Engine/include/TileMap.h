@@ -5,6 +5,7 @@
 #include <vector>
 #include "Tileset.h"
 #include "Vec2.h"
+#include "Gameobject.h"
 
 #define TILE_VAZIO -1
 
@@ -25,7 +26,7 @@ class TileMap
 		
 			Instancia o tileMap com o tileSet enviado e criar o tileMap lendo o arquivo enviado.
 		*/
-		TileMap(string file, TileSet *tileSet);
+		TileMap(string file, TileSet *tileSet, string collisionTileMapFile);
 		/**
 			\brief Obtém o índice do tileMap na posição informada
 			\param x Posição X do tileMap
@@ -84,14 +85,15 @@ class TileMap
 			Internamente usa-se busca binária para achar o tile correspondente.
 		*/
 		int GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const;
-	private:
+		void InsertGO(GameObject* obj);
+	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
 
 			O arquivo deve começar com 3 números: largura, altura e profundidade.
 			Depois disso dever existir um números inteiros igual ao produto dos três números lidos organizados em layers, linhas e colunas.
 		*/
-		void Load(string file);
+		void Load(string file, std::vector<int> &target, bool setOfficialSize= false);
 		/**
 			\brief Altera o tileSet usado pelo tileMap
 
@@ -113,6 +115,8 @@ class TileMap
 		int mapWidth;/**< Largura do TileMap.*/
 		int mapHeight;/**< Altura do TileMap.*/
 		int mapDepth;/**< Número de camadas do TileMap.*/
+		std::vector<GameObject*> gameObjectMatrix;//bidimensional??
+		std::vector<int> collisionTileMap;
 };
 
 #endif // TILEMAP_H

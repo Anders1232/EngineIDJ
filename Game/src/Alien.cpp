@@ -103,7 +103,7 @@ Rect Alien::GetWorldRenderedRect(void) const
 	
 	rect = rect*Camera::GetZoom();
 	
-	return rect;
+	return rect+Camera::pos;
 }
 bool Alien::IsDead(void)
 {

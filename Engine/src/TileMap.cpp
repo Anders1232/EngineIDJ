@@ -4,64 +4,68 @@
 #include "TileMap.h"
 #include "Error.h"
 #include "Camera.h"
+#include "InputManager.h"
 
-TileMap::TileMap(string file, TileSet *tileSet): tileSet(tileSet)
-{
-	Load(file);
+#define PAREDE 1
+
+TileMap::TileMap(string file, TileSet *tileSet, string collisionTileMapFile): tileSet(tileSet), gameObjectMatrix(){
+	Load(file, tileMatrix, true);
+	Load(collisionTileMapFile, collisionTileMap);
+	gameObjectMatrix.resize(GetWidth()*GetHeight()*GetDepth());
+	for(unsigned int count=0; count < gameObjectMatrix.size(); count++){
+		gameObjectMatrix[count]= nullptr;
+	}
 }
-void TileMap::Load(string file)
-{
+
+void TileMap::Load(string file, std::vector<int> &target, bool setOfficialSize){
 	FILE *arq= fopen(file.c_str(), "r");
 	ASSERT(NULL != arq);
-	fscanf(arq, "%d,%d,%d,", &mapWidth, &mapHeight, &mapDepth);
-	int numbersToRead= mapWidth*mapHeight*mapDepth;
-	tileMatrix.resize(numbersToRead);//assim ele não desperdiça memória nem muda de tamanho no for abaixo
+	int mWidth, mHeight, mDepth;
+	fscanf(arq, "%d,%d,%d,", &mWidth, &mHeight, &mDepth);
+	if(setOfficialSize){
+		mapWidth= mWidth;
+		mapHeight= mHeight;
+		mapDepth= mDepth;
+	}
+	int numbersToRead= mWidth*mHeight*mDepth;
+	target.resize(numbersToRead);//assim ele não desperdiça memória nem muda de tamanho no for abaixo
 	int aux;
 	for(int count=0; count < numbersToRead; count++)
 	{
 		fscanf(arq, " %d,", &aux);
-		tileMatrix[count]= aux-1;
+		target[count]= aux-1;
 	}
 }
-void TileMap::SetTileSet(TileSet *tileSet)
-{
+void TileMap::SetTileSet(TileSet *tileSet){
 	ASSERT(this->tileSet->GetTileHeight() <= tileSet->GetTileHeight());
 	ASSERT(this->tileSet->GetTileWidth() <= tileSet->GetTileWidth());
 	this->tileSet=tileSet;
 }
-int& TileMap::At(int x, int y, int z) const
-{
+int& TileMap::At(int x, int y, int z) const{
 //	int* vec= (int*)tileMatrix.data();
 //	return (vec[z*mapWidth*mapHeight + y*mapWidth + x]);
 	int index= z*mapWidth*mapHeight + y*mapWidth + x;
-	try
-	{
+	try{
 		return ((int&)tileMatrix.at(index) );
 	}
-	catch(...)
-	{
+	catch(...){
 		static const int  m1=-1;
 		return (int&)m1;
 	}
 }
-void TileMap::Render(int cameraX, int cameraY) const
-{
+void TileMap::Render(int cameraX, int cameraY) const{
 	for(int count =0; count < mapDepth; count++)
 	{
 		RenderLayer(count, cameraX, cameraY);
 	}
 }
-void TileMap::RenderLayer(int layer, int cameraX, int cameraY) const
-{
-	for(int x=0; x < mapWidth; x++)
-	{
-		for(int y=0; y < mapHeight; y++)
-		{
+void TileMap::RenderLayer(int layer, int cameraX, int cameraY) const{
+	for(int x=0; x < mapWidth; x++){
+		for(int y=0; y < mapHeight; y++){
 			REPORT_I_WAS_HERE;
 			int index= At(x, y, layer);
 			REPORT_I_WAS_HERE;
-			if(0 <= index)
-			{
+			if(0 <= index){
 				REPORT_I_WAS_HERE;
 				int destinyX= CalculateParallaxScrolling((int)x*tileSet->GetTileWidth(),cameraX, layer);
 				int destinyY= CalculateParallaxScrolling((int)y*tileSet->GetTileHeight(), cameraY, layer);
@@ -71,8 +75,7 @@ void TileMap::RenderLayer(int layer, int cameraX, int cameraY) const
 	}
 }
 
-int TileMap::CalculateParallaxScrolling(int num, int camera, int layer) const
-{
+int TileMap::CalculateParallaxScrolling(int num, int camera, int layer) const{
 	return (int)(num-camera*(layer+1));
 	return (int)(num-camera*(layer+1)/mapDepth );
 	return (int)( (double)num*(1.0+(double)layer/(double)mapDepth) );
@@ -163,5 +166,31 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 		}
 	}
 	return y*mapWidth+x;
+}
+
+void TileMap::InsertGO(GameObject* obj){
+	Vec2 mousePos= InputManager::GetInstance().GetMousePos()+Vec2(obj->box.w/2, obj->box.h/2);
+	std::cout << WHERE << "\tobj->box.w/2= " << obj->box.w/2 << "\tobj->box.h/2= " << obj->box.h/2 << END_LINE;
+//	Vec2 objectPos= obj->box.Center();
+	int position= GetTileMousePos(mousePos, true, 0);
+	std::cout << WHERE << "\t position = " << position << "\t of " << collisionTileMap.size() << "tiles." << END_LINE;
+	position= position%(mapWidth*mapHeight);
+	std::cout << WHERE << "\t position = " << position << "\t of " << collisionTileMap.size() << "tiles." << END_LINE;
+	if(0 > position){
+		std::cout << WHERE << "[ERROR] Tried to put the gameObject on an  invalid tileMap position." << END_LINE;
+		return;
+	}
+	if(-1 == collisionTileMap.at(position)){
+		std::cout << WHERE << "\tInserting the gameObject at position " << position << END_LINE;
+		gameObjectMatrix[position]= obj;
+		collisionTileMap[position]= PAREDE;
+		//TODO: aqui ajudar a box para ficar exatamente no tileMap
+	}
+	else if (0 >= collisionTileMap[position]){
+		std::cout << WHERE << "\ttentado inserir objeto em posição inválida, pois nela está" << collisionTileMap[position] << END_LINE;
+	}
+	else{
+		std::cout << WHERE << "\ttentado inserir objeto em posição já ocupada!" << END_LINE;
+	}
 }
 

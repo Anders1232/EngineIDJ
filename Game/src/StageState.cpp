@@ -23,10 +23,14 @@
 
 #define STATE_RENDER_X 0//esse valores calculam o offset em relação ao canto superior esquedo da imagem daquilo que será renderizado
 #define STATE_RENDER_Y 0
-StageState::StageState(void): State(), bg("img/ocean.jpg"), tileSet(64, 64,"img/tileset.png"), inputManager(InputManager::GetInstance()), music("audio/stageState.ogg")
+StageState::StageState(void): State(), bg("img/ocean.jpg"),
+										tileSet(64, 64,"img/tileset.png"),
+										inputManager(InputManager::GetInstance()),
+										music("audio/stageState.ogg")
+//										goTileMap("map/CollisionTileMap.txt")
 {
 	REPORT_I_WAS_HERE;
-	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet);
+	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet, "map/CollisionTileMap.txt");
 	REPORT_I_WAS_HERE;
 	int numberOfAliens= NUMBER_OF_ALIENS;
 	for(int count =0; count < numberOfAliens; count++)
@@ -34,7 +38,7 @@ StageState::StageState(void): State(), bg("img/ocean.jpg"), tileSet(64, 64,"img/
 		CreateAlien();
 	}
 	objectArray.emplace_back(std::unique_ptr<Penguins>( new Penguins (704, 640) ) );
-	objectArray.emplace_back(std::unique_ptr<Face> (new Face(500, 500)));
+	objectArray.emplace_back(std::unique_ptr<Face> (new Face(500, 500, Vec2(64, 64), tileMap)));
 	music.Play(10);
 }
 
@@ -84,7 +88,10 @@ void StageState::Update(float dt)
 	if(InputManager::GetInstance().KeyPress('q'))
 	{
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos();
-		std::cout << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << "tiles." << std::endl;
+		std::cout << WHERE << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << " tiles." << std::endl;
+	}
+	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
+		AddObject(new Face(500, 500, Vec2(64, 64), tileMap) );
 	}
 	if(InputManager::GetInstance().KeyPress('e')){
 		printf("Face criado\n");
@@ -104,6 +111,7 @@ void StageState::Render(void) const
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
 	tileMap->RenderLayer(1, Camera::pos.x, Camera::pos.y);
+//	goTileMap.Render();
 }
 
 void StageState::Pause(void)

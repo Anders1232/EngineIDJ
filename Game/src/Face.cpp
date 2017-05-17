@@ -3,13 +3,16 @@
 #include "Camera.h"
 typedef unsigned int uint;
 
-Face::Face(float x, float y){
-	sp.Open("img/penguinface.png");
-	box.x = x - sp.GetWidth()/2; 
-	box.y = y - sp.GetHeight()/2;
+
+Face::Face(float x, float y, Vec2 tileSize, TileMap *tileMap)
+	:sp("img/penguinface.png"){
+	box.x= x;
+	box.y= y;
+	sp.ScaleX(tileSize.x/sp.GetWidth());
+	sp.ScaleY(tileSize.y/sp.GetHeight());
 	box.w= sp.GetWidth();
 	box.h= sp.GetHeight();
-	components.emplace_back( new DragAndDrop(true) );
+	components.emplace_back( new DragAndDrop(tileMap, true) );
 }
 void Face::Damage(int damage)
 {
@@ -25,9 +28,6 @@ void Face::Update(float dt )
 }
 void Face::Render()
 {
-	//Centraliza mas da problema de ele voar ate o 0,0 depois de posicionado
-	//box.x = box.x - sp.GetWidth()/2;
-	//box.y = box.y - sp.GetHeight()/2;
 	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y);
 
 }
@@ -52,7 +52,7 @@ Rect Face::GetWorldRenderedRect( ) const{
 	
 	rect = rect*Camera::GetZoom();
 	
-	return rect;
+	return rect+Camera::pos;
 }
 
 bool Face::Is(string type){
@@ -61,10 +61,12 @@ bool Face::Is(string type){
 
 
 Face::~Face(){
+	std::cout  << WHERE << "NAO ESQUECER ESSA MERDAAA" << std::endl; 
 	for(uint count =0; count < components.size(); count++)
 	{
 		// deleting object of abstract class type ‘Component’ which has non-virtual destructor will cause undefined behaviour
-		//delete components[count];
+		// components.erase();
+		// delete components[count];
 	}
 	
 
