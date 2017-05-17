@@ -133,7 +133,7 @@ class Game {
 
 			Altera as variáveis do controle de framerate de acordo com o argumento passado.
 		*/
-		void SetMaxFramerate(unsigned int newMaxFramerate);
+		void SetMaxFramerate(signed long int newMaxFramerate);
 		/**
 			\brief Obtêm o valor de framerate máximo do controle de framerate
 			\return Veja a descrição.
