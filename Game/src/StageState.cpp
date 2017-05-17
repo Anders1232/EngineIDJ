@@ -88,12 +88,11 @@ void StageState::Update(float dt)
 	if(InputManager::GetInstance().KeyPress('q'))
 	{
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos();
-		std::cout << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << "tiles." << std::endl;
+		std::cout << WHERE << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << " tiles." << std::endl;
 	}
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
 		AddObject(new Face(500, 500, Vec2(64, 64), tileMap) );
 	}
-//	goTileMap.Update();
 }
 
 void StageState::Render(void) const

@@ -4,6 +4,7 @@
 #include "TileMap.h"
 #include "Error.h"
 #include "Camera.h"
+#include "InputManager.h"
 
 #define PAREDE 1
 
@@ -168,10 +169,19 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 }
 
 void TileMap::InsertGO(GameObject* obj){
-//	Vec2 mousePos= InputManager::GetInstance().GetMousePos();
-	Vec2 objectPos= obj->box.Center();
-	int position= GetTileMousePos(objectPos, true, 0);
+	Vec2 mousePos= InputManager::GetInstance().GetMousePos()+Vec2(obj->box.w/2, obj->box.h/2);
+	std::cout << WHERE << "\tobj->box.w/2= " << obj->box.w/2 << "\tobj->box.h/2= " << obj->box.h/2 << END_LINE;
+//	Vec2 objectPos= obj->box.Center();
+	int position= GetTileMousePos(mousePos, true, 0);
+	std::cout << WHERE << "\t position = " << position << "\t of " << collisionTileMap.size() << "tiles." << END_LINE;
+	position= position%(mapWidth*mapHeight);
+	std::cout << WHERE << "\t position = " << position << "\t of " << collisionTileMap.size() << "tiles." << END_LINE;
+	if(0 > position){
+		std::cout << WHERE << "[ERROR] Tried to put the gameObject on an  invalid tileMap position." << END_LINE;
+		return;
+	}
 	if(-1 == collisionTileMap.at(position)){
+		std::cout << WHERE << "\tInserting the gameObject at position " << position << END_LINE;
 		gameObjectMatrix[position]= obj;
 		collisionTileMap[position]= PAREDE;
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap

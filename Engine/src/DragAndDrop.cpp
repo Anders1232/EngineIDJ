@@ -11,7 +11,7 @@ void DragAndDrop::Update(GameObject &associated)
 {
 	InputManager &inputManager= InputManager::GetInstance();
 	
-	if(inputManager.MousePress(RIGHT_MOUSE_BUTTON) && (false == isDragging) )
+/*	if(inputManager.MousePress(RIGHT_MOUSE_BUTTON) && (false == isDragging) )
 	{
 		//\todo ver se o zoom interfere aqui
 		Vec2 worldMousePos= inputManager.GetMousePos()+ Camera::pos;
@@ -22,14 +22,15 @@ void DragAndDrop::Update(GameObject &associated)
 			isDragging= true;
 		}
 	}
-	if(isDragging && inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON))
+*/	if(isDragging && inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON))
 	{
 		Vec2 mousePos= inputManager.GetMousePos();
-		associated.box= mousePos+Camera::pos;
+		associated.box= mousePos+Camera::pos-Vec2(associated.box.w/2, associated.box.h/2);
 	}
 	else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON))
 	{
 		tileMap->InsertGO(&associated);
+		isDragging= false;
 	}
 }
 
