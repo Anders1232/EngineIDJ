@@ -178,7 +178,7 @@ void Game::SetMaxFramerate(signed long int newMaxFramerate) {
 	} else {
 		maxFramerate = newMaxFramerate;
 	}
-	frameDuration = 1000.0/newMaxFramerate;
+	frameDuration = 1000.0/maxFramerate;
 }
 
 unsigned int Game::GetMaxFramerate(void) const {
