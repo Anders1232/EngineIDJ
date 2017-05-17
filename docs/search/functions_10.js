@@ -9,7 +9,7 @@ var searchData=
   ['setframe',['SetFrame',['../classSprite.html#a351dd54dac6cadbbdec48f9e1d8a36c0',1,'Sprite']]],
   ['setframecount',['SetFrameCount',['../classSprite.html#adf5254476a027570a0112cf48979f3a5',1,'Sprite']]],
   ['setframetime',['SetFrameTime',['../classSprite.html#a8ebb93cd7485a51ccc635819ded6349b',1,'Sprite']]],
-  ['setmaxframerate',['SetMaxFramerate',['../classGame.html#ae8d40589bb5197ed104247f6ca18fd86',1,'Game']]],
+  ['setmaxframerate',['SetMaxFramerate',['../classGame.html#a72b2247fbcea2ae9e225f04269265bcc',1,'Game']]],
   ['setpos',['SetPos',['../classText.html#a8c1865b3d0971b3611ae82e9ad85acb1',1,'Text']]],
   ['setscale',['SetScale',['../classSprite.html#a54d18a18383575b04f397f5bec3113d0',1,'Sprite']]],
   ['setscalex',['SetScaleX',['../classSprite.html#aad7bb29fc017ac2197dffec177c17e15',1,'Sprite']]],

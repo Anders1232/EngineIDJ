@@ -132,9 +132,9 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:adbeb87bbabcc73f936e149c2d83d9d33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVec2.html">Vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#adbeb87bbabcc73f936e149c2d83d9d33">GetWindowDimensions</a> (void) const </td></tr>
 <tr class="memdesc:adbeb87bbabcc73f936e149c2d83d9d33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa as dimensões da janela corrente.  <a href="#adbeb87bbabcc73f936e149c2d83d9d33">Mais...</a><br /></td></tr>
 <tr class="separator:adbeb87bbabcc73f936e149c2d83d9d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8d40589bb5197ed104247f6ca18fd86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ae8d40589bb5197ed104247f6ca18fd86">SetMaxFramerate</a> (unsigned int newMaxFramerate)</td></tr>
-<tr class="memdesc:ae8d40589bb5197ed104247f6ca18fd86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera o valor do limite de framerate.  <a href="#ae8d40589bb5197ed104247f6ca18fd86">Mais...</a><br /></td></tr>
-<tr class="separator:ae8d40589bb5197ed104247f6ca18fd86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72b2247fbcea2ae9e225f04269265bcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a72b2247fbcea2ae9e225f04269265bcc">SetMaxFramerate</a> (signed long int newMaxFramerate)</td></tr>
+<tr class="memdesc:a72b2247fbcea2ae9e225f04269265bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera o valor do limite de framerate.  <a href="#a72b2247fbcea2ae9e225f04269265bcc">Mais...</a><br /></td></tr>
+<tr class="separator:a72b2247fbcea2ae9e225f04269265bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafc542fc5f826d2eed771c8bd75d6930"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#aafc542fc5f826d2eed771c8bd75d6930">GetMaxFramerate</a> (void) const </td></tr>
 <tr class="memdesc:aafc542fc5f826d2eed771c8bd75d6930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtêm o valor de framerate máximo do controle de framerate.  <a href="#aafc542fc5f826d2eed771c8bd75d6930">Mais...</a><br /></td></tr>
 <tr class="separator:aafc542fc5f826d2eed771c8bd75d6930"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -547,14 +547,14 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae8d40589bb5197ed104247f6ca18fd86"></a>
+<a class="anchor" id="a72b2247fbcea2ae9e225f04269265bcc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Game::SetMaxFramerate </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">signed long int&#160;</td>
           <td class="paramname"><em>newMaxFramerate</em></td><td>)</td>
           <td></td>
         </tr>
@@ -568,7 +568,7 @@ Atributos Privados Estáticos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Altera as variáveis do controle de framerate de acordo com o argumento passado. </p>
+<p>Altera as variáveis do controle de framerate de acordo com o argumento passado. Se o valor informado for menor que 1, o frame rate máximo será 1. </p>
 
 </div>
 </div>
@@ -838,7 +838,7 @@ Atributos Privados Estáticos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quarta, 17 de Maio de 2017 14:50:56 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Quarta, 17 de Maio de 2017 17:33:16 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

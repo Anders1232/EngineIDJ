@@ -131,7 +131,7 @@ class Game {
 			\brief Altera o valor do limite de framerate
 			\param newMaxFramerate o novo valor máximo a ser usado controle de framerate
 
-			Altera as variáveis do controle de framerate de acordo com o argumento passado.
+			Altera as variáveis do controle de framerate de acordo com o argumento passado. Se o valor informado for menor que 1, o frame rate máximo será 1.
 		*/
 		void SetMaxFramerate(signed long int newMaxFramerate);
 		/**
