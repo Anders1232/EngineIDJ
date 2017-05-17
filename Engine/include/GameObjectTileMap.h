@@ -1,3 +1,4 @@
+/*
 #ifndef GAMEOBJECTTILEMAP_H
 #define GAMEOBJECTTILEMAP_H
 
@@ -19,3 +20,4 @@ class GameObjectTileMap : public TileMap
 };
 
 #endif // GAMEOBJECTTILEMAP_H
+*/

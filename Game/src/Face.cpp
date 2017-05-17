@@ -3,7 +3,7 @@
 #include "Camera.h"
 
 
-Face::Face(float x, float y, Vec2 tileSize)
+Face::Face(float x, float y, Vec2 tileSize, TileMap *tileMap)
 	:sp("img/penguinface.png"){
 	box.x= x;
 	box.y= y;
@@ -11,7 +11,7 @@ Face::Face(float x, float y, Vec2 tileSize)
 	sp.ScaleY(tileSize.y/sp.GetHeight());
 	box.w= sp.GetWidth();
 	box.h= sp.GetHeight();
-	components.emplace_back( new DragAndDrop(false) );
+	components.emplace_back( new DragAndDrop(tileMap, true) );
 }
 void Face::Damage(int damage)
 {
@@ -20,7 +20,7 @@ void Face::Damage(int damage)
 
 void Face::Update(float dt )
 {
-	for(int count =0; count < components.size(); count++)
+	for(unsigned int count =0; count < components.size(); count++)
 	{
 		components[count]->Update(*this);
 	}

@@ -1,8 +1,9 @@
+/*
 #include "GameObjectTileMap.h"
 #include "InputManager.h"
 #include "Error.h"
 
-GameObjectTileMap::GameObjectTileMap(std::sting tileMapFile, std::string collisionTileMapFile, Vec2 tileSize)
+GameObjectTileMap::GameObjectTileMap(string collisionTileMapFile)
 	: TileMap(tileMapFile.c_str(), nullptr), gameObjectMatrix(GetWidth()*GetHeight()*GetDepth(), nullptr), draggingGO(nullptr){
 }
 
@@ -59,4 +60,4 @@ void GameObjectTileMap::Render(int cameraX, int cameraY) const{
 		draggingGO->Render();
 	}
 }
-
+*/

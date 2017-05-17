@@ -26,11 +26,11 @@
 StageState::StageState(void): State(), bg("img/ocean.jpg"),
 										tileSet(64, 64,"img/tileset.png"),
 										inputManager(InputManager::GetInstance()),
-										music("audio/stageState.ogg"),
-										goTileMap("map/CollisionTileMap.txt")
+										music("audio/stageState.ogg")
+//										goTileMap("map/CollisionTileMap.txt")
 {
 	REPORT_I_WAS_HERE;
-	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet);
+	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet, "map/CollisionTileMap.txt");
 	REPORT_I_WAS_HERE;
 	int numberOfAliens= NUMBER_OF_ALIENS;
 	for(int count =0; count < numberOfAliens; count++)
@@ -38,7 +38,7 @@ StageState::StageState(void): State(), bg("img/ocean.jpg"),
 		CreateAlien();
 	}
 	objectArray.emplace_back(std::unique_ptr<Penguins>( new Penguins (704, 640) ) );
-	objectArray.emplace_back(std::unique_ptr<Face> (new Face(500, 500, Vec2(64, 64))));
+	objectArray.emplace_back(std::unique_ptr<Face> (new Face(500, 500, Vec2(64, 64), tileMap)));
 	music.Play(10);
 }
 
@@ -91,9 +91,9 @@ void StageState::Update(float dt)
 		std::cout << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << "tiles." << std::endl;
 	}
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
-		goTileMap.DragAndAddGameObject(new Face(500, 500, Vec2(64, 64) ) );
+		AddObject(new Face(500, 500, Vec2(64, 64), tileMap) );
 	}
-	goTileMap.Update();
+//	goTileMap.Update();
 }
 
 void StageState::Render(void) const
@@ -107,7 +107,7 @@ void StageState::Render(void) const
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
 	tileMap->RenderLayer(1, Camera::pos.x, Camera::pos.y);
-	goTileMap.Render();
+//	goTileMap.Render();
 }
 
 void StageState::Pause(void)

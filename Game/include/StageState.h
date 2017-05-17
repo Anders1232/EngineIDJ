@@ -32,7 +32,7 @@ class StageState: public State
 		TileSet tileSet;
 		InputManager &inputManager;
 		Music music;
-		GameObjectTileMap goTileMap;
+//		GameObjectTileMap goTileMap;
 };
 
 #include "EndState.h"

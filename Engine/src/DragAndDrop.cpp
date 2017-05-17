@@ -3,9 +3,8 @@
 #include "Camera.h"
 #include "Error.h"
 
-DragAndDrop::DragAndDrop(bool dragging)
-	:isDragging(dragging)
-{
+DragAndDrop::DragAndDrop(TileMap *map, bool dragging, bool dragOnActionHold)
+	:isDragging(dragging), dragOnHold(dragOnActionHold), tileMap(map){
 }
 
 void DragAndDrop::Update(GameObject &associated)
@@ -23,10 +22,14 @@ void DragAndDrop::Update(GameObject &associated)
 			isDragging= true;
 		}
 	}
-	if(isDragging)
+	if(isDragging && inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON))
 	{
 		Vec2 mousePos= inputManager.GetMousePos();
 		associated.box= mousePos+Camera::pos;
+	}
+	else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON))
+	{
+		tileMap->InsertGO(&associated);
 	}
 }
 

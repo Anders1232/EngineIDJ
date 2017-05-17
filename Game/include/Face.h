@@ -1,6 +1,7 @@
 #include "Gameobject.h"
 #include "Sprite.h"
 #include "Rect.h"
+#include "TileMap.h"
 
 #ifndef FACE_H
 #define FACE_H
@@ -8,7 +9,7 @@
 class Face : public GameObject
 {
 	public:
-		Face(float x, float y, Vec2 tileSize);
+		Face(float x, float y, Vec2 tileSize, TileMap *tileMap);
 		void Damage(int damage);
 	
 		void Update(float dt );
