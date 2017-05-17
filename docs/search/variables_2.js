@@ -2,6 +2,7 @@ var searchData=
 [
   ['cannonangle',['cannonAngle',['../classPenguins.html#a71d44d99bbac380b45df64501523ab45',1,'Penguins']]],
   ['cannonsp',['cannonSp',['../classPenguins.html#a7e2ee1ab898ff561288c79882862e6c0',1,'Penguins']]],
+  ['capframerate',['capFramerate',['../classGame.html#a9c4d90234bc5a4ca540b09d8a534ece1',1,'Game']]],
   ['center',['center',['../classMinion.html#aec145adaab9c6ecfb35b7ec1624ab111',1,'Minion']]],
   ['channel',['channel',['../classSound.html#af3895edf5a39772f1de32cfbfff90909',1,'Sound']]],
   ['cliprect',['clipRect',['../classSprite.html#a3451a65b4cd1b2ff3c11448dbdde43ac',1,'Sprite']]],

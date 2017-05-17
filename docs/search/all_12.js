@@ -1,7 +1,7 @@
 var searchData=
 [
   ['scale',['Scale',['../classSprite.html#aa8b31cd4deebedbbdf8ca3923a3064c6',1,'Sprite']]],
-  ['scalex',['ScaleX',['../classSprite.html#a42b3a6ed82560c5b97085cc127984cf4',1,'Sprite::ScaleX(float scale)'],['../classSprite.html#af76ca5d25866a3107bcec1d2e59f8bcb',1,'Sprite::scaleX()']]],
+  ['scalex',['scaleX',['../classSprite.html#af76ca5d25866a3107bcec1d2e59f8bcb',1,'Sprite::scaleX()'],['../classSprite.html#a42b3a6ed82560c5b97085cc127984cf4',1,'Sprite::ScaleX(float scale)']]],
   ['scaley',['ScaleY',['../classSprite.html#ad4a9b4df6061cf7391403a4d03286ff0',1,'Sprite::ScaleY(float scale)'],['../classSprite.html#ac4085b0144253c09bc94151a53079104',1,'Sprite::scaleY()']]],
   ['sdl_5fassert',['SDL_ASSERT',['../Error_8h.html#a5e03114cdb9780c937e89ed7cb527ae1',1,'Error.h']]],
   ['setclip',['SetClip',['../classSprite.html#a3ad46a400f83d41eaba2c2df77e0cf7c',1,'Sprite']]],
@@ -10,6 +10,7 @@ var searchData=
   ['setframe',['SetFrame',['../classSprite.html#a351dd54dac6cadbbdec48f9e1d8a36c0',1,'Sprite']]],
   ['setframecount',['SetFrameCount',['../classSprite.html#adf5254476a027570a0112cf48979f3a5',1,'Sprite']]],
   ['setframetime',['SetFrameTime',['../classSprite.html#a8ebb93cd7485a51ccc635819ded6349b',1,'Sprite']]],
+  ['setmaxframerate',['SetMaxFramerate',['../classGame.html#ae8d40589bb5197ed104247f6ca18fd86',1,'Game']]],
   ['setpos',['SetPos',['../classText.html#a8c1865b3d0971b3611ae82e9ad85acb1',1,'Text']]],
   ['setscale',['SetScale',['../classSprite.html#a54d18a18383575b04f397f5bec3113d0',1,'Sprite']]],
   ['setscalex',['SetScaleX',['../classSprite.html#aad7bb29fc017ac2197dffec177c17e15',1,'Sprite']]],

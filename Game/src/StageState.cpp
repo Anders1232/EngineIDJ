@@ -71,10 +71,17 @@ void StageState::Update(float dt) {
 		popRequested= true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
-	if(InputManager::GetInstance().KeyPress('q'))
-	{
+	if(InputManager::GetInstance().KeyPress('q')){
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos();
 		std::cout << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << "tiles." << std::endl;
+	}
+	if(InputManager::GetInstance().IsKeyDown('+')){
+		Game &game= Game::GetInstance();
+		game.SetMaxFramerate(game.GetMaxFramerate()+5);
+	}
+	if(InputManager::GetInstance().IsKeyDown('-')){
+		Game &game= Game::GetInstance();
+		game.SetMaxFramerate(game.GetMaxFramerate()-5);
 	}
 }
 
