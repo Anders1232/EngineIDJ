@@ -173,9 +173,11 @@ Vec2 Game::GetWindowDimensions(void) const {
 }
 
 void Game::SetMaxFramerate(signed long int newMaxFramerate) {
+	REPORT_DEBUG("\tnewMaxFramerate= " << newMaxFramerate);
 	if ( newMaxFramerate < 1 ) {
 		maxFramerate = 1;
-	} else {
+	}
+	else {
 		maxFramerate = newMaxFramerate;
 	}
 	frameDuration = 1000.0/maxFramerate;

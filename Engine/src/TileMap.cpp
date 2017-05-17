@@ -82,73 +82,57 @@ int TileMap::GetDepth(void) const {
 	return mapDepth;
 }
 
-int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const
-{
+int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const{
 	Vec2 position= mousePos + Camera::pos;
-	if(affecteedByZoom)
-	{
+	if(affecteedByZoom){
 		position= position.MemberMult(Camera::GetZoom());
 //		position= position*Camera::GetZoom();
 	}
 	int x, xDir= mapWidth-1, xEsq=0;
 	int tileWidth= CalculateParallaxScrolling(tileSet->GetTileWidth(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
 	int tileHeight= CalculateParallaxScrolling(tileSet->GetTileHeight(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
-	if(position.x < 0)
-	{
+	if(position.x < 0){
 		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
 		return -1;
 	}
-	if(position.y < 0)
-	{
+	if(position.y < 0){
 		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
 		return -2;
 	}
-	if(position.x >= (GetWidth()-1)* tileWidth )
-	{
+	if(position.x >= (GetWidth()-1)* tileWidth ){
 		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
 		return -3;
 	}
-	if(position.y >= (GetHeight()-1)* tileHeight )
-	{
+	if(position.y >= (GetHeight()-1)* tileHeight ){
 		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
 		return -4;
 	}
-	while(1)//uma simplesBusca binária
-	{
+	while(1){//uma simplesBusca binária
 		x= (xEsq+xDir)/2;
-		if(x*tileWidth<= position.x)
-		{
-			if(position.x < (x+1)*tileWidth)
-			{
+		if(x*tileWidth<= position.x){
+			if(position.x < (x+1)*tileWidth){
 				break;
 			}
-			else//x  está pra direita
-			{
+			else{//x  está pra direita
 				xEsq= x;
 			}
 		}
-		else
-		{//x está pra esquerda
+		else{//x está pra esquerda
 			xDir= x;
 		}
 	}
 	int y, yDir= mapHeight-1, yEsq=0;
-	while(1)//uma simplesBusca binária
-	{
+	while(1){//uma simplesBusca binária
 		y= (yEsq+yDir)/2;
-		if(y*tileWidth<= position.y)
-		{
-			if(position.y < (y+1)*tileHeight)
-			{
+		if(y*tileWidth<= position.y){
+			if(position.y < (y+1)*tileHeight){
 				break;
 			}
-			else//y  está pra direita
-			{
+			else{//y  está pra direita
 				yEsq= y;
 			}
 		}
-		else
-		{//y está pra esquerda
+		else{//y está pra esquerda
 			yDir= y;
 		}
 	}

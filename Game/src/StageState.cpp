@@ -75,14 +75,15 @@ void StageState::Update(float dt) {
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos();
 		std::cout << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << "tiles." << std::endl;
 	}
-	if(InputManager::GetInstance().IsKeyDown('+')){
+	if(InputManager::GetInstance().KeyPress('=')){
 		Game &game= Game::GetInstance();
 		game.SetMaxFramerate(game.GetMaxFramerate()+5);
 	}
-	if(InputManager::GetInstance().IsKeyDown('-')){
+	if(InputManager::GetInstance().KeyPress('-')){
 		Game &game= Game::GetInstance();
-		game.SetMaxFramerate(game.GetMaxFramerate()-5);
+		game.SetMaxFramerate( ( (int64_t)game.GetMaxFramerate() )-5);
 	}
+	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }
 
 void StageState::Render(void) const {
