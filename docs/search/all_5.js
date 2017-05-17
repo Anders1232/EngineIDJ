@@ -8,6 +8,7 @@ var searchData=
   ['fonttable',['fontTable',['../classResources.html#ab3665e0c725cd7f4dbf65b128f87d0d5',1,'Resources']]],
   ['forcezoom',['ForceZoom',['../classCamera.html#a7dc4b1fd7f5e03ffb25d306fe81ee4c0',1,'Camera']]],
   ['framecount',['frameCount',['../classSprite.html#a8dc8d5c9530bad6113d37fe5e53e4668',1,'Sprite']]],
+  ['frameduration',['frameDuration',['../classGame.html#a58b6a6566386b3e42c9ab72dc2188b4b',1,'Game']]],
   ['framestart',['frameStart',['../classGame.html#af21b5344d8b7796d5f425bdbe37a6c82',1,'Game']]],
   ['frametime',['frameTime',['../classSprite.html#a5d41b63da1b5ee4a734ce060ab876878',1,'Sprite']]],
   ['frompolarcoord',['FromPolarCoord',['../classVec2.html#ac794548df48539be24dd1e8ebebf8038',1,'Vec2']]]

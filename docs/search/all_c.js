@@ -8,6 +8,7 @@ var searchData=
   ['mapheight',['mapHeight',['../classTileMap.html#a8fec89ca278b51de7f3e38831d9fb161',1,'TileMap']]],
   ['mapwidth',['mapWidth',['../classTileMap.html#ae2361e840eacaebbbbc91541ded00655',1,'TileMap']]],
   ['margem_5ferro_5fcomparacao',['MARGEM_ERRO_COMPARACAO',['../Vec2_8h.html#a1759b83db156ac7ed195b3e04757ee14',1,'Vec2.h']]],
+  ['maxframerate',['maxFramerate',['../classGame.html#a5424a424548c7bdb04de05c5c836002d',1,'Game']]],
   ['maxzoom',['maxZoom',['../classCamera.html#af418b7887d39c773d73cb179c497a8da',1,'Camera']]],
   ['membermult',['MemberMult',['../classVec2.html#a0af80a4efc933b61b2885a815a15a77f',1,'Vec2']]],
   ['middle_5fmouse_5fbutton',['MIDDLE_MOUSE_BUTTON',['../InputManager_8h.html#a0f26b1a0dee82337d947288c4ebcee16',1,'InputManager.h']]],

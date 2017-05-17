@@ -9,6 +9,7 @@ var searchData=
   ['renderarray',['RenderArray',['../classState.html#adabbfa20facdc24fa26e5813fd0af78a',1,'State']]],
   ['renderer',['renderer',['../classGame.html#ae5164c37c0dc74cfb56041174017bf57',1,'Game']]],
   ['renderlayer',['RenderLayer',['../classTileMap.html#a08748800b6fb6bd307acd3693a39d679',1,'TileMap']]],
+  ['report_5fdebug',['REPORT_DEBUG',['../Error_8h.html#aed4d6f4696003d289daa853688d238ef',1,'Error.h']]],
   ['report_5fi_5fwas_5fhere',['REPORT_I_WAS_HERE',['../Error_8h.html#a15a48a3e28c4eb425e3340eae40894c5',1,'Error.h']]],
   ['resources',['Resources',['../classResources.html',1,'Resources'],['../classResources.html#ab09435991b8c485f92e0aa1fd00828b9',1,'Resources::Resources()']]],
   ['resources_2ecpp',['Resources.cpp',['../Resources_8cpp.html',1,'']]],

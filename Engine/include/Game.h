@@ -29,6 +29,7 @@
 #endif
 
 #define MIXER_CHUCK_SIZE 1024
+#define INITIAL_FRAMERATE 60
 
 /**
 	\brief Classe que modela o todo-poderoso Jogo
@@ -126,6 +127,41 @@ class Game {
 			Retorna o intervalo de tempo do último frame ao atual calculado anteriormente pelo CalculateDeltaTime.
 		*/
 		Vec2 GetWindowDimensions(void) const;
+		/**
+			\brief Altera o valor do limite de framerate
+			\param newMaxFramerate o novo valor máximo a ser usado controle de framerate
+
+			Altera as variáveis do controle de framerate de acordo com o argumento passado. Se o valor informado for menor que 1, o frame rate máximo será 1.
+		*/
+		void SetMaxFramerate(signed long int newMaxFramerate);
+		/**
+			\brief Obtêm o valor de framerate máximo do controle de framerate
+			\return Veja a descrição.
+
+			Retorna o valor que está sendo utilizado pelo controle de framerate como quantidade máxima de frames por segundo.
+		*/
+		unsigned int GetMaxFramerate(void) const;
+		/**
+			\brief Obtêm o fps atual do jogo
+			\return Veja a descrição
+
+			Retorna a quantos frames por segundo o jogo está rodando. Se a limitação de framerate estiver ativada, o retorno dessa função será no máximo o valor obtido por GetMaxFramerate().
+		*/
+		float GetCurrentFramerate(void) const;
+		/**
+			\brief Seta se o framerate máximo deve ser utilizado ou não
+			\param limit true para limitar. false para desbloquear
+
+			Seta se o controle de framerate deve garantir que o framerate não passe do máximo ou não.
+		*/
+		void LimitFramerate(bool limit);
+		/**
+			\brief Retorna se o framerate está sendo limitado ou não
+			\return Veja descrição
+
+			Retorna se o controle de framerate está limitando o framerate a um máximo ou não.
+		*/
+		bool IsFramerateLimited(void) const;
 	private:
 		/**
 			\brief Calcula o tempo transcorrido desde a última chamada a essa função
@@ -151,6 +187,9 @@ class Game {
 		SDL_Renderer* renderer;/**< Ponteiro para o SDL_renderer do jogo.*/
 		std::stack<std::unique_ptr<State>> stateStack;/**< Pilha de estados.*/
 		InputManager &inputManager;/**< Gerenciador de entradas do usuário.*/
+		unsigned int maxFramerate;/**< Armazena o limite superior do framerate*/
+		float frameDuration;/**< Duração mínima de cada frame*/
+		bool capFramerate;/**< Flag para decidir se o framerate do jogo será limitado a um valor máximo ou não.*/
 };
 
 #endif // GAME_H

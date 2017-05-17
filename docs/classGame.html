@@ -102,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="dynheader">
 Diagrama de colaboração para Game:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classGame__coll__graph.svg" width="756" height="480"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGame__coll__graph.svg" width="756" height="583"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
@@ -132,6 +132,21 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:adbeb87bbabcc73f936e149c2d83d9d33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVec2.html">Vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#adbeb87bbabcc73f936e149c2d83d9d33">GetWindowDimensions</a> (void) const </td></tr>
 <tr class="memdesc:adbeb87bbabcc73f936e149c2d83d9d33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa as dimensões da janela corrente.  <a href="#adbeb87bbabcc73f936e149c2d83d9d33">Mais...</a><br /></td></tr>
 <tr class="separator:adbeb87bbabcc73f936e149c2d83d9d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72b2247fbcea2ae9e225f04269265bcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a72b2247fbcea2ae9e225f04269265bcc">SetMaxFramerate</a> (signed long int newMaxFramerate)</td></tr>
+<tr class="memdesc:a72b2247fbcea2ae9e225f04269265bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera o valor do limite de framerate.  <a href="#a72b2247fbcea2ae9e225f04269265bcc">Mais...</a><br /></td></tr>
+<tr class="separator:a72b2247fbcea2ae9e225f04269265bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafc542fc5f826d2eed771c8bd75d6930"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#aafc542fc5f826d2eed771c8bd75d6930">GetMaxFramerate</a> (void) const </td></tr>
+<tr class="memdesc:aafc542fc5f826d2eed771c8bd75d6930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtêm o valor de framerate máximo do controle de framerate.  <a href="#aafc542fc5f826d2eed771c8bd75d6930">Mais...</a><br /></td></tr>
+<tr class="separator:aafc542fc5f826d2eed771c8bd75d6930"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e0a5615b8ebcdea9c4cac436e35cdcd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a3e0a5615b8ebcdea9c4cac436e35cdcd">GetCurrentFramerate</a> (void) const </td></tr>
+<tr class="memdesc:a3e0a5615b8ebcdea9c4cac436e35cdcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtêm o fps atual do jogo.  <a href="#a3e0a5615b8ebcdea9c4cac436e35cdcd">Mais...</a><br /></td></tr>
+<tr class="separator:a3e0a5615b8ebcdea9c4cac436e35cdcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fb091ff0a082d2652a98fee63c62b83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a3fb091ff0a082d2652a98fee63c62b83">LimitFramerate</a> (bool limit)</td></tr>
+<tr class="memdesc:a3fb091ff0a082d2652a98fee63c62b83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seta se o framerate máximo deve ser utilizado ou não.  <a href="#a3fb091ff0a082d2652a98fee63c62b83">Mais...</a><br /></td></tr>
+<tr class="separator:a3fb091ff0a082d2652a98fee63c62b83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cee416ca88d258ceeab7c0eb3331b69"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a3cee416ca88d258ceeab7c0eb3331b69">IsFramerateLimited</a> (void) const </td></tr>
+<tr class="memdesc:a3cee416ca88d258ceeab7c0eb3331b69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna se o framerate está sendo limitado ou não.  <a href="#a3cee416ca88d258ceeab7c0eb3331b69">Mais...</a><br /></td></tr>
+<tr class="separator:a3cee416ca88d258ceeab7c0eb3331b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Métodos Públicos Estáticos</h2></td></tr>
@@ -165,6 +180,12 @@ Atributos Privados</h2></td></tr>
 <tr class="separator:a2706caaad0c60784a6671efc9ee147f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57010b9ce85884e0f4059d8d8474e610"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInputManager.html">InputManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a57010b9ce85884e0f4059d8d8474e610">inputManager</a></td></tr>
 <tr class="separator:a57010b9ce85884e0f4059d8d8474e610"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5424a424548c7bdb04de05c5c836002d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a5424a424548c7bdb04de05c5c836002d">maxFramerate</a></td></tr>
+<tr class="separator:a5424a424548c7bdb04de05c5c836002d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58b6a6566386b3e42c9ab72dc2188b4b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a58b6a6566386b3e42c9ab72dc2188b4b">frameDuration</a></td></tr>
+<tr class="separator:a58b6a6566386b3e42c9ab72dc2188b4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c4d90234bc5a4ca540b09d8a534ece1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a9c4d90234bc5a4ca540b09d8a534ece1">capFramerate</a></td></tr>
+<tr class="separator:a9c4d90234bc5a4ca540b09d8a534ece1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Atributos Privados Estáticos</h2></td></tr>
@@ -274,6 +295,26 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a3e0a5615b8ebcdea9c4cac436e35cdcd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Game::GetCurrentFramerate </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtêm o fps atual do jogo. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Veja a descrição</dd></dl>
+<p>Retorna a quantos frames por segundo o jogo está rodando. Se a limitação de framerate estiver ativada, o retorno dessa função será no máximo o valor obtido por <a class="el" href="classGame.html#aafc542fc5f826d2eed771c8bd75d6930" title="Obtêm o valor de framerate máximo do controle de framerate. ">GetMaxFramerate()</a>. </p>
+
+</div>
+</div>
 <a class="anchor" id="a1f9d6f97e969424844881dd7ad2e353e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -342,6 +383,26 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aafc542fc5f826d2eed771c8bd75d6930"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Game::GetMaxFramerate </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtêm o valor de framerate máximo do controle de framerate. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Veja a descrição.</dd></dl>
+<p>Retorna o valor que está sendo utilizado pelo controle de framerate como quantidade máxima de frames por segundo. </p>
+
+</div>
+</div>
 <a class="anchor" id="a5749c6fc2bf3c98a4dc9c11e33f96c8b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -379,6 +440,51 @@ Atributos Privados Estáticos</h2></td></tr>
 <p>Informa as dimensões da janela corrente. </p>
 <dl class="section return"><dt>Retorna</dt><dd>Veja a descrição.</dd></dl>
 <p>Retorna o intervalo de tempo do último frame ao atual calculado anteriormente pelo CalculateDeltaTime. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3cee416ca88d258ceeab7c0eb3331b69"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Game::IsFramerateLimited </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna se o framerate está sendo limitado ou não. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Veja descrição</dd></dl>
+<p>Retorna se o controle de framerate está limitando o framerate a um máximo ou não. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3fb091ff0a082d2652a98fee63c62b83"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::LimitFramerate </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>limit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Seta se o framerate máximo deve ser utilizado ou não. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">limit</td><td>true para limitar. false para desbloquear</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Seta se o controle de framerate deve garantir que o framerate não passe do máximo ou não. </p>
 
 </div>
 </div>
@@ -441,6 +547,31 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a72b2247fbcea2ae9e225f04269265bcc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::SetMaxFramerate </td>
+          <td>(</td>
+          <td class="paramtype">signed long int&#160;</td>
+          <td class="paramname"><em>newMaxFramerate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Altera o valor do limite de framerate. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newMaxFramerate</td><td>o novo valor máximo a ser usado controle de framerate</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Altera as variáveis do controle de framerate de acordo com o argumento passado. Se o valor informado for menor que 1, o frame rate máximo será 1. </p>
+
+</div>
+</div>
 <a class="anchor" id="ae67b3fda973e4b05513d02c968b0ac17"></a>
 <div class="memitem">
 <div class="memproto">
@@ -469,6 +600,27 @@ Atributos Privados Estáticos</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="a9c4d90234bc5a4ca540b09d8a534ece1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Game::capFramerate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Flag para decidir se o framerate do jogo será limitado a um valor máximo ou não. </p>
+
+</div>
+</div>
 <a class="anchor" id="a5184b0439c5cefb45050d0bfaca9ac97"></a>
 <div class="memitem">
 <div class="memproto">
@@ -487,6 +639,27 @@ Atributos Privados Estáticos</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Armazena o intervalo de tempo em segundos desde o último frame. Esse valor é calculado a partir da diferença entre o frameStart com o SDL_GetTicks. </p>
+
+</div>
+</div>
+<a class="anchor" id="a58b6a6566386b3e42c9ab72dc2188b4b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Game::frameDuration</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Duração mínima de cada frame </p>
 
 </div>
 </div>
@@ -550,6 +723,27 @@ Atributos Privados Estáticos</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Instância estática do <a class="el" href="classGame.html" title="Classe que modela o todo-poderoso Jogo. ">Game</a>. Esquema básico de singleton. </p>
+
+</div>
+</div>
+<a class="anchor" id="a5424a424548c7bdb04de05c5c836002d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Game::maxFramerate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Armazena o limite superior do framerate </p>
 
 </div>
 </div>
@@ -644,7 +838,7 @@ Atributos Privados Estáticos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quarta, 10 de Maio de 2017 14:42:14 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Quarta, 17 de Maio de 2017 17:33:16 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
