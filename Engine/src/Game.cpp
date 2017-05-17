@@ -184,3 +184,11 @@ unsigned int Game::GetMaxFramerate(void) const {
 float Game::GetCurrentFramerate(void) const {
 	return 1.0/dt;
 }
+
+void Game::LimitFramerate(bool limit) {
+	capFramerate = limit;
+}
+
+bool Game::IsFramerateLimited(void) const {
+	return capFramerate;
+}

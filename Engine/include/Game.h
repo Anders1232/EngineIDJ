@@ -39,7 +39,6 @@
 */
 class Game {
 	public:
-		bool capFramerate;/**< Flag para decidir se o framerate do jogo será limitado a um valor máximo ou não.*/
 		/**
 			\brief Construtor
 			\param title Nome da janela.
@@ -149,6 +148,20 @@ class Game {
 			Retorna a quantos frames por segundo o jogo está rodando. Se a limitação de framerate estiver ativada, o retorno dessa função será no máximo o valor obtido por GetMaxFramerate().
 		*/
 		float GetCurrentFramerate(void) const;
+		/**
+			\brief Seta se o framerate máximo deve ser utilizado ou não
+			\param limit true para limitar. false para desbloquear
+
+			Seta se o controle de framerate deve garantir que o framerate não passe do máximo ou não.
+		*/
+		void LimitFramerate(bool limit);
+		/**
+			\brief Retorna se o framerate está sendo limitado ou não
+			\return Veja descrição
+
+			Retorna se o controle de framerate está limitando o framerate a um máximo ou não.
+		*/
+		bool IsFramerateLimited(void) const;
 	private:
 		/**
 			\brief Calcula o tempo transcorrido desde a última chamada a essa função
@@ -176,6 +189,7 @@ class Game {
 		InputManager &inputManager;/**< Gerenciador de entradas do usuário.*/
 		unsigned int maxFramerate;/**< Armazena o limite superior do framerate*/
 		float frameDuration;/**< Duração mínima de cada frame*/
+		bool capFramerate;/**< Flag para decidir se o framerate do jogo será limitado a um valor máximo ou não.*/
 };
 
 #endif // GAME_H
