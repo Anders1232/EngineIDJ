@@ -4,6 +4,7 @@ Text::Text( string fontFile,
 			int fontSize,
 			TextStyle style,
 			SDL_Color color,
+			Timer* delay,
 			int x,
 			int y )
 	  : font(Resources::GetFont(fontFile, fontSize)),
@@ -13,6 +14,7 @@ Text::Text( string fontFile,
 		fontSize(fontSize),
 		color(color),
 		fontFile(fontFile) {
+	textTime = delay;
 	box.x= x;
 	box.y= y;
 	RemakeTexture();
@@ -25,17 +27,25 @@ Text::~Text() {
 }
 
 void Text::Render(int cameraX, int cameraY) const {
-	SDL_Rect srcRect;
-	srcRect.x= 0;
-	srcRect.y= 0;
-	srcRect.w= box.w;
-	srcRect.h= box.h;
-	SDL_Rect destRect= (SDL_Rect)(box- Vec2(cameraX, cameraY));
-//	std::cout << WHERE << " srcRect.x=" << srcRect.x<< " srcRect.y=" << srcRect.y<< " srcRect.w=" << srcRect.w<< " srcRect.h=" << srcRect.h << "\n";
-//	std::cout << WHERE << " destRect.x=" << destRect.x<< " destRect.y=" << destRect.y<< " destRect.w=" << destRect.w<< " destRect.h=" << destRect.h << "\n";
-	if(0 !=SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &srcRect, &destRect) ) {
-		Error("Render error: " << SDL_GetError());
+	if(nullptr != textTime){
+		textTime->Update(Game::GetInstance().GetDeltaTime());
 	}
+	if(nullptr != textTime ? textTime->Get() < 0.6 : true){
+		SDL_Rect srcRect;
+		srcRect.x= 0;
+		srcRect.y= 0;
+		srcRect.w= box.w;
+		srcRect.h= box.h;
+		SDL_Rect destRect= (SDL_Rect)(box- Vec2(cameraX, cameraY));
+	//	std::cout << WHERE << " srcRect.x=" << srcRect.x<< " srcRect.y=" << srcRect.y<< " srcRect.w=" << srcRect.w<< " srcRect.h=" << srcRect.h << "\n";
+	//	std::cout << WHERE << " destRect.x=" << destRect.x<< " destRect.y=" << destRect.y<< " destRect.w=" << destRect.w<< " destRect.h=" << destRect.h << "\n";
+		if(0 !=SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &srcRect, &destRect) ) {
+			Error("Render error: " << SDL_GetError());
+		}
+	}
+	else if(nullptr != textTime ? textTime->Get() >= 1 : false){
+        textTime->Restart();
+    }
 }
 
 void Text::SetPos(int x, int y, bool centerX, bool centerY) {

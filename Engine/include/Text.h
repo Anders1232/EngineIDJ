@@ -19,6 +19,7 @@
 #endif
 
 #include "Rect.h"
+#include "Timer.h"
 #include <memory>
 #include <string>
 using std::string;
@@ -49,6 +50,7 @@ class Text {
 			\param fontSize Tamanho da fonte.
 			\param style Como o texto será renderizado, veja TextStyle para mais informações.
 			\param color Cor do texto renderizado.
+			\param delay seta tempo para piscagem do texto.
 			\param x Coordenada x a partir do qual o texto deve ser renderizado.
 			\param y Coordenada y a partir do qual o texto deve ser renderizado.
 
@@ -60,6 +62,7 @@ class Text {
 			int fontSize,
 			TextStyle style,
 			SDL_Color color,
+			Timer* delay = nullptr,
 			int x= 0,
 			int y=0
 		);
@@ -123,6 +126,7 @@ class Text {
 		TextStyle style;/**< Forma com a qual o texto está texturizado*/
 		int fontSize;/**< Tamanho da fonte do texto.*/
 		SDL_Color color;/**< Cor do texto,*/
+		Timer* textTime;/**< Tempo para piscagem do texto*/
 		Rect box;/**< Posição a partir da qual o texto deve ser renderizado.*/
 		string fontFile; /**< String com o nome do arquivo com a fonte. É necessário para o caso em que a fonte seja modificada.*/
 };
