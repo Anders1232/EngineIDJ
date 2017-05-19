@@ -180,6 +180,10 @@ void TileMap::InsertGO(GameObject* obj){
 		std::cout << WHERE << "\tInserting the gameObject at position " << position << END_LINE;
 		gameObjectMatrix[position]= obj;
 		collisionTileMap[position]= PAREDE;
+		int line= position/GetWidth();
+		int column= position%GetWidth();
+		obj->box.x= column*tileSet->GetTileWidth();
+		obj->box.y= line*tileSet->GetTileHeight();
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
 	}
 	else if (0 >= collisionTileMap[position]){

@@ -38,7 +38,6 @@ StageState::StageState(void): State(), bg("img/ocean.jpg"),
 		CreateAlien();
 	}
 	objectArray.emplace_back(std::unique_ptr<Penguins>( new Penguins (704, 640) ) );
-	objectArray.emplace_back(std::unique_ptr<Face> (new Face(500, 500, Vec2(64, 64), tileMap)));
 	music.Play(10);
 }
 
