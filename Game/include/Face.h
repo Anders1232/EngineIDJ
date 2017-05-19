@@ -6,6 +6,9 @@
 #ifndef FACE_H
 #define FACE_H
 
+#define FACE_HP (500)
+
+
 class Face : public GameObject
 {
 	public:
