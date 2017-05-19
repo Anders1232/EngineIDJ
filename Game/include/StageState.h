@@ -10,7 +10,6 @@
 #include "InputManager.h"
 #include "State.h"
 #include "Music.h"
-#include "GameObjectTileMap.h"
 
 #define NUMBER_OF_ALIENS (6)
 
@@ -32,7 +31,6 @@ class StageState: public State
 		TileSet tileSet;
 		InputManager &inputManager;
 		Music music;
-//		GameObjectTileMap goTileMap;
 };
 
 #include "EndState.h"

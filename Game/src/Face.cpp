@@ -1,6 +1,8 @@
 #include "Face.h"
 #include "DragAndDrop.h"
 #include "Camera.h"
+#include "Error.h"
+
 typedef unsigned int uint;
 
 
@@ -61,13 +63,8 @@ bool Face::Is(string type){
 
 
 Face::~Face(){
-	std::cout  << WHERE << "NAO ESQUECER ESSA MERDAAA" << std::endl; 
-	for(uint count =0; count < components.size(); count++)
-	{
-		// deleting object of abstract class type ‘Component’ which has non-virtual destructor will cause undefined behaviour
-		// components.erase();
-		// delete components[count];
+	for(int i=0; i < components.size(); i++){
+		delete components[i];
 	}
-	
-
+	components.clear();
 }
