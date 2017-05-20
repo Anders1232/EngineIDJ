@@ -38,7 +38,6 @@ StageState::StageState(void): State(), bg("img/ocean.jpg"),
 		CreateAlien();
 	}
 	objectArray.emplace_back(std::unique_ptr<Penguins>( new Penguins (704, 640) ) );
-	objectArray.emplace_back(std::unique_ptr<Face> (new Face(500, 500, Vec2(64, 64), tileMap)));
 	music.Play(10);
 }
 
@@ -48,11 +47,9 @@ StageState::~StageState(void)
 	delete tileMap;
 }
 
-//void StageState::Update(float dt)
 void StageState::Update(float dt)
 {
 	REPORT_I_WAS_HERE;
-//	Input();
 	if(inputManager.KeyPress(ESCAPE_KEY))
 	{
 		popRequested= true;
@@ -91,11 +88,12 @@ void StageState::Update(float dt)
 		std::cout << WHERE << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << " tiles." << std::endl;
 	}
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
+		TEMP_REPORT_I_WAS_HERE;
 		AddObject(new Face(500, 500, Vec2(64, 64), tileMap) );
 	}
 	if(InputManager::GetInstance().KeyPress('e')){
 		printf("Face criado\n");
-		objectArray.emplace_back(std::unique_ptr<Face> (new Face(0, 0)));
+		objectArray.emplace_back(std::unique_ptr<Face> (new Face(0, 0, Vec2(64, 64), tileMap)));
 	}
 
 }
