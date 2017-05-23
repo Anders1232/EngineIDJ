@@ -56,6 +56,12 @@ class Animation: public GameObject
 		*/
 		bool IsDead(void);
 		/**
+			\brief Solicita que o Animation seja destruído.
+			
+			Uma vez que esse método é chamado, futuras chamadas ao IsDead devem retornar verdadeiro.
+		*/
+		void RequestDelete(void);
+		/**
 			\brief Notifica colisão.
 
 			Como a animação a princípio não interage com os outros gameObjects, o corpo desse método está vazio.

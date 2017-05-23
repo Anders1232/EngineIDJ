@@ -17,6 +17,7 @@ class Minion: public GameObject
 		void Update(float dt);
 		void Render(void);
 		bool IsDead(void);
+		void RequestDelete(void);
 		void Shoot(Vec2 pos);
 		void NotifyCollision(GameObject &other);
 		bool Is(string type);

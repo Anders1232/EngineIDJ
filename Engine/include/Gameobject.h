@@ -69,6 +69,12 @@ class GameObject
 		*/
 		virtual bool IsDead(void)=0;
 		/**
+			\brief Solicita que o GameObject seja destruído.
+			
+			Uma vez que esse método é chamado, futuras chamadas ao IsDead devem retornar verdadeiro.
+		*/
+		virtual void RequestDelete(void)=0;
+		/**
 			\brief Notifica Colisão
 			\param other Referência para o gameobject com o qual se colidiu.
 			

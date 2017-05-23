@@ -18,6 +18,7 @@ class Face : public GameObject
 		void Update(float dt );
 		void Render();
 		bool IsDead(void);
+		void RequestDelete(void);
 		
 		void NotifyCollision(GameObject &other);
 		Rect GetWorldRenderedRect(void) const;

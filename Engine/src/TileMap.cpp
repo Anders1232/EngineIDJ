@@ -188,9 +188,11 @@ void TileMap::InsertGO(GameObject* obj){
 	}
 	else if (0 >= collisionTileMap[position]){
 		std::cout << WHERE << "\ttentado inserir objeto em posição inválida, pois nela está" << collisionTileMap[position] << END_LINE;
+		obj->RequestDelete();
 	}
 	else{
 		std::cout << WHERE << "\ttentado inserir objeto em posição já ocupada!" << END_LINE;
+		obj->RequestDelete();
 	}
 }
 

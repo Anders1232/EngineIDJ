@@ -26,6 +26,7 @@ class Bullet: public GameObject
 		void Update(float dt);
 		void Render(void);
 		bool IsDead(void);
+		void RequestDelete(void);
 		void NotifyCollision(GameObject &other);
 		bool Is(string type);
 		bool TargetsPlayer(void) const;
