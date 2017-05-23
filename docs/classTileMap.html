@@ -107,6 +107,7 @@ Métodos Públicos</h2></td></tr>
 <tr class="memdesc:ab59e06379a26482d8103917c1c2393f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobre qual tile o mouse está.  <a href="#ab59e06379a26482d8103917c1c2393f5">Mais...</a><br /></td></tr>
 <tr class="separator:ab59e06379a26482d8103917c1c2393f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9370c61beefad2f657c022a0a2462336"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a9370c61beefad2f657c022a0a2462336">InsertGO</a> (<a class="el" href="classGameObject.html">GameObject</a> *obj)</td></tr>
+<tr class="memdesc:a9370c61beefad2f657c022a0a2462336"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere GameObjct no tileMap.  <a href="#a9370c61beefad2f657c022a0a2462336">Mais...</a><br /></td></tr>
 <tr class="separator:a9370c61beefad2f657c022a0a2462336"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -140,7 +141,7 @@ Atributos Protegidos</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
 <div class="textblock"><p>Classe que modela o <a class="el" href="classTileMap.html" title="Classe que modela o TileMap. ">TileMap</a>. </p>
-<p>Gerencia um tileMap,internamente possui um tileSet que é usado para renderizar o mapa. </p>
+<p>Gerencia um tileMap,internamente possui um tileSet que é usado para renderizar o mapa. Internamente possui três mapas: um para o tileSet, outro para colisão e um terceiro de GameObjects. </p>
 </div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a id="acdae60b671fa0088327615081fb1ed6a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acdae60b671fa0088327615081fb1ed6a">&#9670;&nbsp;</a></span>TileMap()</h2>
@@ -412,6 +413,15 @@ Atributos Protegidos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Insere GameObjct no tileMap. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td><a class="el" href="classGameObject.html">GameObject</a> a ser inserido no tileMap de GameObjects.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Utiliza a posição do mouse no momento(que deve ser a mesma do centro do GameObject) para identificar onde o <a class="el" href="classGameObject.html">GameObject</a> deve ser colocado no tileMap de GameObjects. Então obj é colocado nessa posição, sua posição é alterada para se encaixar exatamente com o início da posição. Atualiza-se o tileMao de colisão para adicionar a informação que tem um <a class="el" href="classGameObject.html">GameObject</a> na posição respectiva. </p>
+
 </div>
 </div>
 <a id="a57d5a9e280c52b74e8e1f0c3a2c876b7"></a>
@@ -455,7 +465,14 @@ Atributos Protegidos</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Carrega um arquivo das informações do timeMap. </p>
-<p>O arquivo deve começar com 3 números: largura, altura e profundidade. Depois disso dever existir um números inteiros igual ao produto dos três números lidos organizados em layers, linhas e colunas. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>Tilemap onde as informações do arquvio deve ser carregadas. </td></tr>
+    <tr><td class="paramname">setOfficialSize</td><td>Verdadeiro se a largura, altura e profundiade lidas devem se tornar as oficiais do tilemap.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>O arquivo deve começar com 3 números: largura, altura e profundidade. Depois disso dever existir um números inteiros igual ao produto dos três números lidos organizados em layers, linhas e colunas. O argumento setOfficialSize deve ser verdadeiro se estiver lendo o arquivo de tileMap relativo com informações do tileSet. </p>
 
 </div>
 </div>
@@ -591,6 +608,7 @@ Atributos Protegidos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p><a class="el" href="classTileMap.html" title="Classe que modela o TileMap. ">TileMap</a> linearizado com informações de colisão. </p>
 
 </div>
 </div>
@@ -613,6 +631,7 @@ Atributos Protegidos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p><a class="el" href="classTileMap.html" title="Classe que modela o TileMap. ">TileMap</a> linearizado de GameObjects </p>
 
 </div>
 </div>
@@ -738,7 +757,7 @@ Atributos Protegidos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 23 de Maio de 2017 09:57:28 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 23 de Maio de 2017 10:26:35 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
