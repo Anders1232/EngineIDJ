@@ -22,6 +22,7 @@ class TileMap{
 			\brief Construtor.
 			\param tileSet TileSet que será usado pelo tileMap.
 			\param file Arquivo com as informações do tileMap.
+			\param collisionTileMapFile Arquivo com as informações do TileMap de colisão.
 		
 			Instancia o tileMap com o tileSet enviado e criar o tileMap lendo o arquivo enviado.
 		*/
