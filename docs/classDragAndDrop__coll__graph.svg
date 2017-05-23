@@ -16,7 +16,7 @@
 </g>
 <!-- Node3 -->
 <g id="node2" class="node"><title>Node3</title>
-<g id="a_node2"><a xlink:href="classComponent.html" target="_top" xlink:title="Component">
+<g id="a_node2"><a xlink:href="classComponent.html" target="_top" xlink:title="Modela os componentes. ">
 <polygon fill="white" stroke="black" points="318,-78.5 318,-97.5 385,-97.5 385,-78.5 318,-78.5"/>
 <text text-anchor="middle" x="351.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">Component</text>
 </a>
