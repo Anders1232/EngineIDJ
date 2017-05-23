@@ -1,8 +1,8 @@
 <map id="Game/include/Penguins.h" name="Game/include/Penguins.h">
-<area shape="rect" id="node2" href="$Gameobject_8h.html" title="Gameobject.h" alt="" coords="166,80,268,107"/>
-<area shape="rect" id="node10" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="75,80,141,107"/>
-<area shape="rect" id="node11" href="$Timer_8h.html" title="Timer.h" alt="" coords="293,80,360,107"/>
-<area shape="rect" id="node5" href="$Rect_8h.html" title="Rect.h" alt="" coords="260,155,321,181"/>
-<area shape="rect" id="node9" href="$Component_8h.html" title="Component.h" alt="" coords="346,155,445,181"/>
-<area shape="rect" id="node6" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="217,229,279,256"/>
+<area shape="rect" id="node2" href="$Gameobject_8h.html" title="Gameobject.h" alt="" coords="167,80,269,107"/>
+<area shape="rect" id="node10" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="75,80,142,107"/>
+<area shape="rect" id="node11" href="$Timer_8h.html" title="Timer.h" alt="" coords="294,80,361,107"/>
+<area shape="rect" id="node5" href="$Rect_8h.html" title="Rect.h" alt="" coords="261,155,322,181"/>
+<area shape="rect" id="node9" href="$Component_8h.html" title="Component.h" alt="" coords="347,155,447,181"/>
+<area shape="rect" id="node6" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="217,229,280,256"/>
 </map>

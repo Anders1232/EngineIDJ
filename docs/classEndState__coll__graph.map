@@ -1,7 +1,7 @@
 <map id="EndState" name="EndState">
-<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="443,72,496,99"/>
-<area shape="rect" id="node5" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="441,148,498,175"/>
-<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="441,224,497,251"/>
-<area shape="rect" id="node15" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="184,608,235,635"/>
-<area shape="rect" id="node12" href="$classText.html" title="Classe que modela textos. " alt="" coords="445,537,493,564"/>
+<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="438,73,491,99"/>
+<area shape="rect" id="node5" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="436,149,493,175"/>
+<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="437,225,493,251"/>
+<area shape="rect" id="node15" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="181,609,232,635"/>
+<area shape="rect" id="node12" href="$classText.html" title="Classe que modela textos. " alt="" coords="441,538,489,565"/>
 </map>

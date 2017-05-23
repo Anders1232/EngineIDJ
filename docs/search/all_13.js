@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['targetsplayer',['TargetsPlayer',['../classBullet.html#a293a665825d9e32c798d8fe669fcf695',1,'Bullet::TargetsPlayer(void) const '],['../classBullet.html#a57270bc61a381861bd548a7f2466bca2',1,'Bullet::targetsPlayer()']]],
+  ['targetsplayer',['TargetsPlayer',['../classBullet.html#ae917981b8f05308267f69567e354b269',1,'Bullet::TargetsPlayer(void) const'],['../classBullet.html#a57270bc61a381861bd548a7f2466bca2',1,'Bullet::targetsPlayer()']]],
   ['temp_5freport_5fi_5fwas_5fhere',['TEMP_REPORT_I_WAS_HERE',['../Error_8h.html#a460a42aaa4200700dfb4a73f852e93b8',1,'Error.h']]],
   ['text',['Text',['../classText.html',1,'Text'],['../classText.html#ab9d958002beef60e08b0e932267401d0',1,'Text::Text(string fontFile, int fontSize, TextStyle style, SDL_Color color, int x=0, int y=0)'],['../classText.html#a7da8331e2da684bb0485a3ee7893b415',1,'Text::text()']]],
   ['text_2ecpp',['Text.cpp',['../Text_8cpp.html',1,'']]],
