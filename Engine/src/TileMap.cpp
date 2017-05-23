@@ -174,6 +174,7 @@ void TileMap::InsertGO(GameObject* obj){
 	std::cout << WHERE << "\t position = " << position << "\t of " << collisionTileMap.size() << " tiles." << END_LINE;
 	if(0 > position){
 		std::cout << WHERE << "[ERROR] Tried to put the gameObject on an  invalid tileMap position." << END_LINE;
+		obj->RequestDelete();
 		return;
 	}
 	if(-1 == collisionTileMap.at(position)){

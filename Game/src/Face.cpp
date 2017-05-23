@@ -42,6 +42,10 @@ bool Face::IsDead(void)
 		return false;
 }
 
+void Face::RequestDelete(void){
+	hitpoints= 0;
+}
+
 void Face::NotifyCollision(GameObject &other){
 
 }

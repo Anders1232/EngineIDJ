@@ -110,6 +110,10 @@ bool Alien::IsDead(void)
 	return (0 >=hp);
 }
 
+void Alien::RequestDelete(void){
+	hp=0;
+}
+
 bool Alien::Is(string type)
 {
 	return type == "Alien";

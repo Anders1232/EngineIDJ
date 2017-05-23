@@ -10,7 +10,7 @@ Animation::Animation
 	int frameCount,
 	float frameTime,
 	bool ends
-): GameObject(), endTimer(), timeLimit(frameCount*frameTime), onetimeOnly(ends), sp(sprite, frameTime, frameCount)
+): GameObject(), endTimer(), timeLimit(frameCount*frameTime), oneTimeOnly(ends), sp(sprite, frameTime, frameCount)
 {
 	box= Vec2(x, y);
 	this->rotation= rotation;
@@ -38,7 +38,7 @@ Rect Animation::GetWorldRenderedRect(void) const
 }
 bool Animation::IsDead(void)
 {
-	if(onetimeOnly)
+	if(oneTimeOnly)
 	{
 		if(endTimer.Get()> timeLimit)
 		{
@@ -52,5 +52,12 @@ void Animation::NotifyCollision(GameObject &other)
 bool Animation::Is(string type)
 {
 	return type=="Animation";
+}
+
+void Animation::RequestDelete(void){
+	if(!oneTimeOnly){
+		oneTimeOnly= true;
+	}
+	endTimer.Update(timeLimit);
 }
 

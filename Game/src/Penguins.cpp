@@ -121,6 +121,11 @@ bool Penguins::IsDead(void)
 {
 	return (0>=hp);
 }
+
+void Penguins::RequestDelete(void){
+	hp=0;
+}
+
 void Penguins::Shoot(void)
 {
 	REPORT_I_WAS_HERE;

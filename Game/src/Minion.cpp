@@ -51,6 +51,10 @@ bool Minion::IsDead(void)
 {
 	return false;
 }
+
+void Minion::RequestDelete(void){
+}
+
 void Minion::Shoot(Vec2 pos)
 {
 	REPORT_I_WAS_HERE;

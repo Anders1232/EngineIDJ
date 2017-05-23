@@ -83,7 +83,7 @@ class Animation: public GameObject
 	private:
 		Timer endTimer;/**< Temporizador cronomenta o tempo de existência da animação. Usado para verificar se a animação deve ser destruída.*/
 		float timeLimit;/**< Armazena o tempo que animação leva para rodar complemante uma vez. No caso em que a animação não deve rodar em loop esse é o tempo de a animação deve durar.*/
-		bool onetimeOnly;/**< Verdadeiro se essa animação deve ser rodada apenas uma vez, falso se deve ser rodada em loop indefinidamente.*/
+		bool oneTimeOnly;/**< Verdadeiro se essa animação deve ser rodada apenas uma vez, falso se deve ser rodada em loop indefinidamente.*/
 		Sprite sp;/**< Sprite sheet da animação.*/
 };
 

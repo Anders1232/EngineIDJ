@@ -51,6 +51,10 @@ bool Bullet::IsDead(void)
 	return (distanceLeft<=0);
 }
 
+void Bullet::RequestDelete(void){
+	distanceLeft =0;
+}
+
 Bullet::~Bullet()
 {}
 

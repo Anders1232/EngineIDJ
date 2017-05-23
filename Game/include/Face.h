@@ -25,9 +25,9 @@ class Face : public GameObject
 		bool Is(string type);
 		~Face();
 	private:
+		Sprite sp;
 		int hitpoints;
 		bool isDraging;
-		Sprite sp;
 };
 
 #endif
