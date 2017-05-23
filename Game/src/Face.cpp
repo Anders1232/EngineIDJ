@@ -64,7 +64,7 @@ bool Face::Is(string type){
 
 
 Face::~Face(){
-	for(int i=0; i < components.size(); i++){
+	for(uint i=0; i < components.size(); i++){
 		delete components[i];
 	}
 	components.clear();

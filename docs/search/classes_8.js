@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['rect',['Rect',['../classRect.html',1,'']]],
-  ['resources',['Resources',['../classResources.html',1,'']]]
+  ['minion',['Minion',['../classMinion.html',1,'']]],
+  ['music',['Music',['../classMusic.html',1,'']]]
 ];

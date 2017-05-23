@@ -1,5 +1,5 @@
 <map id="Game" name="Game">
-<area shape="rect" id="node7" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="163,235,215,261"/>
-<area shape="rect" id="node6" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="447,236,548,263"/>
-<area shape="rect" id="node9" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="471,287,524,313"/>
+<area shape="rect" id="node7" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="166,235,218,261"/>
+<area shape="rect" id="node6" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="452,236,553,263"/>
+<area shape="rect" id="node9" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="476,287,529,313"/>
 </map>

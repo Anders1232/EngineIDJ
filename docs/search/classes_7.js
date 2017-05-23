@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['penguins',['Penguins',['../classPenguins.html',1,'']]]
+  ['inputmanager',['InputManager',['../classInputManager.html',1,'']]]
 ];

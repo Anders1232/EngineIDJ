@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.8"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
 <title>Projeto IDJ - Towers Of Madness: Componentes Membros - Variáveis</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -31,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.8.8 -->
+<!-- Gerado por Doxygen 1.8.7 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </script>
@@ -84,6 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
+      <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_k"><span>k</span></a></li>
@@ -168,11 +169,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <li>clipRect
 : <a class="el" href="classSprite.html#a3451a65b4cd1b2ff3c11448dbdde43ac">Sprite</a>
 </li>
+<li>collisionTileMap
+: <a class="el" href="classTileMap.html#ab6bd30a280abe5826c335245bf45ca63">TileMap</a>
+</li>
 <li>color
 : <a class="el" href="classText.html#ab0f771bd18d8e968f7aaee4a4e26e385">Text</a>
 </li>
 <li>columns
 : <a class="el" href="classTileSet.html#a47ae11f9d04f9da3fbaba834fdbc62cf">TileSet</a>
+</li>
+<li>components
+: <a class="el" href="classGameObject.html#adf77cf3872333bf5e3007ad98e8afd18">GameObject</a>
 </li>
 <li>currentFrame
 : <a class="el" href="classSprite.html#a556cfc67b1b98691aa2e5b41f076fded">Sprite</a>
@@ -189,6 +196,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </li>
 <li>distanceLeft
 : <a class="el" href="classBullet.html#ac24a38eea713d69e34c090416177b426">Bullet</a>
+</li>
+<li>dragOnHold
+: <a class="el" href="classDragAndDrop.html#a8dbee0ad51c83c65d7fb3f29e917518b">DragAndDrop</a>
 </li>
 <li>dt
 : <a class="el" href="classGame.html#a5184b0439c5cefb45050d0bfaca9ac97">Game</a>
@@ -231,12 +241,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </ul>
 
 
+<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>gameObjectMatrix
+: <a class="el" href="classTileMap.html#a52b6a4fcc0c13eb4224850f592f10eba">TileMap</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
 <li>h
 : <a class="el" href="classRect.html#aa10c9b8950c6b23a0b2bf0d39f2be904">Rect</a>
 </li>
 <li>height
 : <a class="el" href="classSprite.html#a1f07c8f2080c193759aec0e13503d7ab">Sprite</a>
+</li>
+<li>hitpoints
+: <a class="el" href="classFace.html#a2ace64da45186ef4236ad907013526d0">Face</a>
 </li>
 <li>hp
 : <a class="el" href="classAlien.html#ad88d130f8e4538ecbeede37e05f2bf32">Alien</a>
@@ -258,6 +278,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </li>
 <li>instruction
 : <a class="el" href="classEndState.html#acbc4bcbbf722307b2ea222b5a85a0e8d">EndState</a>
+</li>
+<li>isDragging
+: <a class="el" href="classDragAndDrop.html#ae70478ad1144137afdf8fefe453379c8">DragAndDrop</a>
+</li>
+<li>isDraging
+: <a class="el" href="classFace.html#a617f599a3f170e5692495ba63a9fa5a7">Face</a>
 </li>
 </ul>
 
@@ -397,6 +423,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 : <a class="el" href="classAlien.html#a353c0cf8e9bb3b689b34866b3c3ac0f7">Alien</a>
 , <a class="el" href="classAnimation.html#abf968c115c1d8c88da797215d58ad516">Animation</a>
 , <a class="el" href="classBullet.html#a3b796813022508f0f5f821c2a90ac863">Bullet</a>
+, <a class="el" href="classFace.html#a8e816a2e8bcfa5418adfe35a3e9731ac">Face</a>
 , <a class="el" href="classMinion.html#a691b1b9f494fcd1f0b8c04c28ab3fa36">Minion</a>
 </li>
 <li>speed
@@ -435,7 +462,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 : <a class="el" href="classTileSet.html#a9409211e1c5560f969b737714be977c0">TileSet</a>
 </li>
 <li>tileMap
-: <a class="el" href="classStageState.html#a1c795e4b3e5c0522709a6060e52291e4">StageState</a>
+: <a class="el" href="classDragAndDrop.html#a2365d8aea9a5503a49973c0176e96d39">DragAndDrop</a>
+, <a class="el" href="classStageState.html#a1c795e4b3e5c0522709a6060e52291e4">StageState</a>
 </li>
 <li>tileMatrix
 : <a class="el" href="classTileMap.html#ac1d3ce0587c4e615682b71fd96295e0e">TileMap</a>
@@ -507,9 +535,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quarta, 10 de Maio de 2017 14:42:14 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Segunda, 22 de Maio de 2017 23:45:46 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.8
+</a> 1.8.7
 </small></address>
 </body>
 </html>

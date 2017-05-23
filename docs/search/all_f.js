@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['parede',['PAREDE',['../TileMap_8cpp.html#a4959ac5ad63bda400d233b0cfc517811',1,'TileMap.cpp']]],
   ['pause',['Pause',['../classState.html#ae9fa377b30f06fdd809a1557bfbc190a',1,'State::Pause()'],['../classEndState.html#ac0cc5426e529a4d8572b38e8a87d2d3e',1,'EndState::Pause()'],['../classStageState.html#a7551ce8a236840e075f6f38f44140e59',1,'StageState::Pause()'],['../classTitleState.html#acd67f9c5e70d8aba7cccb6449fa6f383',1,'TitleState::Pause()']]],
   ['penguim_5faceleracao',['PENGUIM_ACELERACAO',['../Penguins_8cpp.html#ac00deb9bf889ea49745bf5b24e058daf',1,'Penguins.cpp']]],
   ['penguim_5fbullet_5fcoodown',['PENGUIM_BULLET_COODOWN',['../Penguins_8cpp.html#afee3680b4597bbefb97b40ecf7d6a728',1,'Penguins.cpp']]],
