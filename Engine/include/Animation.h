@@ -68,6 +68,11 @@ class Animation: public GameObject
 			Usado pelos objetos que colidem com a animação para saber que tipo de GameObject é.
 		*/
 		bool Is(string type);
+		/**
+			\brief Obtém Rect informando a posição renderizada da animação.
+
+			Obtém Rect informando a posição renderizada, computando zoom, escala e posição da câmera.
+		*/
 		Rect GetWorldRenderedRect(void) const;
 	private:
 		Timer endTimer;/**< Temporizador cronomenta o tempo de existência da animação. Usado para verificar se a animação deve ser destruída.*/

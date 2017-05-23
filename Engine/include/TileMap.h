@@ -16,8 +16,7 @@ using std::string;
 
 	Gerencia um tileMap,internamente possui um tileSet que é usado para renderizar o mapa. Internamente possui três mapas: um para o tileSet, outro para colisão e um terceiro de GameObjects.
 */
-class TileMap
-{
+class TileMap{
 	public:
 		/**
 			\brief Construtor.

@@ -83,6 +83,11 @@ class GameObject
 			É usado no tratamento de colisão para que se identifique com quem colidiu.
 		*/
 		virtual bool Is(string type)=0;
+		/**
+			\brief Obtém Rect informando a posição renderizada da animação.
+
+			Obtém Rect informando a posição renderizada, computando zoom, escala e posição da câmera.
+		*/
 		virtual Rect GetWorldRenderedRect(void) const=0;
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/

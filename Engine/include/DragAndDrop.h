@@ -8,8 +8,7 @@
 
 	O DragAndDrop é um tipo de Componente. O objetivo do DragAndDrop é selecionar um objeto arrastavel por meio de Input e posicioná-lo em uma tile. E assim, atualizar o mapa de Tiles.
 */
-class DragAndDrop : public Component
-{
+class DragAndDrop : public Component{
 	public:
 		/**
 			\brief Construtor.

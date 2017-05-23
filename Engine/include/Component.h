@@ -8,8 +8,7 @@
 
 	Enumeração com os tipos de componentes possíveis, usado no método Is que todo componente deve implementar.
 */
-enum ComponentType
-{
+enum ComponentType{
 	DRAG_AND_DROP=0,
 	SIZE
 };
@@ -25,8 +24,7 @@ class GameObject;
 
 	Componentes são objetos variados que adicionam funcionalidades variadas ao GameObject que os contém.
 */
-class Component
-{
+class Component{
 	public:
 		/**
 			\brief Atualiza estado do componente.
