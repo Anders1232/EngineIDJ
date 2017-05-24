@@ -24,6 +24,9 @@
 #include <string>
 using std::string;
 
+#define MIN_TIME_SHOWN (0.15)
+#define TEXT_FREQUENCY (0.25)
+
 /**
 	\brief Informa como o texto será rendeizaddo.
 
@@ -113,11 +116,26 @@ class Text {
 			Obtém o tamanho do texto em pixels.
 		*/
 		Vec2 GetSize(void)const;
+		/**
+			\brief Altera timeShown.
+			\todo Ver a possibilidade de fazer um set só pra alterar timeShown e strobeFrequency de uma só vez.
+					Exemplo: set(float timeShown = MIN_TIME_SHOWN, float timeFrequency = TEXT_FREQUENCY).
+					Se for possível mandar apenas um dos dois parâmetros, então implementar assim. 
+
+			Altera o tempo em que o texto vai ser renderizado a cada ciclo de piscagem.
+		*/
+		void SetTimeShown(float newTime);
+		/**
+			\brief Altera timeShown.
+
+			Altera o tempo total de cada ciclo de piscagem (tempo de texto sendo renderizado + tempo sem renderização).
+		*/
+		void SetStrobeFrequency(float fullTime);
 	private:
 		/**
-			\brief Cria a textura que contém p texto
+			\brief Cria a textura que contém o texto
 
-			Se existir um textura anteriormente a mesma e destruída. Então uma nova é feita com base no estado atual do Text.
+			Se existir um textura anteriormente, esta é destruída. Então uma nova é feita com base no estado atual do Text.
 		*/
 		void RemakeTexture(void);
 		std::shared_ptr<TTF_Font> font;/**< Ponteiro para a fonte.*/
@@ -129,6 +147,8 @@ class Text {
 		Timer* textTime;/**< Tempo para piscagem do texto*/
 		Rect box;/**< Posição a partir da qual o texto deve ser renderizado.*/
 		string fontFile; /**< String com o nome do arquivo com a fonte. É necessário para o caso em que a fonte seja modificada.*/
+		float strobeFrequency;/**< Tempo de um ciclo da piscagem. Seu valor é TEXT_FREQUENCY por padrão.*/
+		float timeShown;/**< Tempo em que o texto é mostrado na piscagem. Seu valor é MIN_TIME_SHOWN por padrão.*/
 };
 
 

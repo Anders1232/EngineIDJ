@@ -13,7 +13,9 @@ Text::Text( string fontFile,
 		style(style),
 		fontSize(fontSize),
 		color(color),
-		fontFile(fontFile) {
+		fontFile(fontFile),
+		timeShown(MIN_TIME_SHOWN),
+		strobeFrequency(TEXT_FREQUENCY) {
 	textTime = delay;
 	box.x= x;
 	box.y= y;
@@ -27,10 +29,7 @@ Text::~Text() {
 }
 
 void Text::Render(int cameraX, int cameraY) const {
-	if(nullptr != textTime){
-		textTime->Update(Game::GetInstance().GetDeltaTime());
-	}
-	if(nullptr != textTime ? textTime->Get() < 0.6 : true){
+	if(nullptr != textTime ? textTime->Get() < timeShown : true){
 		SDL_Rect srcRect;
 		srcRect.x= 0;
 		srcRect.y= 0;
@@ -43,7 +42,7 @@ void Text::Render(int cameraX, int cameraY) const {
 			Error("Render error: " << SDL_GetError());
 		}
 	}
-	else if(nullptr != textTime ? textTime->Get() >= 1 : false){
+	else if(nullptr != textTime ? textTime->Get() >= strobeFrequency : false){
         textTime->Restart();
     }
 }
@@ -112,3 +111,10 @@ Vec2 Text::GetSize(void)const {
 	return Vec2(box.w, box.h);
 }
 
+void Text::SetTimeShown(float newTime){
+		timeShown = newTime;
+}
+
+void Text::SetStrobeFrequency(float fullTime){
+		strobeFrequency = fullTime;
+}
