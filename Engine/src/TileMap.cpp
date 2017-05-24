@@ -56,8 +56,7 @@ int& TileMap::At(int x, int y, int z) const{
 }
 
 void TileMap::Render(int cameraX, int cameraY) const{
-	for(int count =0; count < mapDepth; count++)
-	{
+	for(int count =0; count < mapDepth; count++){
 		RenderLayer(count, cameraX, cameraY);
 	}
 }

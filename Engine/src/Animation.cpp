@@ -33,7 +33,7 @@ Rect Animation::GetWorldRenderedRect(void) const {
 	return rect+Camera::pos;
 }
 bool Animation::IsDead(void) {
-	if(oneTimeOnly) 	{
+	if(oneTimeOnly) {
 		if(endTimer.Get()> timeLimit) {
 			return true;
 		}

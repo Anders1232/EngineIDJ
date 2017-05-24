@@ -81,6 +81,7 @@ void Alien::Render(void) {
 		minionArray[count].Render();
 	}
 }
+
 Rect Alien::GetWorldRenderedRect(void) const{
 	Rect rect;
 	rect.x= box.x-Camera::pos.x;
@@ -92,8 +93,8 @@ Rect Alien::GetWorldRenderedRect(void) const{
 	
 	return rect+Camera::pos;
 }
-bool Alien::IsDead(void)
-{
+
+bool Alien::IsDead(void){
 	return (0 >=hp);
 }
 
