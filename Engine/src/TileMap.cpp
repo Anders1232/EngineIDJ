@@ -43,8 +43,6 @@ void TileMap::SetTileSet(TileSet *tileSet){
 }
 
 int& TileMap::At(int x, int y, int z) const{
-//	int* vec= (int*)tileMatrix.data();
-//	return (vec[z*mapWidth*mapHeight + y*mapWidth + x]);
 	int index= z*mapWidth*mapHeight + y*mapWidth + x;
 	try{
 		return ((int&)tileMatrix.at(index) );
@@ -155,14 +153,14 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 void TileMap::InsertGO(GameObject* obj){
 	Vec2 mousePos= InputManager::GetInstance().GetMousePos();
 	int position= GetTileMousePos(mousePos, true, 0);
-	std::cout << WHERE << "\t position = " << position << "\t of " << collisionTileMap.size() << " tiles." << END_LINE;
+	REPORT_DEBUG("\t position = " << position << "\t of " << collisionTileMap.size() << " tiles.");
 	if(0 > position){
 		std::cout << WHERE << "[ERROR] Tried to put the gameObject on an  invalid tileMap position." << END_LINE;
 		obj->RequestDelete();
 		return;
 	}
 	if(-1 == collisionTileMap.at(position)){
-		std::cout << WHERE << "\tInserting the gameObject at position " << position << END_LINE;
+		REPORT_DEBUG("\tInserting the gameObject at position " << position);
 		gameObjectMatrix[position]= obj;
 		collisionTileMap[position]= PAREDE;
 		int line= position/GetWidth();
@@ -172,11 +170,11 @@ void TileMap::InsertGO(GameObject* obj){
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
 	}
 	else if (0 >= collisionTileMap[position]){
-		std::cout << WHERE << "\ttentado inserir objeto em posição inválida, pois nela está" << collisionTileMap[position] << END_LINE;
+		REPORT_DEBUG("\ttentado inserir objeto em posição inválida, pois nela está" << collisionTileMap[position]);
 		obj->RequestDelete();
 	}
 	else{
-		std::cout << WHERE << "\ttentado inserir objeto em posição já ocupada!" << END_LINE;
+		REPORT_DEBUG("\ttentado inserir objeto em posição já ocupada!");
 		obj->RequestDelete();
 	}
 }
