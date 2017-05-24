@@ -17,25 +17,20 @@ Face::Face(float x, float y, Vec2 tileSize, TileMap *tileMap)
 	box.h= sp.GetHeight();
 	components.emplace_back( new DragAndDrop(tileMap, true) );
 }
-void Face::Damage(int damage)
-{
+void Face::Damage(int damage){
 	hitpoints = hitpoints - damage;
 }
 
-void Face::Update(float dt )
-{
-	for(uint count =0; count < components.size(); count++)
-	{
+void Face::Update(float dt ){
+	for(uint count =0; count < components.size(); count++){
 		components[count]->Update(*this);
 	}
 }
-void Face::Render()
-{
+void Face::Render(){
 	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y);
 
 }
-bool Face::IsDead(void)
-{
+bool Face::IsDead(void){
 	if(hitpoints<=0)
 		return true;
 	else
@@ -47,7 +42,6 @@ void Face::RequestDelete(void){
 }
 
 void Face::NotifyCollision(GameObject &other){
-
 }
 
 Rect Face::GetWorldRenderedRect( ) const{
