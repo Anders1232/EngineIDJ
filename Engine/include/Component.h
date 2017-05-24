@@ -40,6 +40,11 @@ class Component{
 			Retorna verdadeiro se o componente for do tipo type, falso caso contrário.
 		*/
 		virtual bool Is(ComponentType type) const =0;
+		/**
+			\brief Destrutor
+		
+			Declaração necessária para que não houvesse undefined behaviour na deleção dos filhos de Component, pois não estando declarado seria assumido a existência do construtor default aqui(que não seria virtual)
+		*/
 		virtual ~Component(void){};
 };
 
