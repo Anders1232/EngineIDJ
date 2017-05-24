@@ -25,7 +25,7 @@
 #define STATE_RENDER_Y 0
 StageState::StageState(void)
 			:State(), bg("img/ocean.jpg"),
-				tileSet(64, 64,"img/tileset.png"),
+				tileSet(30, 30,"img/tileset-basico.jpg"),
 				inputManager(InputManager::GetInstance()),
 				music("audio/stageState.ogg") {
 	REPORT_I_WAS_HERE;

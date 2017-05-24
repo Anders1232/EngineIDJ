@@ -10,7 +10,7 @@ TileSet::TileSet(int tileWidth, int tileHeight, string file): tileSet(file), til
 }
 
 void TileSet::Render(unsigned int index, float x, float y, bool zoom) {
-	ASSERT(index < (unsigned int)rows*columns);
+	ASSERT2(index < (unsigned int)rows*columns, "\tRecieved "<<index<<" but tileSet has size " << (unsigned int)rows*columns );
 	unsigned int desiredLine, desiredColumn;
 	desiredLine= index/columns;
 	desiredColumn= index%columns;

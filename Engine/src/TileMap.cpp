@@ -32,7 +32,7 @@ void TileMap::Load(string file, std::vector<int> &target, bool setOfficialSize){
 	int aux;
 	for(int count=0; count < numbersToRead; count++) {
 		fscanf(arq, " %d,", &aux);
-		target[count]= aux-1;
+		target[count]= aux;
 	}
 }
 
@@ -66,9 +66,14 @@ void TileMap::RenderLayer(int layer, int cameraX, int cameraY) const{
 			REPORT_I_WAS_HERE;
 			if(0 <= index){
 				REPORT_I_WAS_HERE;
+#ifdef PARALLAX
 				int destinyX= CalculateParallaxScrolling((int)x*tileSet->GetTileWidth(),cameraX, layer);
 				int destinyY= CalculateParallaxScrolling((int)y*tileSet->GetTileHeight(), cameraY, layer);
-				tileSet->Render(At(x, y, layer), destinyX, destinyY);
+#else
+				int destinyX= x*tileSet->GetTileWidth()-cameraX;
+				int destinyY= y*tileSet->GetTileHeight()- cameraY;
+#endif
+				tileSet->Render(index, destinyX, destinyY);
 			}
 		}
 	}
