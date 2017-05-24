@@ -99,6 +99,9 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:ad1eaa9ff240cbcc114270ea174523702"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#ad1eaa9ff240cbcc114270ea174523702">IsDead</a> (void)</td></tr>
 <tr class="memdesc:ad1eaa9ff240cbcc114270ea174523702"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa se o objeto deve ser destruído.  <a href="#ad1eaa9ff240cbcc114270ea174523702">Mais...</a><br /></td></tr>
 <tr class="separator:ad1eaa9ff240cbcc114270ea174523702"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59a64eaf59c06a25c78ae8702471bcb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#a59a64eaf59c06a25c78ae8702471bcb8">RequestDelete</a> (void)</td></tr>
+<tr class="memdesc:a59a64eaf59c06a25c78ae8702471bcb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solicita que o <a class="el" href="classAnimation.html" title="Classe que modela animações. ">Animation</a> seja destruído.  <a href="#a59a64eaf59c06a25c78ae8702471bcb8">Mais...</a><br /></td></tr>
+<tr class="separator:a59a64eaf59c06a25c78ae8702471bcb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a611b21418311eb697ec4af1aaff92657"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#a611b21418311eb697ec4af1aaff92657">NotifyCollision</a> (<a class="el" href="classGameObject.html">GameObject</a> &amp;other)</td></tr>
 <tr class="memdesc:a611b21418311eb697ec4af1aaff92657"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifica colisão.  <a href="#a611b21418311eb697ec4af1aaff92657">Mais...</a><br /></td></tr>
 <tr class="separator:a611b21418311eb697ec4af1aaff92657"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,8 +125,8 @@ Atributos Privados</h2></td></tr>
 <tr class="separator:ad4e2674025e4f91143e574c09e213e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8b4a075f8bf097b7af6e732949235c6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#ab8b4a075f8bf097b7af6e732949235c6">timeLimit</a></td></tr>
 <tr class="separator:ab8b4a075f8bf097b7af6e732949235c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8be050af14ac86c2cce45908bae750d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#aa8be050af14ac86c2cce45908bae750d">onetimeOnly</a></td></tr>
-<tr class="separator:aa8be050af14ac86c2cce45908bae750d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66b3ba0956af0c060e64cd3553d25ca6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#a66b3ba0956af0c060e64cd3553d25ca6">oneTimeOnly</a></td></tr>
+<tr class="separator:a66b3ba0956af0c060e64cd3553d25ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf968c115c1d8c88da797215d58ad516"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSprite.html">Sprite</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#abf968c115c1d8c88da797215d58ad516">sp</a></td></tr>
 <tr class="separator:abf968c115c1d8c88da797215d58ad516"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -373,6 +376,37 @@ Outros membros herdados</h2></td></tr>
 
 </div>
 </div>
+<a id="a59a64eaf59c06a25c78ae8702471bcb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59a64eaf59c06a25c78ae8702471bcb8">&#9670;&nbsp;</a></span>RequestDelete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Animation::RequestDelete </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Solicita que o <a class="el" href="classAnimation.html" title="Classe que modela animações. ">Animation</a> seja destruído. </p>
+<p>Uma vez que esse método é chamado, futuras chamadas ao IsDead devem retornar verdadeiro. </p>
+
+<p>Implementa <a class="el" href="classGameObject.html#a46d006abbf903f075293cecb59a9dbea">GameObject</a>.</p>
+
+</div>
+</div>
 <a id="a1871db60d1fb351aeb77ada38dd4dd9c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1871db60d1fb351aeb77ada38dd4dd9c">&#9670;&nbsp;</a></span>Update()</h2>
 
@@ -428,8 +462,8 @@ Outros membros herdados</h2></td></tr>
 
 </div>
 </div>
-<a id="aa8be050af14ac86c2cce45908bae750d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8be050af14ac86c2cce45908bae750d">&#9670;&nbsp;</a></span>onetimeOnly</h2>
+<a id="a66b3ba0956af0c060e64cd3553d25ca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66b3ba0956af0c060e64cd3553d25ca6">&#9670;&nbsp;</a></span>oneTimeOnly</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -438,7 +472,7 @@ Outros membros herdados</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Animation::onetimeOnly</td>
+          <td class="memname">bool Animation::oneTimeOnly</td>
         </tr>
       </table>
   </td>
@@ -504,7 +538,7 @@ Outros membros herdados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 23 de Maio de 2017 10:57:43 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 23 de Maio de 2017 21:18:29 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

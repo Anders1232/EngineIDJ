@@ -2,17 +2,17 @@
 #include "Camera.h"
 #include "Error.h"
 
-Bullet::Bullet(float x,
-		float y,
-		float angle,
-		float speed,
-		float maxDistance,
-		float frameTime,
-		int frameCount,
-		string sprite,
-		bool targetsPlayer
-): GameObject(), sp(sprite, frameTime, frameCount)
-{
+Bullet::Bullet( float x,
+				float y,
+				float angle,
+				float speed,
+				float maxDistance,
+				float frameTime,
+				int frameCount,
+				string sprite,
+				bool targetsPlayer
+			  )
+			: GameObject(), sp(sprite, frameTime, frameCount) {
 	box.x= Camera::pos.x+x -sp.GetWidth()/2;
 	box.y= Camera::pos.y+y -sp.GetHeight()/2;
 	box.w= sp.GetWidth();
@@ -23,19 +23,17 @@ Bullet::Bullet(float x,
 	this->targetsPlayer= targetsPlayer;
 }
 
-void Bullet::Update(float dt)
-{
+void Bullet::Update(float dt) {
 	box= box + speed*dt;
 	distanceLeft-= speed.Magnitude()*dt;
 	sp.Update(dt);
 }
-void Bullet::Render(void)
-{
+
+void Bullet::Render(void) {
 //	std::cout << WHERE << " rotation= " <<rotation <<endl;
 	sp.Render(box.x- Camera::pos.x, box.y- Camera::pos.y, rotation, true);
 }
-Rect Bullet::GetWorldRenderedRect(void) const
-{
+Rect Bullet::GetWorldRenderedRect(void) const{
 	Rect rect;
 	
 	rect.x= box.x- Camera::pos.x;
@@ -46,8 +44,7 @@ Rect Bullet::GetWorldRenderedRect(void) const
 	rect= rect * Camera::GetZoom();
 	return rect+Camera::pos;
 }
-bool Bullet::IsDead(void)
-{
+bool Bullet::IsDead(void){
 	return (distanceLeft<=0);
 }
 
@@ -55,22 +52,19 @@ void Bullet::RequestDelete(void){
 	distanceLeft =0;
 }
 
-Bullet::~Bullet()
-{}
+Bullet::~Bullet(){}
 
-void Bullet::NotifyCollision(GameObject &other)
-{
-	if( (other.Is("Penguins") && targetsPlayer) || (other.Is("Alien") && !targetsPlayer) || (other.Is("Minion") && !targetsPlayer) )
-	{
+void Bullet::NotifyCollision(GameObject &other) {
+	if( (other.Is("Penguins") && targetsPlayer) || (other.Is("Alien") && !targetsPlayer) || (other.Is("Minion") && !targetsPlayer) ) {
 		distanceLeft= 0;
 	}
 }
-bool Bullet::Is(string type)
-{
+
+bool Bullet::Is(string type) {
 	return type=="Bullet";
 }
-bool Bullet::TargetsPlayer(void) const
-{
+
+bool Bullet::TargetsPlayer(void) const {
 	return targetsPlayer;
 }
 

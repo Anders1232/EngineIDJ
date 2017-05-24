@@ -15,8 +15,7 @@
 using std::queue;
 using std::vector;
 
-class Alien: public GameObject
-{
+class Alien: public GameObject {
 	public:
 		Alien(float X, float y, int nMinions);
 		~Alien(void);
@@ -29,8 +28,7 @@ class Alien: public GameObject
 		static int alienCount;
 		Rect GetWorldRenderedRect(void) const;
 	private:
-		enum AlienState
-		{
+		enum AlienState {
 			MOVING,
 			RESTING
 		} state;

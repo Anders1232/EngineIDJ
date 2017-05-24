@@ -33,8 +33,7 @@ class Component;
 #endif
 
 #define GAME_OBJECT
-class GameObject
-{
+class GameObject{
 	public:
 		/**
 			\brief Construtor

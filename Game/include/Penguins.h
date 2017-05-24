@@ -10,8 +10,7 @@
 #define PENGUIM_MAX_BOX_X (1408)
 #define PENGUIM_MAX_BOX_Y (1280)
 
-class Penguins: public GameObject
-{
+class Penguins: public GameObject {
 	public:
 		Penguins(float x, float y);
 		~Penguins();

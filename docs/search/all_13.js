@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['targetsplayer',['TargetsPlayer',['../classBullet.html#ae917981b8f05308267f69567e354b269',1,'Bullet::TargetsPlayer(void) const'],['../classBullet.html#a57270bc61a381861bd548a7f2466bca2',1,'Bullet::targetsPlayer()']]],
+  ['targetsplayer',['targetsPlayer',['../classBullet.html#a57270bc61a381861bd548a7f2466bca2',1,'Bullet::targetsPlayer()'],['../classBullet.html#ae917981b8f05308267f69567e354b269',1,'Bullet::TargetsPlayer(void) const']]],
   ['temp_5freport_5fi_5fwas_5fhere',['TEMP_REPORT_I_WAS_HERE',['../Error_8h.html#a460a42aaa4200700dfb4a73f852e93b8',1,'Error.h']]],
-  ['text',['Text',['../classText.html',1,'Text'],['../classText.html#ab9d958002beef60e08b0e932267401d0',1,'Text::Text(string fontFile, int fontSize, TextStyle style, SDL_Color color, int x=0, int y=0)'],['../classText.html#a7da8331e2da684bb0485a3ee7893b415',1,'Text::text()']]],
+  ['text',['Text',['../classText.html',1,'Text'],['../classText.html#a7da8331e2da684bb0485a3ee7893b415',1,'Text::text()'],['../classText.html#ab9d958002beef60e08b0e932267401d0',1,'Text::Text(string fontFile, int fontSize, TextStyle style, SDL_Color color, int x=0, int y=0)']]],
   ['text_2ecpp',['Text.cpp',['../Text_8cpp.html',1,'']]],
   ['text_2eh',['Text.h',['../Text_8h.html',1,'']]],
   ['textstyle',['TextStyle',['../Text_8h.html#ad5957a553b7d89d4921c39cc3ad6bc45',1,'Text.h']]],
@@ -13,7 +13,7 @@ var searchData=
   ['tilemap_2ecpp',['TileMap.cpp',['../TileMap_8cpp.html',1,'']]],
   ['tilemap_2eh',['TileMap.h',['../TileMap_8h.html',1,'']]],
   ['tilematrix',['tileMatrix',['../classTileMap.html#ac1d3ce0587c4e615682b71fd96295e0e',1,'TileMap']]],
-  ['tileset',['TileSet',['../classTileSet.html',1,'TileSet'],['../classTileMap.html#a24b2ea7aecfd795f1e13dfa9b0b3cb76',1,'TileMap::tileSet()'],['../classTileSet.html#adbd7ac102ce306e4f367c32cfa576979',1,'TileSet::tileSet()'],['../classStageState.html#ac1ef17645d0585767eaf96693a88d9bb',1,'StageState::tileSet()'],['../classTileSet.html#a671a1040ef1ba7600a6ea21faa950819',1,'TileSet::TileSet()']]],
+  ['tileset',['TileSet',['../classTileSet.html',1,'TileSet'],['../classTileSet.html#a671a1040ef1ba7600a6ea21faa950819',1,'TileSet::TileSet()'],['../classTileMap.html#a24b2ea7aecfd795f1e13dfa9b0b3cb76',1,'TileMap::tileSet()'],['../classTileSet.html#adbd7ac102ce306e4f367c32cfa576979',1,'TileSet::tileSet()'],['../classStageState.html#ac1ef17645d0585767eaf96693a88d9bb',1,'StageState::tileSet()']]],
   ['tileset_2ecpp',['Tileset.cpp',['../Tileset_8cpp.html',1,'']]],
   ['tileset_2eh',['Tileset.h',['../Tileset_8h.html',1,'']]],
   ['tilewidth',['tileWidth',['../classTileSet.html#a9ba9087a6da877f78af6cdf9afb0af7c',1,'TileSet']]],

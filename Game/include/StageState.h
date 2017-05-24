@@ -15,8 +15,7 @@
 
 //#define BG_POINTER
 
-class StageState: public State
-{
+class StageState: public State {
 	public:
 		StageState(void);
 		~StageState(void);

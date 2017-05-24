@@ -100,6 +100,9 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a076afa2ea9190c49046f86a0946b4543"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameObject.html#a076afa2ea9190c49046f86a0946b4543">IsDead</a> (void)=0</td></tr>
 <tr class="memdesc:a076afa2ea9190c49046f86a0946b4543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa se esse gameObject não precisa mais existir.  <a href="#a076afa2ea9190c49046f86a0946b4543">Mais...</a><br /></td></tr>
 <tr class="separator:a076afa2ea9190c49046f86a0946b4543"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46d006abbf903f075293cecb59a9dbea"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameObject.html#a46d006abbf903f075293cecb59a9dbea">RequestDelete</a> (void)=0</td></tr>
+<tr class="memdesc:a46d006abbf903f075293cecb59a9dbea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solicita que o <a class="el" href="classGameObject.html">GameObject</a> seja destruído.  <a href="#a46d006abbf903f075293cecb59a9dbea">Mais...</a><br /></td></tr>
+<tr class="separator:a46d006abbf903f075293cecb59a9dbea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa627e6c2913983fc5f108c1c4d303eb8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameObject.html#aa627e6c2913983fc5f108c1c4d303eb8">NotifyCollision</a> (<a class="el" href="classGameObject.html">GameObject</a> &amp;other)=0</td></tr>
 <tr class="memdesc:aa627e6c2913983fc5f108c1c4d303eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifica Colisão.  <a href="#aa627e6c2913983fc5f108c1c4d303eb8">Mais...</a><br /></td></tr>
 <tr class="separator:aa627e6c2913983fc5f108c1c4d303eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -343,6 +346,37 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
+<a id="a46d006abbf903f075293cecb59a9dbea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46d006abbf903f075293cecb59a9dbea">&#9670;&nbsp;</a></span>RequestDelete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void GameObject::RequestDelete </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Solicita que o <a class="el" href="classGameObject.html">GameObject</a> seja destruído. </p>
+<p>Uma vez que esse método é chamado, futuras chamadas ao IsDead devem retornar verdadeiro. </p>
+
+<p>Implementado por <a class="el" href="classAnimation.html#a59a64eaf59c06a25c78ae8702471bcb8">Animation</a>, <a class="el" href="classBullet.html#ac6b725dab3c33d16489d73a27d350305">Bullet</a>, <a class="el" href="classAlien.html#a98c1e9fc18a0abdce655323f2b40a017">Alien</a>, <a class="el" href="classFace.html#a9b000fcdef68986bf49add2416f76a94">Face</a>, <a class="el" href="classPenguins.html#a907032b2dbb25a7c4642f524fd75c695">Penguins</a> e <a class="el" href="classMinion.html#a3e9147f968cf886cf1ca1ed6bf465642">Minion</a>.</p>
+
+</div>
+</div>
 <a id="a93ed63df640deb516a020530e7f8e045"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93ed63df640deb516a020530e7f8e045">&#9670;&nbsp;</a></span>Update()</h2>
 
@@ -440,7 +474,7 @@ Atributos Protegidos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 23 de Maio de 2017 10:57:43 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 23 de Maio de 2017 21:18:29 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

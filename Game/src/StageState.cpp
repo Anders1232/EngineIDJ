@@ -23,48 +23,41 @@
 
 #define STATE_RENDER_X 0//esse valores calculam o offset em relação ao canto superior esquedo da imagem daquilo que será renderizado
 #define STATE_RENDER_Y 0
-StageState::StageState(void): State(), bg("img/ocean.jpg"),
-										tileSet(64, 64,"img/tileset.png"),
-										inputManager(InputManager::GetInstance()),
-										music("audio/stageState.ogg")
-//										goTileMap("map/CollisionTileMap.txt")
-{
+StageState::StageState(void)
+			:State(), bg("img/ocean.jpg"),
+				tileSet(64, 64,"img/tileset.png"),
+				inputManager(InputManager::GetInstance()),
+				music("audio/stageState.ogg") {
 	REPORT_I_WAS_HERE;
 	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet, "map/CollisionTileMap.txt");
 	REPORT_I_WAS_HERE;
 	int numberOfAliens= NUMBER_OF_ALIENS;
-	for(int count =0; count < numberOfAliens; count++)
-	{
+	for(int count =0; count < numberOfAliens; count++) {
 		CreateAlien();
 	}
 	objectArray.emplace_back(std::unique_ptr<Penguins>( new Penguins (704, 640) ) );
 	music.Play(10);
 }
 
-StageState::~StageState(void)
-{
+StageState::~StageState(void) {
 	objectArray.clear();
 	delete tileMap;
 }
 
-void StageState::Update(float dt)
-{
+//void StageState::Update(float dt)
+void StageState::Update(float dt) {
 	REPORT_I_WAS_HERE;
-	if(inputManager.KeyPress(ESCAPE_KEY))
-	{
+//	Input();
+	if(inputManager.KeyPress(ESCAPE_KEY)) {
 		popRequested= true;
 	}
-	if(inputManager.QuitRequested())
-	{
+	if(inputManager.QuitRequested()) {
 		quitRequested= true;
 	}
 	UpdateArray(dt);
-	for(unsigned int count1=0; count1 < objectArray.size()-1; count1++)
-	{
-		for(unsigned int count2= count1+1; count2 < objectArray.size(); count2++)
-		{
-			if(Collision::IsColliding(objectArray[count1]->box, objectArray[count2]->box, objectArray[count1]->rotation, objectArray[count2]->rotation) )
-			{
+	for(unsigned int count1=0; count1 < objectArray.size()-1; count1++) {
+		for(unsigned int count2= count1+1; count2 < objectArray.size(); count2++) {
+			if(Collision::IsColliding(objectArray[count1]->box, objectArray[count2]->box, objectArray[count1]->rotation, objectArray[count2]->rotation) ) {
 				objectArray[count1]->NotifyCollision(*objectArray[count2]);
 				objectArray[count2]->NotifyCollision(*objectArray[count1]);
 			}
@@ -72,18 +65,14 @@ void StageState::Update(float dt)
 	}
 	Camera::Update(dt);
 	REPORT_I_WAS_HERE;
-	if(nullptr == Penguins::player)
-	{
+	if(nullptr == Penguins::player) {
 		popRequested= true;
 		Game::GetInstance().Push(new EndState(EndStateData(false)));
-	}
-	else if (0 == Alien::alienCount)
-	{
+	} else if (0 == Alien::alienCount) {
 		popRequested= true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
-	if(InputManager::GetInstance().KeyPress('q'))
-	{
+	if(InputManager::GetInstance().KeyPress('q')){
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos();
 		std::cout << WHERE << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << " tiles." << std::endl;
 	}
@@ -93,13 +82,20 @@ void StageState::Update(float dt)
 	}
 	if(InputManager::GetInstance().KeyPress('e')){
 		printf("Face criado\n");
-		objectArray.emplace_back(std::unique_ptr<Face> (new Face(0, 0, Vec2(64, 64), tileMap)));
+		AddObject(new Face(0, 0, Vec2(64, 64), tileMap));
 	}
-
+	if(InputManager::GetInstance().KeyPress('=')){
+		Game &game= Game::GetInstance();
+		game.SetMaxFramerate(game.GetMaxFramerate()+5);
+	}
+	if(InputManager::GetInstance().KeyPress('-')){
+		Game &game= Game::GetInstance();
+		game.SetMaxFramerate( ( (int64_t)game.GetMaxFramerate() )-5);
+	}
+	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }
 
-void StageState::Render(void) const
-{
+void StageState::Render(void) const {
 	//renderizar o bg
 	REPORT_I_WAS_HERE;
 	bg.Render(STATE_RENDER_X, STATE_RENDER_Y);
@@ -112,13 +108,11 @@ void StageState::Render(void) const
 //	goTileMap.Render();
 }
 
-void StageState::Pause(void)
-{}
-void StageState::Resume(void)
-{}
+void StageState::Pause(void) {}
 
-void StageState::CreateAlien(void)
-{
+void StageState::Resume(void) {}
+
+void StageState::CreateAlien(void) {
 	Vec2 windowDimension= Game::GetInstance().GetWindowDimensions();
 	objectArray.emplace_back(std::unique_ptr<Alien>( new Alien (rand()%(int)(windowDimension.x*2), rand()%(int)(windowDimension.y*2), (rand()%6)+1) ) );
 }

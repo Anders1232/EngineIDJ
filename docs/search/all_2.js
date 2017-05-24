@@ -13,6 +13,7 @@ var searchData=
   ['camera_5fmove_5fspeed',['CAMERA_MOVE_SPEED',['../Camera_8cpp.html#a6962606bd42615342e6dc4ab58ad5cd4',1,'Camera.cpp']]],
   ['cannonangle',['cannonAngle',['../classPenguins.html#a71d44d99bbac380b45df64501523ab45',1,'Penguins']]],
   ['cannonsp',['cannonSp',['../classPenguins.html#a7e2ee1ab898ff561288c79882862e6c0',1,'Penguins']]],
+  ['capframerate',['capFramerate',['../classGame.html#a9c4d90234bc5a4ca540b09d8a534ece1',1,'Game']]],
   ['center',['Center',['../classRect.html#af5db0f5526e20b63eebbe14ef2f4f6fb',1,'Rect::Center()'],['../classMinion.html#aec145adaab9c6ecfb35b7ec1624ab111',1,'Minion::center()']]],
   ['channel',['channel',['../classSound.html#af3895edf5a39772f1de32cfbfff90909',1,'Sound']]],
   ['check_5fsdl_5ferror',['CHECK_SDL_ERROR',['../Error_8h.html#ae8a1602ad06ce181163389d874118387',1,'Error.h']]],

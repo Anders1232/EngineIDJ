@@ -28,8 +28,7 @@ using std::string;
 	Modela sons e permite operações básicas como: abiri um arquivo de som, tocar som e para som(stop).
 	É permitido até a reprodução de 32 sons simultâneos(além da música). Cada som é tocado num canal diferente.
 */
-class Sound
-{
+class Sound {
 	public:
 		/**
 			\brief Construtor padrão.

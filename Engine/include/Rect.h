@@ -23,8 +23,7 @@
 	É usado para várias coisas, como por exemplo as posições dos GameObjects na tela, corte de sprites em spriteSheets e tileSets.
 	A partir da coordenada de início o rect cresce para direita e para baixo.
 */
-class Rect
-{
+class Rect {
 	public:
 		/**
 			\brief Construtor

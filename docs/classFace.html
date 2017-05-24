@@ -97,6 +97,9 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a03b6c43e0eacbc42a70c876b17adc960"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFace.html#a03b6c43e0eacbc42a70c876b17adc960">IsDead</a> (void)</td></tr>
 <tr class="memdesc:a03b6c43e0eacbc42a70c876b17adc960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa se esse gameObject não precisa mais existir.  <a href="#a03b6c43e0eacbc42a70c876b17adc960">Mais...</a><br /></td></tr>
 <tr class="separator:a03b6c43e0eacbc42a70c876b17adc960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b000fcdef68986bf49add2416f76a94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFace.html#a9b000fcdef68986bf49add2416f76a94">RequestDelete</a> (void)</td></tr>
+<tr class="memdesc:a9b000fcdef68986bf49add2416f76a94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solicita que o <a class="el" href="classGameObject.html">GameObject</a> seja destruído.  <a href="#a9b000fcdef68986bf49add2416f76a94">Mais...</a><br /></td></tr>
+<tr class="separator:a9b000fcdef68986bf49add2416f76a94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1daa9240b4153362776488798c59f37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFace.html#ab1daa9240b4153362776488798c59f37">NotifyCollision</a> (<a class="el" href="classGameObject.html">GameObject</a> &amp;other)</td></tr>
 <tr class="memdesc:ab1daa9240b4153362776488798c59f37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifica Colisão.  <a href="#ab1daa9240b4153362776488798c59f37">Mais...</a><br /></td></tr>
 <tr class="separator:ab1daa9240b4153362776488798c59f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,12 +121,12 @@ Métodos Públicos</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Atributos Privados</h2></td></tr>
+<tr class="memitem:a8e816a2e8bcfa5418adfe35a3e9731ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSprite.html">Sprite</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFace.html#a8e816a2e8bcfa5418adfe35a3e9731ac">sp</a></td></tr>
+<tr class="separator:a8e816a2e8bcfa5418adfe35a3e9731ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ace64da45186ef4236ad907013526d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFace.html#a2ace64da45186ef4236ad907013526d0">hitpoints</a></td></tr>
 <tr class="separator:a2ace64da45186ef4236ad907013526d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a617f599a3f170e5692495ba63a9fa5a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFace.html#a617f599a3f170e5692495ba63a9fa5a7">isDraging</a></td></tr>
 <tr class="separator:a617f599a3f170e5692495ba63a9fa5a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e816a2e8bcfa5418adfe35a3e9731ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSprite.html">Sprite</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFace.html#a8e816a2e8bcfa5418adfe35a3e9731ac">sp</a></td></tr>
-<tr class="separator:a8e816a2e8bcfa5418adfe35a3e9731ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Outros membros herdados</h2></td></tr>
@@ -381,6 +384,37 @@ Outros membros herdados</h2></td></tr>
 
 </div>
 </div>
+<a id="a9b000fcdef68986bf49add2416f76a94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b000fcdef68986bf49add2416f76a94">&#9670;&nbsp;</a></span>RequestDelete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Face::RequestDelete </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Solicita que o <a class="el" href="classGameObject.html">GameObject</a> seja destruído. </p>
+<p>Uma vez que esse método é chamado, futuras chamadas ao IsDead devem retornar verdadeiro. </p>
+
+<p>Implementa <a class="el" href="classGameObject.html#a46d006abbf903f075293cecb59a9dbea">GameObject</a>.</p>
+
+</div>
+</div>
 <a id="ac9d2c445a21685b42741794a65b77543"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac9d2c445a21685b42741794a65b77543">&#9670;&nbsp;</a></span>Update()</h2>
 
@@ -492,7 +526,7 @@ Outros membros herdados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 23 de Maio de 2017 10:57:43 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 23 de Maio de 2017 21:18:29 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

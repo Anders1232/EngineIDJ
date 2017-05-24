@@ -10,8 +10,7 @@
 
 	As animações são um tipo de GameObject que não se colidem e cujo objetivo é basicamente rodar uma animação e depois sumir, a não ser no caso dela ter que ser executada indefinidamente em loop.
 */
-class Animation: public GameObject
-{
+class Animation: public GameObject {
 	public:
 		/**
 			\brief Construtor

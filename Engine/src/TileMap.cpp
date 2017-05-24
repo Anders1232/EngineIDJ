@@ -30,17 +30,18 @@ void TileMap::Load(string file, std::vector<int> &target, bool setOfficialSize){
 	int numbersToRead= mWidth*mHeight*mDepth;
 	target.resize(numbersToRead);//assim ele não desperdiça memória nem muda de tamanho no for abaixo
 	int aux;
-	for(int count=0; count < numbersToRead; count++)
-	{
+	for(int count=0; count < numbersToRead; count++) {
 		fscanf(arq, " %d,", &aux);
 		target[count]= aux-1;
 	}
 }
+
 void TileMap::SetTileSet(TileSet *tileSet){
 	ASSERT(this->tileSet->GetTileHeight() <= tileSet->GetTileHeight());
 	ASSERT(this->tileSet->GetTileWidth() <= tileSet->GetTileWidth());
 	this->tileSet=tileSet;
 }
+
 int& TileMap::At(int x, int y, int z) const{
 //	int* vec= (int*)tileMatrix.data();
 //	return (vec[z*mapWidth*mapHeight + y*mapWidth + x]);
@@ -53,6 +54,7 @@ int& TileMap::At(int x, int y, int z) const{
 		return (int&)m1;
 	}
 }
+
 void TileMap::Render(int cameraX, int cameraY) const{
 	for(int count =0; count < mapDepth; count++)
 	{
@@ -82,86 +84,69 @@ int TileMap::CalculateParallaxScrolling(int num, int camera, int layer) const{
 	return (int)( (double)num*(1.0-(double)layer/(double)mapDepth) );
 }
 
-int TileMap::GetWidth(void) const
-{
+int TileMap::GetWidth(void) const {
 	return mapWidth;
 }
-int TileMap::GetHeight(void) const
-{
+
+int TileMap::GetHeight(void) const {
 	return mapHeight;
 }
-int TileMap::GetDepth(void) const
-{
+
+int TileMap::GetDepth(void) const {
 	return mapDepth;
 }
 
-int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const
-{
+int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const{
 	Vec2 position= mousePos + Camera::pos;
-	if(affecteedByZoom)
-	{
+	if(affecteedByZoom){
 		position= position.MemberMult(Camera::GetZoom());
 //		position= position*Camera::GetZoom();
 	}
 	int x, xDir= mapWidth-1, xEsq=0;
 	int tileWidth= CalculateParallaxScrolling(tileSet->GetTileWidth(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
 	int tileHeight= CalculateParallaxScrolling(tileSet->GetTileHeight(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
-	if(position.x < 0)
-	{
+	if(position.x < 0){
 		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
 		return -1;
 	}
-	if(position.y < 0)
-	{
+	if(position.y < 0){
 		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
 		return -2;
 	}
-	if(position.x >= (GetWidth()-1)* tileWidth )
-	{
+	if(position.x >= (GetWidth()-1)* tileWidth ){
 		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
 		return -3;
 	}
-	if(position.y >= (GetHeight()-1)* tileHeight )
-	{
+	if(position.y >= (GetHeight()-1)* tileHeight ){
 		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
 		return -4;
 	}
-	while(1)//uma simplesBusca binária
-	{
+	while(1){//uma simplesBusca binária
 		x= (xEsq+xDir)/2;
-		if(x*tileWidth<= position.x)
-		{
-			if(position.x < (x+1)*tileWidth)
-			{
+		if(x*tileWidth<= position.x){
+			if(position.x < (x+1)*tileWidth){
 				break;
 			}
-			else//x  está pra direita
-			{
+			else{//x  está pra direita
 				xEsq= x;
 			}
 		}
-		else
-		{//x está pra esquerda
+		else{//x está pra esquerda
 			xDir= x;
 		}
 	}
 	int y, yDir= mapHeight-1, yEsq=0;
-	while(1)//uma simplesBusca binária
-	{
+	while(1){//uma simplesBusca binária
 		y= (yEsq+yDir)/2;
-		if(y*tileWidth<= position.y)
-		{
-			if(position.y < (y+1)*tileHeight)
-			{
+		if(y*tileWidth<= position.y){
+			if(position.y < (y+1)*tileHeight){
 				break;
 			}
-			else//y  está pra direita
-			{
+			else{//y  está pra direita
 				yEsq= y;
 			}
 		}
-		else
-		{//y está pra esquerda
+		else{//y está pra esquerda
 			yDir= y;
 		}
 	}

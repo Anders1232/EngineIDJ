@@ -99,6 +99,9 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:ab76c07904df3da2d768f08eb3da3d1e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPenguins.html#ab76c07904df3da2d768f08eb3da3d1e0">IsDead</a> (void)</td></tr>
 <tr class="memdesc:ab76c07904df3da2d768f08eb3da3d1e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa se esse gameObject não precisa mais existir.  <a href="#ab76c07904df3da2d768f08eb3da3d1e0">Mais...</a><br /></td></tr>
 <tr class="separator:ab76c07904df3da2d768f08eb3da3d1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a907032b2dbb25a7c4642f524fd75c695"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPenguins.html#a907032b2dbb25a7c4642f524fd75c695">RequestDelete</a> (void)</td></tr>
+<tr class="memdesc:a907032b2dbb25a7c4642f524fd75c695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solicita que o <a class="el" href="classGameObject.html">GameObject</a> seja destruído.  <a href="#a907032b2dbb25a7c4642f524fd75c695">Mais...</a><br /></td></tr>
+<tr class="separator:a907032b2dbb25a7c4642f524fd75c695"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20b86d9efb0eee5169658bc57f6fc61b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPenguins.html#a20b86d9efb0eee5169658bc57f6fc61b">Shoot</a> (void)</td></tr>
 <tr class="separator:a20b86d9efb0eee5169658bc57f6fc61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba0e8bc9309f056d196cd0fd267fbe78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPenguins.html#aba0e8bc9309f056d196cd0fd267fbe78">NotifyCollision</a> (<a class="el" href="classGameObject.html">GameObject</a> &amp;other)</td></tr>
@@ -398,6 +401,37 @@ Outros membros herdados</h2></td></tr>
 
 </div>
 </div>
+<a id="a907032b2dbb25a7c4642f524fd75c695"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a907032b2dbb25a7c4642f524fd75c695">&#9670;&nbsp;</a></span>RequestDelete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Penguins::RequestDelete </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Solicita que o <a class="el" href="classGameObject.html">GameObject</a> seja destruído. </p>
+<p>Uma vez que esse método é chamado, futuras chamadas ao IsDead devem retornar verdadeiro. </p>
+
+<p>Implementa <a class="el" href="classGameObject.html#a46d006abbf903f075293cecb59a9dbea">GameObject</a>.</p>
+
+</div>
+</div>
 <a id="a20b86d9efb0eee5169658bc57f6fc61b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a20b86d9efb0eee5169658bc57f6fc61b">&#9670;&nbsp;</a></span>Shoot()</h2>
 
@@ -637,7 +671,7 @@ Outros membros herdados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 23 de Maio de 2017 10:57:43 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 23 de Maio de 2017 21:18:29 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
