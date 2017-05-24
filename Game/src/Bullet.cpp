@@ -33,12 +33,26 @@ void Bullet::Render(void) {
 //	std::cout << WHERE << " rotation= " <<rotation <<endl;
 	sp.Render(box.x- Camera::pos.x, box.y- Camera::pos.y, rotation, true);
 }
-
-bool Bullet::IsDead(void) {
+Rect Bullet::GetWorldRenderedRect(void) const{
+	Rect rect;
+	
+	rect.x= box.x- Camera::pos.x;
+	rect.y= box.y- Camera::pos.y;
+	rect.w= sp.GetWidth();
+	rect.h= sp.GetHeight();
+	
+	rect= rect * Camera::GetZoom();
+	return rect+Camera::pos;
+}
+bool Bullet::IsDead(void){
 	return (distanceLeft<=0);
 }
 
-Bullet::~Bullet() {}
+void Bullet::RequestDelete(void){
+	distanceLeft =0;
+}
+
+Bullet::~Bullet(){}
 
 void Bullet::NotifyCollision(GameObject &other) {
 	if( (other.Is("Penguins") && targetsPlayer) || (other.Is("Alien") && !targetsPlayer) || (other.Is("Minion") && !targetsPlayer) ) {

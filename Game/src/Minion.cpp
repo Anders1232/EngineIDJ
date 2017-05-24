@@ -38,11 +38,24 @@ void Minion::Render(void) {
 	);
 }
 
-bool Minion::IsDead(void) {
+Rect Minion::GetWorldRenderedRect(void) const{
+	Rect rect;
+	rect.x= box.x-Camera::pos.x;
+	rect.y= box.y-Camera::pos.y;
+	rect.w= sp.GetWidth();
+	rect.h= sp.GetHeight();
+	
+	rect= rect * Camera::GetZoom();
+	return rect+Camera::pos;
+}
+bool Minion::IsDead(void){
 	return false;
 }
 
-void Minion::Shoot(Vec2 pos) {
+void Minion::RequestDelete(void){
+}
+
+void Minion::Shoot(Vec2 pos){
 	REPORT_I_WAS_HERE;
 	Bullet* bullet= new Bullet( box.x-Camera::pos.x,
 								box.y-Camera::pos.y,

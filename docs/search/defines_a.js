@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['report_5fdebug',['REPORT_DEBUG',['../Error_8h.html#aed4d6f4696003d289daa853688d238ef',1,'Error.h']]],
-  ['report_5fi_5fwas_5fhere',['REPORT_I_WAS_HERE',['../Error_8h.html#a15a48a3e28c4eb425e3340eae40894c5',1,'Error.h']]],
-  ['right_5farrow_5fkey',['RIGHT_ARROW_KEY',['../InputManager_8h.html#ad0c8af7976bcbad226a5227851560eeb',1,'InputManager.h']]],
-  ['right_5fmouse_5fbutton',['RIGHT_MOUSE_BUTTON',['../InputManager_8h.html#a752bf1e116b4c25c5543855013c8c6eb',1,'InputManager.h']]]
+  ['number_5fof_5faliens',['NUMBER_OF_ALIENS',['../StageState_8h.html#a06bb6ad7ad83d29369a2efda2a009c2e',1,'StageState.h']]]
 ];

@@ -8,11 +8,11 @@ Text::Text( string fontFile,
 			int y )
 	  : font(Resources::GetFont(fontFile, fontSize)),
 		texture(nullptr),
-//		text(),
+		text(" "),
 		style(style),
 		fontSize(fontSize),
 		color(color),
-		fontFile(fontFile) {
+		fontFile(fontFile){
 	box.x= x;
 	box.y= y;
 	RemakeTexture();

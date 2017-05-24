@@ -55,6 +55,12 @@ class Animation: public GameObject {
 		*/
 		bool IsDead(void);
 		/**
+			\brief Solicita que o Animation seja destruído.
+			
+			Uma vez que esse método é chamado, futuras chamadas ao IsDead devem retornar verdadeiro.
+		*/
+		void RequestDelete(void);
+		/**
 			\brief Notifica colisão.
 
 			Como a animação a princípio não interage com os outros gameObjects, o corpo desse método está vazio.
@@ -67,10 +73,16 @@ class Animation: public GameObject {
 			Usado pelos objetos que colidem com a animação para saber que tipo de GameObject é.
 		*/
 		bool Is(string type);
+		/**
+			\brief Obtém Rect informando a posição renderizada da animação.
+
+			Obtém Rect informando a posição renderizada, computando zoom, escala e posição da câmera.
+		*/
+		Rect GetWorldRenderedRect(void) const;
 	private:
 		Timer endTimer;/**< Temporizador cronomenta o tempo de existência da animação. Usado para verificar se a animação deve ser destruída.*/
 		float timeLimit;/**< Armazena o tempo que animação leva para rodar complemante uma vez. No caso em que a animação não deve rodar em loop esse é o tempo de a animação deve durar.*/
-		bool onetimeOnly;/**< Verdadeiro se essa animação deve ser rodada apenas uma vez, falso se deve ser rodada em loop indefinidamente.*/
+		bool oneTimeOnly;/**< Verdadeiro se essa animação deve ser rodada apenas uma vez, falso se deve ser rodada em loop indefinidamente.*/
 		Sprite sp;/**< Sprite sheet da animação.*/
 };
 

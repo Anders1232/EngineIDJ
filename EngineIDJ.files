@@ -17,6 +17,8 @@ Engine/include/TileMap.h
 Engine/include/Tileset.h
 Engine/include/Timer.h
 Engine/include/Vec2.h
+Engine/include/Component.h
+Engine/include/DragAndDrop.h
 Engine/src/Animation.cpp
 Engine/src/Camera.cpp
 Engine/src/Game.cpp
@@ -33,6 +35,8 @@ Engine/src/TileMap.cpp
 Engine/src/Tileset.cpp
 Engine/src/Timer.cpp
 Engine/src/Vec2.cpp
+Engine/src/Component.cpp
+Engine/src/DragAndDrop.cpp
 Game/include/Alien.h
 Game/include/Bullet.h
 Game/include/Defines.h
@@ -42,6 +46,7 @@ Game/include/Minion.h
 Game/include/Penguins.h
 Game/include/StageState.h
 Game/include/TitleState.h
+Game/include/Face.h
 Game/src/Alien.cpp
 Game/src/Bullet.cpp
 Game/src/EndState.cpp
@@ -51,3 +56,4 @@ Game/src/Minion.cpp
 Game/src/Penguins.cpp
 Game/src/StageState.cpp
 Game/src/TitleState.cpp
+Game/src/Face.cpp
