@@ -1,7 +1,6 @@
 <map id="Penguins" name="Penguins">
-<area shape="rect" id="node2" href="$classGameObject.html" title="GameObject" alt="" coords="126,304,221,331"/>
-<area shape="rect" id="node4" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="21,155,72,181"/>
-<area shape="rect" id="node6" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="327,237,379,264"/>
-<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="605,304,661,331"/>
-<area shape="rect" id="node11" href="$classTimer.html" title="Temporizador. " alt="" coords="399,237,454,264"/>
+<area shape="rect" id="node2" href="$classGameObject.html" title="GameObject" alt="" coords="114,304,209,331"/>
+<area shape="rect" id="node4" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="5,155,56,181"/>
+<area shape="rect" id="node6" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="455,237,507,264"/>
+<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="652,304,708,331"/>
 </map>

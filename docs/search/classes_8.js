@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['minion',['Minion',['../classMinion.html',1,'']]],
-  ['music',['Music',['../classMusic.html',1,'']]]
+  ['penguins',['Penguins',['../classPenguins.html',1,'']]]
 ];
