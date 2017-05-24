@@ -7,8 +7,8 @@
 
 #define PENGUIM_MIN_BOX_X (0)
 #define PENGUIM_MIN_BOX_Y (0)
-#define PENGUIM_MAX_BOX_X (1408)
-#define PENGUIM_MAX_BOX_Y (1280)
+#define PENGUIM_MAX_BOX_X (3408)
+#define PENGUIM_MAX_BOX_Y (2480)
 
 class Penguins: public GameObject {
 	public:
@@ -30,7 +30,6 @@ class Penguins: public GameObject {
 		float linearSpeed;
 		float cannonAngle;
 		int hp;
-		Timer bulletsTimer;
 		void CheckMapLimits(void);
 };
 

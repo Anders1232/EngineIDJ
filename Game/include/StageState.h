@@ -11,8 +11,6 @@
 #include "State.h"
 #include "Music.h"
 
-#define NUMBER_OF_ALIENS (6)
-
 //#define BG_POINTER
 
 class StageState: public State {
@@ -24,7 +22,6 @@ class StageState: public State {
 		void Pause(void);
 		void Resume(void);
 	private:
-		void CreateAlien();
 		Sprite bg;
 		TileMap *tileMap;
 		TileSet tileSet;

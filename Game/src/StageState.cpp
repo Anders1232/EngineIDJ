@@ -2,7 +2,6 @@
 #include "Game.h"
 #include "Error.h"
 #include "Camera.h"
-#include "Alien.h"
 #include "Penguins.h"
 #include "Collision.h"
 #include "EndStateData.h"
@@ -31,10 +30,6 @@ StageState::StageState(void)
 	REPORT_I_WAS_HERE;
 	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet, "map/CollisionTileMap.txt");
 	REPORT_I_WAS_HERE;
-	int numberOfAliens= NUMBER_OF_ALIENS;
-	for(int count =0; count < numberOfAliens; count++) {
-		CreateAlien();
-	}
 	objectArray.emplace_back(std::unique_ptr<Penguins>( new Penguins (704, 640) ) );
 	music.Play(10);
 }
@@ -68,9 +63,14 @@ void StageState::Update(float dt) {
 	if(nullptr == Penguins::player) {
 		popRequested= true;
 		Game::GetInstance().Push(new EndState(EndStateData(false)));
-	} else if (0 == Alien::alienCount) {
+	}
+	if(InputManager::GetInstance().KeyPress('r')) {
 		popRequested= true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
+	}
+	if(InputManager::GetInstance().KeyPress('t')) {
+		popRequested= true;
+		Game::GetInstance().Push(new EndState(EndStateData(false)));
 	}
 	if(InputManager::GetInstance().KeyPress('q')){
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos();
@@ -112,9 +112,5 @@ void StageState::Pause(void) {}
 
 void StageState::Resume(void) {}
 
-void StageState::CreateAlien(void) {
-	Vec2 windowDimension= Game::GetInstance().GetWindowDimensions();
-	objectArray.emplace_back(std::unique_ptr<Alien>( new Alien (rand()%(int)(windowDimension.x*2), rand()%(int)(windowDimension.y*2), (rand()%6)+1) ) );
-}
 
 
