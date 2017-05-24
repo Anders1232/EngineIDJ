@@ -77,8 +77,9 @@ void StageState::Update(float dt) {
 		std::cout << WHERE << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << " tiles." << std::endl;
 	}
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
-		TEMP_REPORT_I_WAS_HERE;
-		AddObject(new Face(500, 500, Vec2(64, 64), tileMap) );
+		REPORT_I_WAS_HERE;
+		Vec2 mousePos= InputManager::GetInstance().GetMousePos()+Camera::pos-Vec2(15, 15);//metade to tamanho da Face passado abaixo
+		AddObject(new Face(mousePos.x, mousePos.y, Vec2(30, 30), tileMap) );
 	}
 	if(InputManager::GetInstance().KeyPress('e')){
 		printf("Face criado\n");
