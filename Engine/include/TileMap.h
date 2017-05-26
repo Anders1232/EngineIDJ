@@ -5,6 +5,7 @@
 #include <vector>
 #include "Tileset.h"
 #include "Vec2.h"
+#include "Gameobject.h"
 
 #define TILE_VAZIO -1
 
@@ -13,18 +14,19 @@ using std::string;
 /**
 	\brief Classe que modela o TileMap
 
-	Gerencia um tileMap,internamente possui um tileSet que é usado para renderizar o mapa.
+	Gerencia um tileMap,internamente possui um tileSet que é usado para renderizar o mapa. Internamente possui três mapas: um para o tileSet, outro para colisão e um terceiro de GameObjects.
 */
-class TileMap {
+class TileMap{
 	public:
 		/**
 			\brief Construtor.
 			\param tileSet TileSet que será usado pelo tileMap.
 			\param file Arquivo com as informações do tileMap.
+			\param collisionTileMapFile Arquivo com as informações do TileMap de colisão.
 		
 			Instancia o tileMap com o tileSet enviado e criar o tileMap lendo o arquivo enviado.
 		*/
-		TileMap(string file, TileSet *tileSet);
+		TileMap(string file, TileSet *tileSet, string collisionTileMapFile);
 		/**
 			\brief Obtém o índice do tileMap na posição informada
 			\param x Posição X do tileMap
@@ -83,14 +85,25 @@ class TileMap {
 			Internamente usa-se busca binária para achar o tile correspondente.
 		*/
 		int GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const;
-	private:
+		/**
+			\brief Insere GameObjct no tileMap
+			\param obj GameObject a ser inserido no tileMap de GameObjects.
+
+			Utiliza a posição do mouse no momento(que deve ser a mesma do centro do GameObject) para identificar onde o GameObject deve ser colocado no tileMap de GameObjects. Então obj é colocado nessa posição, sua posição é alterada para se encaixar exatamente com o início da posição.
+			Atualiza-se o tileMao de colisão para adicionar a informação que tem um GameObject na posição respectiva.
+		*/
+		void InsertGO(GameObject* obj);
+	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
+			\param target Tilemap onde as informações do arquvio deve ser carregadas.
+			\param setOfficialSize Verdadeiro se a largura, altura e profundiade lidas devem se tornar as oficiais do tilemap.
 
 			O arquivo deve começar com 3 números: largura, altura e profundidade.
 			Depois disso dever existir um números inteiros igual ao produto dos três números lidos organizados em layers, linhas e colunas.
+			O argumento setOfficialSize deve ser verdadeiro se estiver lendo o arquivo de tileMap relativo com informações do tileSet.
 		*/
-		void Load(string file);
+		void Load(string file, std::vector<int> &target, bool setOfficialSize= false);
 		/**
 			\brief Altera o tileSet usado pelo tileMap
 
@@ -112,6 +125,8 @@ class TileMap {
 		int mapWidth;/**< Largura do TileMap.*/
 		int mapHeight;/**< Altura do TileMap.*/
 		int mapDepth;/**< Número de camadas do TileMap.*/
+		std::vector<GameObject*> gameObjectMatrix;/**< TileMap linearizado de GameObjects*/	//bidimensional??
+		std::vector<int> collisionTileMap;/**< TileMap linearizado com informações de colisão. */
 };
 
 #endif // TILEMAP_H

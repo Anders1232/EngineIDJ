@@ -85,11 +85,40 @@ void Penguins::Render(void) {
 	cannonSp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, cannonAngle, true);
 }
 
-bool Penguins::IsDead(void) {
+Rect Penguins::GetWorldRenderedRect(void) const{
+	Rect ret;
+	float bodyValue, cannonValue;
+
+	bodyValue= box.x-Camera::pos.x;
+	cannonValue= box.x-Camera::pos.x;
+	ret.x= (bodyValue < cannonValue)? bodyValue: cannonValue;
+
+	bodyValue= box.y-Camera::pos.y;
+	cannonValue= box.y-Camera::pos.y;
+	ret.y= (bodyValue < cannonValue)? bodyValue: cannonValue;
+
+	bodyValue= bodySP.GetWidth();
+	cannonValue= cannonSp.GetWidth();
+	ret.w= (bodyValue > cannonValue)? bodyValue: cannonValue;
+
+	bodyValue= bodySP.GetHeight();
+	cannonValue= cannonSp.GetHeight();
+	ret.h= (bodyValue > cannonValue)? bodyValue: cannonValue;
+
+	ret= ret* Camera::GetZoom();
+
+	return ret;
+}
+
+bool Penguins::IsDead(void){
 	return (0>=hp);
 }
 
-void Penguins::Shoot(void) {
+void Penguins::RequestDelete(void){
+	hp=0;
+}
+
+void Penguins::Shoot(void){
 	REPORT_I_WAS_HERE;
 	Bullet* bullet= new Bullet(
 				box.Center().x-Camera::pos.x+Vec2::FromPolarCoord(PENGUIN_CANNON_LENGHT, cannonAngle/CONVERSAO_GRAUS_RADIANOS).x,

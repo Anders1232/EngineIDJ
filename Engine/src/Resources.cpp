@@ -12,7 +12,6 @@ std::shared_ptr<SDL_Texture> Resources::GetImage(string file) {
 	if(imageTable.end() == imageTable.find(file)) {
 		ret=IMG_LoadTexture(Game::GetInstance().GetRenderer(), file.c_str());
 		if(nullptr == ret) {
-//			std::cout << WHERE <<  << file << endl;
 			Error("Could not load "<<file);
 		}
 //		ASSERT(nullptr != ret);
@@ -44,7 +43,6 @@ std::shared_ptr<Mix_Music> Resources::GetMusic(string file) {
 	if(musicTable.end() == musicTable.find(file)) {
 		ret=Mix_LoadMUS(file.c_str());
 		if(nullptr == ret) {
-//			std::cout << WHERE <<  << file << endl;
 			Error("Could not load "<<file);
 		}
 		musicTable[file]= std::shared_ptr<Mix_Music>
@@ -82,7 +80,6 @@ std::shared_ptr<Mix_Chunk> Resources::GetSound(string file) {
 	if(soundTable.end() == soundTable.find(file)) {
 		ret= Mix_LoadWAV(file.c_str());
 		if(nullptr == ret) {
-//			std::cout << WHERE <<  << file << endl;
 			Error("Could not load "<<file);
 		}
 //		ASSERT(nullptr != ret);
@@ -102,7 +99,6 @@ std::shared_ptr<TTF_Font> Resources::GetFont(string file, int fontSize) {
 	if(fontTable.end() == fontTable.find(file+std::to_string(fontSize))) {
 		ret= TTF_OpenFont (file.c_str(), fontSize);
 		if(nullptr == ret) {
-//			std::cout << WHERE <<  << file << endl;
 			Error("Could not load "<<file);
 		}
 		fontTable[file+std::to_string(fontSize)]= std::shared_ptr<TTF_Font>

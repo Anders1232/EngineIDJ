@@ -9,14 +9,15 @@ Text::Text( string fontFile,
 			int y )
 	  : font(Resources::GetFont(fontFile, fontSize)),
 		texture(nullptr),
-//		text(),
+		text(" "),
 		style(style),
 		fontSize(fontSize),
 		color(color),
 		fontFile(fontFile),
 		timeShown(MIN_TIME_SHOWN),
 		strobeFrequency(TEXT_FREQUENCY) {
-	textTime = delay;
+	
+  textTime = delay;
 	box.x= x;
 	box.y= y;
 	RemakeTexture();

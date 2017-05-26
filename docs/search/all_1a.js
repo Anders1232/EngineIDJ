@@ -2,6 +2,8 @@ var searchData=
 [
   ['_7ealien',['~Alien',['../classAlien.html#a2db6b66f06d32b6c8c689255e35e2f92',1,'Alien']]],
   ['_7ebullet',['~Bullet',['../classBullet.html#ab3c2b9c0b12c18aeace52bd289ddfce3',1,'Bullet']]],
+  ['_7ecomponent',['~Component',['../classComponent.html#ae18722fd3bbb40cef7daf1b94aabb397',1,'Component']]],
+  ['_7eface',['~Face',['../classFace.html#a182c8c9ba652d46b01fdf6816cd65590',1,'Face']]],
   ['_7egame',['~Game',['../classGame.html#ae3d112ca6e0e55150d2fdbc704474530',1,'Game']]],
   ['_7egameobject',['~GameObject',['../classGameObject.html#a3b086987a48c14ebe80939bd66d5f1c8',1,'GameObject']]],
   ['_7einputmanager',['~InputManager',['../classInputManager.html#af518290877dd183606709d5852db5491',1,'InputManager']]],

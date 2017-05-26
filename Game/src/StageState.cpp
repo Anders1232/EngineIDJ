@@ -6,6 +6,7 @@
 #include "Penguins.h"
 #include "Collision.h"
 #include "EndStateData.h"
+#include "Face.h"
 
 #ifdef _WIN32
 	#include <SDL.h>
@@ -23,12 +24,12 @@
 #define STATE_RENDER_X 0//esse valores calculam o offset em relação ao canto superior esquedo da imagem daquilo que será renderizado
 #define STATE_RENDER_Y 0
 StageState::StageState(void)
-			: State(), bg("img/ocean.jpg"),
-			  tileSet(64, 64,"img/tileset.png"),
-			  inputManager(InputManager::GetInstance()),
-			  music("audio/stageState.ogg") {
+			:State(), bg("img/ocean.jpg"),
+				tileSet(64, 64,"img/tileset.png"),
+				inputManager(InputManager::GetInstance()),
+				music("audio/stageState.ogg") {
 	REPORT_I_WAS_HERE;
-	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet);
+	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet, "map/CollisionTileMap.txt");
 	REPORT_I_WAS_HERE;
 	int numberOfAliens= NUMBER_OF_ALIENS;
 	for(int count =0; count < numberOfAliens; count++) {
@@ -71,11 +72,27 @@ void StageState::Update(float dt) {
 		popRequested= true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
-	if(InputManager::GetInstance().KeyPress('q'))
-	{
+	if(InputManager::GetInstance().KeyPress('q')){
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos();
-		std::cout << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << "tiles." << std::endl;
+		std::cout << WHERE << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << " tiles." << std::endl;
 	}
+	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
+		TEMP_REPORT_I_WAS_HERE;
+		AddObject(new Face(500, 500, Vec2(64, 64), tileMap) );
+	}
+	if(InputManager::GetInstance().KeyPress('e')){
+		printf("Face criado\n");
+		AddObject(new Face(0, 0, Vec2(64, 64), tileMap));
+	}
+	if(InputManager::GetInstance().KeyPress('=')){
+		Game &game= Game::GetInstance();
+		game.SetMaxFramerate(game.GetMaxFramerate()+5);
+	}
+	if(InputManager::GetInstance().KeyPress('-')){
+		Game &game= Game::GetInstance();
+		game.SetMaxFramerate( ( (int64_t)game.GetMaxFramerate() )-5);
+	}
+	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }
 
 void StageState::Render(void) const {
@@ -88,6 +105,7 @@ void StageState::Render(void) const {
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
 	tileMap->RenderLayer(1, Camera::pos.x, Camera::pos.y);
+//	goTileMap.Render();
 }
 
 void StageState::Pause(void) {}

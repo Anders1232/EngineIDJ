@@ -17,10 +17,12 @@ class Penguins: public GameObject {
 		void Update(float dt);
 		void Render(void);
 		bool IsDead(void);
+		void RequestDelete(void);
 		void Shoot(void);
 		void NotifyCollision(GameObject &other);
 		bool Is(string type);
 		static Penguins *player;
+		Rect GetWorldRenderedRect(void) const;
 	private:
 		Sprite bodySP;
 		Sprite cannonSp;

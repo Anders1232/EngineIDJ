@@ -24,12 +24,12 @@ class StageState: public State {
 		void Pause(void);
 		void Resume(void);
 	private:
+		void CreateAlien();
 		Sprite bg;
 		TileMap *tileMap;
 		TileSet tileSet;
 		InputManager &inputManager;
 		Music music;
-		void CreateAlien();
 };
 
 #include "EndState.h"

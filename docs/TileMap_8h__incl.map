@@ -1,5 +1,8 @@
 <map id="Engine/include/TileMap.h" name="Engine/include/TileMap.h">
-<area shape="rect" id="node4" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="108,80,180,107"/>
-<area shape="rect" id="node7" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="205,80,268,107"/>
-<area shape="rect" id="node5" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="111,155,178,181"/>
+<area shape="rect" id="node4" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="33,80,105,107"/>
+<area shape="rect" id="node7" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="503,229,566,256"/>
+<area shape="rect" id="node8" href="$Gameobject_8h.html" title="Gameobject.h" alt="" coords="222,80,325,107"/>
+<area shape="rect" id="node5" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="36,155,103,181"/>
+<area shape="rect" id="node9" href="$Rect_8h.html" title="Rect.h" alt="" coords="436,155,497,181"/>
+<area shape="rect" id="node11" href="$Component_8h.html" title="Component.h" alt="" coords="311,155,411,181"/>
 </map>

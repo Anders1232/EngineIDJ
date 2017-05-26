@@ -9,22 +9,31 @@
 	//mac
 #elif __linux__
 	#include <SDL2/SDL.h>
-	#include<SDL2/SDL_image.h>
+	#include <SDL2/SDL_image.h>
 #else
 	#error "Unknown compiler"
 #endif
-
+#include <vector>
+#include <memory>
 #include "Rect.h"
 #include "string"
+#include "Component.h"
 
 using std::string;
+using std::unique_ptr;
 
 /**
 	\brief Classe virtual que especifica o funcionamento de um GameObject.
 	
 	Especifica quais métodos um gameObject deve ter para conseguir ser manipulado corretamente pela engine.
 */
-class GameObject {
+
+#ifndef COMPONENT
+class Component;
+#endif
+
+#define GAME_OBJECT
+class GameObject{
 	public:
 		/**
 			\brief Construtor
@@ -59,6 +68,12 @@ class GameObject {
 		*/
 		virtual bool IsDead(void)=0;
 		/**
+			\brief Solicita que o GameObject seja destruído.
+			
+			Uma vez que esse método é chamado, futuras chamadas ao IsDead devem retornar verdadeiro.
+		*/
+		virtual void RequestDelete(void)=0;
+		/**
 			\brief Notifica Colisão
 			\param other Referência para o gameobject com o qual se colidiu.
 			
@@ -73,9 +88,16 @@ class GameObject {
 			É usado no tratamento de colisão para que se identifique com quem colidiu.
 		*/
 		virtual bool Is(string type)=0;
+		/**
+			\brief Obtém Rect informando a posição renderizada da animação.
+
+			Obtém Rect informando a posição renderizada, computando zoom, escala e posição da câmera.
+		*/
+		virtual Rect GetWorldRenderedRect(void) const=0;
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/
-	private:
+	protected:
+		std::vector<Component* > components;
 
 };
 

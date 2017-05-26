@@ -1,8 +1,8 @@
 #include "Game.h"
 #include "Error.h"
 #include "Resources.h"
-#include<stdlib.h>
-#include<time.h>
+#include <stdlib.h>
+#include <time.h>
 
 Game* Game::instance= nullptr;
 
@@ -64,6 +64,9 @@ Game::Game(std::string title,int width, int height):dt(0.0),  inputManager(Input
 	REPORT_I_WAS_HERE;
 	storedState= nullptr;
 	REPORT_I_WAS_HERE;
+	capFramerate = true;
+	maxFramerate = INITIAL_FRAMERATE;
+	frameDuration = 1000.0/INITIAL_FRAMERATE;
 }
 
 Game::~Game() {
@@ -112,6 +115,12 @@ void Game::Run(void) {
 		return;//jogo terminou
 	}
 	while(!stateStack.empty()) {
+		if (capFramerate) {
+			float timeRemaining = frameDuration - (SDL_GetTicks() - frameStart);
+			if (0 < timeRemaining) {
+				SDL_Delay(timeRemaining);
+			}
+		}
 		if(stateStack.top()->QuitRequested()) {
 			break;
 		}
@@ -121,8 +130,6 @@ void Game::Run(void) {
 		stateStack.top()->Render();
 		SDL_RenderPresent(renderer);
 		UpdateStack();
-		SDL_Delay(33);
-//		SDL_Delay(15);
 	}
 	while(!stateStack.empty()) {
 		stateStack.pop();
@@ -132,7 +139,7 @@ void Game::Run(void) {
 
 void Game::CalculateDeltaTime(void) {
 	u_int32_t newTick= SDL_GetTicks();
-	dt=((float)(newTick-frameStart))/1000;//converter de milissegundos para segundos
+	dt=((float)(newTick-frameStart))/1000.0;//converter de milissegundos para segundos
 	frameStart= newTick;
 }
 
@@ -165,3 +172,29 @@ Vec2 Game::GetWindowDimensions(void) const {
 	return ret;
 }
 
+void Game::SetMaxFramerate(signed long int newMaxFramerate) {
+	REPORT_DEBUG("\tnewMaxFramerate= " << newMaxFramerate);
+	if ( newMaxFramerate < 1 ) {
+		maxFramerate = 1;
+	}
+	else {
+		maxFramerate = newMaxFramerate;
+	}
+	frameDuration = 1000.0/maxFramerate;
+}
+
+unsigned int Game::GetMaxFramerate(void) const {
+	return maxFramerate;
+}
+
+float Game::GetCurrentFramerate(void) const {
+	return 1.0/dt;
+}
+
+void Game::LimitFramerate(bool limit) {
+	capFramerate = limit;
+}
+
+bool Game::IsFramerateLimited(void) const {
+	return capFramerate;
+}
