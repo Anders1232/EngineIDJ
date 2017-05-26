@@ -45,7 +45,7 @@ class TileMap{
 
 			Renderiza-se todas as layers começando pelas de menor valor numérico de profundidade até as de maior valor numérico.
 		*/
-		void Render(int cameraX=0, int cameraY=0) const;
+		void Render(int cameraX=0, int cameraY=0, bool parallax= false) const;
 		/**
 			\brief Renderiza a layer informada.
 			\param layer Layer a ser renderizada.
@@ -54,7 +54,7 @@ class TileMap{
 
 			Renderiza-se todas as posições da matriz na layer indicada, com suas alterações sendo feitas por parallaxe.
 		*/
-		void RenderLayer(int layer, int cameraX=0, int cameraY=0) const;
+		void RenderLayer(int layer, int cameraX=0, int cameraY=0, bool parallax= false) const;
 		/**
 			\brief Informa a largura do tileMap.
 

@@ -22,6 +22,8 @@
 
 #define STATE_RENDER_X 0//esse valores calculam o offset em relação ao canto superior esquedo da imagem daquilo que será renderizado
 #define STATE_RENDER_Y 0
+#define FACE_LINEAR_SIZE 30
+
 StageState::StageState(void)
 			:State(), bg("img/ocean.jpg"),
 				tileSet(30, 30,"img/tileset-basico.jpg"),
@@ -78,8 +80,8 @@ void StageState::Update(float dt) {
 	}
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
 		REPORT_I_WAS_HERE;
-		Vec2 mousePos= InputManager::GetInstance().GetMousePos()+Camera::pos-Vec2(15, 15);//metade to tamanho da Face passado abaixo
-		AddObject(new Face(mousePos.x, mousePos.y, Vec2(30, 30), tileMap) );
+		Vec2 mousePos= InputManager::GetInstance().GetMousePos()*(1/Camera::GetZoom())+Camera::pos-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
+		AddObject(new Face(mousePos.x, mousePos.y, Vec2(FACE_LINEAR_SIZE, FACE_LINEAR_SIZE), tileMap) );
 	}
 	if(InputManager::GetInstance().KeyPress('e')){
 		printf("Face criado\n");
