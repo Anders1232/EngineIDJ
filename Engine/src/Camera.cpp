@@ -34,21 +34,21 @@ void Camera::Update(float dt)
 	}
 	else
 	{
-		if(INPUT_MANAGER.IsKeyDown(LEFT_ARROW_KEY) || INPUT_MANAGER.IsKeyDown('a'))
+		if(INPUT_MANAGER.LeftArrowAction())
 		{
 			pos.x -= speed * dt;
 //			if(pos.x <0 ) pos.x=0;
 		}
-		if(INPUT_MANAGER.IsKeyDown(RIGHT_ARROW_KEY) | INPUT_MANAGER.IsKeyDown('d'))
+		if(INPUT_MANAGER.RightArrowAction())
 		{
 			pos.x += speed*dt;
 		}
-		if(INPUT_MANAGER.IsKeyDown(DOWN_ARROW_KEY) | INPUT_MANAGER.IsKeyDown('s'))
+		if(INPUT_MANAGER.DownArrowAction())
 		{
 			pos.y += speed*dt;
 //			if(pos.y <0 ) pos.y=0;
 		}
-		if(INPUT_MANAGER.IsKeyDown(UP_ARROW_KEY) | INPUT_MANAGER.IsKeyDown('w'))
+		if(INPUT_MANAGER.UpArrowAction())
 		{
 			pos.y -= speed*dt;
 		}

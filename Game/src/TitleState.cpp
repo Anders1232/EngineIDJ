@@ -9,7 +9,7 @@ TitleState::TitleState():State(), bg("img/title.jpg")
 void TitleState::Update(float dt)
 {
 	InputManager &inputManager= InputManager::GetInstance();
-	if(inputManager.KeyPress(ESPACE_KEY))
+	if(inputManager.StartAction())
 	{
 		Game::GetInstance().Push(new StageState());
 	}
@@ -17,7 +17,7 @@ void TitleState::Update(float dt)
 	{
 		quitRequested= true;
 	}
-	else if( inputManager.KeyPress(ESCAPE_KEY))
+	else if( inputManager.EscapeAction())
 	{
 		popRequested= true;
 	}

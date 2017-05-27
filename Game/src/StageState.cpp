@@ -47,7 +47,7 @@ void StageState::Update(float dt)
 {
 	REPORT_I_WAS_HERE;
 //	Input();
-	if(inputManager.KeyPress(ESCAPE_KEY))
+	if(inputManager.EscapeAction())
 	{
 		popRequested= true;
 	}

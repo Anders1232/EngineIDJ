@@ -33,11 +33,11 @@ void EndState::Update(float dt)
 	{
 		quitRequested= true;
 	}
-	if(inputManager.KeyPress(ESCAPE_KEY))
+	if(inputManager.EscapeAction())
 	{
 		popRequested=true;
 	}
-	if(inputManager.KeyPress(ESPACE_KEY))
+	if(inputManager.StartAction())
 	{
 		popRequested= true;
 		Game::GetInstance().Push(new StageState());

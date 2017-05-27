@@ -76,15 +76,16 @@ void InputManager::Update(){
         	if( SDL_IsGameController(event.cdevice.which)){
     			//Adiciona o controle
         		SDL_GameController *pad = SDL_GameControllerOpen(event.cdevice.which);
-        		//Caso exista um pad o mapeia para o controle
+                padToController[event.cdevice.which] = pad;
+                
+        		/*//Caso exista um pad o mapeia para o controle
         		if(pad){
 
             		SDL_Joystick *joy = SDL_GameControllerGetJoystick(pad);
             		int instanceID = SDL_JoystickInstanceID(joy);
 
-            		padToController[event.cdevice.which] = pad;
-            
-        		}
+        		}*/
+
     		}
          
         }
@@ -168,6 +169,38 @@ bool InputManager::IsKeyDown(int key) const{
 
 }
 
+bool InputManager::ButtonPress(int button) const{
+
+  try{return(controllerUpdate.at(button) == updateCounter);}
+  catch (const std::out_of_range& oor){return false;}
+
+}
+
+bool InputManager::ButtonRelease(int button) const{
+
+    try{return(controllerUpdate.at(button) != updateCounter);}
+    catch (const std::out_of_range& oor){return false;}
+
+}
+
+bool InputManager::IsButtonDown(int button) const{
+
+    try{return(keyState.at(button) == true);}
+    catch (const std::out_of_range& oor){return false;}
+
+}
+
+Vec2 InputManager::GetControllerStickState() const{
+
+    return controllerStickState;
+
+}
+bool InputManager::IsControllerSticking(void) const{
+
+    return (mouseScroolUpdate == updateCounter);
+
+}
+
 bool InputManager::MousePress(int button) const{
 
 	return(mouseUpdate[button] == updateCounter);
@@ -179,6 +212,7 @@ bool InputManager::MouseRelease(int button) const{
 	return(mouseUpdate[button] != updateCounter);
 
 }
+
 bool InputManager::IsMouseDown(int button) const{
 
 	return(mouseState[button] == true);
@@ -216,6 +250,54 @@ Vec2 InputManager::MouseScroll(void) const{
 bool InputManager::IsMouseScrolling(void) const{
 
 	return (mouseScroolUpdate == updateCounter);
+
+}
+
+bool InputManager::LeftArrowAction() const{
+
+    return (IsKeyDown('a') || IsKeyDown('A') || IsKeyDown(SDLK_LEFT) || IsButtonDown(SDL_CONTROLLER_BUTTON_DPAD_LEFT));
+
+}
+
+bool InputManager::RightArrowAction() const{
+
+    return (IsKeyDown('d') || IsKeyDown('D') || IsKeyDown(SDLK_RIGHT) || IsButtonDown(SDL_CONTROLLER_BUTTON_DPAD_RIGHT));
+
+}
+
+bool InputManager::UpArrowAction() const{
+
+    return (IsKeyDown('w') || IsKeyDown('W') || IsKeyDown(SDLK_UP) || IsButtonDown(SDL_CONTROLLER_BUTTON_DPAD_UP));
+
+}
+
+bool InputManager::DownArrowAction() const{
+
+    return (IsKeyDown('s') || IsKeyDown('S') || IsKeyDown(SDLK_UP) || IsButtonDown(SDL_CONTROLLER_BUTTON_DPAD_DOWN));
+
+}
+
+bool InputManager::EscapeAction() const{
+
+    return (IsKeyDown(SDLK_ESCAPE) || IsButtonDown(SDL_CONTROLLER_BUTTON_BACK));
+
+}
+
+bool InputManager::StartAction() const{
+
+    return (IsKeyDown(SDLK_SPACE) || IsButtonDown(SDL_CONTROLLER_BUTTON_START));
+
+}
+
+bool InputManager::RightShoulderAction() const{
+
+    return (IsKeyDown(SDL_BUTTON_RIGHT) || IsButtonDown(SDL_CONTROLLER_BUTTON_RIGHTSHOULDER));
+
+}
+
+bool InputManager::LeftShoulderAction() const{
+
+    return (IsKeyDown(SDL_BUTTON_LEFT) || IsButtonDown(SDL_CONTROLLER_BUTTON_LEFTSHOULDER));
 
 }
 

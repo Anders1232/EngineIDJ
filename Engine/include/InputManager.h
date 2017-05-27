@@ -19,18 +19,18 @@
 #include <unordered_map>
 #include <cstdint>
 
-#define LEFT_ARROW_KEY SDLK_LEFT
-#define RIGHT_ARROW_KEY SDLK_RIGHT
-#define UP_ARROW_KEY SDLK_UP
-#define DOWN_ARROW_KEY SDLK_DOWN
-#define ESCAPE_KEY SDLK_ESCAPE
-#define LEFT_ALT_KEY SDLK_LALT
-#define LEFT_CTRL_KEY SDLK_LCTRL
-#define LEFT_SHIFT_KEY SDLK_LSHIFT
-#define ESPACE_KEY SDLK_SPACE
-#define LEFT_MOUSE_BUTTON SDL_BUTTON_LEFT
-#define RIGHT_MOUSE_BUTTON SDL_BUTTON_RIGHT
-#define MIDDLE_MOUSE_BUTTON SDL_BUTTON_MIDDLE
+#define LEFT_ARROW_ACTION SDLK_LEFT || SDL_CONTROLLER_BUTTON_DPAD_LEFT || 'd' || 'D'
+#define RIGHT_ARROW_ACTION SDLK_RIGHT || SDL_CONTROLLER_BUTTON_DPAD_RIGHT || 'a' || 'A'
+#define UP_ARROW_ACTION SDLK_UP || SDL_CONTROLLER_BUTTON_DPAD_UP || 'W' || 'w'
+#define DOWN_ARROW_ACTION SDLK_DOWN || SDL_CONTROLLER_BUTTON_DPAD_DOWN || 's' || 'S'
+#define ESCAPE_KEY_ACTION SDLK_ESCAPE || SDL_CONTROLLER_BUTTON_BACK
+#define LEFT_ALT_ACTION SDLK_LALT
+#define LEFT_CTRL_ACTION SDLK_LCTRL
+#define LEFT_SHIFT_ACTION SDLK_LSHIFT
+#define ESPACE_ACTION SDLK_SPACE || SDL_CONTROLLER_BUTTON_START
+#define LEFT_MOUSE_BUTTON_ACTION SDL_BUTTON_LEFT || SDL_CONTROLLER_BUTTON_RIGHTSHOULDER
+#define RIGHT_MOUSE_BUTTON_ACTION SDL_BUTTON_RIGHT || SDL_CONTROLLER_BUTTON_LEFTSHOULDER
+#define MIDDLE_MOUSE_BUTTON_ACTION SDL_BUTTON_MIDDLE
 
 /**
 	\brief Classe que organiza entradas do usuário.
@@ -173,7 +173,34 @@ class InputManager
 			O InputManager é um singleton, esse método retorna a instância estática do mesmo. Dentro do corpo desse método está a declaração dessa instância que é estática(no sentido de programação em C).
 			Essa instância estática é retornada.
 		*/
+		bool ButtonPress(int button) const;
+
+		bool ButtonRelease(int button) const;
+
+		bool IsButtonDown(int button) const;
+
+		Vec2 GetControllerStickState() const;
+
+		bool IsControllerSticking(void) const;
+
+		bool LeftArrowAction() const;
+
+		bool RightArrowAction() const;
+
+		bool UpArrowAction() const;
+
+		bool DownArrowAction() const;
+
+		bool StartAction() const;
+
+		bool EscapeAction() const;
+
+		bool RightShoulderAction() const;
+
+		bool LeftShoulderAction() const;
+	
 		static InputManager& GetInstance(void);
+
 	private:
 		/**
 			\brief Inicializa os atributos
