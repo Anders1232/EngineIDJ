@@ -6,11 +6,15 @@
 #include "Rect.h"
 #include "TileMap.h"
 
+#define BASE_HIT_POINTS 100
+#define DIFICULTY_CONSTANT 12
+
+
 
 class Enemy : public GameObject
 {
 public:
-	Enemy(int wave );
+	Enemy(int wave);
 	~Enemy();
 
 	void Update(float dt);
@@ -20,10 +24,12 @@ public:
 	void NotifyCollision(GameObject *object);
 	bool Is(string type);
 	Rect GetWorldRenderedRect(void);
+
 private:
 	int hp;
+	enum EnemyType{ HOSTILE, NEUTRAL, ENGINEER, ARQUITET, ART, QUIMIC } type;
 	Sprite sp;
-	enum { HOSTILE, NEUTRAL } type;	
+		
 };
 
 #endif

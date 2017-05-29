@@ -4,6 +4,8 @@
 
 
 Enemy::Enemy(int wave ){
+	hp = BASE_HIT_POINTS + (DIFICULTY_CONSTANT * wave);
+	//this->type = enemyType;
 
 }
 Enemy::~Enemy(){
