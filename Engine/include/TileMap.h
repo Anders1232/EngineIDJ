@@ -8,6 +8,7 @@
 #include "Gameobject.h"
 
 #define TILE_VAZIO -1
+#define COLLISION_LAYER (1)
 
 using std::string;
 
@@ -26,7 +27,7 @@ class TileMap{
 		
 			Instancia o tileMap com o tileSet enviado e criar o tileMap lendo o arquivo enviado.
 		*/
-		TileMap(string file, TileSet *tileSet, string collisionTileMapFile);
+		TileMap(string file, TileSet *tileSet);
 		/**
 			\brief Obtém o índice do tileMap na posição informada
 			\param x Posição X do tileMap
@@ -38,6 +39,7 @@ class TileMap{
 			PS: Com grandes poderes vêm grandes responsabilidades.
 		*/
 		int& At(int x, int y, int z=0) const;
+		int& AtLayer(int index2D, int layer) const;
 		/**
 			\brief Renderiza o TileMap a partir da posição dada.
 			\param cameraX Valor x da câmera, será usado como coordenada X de início do tileMap.
@@ -93,6 +95,8 @@ class TileMap{
 			Atualiza-se o tileMao de colisão para adicionar a informação que tem um GameObject na posição respectiva.
 		*/
 		void InsertGO(GameObject* obj);
+		void ShowCollisionInfo(bool show);
+		bool IsShowingCollisionInfo();
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
@@ -126,7 +130,7 @@ class TileMap{
 		int mapHeight;/**< Altura do TileMap.*/
 		int mapDepth;/**< Número de camadas do TileMap.*/
 		std::vector<GameObject*> gameObjectMatrix;/**< TileMap linearizado de GameObjects*/	//bidimensional??
-		std::vector<int> collisionTileMap;/**< TileMap linearizado com informações de colisão. */
+		bool displayCollisionInfo;
 };
 
 #endif // TILEMAP_H

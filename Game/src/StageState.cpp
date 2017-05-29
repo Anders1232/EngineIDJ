@@ -30,9 +30,9 @@ StageState::StageState(void)
 				inputManager(InputManager::GetInstance()),
 				music("audio/stageState.ogg") {
 	REPORT_I_WAS_HERE;
-	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet, "map/CollisionTileMap.txt");
+	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet);
 	REPORT_I_WAS_HERE;
-	objectArray.emplace_back(std::unique_ptr<Penguins>( new Penguins (704, 640) ) );
+//	objectArray.emplace_back(std::unique_ptr<Penguins>( new Penguins (704, 640) ) );
 	music.Play(10);
 }
 
@@ -51,22 +51,28 @@ void StageState::Update(float dt) {
 	if(inputManager.QuitRequested()) {
 		quitRequested= true;
 	}
+	REPORT_I_WAS_HERE;
 	UpdateArray(dt);
-	for(unsigned int count1=0; count1 < objectArray.size()-1; count1++) {
-		for(unsigned int count2= count1+1; count2 < objectArray.size(); count2++) {
-			if(Collision::IsColliding(objectArray[count1]->box, objectArray[count2]->box, objectArray[count1]->rotation, objectArray[count2]->rotation) ) {
-				objectArray[count1]->NotifyCollision(*objectArray[count2]);
-				objectArray[count2]->NotifyCollision(*objectArray[count1]);
+	REPORT_I_WAS_HERE;
+	if(!objectArray.empty()){
+		for(unsigned int count1=0; count1 < objectArray.size()-1; count1++) {
+			for(unsigned int count2= count1+1; count2 < objectArray.size(); count2++) {
+				if(Collision::IsColliding(objectArray[count1]->box, objectArray[count2]->box, objectArray[count1]->rotation, objectArray[count2]->rotation) ) {
+					objectArray[count1]->NotifyCollision(*objectArray[count2]);
+					objectArray[count2]->NotifyCollision(*objectArray[count1]);
+					REPORT_I_WAS_HERE;
+				}
 			}
 		}
 	}
+	REPORT_I_WAS_HERE;
 	Camera::Update(dt);
 	REPORT_I_WAS_HERE;
-	if(nullptr == Penguins::player) {
+/*	if(nullptr == Penguins::player) {
 		popRequested= true;
 		Game::GetInstance().Push(new EndState(EndStateData(false)));
 	}
-	if(InputManager::GetInstance().KeyPress('r')) {
+*/	if(InputManager::GetInstance().KeyPress('r')) {
 		popRequested= true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
@@ -103,12 +109,11 @@ void StageState::Render(void) const {
 	REPORT_I_WAS_HERE;
 	bg.Render(STATE_RENDER_X, STATE_RENDER_Y);
 	REPORT_I_WAS_HERE;
-	tileMap->RenderLayer(0, Camera::pos.x, Camera::pos.y);
-//	tileMap->Render(Camera::pos.x, Camera::pos.y);
+//	tileMap->Render(0, Camera::pos.x, Camera::pos.y);
+	tileMap->Render(Camera::pos.x, Camera::pos.y);
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
-	tileMap->RenderLayer(1, Camera::pos.x, Camera::pos.y);
-//	goTileMap.Render();
+//	tileMap->RenderLayer(1, Camera::pos.x, Camera::pos.y);
 }
 
 void StageState::Pause(void) {}

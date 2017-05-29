@@ -6,11 +6,10 @@
 #include "Camera.h"
 #include "InputManager.h"
 
-#define PAREDE 1
+#define PAREDE 0
 
-TileMap::TileMap(string file, TileSet *tileSet, string collisionTileMapFile): tileSet(tileSet), gameObjectMatrix(){
+TileMap::TileMap(string file, TileSet *tileSet): tileSet(tileSet), gameObjectMatrix(), displayCollisionInfo(false){
 	Load(file, tileMatrix, true);
-	Load(collisionTileMapFile, collisionTileMap);
 	gameObjectMatrix.resize(GetWidth()*GetHeight()*GetDepth());
 	for(unsigned int count=0; count < gameObjectMatrix.size(); count++){
 		gameObjectMatrix[count]= nullptr;
@@ -55,6 +54,9 @@ int& TileMap::At(int x, int y, int z) const{
 
 void TileMap::Render(int cameraX, int cameraY, bool parallax) const{
 	for(int count =0; count < mapDepth; count++){
+		if(count == COLLISION_LAYER && !displayCollisionInfo){
+			continue;
+		}
 		RenderLayer(count, cameraX, cameraY, parallax);
 	}
 }
@@ -160,24 +162,24 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 void TileMap::InsertGO(GameObject* obj){
 	Vec2 mousePos= InputManager::GetInstance().GetMousePos()*(1/Camera::GetZoom());
 	int position= GetTileMousePos(mousePos, false, 0);
-	REPORT_DEBUG("\t position = " << position << "\t of " << collisionTileMap.size() << " tiles.");
+	REPORT_DEBUG("\t position = " << position << "\t of " << mapHeight*mapWidth << " tiles.");
 	if(0 > position){
 		std::cout << WHERE << "[ERROR] Tried to put the gameObject on an invalid tileMap position." << END_LINE;
 		obj->RequestDelete();
 		return;
 	}
-	if(0 == collisionTileMap.at(position)){
+	if(-1 == AtLayer(position, COLLISION_LAYER)){
 		REPORT_DEBUG("\tInserting the gameObject at position " << position);
 		gameObjectMatrix[position]= obj;
-		collisionTileMap[position]= PAREDE;
+		tileMatrix[position+(COLLISION_LAYER * mapWidth*mapHeight)]= PAREDE;
 		int line= position/GetWidth();
 		int column= position%GetWidth();
 		obj->box.x= column*tileSet->GetTileWidth();
 		obj->box.y= line*tileSet->GetTileHeight();
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
 	}
-	else if (0 > collisionTileMap[position]){
-		REPORT_DEBUG("\ttentado inserir objeto em posição inválida, pois nela está" << collisionTileMap[position]);
+	else if (0 > AtLayer(position, COLLISION_LAYER) ){
+		REPORT_DEBUG("\ttentado inserir objeto em posição inválida, pois nela está" << tileMatrix[position+(COLLISION_LAYER * mapWidth*mapHeight)]);
 		obj->RequestDelete();
 	}
 	else{
@@ -185,4 +187,17 @@ void TileMap::InsertGO(GameObject* obj){
 		obj->RequestDelete();
 	}
 }
+
+void TileMap::ShowCollisionInfo(bool show){
+	displayCollisionInfo= show;
+}
+
+bool TileMap::IsShowingCollisionInfo(){
+	return displayCollisionInfo;
+}
+
+int& TileMap::AtLayer(int index2D, int layer) const{
+	return (int&)tileMatrix.at(index2D + layer * mapWidth * mapHeight);
+}
+
 
