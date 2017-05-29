@@ -1,7 +1,7 @@
 #ifndef MINION_H
 #define MINION_H
 
-#include "Gameobject.h"
+#include "GameObject.h"
 #include "Vec2.h"
 #include "Sprite.h"
 

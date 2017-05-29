@@ -1,4 +1,4 @@
-#include "Gameobject.h"
+#include "GameObject.h"
 #include "Sprite.h"
 #include "Rect.h"
 #include "TileMap.h"

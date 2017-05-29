@@ -1,7 +1,7 @@
 #ifndef ENDDTATE_H
 #define ENDDTATE_H
 
-#include "Gameobject.h"
+#include "GameObject.h"
 #include "Sprite.h"
 #include "Music.h"
 #include "Text.h"

@@ -5,7 +5,7 @@
 #include <vector>
 #include "Tileset.h"
 #include "Vec2.h"
-#include "Gameobject.h"
+#include "GameObject.h"
 
 #define TILE_VAZIO -1
 

@@ -1,7 +1,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "Gameobject.h"
+#include "GameObject.h"
 #include "Vec2.h"
 
 #define CAMERA_DEFAULT_MIN_ZOOM (0.7)

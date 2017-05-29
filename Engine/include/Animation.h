@@ -1,7 +1,7 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
-#include "Gameobject.h"
+#include "GameObject.h"
 #include "Timer.h"
 #include "Sprite.h"
 

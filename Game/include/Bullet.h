@@ -1,7 +1,7 @@
 #ifndef BULLET_H
 #define BULLET_H
 
-#include "Gameobject.h"
+#include "GameObject.h"
 #include "Sprite.h"
 #include "Vec2.h"
 #include <string>

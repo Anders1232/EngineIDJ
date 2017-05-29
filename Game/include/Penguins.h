@@ -1,7 +1,7 @@
 #ifndef PENGUINS_H
 #define PENGUINS_H
 
-#include "Gameobject.h"
+#include "GameObject.h"
 #include "Sprite.h"
 #include "Timer.h"
 

@@ -2,7 +2,7 @@
 #define ALIEN_H
 
 #include "Minion.h"
-#include "Gameobject.h"
+#include "GameObject.h"
 #include "Sprite.h"
 #include "Vec2.h"
 #include "Timer.h"
