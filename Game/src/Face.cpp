@@ -9,6 +9,7 @@ typedef unsigned int uint;
 Face::Face(float x, float y, Vec2 tileSize, TileMap *tileMap)
 	:sp("img/penguinface.png"),
 	hitpoints(FACE_HP){
+		
 	box.x= x;
 	box.y= y;
 	sp.ScaleX(tileSize.x/sp.GetWidth());
