@@ -2,7 +2,6 @@
 #include "Game.h"
 #include "Error.h"
 #include "Camera.h"
-#include "Penguins.h"
 #include "Collision.h"
 #include "EndStateData.h"
 #include "Face.h"
