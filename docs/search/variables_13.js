@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x',['x',['../classRect.html#a29bc9b88a8c5537620f05ac7069f48cc',1,'Rect::x()'],['../classVec2.html#adf8ee322d4b4bcc04146762c018d731f',1,'Vec2::x()']]]
+  ['y',['y',['../classRect.html#a4ea33d8210fa0b8b0d6ef3f7e06e6b27',1,'Rect::y()'],['../classVec2.html#a30543787e62f6d915543cf1dfb04c094',1,'Vec2::y()']]]
 ];

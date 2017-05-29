@@ -25,6 +25,6 @@ var searchData=
   ['gettilewidth',['GetTileWidth',['../classTileSet.html#a4114a74c06ab5241d904cce67538ae17',1,'TileSet']]],
   ['getwidth',['GetWidth',['../classSprite.html#a8dbeea0fcf56059ddb6c5d9c78b468cb',1,'Sprite::GetWidth()'],['../classTileMap.html#ab21df8d033b1e526e9488740e28c6606',1,'TileMap::GetWidth()']]],
   ['getwindowdimensions',['GetWindowDimensions',['../classGame.html#aaee9fd0d3dd25d72e166b2df6a7cdc30',1,'Game']]],
-  ['getworldrenderedrect',['GetWorldRenderedRect',['../classAnimation.html#ad6868eeeb05ae740e9776eed868f564e',1,'Animation::GetWorldRenderedRect()'],['../classGameObject.html#a686136f4cf17c54345a7d28187b25893',1,'GameObject::GetWorldRenderedRect()'],['../classFace.html#ad7cc0ce77886ba8b92117ca88f80fd7b',1,'Face::GetWorldRenderedRect()'],['../classPenguins.html#a6ba9b7b75cb86341ef2293d61d7dc4f3',1,'Penguins::GetWorldRenderedRect()']]],
+  ['getworldrenderedrect',['GetWorldRenderedRect',['../classAnimation.html#ad6868eeeb05ae740e9776eed868f564e',1,'Animation::GetWorldRenderedRect()'],['../classGameObject.html#a686136f4cf17c54345a7d28187b25893',1,'GameObject::GetWorldRenderedRect()'],['../classFace.html#ad7cc0ce77886ba8b92117ca88f80fd7b',1,'Face::GetWorldRenderedRect()']]],
   ['getzoom',['GetZoom',['../classCamera.html#af6fe062fcf5e1e31224d4dd9f6cafa51',1,'Camera']]]
 ];

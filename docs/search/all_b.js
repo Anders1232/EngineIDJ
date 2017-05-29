@@ -6,7 +6,6 @@ var searchData=
   ['left_5fmouse_5fbutton',['LEFT_MOUSE_BUTTON',['../InputManager_8h.html#a5b4fc4bb24d4e600730ff30aaaff7323',1,'InputManager.h']]],
   ['left_5fshift_5fkey',['LEFT_SHIFT_KEY',['../InputManager_8h.html#a829da24333df37749342d584fc2ba123',1,'InputManager.h']]],
   ['limitframerate',['LimitFramerate',['../classGame.html#a3fb091ff0a082d2652a98fee63c62b83',1,'Game']]],
-  ['linearspeed',['linearSpeed',['../classPenguins.html#a43abb7eaf4714f886be6c25babcdcb30',1,'Penguins']]],
   ['load',['Load',['../classTileMap.html#a57d5a9e280c52b74e8e1f0c3a2c876b7',1,'TileMap']]],
   ['lista_20de_20futuras_20atividades',['Lista de Futuras Atividades',['../todo.html',1,'']]]
 ];

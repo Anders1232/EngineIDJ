@@ -21,7 +21,7 @@ var searchData=
   ['setzoomable',['SetZoomable',['../classCamera.html#a3912a07e55bb225146fdaedb333c4452',1,'Camera']]],
   ['setzoomlimits',['SetZoomLimits',['../classCamera.html#aa320e33bcbe395cdad9f63887ea15689',1,'Camera']]],
   ['setzoomspeed',['SetZoomSpeed',['../classCamera.html#a4373a9b1baa7b98e4fe5859e0645baed',1,'Camera']]],
-  ['shoot',['Shoot',['../classPenguins.html#a20b86d9efb0eee5169658bc57f6fc61b',1,'Penguins']]],
+  ['showcollisioninfo',['ShowCollisionInfo',['../classTileMap.html#a31b1607f50b08cf2c49c71a8478ec07d',1,'TileMap']]],
   ['sound',['Sound',['../classSound.html#a539c205cdf06fe2c621fd77c37bcfac9',1,'Sound::Sound()'],['../classSound.html#af2c277cdc12b7df1de53e5b855e4f09c',1,'Sound::Sound(string file)']]],
   ['sprite',['Sprite',['../classSprite.html#abee3d268d8e467d9e23bfe0693e64144',1,'Sprite::Sprite(void)'],['../classSprite.html#a5b32e7b8aede63b8a2720ecfa670d0e3',1,'Sprite::Sprite(std::string file, float frameTime=1, int frameCount=1)']]],
   ['stagestate',['StageState',['../classStageState.html#a83447a9a485bd3cf9f2c0d293343ec42',1,'StageState']]],

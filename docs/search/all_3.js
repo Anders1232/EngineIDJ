@@ -3,6 +3,7 @@ var searchData=
   ['damage',['Damage',['../classFace.html#a094c141b4019c35c7e8a8278d80ecb02',1,'Face']]],
   ['debug',['DEBUG',['../Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83',1,'Error.h']]],
   ['defines_2eh',['Defines.h',['../Defines_8h.html',1,'']]],
+  ['displaycollisioninfo',['displayCollisionInfo',['../classTileMap.html#a513f0605dd5fbd29705099aee423e600',1,'TileMap']]],
   ['distanceto',['DistanceTo',['../classVec2.html#a521ee085dda3e0116d086d9a043d7c2e',1,'Vec2']]],
   ['dot',['Dot',['../classCollision.html#a8e858eea6ac033ac5e2a31946618c5c4',1,'Collision']]],
   ['down_5farrow_5fkey',['DOWN_ARROW_KEY',['../InputManager_8h.html#af2292687de6b9256a2664a7dacf9ae4a',1,'InputManager.h']]],

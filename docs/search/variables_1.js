@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['cannonangle',['cannonAngle',['../classPenguins.html#a71d44d99bbac380b45df64501523ab45',1,'Penguins']]],
-  ['cannonsp',['cannonSp',['../classPenguins.html#a7e2ee1ab898ff561288c79882862e6c0',1,'Penguins']]],
   ['capframerate',['capFramerate',['../classGame.html#a9c4d90234bc5a4ca540b09d8a534ece1',1,'Game']]],
   ['channel',['channel',['../classSound.html#af3895edf5a39772f1de32cfbfff90909',1,'Sound']]],
   ['cliprect',['clipRect',['../classSprite.html#a3451a65b4cd1b2ff3c11448dbdde43ac',1,'Sprite']]],
-  ['collisiontilemap',['collisionTileMap',['../classTileMap.html#ab6bd30a280abe5826c335245bf45ca63',1,'TileMap']]],
   ['color',['color',['../classText.html#ab0f771bd18d8e968f7aaee4a4e26e385',1,'Text']]],
   ['columns',['columns',['../classTileSet.html#a47ae11f9d04f9da3fbaba834fdbc62cf',1,'TileSet']]],
   ['components',['components',['../classGameObject.html#adf77cf3872333bf5e3007ad98e8afd18',1,'GameObject']]],

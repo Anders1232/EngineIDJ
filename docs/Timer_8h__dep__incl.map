@@ -1,8 +1,5 @@
 <map id="Engine/include/Timer.h" name="Engine/include/Timer.h">
-<area shape="rect" id="node2" href="$Animation_8h.html" title="Engine/include/Animation.h" alt="" coords="6,80,186,107"/>
-<area shape="rect" id="node5" href="$Timer_8cpp.html" title="Engine/src/Timer.cpp" alt="" coords="211,80,357,107"/>
-<area shape="rect" id="node6" href="$Penguins_8h.html" title="Game/include/Penguins.h" alt="" coords="381,80,552,107"/>
-<area shape="rect" id="node3" href="$Animation_8cpp.html" title="Engine/src/Animation.cpp" alt="" coords="5,155,176,181"/>
-<area shape="rect" id="node4" href="$Penguins_8cpp.html" title="Game/src/Penguins.cpp" alt="" coords="200,155,363,181"/>
-<area shape="rect" id="node7" href="$StageState_8cpp.html" title="Game/src/StageState.cpp" alt="" coords="387,155,560,181"/>
+<area shape="rect" id="node2" href="$Animation_8h.html" title="Engine/include/Animation.h" alt="" coords="5,80,185,107"/>
+<area shape="rect" id="node4" href="$Timer_8cpp.html" title="Engine/src/Timer.cpp" alt="" coords="210,80,357,107"/>
+<area shape="rect" id="node3" href="$Animation_8cpp.html" title="Engine/src/Animation.cpp" alt="" coords="10,155,181,181"/>
 </map>
