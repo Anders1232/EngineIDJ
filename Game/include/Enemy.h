@@ -15,7 +15,7 @@
 class Enemy : public GameObject
 {
 public:
-	Enemy(int wave); // calcula vida e velocidade 
+	Enemy(float lifeModifier); // calcula vida e velocidade 
 	~Enemy();
 
 	void Update(float dt);
@@ -27,10 +27,9 @@ public:
 	Rect GetWorldRenderedRect(void);
 
 private:
-	int hp; //criar componente vida
 	enum EnemyType{ HOSTILE, NEUTRAL, ENGINEER, ARQUITET, ART, QUIMIC } type;
 	Sprite sp;
-		
+	bool dead;
 };
 
 #endif

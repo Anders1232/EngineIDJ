@@ -5,7 +5,7 @@ Engine/include/Component.h
 Engine/include/DragAndDrop.h
 Engine/include/Error.h
 Engine/include/Game.h
-Engine/include/Gameobject.h
+Engine/include/GameObject.h
 Engine/include/HitPoints.h
 Engine/include/InputManager.h
 Engine/include/Music.h

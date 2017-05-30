@@ -1,21 +1,24 @@
 #include "Enemy.h"
 #include "Camera.h"
 #include "Error.h"
+#include "AIGoDown.h"
 
+#define ENEMY_MOVE_SPEED (30.)
 
-Enemy::Enemy(int wave ){
-	hp = BASE_HIT_POINTS + (DIFICULTY_CONSTANT * wave);
-	//this->type = enemyType;
-
+Enemy::Enemy(float lifeModifier ): dead(false){
+	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED));
 }
 Enemy::~Enemy(){
 
 }
 void Enemy::Update(float dt){
-
+	int forLimit= components.size();
+	for(int i=0; i < forLimit; i++){
+		components[i]->Update(*this, dt);
+	}
 }
 void Enemy::Render(void){
-
+	
 }
 bool Enemy::IsDead(void){
 	if( hp <= 0 )
@@ -24,7 +27,7 @@ bool Enemy::IsDead(void){
 		return false;
 }
 void Enemy::RequestDelete(){
-
+	
 }
 void Enemy::NotifyCollision(GameObject *object){
 

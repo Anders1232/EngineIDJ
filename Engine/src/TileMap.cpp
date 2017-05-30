@@ -1,6 +1,7 @@
 #include <exception>
 #include <cstdio>
 #include <iostream>
+#include <algorithm>
 #include "TileMap.h"
 #include "Error.h"
 #include "Camera.h"
@@ -198,6 +199,35 @@ bool TileMap::IsShowingCollisionInfo(){
 
 int& TileMap::AtLayer(int index2D, int layer) const{
 	return (int&)tileMatrix.at(index2D + layer * mapWidth * mapHeight);
+}
+
+vector<vector<int>>* TileMap::GetSpawnPositions(void) const{
+	vector<vector<int>> *spawnPoints = new vector<vector<int>>();
+/*	vector<int> foundSpawnPoints();
+	int countLimit= GetWidth()*GetHeight();
+	int base= countLimit*COLLISION_LAYER;
+	for(int i= 0; i < countLimit; i++){
+		int positionToBeseach= countLimit+i;
+		if(SPAWN_POINT == tileMatrix[positionToBeseach]){
+			foundSpawnPoints.emplace_back(positionToBeseach);
+		}
+	}
+	//agora que tenho todos os spawn points vou agrupá-los de acordo com suas adjacências.
+	spawnPoints->emplace_back();
+	for(int i=0; i < foundSpawnPoints.size(); ){
+		for(int i2= 0; i2 < spawnPoints->size; i2++){
+			vector<int> &vec= spawnPoints[i2];
+			if(
+					std::find(vec.begin(), vec.end(), foundSpawnPoints[i]+1) != vec.end()
+					|| std::find(vec.begin(), vec.end(), foundSpawnPoints[i]-1) != vec.end()
+					|| std::find(vec.begin(), vec.end(), foundSpawnPoints[i]+GetWidth()) != vec.end()
+					|| std::find(vec.begin(), vec.end(), foundSpawnPoints[i]-GetWidth()) != vec.end()
+				){
+				
+			}
+		}
+	}
+*/	return spawnPoints;
 }
 
 

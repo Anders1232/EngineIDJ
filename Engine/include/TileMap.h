@@ -8,9 +8,11 @@
 #include "GameObject.h"
 
 #define TILE_VAZIO -1
+#define SPAWN_POINT (14)
 #define COLLISION_LAYER (1)
 
 using std::string;
+using std::vector;
 
 /**
 	\brief Classe que modela o TileMap
@@ -118,6 +120,7 @@ class TileMap{
 			Retorna verdadeiro se o tileMap de colisão estiver sendo exibido, falso caso contrário.
 		*/
 		bool IsShowingCollisionInfo();
+		vector<vector<int>>* GetSpawnPositions(void) const;
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
