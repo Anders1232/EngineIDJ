@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['w',['w',['../classRect.html#a049f7ee5e7eb0475229bf3ed9b3bad44',1,'Rect']]],
-  ['width',['width',['../classSprite.html#a0a3364944c5e361fc9e7ae406224d682',1,'Sprite']]],
-  ['window',['window',['../classGame.html#adc376cc3011b5c8f1c3897626100174c',1,'Game']]]
+  ['y',['y',['../classRect.html#a4ea33d8210fa0b8b0d6ef3f7e06e6b27',1,'Rect::y()'],['../classVec2.html#a30543787e62f6d915543cf1dfb04c094',1,'Vec2::y()']]]
 ];

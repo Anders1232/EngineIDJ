@@ -16,7 +16,7 @@ Face::Face(float x, float y, Vec2 tileSize, TileMap *tileMap)
 	sp.ScaleY(tileSize.y/sp.GetHeight());
 	box.w= sp.GetWidth();
 	box.h= sp.GetHeight();
-	components.emplace_back( new DragAndDrop(tileMap, true) );
+	components.emplace_back( new DragAndDrop(tileMap, true, true) );
 }
 void Face::Damage(int damage){
 	hitpoints = hitpoints - damage;
@@ -28,7 +28,7 @@ void Face::Update(float dt ){
 	}
 }
 void Face::Render(){
-	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y);
+	sp.Render((box.x-Camera::pos.x)*Camera::GetZoom(), (box.y-Camera::pos.y)*Camera::GetZoom(), true);
 
 }
 bool Face::IsDead(void){

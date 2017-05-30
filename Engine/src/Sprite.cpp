@@ -54,6 +54,7 @@ void Sprite::Render(int x, int y, float angle, bool zoom) const {
 	temp.h = GetHeight();
 //	std::cout << WHERE << "  rect.w = "<< rect.w<< endl;
 	if(zoom) {
+//		REPORT_DEBUG;
 		temp= temp*Camera::GetZoom();
 	}
 	SDL_Rect rect= temp;

@@ -2,20 +2,11 @@ var searchData=
 [
   ['addobject',['AddObject',['../classState.html#a431d5f711e028c788a9fdccaf99ff74e',1,'State']]],
   ['ajust_5fkey',['AJUST_KEY',['../InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea',1,'InputManager.cpp']]],
-  ['alien',['Alien',['../classAlien.html',1,'Alien'],['../classAlien.html#ac5669bcecd6fb077cb7e6450a72105f4',1,'Alien::Alien()']]],
-  ['alien_2ecpp',['Alien.cpp',['../Alien_8cpp.html',1,'']]],
-  ['alien_2eh',['Alien.h',['../Alien_8h.html',1,'']]],
-  ['alien_5fdamage_5fper_5fbullet',['ALIEN_DAMAGE_PER_BULLET',['../Alien_8cpp.html#ab53e958702ed84bd89142dd19d993d08',1,'Alien.cpp']]],
-  ['alien_5fmove_5fspeed',['ALIEN_MOVE_SPEED',['../Alien_8h.html#a57afdcb96d64357cc2c80f280565dc8f',1,'Alien.h']]],
-  ['alien_5fresting_5fcooldown',['ALIEN_RESTING_COOLDOWN',['../Alien_8cpp.html#ad7898d2cf0089b537b73a1719d1c43f1',1,'Alien.cpp']]],
-  ['aliencount',['alienCount',['../classAlien.html#abde06bf01bdb2d9786b7815d0db5d17d',1,'Alien']]],
-  ['alienrestingcooldown',['alienRestingCooldown',['../classAlien.html#a61538503ff1bde408267d85464191fe4',1,'Alien']]],
-  ['alienstate',['AlienState',['../classAlien.html#ae23fef43ed399f4b117ccf0520173455',1,'Alien']]],
   ['animation',['Animation',['../classAnimation.html',1,'Animation'],['../classAnimation.html#a48d3ca5ecd4b4ca7f2f6fe10cf1f91d4',1,'Animation::Animation()']]],
   ['animation_2ecpp',['Animation.cpp',['../Animation_8cpp.html',1,'']]],
   ['animation_2eh',['Animation.h',['../Animation_8h.html',1,'']]],
-  ['arc',['arc',['../classMinion.html#a32bbf5d39ca2f909c19c0ff9141336be',1,'Minion']]],
   ['assert',['ASSERT',['../Error_8h.html#a092bd7bb2cb7fd9f483b6995cee61bc0',1,'Error.h']]],
   ['assert2',['ASSERT2',['../Error_8h.html#a28d79607639d01447db6950b24a81d77',1,'Error.h']]],
-  ['at',['At',['../classTileMap.html#ada2b7d43fd59957db4c61a61cebc2745',1,'TileMap']]]
+  ['at',['At',['../classTileMap.html#ada2b7d43fd59957db4c61a61cebc2745',1,'TileMap']]],
+  ['atlayer',['AtLayer',['../classTileMap.html#acd5cdd6819589f18e44af62887ba77a1',1,'TileMap']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['keypress',['KeyPress',['../classInputManager.html#acf5d7a5b83dc24aba5d43372d6152dae',1,'InputManager']]],
-  ['keyrelease',['KeyRelease',['../classInputManager.html#a05892299bfc75aab9d2530737cf36248',1,'InputManager']]]
+  ['limitframerate',['LimitFramerate',['../classGame.html#a3fb091ff0a082d2652a98fee63c62b83',1,'Game']]],
+  ['load',['Load',['../classTileMap.html#a57d5a9e280c52b74e8e1f0c3a2c876b7',1,'TileMap']]]
 ];
