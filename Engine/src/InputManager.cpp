@@ -73,17 +73,13 @@ void InputManager::Update(){
 
 		else if(SDL_CONTROLLERDEVICEADDED == event.type ){
 
+            std::cout <<" reconheceu controle" << std::endl;
+
 			if( SDL_IsGameController(event.cdevice.which)){
 				//Adiciona o controle
 				SDL_GameController *pad = SDL_GameControllerOpen(event.cdevice.which);
                 padToController[event.cdevice.which] = pad;
-				//Caso exista um pad o mapeia para o controle
-				/*if(pad){
 
-					SDL_Joystick *joy = SDL_GameControllerGetJoystick(pad);
-					int instanceID = SDL_JoystickInstanceID(joy);//aparentenmente instanceID não está sendo usado.
-			
-				}*/
 			}
 		 
 		}
@@ -93,7 +89,7 @@ void InputManager::Update(){
 
 				SDL_GameController *pad = padToController.at(event.cdevice.which);
 				SDL_GameControllerClose(pad);
-				//\todo: Creio que aqui deve-se remover o Pad do unordered_map
+                padToController.erase(event.cdevice.which);
 
 			}
 			catch(const std::out_of_range& oor){
@@ -134,11 +130,17 @@ void InputManager::Update(){
 
 				SDL_GameController *pad = padToController.at(event.cdevice.which);
 
-				int16_t StickX = SDL_GameControllerGetAxis(pad,SDL_CONTROLLER_AXIS_LEFTX);
-				int16_t StickY = SDL_GameControllerGetAxis(pad, SDL_CONTROLLER_AXIS_LEFTY);
+				int16_t StickLeftX = SDL_GameControllerGetAxis(pad,SDL_CONTROLLER_AXIS_LEFTX);
+				int16_t StickLeftY = SDL_GameControllerGetAxis(pad, SDL_CONTROLLER_AXIS_LEFTY);
 
-				controllerStickState = Vec2((float)StickX,(float)StickY);
-				controllerStickUpdate = updateCounter;
+                int16_t StickRightX = SDL_GameControllerGetAxis(pad,SDL_CONTROLLER_AXIS_RIGHTX);
+                int16_t StickRightY = SDL_GameControllerGetAxis(pad, SDL_CONTROLLER_AXIS_RIGHTY);
+
+				controllerLeftStickState = Vec2((float)StickLeftX,(float)StickLeftY);
+				controllerLeftStickUpdate = updateCounter;
+
+                controllerRightStickState = Vec2((float)StickRightX,(float)StickRightY);
+                controllerRightStickUpdate = updateCounter;
 
 			}
 		
@@ -196,16 +198,23 @@ bool InputManager::ButtonRelease(int button) const{
 
 bool InputManager::IsButtonDown(int button) const{
 
-    try{return(keyState.at(button) == true);}
+    try{return(controllerState.at(button) == true);}
     catch (const std::out_of_range& oor){return false;}
 
 }
 
-Vec2 InputManager::GetControllerStickState() const{
+Vec2 InputManager::GetControllerLeftStickState() const{
 
-    return controllerStickState;
+    return controllerLeftStickState;
 
 }
+
+Vec2 InputManager::GetControllerRightStickState() const{
+
+    return controllerRightStickState;
+
+}
+
 bool InputManager::IsControllerSticking(void) const{
 
     return (mouseScroolUpdate == updateCounter);
@@ -263,53 +272,3 @@ bool InputManager::IsMouseScrolling(void) const{
 	return (mouseScroolUpdate == updateCounter);
 
 }
-
-bool InputManager::LeftArrowAction() const{
-
-    return (IsKeyDown('a') || IsKeyDown('A') || IsKeyDown(SDLK_LEFT) || IsButtonDown(SDL_CONTROLLER_BUTTON_DPAD_LEFT));
-
-}
-
-bool InputManager::RightArrowAction() const{
-
-    return (IsKeyDown('d') || IsKeyDown('D') || IsKeyDown(SDLK_RIGHT) || IsButtonDown(SDL_CONTROLLER_BUTTON_DPAD_RIGHT));
-
-}
-
-bool InputManager::UpArrowAction() const{
-
-    return (IsKeyDown('w') || IsKeyDown('W') || IsKeyDown(SDLK_UP) || IsButtonDown(SDL_CONTROLLER_BUTTON_DPAD_UP));
-
-}
-
-bool InputManager::DownArrowAction() const{
-
-    return (IsKeyDown('s') || IsKeyDown('S') || IsKeyDown(SDLK_UP) || IsButtonDown(SDL_CONTROLLER_BUTTON_DPAD_DOWN));
-
-}
-
-bool InputManager::EscapeAction() const{
-
-    return (IsKeyDown(SDLK_ESCAPE) || IsButtonDown(SDL_CONTROLLER_BUTTON_BACK));
-
-}
-
-bool InputManager::StartAction() const{
-
-    return (IsKeyDown(SDLK_SPACE) || IsButtonDown(SDL_CONTROLLER_BUTTON_START));
-
-}
-
-bool InputManager::RightShoulderAction() const{
-
-    return (IsKeyDown(SDL_BUTTON_RIGHT) || IsButtonDown(SDL_CONTROLLER_BUTTON_RIGHTSHOULDER));
-
-}
-
-bool InputManager::LeftShoulderAction() const{
-
-    return (IsKeyDown(SDL_BUTTON_LEFT) || IsButtonDown(SDL_CONTROLLER_BUTTON_LEFTSHOULDER));
-
-}
-
-

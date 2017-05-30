@@ -4,7 +4,6 @@
 #include "Game.h"
 
 #define CAMERA_MOVE_SPEED (100)
-#define INPUT_MANAGER InputManager::GetInstance()
 
 GameObject* Camera::focus= nullptr;
 Vec2 Camera::pos;
@@ -34,28 +33,28 @@ void Camera::Update(float dt)
 	}
 	else
 	{
-		if(INPUT_MANAGER.LeftArrowAction())
+		if(ActionManager::LeftArrowAction())
 		{
 			pos.x -= speed * dt;
 //			if(pos.x <0 ) pos.x=0;
 		}
-		if(INPUT_MANAGER.RightArrowAction())
+		if(ActionManager::RightArrowAction())
 		{
 			pos.x += speed*dt;
 		}
-		if(INPUT_MANAGER.DownArrowAction())
+		if(ActionManager::DownArrowAction())
 		{
 			pos.y += speed*dt;
 //			if(pos.y <0 ) pos.y=0;
 		}
-		if(INPUT_MANAGER.UpArrowAction())
+		if(ActionManager::UpArrowAction())
 		{
 			pos.y -= speed*dt;
 		}
 	}
-	if(INPUT_MANAGER.IsMouseScrolling())
+	if(InputManager::GetInstance().IsMouseScrolling())
 	{
-		Camera::Zoom( (float)INPUT_MANAGER.MouseScroll().y );
+		Camera::Zoom( (float)InputManager::GetInstance().MouseScroll().y );
 	}
 }
 

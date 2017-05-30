@@ -3,6 +3,7 @@
 
 #include "State.h"
 #include "Sprite.h"
+#include "ActionManager.h"
 
 class TitleState: public State
 {

@@ -43,8 +43,7 @@ Penguins::~Penguins()
 
 void Penguins::Update(float dt)
 {
-	InputManager &inputManager= InputManager::GetInstance();
-	if(inputManager.UpArrowAction())
+	if(ActionManager::UpArrowAction())
 	{
 		speed+= Vec2(1, 0) + speed*PENGUIM_ACELERACAO*dt;//se o penguim não se mover olhar aqui
 		if(PENGUIM_MAX_SPEED < speed.Magnitude() )
@@ -53,7 +52,7 @@ void Penguins::Update(float dt)
 			speed= speed * PENGUIM_MAX_SPEED;
 		}
 	}
-	if(inputManager.DownArrowAction())
+	if(ActionManager::DownArrowAction())
 	{
 		speed-= Vec2(1, 0) + speed*PENGUIM_ACELERACAO*dt;//se o penguim não se mover olhar aqui
 		if(PENGUIM_MAX_SPEED < speed.Magnitude() )
@@ -62,22 +61,22 @@ void Penguins::Update(float dt)
 			speed= speed * PENGUIM_MAX_SPEED;
 		}
 	}
-	if(inputManager.LeftArrowAction())
+	if(ActionManager::LeftArrowAction())
 	{
 //		TEMP_REPORT_I_WAS_HERE;
 		rotation-= PENGUIM_VEC_ANGULAR*dt;
 	}
-	if(inputManager.RightArrowAction())
+	if(ActionManager::RightArrowAction())
 	{
 		rotation+= PENGUIM_VEC_ANGULAR*dt;
 	}
 	box= box + speed.Rotate(rotation)*dt;
 	//cannonAngle= (inputManager.GetMousePos()-(box.Center()-Camera::pos)*Camera::GetZoom()).Inclination()*CONVERSAO_GRAUS_RADIANOS;
-	cannonAngle= (inputManager.GetControllerStickState()-(box.Center()-Camera::pos)*Camera::GetZoom()).Inclination()*CONVERSAO_GRAUS_RADIANOS;
+	cannonAngle= (InputManager::GetInstance().GetControllerRightStickState()-(box.Center()-Camera::pos)*Camera::GetZoom()).Inclination()*CONVERSAO_GRAUS_RADIANOS;
 	CheckMapLimits();
 
 	bulletsTimer.Update(dt);
-	if(inputManager.RightShoulderAction())
+	if(ActionManager::RightShoulderAction())
 	{
 		if(bulletsTimer.Get() > PENGUIM_BULLET_COODOWN)
 		{

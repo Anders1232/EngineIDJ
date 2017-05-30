@@ -28,16 +28,16 @@ EndState::EndState(EndStateData stateData):
 
 void EndState::Update(float dt)
 {
-	InputManager &inputManager= InputManager::GetInstance();
-	if(inputManager.QuitRequested())
+	
+	if(InputManager::GetInstance().QuitRequested())
 	{
 		quitRequested= true;
 	}
-	if(inputManager.EscapeAction())
+	if(ActionManager::EscapeAction())
 	{
 		popRequested=true;
 	}
-	if(inputManager.StartAction())
+	if(ActionManager::StartAction())
 	{
 		popRequested= true;
 		Game::GetInstance().Push(new StageState());

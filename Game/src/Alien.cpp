@@ -1,6 +1,5 @@
 #include "Alien.h"
 #include "Camera.h"
-//#include "InputManager.h"
 #include "Error.h"
 #include "climits"
 #include "Bullet.h"

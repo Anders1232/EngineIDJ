@@ -9,15 +9,15 @@ TitleState::TitleState():State(), bg("img/title.jpg")
 void TitleState::Update(float dt)
 {
 	InputManager &inputManager= InputManager::GetInstance();
-	if(inputManager.StartAction())
+	if(ActionManager::StartAction())
 	{
 		Game::GetInstance().Push(new StageState());
 	}
-	else if(inputManager.QuitRequested())
+	else if(InputManager::GetInstance().QuitRequested())
 	{
 		quitRequested= true;
 	}
-	else if( inputManager.EscapeAction())
+	else if(ActionManager::EscapeAction())
 	{
 		popRequested= true;
 	}

@@ -1,7 +1,6 @@
 #include "Minion.h"
 #include "cmath"
 #include "Camera.h"
-#include "InputManager.h"
 #include "Error.h"
 #include "Bullet.h"
 #include "Game.h"

@@ -19,19 +19,6 @@
 #include <unordered_map>
 #include <cstdint>
 
-#define LEFT_ARROW_ACTION SDLK_LEFT || SDL_CONTROLLER_BUTTON_DPAD_LEFT || 'd' || 'D'
-#define RIGHT_ARROW_ACTION SDLK_RIGHT || SDL_CONTROLLER_BUTTON_DPAD_RIGHT || 'a' || 'A'
-#define UP_ARROW_ACTION SDLK_UP || SDL_CONTROLLER_BUTTON_DPAD_UP || 'W' || 'w'
-#define DOWN_ARROW_ACTION SDLK_DOWN || SDL_CONTROLLER_BUTTON_DPAD_DOWN || 's' || 'S'
-#define ESCAPE_KEY_ACTION SDLK_ESCAPE || SDL_CONTROLLER_BUTTON_BACK
-#define LEFT_ALT_ACTION SDLK_LALT
-#define LEFT_CTRL_ACTION SDLK_LCTRL
-#define LEFT_SHIFT_ACTION SDLK_LSHIFT
-#define ESPACE_ACTION SDLK_SPACE || SDL_CONTROLLER_BUTTON_START
-#define LEFT_MOUSE_BUTTON_ACTION SDL_BUTTON_LEFT || SDL_CONTROLLER_BUTTON_RIGHTSHOULDER
-#define RIGHT_MOUSE_BUTTON_ACTION SDL_BUTTON_RIGHT || SDL_CONTROLLER_BUTTON_LEFTSHOULDER
-#define MIDDLE_MOUSE_BUTTON_ACTION SDL_BUTTON_MIDDLE
-
 /**
 	\brief Classe que organiza entradas do usuário.
 
@@ -179,25 +166,11 @@ class InputManager
 
 		bool IsButtonDown(int button) const;
 
-		Vec2 GetControllerStickState() const;
+		Vec2 GetControllerLeftStickState() const;
+
+		Vec2 GetControllerRightStickState() const;
 
 		bool IsControllerSticking(void) const;
-
-		bool LeftArrowAction() const;
-
-		bool RightArrowAction() const;
-
-		bool UpArrowAction() const;
-
-		bool DownArrowAction() const;
-
-		bool StartAction() const;
-
-		bool EscapeAction() const;
-
-		bool RightShoulderAction() const;
-
-		bool LeftShoulderAction() const;
 	
 		static InputManager& GetInstance(void);
 
@@ -226,8 +199,10 @@ class InputManager
  		
  		std::unordered_map<int,bool> controllerState;/**< Armazena as informações de quais botões do controle estão pressionados.*/
  		std::unordered_map<int,int>	controllerUpdate;/**< Armazena as informações de quando os estados dos botões do controle no respectivo keyState foram modificadas. É usado junto com o updateCounter para saber quão recente a informação é.*/
- 		Vec2 controllerStickState;/**< Armazena a informação de em qual timestamp(updateCounter) o controllerStickState foi alterado.*/
- 		bool controllerStickUpdate;/**< Armazena a informação do último stick feito no controle.*/
+ 		Vec2 controllerLeftStickState;/**< Armazena a informação de em qual timestamp(updateCounter) o controllerStickState foi alterado.*/
+ 		int controllerLeftStickUpdate;/**< Armazena a informação do último stick feito no controle.*/
+ 		Vec2 controllerRightStickState;
+        int controllerRightStickUpdate;
  		
 		int mouseScroolUpdate;/**< Armazena a informação de em qual timestamp(updateCounter) o mouseScrollState foi alterado.*/
 		Vec2 mouseScroolState;/**< Armazena a informação do último scroll feito no mouse.*/
