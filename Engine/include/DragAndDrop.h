@@ -26,7 +26,7 @@ class DragAndDrop : public Component{
 			
 			Nesse método a lógica do drag and drop é implementada. Se o botão do drag estiver sendo segurado o objeto é arrastado mantendo seu centro onde o mouse está. Quando o botão relativo ao drag and drop é liberado chama-se o tileMap para iserir o GameObject no tile onde o mouse está.
 		*/
-		void Update(GameObject &associated);
+		void Update(GameObject &associated, float dt);
 		/**
 			\brief Informa que o tipo deste Compomente é DragAndDrop.
 			\param CompomentType A ser comparado se é igual ao Tipo desta classe.

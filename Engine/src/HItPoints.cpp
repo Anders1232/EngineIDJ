@@ -7,7 +7,7 @@ HitPoints::HitPoints(float hp) : healthBar(), healthColor(){
 HitPoints::~HitPoints(){
 
 }
-void HitPoints::Update(GameObject &associated){
+void HitPoints::Update(GameObject &associated, float dt){
 
 }
 bool HitPoints::Is(ComponentType type) const{

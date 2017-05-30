@@ -7,7 +7,7 @@ class HitPoints : public Component
 		HitPoints(float hp);
 		~HitPoints();
 		
-		void Update(GameObject &associated);
+		void Update(GameObject &associated, float dt);
 		bool Is(ComponentType) const;
 
 	private:
