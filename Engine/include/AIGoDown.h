@@ -6,9 +6,11 @@
 class AIGoDown
 {
 	public:
-		AIGoDown();
+		AIGoDown(float speed);
 		void Update(GameObject &associated, float dt);
-		bool Is(ComponentType type) const
+		bool Is(ComponentType type) const;
+	private:
+		float speed;
 };
 
 #endif // AIGODOWN_H

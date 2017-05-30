@@ -24,7 +24,7 @@ void Face::Damage(int damage){
 
 void Face::Update(float dt ){
 	for(uint count =0; count < components.size(); count++){
-		components[count]->Update(*this);
+		components[count]->Update(*this, dt);
 	}
 }
 void Face::Render(){
