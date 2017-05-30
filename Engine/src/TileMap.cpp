@@ -203,31 +203,38 @@ int& TileMap::AtLayer(int index2D, int layer) const{
 
 vector<vector<int>>* TileMap::GetSpawnPositions(void) const{
 	vector<vector<int>> *spawnPoints = new vector<vector<int>>();
-/*	vector<int> foundSpawnPoints();
-	int countLimit= GetWidth()*GetHeight();
+	vector<int> foundSpawnPoints;
+	uint countLimit= GetWidth()*GetHeight();
 	int base= countLimit*COLLISION_LAYER;
-	for(int i= 0; i < countLimit; i++){
-		int positionToBeseach= countLimit+i;
+	for(uint i= 0; i < countLimit; i++){
+		int positionToBeseach= base+i;
 		if(SPAWN_POINT == tileMatrix[positionToBeseach]){
-			foundSpawnPoints.emplace_back(positionToBeseach);
+			foundSpawnPoints.push_back(positionToBeseach);
 		}
 	}
 	//agora que tenho todos os spawn points vou agrupá-los de acordo com suas adjacências.
 	spawnPoints->emplace_back();
-	for(int i=0; i < foundSpawnPoints.size(); ){
-		for(int i2= 0; i2 < spawnPoints->size; i2++){
-			vector<int> &vec= spawnPoints[i2];
+	while( !foundSpawnPoints.empty() ){
+		for(unsigned int i= 0; i < spawnPoints->size(); i++){
+			vector<int> &vec= (*spawnPoints)[i];
 			if(
-					std::find(vec.begin(), vec.end(), foundSpawnPoints[i]+1) != vec.end()
-					|| std::find(vec.begin(), vec.end(), foundSpawnPoints[i]-1) != vec.end()
-					|| std::find(vec.begin(), vec.end(), foundSpawnPoints[i]+GetWidth()) != vec.end()
-					|| std::find(vec.begin(), vec.end(), foundSpawnPoints[i]-GetWidth()) != vec.end()
-				){
-				
+					(std::find(vec.begin(), vec.end(), foundSpawnPoints[0]+1) != vec.end() )//posição à direita
+					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-1) != vec.end() )//posição à esquerda
+					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]+GetWidth()) != vec.end() )// posição em cima
+					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-GetWidth()) != vec.end() )//posição em baixo
+			){
+				vec.push_back(foundSpawnPoints[0]);
+				foundSpawnPoints.erase(foundSpawnPoints.begin());
+				break;
+			}
+			else{
+				spawnPoints->emplace_back();
+				(*spawnPoints)[spawnPoints->size()-1].push_back(foundSpawnPoints[0]);
+				foundSpawnPoints.erase(foundSpawnPoints.begin());
 			}
 		}
 	}
-*/	return spawnPoints;
+	return spawnPoints;
 }
 
 
