@@ -210,11 +210,14 @@ vector<vector<int>>* TileMap::GetSpawnPositions(void) const{
 	for(uint i= 0; i < countLimit; i++){
 		int positionToBeseach= base+i;
 		if(SPAWN_POINT == tileMatrix[positionToBeseach]){
-			foundSpawnPoints.push_back(positionToBeseach);
+			foundSpawnPoints.push_back(positionToBeseach%(GetWidth()*GetHeight()));
 		}
 	}
 	REPORT_I_WAS_HERE;
 	//agora que tenho todos os spawn points vou agrupá-los de acordo com suas adjacências.
+	if(foundSpawnPoints.empty()){
+		Error("Não foi encontrado spawn points!");
+	}
 	spawnPoints->emplace_back();
 	(*spawnPoints)[0].push_back(foundSpawnPoints[0]);
 	foundSpawnPoints.erase(foundSpawnPoints.begin());
@@ -240,6 +243,10 @@ vector<vector<int>>* TileMap::GetSpawnPositions(void) const{
 			foundSpawnPoints.erase(foundSpawnPoints.begin());
 		}
 		REPORT_I_WAS_HERE;
+	}
+	std::cout << WHERE << "Numero de spawn groups achados: " << (*spawnPoints).size() << END_LINE;
+	for(uint i=0; i < (*spawnPoints).size(); i++){
+		std::cout << WHERE << "Spawn groups " << i <<" tem tamanho " << (*spawnPoints)[i].size() << END_LINE;
 	}
 	return spawnPoints;
 }

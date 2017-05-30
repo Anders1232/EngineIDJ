@@ -23,7 +23,7 @@
 #define STATE_RENDER_X 0//esse valores calculam o offset em relação ao canto superior esquedo da imagem daquilo que será renderizado
 #define STATE_RENDER_Y 0
 #define FACE_LINEAR_SIZE 30
-#define TIME_BETWEEN_SPAWNS (5.)
+#define TIME_BETWEEN_SPAWNS (3.)
 
 StageState::StageState(void)
 			:State(),
@@ -137,7 +137,7 @@ void StageState::SpawnEnemy(int tileMapPosition){
 	Vec2 tileSize= tileMap->GetTileSize();
 	Vec2 spawnPosition;
 	spawnPosition.x= (tileMapPosition%tileMap->GetWidth() ) * tileSize.x;
-	spawnPosition.y= (tileMapPosition%tileMap->GetHeight() ) * tileSize.y;
+	spawnPosition.y= (tileMapPosition/tileMap->GetWidth() ) * tileSize.y;
 	objectArray.push_back(unique_ptr<GameObject>(new Enemy(spawnPosition, 1.) ) );
 }
 
