@@ -230,6 +230,10 @@ vector<vector<int>>* TileMap::GetSpawnPositions(void) const{
 					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-1) != vec.end() )//posição à esquerda
 					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]+GetWidth()) != vec.end() )// posição em cima
 					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-GetWidth()) != vec.end() )//posição em baixo
+					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-GetWidth()-1) != vec.end() )//diagonal supeior esquerda
+					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-GetWidth()+1) != vec.end() )//diagonal supeior direita
+					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]+GetWidth()-1) != vec.end() )//diagonal inferior esquerda
+					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]+GetWidth()+1) != vec.end() )//diagonal inferior direita
 			){
 				vec.push_back(foundSpawnPoints[0]);
 				foundSpawnPoints.erase(foundSpawnPoints.begin());
@@ -244,9 +248,13 @@ vector<vector<int>>* TileMap::GetSpawnPositions(void) const{
 		}
 		REPORT_I_WAS_HERE;
 	}
-	std::cout << WHERE << "Numero de spawn groups achados: " << (*spawnPoints).size() << END_LINE;
+	std::cout << WHERE << "\tNumero de spawn groups achados: " << (*spawnPoints).size() << END_LINE;
 	for(uint i=0; i < (*spawnPoints).size(); i++){
-		std::cout << WHERE << "Spawn groups " << i <<" tem tamanho " << (*spawnPoints)[i].size() << END_LINE;
+		std::cout << WHERE << "\tSpawn groups " << i <<" tem tamanho " << (*spawnPoints)[i].size() << END_LINE;
+		std::cout << WHERE << "\tTileWidth= " << GetWidth() << END_LINE;
+		for(uint i2=0; i2 < (*spawnPoints)[i].size(); i2++){
+			std::cout << WHERE << "\tSpawn point: " << (*spawnPoints)[i][i2] << END_LINE;
+		}
 	}
 	return spawnPoints;
 }
