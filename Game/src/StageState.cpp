@@ -96,11 +96,9 @@ void StageState::Update(float dt) {
 		game.SetMaxFramerate( ( (int64_t)game.GetMaxFramerate() )-5);
 	}
 	if(InputManager::GetInstance().KeyPress('g')){
-		Game &game= Game::GetInstance();
 		tileMap->ShowCollisionInfo(true);
 	}
 	if(InputManager::GetInstance().KeyRelease('g')){
-		Game &game= Game::GetInstance();
 		tileMap->ShowCollisionInfo(false);
 	}
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
