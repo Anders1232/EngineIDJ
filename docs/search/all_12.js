@@ -1,7 +1,7 @@
 var searchData=
 [
   ['scale',['Scale',['../classSprite.html#aa8b31cd4deebedbbdf8ca3923a3064c6',1,'Sprite']]],
-  ['scalex',['ScaleX',['../classSprite.html#a42b3a6ed82560c5b97085cc127984cf4',1,'Sprite::ScaleX(float scale)'],['../classSprite.html#af76ca5d25866a3107bcec1d2e59f8bcb',1,'Sprite::scaleX()']]],
+  ['scalex',['scaleX',['../classSprite.html#af76ca5d25866a3107bcec1d2e59f8bcb',1,'Sprite::scaleX()'],['../classSprite.html#a42b3a6ed82560c5b97085cc127984cf4',1,'Sprite::ScaleX(float scale)']]],
   ['scaley',['ScaleY',['../classSprite.html#ad4a9b4df6061cf7391403a4d03286ff0',1,'Sprite::ScaleY(float scale)'],['../classSprite.html#ac4085b0144253c09bc94151a53079104',1,'Sprite::scaleY()']]],
   ['sdl_5fassert',['SDL_ASSERT',['../Error_8h.html#a5e03114cdb9780c937e89ed7cb527ae1',1,'Error.h']]],
   ['setclip',['SetClip',['../classSprite.html#a3ad46a400f83d41eaba2c2df77e0cf7c',1,'Sprite']]],
@@ -38,6 +38,7 @@ var searchData=
   ['stagestate',['StageState',['../classStageState.html',1,'StageState'],['../classStageState.html#a83447a9a485bd3cf9f2c0d293343ec42',1,'StageState::StageState()']]],
   ['stagestate_2ecpp',['StageState.cpp',['../StageState_8cpp.html',1,'']]],
   ['stagestate_2eh',['StageState.h',['../StageState_8h.html',1,'']]],
+  ['startaction',['StartAction',['../classActionManager.html#ae3da833a8f3d476ba588a9ed7e61aeac',1,'ActionManager']]],
   ['state',['State',['../classState.html',1,'State'],['../classState.html#aef73d18751fc737c6b4f0893660a0d81',1,'State::State()'],['../classAlien.html#a595501207125bf8bb67a2b07c6e580dd',1,'Alien::state()']]],
   ['state_2ecpp',['State.cpp',['../State_8cpp.html',1,'']]],
   ['state_2eh',['State.h',['../State_8h.html',1,'']]],

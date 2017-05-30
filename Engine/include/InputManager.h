@@ -160,6 +160,7 @@ class InputManager
 			O InputManager é um singleton, esse método retorna a instância estática do mesmo. Dentro do corpo desse método está a declaração dessa instância que é estática(no sentido de programação em C).
 			Essa instância estática é retornada.
 		*/
+		static InputManager& GetInstance(void);
 		bool ButtonPress(int button) const;
 
 		bool ButtonRelease(int button) const;
@@ -172,7 +173,6 @@ class InputManager
 
 		bool IsControllerSticking(void) const;
 	
-		static InputManager& GetInstance(void);
 
 	private:
 		/**
