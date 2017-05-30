@@ -77,6 +77,7 @@ void StageState::Update(float dt) {
 		int selectedSpawnGroup= rand()%spawnGroups->size();
 		int selectedSpawnPosition= rand()% ( (*spawnGroups)[selectedSpawnGroup] ).size();
 		SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition]);
+		spawnTimer.Restart();
 	}
 	
 	
@@ -135,8 +136,8 @@ void StageState::Resume(void) {}
 void StageState::SpawnEnemy(int tileMapPosition){
 	Vec2 tileSize= tileMap->GetTileSize();
 	Vec2 spawnPosition;
-	spawnPosition.x= (tileMapPosition%tileMap->GetWidth())*tileSize.x;
-	spawnPosition.y= (tileMapPosition%tileMap->GetHeight())*tileSize.y;
+	spawnPosition.x= (tileMapPosition%tileMap->GetWidth() ) * tileSize.x;
+	spawnPosition.y= (tileMapPosition%tileMap->GetHeight() ) * tileSize.y;
 	objectArray.push_back(unique_ptr<GameObject>(new Enemy(spawnPosition, 1.) ) );
 }
 

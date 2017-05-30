@@ -6,6 +6,7 @@
 #define ENEMY_MOVE_SPEED (30.)
 
 Enemy::Enemy(Vec2 position, float lifeModifier ):sp("img/minion.png"), dead(false){
+	box= position;
 	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED));
 }
 Enemy::~Enemy(){
