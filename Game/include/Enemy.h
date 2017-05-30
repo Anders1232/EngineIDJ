@@ -5,6 +5,7 @@
 #include "Sprite.h"
 #include "Rect.h"
 #include "TileMap.h"
+#include "Timer.h"
 
 #define BASE_HIT_POINTS 100
 #define DIFICULTY_CONSTANT 12
@@ -14,7 +15,7 @@
 class Enemy : public GameObject
 {
 public:
-	Enemy(int wave);
+	Enemy(int wave); // calcula vida e velocidade 
 	~Enemy();
 
 	void Update(float dt);
@@ -26,7 +27,7 @@ public:
 	Rect GetWorldRenderedRect(void);
 
 private:
-	int hp;
+	int hp; //criar componente vida
 	enum EnemyType{ HOSTILE, NEUTRAL, ENGINEER, ARQUITET, ART, QUIMIC } type;
 	Sprite sp;
 		
