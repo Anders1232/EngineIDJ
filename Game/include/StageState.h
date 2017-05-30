@@ -4,16 +4,13 @@
 #include <vector>
 #include <memory>
 #include "Sprite.h"
-#include "Gameobject.h"
+#include "GameObject.h"
 #include "Tileset.h"
 #include "TileMap.h"
 #include "InputManager.h"
 #include "State.h"
 #include "Music.h"
 
-#define NUMBER_OF_ALIENS (6)
-
-//#define BG_POINTER
 
 class StageState: public State {
 	public:
@@ -24,7 +21,6 @@ class StageState: public State {
 		void Pause(void);
 		void Resume(void);
 	private:
-		void CreateAlien();
 		Sprite bg;
 		TileMap *tileMap;
 		TileSet tileSet;

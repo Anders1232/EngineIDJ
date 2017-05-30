@@ -5,9 +5,10 @@
 #include <vector>
 #include "Tileset.h"
 #include "Vec2.h"
-#include "Gameobject.h"
+#include "GameObject.h"
 
 #define TILE_VAZIO -1
+#define COLLISION_LAYER (1)
 
 using std::string;
 
@@ -26,7 +27,7 @@ class TileMap{
 		
 			Instancia o tileMap com o tileSet enviado e criar o tileMap lendo o arquivo enviado.
 		*/
-		TileMap(string file, TileSet *tileSet, string collisionTileMapFile);
+		TileMap(string file, TileSet *tileSet);
 		/**
 			\brief Obtém o índice do tileMap na posição informada
 			\param x Posição X do tileMap
@@ -39,13 +40,23 @@ class TileMap{
 		*/
 		int& At(int x, int y, int z=0) const;
 		/**
+			\brief Obtém o índice do tileMap na posição informada
+			\param index2D índice xy do tileMap,.tal como retornado pelo GetTileMousePos.
+			\param layer Layer da qual queremos obter a informação existente em index2D.
+			\return índice existente na posição (x, y, z do tileMap).
+		
+			O valor de retorno é um referência para a posição para que se possa permitir alteração externa.
+			PS: Com grandes poderes vêm grandes responsabilidades.
+		*/
+		int& AtLayer(int index2D, int layer) const;
+		/**
 			\brief Renderiza o TileMap a partir da posição dada.
 			\param cameraX Valor x da câmera, será usado como coordenada X de início do tileMap.
 			\param cameraY Valor y da câmera, será usado como coordenada Y de início do tileMap.
 
 			Renderiza-se todas as layers começando pelas de menor valor numérico de profundidade até as de maior valor numérico.
 		*/
-		void Render(int cameraX=0, int cameraY=0) const;
+		void Render(int cameraX=0, int cameraY=0, bool parallax= false) const;
 		/**
 			\brief Renderiza a layer informada.
 			\param layer Layer a ser renderizada.
@@ -53,8 +64,9 @@ class TileMap{
 			\param cameraY Valor y da câmera, será usado como coordenada Y de início do tileMap.
 
 			Renderiza-se todas as posições da matriz na layer indicada, com suas alterações sendo feitas por parallaxe.
+			Observação: pode exibir o tileMap de colisão se assim for pedido em ShowCollisionInfo.
 		*/
-		void RenderLayer(int layer, int cameraX=0, int cameraY=0) const;
+		void RenderLayer(int layer, int cameraX=0, int cameraY=0, bool parallax= false) const;
 		/**
 			\brief Informa a largura do tileMap.
 
@@ -93,6 +105,19 @@ class TileMap{
 			Atualiza-se o tileMao de colisão para adicionar a informação que tem um GameObject na posição respectiva.
 		*/
 		void InsertGO(GameObject* obj);
+		/**
+			\brief Ativa ou desativa a exibição na tela das informações do tileMap de colisão
+
+			Se show for verdadeiro, futuras chamadas à Render fará com que seja exibido o tileMap de colisão.
+			Se shor for falso, futuras chamadas à Render não exibirão o tileMap de colisão.
+		*/
+		void ShowCollisionInfo(bool show);
+		/**
+			\brief Informa estado a exibição do tilemap de colisão.
+
+			Retorna verdadeiro se o tileMap de colisão estiver sendo exibido, falso caso contrário.
+		*/
+		bool IsShowingCollisionInfo();
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
@@ -126,7 +151,7 @@ class TileMap{
 		int mapHeight;/**< Altura do TileMap.*/
 		int mapDepth;/**< Número de camadas do TileMap.*/
 		std::vector<GameObject*> gameObjectMatrix;/**< TileMap linearizado de GameObjects*/	//bidimensional??
-		std::vector<int> collisionTileMap;/**< TileMap linearizado com informações de colisão. */
+		bool displayCollisionInfo;/**<Verdadeiro se as informações de colisão devem ser exibidas no TileMap::Render, falso caso contrário.*/
 };
 
 #endif // TILEMAP_H

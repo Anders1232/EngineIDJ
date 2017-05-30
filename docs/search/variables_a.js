@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['lastdistance',['lastDistance',['../classAlien.html#a0f671a6a6f32d951a2406c87d9f18963',1,'Alien']]],
-  ['linearspeed',['linearSpeed',['../classPenguins.html#a43abb7eaf4714f886be6c25babcdcb30',1,'Penguins']]]
+  ['objectarray',['objectArray',['../classState.html#a08eaf3c9720d7f90ce579630ca938687',1,'State']]],
+  ['onetimeonly',['oneTimeOnly',['../classAnimation.html#a66b3ba0956af0c060e64cd3553d25ca6',1,'Animation']]]
 ];

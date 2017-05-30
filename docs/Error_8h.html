@@ -80,7 +80,7 @@ Gráfico de dependência de inclusões para Error.h:</div>
 </div><div class="textblock"><div class="dynheader">
 Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com este arquivo:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Error_8h__dep__incl.svg" width="3123" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Error_8h__dep__incl.svg" width="2438" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -106,6 +106,8 @@ Definições e Macros</h2></td></tr>
 <tr class="separator:ae8a1602ad06ce181163389d874118387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed4d6f4696003d289daa853688d238ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#aed4d6f4696003d289daa853688d238ef">REPORT_DEBUG</a>(msg)&#160;&#160;&#160;if(<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout&lt;&lt;&quot;[DEBUG]&quot;&lt;&lt;WHERE&lt;&lt;msg&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td></tr>
 <tr class="separator:aed4d6f4696003d289daa853688d238ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a468d7d0988cf3f74291cf0421aabbfa8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a468d7d0988cf3f74291cf0421aabbfa8">REPORT_DEBUG2</a>(cond,  msg)&#160;&#160;&#160;if(cond||<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout&lt;&lt;&quot;[DEBUG]&quot;&lt;&lt;WHERE&lt;&lt;msg&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td></tr>
+<tr class="separator:a468d7d0988cf3f74291cf0421aabbfa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15a48a3e28c4eb425e3340eae40894c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a15a48a3e28c4eb425e3340eae40894c5">REPORT_I_WAS_HERE</a>&#160;&#160;&#160;if(<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout &lt;&lt;&quot;[DEBUG] I was here!\t&quot;&lt;&lt;WHERE&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td></tr>
 <tr class="separator:a15a48a3e28c4eb425e3340eae40894c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a460a42aaa4200700dfb4a73f852e93b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a460a42aaa4200700dfb4a73f852e93b8">TEMP_REPORT_I_WAS_HERE</a>&#160;&#160;&#160;if(1){std::cout&lt;&lt;&quot;[DEBUG] I was here!\t&quot;&lt;&lt;WHERE&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td></tr>
@@ -250,6 +252,34 @@ Definições e Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="a468d7d0988cf3f74291cf0421aabbfa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a468d7d0988cf3f74291cf0421aabbfa8">&#9670;&nbsp;</a></span>REPORT_DEBUG2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define REPORT_DEBUG2</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cond, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">msg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;if(cond||<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout&lt;&lt;&quot;[DEBUG]&quot;&lt;&lt;WHERE&lt;&lt;msg&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a15a48a3e28c4eb425e3340eae40894c5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a15a48a3e28c4eb425e3340eae40894c5">&#9670;&nbsp;</a></span>REPORT_I_WAS_HERE</h2>
 
@@ -313,7 +343,7 @@ Definições e Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 23 de Maio de 2017 21:28:10 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Segunda, 29 de Maio de 2017 14:47:18 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

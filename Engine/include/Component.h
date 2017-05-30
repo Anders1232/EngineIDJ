@@ -1,7 +1,7 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
-#include "Gameobject.h"
+#include "GameObject.h"
 
 /**
 	\brief Tipos de Componentes

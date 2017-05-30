@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['x',['x',['../classRect.html#a29bc9b88a8c5537620f05ac7069f48cc',1,'Rect::x()'],['../classVec2.html#adf8ee322d4b4bcc04146762c018d731f',1,'Vec2::x()']]]
+  ['zoomfixed',['zoomFixed',['../classCamera.html#a7f235a90f57567a0012ed8f4a52634ce',1,'Camera']]],
+  ['zoomspeed',['zoomSpeed',['../classCamera.html#a7ec8dd2dcb2c3446ba88ad30e2e195d9',1,'Camera']]]
 ];

@@ -1,6 +1,6 @@
 <map id="DragAndDrop" name="DragAndDrop">
-<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="429,393,519,420"/>
-<area shape="rect" id="node3" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="543,393,611,420"/>
-<area shape="rect" id="node4" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="405,289,468,316"/>
-<area shape="rect" id="node5" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="235,155,291,181"/>
+<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="352,380,441,407"/>
+<area shape="rect" id="node3" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="465,380,533,407"/>
+<area shape="rect" id="node4" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="155,289,217,316"/>
+<area shape="rect" id="node5" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="158,155,214,181"/>
 </map>
