@@ -18,6 +18,10 @@
 #include <string>
 #include <memory>
 
+#define ALPHA_BLEND SDL_BLENDMODE_BLEND
+#define ADDITIVE SDL_BLENDMODE_ADD
+#define COLOR_MODULATION SDL_BLENDMODE_MOD
+
 /**
 	\brief Classe que modela uma sprite.
 
@@ -177,6 +181,14 @@ class Sprite {
 			Atribui a scaleY produto de scaleX pelo argumento e atribui a scaleX produto de scaleX pelo argumento.
 		*/
 		void Scale(float scale);
+
+		struct ColorMultiplier {
+			unsigned char r;
+			unsigned char g;
+			unsigned char b;
+		} colorMultiplier;
+		SDL_BlendMode blendMode;
+		unsigned char alpha;
 	private:
 		std::shared_ptr<SDL_Texture> texture;/**< Ponteiro para a textura manejada pelo sprite.*/
 		int width;/**< Largura da textura em pixels.*/

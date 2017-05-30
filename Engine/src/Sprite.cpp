@@ -7,15 +7,20 @@
 #define SPRITE_OPEN_X (0)//alterar esses valores altera a parte da textura que será renderizada
 #define SPRITE_OPEN_Y (0)
 
-Sprite::Sprite(void): frameCount(1), currentFrame(0), timeElapsed(0), frameTime(0), scaleX(1.), scaleY(1.0) {
-	texture= nullptr;
+Sprite::Sprite(void): Sprite("", 0, 1) {
 }
 
-Sprite::Sprite(std::string file, float frameTime, int frameCount): frameCount(frameCount), currentFrame(0), timeElapsed(0), frameTime(frameTime), scaleX(1.), scaleY(1.0) {
+Sprite::Sprite(std::string file, float frameTime, int frameCount)
+			: frameCount(frameCount), currentFrame(0), timeElapsed(0)
+			, frameTime(frameTime), scaleX(1.), scaleY(1.)
+			, colorMultiplier{255, 255, 255}, blendMode(ALPHA_BLEND)
+			, alpha(255) {
 	REPORT_I_WAS_HERE;
-	texture=nullptr;
-	REPORT_I_WAS_HERE;
-	Open(file);
+	if ( file.empty() ) {
+		texture = nullptr;
+	} else {
+		Open( file );
+	}
 	REPORT_I_WAS_HERE;
 }
 
@@ -58,6 +63,15 @@ void Sprite::Render(int x, int y, float angle, bool zoom) const {
 		temp= temp*Camera::GetZoom();
 	}
 	SDL_Rect rect= temp;
+	if ( SDL_SetTextureAlphaMod( texture.get(), alpha ) == -1 ) {
+		CHECK_SDL_ERROR;
+	}
+	if ( SDL_SetTextureBlendMode( texture.get(), blendMode ) == -1 ) {
+		CHECK_SDL_ERROR;
+	}
+	if ( SDL_SetTextureColorMod( texture.get(), colorMultiplier.r, colorMultiplier.g, colorMultiplier.b ) == -1 ) {
+		CHECK_SDL_ERROR;
+	}
 	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &rect, angle, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 		Error(SDL_GetError());
 	}
