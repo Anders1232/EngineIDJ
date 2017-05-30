@@ -31,7 +31,6 @@ StageState::StageState(void)
 	REPORT_I_WAS_HERE;
 	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet);
 	REPORT_I_WAS_HERE;
-//	objectArray.emplace_back(std::unique_ptr<Penguins>( new Penguins (704, 640) ) );
 	music.Play(10);
 }
 
@@ -43,7 +42,6 @@ StageState::~StageState(void) {
 //void StageState::Update(float dt)
 void StageState::Update(float dt) {
 	REPORT_I_WAS_HERE;
-//	Input();
 	if(inputManager.KeyPress(ESCAPE_KEY)) {
 		popRequested= true;
 	}
@@ -67,11 +65,8 @@ void StageState::Update(float dt) {
 	REPORT_I_WAS_HERE;
 	Camera::Update(dt);
 	REPORT_I_WAS_HERE;
-/*	if(nullptr == Penguins::player) {
-		popRequested= true;
-		Game::GetInstance().Push(new EndState(EndStateData(false)));
-	}
-*/	if(InputManager::GetInstance().KeyPress('r')) {
+
+	if(InputManager::GetInstance().KeyPress('r')) {
 		popRequested= true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
@@ -108,11 +103,9 @@ void StageState::Render(void) const {
 	REPORT_I_WAS_HERE;
 	bg.Render(STATE_RENDER_X, STATE_RENDER_Y);
 	REPORT_I_WAS_HERE;
-//	tileMap->Render(0, Camera::pos.x, Camera::pos.y);
 	tileMap->Render(Camera::pos.x, Camera::pos.y);
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
-//	tileMap->RenderLayer(1, Camera::pos.x, Camera::pos.y);
 }
 
 void StageState::Pause(void) {}

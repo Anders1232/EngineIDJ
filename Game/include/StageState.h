@@ -4,14 +4,13 @@
 #include <vector>
 #include <memory>
 #include "Sprite.h"
-#include "Gameobject.h"
+#include "GameObject.h"
 #include "Tileset.h"
 #include "TileMap.h"
 #include "InputManager.h"
 #include "State.h"
 #include "Music.h"
 
-//#define BG_POINTER
 
 class StageState: public State {
 	public:

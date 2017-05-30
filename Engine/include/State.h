@@ -1,7 +1,7 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include "Gameobject.h"
+#include "GameObject.h"
 #include <vector>
 #include <memory>
 
