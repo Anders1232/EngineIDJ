@@ -5,37 +5,41 @@
 
 #define ENEMY_MOVE_SPEED (30.)
 
-Enemy::Enemy(float lifeModifier ): dead(false){
+Enemy::Enemy(Vec2 position, float lifeModifier ):sp("img/minion.png"), dead(false){
 	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED));
 }
 Enemy::~Enemy(){
-
+	for(uint i =0; i < components.size(); i++){
+		delete components[i];
+	}
+	components.clear();
 }
+
 void Enemy::Update(float dt){
 	int forLimit= components.size();
 	for(int i=0; i < forLimit; i++){
 		components[i]->Update(*this, dt);
 	}
 }
-void Enemy::Render(void){
-	
-}
-bool Enemy::IsDead(void){
-	if( hp <= 0 )
-		return true;
-	else
-		return false;
-}
-void Enemy::RequestDelete(){
-	
-}
-void Enemy::NotifyCollision(GameObject *object){
 
+void Enemy::Render(void){
+	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, 0, true);
 }
+
+bool Enemy::IsDead(void){
+	return false;
+}
+
+void Enemy::RequestDelete(){
+}
+
+void Enemy::NotifyCollision(GameObject &object){
+}
+
 bool Enemy::Is(string type){
 	return type == "Enemy";
 }
-Rect Enemy::GetWorldRenderedRect(void){
+Rect Enemy::GetWorldRenderedRect(void) const{
 	Rect rect;
 	rect.x= box.x-Camera::pos.x;
 	rect.y= box.y-Camera::pos.y;

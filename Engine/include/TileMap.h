@@ -121,6 +121,7 @@ class TileMap{
 		*/
 		bool IsShowingCollisionInfo();
 		vector<vector<int>>* GetSpawnPositions(void) const;
+		Vec2 GetTileSize(void) const;
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.

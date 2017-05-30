@@ -206,15 +206,20 @@ vector<vector<int>>* TileMap::GetSpawnPositions(void) const{
 	vector<int> foundSpawnPoints;
 	uint countLimit= GetWidth()*GetHeight();
 	int base= countLimit*COLLISION_LAYER;
+	REPORT_I_WAS_HERE;
 	for(uint i= 0; i < countLimit; i++){
 		int positionToBeseach= base+i;
 		if(SPAWN_POINT == tileMatrix[positionToBeseach]){
 			foundSpawnPoints.push_back(positionToBeseach);
 		}
 	}
+	REPORT_I_WAS_HERE;
 	//agora que tenho todos os spawn points vou agrupá-los de acordo com suas adjacências.
 	spawnPoints->emplace_back();
+	(*spawnPoints)[0].push_back(foundSpawnPoints[0]);
+	foundSpawnPoints.erase(foundSpawnPoints.begin());
 	while( !foundSpawnPoints.empty() ){
+		bool neighborFound= false;
 		for(unsigned int i= 0; i < spawnPoints->size(); i++){
 			vector<int> &vec= (*spawnPoints)[i];
 			if(
@@ -225,16 +230,23 @@ vector<vector<int>>* TileMap::GetSpawnPositions(void) const{
 			){
 				vec.push_back(foundSpawnPoints[0]);
 				foundSpawnPoints.erase(foundSpawnPoints.begin());
+				neighborFound=true;
 				break;
 			}
-			else{
-				spawnPoints->emplace_back();
-				(*spawnPoints)[spawnPoints->size()-1].push_back(foundSpawnPoints[0]);
-				foundSpawnPoints.erase(foundSpawnPoints.begin());
-			}
 		}
+		if(!neighborFound){
+			spawnPoints->emplace_back();
+			(*spawnPoints)[spawnPoints->size()-1].push_back(foundSpawnPoints[0]);
+			foundSpawnPoints.erase(foundSpawnPoints.begin());
+		}
+		REPORT_I_WAS_HERE;
 	}
 	return spawnPoints;
 }
+
+Vec2 TileMap::GetTileSize(void) const{
+	return Vec2(tileSet->GetTileWidth(), tileSet->GetTileHeight());
+}
+
 
 

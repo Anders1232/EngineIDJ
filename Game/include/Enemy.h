@@ -15,16 +15,16 @@
 class Enemy : public GameObject
 {
 public:
-	Enemy(float lifeModifier); // calcula vida e velocidade 
+	Enemy(Vec2 position, float lifeModifier); // calcula vida e velocidade 
 	~Enemy();
 
 	void Update(float dt);
 	void Render(void);
 	bool IsDead(void);
 	void RequestDelete();
-	void NotifyCollision(GameObject *object);
+	void NotifyCollision(GameObject &object);
 	bool Is(string type);
-	Rect GetWorldRenderedRect(void);
+	Rect GetWorldRenderedRect(void) const;
 
 private:
 	enum EnemyType{ HOSTILE, NEUTRAL, ENGINEER, ARQUITET, ART, QUIMIC } type;

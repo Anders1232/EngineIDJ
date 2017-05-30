@@ -5,6 +5,7 @@
 #include "Collision.h"
 #include "EndStateData.h"
 #include "Face.h"
+#include "Enemy.h"
 
 #ifdef _WIN32
 	#include <SDL.h>
@@ -22,14 +23,19 @@
 #define STATE_RENDER_X 0//esse valores calculam o offset em relação ao canto superior esquedo da imagem daquilo que será renderizado
 #define STATE_RENDER_Y 0
 #define FACE_LINEAR_SIZE 30
+#define TIME_BETWEEN_SPAWNS (5.)
 
 StageState::StageState(void)
-			:State(), bg("img/ocean.jpg"),
-				tileSet(30, 30,"img/tileset-basico.jpg"),
-				inputManager(InputManager::GetInstance()),
-				music("audio/stageState.ogg") {
+			:State(),
+			bg("img/ocean.jpg"),
+			tileSet(30, 30,"img/tileset-basico.jpg"),
+			inputManager(InputManager::GetInstance()),
+			music("audio/stageState.ogg"),
+			spawnTimer(){
 	REPORT_I_WAS_HERE;
 	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet);
+	REPORT_I_WAS_HERE;
+	spawnGroups= tileMap->GetSpawnPositions();
 	REPORT_I_WAS_HERE;
 	music.Play(10);
 }
@@ -37,6 +43,7 @@ StageState::StageState(void)
 StageState::~StageState(void) {
 	objectArray.clear();
 	delete tileMap;
+	delete spawnGroups;
 }
 
 //void StageState::Update(float dt)
@@ -65,7 +72,14 @@ void StageState::Update(float dt) {
 	REPORT_I_WAS_HERE;
 	Camera::Update(dt);
 	REPORT_I_WAS_HERE;
-
+	spawnTimer.Update(dt);
+	if(TIME_BETWEEN_SPAWNS < spawnTimer.Get()){
+		int selectedSpawnGroup= rand()%spawnGroups->size();
+		int selectedSpawnPosition= rand()% ( (*spawnGroups)[selectedSpawnGroup] ).size();
+		SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition]);
+	}
+	
+	
 	if(InputManager::GetInstance().KeyPress('r')) {
 		popRequested= true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
@@ -117,6 +131,14 @@ void StageState::Render(void) const {
 void StageState::Pause(void) {}
 
 void StageState::Resume(void) {}
+
+void StageState::SpawnEnemy(int tileMapPosition){
+	Vec2 tileSize= tileMap->GetTileSize();
+	Vec2 spawnPosition;
+	spawnPosition.x= (tileMapPosition%tileMap->GetWidth())*tileSize.x;
+	spawnPosition.y= (tileMapPosition%tileMap->GetHeight())*tileSize.y;
+	objectArray.push_back(unique_ptr<GameObject>(new Enemy(spawnPosition, 1.) ) );
+}
 
 
 

@@ -3,7 +3,7 @@
 
 #include "Component.h"
 
-class AIGoDown
+class AIGoDown : public Component
 {
 	public:
 		AIGoDown(float speed);
