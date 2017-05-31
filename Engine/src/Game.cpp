@@ -166,9 +166,11 @@ void Game::UpdateStack(void) {
 
 Vec2 Game::GetWindowDimensions(void) const {
 	Vec2 ret;
-	SDL_GetWindowSize(window, (int*)&ret.x, (int*)&ret.y);
-	ret.x= *((int*)&ret.x);
-	ret.y= *((int*)&ret.y);
+	int x = 0;
+	int y = 0;
+	SDL_GetWindowSize(window, &x, &y);
+	ret.x= x;
+	ret.y= y;
 	return ret;
 }
 
