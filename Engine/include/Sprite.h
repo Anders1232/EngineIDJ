@@ -14,6 +14,7 @@
 	#error "Unknown compiler"
 #endif
 
+#include "Color.h"
 
 #include <string>
 #include <memory>
@@ -181,12 +182,7 @@ class Sprite {
 			Atribui a scaleY produto de scaleX pelo argumento e atribui a scaleX produto de scaleX pelo argumento.
 		*/
 		void Scale(float scale);
-		
-		struct ColorMultiplier {
-			unsigned char r;
-			unsigned char g;
-			unsigned char b;
-		} colorMultiplier;/**< A cor a ser usada para multiplicar a sprite.*/
+		Color colorMultiplier;/**< A cor a ser usada para multiplicar a sprite.*/
 		SDL_BlendMode blendMode;/**< O modo de mistura da sprite com as inferiores.*/
 		unsigned char alpha;/**< A transparência da textura.*/
 	private:
