@@ -11,11 +11,8 @@
 <area shape="rect" id="node17" href="$TileMap_8cpp.html" title="Engine/src/TileMap.cpp" alt="" coords="1768,80,1926,107"/>
 <area shape="rect" id="node18" href="$Tileset_8cpp.html" title="Engine/src/Tileset.cpp" alt="" coords="1951,80,2103,107"/>
 <area shape="rect" id="node19" href="$Vec2_8cpp.html" title="Engine/src/Vec2.cpp" alt="" coords="2128,80,2270,107"/>
-<area shape="rect" id="node20" href="$Alien_8cpp.html" title="Game/src/Alien.cpp" alt="" coords="2294,80,2432,107"/>
-<area shape="rect" id="node21" href="$Enemy_8cpp.html" title="Game/src/Enemy.cpp" alt="" coords="2456,80,2606,107"/>
-<area shape="rect" id="node22" href="$Face_8cpp.html" title="Game/src/Face.cpp" alt="" coords="2630,80,2768,107"/>
-<area shape="rect" id="node23" href="$Minion_8cpp.html" title="Game/src/Minion.cpp" alt="" coords="2792,80,2939,107"/>
-<area shape="rect" id="node24" href="$Penguins_8cpp.html" title="Game/src/Penguins.cpp" alt="" coords="2963,80,3126,107"/>
+<area shape="rect" id="node20" href="$Enemy_8cpp.html" title="Game/src/Enemy.cpp" alt="" coords="2295,80,2444,107"/>
+<area shape="rect" id="node21" href="$Face_8cpp.html" title="Game/src/Face.cpp" alt="" coords="2469,80,2606,107"/>
 <area shape="rect" id="node3" href="$Music_8cpp.html" title="Engine/src/Music.cpp" alt="" coords="26,155,174,181"/>
 <area shape="rect" id="node4" href="$EndState_8h.html" title="Game/include/EndState.h" alt="" coords="199,155,370,181"/>
 <area shape="rect" id="node5" href="$StageState_8h.html" title="Game/include/StageState.h" alt="" coords="162,229,345,256"/>

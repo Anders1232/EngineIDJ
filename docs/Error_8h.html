@@ -81,7 +81,7 @@ Gráfico de dependência de inclusões para Error.h:</div>
 </div><div class="textblock"><div class="dynheader">
 Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com este arquivo:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Error_8h__dep__incl.svg" width="3131" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Error_8h__dep__incl.svg" width="2612" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -95,23 +95,23 @@ Definições e Macros</h2></td></tr>
 <tr class="separator:ad7ac4f59c7725b4921af49f74536de8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a787bf097960f03921a9b9e0195d27831"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a787bf097960f03921a9b9e0195d27831">Error</a>(msg)&#160;&#160;&#160;std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\t&quot;&lt;&lt;msg&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;exit(1);</td></tr>
 <tr class="separator:a787bf097960f03921a9b9e0195d27831"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a092bd7bb2cb7fd9f483b6995cee61bc0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a092bd7bb2cb7fd9f483b6995cee61bc0">ASSERT</a>(exp)&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(!(exp)){std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\tAssertion Failed.&quot;&lt;&lt;END_LINE;exit(1);}</td></tr>
+<tr class="memitem:a092bd7bb2cb7fd9f483b6995cee61bc0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a092bd7bb2cb7fd9f483b6995cee61bc0">ASSERT</a>(exp)&#160;&#160;&#160;if(!(exp)){std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\tAssertion Failed.&quot;&lt;&lt;END_LINE;exit(1);}</td></tr>
 <tr class="separator:a092bd7bb2cb7fd9f483b6995cee61bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28d79607639d01447db6950b24a81d77"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a28d79607639d01447db6950b24a81d77">ASSERT2</a>(exp,  msg)&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(!(exp)){std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\tAssertion Failed.&quot; &lt;&lt;msg&lt;&lt; &quot;\n&quot;;exit(1);}</td></tr>
+<tr class="memitem:a28d79607639d01447db6950b24a81d77"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a28d79607639d01447db6950b24a81d77">ASSERT2</a>(exp,  msg)&#160;&#160;&#160;if(!(exp)){std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\tAssertion Failed.&quot; &lt;&lt;msg&lt;&lt; &quot;\n&quot;;exit(1);}</td></tr>
 <tr class="separator:a28d79607639d01447db6950b24a81d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e03114cdb9780c937e89ed7cb527ae1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a5e03114cdb9780c937e89ed7cb527ae1">SDL_ASSERT</a>(exp)&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(!(exp)){std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\tAssertion Failed:&quot; &lt;&lt; SDL_GetError()&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;exit(1);}</td></tr>
+<tr class="memitem:a5e03114cdb9780c937e89ed7cb527ae1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a5e03114cdb9780c937e89ed7cb527ae1">SDL_ASSERT</a>(exp)&#160;&#160;&#160;if(!(exp)){std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\tAssertion Failed:&quot; &lt;&lt; SDL_GetError()&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;exit(1);}</td></tr>
 <tr class="separator:a5e03114cdb9780c937e89ed7cb527ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd4a2dee55f5359c0389baab37c2f468"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#acd4a2dee55f5359c0389baab37c2f468">WHERE</a>&#160;&#160;&#160;__FILE__&lt;&lt;&quot; | &quot;&lt;&lt;__func__&lt;&lt;&quot;:&quot;&lt;&lt;__LINE__</td></tr>
 <tr class="separator:acd4a2dee55f5359c0389baab37c2f468"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8a1602ad06ce181163389d874118387"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#ae8a1602ad06ce181163389d874118387">CHECK_SDL_ERROR</a>&#160;&#160;&#160;std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\t&quot;&lt;&lt;SDL_GetError()&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a></td></tr>
 <tr class="separator:ae8a1602ad06ce181163389d874118387"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed4d6f4696003d289daa853688d238ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#aed4d6f4696003d289daa853688d238ef">REPORT_DEBUG</a>(msg)&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout&lt;&lt;&quot;[DEBUG]&quot;&lt;&lt;WHERE&lt;&lt;msg&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td></tr>
+<tr class="memitem:aed4d6f4696003d289daa853688d238ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#aed4d6f4696003d289daa853688d238ef">REPORT_DEBUG</a>(msg)&#160;&#160;&#160;if(<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout&lt;&lt;&quot;[DEBUG]&quot;&lt;&lt;WHERE&lt;&lt;msg&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td></tr>
 <tr class="separator:aed4d6f4696003d289daa853688d238ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a468d7d0988cf3f74291cf0421aabbfa8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a468d7d0988cf3f74291cf0421aabbfa8">REPORT_DEBUG2</a>(cond,  msg)&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(cond||<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout&lt;&lt;&quot;[DEBUG]&quot;&lt;&lt;WHERE&lt;&lt;msg&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td></tr>
+<tr class="memitem:a468d7d0988cf3f74291cf0421aabbfa8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a468d7d0988cf3f74291cf0421aabbfa8">REPORT_DEBUG2</a>(cond,  msg)&#160;&#160;&#160;if(cond||<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout&lt;&lt;&quot;[DEBUG]&quot;&lt;&lt;WHERE&lt;&lt;msg&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td></tr>
 <tr class="separator:a468d7d0988cf3f74291cf0421aabbfa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15a48a3e28c4eb425e3340eae40894c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a15a48a3e28c4eb425e3340eae40894c5">REPORT_I_WAS_HERE</a>&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout &lt;&lt;&quot;[DEBUG] I was here!\t&quot;&lt;&lt;WHERE&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td></tr>
+<tr class="memitem:a15a48a3e28c4eb425e3340eae40894c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a15a48a3e28c4eb425e3340eae40894c5">REPORT_I_WAS_HERE</a>&#160;&#160;&#160;if(<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout &lt;&lt;&quot;[DEBUG] I was here!\t&quot;&lt;&lt;WHERE&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td></tr>
 <tr class="separator:a15a48a3e28c4eb425e3340eae40894c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a460a42aaa4200700dfb4a73f852e93b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a460a42aaa4200700dfb4a73f852e93b8">TEMP_REPORT_I_WAS_HERE</a>&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(1){std::cout&lt;&lt;&quot;[DEBUG] I was here!\t&quot;&lt;&lt;WHERE&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td></tr>
+<tr class="memitem:a460a42aaa4200700dfb4a73f852e93b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Error_8h.html#a460a42aaa4200700dfb4a73f852e93b8">TEMP_REPORT_I_WAS_HERE</a>&#160;&#160;&#160;if(1){std::cout&lt;&lt;&quot;[DEBUG] I was here!\t&quot;&lt;&lt;WHERE&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td></tr>
 <tr class="separator:a460a42aaa4200700dfb4a73f852e93b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -131,7 +131,7 @@ Definições de Tipos</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">exp</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(!(exp)){std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\tAssertion Failed.&quot;&lt;&lt;END_LINE;exit(1);}</td>
+          <td>&#160;&#160;&#160;if(!(exp)){std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\tAssertion Failed.&quot;&lt;&lt;END_LINE;exit(1);}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -159,7 +159,7 @@ Definições de Tipos</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(!(exp)){std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\tAssertion Failed.&quot; &lt;&lt;msg&lt;&lt; &quot;\n&quot;;exit(1);}</td>
+          <td></td><td>&#160;&#160;&#160;if(!(exp)){std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\tAssertion Failed.&quot; &lt;&lt;msg&lt;&lt; &quot;\n&quot;;exit(1);}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -251,7 +251,7 @@ Definições de Tipos</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">msg</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout&lt;&lt;&quot;[DEBUG]&quot;&lt;&lt;WHERE&lt;&lt;msg&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td>
+          <td>&#160;&#160;&#160;if(<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout&lt;&lt;&quot;[DEBUG]&quot;&lt;&lt;WHERE&lt;&lt;msg&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -279,7 +279,7 @@ Definições de Tipos</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(cond||<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout&lt;&lt;&quot;[DEBUG]&quot;&lt;&lt;WHERE&lt;&lt;msg&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td>
+          <td></td><td>&#160;&#160;&#160;if(cond||<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout&lt;&lt;&quot;[DEBUG]&quot;&lt;&lt;WHERE&lt;&lt;msg&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -293,7 +293,7 @@ Definições de Tipos</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define REPORT_I_WAS_HERE&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout &lt;&lt;&quot;[DEBUG] I was here!\t&quot;&lt;&lt;WHERE&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td>
+          <td class="memname">#define REPORT_I_WAS_HERE&#160;&#160;&#160;if(<a class="el" href="Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a>){std::cout &lt;&lt;&quot;[DEBUG] I was here!\t&quot;&lt;&lt;WHERE&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -311,7 +311,7 @@ Definições de Tipos</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">exp</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(!(exp)){std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\tAssertion Failed:&quot; &lt;&lt; SDL_GetError()&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;exit(1);}</td>
+          <td>&#160;&#160;&#160;if(!(exp)){std::cerr&lt;&lt;&quot;[ERROR] &quot;&lt;&lt;WHERE&lt;&lt;&quot;\t\tAssertion Failed:&quot; &lt;&lt; SDL_GetError()&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;exit(1);}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -325,7 +325,7 @@ Definições de Tipos</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TEMP_REPORT_I_WAS_HERE&#160;&#160;&#160;<a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(1){std::cout&lt;&lt;&quot;[DEBUG] I was here!\t&quot;&lt;&lt;WHERE&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td>
+          <td class="memname">#define TEMP_REPORT_I_WAS_HERE&#160;&#160;&#160;if(1){std::cout&lt;&lt;&quot;[DEBUG] I was here!\t&quot;&lt;&lt;WHERE&lt;&lt;<a class="el" href="Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f">END_LINE</a>;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -364,7 +364,7 @@ Definições de Tipos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 30 de Maio de 2017 23:09:02 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 30 de Maio de 2017 23:35:18 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

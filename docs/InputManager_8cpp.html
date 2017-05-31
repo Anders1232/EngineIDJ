@@ -63,10 +63,6 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#define-members">Definições e Macros</a> &#124;
-<a href="#func-members">Funções</a> &#124;
-<a href="#var-members">Variáveis</a>  </div>
   <div class="headertitle">
 <div class="title">Referência do Arquivo InputManager.cpp</div>  </div>
 </div><!--header-->
@@ -80,151 +76,10 @@ Gráfico de dependência de inclusões para InputManager.cpp:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="InputManager_8cpp__incl.svg" width="479" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Definições e Macros</h2></td></tr>
-<tr class="memitem:a10c6b4e3b3cdf6975c1bcb82579313ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea">AJUST_KEY</a>(k)</td></tr>
-<tr class="separator:a10c6b4e3b3cdf6975c1bcb82579313ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Funções</h2></td></tr>
-<tr class="memitem:a580fdfafa4d099b2a126c07f24bee123"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InputManager_8cpp.html#a580fdfafa4d099b2a126c07f24bee123">memset</a> (mouseUpdate, 0, 6 *sizeof(int))</td></tr>
-<tr class="separator:a580fdfafa4d099b2a126c07f24bee123"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4afb58491dc4f72ffec41e10b65621eb"><td class="memItemLeft" align="right" valign="top">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD void <a class="el" href="classInputManager.html#afc344b3b2e204cfb39ee17b33bcc5eab">InputManager::Update</a>(){ SDL_Event event;updateCounter++;quitRequested=false;SDL_GetMouseState(&amp;mouseX, &amp;mouseY);while(SDL_PollEvent(&amp;event)){ if(SDL_QUIT==event.type){ quitRequested=true;} else if(SDL_MOUSEBUTTONDOWN==event.type){ mouseState[event.button.button]=true;mouseUpdate[event.button.button]=updateCounter;} else if(SDL_MOUSEBUTTONUP==event.type) { mouseState[event.button.button]=false;} else if(SDL_MOUSEWHEEL==event.type){ mouseScroolState=<a class="el" href="classVec2.html">Vec2</a>(event.wheel.x, event.wheel.y);mouseScroolUpdate=updateCounter;} else if(SDL_KEYDOWN==event.type){ if(!event.key.repeat){ keyState[event.key.keysym.sym]=true;keyUpdate[event.key.keysym.sym]=updateCounter;=======#define <a class="el" href="InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea">AJUST_KEY</a>(k) void <a class="el" href="classInputManager.html#afc344b3b2e204cfb39ee17b33bcc5eab">InputManager::Update</a>(void) { SDL_GetMouseState(&amp;mouseX, &amp;mouseY);quitRequested=false;updateCounter++;SDL_Event event;while(SDL_PollEvent(&amp;event)) { if(SDL_KEYDOWN==event.type) { if(!event.key.repeat) { int keyCode=event.key.keysym.sym;<a class="el" href="InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea">AJUST_KEY</a>(keyCode);keyState[keyCode]=true;keyUpdate[keyCode]=updateCounter;} } else if(SDL_KEYUP==event.type) { if(!event.key.repeat) { int keyCode=event.key.keysym.sym;<a class="el" href="InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea">AJUST_KEY</a>(keyCode);keyState[keyCode]=false;keyUpdate[keyCode]=updateCounter;&gt;&gt;&gt;&gt;&gt;&gt; c68673265ecd6285d212512450e844fb107d9ae5 else&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InputManager_8cpp.html#a4afb58491dc4f72ffec41e10b65621eb">if</a> (SDL_KEYUP==event.type)</td></tr>
-<tr class="separator:a4afb58491dc4f72ffec41e10b65621eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f575652ae61288178292cb9d0b2a396"><td class="memItemLeft" align="right" valign="top">else&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a> (SDL_CONTROLLERDEVICEADDED==event.type)</td></tr>
-<tr class="separator:a7f575652ae61288178292cb9d0b2a396"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variáveis</h2></td></tr>
-<tr class="memitem:a96ff955fafae43bc26b4257434786df9"><td class="memItemLeft" align="right" valign="top">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD <a class="el" href="classInputManager.html#a8be46886da639b26d67181c29dab6d6c">InputManager::InputManager</a>():quitRequested(false), updateCounter(0), mouseX(0), mouseY(0), mouseScroolUpdate(0) {=======<a class="el" href="classInputManager.html#a8be46886da639b26d67181c29dab6d6c">InputManager::InputManager</a>():quitRequested(false), updateCounter(0), mouseX(0), mouseY(0), mouseScroolUpdate(0) { memset(keyState, 0, 416 *sizeof(bool));memset(keyUpdate, 0, 416 *sizeof(int));&gt;&gt;&gt;&gt;&gt;&gt; c68673265ecd6285d212512450e844fb107d9ae5&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InputManager_8cpp.html#a96ff955fafae43bc26b4257434786df9">memset</a> (mouseState, 0, 6 *sizeof(bool))</td></tr>
-<tr class="separator:a96ff955fafae43bc26b4257434786df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9687acb739908d1e85ae5e6fda4bc098"><td class="memItemLeft" align="right" valign="top">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLERDEVICEREMOVED==event.type){ try{ SDL_GameController *pad=padToController.at(event.cdevice.which);SDL_GameControllerClose(pad);padToController.erase(event.cdevice.which);} catch(const std::out_of_range &amp;oor){ <a class="el" href="Error_8h.html#a787bf097960f03921a9b9e0195d27831">Error</a>(&quot;Tentou retirar controle que não existe?!?&quot;);} } else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLERBUTTONDOWN==event.type){ controllerState[event.cbutton.button]=true;controllerUpdate[event.cbutton.button]=updateCounter;} else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLERBUTTONUP==event.type){ controllerState[event.cbutton.button]=false;} else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLERAXISMOTION==event.type){ <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLER_AXIS_TRIGGERLEFT==event.caxis.axis){ controllerState[SDL_CONTROLLER_AXIS_TRIGGERLEFT]=true;controllerUpdate[SDL_CONTROLLER_AXIS_TRIGGERLEFT]=updateCounter;} else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLER_AXIS_TRIGGERRIGHT==event.caxis.axis){ controllerState[SDL_CONTROLLER_AXIS_TRIGGERRIGHT]=true;controllerUpdate[SDL_CONTROLLER_AXIS_TRIGGERRIGHT]=updateCounter;} else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLER_AXIS_INVALID !=event.caxis.axis){ SDL_GameController *pad=padToController.at(event.cdevice.which);int16_t StickLeftX=SDL_GameControllerGetAxis(pad, SDL_CONTROLLER_AXIS_LEFTX);int16_t StickLeftY=SDL_GameControllerGetAxis(pad, SDL_CONTROLLER_AXIS_LEFTY);int16_t StickRightX=SDL_GameControllerGetAxis(pad, SDL_CONTROLLER_AXIS_RIGHTX);int16_t StickRightY=SDL_GameControllerGetAxis(pad, SDL_CONTROLLER_AXIS_RIGHTY);controllerLeftStickState=<a class="el" href="classVec2.html">Vec2</a>((float) StickLeftX,(float) StickLeftY);controllerRightStickState=<a class="el" href="classVec2.html">Vec2</a>((float) StickRightX,(float) StickRightY);controllerStickUpdate=updateCounter;}=======else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_MOUSEBUTTONDOWN==event.type) { mouseState[event.button.button]=true;mouseUpdate[event.button.button]=updateCounter;} else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_MOUSEBUTTONUP==event.type) { mouseState[event.button.button]=false;mouseUpdate[event.button.button]=updateCounter;} else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_QUIT==event.type) { quitRequested=true;} else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_MOUSEWHEEL==event.type) { mouseScroolState=<a class="el" href="classVec2.html">Vec2</a>(event.wheel.x, event.wheel.y);mouseScroolUpdate=updateCounter;&gt;&gt;&gt;&gt;&gt;&gt; c68673265ecd6285d212512450e844fb107d9ae5&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD bool <a class="el" href="classInputManager.html#acf5d7a5b83dc24aba5d43372d6152dae">InputManager::KeyPress</a>(int key) const { try{ return(keyUpdate.at(key)==updateCounter);} catch(const std::out_of_range &amp;oor){ return false;} } bool <a class="el" href="classInputManager.html#a05892299bfc75aab9d2530737cf36248">InputManager::KeyRelease</a>(int key) const { try{ return(keyUpdate.at(key) !=updateCounter);} catch(const std::out_of_range &amp;oor){ return false;} } bool <a class="el" href="classInputManager.html#afd4bcb5fd69d6262fa79f64a4ae43b01">InputManager::IsKeyDown</a>(int key) const { try{ return(keyState.at(key)==true);} catch(const std::out_of_range &amp;oor){ return false;} } bool <a class="el" href="classInputManager.html#aafbc79dc459c3bba0e4a4054421632d3">InputManager::ButtonPress</a>(int button) const { try{return(controllerUpdate.at(button)==updateCounter);} catch(const std::out_of_range &amp;oor){return false;} } bool <a class="el" href="classInputManager.html#a313d0716dad6a7f322f86e8b2e986d42">InputManager::ButtonRelease</a>(int button) const { try{return(controllerUpdate.at(button) !=updateCounter);} catch(const std::out_of_range &amp;oor){return false;} } bool <a class="el" href="classInputManager.html#a10703289f8e5685ad8d01b8e0e906f3d">InputManager::IsButtonDown</a>(int button) const { try{return(controllerState.at(button)==true);} catch(const std::out_of_range &amp;oor){return false;} } <a class="el" href="classVec2.html">Vec2</a> <a class="el" href="classInputManager.html#ab320da5dbf24a5c68899bb856570005c">InputManager::GetControllerLeftStickState</a>() const { return controllerLeftStickState;} <a class="el" href="classVec2.html">Vec2</a> <a class="el" href="classInputManager.html#a5b82bc379ae6b2673d7b8b739d0020e7">InputManager::GetControllerRightStickState</a>() const { return controllerRightStickState;} bool <a class="el" href="classInputManager.html#a403608d0dbad0dcc605e82a6368d6fea">InputManager::IsControllerSticking</a>(void) const { return(mouseScroolUpdate==updateCounter);} bool <a class="el" href="classInputManager.html#a9aafa7219a565ac9f2c880e0abf8bcb5">InputManager::MousePress</a>(int button) const { return(mouseUpdate[button]==updateCounter);} bool <a class="el" href="classInputManager.html#a5eb551457a8c8a875c0a75628e4131b6">InputManager::MouseRelease</a>(int button) const { return(mouseUpdate[button] !=updateCounter);} bool <a class="el" href="classInputManager.html#ac75336ac25fda40e272c40378f687295">InputManager::IsMouseDown</a>(int button) const { return(true==mouseState[button]);} int <a class="el" href="classInputManager.html#a2a0d20df0466e1ab838fbc4cd12b07d1">InputManager::GetMouseX</a>() const { return(mouseX);} int <a class="el" href="classInputManager.html#acd6393a9ac3fa1c23eac737a9f0a2896">InputManager::GetMouseY</a>() const { return(mouseY);} bool <a class="el" href="classInputManager.html#ad2248754e8b4cf8110783448c1d7ebc2">InputManager::QuitRequested</a>() const { return(quitRequested);} <a class="el" href="classVec2.html">Vec2</a> <a class="el" href="classInputManager.html#ae8c37d931bce337ded639b3204615deb">InputManager::GetMousePos</a>() const {=======bool <a class="el" href="classInputManager.html#acf5d7a5b83dc24aba5d43372d6152dae">InputManager::KeyPress</a>(int key) const { <a class="el" href="InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea">AJUST_KEY</a>(key);return keyState[key] &amp;&amp;keyUpdate[key]==updateCounter;} bool <a class="el" href="classInputManager.html#a05892299bfc75aab9d2530737cf36248">InputManager::KeyRelease</a>(int key) const { <a class="el" href="InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea">AJUST_KEY</a>(key);return((false==keyState[key]) &amp;&amp;keyUpdate[key]==updateCounter);} bool <a class="el" href="classInputManager.html#afd4bcb5fd69d6262fa79f64a4ae43b01">InputManager::IsKeyDown</a>(int key) const { <a class="el" href="InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea">AJUST_KEY</a>(key);return keyState[key];} bool <a class="el" href="classInputManager.html#a9aafa7219a565ac9f2c880e0abf8bcb5">InputManager::MousePress</a>(int button) const { return mouseState[button]&amp;&amp;mouseUpdate[button]==updateCounter;} bool <a class="el" href="classInputManager.html#a5eb551457a8c8a875c0a75628e4131b6">InputManager::MouseRelease</a>(int button) const { return((false==mouseState[button]) &amp;&amp;mouseUpdate[button]==updateCounter);} bool <a class="el" href="classInputManager.html#ac75336ac25fda40e272c40378f687295">InputManager::IsMouseDown</a>(int button) const { return mouseState[button];} int <a class="el" href="classInputManager.html#a2a0d20df0466e1ab838fbc4cd12b07d1">InputManager::GetMouseX</a>(void) const { return mouseX;} int <a class="el" href="classInputManager.html#acd6393a9ac3fa1c23eac737a9f0a2896">InputManager::GetMouseY</a>(void) const { return mouseY;} bool <a class="el" href="classInputManager.html#ad2248754e8b4cf8110783448c1d7ebc2">InputManager::QuitRequested</a>(void) const { return quitRequested;} <a class="el" href="classVec2.html">Vec2</a> <a class="el" href="classInputManager.html#ae8c37d931bce337ded639b3204615deb">InputManager::GetMousePos</a>() const { &gt;&gt;&gt;&gt;&gt;&gt; c68673265ecd6285d212512450e844fb107d9ae5 return&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InputManager_8cpp.html#a9687acb739908d1e85ae5e6fda4bc098">Vec2</a> (mouseX, mouseY)</td></tr>
-<tr class="separator:a9687acb739908d1e85ae5e6fda4bc098"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Definições e macros</h2>
-<a id="a10c6b4e3b3cdf6975c1bcb82579313ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10c6b4e3b3cdf6975c1bcb82579313ea">&#9670;&nbsp;</a></span>AJUST_KEY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AJUST_KEY</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">k</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Valor:</b><div class="fragment"><div class="line"><span class="keywordflow">if</span>(k &gt;= 0x40000000) {\</div><div class="line">    k=k-0x40000000+0x7F;\</div><div class="line">}</div></div><!-- fragment -->
-</div>
-</div>
-<h2 class="groupheader">Funções</h2>
-<a id="a4afb58491dc4f72ffec41e10b65621eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4afb58491dc4f72ffec41e10b65621eb">&#9670;&nbsp;</a></span>if() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD void <a class="el" href="classInputManager.html#afc344b3b2e204cfb39ee17b33bcc5eab">InputManager::Update</a>(){ SDL_Event event; updateCounter ++; quitRequested = false; SDL_GetMouseState(&amp;mouseX, &amp;mouseY); while (SDL_PollEvent(&amp;event)){ if( SDL_QUIT == event.type){ quitRequested = true; } else if(SDL_MOUSEBUTTONDOWN == event.type){ mouseState[event.button.button] = true; mouseUpdate[event.button.button] = updateCounter; } else if(SDL_MOUSEBUTTONUP == event.type ) { mouseState[event.button.button] = false; } else if(SDL_MOUSEWHEEL == event.type){ mouseScroolState= <a class="el" href="classVec2.html">Vec2</a>(event.wheel.x, event.wheel.y); mouseScroolUpdate= updateCounter; } else if(SDL_KEYDOWN == event.type){ if(!event.key.repeat){ keyState[event.key.keysym.sym] = true; keyUpdate[event.key.keysym.sym] = updateCounter; ======= #define <a class="el" href="InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea">AJUST_KEY</a>(k) void <a class="el" href="classInputManager.html#afc344b3b2e204cfb39ee17b33bcc5eab">InputManager::Update</a>(void) { SDL_GetMouseState(&amp;mouseX, &amp;mouseY); quitRequested= false; updateCounter++; SDL_Event event; while(SDL_PollEvent(&amp;event)) { if(SDL_KEYDOWN == event.type) { if(!event.key.repeat) { int keyCode= event.key.keysym.sym; <a class="el" href="InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea">AJUST_KEY</a>(keyCode); keyState[keyCode]= true; keyUpdate[keyCode]= updateCounter; } } else if (SDL_KEYUP == event.type) { if(!event.key.repeat) { int keyCode= event.key.keysym.sym; <a class="el" href="InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea">AJUST_KEY</a>(keyCode); keyState[keyCode]= false; keyUpdate[keyCode]= updateCounter; &gt;&gt;&gt;&gt;&gt;&gt; c68673265ecd6285d212512450e844fb107d9ae5 else if </td>
-          <td>(</td>
-          <td class="paramtype">SDL_KEYUP&#160;</td>
-          <td class="paramname"> = <code>=&#160;event.type</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7f575652ae61288178292cb9d0b2a396"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f575652ae61288178292cb9d0b2a396">&#9670;&nbsp;</a></span>if() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">else if </td>
-          <td>(</td>
-          <td class="paramtype">SDL_CONTROLLERDEVICEADDED&#160;</td>
-          <td class="paramname"> = <code>=&#160;event.type</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a580fdfafa4d099b2a126c07f24bee123"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a580fdfafa4d099b2a126c07f24bee123">&#9670;&nbsp;</a></span>memset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">memset </td>
-          <td>(</td>
-          <td class="paramtype">mouseUpdate&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">0&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">6 *&#160;</td>
-          <td class="paramname"><em>sizeof</em>int&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Variáveis</h2>
-<a id="a96ff955fafae43bc26b4257434786df9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96ff955fafae43bc26b4257434786df9">&#9670;&nbsp;</a></span>memset</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD <a class="el" href="classInputManager.html#a8be46886da639b26d67181c29dab6d6c">InputManager::InputManager</a>():quitRequested(false), updateCounter(0), mouseX(0), mouseY(0), mouseScroolUpdate(0) { ======= <a class="el" href="classInputManager.html#a8be46886da639b26d67181c29dab6d6c">InputManager::InputManager</a>():quitRequested(false), updateCounter(0), mouseX(0), mouseY(0), mouseScroolUpdate(0) { memset(keyState, 0, 416*sizeof(bool)); memset(keyUpdate, 0, 416*sizeof(int)); &gt;&gt;&gt;&gt;&gt;&gt; c68673265ecd6285d212512450e844fb107d9ae5 memset(mouseState, 0, 6 *sizeof(bool))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9687acb739908d1e85ae5e6fda4bc098"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9687acb739908d1e85ae5e6fda4bc098">&#9670;&nbsp;</a></span>Vec2</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLERDEVICEREMOVED == event.type ){ try{ SDL_GameController *pad = padToController.at(event.cdevice.which); SDL_GameControllerClose(pad); padToController.erase(event.cdevice.which); } catch(const std::out_of_range&amp; oor){ <a class="el" href="Error_8h.html#a787bf097960f03921a9b9e0195d27831">Error</a>(&quot;Tentou retirar controle que não existe?!?&quot;); } } else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLERBUTTONDOWN == event.type){ controllerState[event.cbutton.button] = true; controllerUpdate[event.cbutton.button] = updateCounter; } else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLERBUTTONUP == event.type ){ controllerState[event.cbutton.button] = false; } else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLERAXISMOTION == event.type ){ <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLER_AXIS_TRIGGERLEFT == event.caxis.axis ){ controllerState[SDL_CONTROLLER_AXIS_TRIGGERLEFT] = true; controllerUpdate[SDL_CONTROLLER_AXIS_TRIGGERLEFT] = updateCounter; } else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLER_AXIS_TRIGGERRIGHT == event.caxis.axis ){ controllerState[SDL_CONTROLLER_AXIS_TRIGGERRIGHT] = true; controllerUpdate[SDL_CONTROLLER_AXIS_TRIGGERRIGHT] = updateCounter; } else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_CONTROLLER_AXIS_INVALID != event.caxis.axis ){ SDL_GameController *pad = padToController.at(event.cdevice.which); int16_t StickLeftX = SDL_GameControllerGetAxis(pad,SDL_CONTROLLER_AXIS_LEFTX); int16_t StickLeftY = SDL_GameControllerGetAxis(pad, SDL_CONTROLLER_AXIS_LEFTY); int16_t StickRightX = SDL_GameControllerGetAxis(pad,SDL_CONTROLLER_AXIS_RIGHTX); int16_t StickRightY = SDL_GameControllerGetAxis(pad, SDL_CONTROLLER_AXIS_RIGHTY); controllerLeftStickState = <a class="el" href="classVec2.html">Vec2</a>((float)StickLeftX,(float)StickLeftY); controllerRightStickState = <a class="el" href="classVec2.html">Vec2</a>((float)StickRightX,(float)StickRightY); controllerStickUpdate = updateCounter; } ======= else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_MOUSEBUTTONDOWN == event.type) { mouseState[event.button.button]= true; mouseUpdate[event.button.button]= updateCounter; } else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_MOUSEBUTTONUP == event.type) { mouseState[event.button.button]= false; mouseUpdate[event.button.button]= updateCounter; } else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_QUIT == event.type) { quitRequested=true; } else <a class="el" href="InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396">if</a>(SDL_MOUSEWHEEL == event.type) { mouseScroolState= <a class="el" href="classVec2.html">Vec2</a>(event.wheel.x, event.wheel.y); mouseScroolUpdate= updateCounter; &gt;&gt;&gt;&gt;&gt;&gt; c68673265ecd6285d212512450e844fb107d9ae5&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD bool <a class="el" href="classInputManager.html#acf5d7a5b83dc24aba5d43372d6152dae">InputManager::KeyPress</a>(int key) const{ try{ return(keyUpdate.at(key) == updateCounter); } catch (const std::out_of_range&amp; oor){ return false; } } bool <a class="el" href="classInputManager.html#a05892299bfc75aab9d2530737cf36248">InputManager::KeyRelease</a>(int key) const{ try{ return(keyUpdate.at(key) != updateCounter); } catch (const std::out_of_range&amp; oor){ return false; } } bool <a class="el" href="classInputManager.html#afd4bcb5fd69d6262fa79f64a4ae43b01">InputManager::IsKeyDown</a>(int key) const{ try{ return(keyState.at(key) == true); } catch (const std::out_of_range&amp; oor){ return false; } } bool <a class="el" href="classInputManager.html#aafbc79dc459c3bba0e4a4054421632d3">InputManager::ButtonPress</a>(int button) const{ try{return(controllerUpdate.at(button) == updateCounter);} catch (const std::out_of_range&amp; oor){return false;} } bool <a class="el" href="classInputManager.html#a313d0716dad6a7f322f86e8b2e986d42">InputManager::ButtonRelease</a>(int button) const{ try{return(controllerUpdate.at(button) != updateCounter);} catch (const std::out_of_range&amp; oor){return false;} } bool <a class="el" href="classInputManager.html#a10703289f8e5685ad8d01b8e0e906f3d">InputManager::IsButtonDown</a>(int button) const{ try{return(controllerState.at(button) == true);} catch (const std::out_of_range&amp; oor){return false;} } <a class="el" href="classVec2.html">Vec2</a> <a class="el" href="classInputManager.html#ab320da5dbf24a5c68899bb856570005c">InputManager::GetControllerLeftStickState</a>() const{ return controllerLeftStickState; } <a class="el" href="classVec2.html">Vec2</a> <a class="el" href="classInputManager.html#a5b82bc379ae6b2673d7b8b739d0020e7">InputManager::GetControllerRightStickState</a>() const{ return controllerRightStickState; } bool <a class="el" href="classInputManager.html#a403608d0dbad0dcc605e82a6368d6fea">InputManager::IsControllerSticking</a>(void) const{ return (mouseScroolUpdate == updateCounter); } bool <a class="el" href="classInputManager.html#a9aafa7219a565ac9f2c880e0abf8bcb5">InputManager::MousePress</a>(int button) const{ return (mouseUpdate[button] == updateCounter); } bool <a class="el" href="classInputManager.html#a5eb551457a8c8a875c0a75628e4131b6">InputManager::MouseRelease</a>(int button) const{ return (mouseUpdate[button] != updateCounter); } bool <a class="el" href="classInputManager.html#ac75336ac25fda40e272c40378f687295">InputManager::IsMouseDown</a>(int button) const{ return (true == mouseState[button] ); } int <a class="el" href="classInputManager.html#a2a0d20df0466e1ab838fbc4cd12b07d1">InputManager::GetMouseX</a>() const{ return(mouseX); } int <a class="el" href="classInputManager.html#acd6393a9ac3fa1c23eac737a9f0a2896">InputManager::GetMouseY</a>() const{ return(mouseY); } bool <a class="el" href="classInputManager.html#ad2248754e8b4cf8110783448c1d7ebc2">InputManager::QuitRequested</a>() const{ return(quitRequested); } <a class="el" href="classVec2.html">Vec2</a> <a class="el" href="classInputManager.html#ae8c37d931bce337ded639b3204615deb">InputManager::GetMousePos</a>() const{ ======= bool <a class="el" href="classInputManager.html#acf5d7a5b83dc24aba5d43372d6152dae">InputManager::KeyPress</a>(int key) const { <a class="el" href="InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea">AJUST_KEY</a>(key); return keyState[key] &amp;&amp; keyUpdate[key] == updateCounter; } bool <a class="el" href="classInputManager.html#a05892299bfc75aab9d2530737cf36248">InputManager::KeyRelease</a>(int key) const { <a class="el" href="InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea">AJUST_KEY</a>(key); return ((false==keyState[key]) &amp;&amp; keyUpdate[key] ==updateCounter); } bool <a class="el" href="classInputManager.html#afd4bcb5fd69d6262fa79f64a4ae43b01">InputManager::IsKeyDown</a>(int key) const { <a class="el" href="InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea">AJUST_KEY</a>(key); return keyState[key]; } bool <a class="el" href="classInputManager.html#a9aafa7219a565ac9f2c880e0abf8bcb5">InputManager::MousePress</a>(int button) const { return mouseState[button]&amp;&amp; mouseUpdate[button]== updateCounter; } bool <a class="el" href="classInputManager.html#a5eb551457a8c8a875c0a75628e4131b6">InputManager::MouseRelease</a>(int button) const { return ((false == mouseState[button]) &amp;&amp; mouseUpdate[button] == updateCounter); } bool <a class="el" href="classInputManager.html#ac75336ac25fda40e272c40378f687295">InputManager::IsMouseDown</a>(int button) const { return mouseState[button]; } int <a class="el" href="classInputManager.html#a2a0d20df0466e1ab838fbc4cd12b07d1">InputManager::GetMouseX</a>(void) const { return mouseX; } int <a class="el" href="classInputManager.html#acd6393a9ac3fa1c23eac737a9f0a2896">InputManager::GetMouseY</a>(void) const { return mouseY; } bool <a class="el" href="classInputManager.html#ad2248754e8b4cf8110783448c1d7ebc2">InputManager::QuitRequested</a>(void) const { return quitRequested; } <a class="el" href="classVec2.html">Vec2</a> <a class="el" href="classInputManager.html#ae8c37d931bce337ded639b3204615deb">InputManager::GetMousePos</a>() const { &gt;&gt;&gt;&gt;&gt;&gt; c68673265ecd6285d212512450e844fb107d9ae5 return <a class="el" href="classVec2.html">Vec2</a>(mouseX, mouseY)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 30 de Maio de 2017 23:09:02 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 30 de Maio de 2017 23:35:18 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

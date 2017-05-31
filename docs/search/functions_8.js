@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['if',['if',['../InputManager_8cpp.html#a4afb58491dc4f72ffec41e10b65621eb',1,'if(SDL_KEYUP==event.type):&#160;InputManager.cpp'],['../InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396',1,'if(SDL_CONTROLLERDEVICEADDED==event.type):&#160;InputManager.cpp']]],
   ['inclination',['Inclination',['../classVec2.html#a28325d3fc977119ae626b14c3b648caa',1,'Vec2::Inclination(void) const'],['../classVec2.html#adeefa0d8c801656e499cae09ebf6d189',1,'Vec2::Inclination(Vec2 const &amp;b) const']]],
   ['inputmanager',['InputManager',['../classInputManager.html#a8be46886da639b26d67181c29dab6d6c',1,'InputManager']]],
   ['insertgo',['InsertGO',['../classTileMap.html#a9370c61beefad2f657c022a0a2462336',1,'TileMap']]],

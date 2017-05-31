@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['if',['if',['../InputManager_8cpp.html#a4afb58491dc4f72ffec41e10b65621eb',1,'if(SDL_KEYUP==event.type):&#160;InputManager.cpp'],['../InputManager_8cpp.html#a7f575652ae61288178292cb9d0b2a396',1,'if(SDL_CONTROLLERDEVICEADDED==event.type):&#160;InputManager.cpp']]],
   ['imagetable',['imageTable',['../classResources.html#abb18128c6fd91ee3afe41c1947c42b02',1,'Resources']]],
   ['inclination',['Inclination',['../classVec2.html#a28325d3fc977119ae626b14c3b648caa',1,'Vec2::Inclination(void) const'],['../classVec2.html#adeefa0d8c801656e499cae09ebf6d189',1,'Vec2::Inclination(Vec2 const &amp;b) const']]],
   ['initial_5fframerate',['INITIAL_FRAMERATE',['../Game_8h.html#a3318188045b827a2e08aa1935eb8ff24',1,'Game.h']]],

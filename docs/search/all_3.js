@@ -6,7 +6,6 @@ var searchData=
   ['defines_2eh',['Defines.h',['../Defines_8h.html',1,'']]],
   ['dificulty_5fconstant',['DIFICULTY_CONSTANT',['../Enemy_8h.html#a3cfe21310e1359350de0b98319b19a43',1,'Enemy.h']]],
   ['displaycollisioninfo',['displayCollisionInfo',['../classTileMap.html#a513f0605dd5fbd29705099aee423e600',1,'TileMap']]],
-  ['distance_5fnear_5fenough',['DISTANCE_NEAR_ENOUGH',['../Alien_8cpp.html#a93578eca326504e4d7cb5beba0580ce4',1,'Alien.cpp']]],
   ['distanceto',['DistanceTo',['../classVec2.html#a521ee085dda3e0116d086d9a043d7c2e',1,'Vec2']]],
   ['dot',['Dot',['../classCollision.html#a8e858eea6ac033ac5e2a31946618c5c4',1,'Collision']]],
   ['down_5farrow_5fkey',['DOWN_ARROW_KEY',['../InputManager_8h.html#af2292687de6b9256a2664a7dacf9ae4a',1,'InputManager.h']]],
