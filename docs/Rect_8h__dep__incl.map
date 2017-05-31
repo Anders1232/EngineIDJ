@@ -1,7 +1,7 @@
 <map id="Engine/include/Rect.h" name="Engine/include/Rect.h">
-<area shape="rect" id="node2" href="$Gameobject_8h.html" title="Engine/include/Gameobject.h" alt="" coords="711,80,903,107"/>
+<area shape="rect" id="node2" href="$GameObject_8h.html" title="Engine/include/GameObject.h" alt="" coords="709,80,904,107"/>
 <area shape="rect" id="node21" href="$Face_8h.html" title="Game/include/Face.h" alt="" coords="915,229,1061,256"/>
-<area shape="rect" id="node24" href="$Text_8h.html" title="Engine/include/Text.h" alt="" coords="2322,304,2470,331"/>
+<area shape="rect" id="node24" href="$Text_8h.html" title="Engine/include/Text.h" alt="" coords="2321,304,2469,331"/>
 <area shape="rect" id="node32" href="$Collision_8h.html" title="Engine/include/Collision.h" alt="" coords="1205,80,1377,107"/>
 <area shape="rect" id="node33" href="$Rect_8cpp.html" title="Engine/src/Rect.cpp" alt="" coords="2060,80,2201,107"/>
 <area shape="rect" id="node3" href="$Animation_8h.html" title="Engine/include/Animation.h" alt="" coords="113,155,293,181"/>
@@ -30,5 +30,5 @@
 <area shape="rect" id="node26" href="$Game_8cpp.html" title="Engine/src/Game.cpp" alt="" coords="1789,304,1937,331"/>
 <area shape="rect" id="node27" href="$Resources_8cpp.html" title="Engine/src/Resources.cpp" alt="" coords="1961,304,2137,331"/>
 <area shape="rect" id="node28" href="$main_8cpp.html" title="Game/src/main.cpp" alt="" coords="2161,304,2297,331"/>
-<area shape="rect" id="node25" href="$Text_8cpp.html" title="Engine/src/Text.cpp" alt="" coords="2327,379,2465,405"/>
+<area shape="rect" id="node25" href="$Text_8cpp.html" title="Engine/src/Text.cpp" alt="" coords="2325,379,2464,405"/>
 </map>

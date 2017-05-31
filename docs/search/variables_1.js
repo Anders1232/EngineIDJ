@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['capframerate',['capFramerate',['../classGame.html#a9c4d90234bc5a4ca540b09d8a534ece1',1,'Game']]],
-  ['channel',['channel',['../classSound.html#af3895edf5a39772f1de32cfbfff90909',1,'Sound']]],
-  ['cliprect',['clipRect',['../classSprite.html#a3451a65b4cd1b2ff3c11448dbdde43ac',1,'Sprite']]],
-  ['color',['color',['../classText.html#ab0f771bd18d8e968f7aaee4a4e26e385',1,'Text']]],
-  ['columns',['columns',['../classTileSet.html#a47ae11f9d04f9da3fbaba834fdbc62cf',1,'TileSet']]],
-  ['components',['components',['../classGameObject.html#adf77cf3872333bf5e3007ad98e8afd18',1,'GameObject']]],
-  ['currentframe',['currentFrame',['../classSprite.html#a556cfc67b1b98691aa2e5b41f076fded',1,'Sprite']]],
-  ['currentzoom',['currentZoom',['../classCamera.html#ac867d6d379c0d052ae65d57c7c313970',1,'Camera']]]
+  ['b',['b',['../structColor.html#a9f00605f7024dcb79342e97fae52c1bd',1,'Color']]],
+  ['bg',['bg',['../classEndState.html#aeb91899a27b89589e22685a888d4ba0a',1,'EndState::bg()'],['../classStageState.html#aa52c55dee219d1bbd1690e8c3c8e34f6',1,'StageState::bg()'],['../classTitleState.html#acecffd14c654d7b19636d926579cbe44',1,'TitleState::bg()']]],
+  ['blendmode',['blendMode',['../classSprite.html#a9081ab1c8e4ca96a21d97a937550da8c',1,'Sprite']]],
+  ['box',['box',['../classGameObject.html#ac8df90f2a6d41693cd7938e392ff6d0b',1,'GameObject::box()'],['../classText.html#a1a2dd837322b9adcd3a2a98f68e633c9',1,'Text::box()']]]
 ];

@@ -9,34 +9,34 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 80)">
 <title>GameObject</title>
 <polygon fill="white" stroke="none" points="-4,4 -4,-80 120,-80 120,4 -4,4"/>
-<!-- Node0 -->
-<g id="node1" class="node"><title>Node0</title>
+<!-- Node1 -->
+<g id="node1" class="node"><title>Node1</title>
 <polygon fill="#bfbfbf" stroke="black" points="27.5,-56.5 27.5,-75.5 98.5,-75.5 98.5,-56.5 27.5,-56.5"/>
 <text text-anchor="middle" x="63" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">GameObject</text>
 </g>
-<!-- Node1 -->
-<g id="node2" class="node"><title>Node1</title>
+<!-- Node2 -->
+<g id="node2" class="node"><title>Node2</title>
 <g id="a_node2"><a xlink:href="classAnimation.html" target="_top" xlink:title="Classe que modela animações. ">
 <polygon fill="white" stroke="black" points="0,-0.5 0,-19.5 60,-19.5 60,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="30" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Animation</text>
 </a>
 </g>
 </g>
-<!-- Node0&#45;&gt;Node1 -->
-<g id="edge1" class="edge"><title>Node0&#45;&gt;Node1</title>
+<!-- Node1&#45;&gt;Node2 -->
+<g id="edge1" class="edge"><title>Node1&#45;&gt;Node2</title>
 <path fill="none" stroke="midnightblue" d="M52.1679,-47.2747C46.5278,-38.0454 39.8819,-27.1703 35.3479,-19.7511"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="49.3497,-49.3753 57.5507,-56.083 55.3227,-45.7251 49.3497,-49.3753"/>
 </g>
-<!-- Node2 -->
-<g id="node3" class="node"><title>Node2</title>
+<!-- Node3 -->
+<g id="node3" class="node"><title>Node3</title>
 <g id="a_node3"><a xlink:href="classFace.html" target="_top" xlink:title="Face">
 <polygon fill="white" stroke="black" points="78,-0.5 78,-19.5 116,-19.5 116,-0.5 78,-0.5"/>
 <text text-anchor="middle" x="97" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Face</text>
 </a>
 </g>
 </g>
-<!-- Node0&#45;&gt;Node2 -->
-<g id="edge2" class="edge"><title>Node0&#45;&gt;Node2</title>
+<!-- Node1&#45;&gt;Node3 -->
+<g id="edge2" class="edge"><title>Node1&#45;&gt;Node3</title>
 <path fill="none" stroke="midnightblue" d="M73.9772,-47.5656C79.827,-38.2747 86.7695,-27.2484 91.4901,-19.7511"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="70.9808,-45.7558 68.6144,-56.083 76.9044,-49.4855 70.9808,-45.7558"/>
 </g>

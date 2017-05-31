@@ -1,7 +1,7 @@
 <map id="Engine/include/Component.h" name="Engine/include/Component.h">
-<area shape="rect" id="node2" href="$Gameobject_8h.html" title="Engine/include/Gameobject.h" alt="" coords="1183,80,1375,107"/>
+<area shape="rect" id="node2" href="$GameObject_8h.html" title="Engine/include/GameObject.h" alt="" coords="1181,80,1376,107"/>
 <area shape="rect" id="node14" href="$DragAndDrop_8h.html" title="Engine/include/DragAndDrop.h" alt="" coords="522,229,723,256"/>
-<area shape="rect" id="node30" href="$Component_8cpp.html" title="Engine/src/Component.cpp" alt="" coords="1399,80,1579,107"/>
+<area shape="rect" id="node30" href="$Component_8cpp.html" title="Engine/src/Component.cpp" alt="" coords="1401,80,1581,107"/>
 <area shape="rect" id="node3" href="$Animation_8h.html" title="Engine/include/Animation.h" alt="" coords="661,155,841,181"/>
 <area shape="rect" id="node5" href="$Camera_8h.html" title="Engine/include/Camera.h" alt="" coords="799,229,967,256"/>
 <area shape="rect" id="node13" href="$TileMap_8h.html" title="Engine/include/TileMap.h" alt="" coords="865,155,1033,181"/>
