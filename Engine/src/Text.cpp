@@ -4,7 +4,7 @@ Text::Text( string fontFile,
 			int fontSize,
 			TextStyle style,
 			SDL_Color color,
-			Timer* delay,
+			bool isStrobing,
 			int x,
 			int y )
 	  : font(Resources::GetFont(fontFile, fontSize)),
@@ -14,10 +14,11 @@ Text::Text( string fontFile,
 		fontSize(fontSize),
 		color(color),
 		fontFile(fontFile),
+		isStrobe(isStrobing),
 		timeShown(MIN_TIME_SHOWN),
-		strobeFrequency(TEXT_FREQUENCY) {
+		strobeFrequency(TEXT_FREQUENCY),
+		textTime() {
 	
-  textTime = delay;
 	box.x= x;
 	box.y= y;
 	RemakeTexture();
@@ -29,8 +30,15 @@ Text::~Text() {
 	}
 }
 
+void Text::Update(float dt){
+	textTime.Update(dt);
+	if(textTime.Get() >= strobeFrequency){
+        textTime.Restart();
+    }
+}
+
 void Text::Render(int cameraX, int cameraY) const {
-	if(nullptr != textTime ? textTime->Get() < timeShown : true){
+	if(isStrobe ? textTime.Get() < timeShown : true){
 		SDL_Rect srcRect;
 		srcRect.x= 0;
 		srcRect.y= 0;
@@ -43,9 +51,6 @@ void Text::Render(int cameraX, int cameraY) const {
 			Error("Render error: " << SDL_GetError());
 		}
 	}
-	else if(nullptr != textTime ? textTime->Get() >= strobeFrequency : false){
-        textTime->Restart();
-    }
 }
 
 void Text::SetPos(int x, int y, bool centerX, bool centerY) {

@@ -7,9 +7,8 @@ EndState::EndState(EndStateData stateData)
 						END_STATE_FONT_SIZE,
 						BLENDED,
 				 		{255, 255, 255, 255},
-						&textTime
+						 true
 			   		 ) {
-	textTime = Timer();
 	music.Play(0);
 	instruction.SetText("Press Esc to go to menu or Space to play again!");
 	instruction.SetTimeShown(0.6);
@@ -25,7 +24,7 @@ EndState::EndState(EndStateData stateData)
 }
 
 void EndState::Update(float dt) {
-	textTime.Update(dt);
+	instruction.Update(dt);
 	InputManager &inputManager= InputManager::GetInstance();
 	if(inputManager.QuitRequested()) {
 		quitRequested= true;
