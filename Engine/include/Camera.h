@@ -8,6 +8,7 @@
 #define CAMERA_DEFAULT_MAX_ZOOM (1.5)
 #define CAMERA_DEFAULT_ZOOMABLE (true)
 #define CAMERA_DEFAULT_ZOOM_SPEED (5.0/200.)
+#define CAMERA_DEFAULT_SPEED_MODIFIER (4.)
 /**
 	\brief Classe que modela a câmera
 	
@@ -111,6 +112,19 @@ class Camera {
 			Esse efeito é obtido atribuindo newZoomSpeed à zoomSpeed.
 		*/
 		static void SetZoomSpeed(float newZoomSpeed);
+		/**
+			\brief Informa o valor do modificador de velocidade corrente.
+
+			Retorna o modificador que a câmera usará para multiplicar pela velocidade caso esteja com o máximo de zoom possível.
+		*/
+		static float GetSpeedModifier(void);
+		/**
+			\brief 
+			\param 
+
+
+		*/
+		static void SetSpeedModifier(float newSpeedModifier);
 	private:
 		/*! \brief Construtor privado que não deve ser implementado.
 		 *
@@ -123,6 +137,7 @@ class Camera {
 		static float maxZoom;/**< Armazena o valor mínimo que o zoom pode ter. Esse limite é ignorado pelo método ForceZoom. É alterado pelo SetZoomLimits.*/
 		static bool zoomFixed;/**< Se for verdadeiro, o zoom não será alterado pelo método Zoom. Caso contrário o método Zoom pode mudar o valor corrente do zoom. É alterado pelo método SetZoomnable.*/
 		static float zoomSpeed;/**< Armazena a velocidade com a qual o zoom deve ocorrer. O argumento do método Zoom é multiplicado por esse valor para depois ser somado ao currentZoom.*/
+		static float speedModifier;/**< Modifica a velocidade de movimento da câmera baseado no zoom.*/
 };
 
 #endif // CAMERA_H

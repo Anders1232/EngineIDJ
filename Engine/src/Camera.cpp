@@ -14,6 +14,7 @@ float Camera::minZoom= CAMERA_DEFAULT_MIN_ZOOM;
 float Camera::maxZoom= CAMERA_DEFAULT_MAX_ZOOM;
 bool Camera::zoomFixed= !CAMERA_DEFAULT_ZOOMABLE;
 float Camera::zoomSpeed= CAMERA_DEFAULT_ZOOM_SPEED;
+float Camera::speedModifier = CAMERA_DEFAULT_SPEED_MODIFIER;
 
 
 void Camera::Follow(GameObject* newFocus) {
@@ -29,19 +30,20 @@ void Camera::Update(float dt) {
 //		pos= pos * Camera::GetZoom();
 	}
 	else {
+		float modifier = speedModifier*(2-(currentZoom-minZoom)/(maxZoom-minZoom));
 		if(INPUT_MANAGER.IsKeyDown(LEFT_ARROW_KEY) || INPUT_MANAGER.IsKeyDown('a')) {
-			pos.x -= speed * dt;
+			pos.x -= modifier*speed*dt;
 //			if(pos.x <0 ) pos.x=0;
 		}
 		if(INPUT_MANAGER.IsKeyDown(RIGHT_ARROW_KEY) | INPUT_MANAGER.IsKeyDown('d')) {
-			pos.x += speed*dt;
+			pos.x += modifier*speed*dt;
 		}
 		if(INPUT_MANAGER.IsKeyDown(DOWN_ARROW_KEY) | INPUT_MANAGER.IsKeyDown('s')) {
-			pos.y += speed*dt;
+			pos.y += modifier*speed*dt;
 //			if(pos.y <0 ) pos.y=0;
 		}
 		if(INPUT_MANAGER.IsKeyDown(UP_ARROW_KEY) | INPUT_MANAGER.IsKeyDown('w')) {
-			pos.y -= speed*dt;
+			pos.y -= modifier*speed*dt;
 		}
 	}
 	if(INPUT_MANAGER.IsMouseScrolling()) {
