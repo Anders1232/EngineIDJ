@@ -1,8 +1,7 @@
 #include "Component.h"
 #include "Sprite.h"
 
-class HitPoints : public Component
-{
+class HitPoints : public Component {
 	public:
 		HitPoints(float hp);
 		~HitPoints();
