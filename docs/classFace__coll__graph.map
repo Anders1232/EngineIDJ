@@ -1,5 +1,5 @@
 <map id="Face" name="Face">
-<area shape="rect" id="node2" href="$classGameObject.html" title="GameObject" alt="" coords="173,304,267,331"/>
-<area shape="rect" id="node4" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="5,155,56,181"/>
-<area shape="rect" id="node6" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="665,304,721,331"/>
+<area shape="rect" id="node2" href="$classGameObject.html" title="GameObject" alt="" coords="133,304,227,331"/>
+<area shape="rect" id="node3" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="5,155,56,181"/>
+<area shape="rect" id="node6" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="671,304,727,331"/>
 </map>

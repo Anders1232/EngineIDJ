@@ -3,6 +3,7 @@ var searchData=
   ['margem_5ferro_5fcomparacao',['MARGEM_ERRO_COMPARACAO',['../Vec2_8h.html#a1759b83db156ac7ed195b3e04757ee14',1,'Vec2.h']]],
   ['middle_5fmouse_5fbutton',['MIDDLE_MOUSE_BUTTON',['../InputManager_8h.html#a0f26b1a0dee82337d947288c4ebcee16',1,'InputManager.h']]],
   ['min_5fdistance_5fbetween_5faliens',['MIN_DISTANCE_BETWEEN_ALIENS',['../Alien_8h.html#adbd75077fbf0940c7518a36c52f3d393',1,'Alien.h']]],
+  ['min_5ftime_5fshown',['MIN_TIME_SHOWN',['../Text_8h.html#ae0001748c8e43f9667011d62636fb7a0',1,'Text.h']]],
   ['minion_5fbullet_5fframe_5fcount',['MINION_BULLET_FRAME_COUNT',['../Minion_8cpp.html#ae4c8f5ff848a204e28ba34cc2deb3cc9',1,'Minion.cpp']]],
   ['minion_5fbullet_5fframetime',['MINION_BULLET_FRAMETIME',['../Minion_8cpp.html#a05f2a20315975b5c5861a7adf9df765d',1,'Minion.cpp']]],
   ['minion_5fbullet_5fmax_5fdistance',['MINION_BULLET_MAX_DISTANCE',['../Minion_8h.html#a1416f48355c6083564787db302495f0c',1,'Minion.h']]],

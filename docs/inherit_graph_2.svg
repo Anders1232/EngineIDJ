@@ -9,24 +9,24 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 24)">
 <title>Gráfico de Hierarquia de Classes</title>
 <polygon fill="white" stroke="none" points="-4,4 -4,-24 183,-24 183,4 -4,4"/>
-<!-- Node0 -->
-<g id="node1" class="node"><title>Node0</title>
+<!-- Node1 -->
+<g id="node1" class="node"><title>Node1</title>
 <g id="a_node1"><a xlink:href="classComponent.html" target="_top" xlink:title="Modela os componentes. ">
 <polygon fill="white" stroke="black" points="0,-0.5 0,-19.5 67,-19.5 67,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="33.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Component</text>
 </a>
 </g>
 </g>
-<!-- Node1 -->
-<g id="node2" class="node"><title>Node1</title>
+<!-- Node2 -->
+<g id="node2" class="node"><title>Node2</title>
 <g id="a_node2"><a xlink:href="classDragAndDrop.html" target="_top" xlink:title="Classe responsável por arrastar e posicionar Objetos. ">
 <polygon fill="white" stroke="black" points="103,-0.5 103,-19.5 179,-19.5 179,-0.5 103,-0.5"/>
 <text text-anchor="middle" x="141" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">DragAndDrop</text>
 </a>
 </g>
 </g>
-<!-- Node0&#45;&gt;Node1 -->
-<g id="edge1" class="edge"><title>Node0&#45;&gt;Node1</title>
+<!-- Node1&#45;&gt;Node2 -->
+<g id="edge1" class="edge"><title>Node1&#45;&gt;Node2</title>
 <path fill="none" stroke="midnightblue" d="M77.1929,-10C85.7381,-10 94.649,-10 102.983,-10"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="77.0144,-6.5001 67.0143,-10 77.0143,-13.5001 77.0144,-6.5001"/>
 </g>
