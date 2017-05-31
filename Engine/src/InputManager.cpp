@@ -6,7 +6,6 @@
 InputManager::InputManager():quitRequested(false), updateCounter(0), mouseX(0), mouseY(0), mouseScroolUpdate(0) {
 	memset(mouseState, 0, 6*sizeof(bool));
 	memset(mouseUpdate, 0, 6*sizeof(int));
-
 }
 
 InputManager::~InputManager() {
