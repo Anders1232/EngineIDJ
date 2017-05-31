@@ -29,7 +29,7 @@ void Face::Update(float dt ){
 	}
 }
 void Face::Render(){
-	sp.Render((box.x-Camera::pos.x)*Camera::GetZoom(), (box.y-Camera::pos.y)*Camera::GetZoom(), true);
+	sp.Render((box.x-Camera::pos.x)*Camera::GetZoom(), (box.y-Camera::pos.y)*Camera::GetZoom(), 0, true);
 
 }
 bool Face::IsDead(void){

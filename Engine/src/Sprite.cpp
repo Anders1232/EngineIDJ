@@ -60,16 +60,17 @@ void Sprite::Render(int x, int y, float angle, bool zoom) const {
 //	std::cout << WHERE << "  rect.w = "<< rect.w<< endl;
 	if(zoom) {
 //		REPORT_DEBUG;
-		temp= temp*Camera::GetZoom();
+		temp.w = temp.w*Camera::GetZoom();
+		temp.h = temp.h*Camera::GetZoom();
 	}
 	SDL_Rect rect= temp;
-	if ( SDL_SetTextureAlphaMod( texture.get(), alpha ) == -1 ) {
+	if ( -1 == SDL_SetTextureAlphaMod( texture.get(), alpha ) ) {
 		CHECK_SDL_ERROR;
 	}
-	if ( SDL_SetTextureBlendMode( texture.get(), blendMode ) == -1 ) {
+	if ( -1 == SDL_SetTextureBlendMode( texture.get(), blendMode ) ) {
 		CHECK_SDL_ERROR;
 	}
-	if ( SDL_SetTextureColorMod( texture.get(), colorMultiplier.r, colorMultiplier.g, colorMultiplier.b ) == -1 ) {
+	if ( -1 == SDL_SetTextureColorMod( texture.get(), colorMultiplier.r, colorMultiplier.g, colorMultiplier.b ) ) {
 		CHECK_SDL_ERROR;
 	}
 	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &rect, angle, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
