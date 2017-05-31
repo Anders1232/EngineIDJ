@@ -1,5 +1,12 @@
 <map id="Engine/include/Timer.h" name="Engine/include/Timer.h">
 <area shape="rect" id="node2" href="$Animation_8h.html" title="Engine/include/Animation.h" alt="" coords="5,80,185,107"/>
-<area shape="rect" id="node4" href="$Timer_8cpp.html" title="Engine/src/Timer.cpp" alt="" coords="210,80,357,107"/>
-<area shape="rect" id="node3" href="$Animation_8cpp.html" title="Engine/src/Animation.cpp" alt="" coords="10,155,181,181"/>
+<area shape="rect" id="node4" href="$Timer_8cpp.html" title="Engine/src/Timer.cpp" alt="" coords="214,80,361,107"/>
+<area shape="rect" id="node5" href="$StageState_8h.html" title="Game/include/StageState.h" alt="" coords="385,80,568,107"/>
+<area shape="rect" id="node10" href="$Enemy_8h.html" title="Game/include/Enemy.h" alt="" coords="595,80,753,107"/>
+<area shape="rect" id="node3" href="$Animation_8cpp.html" title="Engine/src/Animation.cpp" alt="" coords="9,155,179,181"/>
+<area shape="rect" id="node6" href="$EndState_8h.html" title="Game/include/EndState.h" alt="" coords="203,155,374,181"/>
+<area shape="rect" id="node8" href="$StageState_8cpp.html" title="Game/src/StageState.cpp" alt="" coords="587,155,761,181"/>
+<area shape="rect" id="node9" href="$TitleState_8cpp.html" title="Game/src/TitleState.cpp" alt="" coords="399,155,563,181"/>
+<area shape="rect" id="node7" href="$EndState_8cpp.html" title="Game/src/EndState.cpp" alt="" coords="207,229,370,256"/>
+<area shape="rect" id="node11" href="$Enemy_8cpp.html" title="Game/src/Enemy.cpp" alt="" coords="785,155,934,181"/>
 </map>

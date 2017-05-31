@@ -19,12 +19,14 @@ var searchData=
   ['getrenderer',['GetRenderer',['../classGame.html#a81c84411843e5b6209a8ea3069c445d2',1,'Game']]],
   ['getsize',['GetSize',['../classText.html#a56916530776ec1525d6b9bf94c51b27b',1,'Text']]],
   ['getsound',['GetSound',['../classResources.html#ae6e4e0202dec020da8f6654f685e8b98',1,'Resources']]],
+  ['getspawnpositions',['GetSpawnPositions',['../classTileMap.html#a83791a2b841d617d9483c1658a581541',1,'TileMap']]],
   ['gettexture',['GetTexture',['../classSprite.html#a58b8fe080436f36a8b0cf0639f8c135b',1,'Sprite']]],
   ['gettileheight',['GetTileHeight',['../classTileSet.html#a965e951eb3ccfd6e318b27c710d973a0',1,'TileSet']]],
   ['gettilemousepos',['GetTileMousePos',['../classTileMap.html#ab59e06379a26482d8103917c1c2393f5',1,'TileMap']]],
+  ['gettilesize',['GetTileSize',['../classTileMap.html#a57cd7e2a960dc3a8a9830d60151105f2',1,'TileMap']]],
   ['gettilewidth',['GetTileWidth',['../classTileSet.html#a4114a74c06ab5241d904cce67538ae17',1,'TileSet']]],
   ['getwidth',['GetWidth',['../classSprite.html#a8dbeea0fcf56059ddb6c5d9c78b468cb',1,'Sprite::GetWidth()'],['../classTileMap.html#ab21df8d033b1e526e9488740e28c6606',1,'TileMap::GetWidth()']]],
   ['getwindowdimensions',['GetWindowDimensions',['../classGame.html#aaee9fd0d3dd25d72e166b2df6a7cdc30',1,'Game']]],
-  ['getworldrenderedrect',['GetWorldRenderedRect',['../classAnimation.html#ad6868eeeb05ae740e9776eed868f564e',1,'Animation::GetWorldRenderedRect()'],['../classGameObject.html#a686136f4cf17c54345a7d28187b25893',1,'GameObject::GetWorldRenderedRect()'],['../classFace.html#ad7cc0ce77886ba8b92117ca88f80fd7b',1,'Face::GetWorldRenderedRect()']]],
+  ['getworldrenderedrect',['GetWorldRenderedRect',['../classAnimation.html#ad6868eeeb05ae740e9776eed868f564e',1,'Animation::GetWorldRenderedRect()'],['../classGameObject.html#a686136f4cf17c54345a7d28187b25893',1,'GameObject::GetWorldRenderedRect()'],['../classWave.html#ae8d831a974e0f487125ebab6f712b91a',1,'Wave::GetWorldRenderedRect()'],['../classEnemy.html#ae070dab9f2959453d66bfee6a502278e',1,'Enemy::GetWorldRenderedRect()'],['../classFace.html#ad7cc0ce77886ba8b92117ca88f80fd7b',1,'Face::GetWorldRenderedRect()']]],
   ['getzoom',['GetZoom',['../classCamera.html#af6fe062fcf5e1e31224d4dd9f6cafa51',1,'Camera']]]
 ];

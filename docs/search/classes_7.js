@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['music',['Music',['../classMusic.html',1,'']]]
+  ['inputmanager',['InputManager',['../classInputManager.html',1,'']]]
 ];

@@ -1,5 +1,5 @@
 <map id="Game/include/Face.h" name="Game/include/Face.h">
-<area shape="rect" id="node2" href="$Gameobject_8h.html" title="Gameobject.h" alt="" coords="245,155,347,181"/>
+<area shape="rect" id="node2" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="243,155,349,181"/>
 <area shape="rect" id="node5" href="$Rect_8h.html" title="Rect.h" alt="" coords="21,229,83,256"/>
 <area shape="rect" id="node10" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="467,229,533,256"/>
 <area shape="rect" id="node11" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="334,80,413,107"/>

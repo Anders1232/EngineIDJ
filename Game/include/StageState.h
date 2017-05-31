@@ -10,7 +10,9 @@
 #include "InputManager.h"
 #include "State.h"
 #include "Music.h"
+#include "Timer.h"
 
+using std::vector;
 
 class StageState: public State {
 	public:
@@ -26,6 +28,9 @@ class StageState: public State {
 		TileSet tileSet;
 		InputManager &inputManager;
 		Music music;
+		vector<vector<int>> *spawnGroups;
+		Timer spawnTimer;
+		void SpawnEnemy(int tileMapPosition);
 };
 
 #include "EndState.h"
