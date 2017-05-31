@@ -35,7 +35,7 @@ bool ActionManager::DownArrowAction(){
 
     return (InputManager::GetInstance().IsKeyDown('s') 
     	 || InputManager::GetInstance().IsKeyDown('S') 
-    	 || InputManager::GetInstance().IsKeyDown(SDLK_UP) 
+    	 || InputManager::GetInstance().IsKeyDown(SDLK_DOWN) 
     	 || InputManager::GetInstance().IsButtonDown(SDL_CONTROLLER_BUTTON_DPAD_DOWN)
     	 || InputManager::GetInstance().GetControllerLeftStickState().y > 0);
 
