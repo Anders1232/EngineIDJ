@@ -90,9 +90,9 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:ae8bf1e903ebaceb56405f9ff26020c0b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDragAndDrop.html#ae8bf1e903ebaceb56405f9ff26020c0b">DragAndDrop</a> (<a class="el" href="classTileMap.html">TileMap</a> *map, bool dragging=false, bool dragOnActionHold=true)</td></tr>
 <tr class="memdesc:ae8bf1e903ebaceb56405f9ff26020c0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor.  <a href="#ae8bf1e903ebaceb56405f9ff26020c0b">Mais...</a><br /></td></tr>
 <tr class="separator:ae8bf1e903ebaceb56405f9ff26020c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85f5b0b2e36c5b9c43835056bb531052"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDragAndDrop.html#a85f5b0b2e36c5b9c43835056bb531052">Update</a> (<a class="el" href="classGameObject.html">GameObject</a> &amp;associated)</td></tr>
-<tr class="memdesc:a85f5b0b2e36c5b9c43835056bb531052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza o estado do objeto em arrasto.  <a href="#a85f5b0b2e36c5b9c43835056bb531052">Mais...</a><br /></td></tr>
-<tr class="separator:a85f5b0b2e36c5b9c43835056bb531052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ae8df8b7ff9ef703b57354c410b5ef3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDragAndDrop.html#a1ae8df8b7ff9ef703b57354c410b5ef3">Update</a> (<a class="el" href="classGameObject.html">GameObject</a> &amp;associated, float dt)</td></tr>
+<tr class="memdesc:a1ae8df8b7ff9ef703b57354c410b5ef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza o estado do objeto em arrasto.  <a href="#a1ae8df8b7ff9ef703b57354c410b5ef3">Mais...</a><br /></td></tr>
+<tr class="separator:a1ae8df8b7ff9ef703b57354c410b5ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a600185abb422085505f940c1c2c8f679"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDragAndDrop.html#a600185abb422085505f940c1c2c8f679">Is</a> (<a class="el" href="Component_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0">ComponentType</a>) const</td></tr>
 <tr class="memdesc:a600185abb422085505f940c1c2c8f679"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa que o tipo deste Compomente é <a class="el" href="classDragAndDrop.html" title="Classe responsável por arrastar e posicionar Objetos. ">DragAndDrop</a>.  <a href="#a600185abb422085505f940c1c2c8f679">Mais...</a><br /></td></tr>
 <tr class="separator:a600185abb422085505f940c1c2c8f679"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,8 +198,8 @@ Atributos Privados</h2></td></tr>
 
 </div>
 </div>
-<a id="a85f5b0b2e36c5b9c43835056bb531052"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85f5b0b2e36c5b9c43835056bb531052">&#9670;&nbsp;</a></span>Update()</h2>
+<a id="a1ae8df8b7ff9ef703b57354c410b5ef3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ae8df8b7ff9ef703b57354c410b5ef3">&#9670;&nbsp;</a></span>Update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -211,8 +211,18 @@ Atributos Privados</h2></td></tr>
           <td class="memname">void DragAndDrop::Update </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classGameObject.html">GameObject</a> &amp;&#160;</td>
-          <td class="paramname"><em>associated</em></td><td>)</td>
+          <td class="paramname"><em>associated</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -231,7 +241,7 @@ Atributos Privados</h2></td></tr>
 </dl>
 <p>Nesse método a lógica do drag and drop é implementada. Se o botão do drag estiver sendo segurado o objeto é arrastado mantendo seu centro onde o mouse está. Quando o botão relativo ao drag and drop é liberado chama-se o tileMap para iserir o <a class="el" href="classGameObject.html">GameObject</a> no tile onde o mouse está. </p>
 
-<p>Implementa <a class="el" href="classComponent.html#ab58a28346826450e37cdf1ad3746d4e1">Component</a>.</p>
+<p>Implementa <a class="el" href="classComponent.html#a0e159ba9d0cdeb481f8cc87c8ad99660">Component</a>.</p>
 
 </div>
 </div>
@@ -312,7 +322,7 @@ Atributos Privados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 29 de Maio de 2017 14:47:18 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 30 de Maio de 2017 21:39:09 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

@@ -76,6 +76,10 @@ $(function() {
 <dd>Verificar se usamos o nosso no lugar. </dd>
 <dt><a class="anchor" id="_todo000006"></a>Membro <a class="el" href="classDragAndDrop.html#ae8bf1e903ebaceb56405f9ff26020c0b">DragAndDrop::DragAndDrop</a>  (<a class="el" href="classTileMap.html" title="Classe que modela o TileMap. ">TileMap</a> *map, bool dragging=false, bool dragOnActionHold=true)</dt>
 <dd>Implementar o dragOnActionHold. </dd>
+<dt><a class="anchor" id="_todo000022"></a>Membro <a class="el" href="classEnemy.html#a029a0d93da4adf4f638c47a84c41803b">Enemy::Is</a>  (string type)</dt>
+<dd>Verificar viabilidade de usar enum no lugar de string </dd>
+<dt><a class="anchor" id="_todo000021"></a>Membro <a class="el" href="classEnemy.html#a805f30a2ffcc14e4875717ed0cfa58fc">Enemy::NotifyCollision</a>  (<a class="el" href="classGameObject.html">GameObject</a> &amp;object)</dt>
+<dd>Verificar viabilidade de tratar colisão em componentes. </dd>
 <dt><a class="anchor" id="_todo000008"></a>Membro <a class="el" href="classInputManager.html#a294065a597c3a15c6d1360cdc944d053">InputManager::MouseScroll</a>  (void) const</dt>
 <dd>Fazer a correção dos sentidos de acordo com a direções. Essa correção só pode ser feita após a versão 2.0.4 da SDL2. Veja <a href="https://wiki.libsdl.org/SDL_MouseWheelEvent">https://wiki.libsdl.org/SDL_MouseWheelEvent</a> </dd>
 <dt><a class="anchor" id="_todo000007"></a>Membro <a class="el" href="classInputManager.html#afc344b3b2e204cfb39ee17b33bcc5eab">InputManager::Update</a>  (void)</dt>
@@ -98,15 +102,19 @@ $(function() {
 <dd>Verificar necessidade de fazer um destrutor virtual. </dd>
 <dt><a class="anchor" id="_todo000017"></a>Membro <a class="el" href="classText.html#acd7cd539df681365587e86144cc3c352">Text::SetStyle</a>  (TextStyle style)</dt>
 <dd>Ver A viabilidade de adicionar um argumento SDL_color para o caso do novo estilo ser SHARED. </dd>
+<dt><a class="anchor" id="_todo000019"></a>Membro <a class="el" href="classTileMap.html#a83791a2b841d617d9483c1658a581541">TileMap::GetSpawnPositions</a>  (void) const</dt>
+<dd><p class="startdd">Verificar utilidade de usar define para buscar o spawn groups se de deve utilizar argumentos mesmo. </p>
+<p class="enddd">Resolver bug na detecção de adjacências. </p>
+</dd>
 <dt><a class="anchor" id="_todo000018"></a>Membro <a class="el" href="classTileMap.html#ab59e06379a26482d8103917c1c2393f5">TileMap::GetTileMousePos</a>  (<a class="el" href="classVec2.html" title="Classe que modela um vetor(no sentido físico) ">Vec2</a> const &amp;mousePos, bool affecteedByZoom, int layer) const</dt>
 <dd>Verificar se deve lançar exceção ao invés de retornar um valor negativo. </dd>
-<dt><a class="anchor" id="_todo000019"></a>Membro <a class="el" href="classVec2.html#ab37a161e393133ba7083d3f9386c0173">Vec2::Normalize</a>  (void)</dt>
+<dt><a class="anchor" id="_todo000020"></a>Membro <a class="el" href="classVec2.html#ab37a161e393133ba7083d3f9386c0173">Vec2::Normalize</a>  (void)</dt>
 <dd>Discutir se o coloca como const.</dd>
 </dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 29 de Maio de 2017 14:47:18 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 30 de Maio de 2017 21:39:09 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

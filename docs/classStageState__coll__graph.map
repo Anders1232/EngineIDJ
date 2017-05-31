@@ -1,9 +1,10 @@
 <map id="StageState" name="StageState">
-<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="901,135,955,161"/>
-<area shape="rect" id="node13" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="894,513,962,540"/>
-<area shape="rect" id="node16" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="877,279,979,305"/>
-<area shape="rect" id="node5" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="899,45,957,72"/>
-<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="317,253,373,280"/>
-<area shape="rect" id="node12" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="595,464,658,491"/>
-<area shape="rect" id="node17" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="432,109,484,136"/>
+<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="929,73,982,99"/>
+<area shape="rect" id="node14" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="921,406,989,433"/>
+<area shape="rect" id="node17" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="905,198,1006,225"/>
+<area shape="rect" id="node6" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="927,729,984,755"/>
+<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="317,501,373,527"/>
+<area shape="rect" id="node13" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="595,321,658,347"/>
+<area shape="rect" id="node18" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="432,265,484,291"/>
+<area shape="rect" id="node19" href="$classTimer.html" title="Temporizador. " alt="" coords="767,647,822,674"/>
 </map>
