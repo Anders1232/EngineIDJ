@@ -179,7 +179,7 @@ Vec2 InputManager::GetControllerRightStickState() const{
 }
 
 bool InputManager::IsControllerSticking(void) const{
-	return (mouseScroolUpdate == updateCounter);
+	return (controllerStickUpdate == updateCounter);
 }
 
 bool InputManager::MousePress(int button) const{
