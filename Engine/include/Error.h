@@ -31,6 +31,8 @@ using std::endl;
 
 #define TEMP_REPORT_I_WAS_HERE if(1){std::cout<<"[DEBUG] I was here!\t"<<WHERE<<END_LINE;}
 
+typedef unsigned int uint;
+
 //void Error(char const * errMsg);
 
 #endif // ERROR_H
