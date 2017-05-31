@@ -137,10 +137,9 @@ void InputManager::Update(){
                 int16_t StickRightY = SDL_GameControllerGetAxis(pad, SDL_CONTROLLER_AXIS_RIGHTY);
 
 				controllerLeftStickState = Vec2((float)StickLeftX,(float)StickLeftY);
-				controllerLeftStickUpdate = updateCounter;
-
                 controllerRightStickState = Vec2((float)StickRightX,(float)StickRightY);
-                controllerRightStickUpdate = updateCounter;
+
+                controllerStickUpdate = updateCounter;
 
 			}
 		
