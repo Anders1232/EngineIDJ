@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['vec2',['Vec2',['../classVec2.html',1,'']]]
+  ['text',['Text',['../classText.html',1,'']]],
+  ['tilemap',['TileMap',['../classTileMap.html',1,'']]],
+  ['tileset',['TileSet',['../classTileSet.html',1,'']]],
+  ['timer',['Timer',['../classTimer.html',1,'']]],
+  ['titlestate',['TitleState',['../classTitleState.html',1,'']]]
 ];

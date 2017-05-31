@@ -142,6 +142,12 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a9cdb06bdaca86adf9fc179ed5cf7b148"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a9cdb06bdaca86adf9fc179ed5cf7b148">IsShowingCollisionInfo</a> ()</td></tr>
 <tr class="memdesc:a9cdb06bdaca86adf9fc179ed5cf7b148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa estado a exibição do tilemap de colisão.  <a href="#a9cdb06bdaca86adf9fc179ed5cf7b148">Mais...</a><br /></td></tr>
 <tr class="separator:a9cdb06bdaca86adf9fc179ed5cf7b148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8609c36eecd2fb63e9ab46009176c80"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; int &gt; &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#ab8609c36eecd2fb63e9ab46009176c80">GetSpawnPositions</a> (void) const </td></tr>
+<tr class="memdesc:ab8609c36eecd2fb63e9ab46009176c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém os spawnGroups com seus spawn points.  <a href="#ab8609c36eecd2fb63e9ab46009176c80">Mais...</a><br /></td></tr>
+<tr class="separator:ab8609c36eecd2fb63e9ab46009176c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49950ed4657eda13b22967758c964965"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVec2.html">Vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a49950ed4657eda13b22967758c964965">GetTileSize</a> (void) const </td></tr>
+<tr class="memdesc:a49950ed4657eda13b22967758c964965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o tamanho de um tile.  <a href="#a49950ed4657eda13b22967758c964965">Mais...</a><br /></td></tr>
+<tr class="separator:a49950ed4657eda13b22967758c964965"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Métodos Protegidos</h2></td></tr>
@@ -385,6 +391,28 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ab8609c36eecd2fb63e9ab46009176c80"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; vector&lt; int &gt; &gt; * TileMap::GetSpawnPositions </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtém os spawnGroups com seus spawn points. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Futuras Atividades:</a></b></dt><dd><p class="startdd">Verificar utilidade de usar define para buscar o spawn groups se de deve utilizar argumentos mesmo. </p>
+<p class="enddd">Resolver bug na detecção de adjacências.</p>
+</dd></dl>
+<p>É responsabilidade do chamador desalocar o vector retornado. </p>
+
+</div>
+</div>
 <a class="anchor" id="af6c280210ec11a0aa9b5f5c2ba317817"></a>
 <div class="memitem">
 <div class="memproto">
@@ -426,6 +454,25 @@ Atributos Protegidos</h2></td></tr>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Futuras Atividades:</a></b></dt><dd>Verificar se deve lançar exceção ao invés de retornar um valor negativo.</dd></dl>
 <p>Retorna o número de layers(profundidade) do tileMap.Retorna o índice da posição do tileMap relativo à posição do mouse, esse valor pode ser enviado ao método <a class="el" href="classTileMap.html#a3b8dec192ee9ccca2b4476821235cc0a" title="Obtém o índice do tileMap na posição informada. ">TileMap::At</a> para saber o conteúdo da posição. O valor retornado será negativo e inválido se alguma coordenada do mouse tiver fora dos limites do tileMap. Internamente usa-se busca binária para achar o tile correspondente. </p>
+
+</div>
+</div>
+<a class="anchor" id="a49950ed4657eda13b22967758c964965"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classVec2.html">Vec2</a> TileMap::GetTileSize </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtém o tamanho de um tile. </p>
+<p>O tamanho retornado não leva em consideração zoom, mas leva em consideração escala. </p>
 
 </div>
 </div>
@@ -833,7 +880,7 @@ Atributos Protegidos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quarta, 31 de Maio de 2017 13:20:40 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Quarta, 31 de Maio de 2017 13:47:29 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

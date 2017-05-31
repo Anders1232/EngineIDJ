@@ -1,10 +1,11 @@
 <map id="StageState" name="StageState">
-<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="1072,73,1125,99"/>
-<area shape="rect" id="node16" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1065,361,1133,387"/>
-<area shape="rect" id="node19" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="1048,206,1149,233"/>
-<area shape="rect" id="node5" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="1070,565,1127,591"/>
-<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="487,514,543,541"/>
-<area shape="rect" id="node15" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="766,409,829,435"/>
-<area shape="rect" id="node14" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="233,669,287,695"/>
-<area shape="rect" id="node20" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="603,119,655,146"/>
+<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="1099,73,1153,99"/>
+<area shape="rect" id="node17" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1092,262,1160,289"/>
+<area shape="rect" id="node20" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="1075,397,1177,423"/>
+<area shape="rect" id="node6" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="1097,793,1155,819"/>
+<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="487,543,543,570"/>
+<area shape="rect" id="node16" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="766,419,829,446"/>
+<area shape="rect" id="node15" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="233,573,287,599"/>
+<area shape="rect" id="node21" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="603,495,655,522"/>
+<area shape="rect" id="node22" href="$classTimer.html" title="Temporizador. " alt="" coords="938,718,993,745"/>
 </map>
