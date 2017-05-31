@@ -105,7 +105,17 @@ class Camera {
 			Se o valor de minSpeed ou maxSpeed for zero, o valor default será atribuído no lugar.
 		*/
 		static void SetSpeedLimits(float minSpeed=0, float maxSpeed=0);
+		/**
+			\brief Retorna a velocidade mínima da câmera.
+
+			O valor mínimo é a velocidade que a câmera vai se mover quando estiver com o máximo de zoom possível, ou seja, o mais próximo possível.
+		*/
 		static float GetMinSpeed(void);
+		/**
+			\brief Retorna a velocidade máxima da câmera.
+
+			O valor máximo é a velocidade que a câmera vai se mover quando estiver com o mínimo de zoom possível, ou seja, o mais afastado possível.
+		*/
 		static float GetMaxSpeed(void);
 		/**
 			\brief Altera a sensibilidade do zoom.
@@ -126,11 +136,11 @@ class Camera {
 		static float currentZoom;/**< Armazena o valor do zoom atual, informando em quantas vezes os objetos devem ser ampliados. Ele deve estar estre o minZoom e o maxZoom, a não ser que o método ForceZoom seja usado. Os métodos Zoom e ForceZoom alteram seu valor.*/
 		static float minZoom;/**< Armazena o valor mínimo que o zoom pode ter. Esse limite é ignorado pelo método ForceZoom. É alterado pelo SetZoomLimits.*/
 		static float maxZoom;/**< Armazena o valor mínimo que o zoom pode ter. Esse limite é ignorado pelo método ForceZoom. É alterado pelo SetZoomLimits.*/
-		static bool zoomFixed;/**< Se for verdadeiro, o zoom não será alterado pelo método Zoom. Caso contrário o método Zoom pode mudar o valor corrente do zoom. É alterado pelo método SetZoomnable.*/
+		static bool zoomFixed;/**< Se for verdadeiro, o zoom não será alterado pelo método Zoom. Caso contrário o método Zoom pode mudar o valor corrente do zoom. É alterado pelo método SetZoomable.*/
 		static float zoomSpeed;/**< Armazena a velocidade com a qual o zoom deve ocorrer. O argumento do método Zoom é multiplicado por esse valor para depois ser somado ao currentZoom.*/
-		static float minSpeed;/**< */
-		static float maxSpeed;/**< */
-		static float currentSpeed;/**< Armazena a velocidade de movimento da câmera quando não está focalizada em nenhum objeto.*/
+		static float minSpeed;/**< Armazena o valor mínimo da velocidade da câmera.*/
+		static float maxSpeed;/**< Armazena o valor máximo da velocidade da câmera.*/
+		static float currentSpeed;/**< Armazena a velocidade atual de movimento da câmera quando não está focalizada em nenhum objeto.*/
 };
 
 #endif // CAMERA_H
