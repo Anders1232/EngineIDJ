@@ -81,6 +81,11 @@ class Text {
 			Atualiza o textTime.
 		*/
 		void Update(float dt);
+		/**
+			\brief Renderiza Texto.
+
+			Renderiza o texto na posição informada. Checa se o texto deve piscar e trata esta piscagem com o tempo textTime.
+		*/
 		void Render(int CameraX=0, int cameraY=0) const;
 		/**
 			\brief Altera a posição do texto na tela
@@ -123,16 +128,13 @@ class Text {
 		*/
 		Vec2 GetSize(void)const;
 		/**
-			\brief Altera timeShown.
-			\todo Ver a possibilidade de fazer um set só pra alterar timeShown e strobeFrequency de uma só vez.
-					Exemplo: set(float timeShown = MIN_TIME_SHOWN, float timeFrequency = TEXT_FREQUENCY).
-					Se for possível mandar apenas um dos dois parâmetros, então implementar assim. 
+			\brief Altera tempo mostrado enquanto pisca. 
 
 			Altera o tempo em que o texto vai ser renderizado a cada ciclo de piscagem.
 		*/
 		void SetTimeShown(float newTime);
 		/**
-			\brief Altera timeShown.
+			\brief Altera tempo de piscagem.
 
 			Altera o tempo total de cada ciclo de piscagem (tempo de texto sendo renderizado + tempo sem renderização).
 		*/
