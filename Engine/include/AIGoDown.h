@@ -6,7 +6,7 @@
 /**
 	\brief Componete IA que se move para baixo
 	
-	É essencionalmente uma IA placeholder que é prova de conceito de implementação de IA por componente.
+	É essencialmente uma IA placeholder que é prova de conceito de implementação de IA por componente.
 */
 class AIGoDown : public Component
 {
@@ -21,13 +21,13 @@ class AIGoDown : public Component
 		/**
 			\brief Atualiza estado.
 			\param associated GameObject que contém esse componente.
-			\param dt Intervalo de tempode desde a última chamada.
+			\param dt Intervalo de tempo desde a última chamada.
 			
 			Instancia o componente.
 		*/
 		void Update(GameObject &associated, float dt);
 		/**
-			\brief Verificar se essa componente é do tipo informado.
+			\brief Verifica se essa componente é do tipo informado.
 			
 			Método herdade do componente com o objetivo de identificar que tipo de componente é.
 		*/
