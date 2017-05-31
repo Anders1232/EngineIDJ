@@ -10,35 +10,45 @@ Animation::Animation
 	int frameCount,
 	float frameTime,
 	bool ends
-): GameObject(), endTimer(), timeLimit(frameCount*frameTime), onetimeOnly(ends), sp(sprite, frameTime, frameCount)
-{
+): GameObject(), endTimer(), timeLimit(frameCount*frameTime), oneTimeOnly(ends), sp(sprite, frameTime, frameCount) {
 	box= Vec2(x, y);
 	this->rotation= rotation;
 }
-void Animation::Update(float dt)
-{
+void Animation::Update(float dt) {
 	sp.Update(dt);
 	endTimer.Update(dt);
 }
-void Animation::Render(void)
-{
+void Animation::Render(void) {
 	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, rotation, true);
 }
-bool Animation::IsDead(void)
-{
-	if(onetimeOnly)
-	{
-		if(endTimer.Get()> timeLimit)
-		{
+Rect Animation::GetWorldRenderedRect(void) const {
+	Rect rect;
+	rect.x= box.x-Camera::pos.x;
+	rect.y= box.y-Camera::pos.y;
+	rect.w= sp.GetWidth();
+	rect.h= sp.GetHeight();
+	
+	rect= rect * Camera::GetZoom();
+	
+	return rect+Camera::pos;
+}
+bool Animation::IsDead(void) {
+	if(oneTimeOnly) {
+		if(endTimer.Get()> timeLimit) {
 			return true;
 		}
 	}
 	return false;
 }
-void Animation::NotifyCollision(GameObject &other)
-{}
-bool Animation::Is(string type)
-{
+void Animation::NotifyCollision(GameObject &other) {}
+bool Animation::Is(string type) {
 	return type=="Animation";
+}
+
+void Animation::RequestDelete(void){
+	if(!oneTimeOnly){
+		oneTimeOnly= true;
+	}
+	endTimer.Update(timeLimit);
 }
 

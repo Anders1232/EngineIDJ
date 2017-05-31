@@ -1,7 +1,7 @@
 var searchData=
 [
   ['objectarray',['objectArray',['../classState.html#a08eaf3c9720d7f90ce579630ca938687',1,'State']]],
-  ['onetimeonly',['onetimeOnly',['../classAnimation.html#aa8be050af14ac86c2cce45908bae750d',1,'Animation']]],
+  ['onetimeonly',['oneTimeOnly',['../classAnimation.html#a66b3ba0956af0c060e64cd3553d25ca6',1,'Animation']]],
   ['open',['Open',['../classMusic.html#ae13bd9609c4bb402a04f53ec07890aa3',1,'Music::Open()'],['../classSound.html#afa261d68708b917bf60d704238b56f87',1,'Sound::Open()'],['../classSprite.html#a0528ea8ae39cdf864e01e2b4aaca8dca',1,'Sprite::Open()']]],
   ['operator_20sdl_5frect',['operator SDL_Rect',['../classRect.html#ad2c298fcd6a19db8d0707c335b45bbb0',1,'Rect']]],
   ['operator_20vec2',['operator Vec2',['../classRect.html#a1b49ca2d6d13628fce9b25134a771406',1,'Rect']]],

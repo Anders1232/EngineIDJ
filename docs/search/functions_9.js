@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['leftarrowaction',['LeftArrowAction',['../classActionManager.html#afb4776f0e58c20d5c09c7e437298ae1b',1,'ActionManager']]],
-  ['leftshoulderaction',['LeftShoulderAction',['../classActionManager.html#a61be8917bbd2964348cb99087f71bc99',1,'ActionManager']]],
-  ['load',['Load',['../classTileMap.html#af79b1c89448feb571b799a3642dab5f9',1,'TileMap']]]
+  ['keypress',['KeyPress',['../classInputManager.html#acf5d7a5b83dc24aba5d43372d6152dae',1,'InputManager']]],
+  ['keyrelease',['KeyRelease',['../classInputManager.html#a05892299bfc75aab9d2530737cf36248',1,'InputManager']]]
 ];

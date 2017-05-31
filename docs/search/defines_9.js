@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['report_5fi_5fwas_5fhere',['REPORT_I_WAS_HERE',['../Error_8h.html#a15a48a3e28c4eb425e3340eae40894c5',1,'Error.h']]],
-  ['right_5farrow_5fkey',['RIGHT_ARROW_KEY',['../InputManager_8h.html#ad0c8af7976bcbad226a5227851560eeb',1,'InputManager.h']]],
-  ['right_5fmouse_5fbutton',['RIGHT_MOUSE_BUTTON',['../InputManager_8h.html#a752bf1e116b4c25c5543855013c8c6eb',1,'InputManager.h']]]
+  ['left_5falt_5fkey',['LEFT_ALT_KEY',['../InputManager_8h.html#a885b690ded6ea1375860b20e055d38d0',1,'InputManager.h']]],
+  ['left_5farrow_5fkey',['LEFT_ARROW_KEY',['../InputManager_8h.html#aea108a18c2f4dbd3bcfb53d5ec9c3e57',1,'InputManager.h']]],
+  ['left_5fctrl_5fkey',['LEFT_CTRL_KEY',['../InputManager_8h.html#ae63706b323513ebd991753c428ef13d1',1,'InputManager.h']]],
+  ['left_5fmouse_5fbutton',['LEFT_MOUSE_BUTTON',['../InputManager_8h.html#a5b4fc4bb24d4e600730ff30aaaff7323',1,'InputManager.h']]],
+  ['left_5fshift_5fkey',['LEFT_SHIFT_KEY',['../InputManager_8h.html#a829da24333df37749342d584fc2ba123',1,'InputManager.h']]]
 ];

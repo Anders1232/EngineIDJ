@@ -3,30 +3,26 @@
 #include "Game.h"
 #include "StageState.h"
 
-TitleState::TitleState():State(), bg("img/title.jpg")
-{
+TitleState::TitleState() : State(), bg("img/title.jpg") {
 }
-void TitleState::Update(float dt)
-{
+
+void TitleState::Update(float dt) {
 	InputManager &inputManager= InputManager::GetInstance();
-	if(ActionManager::StartAction())
-	{
+	if(ActionManager::StartAction()){
 		Game::GetInstance().Push(new StageState());
 	}
-	else if(InputManager::GetInstance().QuitRequested())
-	{
+	else if(InputManager::GetInstance().QuitRequested()){
 		quitRequested= true;
 	}
-	else if(ActionManager::EscapeAction())
-	{
+	else if(ActionManager::EscapeAction()){
 		popRequested= true;
 	}
 }
-void TitleState::Render(void) const
-{
+
+void TitleState::Render(void) const {
 	bg.Render(0, 0);
 }
-void TitleState::Pause(void)
-{}
-void TitleState::Resume(void)
-{}
+
+void TitleState::Pause(void) {}
+
+void TitleState::Resume(void) {}

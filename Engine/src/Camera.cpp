@@ -15,84 +15,67 @@ bool Camera::zoomFixed= !CAMERA_DEFAULT_ZOOMABLE;
 float Camera::zoomSpeed= CAMERA_DEFAULT_ZOOM_SPEED;
 
 
-void Camera::Follow(GameObject* newFocus)
-{
+void Camera::Follow(GameObject* newFocus) {
 	focus= newFocus;
 }
-void Camera::Unfollow(void)
-{
+void Camera::Unfollow(void) {
 	focus= nullptr;
 }
-void Camera::Update(float dt)
-{
-	if(nullptr != focus)
-	{
+void Camera::Update(float dt) {
+	if(nullptr != focus) {
 		//centrar a câmera na tela
 		pos= (focus->box).Center()- (Game::GetInstance().GetWindowDimensions()*0.5* (1./Camera::GetZoom()));
 //		pos= pos * Camera::GetZoom();
 	}
-	else
-	{
-		if(ActionManager::LeftArrowAction())
-		{
+	else{
+		if(ActionManager::LeftArrowAction()){
 			pos.x -= speed * dt;
 //			if(pos.x <0 ) pos.x=0;
 		}
-		if(ActionManager::RightArrowAction())
-		{
+		if(ActionManager::RightArrowAction()){
 			pos.x += speed*dt;
 		}
-		if(ActionManager::DownArrowAction())
-		{
+		if(ActionManager::DownArrowAction()){
 			pos.y += speed*dt;
 //			if(pos.y <0 ) pos.y=0;
 		}
-		if(ActionManager::UpArrowAction())
-		{
+		if(ActionManager::UpArrowAction()){
 			pos.y -= speed*dt;
 		}
 	}
-	if(InputManager::GetInstance().IsMouseScrolling())
-	{
+	if(InputManager::GetInstance().IsMouseScrolling()){
 		Camera::Zoom( (float)InputManager::GetInstance().MouseScroll().y );
 	}
 }
 
-void Camera::ForceZoom(float newZoom)
-{
+void Camera::ForceZoom(float newZoom){
 	currentZoom= newZoom;
 }
-void Camera::SetZoomable(bool zoomable)
-{
+
+void Camera::SetZoomable(bool zoomable){
 	zoomFixed= !zoomable;
 }
-void Camera::Zoom(float deltaZoom)
-{
-	if(!zoomFixed)
-	{
+
+void Camera::Zoom(float deltaZoom) {
+	if(!zoomFixed) {
 		currentZoom+= deltaZoom*zoomSpeed;
-		if(CAMERA_DEFAULT_MAX_ZOOM < currentZoom)
-		{
-			currentZoom= CAMERA_DEFAULT_MAX_ZOOM;
+		if(maxZoom < currentZoom) {
+			currentZoom= maxZoom;
 		}
-		else if(CAMERA_DEFAULT_MIN_ZOOM > currentZoom)
-		{
-			currentZoom= CAMERA_DEFAULT_MIN_ZOOM;
+		else if(minZoom > currentZoom) {
+			currentZoom= minZoom;
 		}
 	}
 }
-void Camera::SetZoomLimits(float minZoom, float maxZoom)
-{
+void Camera::SetZoomLimits(float minZoom, float maxZoom) {
 	Camera::minZoom= (minZoom == 0)? CAMERA_DEFAULT_MIN_ZOOM : minZoom;
 	Camera::maxZoom= (maxZoom == 0)? CAMERA_DEFAULT_MAX_ZOOM : maxZoom;
 }
-float Camera::GetZoom(void)
-{
+float Camera::GetZoom(void) {
 	return currentZoom;
 }
 
-void Camera::SetZoomSpeed(float newZoomSpeed)
-{
+void Camera::SetZoomSpeed(float newZoomSpeed) {
 	zoomSpeed= newZoomSpeed;
 }
 

@@ -1,39 +1,35 @@
 #include "State.h"
 
-State::State(void): popRequested(false), quitRequested(false)
-{
+State::State(void): popRequested(false), quitRequested(false) {
 }
-State::~State(void)
-{
+
+State::~State(void) {
 }
-void State::AddObject(GameObject *object)
-{
+
+void State::AddObject(GameObject *object) {
 	objectArray.push_back(std::unique_ptr<GameObject>(object));
 }
-bool State::PopRequested(void)
-{
+
+bool State::PopRequested(void) {
 	return popRequested;
 }
-bool State::QuitRequested(void)
-{
+
+bool State::QuitRequested(void) {
 	return quitRequested;
 }
-void State::UpdateArray(float dt)
-{
-	for(unsigned int cont=0; cont < objectArray.size(); cont++)
-	{
+
+void State::UpdateArray(float dt) {
+	for(unsigned int cont=0; cont < objectArray.size(); cont++) {
 		objectArray.at(cont)->Update(dt);
-		if(objectArray.at(cont)->IsDead())
-		{
+		if(objectArray.at(cont)->IsDead()) {
 			objectArray.erase(objectArray.begin()+cont);
 			cont--;
 		}
 	}
 }
-void State::RenderArray(void) const
-{
-	for(unsigned int cont=0; cont < objectArray.size(); cont++)
-	{
+
+void State::RenderArray(void) const {
+	for(unsigned int cont=0; cont < objectArray.size(); cont++) {
 		objectArray[cont]->Render();
 	}
 }

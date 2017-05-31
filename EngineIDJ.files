@@ -9,6 +9,7 @@ Engine/include/Animation.h
 Engine/include/Camera.h
 Engine/include/Camera.h
 Engine/include/Collision.h
+<<<<<<< HEAD
 Engine/include/Collision.h
 Engine/include/Error.h
 Engine/include/Error.h
@@ -17,6 +18,14 @@ Engine/include/Game.h
 Engine/include/Gameobject.h
 Engine/include/Gameobject.h
 Engine/include/InputManager.h
+=======
+Engine/include/Component.h
+Engine/include/DragAndDrop.h
+Engine/include/Error.h
+Engine/include/Game.h
+Engine/include/GameObject.h
+Engine/include/HitPoints.h
+>>>>>>> c68673265ecd6285d212512450e844fb107d9ae5
 Engine/include/InputManager.h
 Engine/include/Music.h
 Engine/include/Music.h
@@ -44,6 +53,7 @@ Engine/include/Vec2.h
 Engine/include/Component.h
 Engine/include/DragAndDrop.h
 Engine/include/Vec2.h
+<<<<<<< HEAD
 Engine/src/ActionManager.cpp
 Engine/src/Animation.cpp
 Engine/src/Animation.cpp
@@ -53,6 +63,20 @@ Engine/src/Game.cpp
 Engine/src/Game.cpp
 Engine/src/Gameobject.cpp
 Engine/src/Gameobject.cpp
+=======
+Engine/include/Component.h
+Engine/include/DragAndDrop.h
+Engine/include/Wave.h
+Engine/include/AIGoDown.h
+Engine/src/Animation.cpp
+Engine/src/Animation.cpp
+Engine/src/Camera.cpp
+Engine/src/Component.cpp
+Engine/src/DragAndDrop.cpp
+Engine/src/Game.cpp
+Engine/src/GameObject.cpp
+Engine/src/HItPoints.cpp
+>>>>>>> c68673265ecd6285d212512450e844fb107d9ae5
 Engine/src/InputManager.cpp
 Engine/src/InputManager.cpp
 Engine/src/Music.cpp
@@ -76,31 +100,44 @@ Engine/src/Tileset.cpp
 Engine/src/Timer.cpp
 Engine/src/Timer.cpp
 Engine/src/Vec2.cpp
+<<<<<<< HEAD
 Engine/src/Component.cpp
 Engine/src/DragAndDrop.cpp
 Engine/src/Vec2.cpp
 Game/include/Alien.h
 Game/include/Bullet.h
+=======
+Engine/src/AIGoDown.cpp
+>>>>>>> c68673265ecd6285d212512450e844fb107d9ae5
 Game/include/Defines.h
 Game/include/Defines.h
 Game/include/EndState.h
 Game/include/EndState.h
 Game/include/EndStateData.h
+<<<<<<< HEAD
 Game/include/EndStateData.h
 Game/include/Minion.h
 Game/include/Penguins.h
+=======
+Game/include/Enemy.h
+Game/include/Face.h
+>>>>>>> c68673265ecd6285d212512450e844fb107d9ae5
 Game/include/StageState.h
 Game/include/StageState.h
 Game/include/TitleState.h
 Game/include/Face.h
 Game/include/TitleState.h
-Game/src/Alien.cpp
-Game/src/Bullet.cpp
 Game/src/EndState.cpp
 Game/src/EndState.cpp
 Game/src/EndStateData.cpp
 Game/src/EndStateData.cpp
+Game/src/Enemy.cpp
+Game/src/Face.cpp
 Game/src/main.cpp
 Game/src/StageState.cpp
 Game/src/TitleState.cpp
+<<<<<<< HEAD
 Game/src/Face.cpp
+=======
+Game/src/main.cpp
+>>>>>>> c68673265ecd6285d212512450e844fb107d9ae5

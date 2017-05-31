@@ -9,7 +9,7 @@
 	//mac
 #elif __linux__
 	#include <SDL2/SDL.h>
-	#include<SDL2/SDL_image.h>
+	#include <SDL2/SDL_image.h>
 	#include <SDL2/SDL_mixer.h>
 #else
 	#error "Unknown compiler"
@@ -42,8 +42,7 @@
 		- Scroll do mouse
 	Observação: Os métodos que trabalham com o teclado precisam ter seus índices ajustados conforme o documentado em keyState. Para tal a função macro AJUST_KEY foi feita.
 */
-class InputManager
-{
+class InputManager {
 	public:
 		/**
 			\brief Atualiza as informações internas.

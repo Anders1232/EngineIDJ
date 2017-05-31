@@ -15,8 +15,7 @@ typedef int StateDataType;
 	O objetivo dessa classe é conter informações para um state a ser construído. Para um State conseguir saber que informações o StateData tem, existe o método Is, que irá identificar o StateData.
 	Isso permite então o cast do StateData para o tipo correto.
 */
-class StateData
-{
+class StateData {
 	public:
 		/**
 			\brief Informa o tipo do StateData
@@ -24,6 +23,8 @@ class StateData
 			Iidentifica o tipo de StateData da instância. Isso permite então o cast correto do StateData para o tipo desejado.
 		*/
 		virtual bool Is(StateDataType typeToCheck) const=0;
+		int waveCount;
+		int lifes;
 };
 
 #endif // STATEDATA_H

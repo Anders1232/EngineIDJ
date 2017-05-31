@@ -1,7 +1,7 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include "Gameobject.h"
+#include "GameObject.h"
 #include <vector>
 #include <memory>
 
@@ -10,8 +10,7 @@
 
 	State provê uma interface sobre a qual a lógica do jogo pode ser desenvolvida e rodada sobre a engine. Um jogo pode ter vários estados, solictando que seja desempilhado ou que novos estados sejam empilhados. A engine os gerencia como uma pilha.
 */
-class State
-{
+class State {
 	public:
 		/**
 			\brief Construtor
