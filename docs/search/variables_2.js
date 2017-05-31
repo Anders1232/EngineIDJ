@@ -8,10 +8,9 @@ var searchData=
   ['color',['color',['../classText.html#ab0f771bd18d8e968f7aaee4a4e26e385',1,'Text']]],
   ['columns',['columns',['../classTileSet.html#a47ae11f9d04f9da3fbaba834fdbc62cf',1,'TileSet']]],
   ['controllerleftstickstate',['controllerLeftStickState',['../classInputManager.html#a6792c10cb9eef8bfaa6a12b8405bad13',1,'InputManager']]],
-  ['controllerleftstickupdate',['controllerLeftStickUpdate',['../classInputManager.html#a9b6cd6517a685757d7f6aed22a38b104',1,'InputManager']]],
   ['controllerrightstickstate',['controllerRightStickState',['../classInputManager.html#a39f7982405d422569fe99511ef4d1dce',1,'InputManager']]],
-  ['controllerrightstickupdate',['controllerRightStickUpdate',['../classInputManager.html#af48fe9d0865252524affddf29eb5cb5f',1,'InputManager']]],
   ['controllerstate',['controllerState',['../classInputManager.html#a223465815735da41043f434567f0a96a',1,'InputManager']]],
+  ['controllerstickupdate',['controllerStickUpdate',['../classInputManager.html#a5e6ccd1ed40908fa5663445ae9fb622d',1,'InputManager']]],
   ['controllerupdate',['controllerUpdate',['../classInputManager.html#a53817858b539f080e0cebad2b03cc0d2',1,'InputManager']]],
   ['currentframe',['currentFrame',['../classSprite.html#a556cfc67b1b98691aa2e5b41f076fded',1,'Sprite']]],
   ['currentzoom',['currentZoom',['../classCamera.html#ac867d6d379c0d052ae65d57c7c313970',1,'Camera']]]

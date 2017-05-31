@@ -7,6 +7,7 @@ var searchData=
   ['distanceleft',['distanceLeft',['../classBullet.html#ac24a38eea713d69e34c090416177b426',1,'Bullet']]],
   ['distanceto',['DistanceTo',['../classVec2.html#a521ee085dda3e0116d086d9a043d7c2e',1,'Vec2']]],
   ['dot',['Dot',['../classCollision.html#a8e858eea6ac033ac5e2a31946618c5c4',1,'Collision']]],
+  ['down_5farrow_5fkey',['DOWN_ARROW_KEY',['../InputManager_8h.html#af2292687de6b9256a2664a7dacf9ae4a',1,'InputManager.h']]],
   ['downarrowaction',['DownArrowAction',['../classActionManager.html#a4e532467961545ed717e59158ea89990',1,'ActionManager']]],
   ['dt',['dt',['../classGame.html#a5184b0439c5cefb45050d0bfaca9ac97',1,'Game']]]
 ];

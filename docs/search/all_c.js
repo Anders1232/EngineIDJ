@@ -10,6 +10,7 @@ var searchData=
   ['margem_5ferro_5fcomparacao',['MARGEM_ERRO_COMPARACAO',['../Vec2_8h.html#a1759b83db156ac7ed195b3e04757ee14',1,'Vec2.h']]],
   ['maxzoom',['maxZoom',['../classCamera.html#af418b7887d39c773d73cb179c497a8da',1,'Camera']]],
   ['membermult',['MemberMult',['../classVec2.html#a987a32ba0e2eec40c7e63e926cd7340d',1,'Vec2']]],
+  ['middle_5fmouse_5fbutton',['MIDDLE_MOUSE_BUTTON',['../InputManager_8h.html#a0f26b1a0dee82337d947288c4ebcee16',1,'InputManager.h']]],
   ['min_5fdistance_5fbetween_5faliens',['MIN_DISTANCE_BETWEEN_ALIENS',['../Alien_8h.html#adbd75077fbf0940c7518a36c52f3d393',1,'Alien.h']]],
   ['minion',['Minion',['../classMinion.html',1,'Minion'],['../classMinion.html#a40ae7be8aa16177d2453b6102388c0f2',1,'Minion::Minion()']]],
   ['minion_2ecpp',['Minion.cpp',['../Minion_8cpp.html',1,'']]],
