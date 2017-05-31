@@ -27,7 +27,7 @@ void Enemy::Update(float dt){
 }
 
 void Enemy::Render(void){
-	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, 0, true);
+	sp.Render( (box.x-Camera::pos.x)*Camera::GetZoom(), (box.y-Camera::pos.y)*Camera::GetZoom(), 0, true);
 }
 
 bool Enemy::IsDead(void){

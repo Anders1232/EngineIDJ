@@ -14,9 +14,14 @@
 	#error "Unknown compiler"
 #endif
 
+#include "Color.h"
 
 #include <string>
 #include <memory>
+
+#define ALPHA_BLEND SDL_BLENDMODE_BLEND
+#define ADDITIVE SDL_BLENDMODE_ADD
+#define COLOR_MODULATION SDL_BLENDMODE_MOD
 
 /**
 	\brief Classe que modela uma sprite.
@@ -177,6 +182,9 @@ class Sprite {
 			Atribui a scaleY produto de scaleX pelo argumento e atribui a scaleX produto de scaleX pelo argumento.
 		*/
 		void Scale(float scale);
+		Color colorMultiplier;/**< A cor a ser usada para multiplicar a sprite.*/
+		SDL_BlendMode blendMode;/**< O modo de mistura da sprite com as inferiores.*/
+		unsigned char alpha;/**< A transparência da textura.*/
 	private:
 		std::shared_ptr<SDL_Texture> texture;/**< Ponteiro para a textura manejada pelo sprite.*/
 		int width;/**< Largura da textura em pixels.*/

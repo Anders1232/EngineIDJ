@@ -1,11 +1,12 @@
 <map id="Game/src/main.cpp" name="Game/src/main.cpp">
-<area shape="rect" id="node3" href="$Game_8h.html" title="Game.h" alt="" coords="203,80,271,107"/>
-<area shape="rect" id="node15" href="$TitleState_8h.html" title="TitleState.h" alt="" coords="311,80,401,107"/>
-<area shape="rect" id="node6" href="$State_8h.html" title="State.h" alt="" coords="395,155,459,181"/>
-<area shape="rect" id="node11" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="123,379,186,405"/>
-<area shape="rect" id="node14" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="5,229,117,256"/>
-<area shape="rect" id="node7" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="464,229,571,256"/>
-<area shape="rect" id="node10" href="$Rect_8h.html" title="Rect.h" alt="" coords="573,304,635,331"/>
-<area shape="rect" id="node13" href="$Component_8h.html" title="Component.h" alt="" coords="449,304,549,331"/>
-<area shape="rect" id="node16" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="323,229,389,256"/>
+<area shape="rect" id="node3" href="$Game_8h.html" title="Game.h" alt="" coords="277,80,345,107"/>
+<area shape="rect" id="node15" href="$TitleState_8h.html" title="TitleState.h" alt="" coords="147,80,237,107"/>
+<area shape="rect" id="node6" href="$State_8h.html" title="State.h" alt="" coords="160,155,224,181"/>
+<area shape="rect" id="node11" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="549,379,611,405"/>
+<area shape="rect" id="node14" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="609,229,721,256"/>
+<area shape="rect" id="node7" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="341,229,448,256"/>
+<area shape="rect" id="node10" href="$Rect_8h.html" title="Rect.h" alt="" coords="473,304,535,331"/>
+<area shape="rect" id="node13" href="$Component_8h.html" title="Component.h" alt="" coords="349,304,449,331"/>
+<area shape="rect" id="node16" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="88,229,155,256"/>
+<area shape="rect" id="node17" href="$Color_8h.html" title="Color.h" alt="" coords="5,304,69,331"/>
 </map>

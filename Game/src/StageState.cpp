@@ -96,7 +96,7 @@ void StageState::Update(float dt) {
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
 		REPORT_I_WAS_HERE;
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos()*(1/Camera::GetZoom())+Camera::pos-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
-		AddObject(new Face(mousePos.x, mousePos.y, Vec2(FACE_LINEAR_SIZE, FACE_LINEAR_SIZE), tileMap) );
+		AddObject( new Face(mousePos.x, mousePos.y, Vec2(FACE_LINEAR_SIZE, FACE_LINEAR_SIZE), tileMap) );
 	}
 	if(InputManager::GetInstance().KeyPress('e')){
 		printf("Face criado\n");

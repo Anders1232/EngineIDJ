@@ -79,7 +79,7 @@ void Text::RemakeTexture(void) {
 		SDL_DestroyTexture(texture);
 	}
 	font = Resources::GetFont(fontFile, fontSize);
-	SDL_Surface *temp;
+	SDL_Surface *temp = nullptr;
 	if(SOLID == style) {
 		temp= TTF_RenderText_Solid(font.get(), text.c_str(), color);
 	}
@@ -93,9 +93,11 @@ void Text::RemakeTexture(void) {
 	}
 	texture= SDL_CreateTextureFromSurface(Game::GetInstance().GetRenderer(), temp);
 	SDL_FreeSurface(temp);
-	SDL_QueryTexture(texture, nullptr, nullptr, (int*)&box.w, (int*)&box.h);
-	box.w= *((int*)&box.w);
-	box.h= *((int*)&box.h);
+	int w = 0;
+	int h = 0;
+	SDL_QueryTexture(texture, nullptr, nullptr, &w, &h);
+	box.w= (float)w;
+	box.h= (float)h;
 }
 
 Vec2 Text::GetSize(void)const {
