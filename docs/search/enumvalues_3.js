@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['shared',['SHARED',['../Text_8h.html#ad5957a553b7d89d4921c39cc3ad6bc45a9c46e16a4ab019339596acadeefc8c53',1,'Text.h']]],
-  ['solid',['SOLID',['../Text_8h.html#ad5957a553b7d89d4921c39cc3ad6bc45a1b45f84e1f6603b52e5ef442836df9af',1,'Text.h']]]
+  ['engineer',['ENGINEER',['../classEnemy.html#a98c2ee2c2081001de17a4bc9fa8da94faf394be269ed38843e2f6b64ff0bd095d',1,'Enemy']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['penguins_2ecpp',['Penguins.cpp',['../Penguins_8cpp.html',1,'']]],
-  ['penguins_2eh',['Penguins.h',['../Penguins_8h.html',1,'']]]
+  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['music_2ecpp',['Music.cpp',['../Music_8cpp.html',1,'']]],
+  ['music_2eh',['Music.h',['../Music_8h.html',1,'']]]
 ];

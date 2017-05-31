@@ -1,7 +1,16 @@
 var searchData=
 [
-  ['bg',['bg',['../classEndState.html#aeb91899a27b89589e22685a888d4ba0a',1,'EndState::bg()'],['../classStageState.html#aa52c55dee219d1bbd1690e8c3c8e34f6',1,'StageState::bg()'],['../classTitleState.html#acecffd14c654d7b19636d926579cbe44',1,'TitleState::bg()']]],
-  ['bodysp',['bodySP',['../classPenguins.html#a8073784e6c016a2bd44a306cdc0d0027',1,'Penguins']]],
-  ['box',['box',['../classGameObject.html#ac8df90f2a6d41693cd7938e392ff6d0b',1,'GameObject::box()'],['../classText.html#a1a2dd837322b9adcd3a2a98f68e633c9',1,'Text::box()']]],
-  ['bulletstimer',['bulletsTimer',['../classPenguins.html#a8067358ae8be93b771475815b9c9d8d4',1,'Penguins']]]
+  ['capframerate',['capFramerate',['../classGame.html#a9c4d90234bc5a4ca540b09d8a534ece1',1,'Game']]],
+  ['channel',['channel',['../classSound.html#af3895edf5a39772f1de32cfbfff90909',1,'Sound']]],
+  ['cliprect',['clipRect',['../classSprite.html#a3451a65b4cd1b2ff3c11448dbdde43ac',1,'Sprite']]],
+  ['color',['color',['../classText.html#ab0f771bd18d8e968f7aaee4a4e26e385',1,'Text']]],
+  ['columns',['columns',['../classTileSet.html#a47ae11f9d04f9da3fbaba834fdbc62cf',1,'TileSet']]],
+  ['components',['components',['../classGameObject.html#adf77cf3872333bf5e3007ad98e8afd18',1,'GameObject']]],
+  ['controllerleftstickstate',['controllerLeftStickState',['../classInputManager.html#a6792c10cb9eef8bfaa6a12b8405bad13',1,'InputManager']]],
+  ['controllerrightstickstate',['controllerRightStickState',['../classInputManager.html#a39f7982405d422569fe99511ef4d1dce',1,'InputManager']]],
+  ['controllerstate',['controllerState',['../classInputManager.html#a223465815735da41043f434567f0a96a',1,'InputManager']]],
+  ['controllerstickupdate',['controllerStickUpdate',['../classInputManager.html#a5e6ccd1ed40908fa5663445ae9fb622d',1,'InputManager']]],
+  ['controllerupdate',['controllerUpdate',['../classInputManager.html#a53817858b539f080e0cebad2b03cc0d2',1,'InputManager']]],
+  ['currentframe',['currentFrame',['../classSprite.html#a556cfc67b1b98691aa2e5b41f076fded',1,'Sprite']]],
+  ['currentzoom',['currentZoom',['../classCamera.html#ac867d6d379c0d052ae65d57c7c313970',1,'Camera']]]
 ];

@@ -4,20 +4,18 @@
 #include <vector>
 #include <memory>
 #include "Sprite.h"
-#include "Gameobject.h"
+#include "GameObject.h"
 #include "Tileset.h"
 #include "TileMap.h"
 #include "InputManager.h"
 #include "ActionManager.h"
 #include "State.h"
 #include "Music.h"
+#include "Timer.h"
 
-#define NUMBER_OF_ALIENS (6)
+using std::vector;
 
-//#define BG_POINTER
-
-class StageState: public State
-{
+class StageState: public State {
 	public:
 		StageState(void);
 		~StageState(void);
@@ -31,7 +29,9 @@ class StageState: public State
 		TileSet tileSet;
 		InputManager &inputManager;
 		Music music;
-		void CreateAlien();
+		vector<vector<int>> *spawnGroups;
+		Timer spawnTimer;
+		void SpawnEnemy(int tileMapPosition);
 };
 
 #include "EndState.h"

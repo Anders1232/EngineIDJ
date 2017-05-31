@@ -31,8 +31,7 @@ using std::string;
 	Esta classe gerencia o uso de memória, em especial implementa o reuso de imagens, músicas sons e fontes já carregadas. poupando tempo de carregameto e evita ter em memória recursos repetidos.
 	Isso é feito mantendo fazendo o uso de tabelas de hash, onde cada elemento mapeado é um ponteiro compartilhado(shared_ptr).
 */
-class Resources
-{
+class Resources {
 	public:
 		/**
 			\brief Obtém o ponteiro para a imagem.

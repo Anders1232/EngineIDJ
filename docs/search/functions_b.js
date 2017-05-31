@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['norm',['Norm',['../classCollision.html#ab739e01f1393b68b28cb8b45f42bf2d4',1,'Collision']]],
-  ['normalize',['Normalize',['../classVec2.html#ab37a161e393133ba7083d3f9386c0173',1,'Vec2']]],
-  ['notifycollision',['NotifyCollision',['../classAnimation.html#a611b21418311eb697ec4af1aaff92657',1,'Animation::NotifyCollision()'],['../classGameObject.html#aa627e6c2913983fc5f108c1c4d303eb8',1,'GameObject::NotifyCollision()'],['../classAlien.html#a47baef9f1b44ad393b268812b752bd3a',1,'Alien::NotifyCollision()'],['../classBullet.html#a272c1b019f46df9ad9bd45bd9ffb6e41',1,'Bullet::NotifyCollision()'],['../classMinion.html#a908a2d009bad951df8bfd40067074059',1,'Minion::NotifyCollision()'],['../classPenguins.html#aba0e8bc9309f056d196cd0fd267fbe78',1,'Penguins::NotifyCollision()']]]
+  ['mag',['Mag',['../classCollision.html#a0c594c1d2a6733d602c39c1d11e410ad',1,'Collision']]],
+  ['magnitude',['Magnitude',['../classVec2.html#a03e6b2c570b15d67d68252db49dc42bd',1,'Vec2']]],
+  ['main',['main',['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main.cpp']]],
+  ['membermult',['MemberMult',['../classVec2.html#a987a32ba0e2eec40c7e63e926cd7340d',1,'Vec2']]],
+  ['mousepress',['MousePress',['../classInputManager.html#a9aafa7219a565ac9f2c880e0abf8bcb5',1,'InputManager']]],
+  ['mouserelease',['MouseRelease',['../classInputManager.html#a5eb551457a8c8a875c0a75628e4131b6',1,'InputManager']]],
+  ['mousescroll',['MouseScroll',['../classInputManager.html#a294065a597c3a15c6d1360cdc944d053',1,'InputManager']]],
+  ['music',['Music',['../classMusic.html#ab5143f67c021bc77894c8e91de2b916b',1,'Music::Music()'],['../classMusic.html#a769113513e796dd408b4deb7e758074d',1,'Music::Music(string file)']]]
 ];

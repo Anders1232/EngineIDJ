@@ -1,7 +1,7 @@
 #ifndef ENDDTATE_H
 #define ENDDTATE_H
 
-#include "Gameobject.h"
+#include "GameObject.h"
 #include "Sprite.h"
 #include "Music.h"
 #include "Text.h"
@@ -9,8 +9,7 @@
 
 #define END_STATE_FONT_SIZE (40)
 
-class EndState: public State
-{
+class EndState: public State {
 	public:
 		EndState(EndStateData stateData);
 		void Update(float dt);

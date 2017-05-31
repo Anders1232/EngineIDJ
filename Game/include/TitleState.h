@@ -5,8 +5,7 @@
 #include "Sprite.h"
 #include "ActionManager.h"
 
-class TitleState: public State
-{
+class TitleState: public State {
 	public:
 		TitleState(void);
 		void Update(float dt);

@@ -20,8 +20,7 @@
 
 	Vec2 é uma ED que descreve um vetor internamente pelas coordenadas (x,y). Também serve para definir pontos em um plano bidimensional.
 */
-class Vec2
-{
+class Vec2 {
 	public:
 		/**
 			\brief Construtor padrão
