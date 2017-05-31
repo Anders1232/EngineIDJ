@@ -3,9 +3,7 @@
 #include "Camera.h"
 #include "Error.h"
 
-DragAndDrop::DragAndDrop(TileMap *map, bool dragging, bool dragOnActionHold)
-	:isDragging(dragging), dragOnHold(dragOnActionHold), tileMap(map){
-}
+DragAndDrop::DragAndDrop(TileMap *map,bool dragOnActionHold) : dragOnHold(dragOnActionHold), tileMap(map){}
 
 void DragAndDrop::Update(GameObject &associated){
 	InputManager &inputManager= InputManager::GetInstance();
@@ -21,13 +19,17 @@ void DragAndDrop::Update(GameObject &associated){
 //			tileMap->
 		}
 	}
-*/	if(isDragging && inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON)){
+*/	if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON)){
+
 		Vec2 mousePos= inputManager.GetMousePos()*(1/Camera::GetZoom());
 		associated.box= mousePos+Camera::pos-Vec2(associated.box.w/2, associated.box.h/2);
+
 	}
-	else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON) && isDragging){
+	else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON)){
+
 		tileMap->InsertGO(&associated);
-		isDragging= false;
+		associated.RemoveComponent(DRAG_AND_DROP);
+
 	}
 }
 

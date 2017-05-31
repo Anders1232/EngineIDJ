@@ -28,6 +28,14 @@ using std::unique_ptr;
 	Especifica quais métodos um gameObject deve ter para conseguir ser manipulado corretamente pela engine.
 */
 
+#ifndef COMPONENT_TYPE
+#define COMPONENT_TYPE
+enum ComponentType{
+	DRAG_AND_DROP=0,
+	SIZE
+};
+#endif
+
 #ifndef COMPONENT
 class Component;
 #endif
@@ -41,6 +49,18 @@ class GameObject{
 			Não é virtual, sua implementação inicializa a rotação com o valor zero. Pode ser usado pelos herdeiros.
 		*/
 		GameObject(void);
+		/**
+			\brief Adiciona componente a um gameobjet.
+			\param component componente a ser adicionado.
+			
+		*/
+		void AddComponent(Component* component);
+		/**
+			\brief Remove componente a um gameobjet.
+			\param type tipo do componente a ser adicionado.
+			
+		*/
+		void RemoveComponent(ComponentType type);
 		/**
 			\brief Destrutor
 			

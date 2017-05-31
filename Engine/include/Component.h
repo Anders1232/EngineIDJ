@@ -8,10 +8,13 @@
 
 	Enumeração com os tipos de componentes possíveis, usado no método Is que todo componente deve implementar.
 */
+#ifndef COMPONENT_TYPE
+#define COMPONENT_TYPE
 enum ComponentType{
 	DRAG_AND_DROP=0,
 	SIZE
 };
+#endif
 
 #ifndef GAME_OBJECT
 class GameObject;

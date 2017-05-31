@@ -19,7 +19,7 @@ class DragAndDrop : public Component{
 		
 			Instancia o DragAndDrop, informando se o objeto está sendo arrastado.
 		*/
-		DragAndDrop(TileMap *map, bool dragging= false, bool dragOnActionHold= true);
+		DragAndDrop(TileMap *map,bool dragOnActionHold= true);
 		/**
 			\brief Atualiza o estado do objeto em arrasto.
 			\param associated GameObject que possui esse componente.
@@ -35,7 +35,6 @@ class DragAndDrop : public Component{
 		*/
 		bool Is(ComponentType) const;
 	private:
-		bool isDragging;/**< Indica se o objeto esta sendo arrastado.*/
 		bool dragOnHold;/**< [Não utilizado no momento] Armazena a informação se o botão deve ser segurado para arrastar, ou apenas pressiona uma vez para arrastar e outra vez para soltar.*/
 		TileMap *tileMap;/**< TileMap no qual o GameObject será inserido após o drag.*/
 };

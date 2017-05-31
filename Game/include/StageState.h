@@ -10,6 +10,7 @@
 #include "InputManager.h"
 #include "State.h"
 #include "Music.h"
+#include "DragAndDrop.h"
 
 
 class StageState: public State {
