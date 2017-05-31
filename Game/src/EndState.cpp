@@ -6,10 +6,13 @@ EndState::EndState(EndStateData stateData)
 		  instruction( "font/Call me maybe.ttf",
 						END_STATE_FONT_SIZE,
 						BLENDED,
-				 		{255, 255, 255, 255}
+				 		{255, 255, 255, 255},
+						 true
 			   		 ) {
 	music.Play(0);
 	instruction.SetText("Press Esc to go to menu or Space to play again!");
+	instruction.SetTimeShown(0.6);
+	instruction.SetStrobeFrequency(1.0);
 
 	bg.Render(0, 0);
 	Vec2 pos= Game::GetInstance().GetWindowDimensions();
@@ -21,6 +24,7 @@ EndState::EndState(EndStateData stateData)
 }
 
 void EndState::Update(float dt) {
+	instruction.Update(dt);
 	InputManager &inputManager= InputManager::GetInstance();
 	if(inputManager.QuitRequested()) {
 		quitRequested= true;

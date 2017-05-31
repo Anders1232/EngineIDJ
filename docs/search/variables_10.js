@@ -10,5 +10,6 @@ var searchData=
   ['speed',['speed',['../classAIGoDown.html#ac494b9b70caa1919b45937492946cfe2',1,'AIGoDown::speed()'],['../classCamera.html#a2960f533df18fe6d7d574c316c6d217a',1,'Camera::speed()']]],
   ['statestack',['stateStack',['../classGame.html#a2706caaad0c60784a6671efc9ee147f8',1,'Game']]],
   ['storedstate',['storedState',['../classGame.html#a46a38cae75b6557890d7c47ad8350a1d',1,'Game']]],
+  ['strobefrequency',['strobeFrequency',['../classText.html#a38e924c6d2f551bae9ab4b73cab1360c',1,'Text']]],
   ['style',['style',['../classText.html#aaf6b429b30c8e7b380aa2433cf1296ea',1,'Text']]]
 ];

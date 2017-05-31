@@ -21,5 +21,6 @@ var searchData=
   ['ismousedown',['IsMouseDown',['../classInputManager.html#a410c6f6a0fa13dfd938d6d26a524fc19',1,'InputManager']]],
   ['ismousescrolling',['IsMouseScrolling',['../classInputManager.html#aeb81e9386db70d1cc204e45963ec9077',1,'InputManager']]],
   ['isopen',['IsOpen',['../classMusic.html#a7dd0d191e358d600f0ea8a1db75f833d',1,'Music::IsOpen()'],['../classSound.html#a9e67e48d34d9ca3d31f0da846ada923b',1,'Sound::IsOpen()'],['../classSprite.html#a9f1e62573dd91cb03dbad7aa54807b8c',1,'Sprite::IsOpen()']]],
-  ['isshowingcollisioninfo',['IsShowingCollisionInfo',['../classTileMap.html#a9cdb06bdaca86adf9fc179ed5cf7b148',1,'TileMap']]]
+  ['isshowingcollisioninfo',['IsShowingCollisionInfo',['../classTileMap.html#a9cdb06bdaca86adf9fc179ed5cf7b148',1,'TileMap']]],
+  ['isstrobe',['isStrobe',['../classText.html#a5ebb0b4767c8487d440d9c36ae0c93cd',1,'Text']]]
 ];

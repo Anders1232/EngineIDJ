@@ -19,9 +19,13 @@
 #endif
 
 #include "Rect.h"
+#include "Timer.h"
 #include <memory>
 #include <string>
 using std::string;
+
+#define MIN_TIME_SHOWN (0.15)
+#define TEXT_FREQUENCY (0.25)
 
 /**
 	\brief Informa como o texto será rendeizaddo.
@@ -49,6 +53,7 @@ class Text {
 			\param fontSize Tamanho da fonte.
 			\param style Como o texto será renderizado, veja TextStyle para mais informações.
 			\param color Cor do texto renderizado.
+			\param isStrobing define se tempo deve piscar.
 			\param x Coordenada x a partir do qual o texto deve ser renderizado.
 			\param y Coordenada y a partir do qual o texto deve ser renderizado.
 
@@ -60,6 +65,7 @@ class Text {
 			int fontSize,
 			TextStyle style,
 			SDL_Color color,
+			bool isStrobing = false,
 			int x= 0,
 			int y=0
 		);
@@ -69,6 +75,17 @@ class Text {
 			Destrói o Text, a textura interna também é destruída para não ter memory leak.
 		*/
 		~Text();
+		/**
+			\brief Update
+
+			Atualiza o textTime.
+		*/
+		void Update(float dt);
+		/**
+			\brief Renderiza Texto.
+
+			Renderiza o texto na posição informada. Checa se o texto deve piscar e trata esta piscagem com o tempo textTime.
+		*/
 		void Render(int CameraX=0, int cameraY=0) const;
 		/**
 			\brief Altera a posição do texto na tela
@@ -110,11 +127,23 @@ class Text {
 			Obtém o tamanho do texto em pixels.
 		*/
 		Vec2 GetSize(void)const;
+		/**
+			\brief Altera tempo mostrado enquanto pisca. 
+
+			Altera o tempo em que o texto vai ser renderizado a cada ciclo de piscagem.
+		*/
+		void SetTimeShown(float newTime);
+		/**
+			\brief Altera tempo de piscagem.
+
+			Altera o tempo total de cada ciclo de piscagem (tempo de texto sendo renderizado + tempo sem renderização).
+		*/
+		void SetStrobeFrequency(float fullTime);
 	private:
 		/**
-			\brief Cria a textura que contém p texto
+			\brief Cria a textura que contém o texto
 
-			Se existir um textura anteriormente a mesma e destruída. Então uma nova é feita com base no estado atual do Text.
+			Se existir um textura anteriormente, esta é destruída. Então uma nova é feita com base no estado atual do Text.
 		*/
 		void RemakeTexture(void);
 		std::shared_ptr<TTF_Font> font;/**< Ponteiro para a fonte.*/
@@ -123,8 +152,12 @@ class Text {
 		TextStyle style;/**< Forma com a qual o texto está texturizado*/
 		int fontSize;/**< Tamanho da fonte do texto.*/
 		SDL_Color color;/**< Cor do texto,*/
+		Timer textTime;/**< Tempo para piscagem do texto*/
 		Rect box;/**< Posição a partir da qual o texto deve ser renderizado.*/
 		string fontFile; /**< String com o nome do arquivo com a fonte. É necessário para o caso em que a fonte seja modificada.*/
+		bool isStrobe;/**< Flag que determina se o texto deve piscar*/
+		float strobeFrequency;/**< Tempo de um ciclo da piscagem. Seu valor é TEXT_FREQUENCY por padrão.*/
+		float timeShown;/**< Tempo em que o texto é mostrado na piscagem. Seu valor é MIN_TIME_SHOWN por padrão.*/
 };
 
 

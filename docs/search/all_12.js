@@ -15,9 +15,11 @@ var searchData=
   ['setscale',['SetScale',['../classSprite.html#a54d18a18383575b04f397f5bec3113d0',1,'Sprite']]],
   ['setscalex',['SetScaleX',['../classSprite.html#aad7bb29fc017ac2197dffec177c17e15',1,'Sprite']]],
   ['setscaley',['SetScaleY',['../classSprite.html#a2853ee7687dc906b9be791d197a1b1b6',1,'Sprite']]],
+  ['setstrobefrequency',['SetStrobeFrequency',['../classText.html#a8170b3d5b99bca8ef161794c226841f2',1,'Text']]],
   ['setstyle',['SetStyle',['../classText.html#acd7cd539df681365587e86144cc3c352',1,'Text']]],
   ['settext',['SetText',['../classText.html#abffaafcd871424690014ca0a74c45989',1,'Text']]],
   ['settileset',['SetTileSet',['../classTileMap.html#aeaeb5ed2cc7e621ab2fe9f5ee26b2b69',1,'TileMap']]],
+  ['settimeshown',['SetTimeShown',['../classText.html#ae96b3e5967b643436dcb98bc62c04ade',1,'Text']]],
   ['setwidthandheight',['SetWidthAndHeight',['../classRect.html#a5751026840c842f72e1f79cb82d9554c',1,'Rect']]],
   ['setzoomable',['SetZoomable',['../classCamera.html#a3912a07e55bb225146fdaedb333c4452',1,'Camera']]],
   ['setzoomlimits',['SetZoomLimits',['../classCamera.html#aa320e33bcbe395cdad9f63887ea15689',1,'Camera']]],
@@ -26,7 +28,7 @@ var searchData=
   ['showcollisioninfo',['ShowCollisionInfo',['../classTileMap.html#a31b1607f50b08cf2c49c71a8478ec07d',1,'TileMap']]],
   ['size',['SIZE',['../Component_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0a4aa71180778b711338785695df5d7c52',1,'Component.h']]],
   ['solid',['SOLID',['../Text_8h.html#ad5957a553b7d89d4921c39cc3ad6bc45a1b45f84e1f6603b52e5ef442836df9af',1,'Text.h']]],
-  ['sound',['Sound',['../classSound.html',1,'Sound'],['../classSound.html#a44bbda770ac76c7455b60d3d63b663a7',1,'Sound::sound()'],['../classSound.html#a539c205cdf06fe2c621fd77c37bcfac9',1,'Sound::Sound()'],['../classSound.html#af2c277cdc12b7df1de53e5b855e4f09c',1,'Sound::Sound(string file)']]],
+  ['sound',['Sound',['../classSound.html',1,'Sound'],['../classSound.html#a539c205cdf06fe2c621fd77c37bcfac9',1,'Sound::Sound()'],['../classSound.html#af2c277cdc12b7df1de53e5b855e4f09c',1,'Sound::Sound(string file)'],['../classSound.html#a44bbda770ac76c7455b60d3d63b663a7',1,'Sound::sound()']]],
   ['sound_2ecpp',['Sound.cpp',['../Sound_8cpp.html',1,'']]],
   ['sound_2eh',['Sound.h',['../Sound_8h.html',1,'']]],
   ['soundtable',['soundTable',['../classResources.html#abbd116a3bc870ba6578a89b4aa08908c',1,'Resources']]],
@@ -56,5 +58,6 @@ var searchData=
   ['statestack',['stateStack',['../classGame.html#a2706caaad0c60784a6671efc9ee147f8',1,'Game']]],
   ['stop',['Stop',['../classMusic.html#a76ee0c7654f3048045e1f1b7fde334c3',1,'Music::Stop()'],['../classSound.html#ae391c15fe26a0091e601be32eef0bce5',1,'Sound::Stop()']]],
   ['storedstate',['storedState',['../classGame.html#a46a38cae75b6557890d7c47ad8350a1d',1,'Game']]],
+  ['strobefrequency',['strobeFrequency',['../classText.html#a38e924c6d2f551bae9ab4b73cab1360c',1,'Text']]],
   ['style',['style',['../classText.html#aaf6b429b30c8e7b380aa2433cf1296ea',1,'Text']]]
 ];
