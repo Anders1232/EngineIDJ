@@ -11,10 +11,10 @@ Sprite::Sprite(void): Sprite("", 0, 1) {
 }
 
 Sprite::Sprite(std::string file, float frameTime, int frameCount)
-			: frameCount(frameCount), currentFrame(0), timeElapsed(0)
-			, frameTime(frameTime), scaleX(1.), scaleY(1.)
-			, colorMultiplier{255, 255, 255}, blendMode(ALPHA_BLEND)
-			, alpha(255) {
+			: colorMultiplier(255, 255, 255), blendMode(ALPHA_BLEND)
+			, alpha(255), frameCount(frameCount)
+			, currentFrame(0), timeElapsed(0)
+			, frameTime(frameTime), scaleX(1.), scaleY(1.) {
 	REPORT_I_WAS_HERE;
 	if ( file.empty() ) {
 		texture = nullptr;
