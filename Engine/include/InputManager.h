@@ -161,6 +161,7 @@ class InputManager
 			Essa instância estática é retornada.
 		*/
 		static InputManager& GetInstance(void);
+
 		/**
 			\brief Informa se um botão do controle foi pressionado no frame corrente
 			\param button Botão do controle cujo o estado é requerido
@@ -169,6 +170,7 @@ class InputManager
 			Retorna verdadeiro se o controllerState do botão for falso E o mouseUpdate do botão for igual ao updateCounter.
 			Caso contrário retorna-se o valor falso.
 		*/
+
 		bool ButtonPress(int button) const;
 		/**
 			\brief Informa se um botão do controle foi solto no frame corrente

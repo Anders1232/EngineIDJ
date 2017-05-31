@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['number_5fof_5faliens',['NUMBER_OF_ALIENS',['../StageState_8h.html#a06bb6ad7ad83d29369a2efda2a009c2e',1,'StageState.h']]]
+  ['report_5fi_5fwas_5fhere',['REPORT_I_WAS_HERE',['../Error_8h.html#a15a48a3e28c4eb425e3340eae40894c5',1,'Error.h']]]
 ];

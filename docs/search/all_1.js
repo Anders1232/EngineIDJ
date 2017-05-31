@@ -7,5 +7,7 @@ var searchData=
   ['bullet',['Bullet',['../classBullet.html',1,'Bullet'],['../classBullet.html#a509f1d8e6f7629934574c15c835de0c8',1,'Bullet::Bullet()']]],
   ['bullet_2ecpp',['Bullet.cpp',['../Bullet_8cpp.html',1,'']]],
   ['bullet_2eh',['Bullet.h',['../Bullet_8h.html',1,'']]],
-  ['bulletstimer',['bulletsTimer',['../classPenguins.html#a8067358ae8be93b771475815b9c9d8d4',1,'Penguins']]]
+  ['bulletstimer',['bulletsTimer',['../classPenguins.html#a8067358ae8be93b771475815b9c9d8d4',1,'Penguins']]],
+  ['buttonpress',['ButtonPress',['../classInputManager.html#aafbc79dc459c3bba0e4a4054421632d3',1,'InputManager']]],
+  ['buttonrelease',['ButtonRelease',['../classInputManager.html#a313d0716dad6a7f322f86e8b2e986d42',1,'InputManager']]]
 ];

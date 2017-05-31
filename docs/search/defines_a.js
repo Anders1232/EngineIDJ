@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['report_5fi_5fwas_5fhere',['REPORT_I_WAS_HERE',['../Error_8h.html#a15a48a3e28c4eb425e3340eae40894c5',1,'Error.h']]],
-  ['right_5farrow_5fkey',['RIGHT_ARROW_KEY',['../InputManager_8h.html#ad0c8af7976bcbad226a5227851560eeb',1,'InputManager.h']]],
-  ['right_5fmouse_5fbutton',['RIGHT_MOUSE_BUTTON',['../InputManager_8h.html#a752bf1e116b4c25c5543855013c8c6eb',1,'InputManager.h']]]
+  ['temp_5freport_5fi_5fwas_5fhere',['TEMP_REPORT_I_WAS_HERE',['../Error_8h.html#a460a42aaa4200700dfb4a73f852e93b8',1,'Error.h']]],
+  ['tile_5fvazio',['TILE_VAZIO',['../TileMap_8h.html#ac02aac1b0a1bc1430a2bf4a3cd4ab7bf',1,'TileMap.h']]]
 ];
