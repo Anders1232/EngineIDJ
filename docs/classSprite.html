@@ -85,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#pub-attribs">Atributos Públicos</a> &#124;
 <a href="#pri-attribs">Atributos Privados</a> &#124;
 <a href="classSprite-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
@@ -99,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="dynheader">
 Diagrama de colaboração para Sprite:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classSprite__coll__graph.svg" width="451" height="171"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSprite__coll__graph.svg" width="772" height="290"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
@@ -165,6 +166,15 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:aa8b31cd4deebedbbdf8ca3923a3064c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#aa8b31cd4deebedbbdf8ca3923a3064c6">Scale</a> (float scale)</td></tr>
 <tr class="memdesc:aa8b31cd4deebedbbdf8ca3923a3064c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera a escala vertical e horizontal do sprite.  <a href="#aa8b31cd4deebedbbdf8ca3923a3064c6">Mais...</a><br /></td></tr>
 <tr class="separator:aa8b31cd4deebedbbdf8ca3923a3064c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Atributos Públicos</h2></td></tr>
+<tr class="memitem:a050950c25cc2f8bd812feabaf5aaad82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structColor.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a050950c25cc2f8bd812feabaf5aaad82">colorMultiplier</a></td></tr>
+<tr class="separator:a050950c25cc2f8bd812feabaf5aaad82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9081ab1c8e4ca96a21d97a937550da8c"><td class="memItemLeft" align="right" valign="top">SDL_BlendMode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a9081ab1c8e4ca96a21d97a937550da8c">blendMode</a></td></tr>
+<tr class="separator:a9081ab1c8e4ca96a21d97a937550da8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e19ec07718672961d355c5e25ef3ee"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#ab3e19ec07718672961d355c5e25ef3ee">alpha</a></td></tr>
+<tr class="separator:ab3e19ec07718672961d355c5e25ef3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Atributos Privados</h2></td></tr>
@@ -732,6 +742,32 @@ Atributos Privados</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="ab3e19ec07718672961d355c5e25ef3ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char Sprite::alpha</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A transparência da textura. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9081ab1c8e4ca96a21d97a937550da8c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_BlendMode Sprite::blendMode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>O modo de mistura da sprite com as inferiores. </p>
+
+</div>
+</div>
 <a class="anchor" id="a3451a65b4cd1b2ff3c11448dbdde43ac"></a>
 <div class="memitem">
 <div class="memproto">
@@ -750,6 +786,19 @@ Atributos Privados</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Recorte do sprite que será exibido na tela. </p>
+
+</div>
+</div>
+<a class="anchor" id="a050950c25cc2f8bd812feabaf5aaad82"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structColor.html">Color</a> Sprite::colorMultiplier</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A cor a ser usada para multiplicar a sprite. </p>
 
 </div>
 </div>
@@ -949,7 +998,7 @@ Atributos Privados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quarta, 31 de Maio de 2017 15:00:50 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Quarta, 31 de Maio de 2017 15:01:57 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

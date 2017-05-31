@@ -3,7 +3,7 @@
 
 #include <string>
 #include <stack>
-#include"State.h"
+#include "State.h"
 #include "InputManager.h"
 #include "Vec2.h"
 

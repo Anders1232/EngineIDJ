@@ -58,11 +58,11 @@ void Camera::SetZoomable(bool zoomable) {
 void Camera::Zoom(float deltaZoom) {
 	if(!zoomFixed) {
 		currentZoom+= deltaZoom*zoomSpeed;
-		if(CAMERA_DEFAULT_MAX_ZOOM < currentZoom) {
-			currentZoom= CAMERA_DEFAULT_MAX_ZOOM;
+		if(maxZoom < currentZoom) {
+			currentZoom= maxZoom;
 		}
-		else if(CAMERA_DEFAULT_MIN_ZOOM > currentZoom) {
-			currentZoom= CAMERA_DEFAULT_MIN_ZOOM;
+		else if(minZoom > currentZoom) {
+			currentZoom= minZoom;
 		}
 	}
 }

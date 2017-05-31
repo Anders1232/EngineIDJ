@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['damage',['Damage',['../classFace.html#a094c141b4019c35c7e8a8278d80ecb02',1,'Face']]],
-  ['distanceto',['DistanceTo',['../classVec2.html#aaf7c998a9f97f4a79e3900289ac566e0',1,'Vec2']]],
-  ['dot',['Dot',['../classCollision.html#a8e858eea6ac033ac5e2a31946618c5c4',1,'Collision']]],
-  ['draganddrop',['DragAndDrop',['../classDragAndDrop.html#ae8bf1e903ebaceb56405f9ff26020c0b',1,'DragAndDrop']]]
+  ['endstate',['EndState',['../classEndState.html#a14303ccf71d755d28f5a0e79f40c69b4',1,'EndState']]],
+  ['endstatedata',['EndStateData',['../classEndStateData.html#a3193e460f24f5cbd1098030864c75ddc',1,'EndStateData::EndStateData(bool playerVictory)'],['../classEndStateData.html#a3193e460f24f5cbd1098030864c75ddc',1,'EndStateData::EndStateData(bool playerVictory)']]],
+  ['enemy',['Enemy',['../classEnemy.html#a647281cc33d151d321aac6301ca44c39',1,'Enemy']]]
 ];

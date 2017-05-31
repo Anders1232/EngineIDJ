@@ -1,7 +1,7 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
-#include "Gameobject.h"
+#include "GameObject.h"
 
 /**
 	\brief Tipos de Componentes
@@ -10,6 +10,8 @@
 */
 enum ComponentType{
 	DRAG_AND_DROP=0,
+	HIT_POINTS,
+	AI_GO_DOWN,
 	SIZE
 };
 
@@ -32,7 +34,7 @@ class Component{
 		
 			Deve conter a lógica principal provida pelo componente, utilizando o gameObject que o contém sempre que necessário.
 		*/
-		virtual void Update(GameObject &associated)=0;
+		virtual void Update(GameObject &associated, float dt)=0;
 		/**
 			\brief Verifica o subtipo de componente.
 			\param type Tipo que deseja verificar se o componente é.

@@ -5,7 +5,6 @@ var searchData=
   ['mapwidth',['mapWidth',['../classTileMap.html#ae2361e840eacaebbbbc91541ded00655',1,'TileMap']]],
   ['maxframerate',['maxFramerate',['../classGame.html#a5424a424548c7bdb04de05c5c836002d',1,'Game']]],
   ['maxzoom',['maxZoom',['../classCamera.html#af418b7887d39c773d73cb179c497a8da',1,'Camera']]],
-  ['minionarray',['minionArray',['../classAlien.html#a2ce0b76dc42b78ef26f1c524e428f682',1,'Alien']]],
   ['minzoom',['minZoom',['../classCamera.html#a65d5a8e5533b568224d9fc488bfdcb28',1,'Camera']]],
   ['mousescroolstate',['mouseScroolState',['../classInputManager.html#a9c9d5ed1da1b205d9311ec4a9bab06ea',1,'InputManager']]],
   ['mousescroolupdate',['mouseScroolUpdate',['../classInputManager.html#a646fc44d21853e1354aaacc6a27e79ca',1,'InputManager']]],

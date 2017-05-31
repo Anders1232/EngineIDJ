@@ -1,6 +1,0 @@
-<map id="Bullet" name="Bullet">
-<area shape="rect" id="node2" href="$classGameObject.html" title="GameObject" alt="" coords="297,240,392,267"/>
-<area shape="rect" id="node3" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="319,139,370,165"/>
-<area shape="rect" id="node6" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="5,189,57,216"/>
-<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="538,139,594,165"/>
-</map>

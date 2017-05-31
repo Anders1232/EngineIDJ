@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['penguins',['Penguins',['../classPenguins.html',1,'']]]
+  ['rect',['Rect',['../classRect.html',1,'']]],
+  ['resources',['Resources',['../classResources.html',1,'']]]
 ];

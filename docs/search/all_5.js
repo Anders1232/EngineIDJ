@@ -4,6 +4,7 @@ var searchData=
   ['face_2ecpp',['Face.cpp',['../Face_8cpp.html',1,'']]],
   ['face_2eh',['Face.h',['../Face_8h.html',1,'']]],
   ['face_5fhp',['FACE_HP',['../Face_8h.html#a175506a3d7a1cd14d4d419441663cd60',1,'Face.h']]],
+  ['face_5flinear_5fsize',['FACE_LINEAR_SIZE',['../StageState_8cpp.html#a2b3bf4a4b5ae1e21ee8d8134377a2d0e',1,'StageState.cpp']]],
   ['focus',['focus',['../classCamera.html#a266c767efbe18088d7f79880f7e98998',1,'Camera']]],
   ['follow',['Follow',['../classCamera.html#a4290d7e4815d2e0726d88b743d44e8df',1,'Camera']]],
   ['font',['font',['../classText.html#a7c89817e7e1d08584cf1b51106ce5ba4',1,'Text']]],

@@ -7,18 +7,17 @@ Text::Text( string fontFile,
 			bool isStrobing,
 			int x,
 			int y )
-	  : font(Resources::GetFont(fontFile, fontSize)),
+		:font(Resources::GetFont(fontFile, fontSize)),
 		texture(nullptr),
 		text(" "),
 		style(style),
 		fontSize(fontSize),
 		color(color),
+		textTime(),
 		fontFile(fontFile),
 		isStrobe(isStrobing),
-		timeShown(MIN_TIME_SHOWN),
 		strobeFrequency(TEXT_FREQUENCY),
-		textTime() {
-	
+		timeShown(MIN_TIME_SHOWN){
 	box.x= x;
 	box.y= y;
 	RemakeTexture();
@@ -94,7 +93,7 @@ void Text::RemakeTexture(void) {
 		SDL_DestroyTexture(texture);
 	}
 	font = Resources::GetFont(fontFile, fontSize);
-	SDL_Surface *temp;
+	SDL_Surface *temp = nullptr;
 	if(SOLID == style) {
 		temp= TTF_RenderText_Solid(font.get(), text.c_str(), color);
 	}
@@ -108,9 +107,11 @@ void Text::RemakeTexture(void) {
 	}
 	texture= SDL_CreateTextureFromSurface(Game::GetInstance().GetRenderer(), temp);
 	SDL_FreeSurface(temp);
-	SDL_QueryTexture(texture, nullptr, nullptr, (int*)&box.w, (int*)&box.h);
-	box.w= *((int*)&box.w);
-	box.h= *((int*)&box.h);
+	int w = 0;
+	int h = 0;
+	SDL_QueryTexture(texture, nullptr, nullptr, &w, &h);
+	box.w= (float)w;
+	box.h= (float)h;
 }
 
 Vec2 Text::GetSize(void)const {
