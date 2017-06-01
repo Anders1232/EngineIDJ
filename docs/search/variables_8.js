@@ -5,5 +5,6 @@ var searchData=
   ['instance',['instance',['../classGame.html#aa469cdc0a30f4fd2d6d99b23f4fbf257',1,'Game']]],
   ['instruction',['instruction',['../classEndState.html#acbc4bcbbf722307b2ea222b5a85a0e8d',1,'EndState']]],
   ['isdragging',['isDragging',['../classDragAndDrop.html#ae70478ad1144137afdf8fefe453379c8',1,'DragAndDrop']]],
-  ['isdraging',['isDraging',['../classFace.html#a617f599a3f170e5692495ba63a9fa5a7',1,'Face']]]
+  ['isdraging',['isDraging',['../classFace.html#a617f599a3f170e5692495ba63a9fa5a7',1,'Face']]],
+  ['isstrobe',['isStrobe',['../classText.html#a5ebb0b4767c8487d440d9c36ae0c93cd',1,'Text']]]
 ];

@@ -4,15 +4,20 @@ Text::Text( string fontFile,
 			int fontSize,
 			TextStyle style,
 			SDL_Color color,
+			bool isStrobing,
 			int x,
 			int y )
-	  : font(Resources::GetFont(fontFile, fontSize)),
+		:font(Resources::GetFont(fontFile, fontSize)),
 		texture(nullptr),
 		text(" "),
 		style(style),
 		fontSize(fontSize),
 		color(color),
-		fontFile(fontFile){
+		textTime(),
+		fontFile(fontFile),
+		isStrobe(isStrobing),
+		strobeFrequency(TEXT_FREQUENCY),
+		timeShown(MIN_TIME_SHOWN){
 	box.x= x;
 	box.y= y;
 	RemakeTexture();
@@ -24,17 +29,26 @@ Text::~Text() {
 	}
 }
 
+void Text::Update(float dt){
+	textTime.Update(dt);
+	if(textTime.Get() >= strobeFrequency){
+        textTime.Restart();
+    }
+}
+
 void Text::Render(int cameraX, int cameraY) const {
-	SDL_Rect srcRect;
-	srcRect.x= 0;
-	srcRect.y= 0;
-	srcRect.w= box.w;
-	srcRect.h= box.h;
-	SDL_Rect destRect= (SDL_Rect)(box- Vec2(cameraX, cameraY));
-//	std::cout << WHERE << " srcRect.x=" << srcRect.x<< " srcRect.y=" << srcRect.y<< " srcRect.w=" << srcRect.w<< " srcRect.h=" << srcRect.h << "\n";
-//	std::cout << WHERE << " destRect.x=" << destRect.x<< " destRect.y=" << destRect.y<< " destRect.w=" << destRect.w<< " destRect.h=" << destRect.h << "\n";
-	if(0 !=SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &srcRect, &destRect) ) {
-		Error("Render error: " << SDL_GetError());
+	if(isStrobe ? textTime.Get() < timeShown : true){
+		SDL_Rect srcRect;
+		srcRect.x= 0;
+		srcRect.y= 0;
+		srcRect.w= box.w;
+		srcRect.h= box.h;
+		SDL_Rect destRect= (SDL_Rect)(box- Vec2(cameraX, cameraY));
+	//	std::cout << WHERE << " srcRect.x=" << srcRect.x<< " srcRect.y=" << srcRect.y<< " srcRect.w=" << srcRect.w<< " srcRect.h=" << srcRect.h << "\n";
+	//	std::cout << WHERE << " destRect.x=" << destRect.x<< " destRect.y=" << destRect.y<< " destRect.w=" << destRect.w<< " destRect.h=" << destRect.h << "\n";
+		if(0 !=SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &srcRect, &destRect) ) {
+			Error("Render error: " << SDL_GetError());
+		}
 	}
 }
 
@@ -104,3 +118,10 @@ Vec2 Text::GetSize(void)const {
 	return Vec2(box.w, box.h);
 }
 
+void Text::SetTimeShown(float newTime){
+		timeShown = newTime;
+}
+
+void Text::SetStrobeFrequency(float fullTime){
+		strobeFrequency = fullTime;
+}

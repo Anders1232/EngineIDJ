@@ -13,6 +13,7 @@ var searchData=
   ['maxzoom',['maxZoom',['../classCamera.html#af418b7887d39c773d73cb179c497a8da',1,'Camera']]],
   ['membermult',['MemberMult',['../classVec2.html#a0af80a4efc933b61b2885a815a15a77f',1,'Vec2']]],
   ['middle_5fmouse_5fbutton',['MIDDLE_MOUSE_BUTTON',['../InputManager_8h.html#a0f26b1a0dee82337d947288c4ebcee16',1,'InputManager.h']]],
+  ['min_5ftime_5fshown',['MIN_TIME_SHOWN',['../Text_8h.html#ae0001748c8e43f9667011d62636fb7a0',1,'Text.h']]],
   ['minspeed',['minSpeed',['../classCamera.html#a6c5fe02b8b21a7c9784f970f08b4864a',1,'Camera']]],
   ['minzoom',['minZoom',['../classCamera.html#a65d5a8e5533b568224d9fc488bfdcb28',1,'Camera']]],
   ['mixer_5fchuck_5fsize',['MIXER_CHUCK_SIZE',['../Game_8h.html#aa464e7a29fa5110de8238c0cfb4458a2',1,'Game.h']]],

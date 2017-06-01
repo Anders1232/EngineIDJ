@@ -2,7 +2,7 @@ var searchData=
 [
   ['game',['Game',['../classGame.html#acf1ee7a59d78a51832e8878cfca81c5a',1,'Game']]],
   ['gameobject',['GameObject',['../classGameObject.html#a78da814b13c8bf344ba0c5f72cb22af3',1,'GameObject']]],
-  ['get',['Get',['../classTimer.html#a7d41db026caef9bb0a0a22ddec49dd4c',1,'Timer']]],
+  ['get',['Get',['../classTimer.html#af3962012b13e46abf3cf798f7aa3eec7',1,'Timer']]],
   ['getcurrentframerate',['GetCurrentFramerate',['../classGame.html#a3e0a5615b8ebcdea9c4cac436e35cdcd',1,'Game']]],
   ['getcurrentstate',['GetCurrentState',['../classGame.html#a1f9d6f97e969424844881dd7ad2e353e',1,'Game']]],
   ['getdeltatime',['GetDeltaTime',['../classGame.html#aa2feacb19b45ff0ec0935ea1a6f9c9ab',1,'Game']]],

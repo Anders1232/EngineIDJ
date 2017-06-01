@@ -12,7 +12,7 @@ void Timer::Restart(void) {
 	time=0;
 }
 
-float Timer::Get(void) {
+float Timer::Get(void) const {
 	return time;
 }
 
