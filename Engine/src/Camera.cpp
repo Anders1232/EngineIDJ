@@ -3,11 +3,8 @@
 #include "Error.h"
 #include "Game.h"
 
-<<<<<<< HEAD
 #define CAMERA_MOVE_SPEED (100)
-=======
 #define INPUT_MANAGER InputManager::GetInstance()
->>>>>>> e5875c5e599648c41a87e8ace402ea4999f3fa08
 
 GameObject* Camera::focus= nullptr;
 Vec2 Camera::pos;
@@ -33,11 +30,6 @@ void Camera::Update(float dt) {
 		//centrar a câmera na tela
 		pos= (focus->box).Center()- (Game::GetInstance().GetWindowDimensions()*0.5* (1./Camera::GetZoom()));
 //		pos= pos * Camera::GetZoom();
-<<<<<<< HEAD
-	}else{
-		if(ActionManager::LeftArrowAction()){
-			pos.x -= speed * dt;
-=======
 	}
 	else {
 		// Normaliza o nível de zoom atual
@@ -46,7 +38,6 @@ void Camera::Update(float dt) {
 		float speed = zoomLevel*minSpeed + (1-zoomLevel)*maxSpeed;
 		if(INPUT_MANAGER.IsKeyDown(LEFT_ARROW_KEY) || INPUT_MANAGER.IsKeyDown('a')) {
 			pos.x -= speed*dt;
->>>>>>> e5875c5e599648c41a87e8ace402ea4999f3fa08
 //			if(pos.x <0 ) pos.x=0;
 		}
 		if(ActionManager::RightArrowAction()){
@@ -69,11 +60,7 @@ void Camera::ForceZoom(float newZoom){
 	currentZoom= newZoom;
 }
 
-<<<<<<< HEAD
-void Camera::SetZoomable(bool zoomable){
-=======
 void Camera::SetZoomable(bool zoomable) {
->>>>>>> e5875c5e599648c41a87e8ace402ea4999f3fa08
 	zoomFixed= !zoomable;
 }
 

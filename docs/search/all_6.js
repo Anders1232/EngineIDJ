@@ -21,8 +21,8 @@ var searchData=
   ['getimage',['GetImage',['../classResources.html#a557aa346c974a8bce80017dbabd653d9',1,'Resources']]],
   ['getinstance',['GetInstance',['../classGame.html#a25d213802ed39215e3ab2cb04edf46c8',1,'Game::GetInstance()'],['../classInputManager.html#a1f095ed502f0bd09390d05cdc0acdcd9',1,'InputManager::GetInstance()']]],
   ['getmaxframerate',['GetMaxFramerate',['../classGame.html#aafc542fc5f826d2eed771c8bd75d6930',1,'Game']]],
-  ['getmaxspeed',['GetMaxSpeed',['../classCamera.html#ada7b21d1d92bc2466fa58818dd4395a5',1,'Camera']]],
-  ['getminspeed',['GetMinSpeed',['../classCamera.html#aad69d83a443fbb7ab30c4ea9688c060f',1,'Camera']]],
+  ['getmaxspeed',['GetMaxSpeed',['../classCamera.html#a58085208a970a15b8bb1d8edee343ad0',1,'Camera']]],
+  ['getminspeed',['GetMinSpeed',['../classCamera.html#a4824e13cac9ebd8f79abbae248a2b614',1,'Camera']]],
   ['getmousepos',['GetMousePos',['../classInputManager.html#a8609a7850d6c037642539c19ab53a4e8',1,'InputManager']]],
   ['getmousex',['GetMouseX',['../classInputManager.html#aaa3f36152ef8fdec75c0e3f5307979fb',1,'InputManager']]],
   ['getmousey',['GetMouseY',['../classInputManager.html#a3883f6471f5d124fd51990af3fdff24d',1,'InputManager']]],
@@ -39,5 +39,5 @@ var searchData=
   ['getwidth',['GetWidth',['../classSprite.html#ad3d43826d2f41185964ec4a1eb492248',1,'Sprite::GetWidth()'],['../classTileMap.html#a072dbe1dbd793712baefe154c3058ab2',1,'TileMap::GetWidth()']]],
   ['getwindowdimensions',['GetWindowDimensions',['../classGame.html#adbeb87bbabcc73f936e149c2d83d9d33',1,'Game']]],
   ['getworldrenderedrect',['GetWorldRenderedRect',['../classAnimation.html#a0c0ff21f388105a5ed1560de9071f895',1,'Animation::GetWorldRenderedRect()'],['../classGameObject.html#a686136f4cf17c54345a7d28187b25893',1,'GameObject::GetWorldRenderedRect()'],['../classWave.html#ae8d831a974e0f487125ebab6f712b91a',1,'Wave::GetWorldRenderedRect()'],['../classEnemy.html#ac7f63bc4fdfa5cf88f85eec8e9053df2',1,'Enemy::GetWorldRenderedRect()'],['../classFace.html#ab414dd8e68874fe87d4524e2347a23f7',1,'Face::GetWorldRenderedRect()']]],
-  ['getzoom',['GetZoom',['../classCamera.html#a584f8691aa621d09e824ba2c0b7aa6b9',1,'Camera']]]
+  ['getzoom',['GetZoom',['../classCamera.html#af6fe062fcf5e1e31224d4dd9f6cafa51',1,'Camera']]]
 ];
