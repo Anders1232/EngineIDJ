@@ -14,6 +14,7 @@ var searchData=
   ['setscale',['SetScale',['../classSprite.html#a54d18a18383575b04f397f5bec3113d0',1,'Sprite']]],
   ['setscalex',['SetScaleX',['../classSprite.html#aad7bb29fc017ac2197dffec177c17e15',1,'Sprite']]],
   ['setscaley',['SetScaleY',['../classSprite.html#a2853ee7687dc906b9be791d197a1b1b6',1,'Sprite']]],
+  ['setspeedlimits',['SetSpeedLimits',['../classCamera.html#a3d684757002c3096682f377261a6bb75',1,'Camera']]],
   ['setstyle',['SetStyle',['../classText.html#acd7cd539df681365587e86144cc3c352',1,'Text']]],
   ['settext',['SetText',['../classText.html#abffaafcd871424690014ca0a74c45989',1,'Text']]],
   ['settileset',['SetTileSet',['../classTileMap.html#aeaeb5ed2cc7e621ab2fe9f5ee26b2b69',1,'TileMap']]],
