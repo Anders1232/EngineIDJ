@@ -55,7 +55,7 @@ MAKE = mingw32-make
 #path da SDL
 SDL_PATH = C:/Tools/msys64/mingw64
 INC_PATH += -I$(SDL_PATH)/include/SDL2
-FLAGS = -mwindows
+FLAGS += -mwindows
 LIBS := -lmingw32 -lSDL2main $(LIBS)
 
 #Nome do executável

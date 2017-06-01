@@ -33,7 +33,7 @@ class Timer {
 
 			Obtém o tempo cronometrado até o momento em segundos.
 		*/
-		float Get(void);
+		float Get(void) const;
 	private:
 		float time;/**< Variável que conta o tempo.*/
 };

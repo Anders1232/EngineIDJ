@@ -1,10 +1,11 @@
 <map id="StageState" name="StageState">
-<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="935,485,989,512"/>
-<area shape="rect" id="node14" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="928,317,996,344"/>
-<area shape="rect" id="node17" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="911,680,1013,707"/>
-<area shape="rect" id="node6" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="933,68,991,95"/>
-<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="317,149,373,176"/>
-<area shape="rect" id="node13" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="602,235,665,261"/>
-<area shape="rect" id="node18" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="435,888,487,915"/>
-<area shape="rect" id="node22" href="$classTimer.html" title="Temporizador. " alt="" coords="774,935,829,961"/>
+<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="1106,463,1159,489"/>
+<area shape="rect" id="node17" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1099,316,1167,343"/>
+<area shape="rect" id="node20" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="1082,660,1183,687"/>
+<area shape="rect" id="node6" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="1104,65,1161,92"/>
+<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="487,167,543,193"/>
+<area shape="rect" id="node16" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="773,227,835,253"/>
+<area shape="rect" id="node15" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="233,211,287,237"/>
+<area shape="rect" id="node21" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="606,660,658,687"/>
+<area shape="rect" id="node25" href="$classTimer.html" title="Temporizador. " alt="" coords="945,911,999,937"/>
 </map>

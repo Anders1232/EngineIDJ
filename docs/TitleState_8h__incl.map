@@ -1,10 +1,11 @@
 <map id="Game/include/TitleState.h" name="Game/include/TitleState.h">
-<area shape="rect" id="node2" href="$State_8h.html" title="State.h" alt="" coords="237,80,301,107"/>
-<area shape="rect" id="node11" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="368,155,435,181"/>
-<area shape="rect" id="node12" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="460,80,580,107"/>
+<area shape="rect" id="node2" href="$State_8h.html" title="State.h" alt="" coords="247,80,311,107"/>
+<area shape="rect" id="node11" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="387,155,453,181"/>
+<area shape="rect" id="node13" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="485,80,605,107"/>
 <area shape="rect" id="node3" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="171,155,277,181"/>
 <area shape="rect" id="node6" href="$Rect_8h.html" title="Rect.h" alt="" coords="88,229,149,256"/>
 <area shape="rect" id="node10" href="$Component_8h.html" title="Component.h" alt="" coords="174,229,274,256"/>
-<area shape="rect" id="node7" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="423,304,486,331"/>
-<area shape="rect" id="node13" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="525,155,637,181"/>
+<area shape="rect" id="node7" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="357,304,419,331"/>
+<area shape="rect" id="node12" href="$Color_8h.html" title="Color.h" alt="" coords="472,229,536,256"/>
+<area shape="rect" id="node14" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="564,155,676,181"/>
 </map>

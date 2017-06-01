@@ -1,3 +1,6 @@
 <map id="Gráfico de Hierarquia de Classes" name="Gráfico de Hierarquia de Classes">
-<area shape="rect" id="node1" href="$classGame.html" title="Classe que modela o todo&#45;poderoso Jogo. " alt="" coords="5,5,63,32"/>
+<area shape="rect" id="node1" href="$classComponent.html" title="Modela os componentes. " alt="" coords="5,56,95,83"/>
+<area shape="rect" id="node2" href="$classAIGoDown.html" title="Componete IA que se move para baixo. " alt="" coords="150,5,237,32"/>
+<area shape="rect" id="node3" href="$classDragAndDrop.html" title="Classe responsável por arrastar e posicionar Objetos. " alt="" coords="143,56,244,83"/>
+<area shape="rect" id="node4" href="$classHitPoints.html" title="HitPoints" alt="" coords="155,107,231,133"/>
 </map>

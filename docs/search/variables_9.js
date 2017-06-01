@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['lifes',['lifes',['../classStateData.html#a4cfaba2a0f99c715f37607b068617210',1,'StateData']]]
+  ['keystate',['keyState',['../classInputManager.html#a308542fb8fcbda632c21fe169a1a8b82',1,'InputManager']]],
+  ['keyupdate',['keyUpdate',['../classInputManager.html#aebbeb68f166c72529565b616df3ba978',1,'InputManager']]]
 ];
