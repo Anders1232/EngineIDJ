@@ -190,6 +190,8 @@ class Game {
 		unsigned int maxFramerate;/**< Armazena o limite superior do framerate*/
 		float frameDuration;/**< Duração mínima de cada frame*/
 		bool capFramerate;/**< Flag para decidir se o framerate do jogo será limitado a um valor máximo ou não.*/
+		int musicVolume;/**< Armazena volume da música. Esse valor pode ser de 0 a 128.*/
+		int soundVolume;/**< Armazena volume dos sons. Esse valor pode ser de 0 a 128.*/
 };
 
 #endif // GAME_H

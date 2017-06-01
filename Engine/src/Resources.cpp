@@ -136,4 +136,15 @@ void Resources::ClearFonts(void) {
 	}
 }
 
+void Resources::ChangeMusicVolume(int volume){
+	Mix_VolumeMusic(volume);
+}
 
+void Resources::ChangeSoundVolume(int volume){
+	std::unordered_map<string, std::shared_ptr<Mix_Chunk>>::iterator i= soundTable.begin();
+
+	while(i != soundTable.end()) {
+		Mix_VolumeChunk(i->second.get(), volume);
+		i++;
+	}
+}

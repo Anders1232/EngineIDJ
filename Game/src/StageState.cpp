@@ -38,26 +38,10 @@ StageState::StageState(void)
 	spawnGroups= tileMap->GetSpawnPositions();
 	REPORT_I_WAS_HERE;
 	music.Play(10);
-	REPORT_I_WAS_HERE;
-	musicArray.push_back(std::unique_ptr<Music>(&music));
 }
 
 StageState::~StageState(void) {
 	objectArray.clear();
-	if(!musicArray.empty()){
-		for(unsigned int cont=0; cont < musicArray.size(); cont++) {
-			musicArray.erase(musicArray.begin()+cont);
-			cont--;
-		}
-	}
-	musicArray.clear();
-	if(!soundArray.empty()){
-		for(unsigned int cont=0; cont < soundArray.size(); cont++) {
-			soundArray.erase(soundArray.begin()+cont);
-			cont--;
-		}
-	}
-	soundArray.clear();
 	delete tileMap;
 	delete spawnGroups;
 }
@@ -131,38 +115,6 @@ void StageState::Update(float dt) {
 	}
 	if(InputManager::GetInstance().KeyRelease('g')){
 		tileMap->ShowCollisionInfo(false);
-	}
-	if(InputManager::GetInstance().IsKeyDown('[')){
-		if(musicVolume > 0){
-			musicVolume--;
-		}
-		for(unsigned int i = 0; i < musicArray.size(); i++){
-			Mix_VolumeMusic(musicVolume);
-		}
-	}
-	if(InputManager::GetInstance().IsKeyDown(']')){
-		if(musicVolume < 128){
-			musicVolume++;
-		}
-		for(unsigned int i = 0; i < musicArray.size(); i++){
-			Mix_VolumeMusic(musicVolume);
-		}
-	}
-	if(InputManager::GetInstance().IsKeyDown(',')){
-		if(soundVolume > 0){
-			soundVolume--;
-		}
-		for(unsigned int i = 0; i < soundArray.size(); i++){
-			Mix_VolumeChunk(soundArray[i]->GetMix(), soundVolume);
-		}
-	}
-	if(InputManager::GetInstance().IsKeyDown('.')){
-		if(soundVolume < 128){
-			soundVolume++;
-		}
-		for(unsigned int i = 0; i < soundArray.size(); i++){
-			Mix_VolumeChunk(soundArray[i]->GetMix(), soundVolume);
-		}
 	}
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }

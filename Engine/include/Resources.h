@@ -76,6 +76,20 @@ class Resources {
 			Internamente chama o ClearImages, ClearMusic, ClearSound e o ClearFonts. Veja a documentação de cada um desses métodos para mais informações.
 		*/
 		static void ClearResources(void);
+		/**
+			\brief Altera volume das músicas.
+			\param volume Volume que deve ser setado para as músicas.
+
+			Altera o volume das músicas do jogo. Como só pode ter uma música de cada vez, não é necessário percorres a tabela hash de músicas.
+		*/
+		static void ChangeMusicVolume(int volume);
+		/**
+			\brief Altera volume dos sons.
+			\param volume Volume único que deve ser setado para cada som.
+
+			A tabela de hash dos sons(soundTable) é percorrida alterando o volume de cada som.
+		*/
+		static void ChangeSoundVolume(int volume);
 	private:
 		/**
 			\brief Constutor privado que não deve ser implementado.

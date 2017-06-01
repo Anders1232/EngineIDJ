@@ -67,6 +67,8 @@ Game::Game(std::string title,int width, int height):dt(0.0),  inputManager(Input
 	capFramerate = true;
 	maxFramerate = INITIAL_FRAMERATE;
 	frameDuration = 1000.0/INITIAL_FRAMERATE;
+	musicVolume = 128;
+	soundVolume = 128;
 }
 
 Game::~Game() {
@@ -130,6 +132,29 @@ void Game::Run(void) {
 		stateStack.top()->Render();
 		SDL_RenderPresent(renderer);
 		UpdateStack();
+
+		if(InputManager::GetInstance().IsKeyDown('[')){
+			if(musicVolume > 0){
+				musicVolume--;
+			}
+		}
+		if(InputManager::GetInstance().IsKeyDown(']')){
+			if(musicVolume < 128){
+				musicVolume++;
+			}
+		}
+		if(InputManager::GetInstance().IsKeyDown(',')){
+			if(soundVolume > 0){
+				soundVolume--;
+			}
+		}
+		if(InputManager::GetInstance().IsKeyDown('.')){
+			if(soundVolume < 128){
+				soundVolume++;
+			}
+		}
+		Resources::ChangeMusicVolume(musicVolume);
+		Resources::ChangeSoundVolume(soundVolume);
 	}
 	while(!stateStack.empty()) {
 		stateStack.pop();
