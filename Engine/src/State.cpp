@@ -1,6 +1,7 @@
 #include "State.h"
 
 State::State(void): popRequested(false), quitRequested(false) {
+	musicVolume = 128;
 }
 
 State::~State(void) {
@@ -26,6 +27,18 @@ void State::UpdateArray(float dt) {
 			cont--;
 		}
 	}
+	for(unsigned int cont=0; cont < musicArray.size(); cont++) {
+		if(!(musicArray.at(cont)->IsOpen())) {
+			musicArray.erase(musicArray.begin()+cont);
+			cont--;
+		}
+	}
+	for(unsigned int cont=0; cont < soundArray.size(); cont++) {
+		if(!(soundArray.at(cont)->IsOpen())) {
+			soundArray.erase(soundArray.begin()+cont);
+			cont--;
+		}
+	}
 }
 
 void State::RenderArray(void) const {
@@ -34,3 +47,6 @@ void State::RenderArray(void) const {
 	}
 }
 
+void State::AddSound(Sound *object) {
+	soundArray.push_back(std::unique_ptr<Sound>(object));
+}

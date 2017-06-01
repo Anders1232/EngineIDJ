@@ -2,6 +2,8 @@
 #define STATE_H
 
 #include "GameObject.h"
+#include "Music.h"
+#include "Sound.h"
 #include <vector>
 #include <memory>
 
@@ -70,6 +72,12 @@ class State {
 			Verdadeiro se o State solicitou o encerramento do programa, falso caso contrário.
 		*/
 		bool QuitRequested(void);
+		/**
+			\brief Adiciona um Sound ao vetor de Sounds
+
+			No processo o ponteiro para esse sound é transformado em um unique_ptr.
+		*/
+		void AddSound(Sound *object);
 	protected:
 		/**
 			\brief Atualiza o estado de cada GameObject no vetor de GameObjects.
@@ -88,6 +96,12 @@ class State {
 		bool popRequested;/**< Armazena a informação se o state solicitou desempilhamento.*/
 		bool quitRequested;/**< Armazena a informação se o state solicitou que o jogo seja fechado.*/
 		std::vector<std::unique_ptr<GameObject>> objectArray;/**< Vetor de GameObjects.*/
+		std::vector<std::unique_ptr<Music>> musicArray;/**< Vetor de Musics.*/
+		std::vector<std::unique_ptr<Sound>> soundArray;/**< Vetor de Sounds.*/
+		int musicVolume;/**< Armazena volume da música. Esse valor pode ser de 0 a 128.*/
+		int soundVolume;/**< Armazena volume dos sons. Esse valor pode ser de 0 a 128.*/
 };
+
+#include "InputManager.h"
 
 #endif // STATE_H

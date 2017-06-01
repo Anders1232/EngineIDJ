@@ -30,3 +30,7 @@ void Sound::Open(string file) {
 bool Sound::IsOpen(void) {
 	return sound != nullptr;
 }
+
+Mix_Chunk* Sound::GetMix(void) {
+	return sound.get();
+}

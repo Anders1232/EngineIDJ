@@ -4,6 +4,7 @@
 #ifdef _WIN32
 	#include <SDL.h>
 	#include <SDL_image.h>
+	#include <SDL_mixer.h>
 #elif __APPLE__
 	#include "TargetConditionals.h"
 	//mac
@@ -16,8 +17,10 @@
 #endif
 
 #include <string>
+#include <memory>
 #include "Resources.h"
 #include "Error.h"
+#include "InputManager.h"
 
 #define MUSIC_FADE_OUT_TIME_MSEC (2000)
 
@@ -73,6 +76,12 @@ class Music {
 			Verifica se a instância de Music está associada à música de algum arquivo.
 		*/
 		bool IsOpen(void)const;
+		/**
+			\brief Obtém o ponteiro para Mix_Music
+
+			Retorna o ponteiro para Mix_Music que está armazenado no atributo music desta classe.
+		*/
+		Mix_Music* GetMix(void);
 	private:
 		std::shared_ptr<Mix_Music> music;/**< Ponteiro para Mix_Music com a música.*/
 };

@@ -20,5 +20,6 @@ void Music::Open(string file) {
 bool Music::IsOpen(void)const {
 	return music!=nullptr;
 }
-
-
+Mix_Music* Music::GetMix(void) {
+	return music.get();
+}

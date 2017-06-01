@@ -10,6 +10,7 @@ EndState::EndState(EndStateData stateData)
 						 true
 			   		 ) {
 	music.Play(0);
+	musicArray.push_back(std::unique_ptr<Music>(&music));
 	instruction.SetText("Press Esc to go to menu or Space to play again!");
 	instruction.SetTimeShown(0.6);
 	instruction.SetStrobeFrequency(1.0);
