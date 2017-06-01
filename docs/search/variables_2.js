@@ -8,5 +8,6 @@ var searchData=
   ['columns',['columns',['../classTileSet.html#a47ae11f9d04f9da3fbaba834fdbc62cf',1,'TileSet']]],
   ['components',['components',['../classGameObject.html#adf77cf3872333bf5e3007ad98e8afd18',1,'GameObject']]],
   ['currentframe',['currentFrame',['../classSprite.html#a556cfc67b1b98691aa2e5b41f076fded',1,'Sprite']]],
+  ['currentspeed',['currentSpeed',['../classCamera.html#a6649a58e8ca32d16710bc01300df49fe',1,'Camera']]],
   ['currentzoom',['currentZoom',['../classCamera.html#ac867d6d379c0d052ae65d57c7c313970',1,'Camera']]]
 ];

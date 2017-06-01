@@ -19,6 +19,8 @@ var searchData=
   ['getimage',['GetImage',['../classResources.html#a557aa346c974a8bce80017dbabd653d9',1,'Resources']]],
   ['getinstance',['GetInstance',['../classGame.html#a25d213802ed39215e3ab2cb04edf46c8',1,'Game::GetInstance()'],['../classInputManager.html#a1f095ed502f0bd09390d05cdc0acdcd9',1,'InputManager::GetInstance()']]],
   ['getmaxframerate',['GetMaxFramerate',['../classGame.html#aafc542fc5f826d2eed771c8bd75d6930',1,'Game']]],
+  ['getmaxspeed',['GetMaxSpeed',['../classCamera.html#a58085208a970a15b8bb1d8edee343ad0',1,'Camera']]],
+  ['getminspeed',['GetMinSpeed',['../classCamera.html#a4824e13cac9ebd8f79abbae248a2b614',1,'Camera']]],
   ['getmousepos',['GetMousePos',['../classInputManager.html#a8609a7850d6c037642539c19ab53a4e8',1,'InputManager']]],
   ['getmousex',['GetMouseX',['../classInputManager.html#aaa3f36152ef8fdec75c0e3f5307979fb',1,'InputManager']]],
   ['getmousey',['GetMouseY',['../classInputManager.html#a3883f6471f5d124fd51990af3fdff24d',1,'InputManager']]],
