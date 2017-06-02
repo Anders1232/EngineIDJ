@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['focus',['focus',['../classCamera.html#ae60799faefad7498d4e02656f0feb3e0',1,'Camera']]],
+  ['focus',['focus',['../classCamera.html#a266c767efbe18088d7f79880f7e98998',1,'Camera']]],
   ['font',['font',['../classText.html#a7c89817e7e1d08584cf1b51106ce5ba4',1,'Text']]],
   ['fontfile',['fontFile',['../classText.html#aaae1164cbb6c2ce3f13e07973c74ed9a',1,'Text']]],
   ['fontsize',['fontSize',['../classText.html#af1b0c4c5d94f1a5338398f37e7b9ebbe',1,'Text']]],

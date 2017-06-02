@@ -1,7 +1,7 @@
 <map id="Animation" name="Animation">
-<area shape="rect" id="node2" href="$classGameObject.html" title="GameObject" alt="" coords="503,185,597,212"/>
-<area shape="rect" id="node3" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="252,185,303,212"/>
-<area shape="rect" id="node6" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="522,456,578,483"/>
-<area shape="rect" id="node14" href="$classTimer.html" title="Temporizador. " alt="" coords="409,13,463,40"/>
-<area shape="rect" id="node12" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="251,603,304,629"/>
+<area shape="rect" id="node2" href="$classGameObject.html" title="GameObject" alt="" coords="503,172,597,199"/>
+<area shape="rect" id="node4" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="252,121,303,148"/>
+<area shape="rect" id="node6" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="522,428,578,455"/>
+<area shape="rect" id="node14" href="$classTimer.html" title="Temporizador. " alt="" coords="409,12,463,39"/>
+<area shape="rect" id="node12" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="251,664,304,691"/>
 </map>

@@ -1,14 +1,15 @@
 <map id="Engine/src/TileMap.cpp" name="Engine/src/TileMap.cpp">
 <area shape="rect" id="node6" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="443,80,521,107"/>
-<area shape="rect" id="node18" href="$Error_8h.html" title="Error.h" alt="" coords="241,80,302,107"/>
-<area shape="rect" id="node20" href="$Camera_8h.html" title="Camera.h" alt="" coords="731,80,809,107"/>
-<area shape="rect" id="node22" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="942,229,1054,256"/>
+<area shape="rect" id="node19" href="$Error_8h.html" title="Error.h" alt="" coords="241,80,302,107"/>
+<area shape="rect" id="node21" href="$Camera_8h.html" title="Camera.h" alt="" coords="775,80,853,107"/>
+<area shape="rect" id="node23" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="993,229,1105,256"/>
 <area shape="rect" id="node9" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="399,155,471,181"/>
-<area shape="rect" id="node13" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="852,304,915,331"/>
-<area shape="rect" id="node14" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="585,155,691,181"/>
+<area shape="rect" id="node13" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="896,304,959,331"/>
+<area shape="rect" id="node14" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="623,155,730,181"/>
 <area shape="rect" id="node10" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="402,229,469,256"/>
 <area shape="rect" id="node11" href="$Color_8h.html" title="Color.h" alt="" coords="403,304,467,331"/>
-<area shape="rect" id="node15" href="$Rect_8h.html" title="Rect.h" alt="" coords="751,229,813,256"/>
-<area shape="rect" id="node17" href="$Component_8h.html" title="Component.h" alt="" coords="627,229,727,256"/>
-<area shape="rect" id="node21" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="938,155,1058,181"/>
+<area shape="rect" id="node15" href="$Rect_8h.html" title="Rect.h" alt="" coords="802,229,863,256"/>
+<area shape="rect" id="node17" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="631,304,760,331"/>
+<area shape="rect" id="node18" href="$Component_8h.html" title="Component.h" alt="" coords="627,229,727,256"/>
+<area shape="rect" id="node22" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="989,155,1109,181"/>
 </map>

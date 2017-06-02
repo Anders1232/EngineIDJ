@@ -2,7 +2,7 @@ var searchData=
 [
   ['scale',['Scale',['../classSprite.html#aa8b31cd4deebedbbdf8ca3923a3064c6',1,'Sprite']]],
   ['scalex',['scaleX',['../classSprite.html#af76ca5d25866a3107bcec1d2e59f8bcb',1,'Sprite::scaleX()'],['../classSprite.html#a42b3a6ed82560c5b97085cc127984cf4',1,'Sprite::ScaleX(float scale)']]],
-  ['scaley',['ScaleY',['../classSprite.html#ad4a9b4df6061cf7391403a4d03286ff0',1,'Sprite::ScaleY(float scale)'],['../classSprite.html#ac4085b0144253c09bc94151a53079104',1,'Sprite::scaleY()']]],
+  ['scaley',['scaleY',['../classSprite.html#ac4085b0144253c09bc94151a53079104',1,'Sprite::scaleY()'],['../classSprite.html#ad4a9b4df6061cf7391403a4d03286ff0',1,'Sprite::ScaleY(float scale)']]],
   ['sdl_5fassert',['SDL_ASSERT',['../Error_8h.html#a5e03114cdb9780c937e89ed7cb527ae1',1,'Error.h']]],
   ['setclip',['SetClip',['../classSprite.html#a3ad46a400f83d41eaba2c2df77e0cf7c',1,'Sprite']]],
   ['setcolor',['SetColor',['../classText.html#a16b351605f583b6ece8c93fc8c4df279',1,'Text']]],
@@ -27,7 +27,7 @@ var searchData=
   ['setzoomspeed',['SetZoomSpeed',['../classCamera.html#a4373a9b1baa7b98e4fe5859e0645baed',1,'Camera']]],
   ['shared',['SHARED',['../Text_8h.html#ad5957a553b7d89d4921c39cc3ad6bc45a9c46e16a4ab019339596acadeefc8c53',1,'Text.h']]],
   ['showcollisioninfo',['ShowCollisionInfo',['../classTileMap.html#a31b1607f50b08cf2c49c71a8478ec07d',1,'TileMap']]],
-  ['size',['SIZE',['../Component_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0a4aa71180778b711338785695df5d7c52',1,'Component.h']]],
+  ['size',['SIZE',['../ComponentType_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0a4aa71180778b711338785695df5d7c52',1,'ComponentType.h']]],
   ['solid',['SOLID',['../Text_8h.html#ad5957a553b7d89d4921c39cc3ad6bc45a1b45f84e1f6603b52e5ef442836df9af',1,'Text.h']]],
   ['sound',['Sound',['../classSound.html',1,'Sound'],['../classSound.html#a539c205cdf06fe2c621fd77c37bcfac9',1,'Sound::Sound()'],['../classSound.html#af2c277cdc12b7df1de53e5b855e4f09c',1,'Sound::Sound(string file)'],['../classSound.html#a44bbda770ac76c7455b60d3d63b663a7',1,'Sound::sound()']]],
   ['sound_2ecpp',['Sound.cpp',['../Sound_8cpp.html',1,'']]],

@@ -1,10 +1,11 @@
 <map id="Engine/include/DragAndDrop.h" name="Engine/include/DragAndDrop.h">
-<area shape="rect" id="node2" href="$Component_8h.html" title="Component.h" alt="" coords="97,80,197,107"/>
-<area shape="rect" id="node10" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="234,80,313,107"/>
-<area shape="rect" id="node3" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="93,155,200,181"/>
-<area shape="rect" id="node6" href="$Rect_8h.html" title="Rect.h" alt="" coords="5,229,67,256"/>
-<area shape="rect" id="node7" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="119,304,182,331"/>
-<area shape="rect" id="node11" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="376,155,448,181"/>
-<area shape="rect" id="node12" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="427,229,493,256"/>
-<area shape="rect" id="node13" href="$Color_8h.html" title="Color.h" alt="" coords="428,304,492,331"/>
+<area shape="rect" id="node2" href="$Component_8h.html" title="Component.h" alt="" coords="149,80,249,107"/>
+<area shape="rect" id="node11" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="287,80,365,107"/>
+<area shape="rect" id="node3" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="5,229,135,256"/>
+<area shape="rect" id="node4" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="146,155,253,181"/>
+<area shape="rect" id="node7" href="$Rect_8h.html" title="Rect.h" alt="" coords="159,229,221,256"/>
+<area shape="rect" id="node8" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="276,304,339,331"/>
+<area shape="rect" id="node12" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="479,155,551,181"/>
+<area shape="rect" id="node13" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="581,229,647,256"/>
+<area shape="rect" id="node14" href="$Color_8h.html" title="Color.h" alt="" coords="602,304,666,331"/>
 </map>
