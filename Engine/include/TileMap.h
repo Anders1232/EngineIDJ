@@ -8,9 +8,11 @@
 #include "GameObject.h"
 
 #define TILE_VAZIO -1
+#define SPAWN_POINT (14)
 #define COLLISION_LAYER (1)
 
 using std::string;
+using std::vector;
 
 /**
 	\brief Classe que modela o TileMap
@@ -118,6 +120,20 @@ class TileMap{
 			Retorna verdadeiro se o tileMap de colisão estiver sendo exibido, falso caso contrário.
 		*/
 		bool IsShowingCollisionInfo();
+		/**
+			\brief Obtém os spawnGroups com seus spawn points.
+			\todo Verificar utilidade de usar define para buscar o spawn groups se de deve utilizar argumentos mesmo.
+			\todo Resolver bug na detecção de adjacências.
+
+			É responsabilidade do chamador desalocar o vector retornado.
+		*/
+		vector<vector<int>>* GetSpawnPositions(void) const;
+		/**
+			\brief Obtém o tamanho de um tile
+
+			O tamanho retornado não leva em consideração zoom, mas leva em consideração escala.
+		*/
+		Vec2 GetTileSize(void) const;
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.

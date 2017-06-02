@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['h',['h',['../classRect.html#aa10c9b8950c6b23a0b2bf0d39f2be904',1,'Rect']]],
-  ['height',['height',['../classSprite.html#a1f07c8f2080c193759aec0e13503d7ab',1,'Sprite']]],
-  ['hitpoints',['hitpoints',['../classFace.html#a2ace64da45186ef4236ad907013526d0',1,'Face']]]
+  ['g',['g',['../structColor.html#adc506c5063609cacdda2c007da3b7a5f',1,'Color']]],
+  ['gameobjectmatrix',['gameObjectMatrix',['../classTileMap.html#a52b6a4fcc0c13eb4224850f592f10eba',1,'TileMap']]]
 ];

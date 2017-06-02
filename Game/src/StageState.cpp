@@ -5,6 +5,7 @@
 #include "Collision.h"
 #include "EndStateData.h"
 #include "Face.h"
+#include "Enemy.h"
 
 #ifdef _WIN32
 	#include <SDL.h>
@@ -22,6 +23,7 @@
 #define STATE_RENDER_X 0//esse valores calculam o offset em relação ao canto superior esquedo da imagem daquilo que será renderizado
 #define STATE_RENDER_Y 0
 #define FACE_LINEAR_SIZE 30
+#define TIME_BETWEEN_SPAWNS (3.)
 
 StageState::StageState(void)
 			:State(), bg("img/ocean.jpg"),
@@ -31,15 +33,17 @@ StageState::StageState(void)
 	REPORT_I_WAS_HERE;
 	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet);
 	REPORT_I_WAS_HERE;
+	spawnGroups= tileMap->GetSpawnPositions();
+	REPORT_I_WAS_HERE;
 	music.Play(10);
 }
 
 StageState::~StageState(void) {
 	objectArray.clear();
 	delete tileMap;
+	delete spawnGroups;
 }
 
-//void StageState::Update(float dt)
 void StageState::Update(float dt) {
 	REPORT_I_WAS_HERE;
 	if(inputManager.KeyPress(ESCAPE_KEY)) {
@@ -65,7 +69,13 @@ void StageState::Update(float dt) {
 	REPORT_I_WAS_HERE;
 	Camera::Update(dt);
 	REPORT_I_WAS_HERE;
-
+	spawnTimer.Update(dt);
+	if(TIME_BETWEEN_SPAWNS < spawnTimer.Get()){
+		int selectedSpawnGroup= rand()%spawnGroups->size();
+		int selectedSpawnPosition= rand()% ( (*spawnGroups)[selectedSpawnGroup] ).size();
+		SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition]);
+		spawnTimer.Restart();
+	}
 	if(InputManager::GetInstance().KeyPress('r')) {
 		popRequested= true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
@@ -82,18 +92,18 @@ void StageState::Update(float dt) {
 
 		REPORT_I_WAS_HERE;
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos()*(1/Camera::GetZoom())+Camera::pos-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
-
+		bool foundObject= false;
 		for(unsigned int i; i < objectArray.size();i ++){
-
 			if(mousePos.IsInRect(objectArray[i]->box)){
-
 				objectArray[i]->AddComponent(new DragAndDrop(tileMap,true));
+				foundObject= true;
 				break;
-
 			}
 		}
-		
-	}
+/*		if(!foundObject){
+			AddObject( new Face(mousePos.x, mousePos.y, Vec2(FACE_LINEAR_SIZE, FACE_LINEAR_SIZE), tileMap) );
+		}
+*/	}
 	if(InputManager::GetInstance().KeyPress('e')){
 
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos()*(1/Camera::GetZoom())+Camera::pos-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
@@ -131,5 +141,12 @@ void StageState::Pause(void) {}
 
 void StageState::Resume(void) {}
 
+void StageState::SpawnEnemy(int tileMapPosition){
+	Vec2 tileSize= tileMap->GetTileSize();
+	Vec2 spawnPosition;
+	spawnPosition.x= (tileMapPosition%tileMap->GetWidth() ) * tileSize.x;
+	spawnPosition.y= (tileMapPosition/tileMap->GetWidth() ) * tileSize.y;
+	objectArray.push_back(unique_ptr<GameObject>(new Enemy(spawnPosition, 1.) ) );
+}
 
 

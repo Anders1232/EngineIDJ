@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['norm',['Norm',['../classCollision.html#ab739e01f1393b68b28cb8b45f42bf2d4',1,'Collision']]],
-  ['normalize',['Normalize',['../classVec2.html#ab37a161e393133ba7083d3f9386c0173',1,'Vec2']]],
-  ['notifycollision',['NotifyCollision',['../classAnimation.html#a611b21418311eb697ec4af1aaff92657',1,'Animation::NotifyCollision()'],['../classGameObject.html#aa627e6c2913983fc5f108c1c4d303eb8',1,'GameObject::NotifyCollision()'],['../classFace.html#ab1daa9240b4153362776488798c59f37',1,'Face::NotifyCollision()']]]
+  ['leftarrowaction',['LeftArrowAction',['../classActionManager.html#afb4776f0e58c20d5c09c7e437298ae1b',1,'ActionManager']]],
+  ['leftshoulderaction',['LeftShoulderAction',['../classActionManager.html#a61be8917bbd2964348cb99087f71bc99',1,'ActionManager']]],
+  ['limitframerate',['LimitFramerate',['../classGame.html#a3fb091ff0a082d2652a98fee63c62b83',1,'Game']]],
+  ['load',['Load',['../classTileMap.html#a57d5a9e280c52b74e8e1f0c3a2c876b7',1,'TileMap']]]
 ];

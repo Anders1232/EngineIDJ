@@ -1,3 +1,7 @@
 <map id="Gráfico de Hierarquia de Classes" name="Gráfico de Hierarquia de Classes">
-<area shape="rect" id="node1" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="5,5,63,32"/>
+<area shape="rect" id="node1" href="$classGameObject.html" title="GameObject" alt="" coords="5,81,100,108"/>
+<area shape="rect" id="node2" href="$classAnimation.html" title="Classe que modela animações. " alt="" coords="148,5,228,32"/>
+<area shape="rect" id="node3" href="$classEnemy.html" title="Classe que modela inimigos. " alt="" coords="157,56,219,83"/>
+<area shape="rect" id="node4" href="$classFace.html" title="Face" alt="" coords="163,107,213,133"/>
+<area shape="rect" id="node5" href="$classWave.html" title="Wave" alt="" coords="160,157,216,184"/>
 </map>

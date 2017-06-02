@@ -17,6 +17,7 @@
 #include <memory>
 #include "Rect.h"
 #include "string"
+#include "ComponentType.h"
 #include "Component.h"
 
 using std::string;
@@ -27,14 +28,6 @@ using std::unique_ptr;
 	
 	Especifica quais métodos um gameObject deve ter para conseguir ser manipulado corretamente pela engine.
 */
-
-#ifndef COMPONENT_TYPE
-#define COMPONENT_TYPE
-enum ComponentType{
-	DRAG_AND_DROP=0,
-	SIZE
-};
-#endif
 
 #ifndef COMPONENT
 class Component;

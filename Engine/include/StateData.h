@@ -23,6 +23,8 @@ class StateData {
 			Iidentifica o tipo de StateData da instância. Isso permite então o cast correto do StateData para o tipo desejado.
 		*/
 		virtual bool Is(StateDataType typeToCheck) const=0;
+		int waveCount;
+		int lifes;
 };
 
 #endif // STATEDATA_H

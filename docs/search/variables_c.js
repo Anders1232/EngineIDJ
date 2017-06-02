@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quitrequested',['quitRequested',['../classInputManager.html#a078d1f2f8af5f17005f21f7407dbca57',1,'InputManager::quitRequested()'],['../classState.html#aa96884ddc05e8f23841298af662ae733',1,'State::quitRequested()']]]
+  ['objectarray',['objectArray',['../classState.html#a08eaf3c9720d7f90ce579630ca938687',1,'State']]],
+  ['onetimeonly',['oneTimeOnly',['../classAnimation.html#a66b3ba0956af0c060e64cd3553d25ca6',1,'Animation']]]
 ];

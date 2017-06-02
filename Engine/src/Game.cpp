@@ -21,7 +21,7 @@ Game::Game(std::string title,int width, int height):dt(0.0),  inputManager(Input
 		Error("Second instantion of the game!");
 	}
 	Game::instance= this;
-	if(0 != SDL_Init(SDL_INIT_VIDEO)) {
+	if(0 != SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER)) {
 		Error(SDL_GetError());
 	}
 	int result= IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF);
@@ -166,9 +166,11 @@ void Game::UpdateStack(void) {
 
 Vec2 Game::GetWindowDimensions(void) const {
 	Vec2 ret;
-	SDL_GetWindowSize(window, (int*)&ret.x, (int*)&ret.y);
-	ret.x= *((int*)&ret.x);
-	ret.y= *((int*)&ret.y);
+	int x = 0;
+	int y = 0;
+	SDL_GetWindowSize(window, &x, &y);
+	ret.x= x;
+	ret.y= y;
 	return ret;
 }
 

@@ -5,7 +5,7 @@
 
 DragAndDrop::DragAndDrop(TileMap *map,bool dragOnActionHold) : dragOnHold(dragOnActionHold), tileMap(map){}
 
-void DragAndDrop::Update(GameObject &associated){
+void DragAndDrop::Update(GameObject &associated, float dt){
 	InputManager &inputManager= InputManager::GetInstance();
 	
 /*	if(inputManager.MousePress(RIGHT_MOUSE_BUTTON) && (false == isDragging) ){
