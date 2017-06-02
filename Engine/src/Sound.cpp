@@ -27,10 +27,6 @@ void Sound::Open(string file) {
 	sound= Resources::GetSound(file);
 }
 
-bool Sound::IsOpen(void) {
+bool Sound::IsOpen(void) const{
 	return sound != nullptr;
-}
-
-Mix_Chunk* Sound::GetMix(void) {
-	return sound.get();
 }

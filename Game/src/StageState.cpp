@@ -24,6 +24,7 @@
 #define STATE_RENDER_Y 0
 #define FACE_LINEAR_SIZE 30
 #define TIME_BETWEEN_SPAWNS (3.)
+#define DELTA_VOLUME_MODIFIER 1
 
 StageState::StageState(void)
 			:State(),
@@ -38,6 +39,8 @@ StageState::StageState(void)
 	spawnGroups= tileMap->GetSpawnPositions();
 	REPORT_I_WAS_HERE;
 	music.Play(10);
+	musicVolume = 128;
+	soundVolume = 128;
 }
 
 StageState::~StageState(void) {
@@ -115,6 +118,31 @@ void StageState::Update(float dt) {
 	}
 	if(InputManager::GetInstance().KeyRelease('g')){
 		tileMap->ShowCollisionInfo(false);
+	}
+
+	if(InputManager::GetInstance().IsKeyDown('[')){
+		if(musicVolume >= 0){
+			musicVolume -= DELTA_VOLUME_MODIFIER;
+			Resources::ChangeMusicVolume(musicVolume);
+		}
+	}
+	if(InputManager::GetInstance().IsKeyDown(']')){
+		if(musicVolume <= 128){
+			musicVolume += DELTA_VOLUME_MODIFIER;
+			Resources::ChangeMusicVolume(musicVolume);
+		}
+	}
+	if(InputManager::GetInstance().IsKeyDown(',')){
+		if(soundVolume >= 0){
+			soundVolume -= DELTA_VOLUME_MODIFIER;
+			Resources::ChangeSoundVolume(soundVolume);
+		}
+	}
+	if(InputManager::GetInstance().IsKeyDown('.')){
+		if(soundVolume <= 128){
+			soundVolume += DELTA_VOLUME_MODIFIER;
+			Resources::ChangeSoundVolume(soundVolume);
+		}
 	}
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }

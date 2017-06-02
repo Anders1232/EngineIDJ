@@ -8,6 +8,7 @@
 #include "EndStateData.h"
 
 #define END_STATE_FONT_SIZE (40)
+#define DELTA_VOLUME_MODIFIER 1
 
 class EndState: public State {
 	public:

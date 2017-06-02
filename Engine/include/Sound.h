@@ -71,13 +71,7 @@ class Sound {
 
 			Verifica se a instância de Sound está associada ao som de algum arquivo.
 		*/
-		bool IsOpen(void);
-		/**
-			\brief Obtém o ponteiro para Mix_Chunk
-
-			Retorna o ponteiro para Mix_Chunk que está armazenado no atributo sound desta classe.
-		*/
-		Mix_Chunk* GetMix(void);
+		bool IsOpen(void) const;
 	private:
 		std::shared_ptr<Mix_Chunk> sound; /**< Ponteiro para o Mix_Chunk com o som.*/
 		int channel;/**< Canal no qual o som está sendo tocado. -1 caso o som não esteja sendo tocado. O valor tem que ser -1 pois esse valor indica na hora da reprodução do som que p sistema pode escolher o canal no qual o som deve ser executado.*/

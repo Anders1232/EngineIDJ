@@ -148,3 +148,11 @@ void Resources::ChangeSoundVolume(int volume){
 		i++;
 	}
 }
+
+// int Resources::GetMusicVolume(){
+// 	return musicVolume;
+// }
+
+// int Resources::GetSoundVolume(){
+// 	return soundVolume;
+// }
