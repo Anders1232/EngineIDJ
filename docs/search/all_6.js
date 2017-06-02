@@ -10,6 +10,8 @@ var searchData=
   ['gameobject_2eh',['GameObject.h',['../GameObject_8h.html',1,'']]],
   ['gameobjectmatrix',['gameObjectMatrix',['../classTileMap.html#a52b6a4fcc0c13eb4224850f592f10eba',1,'TileMap']]],
   ['get',['Get',['../classTimer.html#af3962012b13e46abf3cf798f7aa3eec7',1,'Timer']]],
+  ['getcontrollerleftstickstate',['GetControllerLeftStickState',['../classInputManager.html#a8b8bfe7ed9d58658c71fd707b852de48',1,'InputManager']]],
+  ['getcontrollerrightstickstate',['GetControllerRightStickState',['../classInputManager.html#a691f4c6050ea41ec33450de70ea8bc9b',1,'InputManager']]],
   ['getcurrentframerate',['GetCurrentFramerate',['../classGame.html#a3e0a5615b8ebcdea9c4cac436e35cdcd',1,'Game']]],
   ['getcurrentstate',['GetCurrentState',['../classGame.html#a1f9d6f97e969424844881dd7ad2e353e',1,'Game']]],
   ['getdeltatime',['GetDeltaTime',['../classGame.html#aa2feacb19b45ff0ec0935ea1a6f9c9ab',1,'Game']]],

@@ -3,6 +3,7 @@
 
 #include "GameObject.h"
 #include "Vec2.h"
+#include "ActionManager.h"
 
 #define CAMERA_DEFAULT_MIN_ZOOM (0.3)
 #define CAMERA_DEFAULT_MAX_ZOOM (1.5)

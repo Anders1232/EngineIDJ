@@ -1,11 +1,11 @@
 <map id="StageState" name="StageState">
-<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="1099,73,1153,99"/>
-<area shape="rect" id="node17" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1092,262,1160,289"/>
-<area shape="rect" id="node20" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="1075,397,1177,423"/>
-<area shape="rect" id="node6" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="1097,793,1155,819"/>
-<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="487,543,543,570"/>
-<area shape="rect" id="node16" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="766,419,829,446"/>
-<area shape="rect" id="node15" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="233,573,287,599"/>
-<area shape="rect" id="node21" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="603,495,655,522"/>
-<area shape="rect" id="node22" href="$classTimer.html" title="Temporizador. " alt="" coords="938,718,993,745"/>
+<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="1106,463,1159,489"/>
+<area shape="rect" id="node17" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1099,316,1167,343"/>
+<area shape="rect" id="node20" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="1082,660,1183,687"/>
+<area shape="rect" id="node6" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="1104,65,1161,92"/>
+<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="487,167,543,193"/>
+<area shape="rect" id="node16" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="773,227,835,253"/>
+<area shape="rect" id="node15" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="233,211,287,237"/>
+<area shape="rect" id="node21" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="606,660,658,687"/>
+<area shape="rect" id="node25" href="$classTimer.html" title="Temporizador. " alt="" coords="945,911,999,937"/>
 </map>

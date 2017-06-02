@@ -21,7 +21,7 @@ Game::Game(std::string title,int width, int height):dt(0.0),  inputManager(Input
 		Error("Second instantion of the game!");
 	}
 	Game::instance= this;
-	if(0 != SDL_Init(SDL_INIT_VIDEO)) {
+	if(0 != SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER)) {
 		Error(SDL_GetError());
 	}
 	int result= IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF);

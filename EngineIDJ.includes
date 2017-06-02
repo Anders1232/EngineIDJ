@@ -1,2 +1,4 @@
 Engine/include
 Game/include
+Engine/src
+Game/src

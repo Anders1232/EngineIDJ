@@ -8,6 +8,7 @@
 #include "Tileset.h"
 #include "TileMap.h"
 #include "InputManager.h"
+#include "ActionManager.h"
 #include "State.h"
 #include "Music.h"
 #include "Timer.h"
