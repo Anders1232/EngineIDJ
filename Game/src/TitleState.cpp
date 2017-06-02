@@ -7,7 +7,6 @@ TitleState::TitleState() : State(), bg("img/title.jpg") {
 }
 
 void TitleState::Update(float dt) {
-	InputManager &inputManager= InputManager::GetInstance();
 	if(ActionManager::StartAction()){
 		Game::GetInstance().Push(new StageState());
 	}

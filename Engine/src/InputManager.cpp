@@ -155,15 +155,11 @@ bool InputManager::IsButtonDown(int button) const{
 }
 
 Vec2 InputManager::GetControllerLeftStickState() const{
-
-    return controllerLeftStickState;
-
+	return controllerLeftStickState;
 }
 
 Vec2 InputManager::GetControllerRightStickState() const{
-
-        return controllerRightStickState;
-
+		return controllerRightStickState;
 }
 
 bool InputManager::IsControllerSticking(void) const{
