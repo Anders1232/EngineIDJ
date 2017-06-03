@@ -24,6 +24,7 @@
 #define STATE_RENDER_Y 0
 #define FACE_LINEAR_SIZE 30
 #define TIME_BETWEEN_SPAWNS (3.)
+#define STAGE_STATE_DELTA_VOLUME (1) //11*11 = 121 ~128
 
 StageState::StageState(void)
 			:State(), bg("img/ocean.jpg"),
@@ -110,6 +111,19 @@ void StageState::Update(float dt) {
 	}
 	if(InputManager::GetInstance().KeyRelease('g')){
 		tileMap->ShowCollisionInfo(false);
+	}
+
+	if(InputManager::GetInstance().IsKeyDown('[')){
+		Resources::ChangeMusicVolume(-STAGE_STATE_DELTA_VOLUME);
+	}
+	if(InputManager::GetInstance().IsKeyDown(']')){
+		Resources::ChangeMusicVolume(STAGE_STATE_DELTA_VOLUME);
+	}
+	if(InputManager::GetInstance().IsKeyDown(',')){
+		Resources::ChangeSoundVolume(-STAGE_STATE_DELTA_VOLUME);
+	}
+	if(InputManager::GetInstance().IsKeyDown('.')){
+		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
 	}
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }

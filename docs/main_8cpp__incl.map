@@ -1,13 +1,14 @@
 <map id="Game/src/main.cpp" name="Game/src/main.cpp">
-<area shape="rect" id="node3" href="$Game_8h.html" title="Game.h" alt="" coords="277,80,345,107"/>
-<area shape="rect" id="node17" href="$TitleState_8h.html" title="TitleState.h" alt="" coords="432,80,521,107"/>
-<area shape="rect" id="node6" href="$State_8h.html" title="State.h" alt="" coords="475,155,539,181"/>
-<area shape="rect" id="node11" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="228,379,290,405"/>
-<area shape="rect" id="node14" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="158,229,270,256"/>
-<area shape="rect" id="node7" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="454,229,560,256"/>
-<area shape="rect" id="node10" href="$Rect_8h.html" title="Rect.h" alt="" coords="379,304,440,331"/>
-<area shape="rect" id="node13" href="$Component_8h.html" title="Component.h" alt="" coords="465,304,565,331"/>
-<area shape="rect" id="node18" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="686,229,752,256"/>
-<area shape="rect" id="node20" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="331,155,451,181"/>
-<area shape="rect" id="node19" href="$Color_8h.html" title="Color.h" alt="" coords="763,304,827,331"/>
+<area shape="rect" id="node3" href="$Game_8h.html" title="Game.h" alt="" coords="619,80,687,107"/>
+<area shape="rect" id="node18" href="$TitleState_8h.html" title="TitleState.h" alt="" coords="418,80,507,107"/>
+<area shape="rect" id="node6" href="$State_8h.html" title="State.h" alt="" coords="372,155,436,181"/>
+<area shape="rect" id="node11" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="677,379,739,405"/>
+<area shape="rect" id="node14" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="655,229,767,256"/>
+<area shape="rect" id="node7" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="171,229,277,256"/>
+<area shape="rect" id="node17" href="$Resources_8h.html" title="Resources.h" alt="" coords="460,229,556,256"/>
+<area shape="rect" id="node10" href="$Rect_8h.html" title="Rect.h" alt="" coords="88,304,149,331"/>
+<area shape="rect" id="node13" href="$Component_8h.html" title="Component.h" alt="" coords="174,304,274,331"/>
+<area shape="rect" id="node19" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="311,229,377,256"/>
+<area shape="rect" id="node21" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="460,155,580,181"/>
+<area shape="rect" id="node20" href="$Color_8h.html" title="Color.h" alt="" coords="299,304,363,331"/>
 </map>

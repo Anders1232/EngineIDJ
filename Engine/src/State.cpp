@@ -33,4 +33,3 @@ void State::RenderArray(void) const {
 		objectArray[cont]->Render();
 	}
 }
-

@@ -19,6 +19,7 @@ var searchData=
   ['tileset_2eh',['Tileset.h',['../Tileset_8h.html',1,'']]],
   ['tilewidth',['tileWidth',['../classTileSet.html#a9ba9087a6da877f78af6cdf9afb0af7c',1,'TileSet']]],
   ['time',['time',['../classTimer.html#a6c45df1d084a18e41e3a35f6a43df0be',1,'Timer']]],
+  ['time_5fbetween_5fspawns',['TIME_BETWEEN_SPAWNS',['../StageState_8cpp.html#a0ef95dcc696568b2b2c856681079ba89',1,'StageState.cpp']]],
   ['timeelapsed',['timeElapsed',['../classSprite.html#ab19d07e81660346ed85d92e518cd8399',1,'Sprite']]],
   ['timelimit',['timeLimit',['../classAnimation.html#ab8b4a075f8bf097b7af6e732949235c6',1,'Animation']]],
   ['timer',['Timer',['../classTimer.html',1,'Timer'],['../classTimer.html#af866f8d58d5ed1da7a0c61df4975be3e',1,'Timer::Timer()']]],
