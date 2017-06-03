@@ -6,6 +6,17 @@ std::unordered_map<string, std::shared_ptr<SDL_Texture>> Resources::imageTable;
 std::unordered_map<string, std::shared_ptr<Mix_Music>> Resources::musicTable;
 std::unordered_map<string, std::shared_ptr<Mix_Chunk>> Resources::soundTable;
 std::unordered_map<string, std::shared_ptr<TTF_Font>> Resources::fontTable;
+int Resources::musicVolume= 64;/**< Armazena volume da música. Esse valor pode ser de 0 a 128.*/
+int Resources::soundVolume= 64;/**< Armazena volume dos sons. Esse valor pode ser de 0 a 128.*/
+
+#define VOLUME_BOUND_AJUST(x){\
+		if(128<x){\
+			x=128;\
+		}\
+		else if(0>x){\
+			x=0;\
+		}\
+	}
 
 std::shared_ptr<SDL_Texture> Resources::GetImage(string file) {
 	SDL_Texture* ret;
@@ -136,15 +147,50 @@ void Resources::ClearFonts(void) {
 	}
 }
 
-void Resources::ChangeMusicVolume(int volume){
-	Mix_VolumeMusic(volume);
+void Resources::ChangeMusicVolume(int deltaVolume){
+	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
+	musicVolume+= deltaVolume;
+	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
+	VOLUME_BOUND_AJUST(musicVolume);
+	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
+	Mix_VolumeMusic(soundVolume);
 }
 
-void Resources::ChangeSoundVolume(int volume){
+void Resources::ChangeSoundVolume(int deltaVolume){
+	TEMP_REPORT_I_WAS_HERE;
+	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
+	soundVolume+= deltaVolume;
+	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
+	VOLUME_BOUND_AJUST(soundVolume);
+	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
 	std::unordered_map<string, std::shared_ptr<Mix_Chunk>>::iterator i= soundTable.begin();
-
 	while(i != soundTable.end()) {
-		Mix_VolumeChunk(i->second.get(), volume);
+		Mix_VolumeChunk(i->second.get(), soundVolume);
+		i++;
+	}
+}
+
+
+void Resources::ForceMusicVolume(int volume){
+	TEMP_REPORT_I_WAS_HERE;
+	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
+	musicVolume= volume;
+	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
+	VOLUME_BOUND_AJUST(musicVolume);
+	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
+	Mix_VolumeMusic(musicVolume);
+}
+
+void Resources::ForceSoundVolume(int volume){
+	TEMP_REPORT_I_WAS_HERE;
+	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
+	soundVolume= volume;
+	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
+	VOLUME_BOUND_AJUST(soundVolume);
+	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
+	std::unordered_map<string, std::shared_ptr<Mix_Chunk>>::iterator i= soundTable.begin();
+	while(i != soundTable.end()) {
+		Mix_VolumeChunk(i->second.get(), soundVolume);
 		i++;
 	}
 }
