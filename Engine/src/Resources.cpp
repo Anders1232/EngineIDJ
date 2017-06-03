@@ -153,7 +153,7 @@ void Resources::ChangeMusicVolume(int deltaVolume){
 	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
 	VOLUME_BOUND_ADJUST(musicVolume);
 	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
-	Mix_VolumeMusic(soundVolume);
+	Mix_VolumeMusic(musicVolume);
 }
 
 void Resources::ChangeSoundVolume(int deltaVolume){
