@@ -9,7 +9,7 @@ std::unordered_map<string, std::shared_ptr<TTF_Font>> Resources::fontTable;
 int Resources::musicVolume= 64;/**< Armazena volume da música. Esse valor pode ser de 0 a 128.*/
 int Resources::soundVolume= 64;/**< Armazena volume dos sons. Esse valor pode ser de 0 a 128.*/
 
-#define VOLUME_BOUND_AJUST(x){\
+#define VOLUME_BOUND_ADJUST(x){\
 		if(128<x){\
 			x=128;\
 		}\
@@ -29,7 +29,7 @@ std::shared_ptr<SDL_Texture> Resources::GetImage(string file) {
 		imageTable[file]= std::shared_ptr<SDL_Texture>
 				(
 					ret,
-					[](SDL_Texture *texture) {//meu primeiro uso de função labda em C++ {
+					[](SDL_Texture *texture) {
 						SDL_DestroyTexture(texture);
 					}
 				);
@@ -59,7 +59,7 @@ std::shared_ptr<Mix_Music> Resources::GetMusic(string file) {
 		musicTable[file]= std::shared_ptr<Mix_Music>
 				(
 					ret,
-					[](Mix_Music *music) {//meu segundo uso de função labda em C++ {
+					[](Mix_Music *music) {
 						Mix_FreeMusic(music);
 					}
 				);
@@ -97,7 +97,7 @@ std::shared_ptr<Mix_Chunk> Resources::GetSound(string file) {
 		soundTable[file]= std::shared_ptr<Mix_Chunk>
 				(
 					ret,
-					[](Mix_Chunk *chunck) {//meu terceiro uso de função labda em C++ {
+					[](Mix_Chunk *chunck) {
 						Mix_FreeChunk(chunck);
 					}
 				);
@@ -115,7 +115,7 @@ std::shared_ptr<TTF_Font> Resources::GetFont(string file, int fontSize) {
 		fontTable[file+std::to_string(fontSize)]= std::shared_ptr<TTF_Font>
 				(
 					ret,
-					[](TTF_Font *font) {//meu quarto uso de função labda em C++ {
+					[](TTF_Font *font) {
 						TTF_CloseFont (font);
 					}
 				);
@@ -151,17 +151,16 @@ void Resources::ChangeMusicVolume(int deltaVolume){
 	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
 	musicVolume+= deltaVolume;
 	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
-	VOLUME_BOUND_AJUST(musicVolume);
+	VOLUME_BOUND_ADJUST(musicVolume);
 	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
 	Mix_VolumeMusic(soundVolume);
 }
 
 void Resources::ChangeSoundVolume(int deltaVolume){
-	TEMP_REPORT_I_WAS_HERE;
 	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
 	soundVolume+= deltaVolume;
 	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
-	VOLUME_BOUND_AJUST(soundVolume);
+	VOLUME_BOUND_ADJUST(soundVolume);
 	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
 	std::unordered_map<string, std::shared_ptr<Mix_Chunk>>::iterator i= soundTable.begin();
 	while(i != soundTable.end()) {
@@ -170,23 +169,20 @@ void Resources::ChangeSoundVolume(int deltaVolume){
 	}
 }
 
-
 void Resources::ForceMusicVolume(int volume){
-	TEMP_REPORT_I_WAS_HERE;
 	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
 	musicVolume= volume;
 	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
-	VOLUME_BOUND_AJUST(musicVolume);
+	VOLUME_BOUND_ADJUST(musicVolume);
 	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
 	Mix_VolumeMusic(musicVolume);
 }
 
 void Resources::ForceSoundVolume(int volume){
-	TEMP_REPORT_I_WAS_HERE;
 	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
 	soundVolume= volume;
 	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
-	VOLUME_BOUND_AJUST(soundVolume);
+	VOLUME_BOUND_ADJUST(soundVolume);
 	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
 	std::unordered_map<string, std::shared_ptr<Mix_Chunk>>::iterator i= soundTable.begin();
 	while(i != soundTable.end()) {
@@ -195,10 +191,10 @@ void Resources::ForceSoundVolume(int volume){
 	}
 }
 
-// int Resources::GetMusicVolume(){
-// 	return musicVolume;
-// }
+int Resources::GetMusicVolume(){
+	return musicVolume;
+}
 
-// int Resources::GetSoundVolume(){
-// 	return soundVolume;
-// }
+int Resources::GetSoundVolume(){
+	return soundVolume;
+}
