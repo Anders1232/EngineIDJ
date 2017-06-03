@@ -119,16 +119,16 @@ void StageState::Update(float dt) {
 	}
 
 	if(InputManager::GetInstance().IsKeyDown('[')){
-		Resources::ChangeMusicVolume(STAGE_STATE_DELTA_VOLUME);
-	}
-	if(InputManager::GetInstance().IsKeyDown(']')){
 		Resources::ChangeMusicVolume(-STAGE_STATE_DELTA_VOLUME);
 	}
+	if(InputManager::GetInstance().IsKeyDown(']')){
+		Resources::ChangeMusicVolume(STAGE_STATE_DELTA_VOLUME);
+	}
 	if(InputManager::GetInstance().IsKeyDown(',')){
-		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
+		Resources::ChangeSoundVolume(-STAGE_STATE_DELTA_VOLUME);
 	}
 	if(InputManager::GetInstance().IsKeyDown('.')){
-		Resources::ChangeSoundVolume(-STAGE_STATE_DELTA_VOLUME);
+		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
 	}
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }
