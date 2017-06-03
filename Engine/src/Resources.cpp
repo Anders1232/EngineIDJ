@@ -6,8 +6,8 @@ std::unordered_map<string, std::shared_ptr<SDL_Texture>> Resources::imageTable;
 std::unordered_map<string, std::shared_ptr<Mix_Music>> Resources::musicTable;
 std::unordered_map<string, std::shared_ptr<Mix_Chunk>> Resources::soundTable;
 std::unordered_map<string, std::shared_ptr<TTF_Font>> Resources::fontTable;
-int Resources::musicVolume= 64;/**< Armazena volume da música. Esse valor pode ser de 0 a 128.*/
-int Resources::soundVolume= 64;/**< Armazena volume dos sons. Esse valor pode ser de 0 a 128.*/
+int Resources::musicVolume= 64;
+int Resources::soundVolume= 64;
 
 #define VOLUME_BOUND_ADJUST(x){\
 		if(128<x){\
@@ -190,7 +190,7 @@ void Resources::ForceSoundVolume(int volume){
 		i++;
 	}
 }
-
+/*
 int Resources::GetMusicVolume(){
 	return musicVolume;
 }
@@ -198,3 +198,4 @@ int Resources::GetMusicVolume(){
 int Resources::GetSoundVolume(){
 	return soundVolume;
 }
+*/

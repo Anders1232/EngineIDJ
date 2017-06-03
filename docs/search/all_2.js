@@ -1,7 +1,7 @@
 var searchData=
 [
   ['calculatedeltatime',['CalculateDeltaTime',['../classGame.html#afddce07e3e3d3ca05a6c2f2ca9e64940',1,'Game']]],
-  ['calculateparallaxscrolling',['CalculateParallaxScrolling',['../classTileMap.html#adda18b2c09dbcc6cfb91b39ae9bee271',1,'TileMap']]],
+  ['calculateparallaxscrolling',['CalculateParallaxScrolling',['../classTileMap.html#ae6d986365a0704b8e5aa7495a575ee64',1,'TileMap']]],
   ['camera',['Camera',['../classCamera.html',1,'Camera'],['../classCamera.html#a01f94c3543f56ede7af49dc778f19331',1,'Camera::Camera()']]],
   ['camera_2ecpp',['Camera.cpp',['../Camera_8cpp.html',1,'']]],
   ['camera_2eh',['Camera.h',['../Camera_8h.html',1,'']]],
@@ -13,7 +13,9 @@ var searchData=
   ['camera_5fdefault_5fzoomable',['CAMERA_DEFAULT_ZOOMABLE',['../Camera_8h.html#a719f5e3a817ca056a76495044f676277',1,'Camera.h']]],
   ['camera_5fmove_5fspeed',['CAMERA_MOVE_SPEED',['../Camera_8cpp.html#a6962606bd42615342e6dc4ab58ad5cd4',1,'Camera.cpp']]],
   ['capframerate',['capFramerate',['../classGame.html#a9c4d90234bc5a4ca540b09d8a534ece1',1,'Game']]],
-  ['center',['Center',['../classRect.html#ac42ead7988bf077364ce61231980bff2',1,'Rect']]],
+  ['center',['Center',['../classRect.html#af5db0f5526e20b63eebbe14ef2f4f6fb',1,'Rect']]],
+  ['changemusicvolume',['ChangeMusicVolume',['../classResources.html#a1655776bc711f51ad1234d002c1919cd',1,'Resources']]],
+  ['changesoundvolume',['ChangeSoundVolume',['../classResources.html#a92d5aad816000142eb6e67d4cc1f7d1e',1,'Resources']]],
   ['channel',['channel',['../classSound.html#af3895edf5a39772f1de32cfbfff90909',1,'Sound']]],
   ['check_5fsdl_5ferror',['CHECK_SDL_ERROR',['../Error_8h.html#ae8a1602ad06ce181163389d874118387',1,'Error.h']]],
   ['clearfonts',['ClearFonts',['../classResources.html#abfa5ce49b74cb81a0f3c7a47d94e0eda',1,'Resources']]],
