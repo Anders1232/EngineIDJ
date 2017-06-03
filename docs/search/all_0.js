@@ -1,12 +1,14 @@
 var searchData=
 [
+  ['actionmanager',['ActionManager',['../classActionManager.html',1,'ActionManager'],['../classActionManager.html#a7d0c405d568795fba0c51f411e77b821',1,'ActionManager::ActionManager()']]],
+  ['actionmanager_2ecpp',['ActionManager.cpp',['../ActionManager_8cpp.html',1,'']]],
+  ['actionmanager_2eh',['ActionManager.h',['../ActionManager_8h.html',1,'']]],
   ['additive',['ADDITIVE',['../Sprite_8h.html#ad3bbb60a29cd7b3b6276b54595604209',1,'Sprite.h']]],
   ['addobject',['AddObject',['../classState.html#a431d5f711e028c788a9fdccaf99ff74e',1,'State']]],
   ['ai_5fgo_5fdown',['AI_GO_DOWN',['../Component_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0a66311755e55435530832af716d0ff7c9',1,'Component.h']]],
   ['aigodown',['AIGoDown',['../classAIGoDown.html',1,'AIGoDown'],['../classAIGoDown.html#a90facabcd1e46257246a23f3611d9aef',1,'AIGoDown::AIGoDown()']]],
   ['aigodown_2ecpp',['AIGoDown.cpp',['../AIGoDown_8cpp.html',1,'']]],
   ['aigodown_2eh',['AIGoDown.h',['../AIGoDown_8h.html',1,'']]],
-  ['ajust_5fkey',['AJUST_KEY',['../InputManager_8cpp.html#a10c6b4e3b3cdf6975c1bcb82579313ea',1,'InputManager.cpp']]],
   ['alpha',['alpha',['../classSprite.html#ab3e19ec07718672961d355c5e25ef3ee',1,'Sprite']]],
   ['alpha_5fblend',['ALPHA_BLEND',['../Sprite_8h.html#a53c3481913568ddca94dffc38c36a1fb',1,'Sprite.h']]],
   ['animation',['Animation',['../classAnimation.html',1,'Animation'],['../classAnimation.html#a48d3ca5ecd4b4ca7f2f6fe10cf1f91d4',1,'Animation::Animation()']]],

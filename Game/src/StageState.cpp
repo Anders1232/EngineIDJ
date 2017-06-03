@@ -27,12 +27,10 @@
 #define STAGE_STATE_DELTA_VOLUME (1) //11*11 = 121 ~128
 
 StageState::StageState(void)
-			:State(),
-			bg("img/ocean.jpg"),
-			tileSet(30, 30,"img/tileset-basico.jpg"),
-			inputManager(InputManager::GetInstance()),
-			music("audio/stageState.ogg"),
-			spawnTimer(){
+			:State(), bg("img/ocean.jpg"),
+				tileSet(30, 30,"img/tileset-basico.jpg"),
+				inputManager(InputManager::GetInstance()),
+				music("audio/stageState.ogg") {
 	REPORT_I_WAS_HERE;
 	tileMap= new TileMap(std::string("map/tileMap.txt"), &tileSet);
 	REPORT_I_WAS_HERE;
@@ -47,7 +45,6 @@ StageState::~StageState(void) {
 	delete spawnGroups;
 }
 
-//void StageState::Update(float dt)
 void StageState::Update(float dt) {
 	REPORT_I_WAS_HERE;
 	if(inputManager.KeyPress(ESCAPE_KEY)) {
@@ -80,8 +77,6 @@ void StageState::Update(float dt) {
 		SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition]);
 		spawnTimer.Restart();
 	}
-	
-	
 	if(InputManager::GetInstance().KeyPress('r')) {
 		popRequested= true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
@@ -154,6 +149,5 @@ void StageState::SpawnEnemy(int tileMapPosition){
 	spawnPosition.y= (tileMapPosition/tileMap->GetWidth() ) * tileSize.y;
 	objectArray.push_back(unique_ptr<GameObject>(new Enemy(spawnPosition, 1.) ) );
 }
-
 
 

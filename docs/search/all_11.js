@@ -21,6 +21,8 @@ var searchData=
   ['resume',['Resume',['../classState.html#ac6d3f8b50530eec89e1344bab93f1006',1,'State::Resume()'],['../classEndState.html#a27e54374f84da806d7bd8bfc985d41b9',1,'EndState::Resume()'],['../classStageState.html#a1ca42c08929c560284b04a08362e0c8c',1,'StageState::Resume()'],['../classTitleState.html#a97e07af49ceb37c838f435f8f12f0ce1',1,'TitleState::Resume()']]],
   ['right_5farrow_5fkey',['RIGHT_ARROW_KEY',['../InputManager_8h.html#ad0c8af7976bcbad226a5227851560eeb',1,'InputManager.h']]],
   ['right_5fmouse_5fbutton',['RIGHT_MOUSE_BUTTON',['../InputManager_8h.html#a752bf1e116b4c25c5543855013c8c6eb',1,'InputManager.h']]],
+  ['rightarrowaction',['RightArrowAction',['../classActionManager.html#a5867a3734d689cb29c06ac7c74e36911',1,'ActionManager']]],
+  ['rightshoulderaction',['RightShoulderAction',['../classActionManager.html#a894336e9c5ed2390cce815ac0fe227d0',1,'ActionManager']]],
   ['rotate',['Rotate',['../classCollision.html#af6176da5535324240ccf1557910ac89e',1,'Collision::Rotate()'],['../classVec2.html#abb4f9b393a08a4d19c5139a6ba5f5409',1,'Vec2::Rotate()']]],
   ['rotation',['rotation',['../classGameObject.html#ac55f6ebdf4cfbab508680ad7290fb26c',1,'GameObject']]],
   ['rows',['rows',['../classTileSet.html#abdfce26ff299e8904107edc22529e28f',1,'TileSet']]],
