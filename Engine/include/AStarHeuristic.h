@@ -3,7 +3,7 @@ class AStarHeuristic{
 
 	AStarHeuristic();
 
-	int operator()(int originTile,int destTile ,TileMap tilemap);
+	int operator()(int originTile,int destTile ,TileMap &tilemap);
 
 
 };
