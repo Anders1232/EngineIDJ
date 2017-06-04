@@ -107,8 +107,9 @@ void StageState::Update(float dt) {
 	if(InputManager::GetInstance().KeyPress('e')){
 
 		Vec2 mousePos= InputManager::GetInstance().GetMousePos()*(1/Camera::GetZoom())+Camera::pos-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
-		AddObject(new Face(mousePos.x, mousePos.y, Vec2(FACE_LINEAR_SIZE, FACE_LINEAR_SIZE), tileMap) );
-		
+		Face *faceCreated= new Face(mousePos.x, mousePos.y, Vec2(FACE_LINEAR_SIZE, FACE_LINEAR_SIZE), tileMap);
+		AddObject(faceCreated);
+		tileMap->InsertGO(faceCreated);
 	}
 	if(InputManager::GetInstance().KeyPress('=')){
 		Game &game= Game::GetInstance();
