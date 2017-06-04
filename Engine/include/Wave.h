@@ -3,22 +3,13 @@
 
 #include "GameObject.h"
 
-class Wave : public GameObject
+class Wave
 {
 public:
 	Wave();
 	~Wave();
 
-	void Update(float dt);
-	void Render(void);
-	bool IsDead(void);
-	void RequestDelete();
-	void NotifyCollision(GameObject *object);
-	bool Is(string type);
-	Rect GetWorldRenderedRect(void);
-
-
-	int waveCount;
+	static int waveCount;
 
 };
 
