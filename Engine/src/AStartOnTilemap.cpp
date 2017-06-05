@@ -2,37 +2,48 @@
 
 std::list<int> AStarOnTilemap::operator()(int originTile,int destTile ,TileMap &tilemap,Heuristic heuristic){
 
-	/*//lista  de caminhos <destino,<anterior,custo>>);
+	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > > paths;
 	//Lista para armazenar nós a serem processados
 	std::list<std::pair<double,unsigned int> > process_list;
 	//inicia o vetor de distâncias e de visitados
-	std::vector<double> dist(graph.size(),INFINITE);
-	std::vector<double> visitados(graph.size(),false);
+	std::vector<double> dist(tilemap.GetTileVector().size(),INFINITE);
+	std::vector<double> visitados(tilemap.GetTileVector().size(),false);
 
 	//a distância de orig para orig é 0
-	dist[orig] = 0.0;
-	process_list.push_back(std::make_pair(dist[orig],orig));
-	paths.push_back(std::make_pair(orig,std::make_pair(orig,dist[orig])));
+	dist[originTile] = 0.0;
+	process_list.push_back(std::make_pair(dist[originTile],originTile));
+	paths.push_back(std::make_pair(originTile,std::make_pair(originTile,dist[originTile])));
 
 	unsigned int aux_dest,aux_origin,aux_cost,aux_node,actual_node_position;
-	//Loop de processamento do djkstra
-	while(!process_list.empty()){
+	//Loop de processamento do A*
+
+	while(1){
 
 		std::pair<double,unsigned int> p = process_list.front(); // extrai o pair do topo
-		aux_node = p.second; // obtém o vértice do pair
-		actual_node_position = find_node_position(aux_node,graph);
 		process_list.pop_front(); // remove da fila
 
-		if(!visitados[aux_node]){
-			// percorre os vértices "v" adjacentes de "actual_node"
-			for(unsigned int j = 0 ; j < graph[actual_node_position].adjacencias.size();j ++){
-			// obtém um vértice adjacente e o custo da aresta
+		if(p.second == destTile){
+
+			paths.push_back(std::make_pair(p.second,std::make_pair(p_second, tilemap.GetTileVector()[p.second].weight)));
+			break;
+
+		}
+
+		std::vector<unsigned int> neighbors = tilemap.GetNeighbors(p.second);
+
+		// percorre os vértices "v" adjacentes de "actual_node"
+		for(unsigned int j = 0 ; j < neighbors.size();j ++){
+		// obtém um vértice adjacente e o custo da aresta
+			if(visitados[neighbors[j]] || tilemap.GetTileVector()[p.second].traversable){
+
+				continue;
+
+			}
+
+			aux_cost = tilemap.GetTileVector()[neighbors[j]].weight;
 				
-				aux_dest = graph[actual_node_position].adjacencias[j].destino;
-				aux_cost = graph[actual_node_position].adjacencias[j].peso;
-				
-				if(dist[aux_dest] > dist[aux_node] + aux_cost){
+			if(dist[aux_dest] > dist[p.second] + aux_cost){
 				
 					if (dist[aux_dest] != INFINITE){
 
@@ -49,7 +60,7 @@ std::list<int> AStarOnTilemap::operator()(int originTile,int destTile ,TileMap &
 
 			}
 			visitados[aux_node] = true;
-		}
+		
 		
 	}
 
@@ -74,5 +85,5 @@ std::list<int> AStarOnTilemap::operator()(int originTile,int destTile ,TileMap &
 		}
 	}
 
-	return(path);*/
+	return(path);
 }
