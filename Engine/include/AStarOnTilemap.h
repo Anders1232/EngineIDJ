@@ -3,11 +3,6 @@
 #include <list>
 
 class AStarOnTilemap{
-
-
 	AStarOnTilemap();
-
-	std::list<int> operator()(int originTile,int destTile ,TileMap &tilemap, Heuristic heuristic);
-
-
+	std::list<int> operator()(int originTile,int destTile ,TileMap &tilemap, Heuristic heuristic, int tilePreferido, vector<int> &tilesAndaveis);
 };

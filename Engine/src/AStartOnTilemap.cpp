@@ -1,6 +1,6 @@
 #include "AStarOnTilemap.h"
 
-std::list<int> AStarOnTilemap::operator()(int originTile,int destTile ,TileMap &tilemap,Heuristic heuristic){
+std::list<int> AStarOnTilemap::operator()(int originTile,int destTile ,TileMap &tilemap,Heuristic heuristic, int tilePreferido, vector<int> *tilesAndaveis){
 
 	/*//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > > paths;
