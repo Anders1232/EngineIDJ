@@ -1,9 +1,6 @@
 #include "TileMap.h"
+
 class AStarHeuristic{
-
-	AStarHeuristic();
-
-	int operator()(int originTile,int destTile ,TileMap &tilemap);
-
-
+	virtual AStarHeuristic(){};
+	virtual int operator()(int originTile,int destTile ,TileMap &tilemap)=0;
 };
