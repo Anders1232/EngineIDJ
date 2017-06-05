@@ -12,6 +12,7 @@
 #include "State.h"
 #include "Music.h"
 #include "Timer.h"
+#include "Wave"
 
 using std::vector;
 
@@ -32,6 +33,7 @@ class StageState: public State {
 		vector<vector<int>> *spawnGroups;
 		Timer spawnTimer;
 		void SpawnEnemy(int tileMapPosition);
+		Wave currentWave;
 };
 
 #include "EndState.h"

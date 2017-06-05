@@ -71,6 +71,7 @@ void StageState::Update(float dt) {
 	Camera::Update(dt);
 	REPORT_I_WAS_HERE;
 	spawnTimer.Update(dt);
+
 	if(TIME_BETWEEN_SPAWNS < spawnTimer.Get()){
 		int selectedSpawnGroup= rand()%spawnGroups->size();
 		int selectedSpawnPosition= rand()% ( (*spawnGroups)[selectedSpawnGroup] ).size();
