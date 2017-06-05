@@ -1,10 +1,27 @@
 #include <utility>
 #include <vector>
 #include <list>
+#include <queue>
+#include <map>
 #include "AStarOnTilemap.h"
 
-std::list<int> AStarOnTilemap::operator()(int originTile,int destTile ,TileMap &tilemap,Heuristic heuristic, int tilePreferido, vector<int> *tilesAndaveis){
+struct Node{
+	public:
+//		int id;//precisa ter id??
+		int weight;
+		int cameFrom;
+		Node(int weigth, int cameFrom);
+		operator<(Node &other);
+}
 
+Node::Node(int weigth, int cameFrom):weigth(weight), cameFrom(cameFrom){
+}
+
+
+std::list<int> AStarOnTilemap::operator()(int originTile,int destTile ,TileMap &tilemap,Heuristic heuristic, int tilePreferido, vector<int> *tilesAndaveis){
+	std::map<int, std::unique_ptr<Node>> nosAvaliados;
+	std::priority_queue<std::pair<int, Node> > nosDescobertos;// e nao avaliados
+	std::vector<>
 	
 	/*
 	//lista  de caminhos <destino,<anterior,custo>>);
