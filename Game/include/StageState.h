@@ -12,10 +12,15 @@
 #include "State.h"
 #include "Music.h"
 #include "Timer.h"
-#include "Wave"
+#include "WaveManager.h"
 
 using std::vector;
 
+/**
+	\todo Fazer com que o tileMap n~ao seja mais um ponteiro.
+
+
+*/
 class StageState: public State {
 	public:
 		StageState(void);
@@ -26,14 +31,16 @@ class StageState: public State {
 		void Resume(void);
 	private:
 		Sprite bg;
-		TileMap *tileMap;
 		TileSet tileSet;
+		TileMap tileMap; //*tileMap
 		InputManager &inputManager;
 		Music music;
 		vector<vector<int>> *spawnGroups;
 		Timer spawnTimer;
 		void SpawnEnemy(int tileMapPosition);
-		Wave currentWave;
+		WaveManager waveManager;
+		GameObject nullGameObject;
+		
 };
 
 #include "EndState.h"

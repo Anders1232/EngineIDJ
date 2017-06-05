@@ -1,7 +1,6 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 #include "GameObject.h"
-#include "Wave.h"
 #include "Sprite.h"
 #include "Rect.h"
 #include "TileMap.h"
