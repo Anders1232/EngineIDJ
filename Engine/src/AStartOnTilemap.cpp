@@ -1,8 +1,13 @@
+#include <utility>
+#include <vector>
+#include <list>
 #include "AStarOnTilemap.h"
 
 std::list<int> AStarOnTilemap::operator()(int originTile,int destTile ,TileMap &tilemap,Heuristic heuristic, int tilePreferido, vector<int> *tilesAndaveis){
 
-	/*//lista  de caminhos <destino,<anterior,custo>>);
+	
+	/*
+	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > > paths;
 	//Lista para armazenar nós a serem processados
 	std::list<std::pair<double,unsigned int> > process_list;
@@ -17,7 +22,7 @@ std::list<int> AStarOnTilemap::operator()(int originTile,int destTile ,TileMap &
 
 	unsigned int aux_dest,aux_origin,aux_cost,aux_node,actual_node_position;
 	//Loop de processamento do djkstra
-	while(!process_list.empty()){
+	while(!process_list.empty()){//essa condição iremos alterar para (achou o caminho desejado?)
 
 		std::pair<double,unsigned int> p = process_list.front(); // extrai o pair do topo
 		aux_node = p.second; // obtém o vértice do pair
