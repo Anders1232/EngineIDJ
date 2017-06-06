@@ -5,6 +5,7 @@
 template<typename T>
 
 class AStarOnTilemap{
+<<<<<<< HEAD
 
 	public:
 
@@ -40,6 +41,10 @@ class AStarOnTilemap{
 		};
 
 
+=======
+	AStarOnTilemap();
+	std::list<int> operator()(int originTile,int destTile ,TileMap &tilemap, Heuristic heuristic, int tilePreferido, vector<int> &tilesAndaveis);
+>>>>>>> 20d28b56f2d0255b1efff8315bf2a7bd5dafd614
 };
 
 
