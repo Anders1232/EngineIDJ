@@ -43,7 +43,7 @@ std::list<int> AStarOnTilemap::FindPath(){
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > > paths;
 	//Heap para armazenar nós a serem processados
-	my_priority_queue<std::pair<double,unsigned int>,std::vector<std::pair<double,unsigned int> >,LessThanByHeuristic> processList;
+	my_priority_queue<std::pair<double,unsigned int> > processList(LessThanByHeuristic);
 	//inicia o vetor de distâncias e de visited
 	std::vector<double> dist(tilemap.GetTileVector().size(),INFINITE);
 	std::vector<double> visited(tilemap.GetTileVector().size(),false);
