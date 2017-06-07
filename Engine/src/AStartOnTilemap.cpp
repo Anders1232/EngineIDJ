@@ -21,33 +21,14 @@ struct LessThanByHeuristic{
     return lhs.second + heuristic((lhs.first,destTile,tilemap)) < rhs.second + heuristic((rhs.first,destTile,tilemap));
 
   }
-}/*
-struct Node{
-	public:
-//		int id;//precisa ter id??
-		int weight;
-		int cameFrom;
-		Node(int weigth, int cameFrom);
-		operator<(Node &other);
 }
-
-Node::Node(int weigth, int cameFrom):weigth(weight), cameFrom(cameFrom){
-}
-
-
-std::list<int> AStarOnTilemap::operator()(int originTile,int destTile ,TileMap &tilemap,Heuristic heuristic, int tilePreferido, vector<int> *tilesAndaveis){
-	std::map<int, std::unique_ptr<Node>> nosAvaliados;
-	std::priority_queue<std::pair<int, Node> > nosDescobertos;// e nao avaliados
-	std::vector<>
-
-};*/
 
 std::list<int> AStarOnTilemap::FindPath(){
 
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > > paths;
 	//Heap para armazenar nós a serem processados
-	my_priority_queue<std::pair<double,unsigned int>,std::vector<std::pair<double,unsigned int> >,LessThanByHeuristic> processList;
+	my_priority_queue<std::pair<double,int>,std::vector<std::pair<double,int> >,LessThanByHeuristic> processList;
 	//inicia o vetor de distâncias e de visited
 	std::vector<double> dist(tilemap.GetTileVector().size(),INFINITE);
 	std::vector<double> visited(tilemap.GetTileVector().size(),false);
@@ -64,6 +45,8 @@ std::list<int> AStarOnTilemap::FindPath(){
 		processList.pop();// remove da lista
 		//Obtém todos os vizinhos de "current"
 		std::vector<unsigned int> neighbors = tilemap.GetNeighbors(current.second);
+		//Se chegou ao destino sai do loop
+		if(current.second = destTile){break;}
 		// percorre os vértices "v" adjacentes de "current"
 		for(unsigned int j = 0 ; j < neighbors.size();j ++){
 			//Se o vértice já foi visitado ou não é atingível passa-se para o proximo
