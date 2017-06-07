@@ -5,26 +5,21 @@
 #include <map>
 #include "AStarOnTilemap.h"
 
-AStarOnTilemap::AStarOnTilemap(int originTile,int destTile ,TileMap &tilemap,Heuristic heuristic){
-
-	this->originTile = originTile;
-	this->destTile = destTile;
-	this->tilemap = tilemap;
-	this->heuristic = heuristic;
-
+AStarOnTilemap::AStarOnTilemap(int originTile,int destTile ,TileMap &tilemap, AStarHeuristic *heuristic):
+	originTile(originTile),
+	destTile(destTile),
+	tilemap(tilemap),
+	heuristic(heuristic){
 }
 
 struct LessThanByHeuristic{
+	bool operator()(const std::pair<double,int> lhs,const std::pair<double,int> rhs) const{
+		return lhs.second + heuristic((lhs.first,destTile,tilemap)) < rhs.second + heuristic((rhs.first,destTile,tilemap));
+	}
+};
 
-  bool operator()(const std::pair<double,unsigned int> lhs,const std::pair<double,unsigned int> rhs) const{
-
-    return lhs.second + heuristic((lhs.first,destTile,tilemap)) < rhs.second + heuristic((rhs.first,destTile,tilemap));
-
-  }
-}
 
 std::list<int> AStarOnTilemap::FindPath(){
-
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > > paths;
 	//Heap para armazenar nós a serem processados
@@ -60,20 +55,15 @@ std::list<int> AStarOnTilemap::FindPath(){
 					//Remove o custo e o caminho associado ao vizinho das listas visto que novos serão inseridos
 					processList.remove(std::make_pair(dist[neighbors[j]],neighbors[j]));
 					paths.remove(std::make_pair(aux_dest,std::make_pair(aux_node,aux_cost)));
-
 				}
 				// atualiza a distância do vizinho e insere nas listas
 				dist[neighbors[j]] = dist[p.second] + aux_cost;
 				paths.push_back(std::make_pair(neighbors[j],std::make_pair(p.second,aux_cost)));
 				processList.push_back(std::make_pair(aux_cost,neighbors[j]));
-
 			}
-
 		}
-
 		visited[current.second] = true;
 	}
-
 	//Deducao do caminho
 	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > >::iterator it;
 	std::list<unsigned int> path;
@@ -81,19 +71,14 @@ std::list<int> AStarOnTilemap::FindPath(){
 	actual_node = destTile;
 	
 	while(actual_node != originTile){
-		
 		for(it = paths.begin(); it != paths.end(); ++ it){
-			
 			if(it->first == actual_node){
-
 				path.push_front(actual_node);
 				actual_node = it->second.first;
 				break;
-
 			}
 		}
 	}
-
 	return(path);
 }
 

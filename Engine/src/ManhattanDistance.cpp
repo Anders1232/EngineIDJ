@@ -3,7 +3,7 @@
 ManhattanDistance::ManhattanDistance(){
 }
 
-int operator()(int originTile,int destTile ,TileMap &tilemap){
+int ManhattanDistance::operator()(int originTile,int destTile ,TileMap &tilemap){
 	int mapWidth= tilemap.GetWidth();
 	int distanceX= (destTile % mapWidth) - (originTile % mapWidth);
 	int distanceY= (originTile / mapWidth) - (originTile / mapWidth);
