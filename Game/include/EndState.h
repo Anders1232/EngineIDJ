@@ -14,6 +14,7 @@ class EndState: public State {
 		EndState(EndStateData stateData);
 		void Update(float dt);
 		void Render() const;
+		void NewRender() const;
 		void Pause();
 		void Resume();
 	private:

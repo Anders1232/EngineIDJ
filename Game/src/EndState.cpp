@@ -38,6 +38,11 @@ void EndState::Update(float dt) {
 	}
 }
 
+void EndState::NewRender() const {
+	bg.NewRender(Rect(0,0,0,0));
+	instruction.Render();
+}
+
 void EndState::Render() const {
 	bg.Render(0, 0);
 	instruction.Render();

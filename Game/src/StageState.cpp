@@ -119,6 +119,12 @@ void StageState::Update(float dt) {
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }
 
+void StageState::NewRender(void) const {
+	bg.Render(STATE_RENDER_X, STATE_RENDER_Y);
+	tileMap->NewRender();
+	State::NewRenderArray();
+}
+
 void StageState::Render(void) const {
 	//renderizar o bg
 	REPORT_I_WAS_HERE;

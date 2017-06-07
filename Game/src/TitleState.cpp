@@ -23,6 +23,10 @@ void TitleState::Render(void) const {
 	bg.Render(0, 0);
 }
 
+void TitleState::NewRender(void) const {
+	bg.NewRender(Rect(0,0,0,0));
+}
+
 void TitleState::Pause(void) {}
 
 void TitleState::Resume(void) {}

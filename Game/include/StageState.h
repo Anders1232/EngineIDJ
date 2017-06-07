@@ -19,6 +19,7 @@ class StageState: public State {
 		StageState(void);
 		~StageState(void);
 		void Update(float dt);
+		void NewRender(void) const;
 		void Render(void) const;
 		void Pause(void);
 		void Resume(void);
