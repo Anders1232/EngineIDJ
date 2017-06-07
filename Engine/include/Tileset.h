@@ -37,6 +37,7 @@ class TileSet {
 			Após isso, renderiza-se o tile informado na posição calculada da tela.
 		*/
 		void Render(unsigned int index, float x, float y, bool zoom= true);
+		void NewRender(unsigned int index, Vec2 pos);
 		/**
 			\brief Obtém largura de um tile.
 			\return Valor de tileWidth.

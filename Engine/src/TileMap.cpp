@@ -53,14 +53,42 @@ int& TileMap::At(int x, int y, int z) const{
 	}
 }
 
+void TileMap::NewRender(Vec2 pos, bool parallax) const {
+	for(int count = 0; count < mapDepth; count++) {
+		if(COLLISION_LAYER == count && !displayCollisionInfo) {
+			continue;
+		}
+		NewRenderLayer(count, pos, parallax);
+	}
+}
+
 void TileMap::Render(int cameraX, int cameraY, bool parallax) const{
-	for(int count =0; count < mapDepth; count++){
+	for(int count = 0; count < mapDepth; count++){
 		if(count == COLLISION_LAYER && !displayCollisionInfo){
 			continue;
 		}
 		RenderLayer(count, cameraX, cameraY, parallax);
 	}
 }
+
+void TileMap::NewRenderLayer(int layer, Vec2 pos, bool parallax) const {
+	for (int x=0; x<mapWidth; x++) {
+		for (int y=0; y<mapHeight; y++) {
+			int index = At(x, y, layer);
+			if (0 <= index) {
+				Vec2 destination;
+				if (parallax) {
+					Vec2 tilePos(x*tileSet->GetTileWidth(), y*tileSet->GetTileHeight());
+					destination = NewCalculateParallaxScrolling(tilePos, pos, layer);
+				} else {
+					destination = pos + Vec2(x*tileSet->GetTileWidth(), y*tileSet->GetTileHeight());
+				}
+				tileSet->NewRender(index, destination);
+			}
+		}
+	}
+}
+
 void TileMap::RenderLayer(int layer, int cameraX, int cameraY, bool parallax) const{
 	for(int x=0; x < mapWidth; x++){
 		for(int y=0; y < mapHeight; y++){
@@ -84,6 +112,13 @@ void TileMap::RenderLayer(int layer, int cameraX, int cameraY, bool parallax) co
 	}
 }
 
+Vec2 TileMap::NewCalculateParallaxScrolling(Vec2 num, Vec2 pos, int layer) const {
+	return num-(pos+Camera::pos)*(layer+1);
+	return num-(pos+Camera::pos)*((layer+1)/(double)mapDepth);
+	return num*(1.0+(double)layer/(double)mapDepth);
+	return num*(1.0-(double)layer/(double)mapDepth);
+}
+
 int TileMap::CalculateParallaxScrolling(int num, int camera, int layer) const{
 	return (int)(num-camera*(layer+1));
 	return (int)(num-camera*(layer+1)/mapDepth );
@@ -104,11 +139,11 @@ int TileMap::GetDepth(void) const {
 }
 
 int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const{
-	Vec2 position= mousePos + Camera::pos;
-	if(affecteedByZoom){
-		position= position.MemberMult(Camera::GetZoom());
+	Vec2 position = mousePos/* + Camera::pos*/;
+// 	if(affecteedByZoom){
+// 		position= position.MemberMult(Camera::GetZoom());
 //		position= position*Camera::GetZoom();
-	}
+// 	}
 	int x, xDir= mapWidth-1, xEsq=0;
 	int tileWidth= CalculateParallaxScrolling(tileSet->GetTileWidth(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
 	int tileHeight= CalculateParallaxScrolling(tileSet->GetTileHeight(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
