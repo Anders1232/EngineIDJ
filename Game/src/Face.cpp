@@ -30,10 +30,15 @@ void Face::Update(float dt ){
 		components[count]->Update(*this, dt);
 	}
 }
+
+void Face::NewRender(void) {
+	sp.NewRender(box);
+}
+
 void Face::Render(){
 	sp.Render((box.x-Camera::pos.x)*Camera::GetZoom(), (box.y-Camera::pos.y)*Camera::GetZoom(), 0, true);
-
 }
+
 bool Face::IsDead(void){
 	if(hitpoints<=0)
 		return true;

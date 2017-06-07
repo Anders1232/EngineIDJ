@@ -26,6 +26,10 @@ void Enemy::Update(float dt){
 	}
 }
 
+void Enemy::NewRender(void) {
+	sp.NewRender(box);
+}
+
 void Enemy::Render(void){
 	sp.Render( (box.x-Camera::pos.x)*Camera::GetZoom(), (box.y-Camera::pos.y)*Camera::GetZoom(), 0, true);
 }
