@@ -16,7 +16,8 @@ struct LessThanByHeuristic{
 	bool operator()(const std::pair<double,unsigned int> lhs,const std::pair<double,unsigned int> rhs) const{
 		return lhs.second + heuristic((lhs.first,destTile,tilemap)) < rhs.second + heuristic((rhs.first,destTile,tilemap));
 	}
-}
+};
+
 /*
 struct Node{
 	public:
@@ -39,7 +40,6 @@ std::list<int> AStarOnTilemap::operator()(int originTile,int destTile ,TileMap &
 };*/
 
 std::list<int> AStarOnTilemap::FindPath(){
-
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > > paths;
 	//Heap para armazenar nós a serem processados
