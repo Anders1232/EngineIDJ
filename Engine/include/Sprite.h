@@ -15,6 +15,7 @@
 #endif
 
 #include "Color.h"
+#include "Rect.h"
 
 #include <string>
 #include <memory>
@@ -81,6 +82,7 @@ class Sprite {
 			Os valores de w e h de destino alteram de acordo com a escala do objeto.
 		*/
 		void Render(int x, int y, float angle=0, bool zoom= false) const;
+		void NewRender(Rect world, float angle=0) const;
 		/**
 			\brief Informa a largura do sprite
 

@@ -18,6 +18,11 @@ void Animation::Update(float dt) {
 	sp.Update(dt);
 	endTimer.Update(dt);
 }
+
+void Animation::NewRender(void) {
+	sp.NewRender(box, rotation);
+}
+
 void Animation::Render(void) {
 	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, rotation, true);
 }

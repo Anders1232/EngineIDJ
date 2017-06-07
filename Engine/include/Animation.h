@@ -47,6 +47,7 @@ class Animation: public GameObject {
 			Renderiza a animação na tela.
 		*/
 		void Render(void);
+		void NewRender(void);
 		/**
 			\brief Informa se o objeto deve ser destruído.
 			\return Verdadeiro se o objeto deve ser destruído, falso caso contrário.
