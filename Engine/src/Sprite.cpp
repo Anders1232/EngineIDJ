@@ -67,6 +67,7 @@ void Sprite::NewRender(Rect world, float angle) const {
 		world.w = GetWidth();
 		world.h = GetHeight();
 	}
+	
 	SDL_Rect dst = Camera::WorldToScreen(world);
 	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, angle, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 		Error(SDL_GetError());

@@ -7,7 +7,7 @@
 #define INPUT_MANAGER InputManager::GetInstance()
 
 GameObject* Camera::focus= nullptr;
-Vec2 Camera::pos;
+Vec2 Camera::pos = Vec2(0,0);
 float Camera::speed= CAMERA_MOVE_SPEED;
 float Camera::currentZoom= 1.0;
 float Camera::minZoom= CAMERA_DEFAULT_MIN_ZOOM;
@@ -89,8 +89,8 @@ Rect Camera::WorldToScreen(Rect world) {
 	Rect screen;
 	screen.x = (world.x-pos.x)*currentZoom;
 	screen.y = (world.y-pos.y)*currentZoom;
-	screen.w *= currentZoom;
-	screen.h *= currentZoom;
+	screen.w = world.w*currentZoom;
+	screen.h = world.h*currentZoom;
 	return screen;
 }
 

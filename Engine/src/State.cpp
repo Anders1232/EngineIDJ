@@ -1,6 +1,9 @@
 #include "State.h"
 
+#include "Camera.h"
+
 State::State(void): popRequested(false), quitRequested(false) {
+	Camera::pos = Vec2(0,0);
 }
 
 State::~State(void) {
