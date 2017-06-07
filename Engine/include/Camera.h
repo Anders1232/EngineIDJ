@@ -111,6 +111,12 @@ class Camera {
 			Esse efeito é obtido atribuindo newZoomSpeed à zoomSpeed.
 		*/
 		static void SetZoomSpeed(float newZoomSpeed);
+		
+		static Vec2 WorldToScreen(Vec2 world);
+		static Rect WorldToScreen(Rect world);
+
+		static Vec2 ScreenToWorld(Vec2 screen);
+		static Rect ScreenToWorld(Rect screen);
 	private:
 		/*! \brief Construtor privado que não deve ser implementado.
 		 *

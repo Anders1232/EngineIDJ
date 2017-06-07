@@ -78,4 +78,35 @@ void Camera::SetZoomSpeed(float newZoomSpeed) {
 	zoomSpeed= newZoomSpeed;
 }
 
+Vec2 Camera::WorldToScreen(Vec2 world) {
+	Vec2 screen = world-pos;
+	screen.x *= currentZoom;
+	screen.y *= currentZoom;
+	return screen;
+}
 
+Rect Camera::WorldToScreen(Rect world) {
+	Rect screen;
+	screen.x = (world.x-pos.x)*currentZoom;
+	screen.y = (world.y-pos.y)*currentZoom;
+	screen.w *= currentZoom;
+	screen.h *= currentZoom;
+	return screen;
+}
+
+Vec2 Camera::ScreenToWorld(Vec2 screen) {
+	Vec2 world;
+	world.x = screen.x/currentZoom;
+	world.y = screen.y/currentZoom;
+	world = world+pos;
+	return world;
+}
+
+Rect Camera::ScreenToWorld(Rect screen) {
+	Rect world;
+	world.x = (screen.x/currentZoom)+pos.x;
+	world.y = (screen.y/currentZoom)+pos.y;
+	world.w = screen.w/currentZoom;
+	world.h = screen.h/currentZoom;
+	return world;
+}
