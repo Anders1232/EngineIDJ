@@ -1,3 +1,3 @@
 #include "AStarHeuristic.h"
 
-int AStarHeuristic::operator()(int originTile,int destTile ,TileMap &tilemap){}
+int AStarHeuristic::operator()(Vec2 limitPoints){}

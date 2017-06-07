@@ -263,5 +263,98 @@ Vec2 TileMap::GetTileSize(void) const{
 	return Vec2(tileSet->GetTileWidth(), tileSet->GetTileHeight());
 }
 
+std::vector<int> TileMap::GetNeighbors(int tile) const{
+
+//[i-1][j-1] -> soma-se -(width+1) da posicao atual
+//[i-1][j] -> soma-se -width da posicao atual
+//[i-1][j+1] -> soma-se (1 - width) da posicao atual
+//[i][j-1] -> soma-se (-1) da posicao atual
+//[i][j + 1] -> soma-se 1 da posicao atual
+//[i+1][j-1] -> soma-se width da posicao atual
+//[i+1][j] -> soma-se width + 1 da posicao atual
+//[i+1][j+1] -> soma-se (width+1) da posicao atual
+
+}
+
+struct TileMap::LessThanByHeuristic{
+
+	public:
+
+		LessThanByHeuristic(int origin,int dest,std::unique_ptr<AStarHeuristic> heuristic)
+		:originTile(origin),destTile(dest),heuristic(heuristic){}
+
+		bool operator()(const std::pair<double,int> lhs,const std::pair<double,int> rhs) const{
+			return lhs.second + heuristic(Vec2(lhs.first,destTile)) < rhs.second + heuristic(Vec2(rhs.first,destTile));
+		}
+
+	private:
+	
+		int originTile,destTile;
+		std::unique_ptr<AStarHeuristic> heuristic;
+
+};
+
+std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarHeuristic> heuristic,std::string weightArq){
+	//Obtem vetor de pesos do tile que deve ser considerado
+	std::vector<int>weightVector = Resources::GetTileVector(weightArq);
+	//lista  de caminhos <destino,<anterior,custo>>);
+	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > > paths;
+	//Heap para armazenar nós a serem processados
+	MyPriorityQueue<std::pair<double,int>,std::vector<std::pair<double,int> >,LessThanByHeuristic> processList;
+	//inicia o vetor de distâncias e de visited
+	std::vector<double> dist(tileMatrix.size(),INFINITE);
+	std::vector<double> visited(tileMatrix.size(),false);
+	//a distância de orig para orig é 0
+	dist[originTile] = 0.0;
+	//Inicializa listas de processamento e de caminhos
+	processList.emplace(std::make_pair(dist[originTile],originTile));
+	paths.push_back(std::make_pair(originTile,std::make_pair(originTile,dist[originTile])));
+
+	//Loop de processamento do Djkistra
+	while(!processList.empty()){
+		//Seleciona o nó com menor custo fazendo assim uma busca guiada(A*)
+		std::pair<double,unsigned int> current = processList.top();
+		processList.pop();// remove da lista
+		//Obtém todos os vizinhos de "current"
+		std::vector<unsigned int> neighbors = tilemap.GetNeighbors(current.second);
+		//Se chegou ao destino sai do loop
+		if(current.second = destTile){break;}
+		// percorre os vértices "v" adjacentes de "current"
+		for(unsigned int j = 0 ; j < neighbors.size();j ++){
+			//Se o vértice já foi visitado ou não é atingível passa-se para o proximo
+			if(visited[neighbors[j]] || !tilemap.GetTileVector()[neighbors[j]].traversable){continue;}
+			//Verifica se o custo do caminho a partir de current é menor que o registrado no vizinho
+			if(dist[neighbors[j]] > dist[p.second] + weightVector[neighbors[j]]){
+				//Caso o vizinho já tenha sido processado em alguma iteração
+				if (dist[neighbors[j]] != INFINITE){
+					//Remove o custo e o caminho associado ao vizinho das listas visto que novos serão inseridos
+					processList.remove(std::make_pair(dist[neighbors[j]],neighbors[j]));
+					paths.remove(std::make_pair(neighbors[j],std::make_pair(current.second,weightVector[neighbors[j]])));
+				// atualiza a distância do vizinho e insere nas listas
+				dist[neighbors[j]] = dist[p.second] + weightVector[neighbors[j]];
+				paths.push_back(std::make_pair(neighbors[j],std::make_pair(p.second,weightVector[neighbors[j]])));
+				processList.push_back(std::make_pair(weightVector[neighbors[j]],neighbors[j]));
+			}
+		}
+		visited[current.second] = true;
+	}
+	//Deducao do caminho
+	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > >::iterator it;
+	std::list<unsigned int> path;
+	unsigned int actual_node,aux_compare;
+	actual_node = destTile;
+	
+	while(actual_node != originTile){
+		for(it = paths.begin(); it != paths.end(); ++ it){
+			if(it->first == actual_node){
+				path.push_front(actual_node);
+				actual_node = it->second.first;
+				break;
+			}
+		}
+	}
+	return(path);
+}
+
 
 

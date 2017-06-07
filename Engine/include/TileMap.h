@@ -3,9 +3,11 @@
 
 #include <string>
 #include <vector>
+#include <list>
 #include "Tileset.h"
 #include "Vec2.h"
 #include "GameObject.h"
+#include "AStarHeuristic.h"
 
 #define TILE_VAZIO -1
 #define SPAWN_POINT (14)
@@ -134,6 +136,12 @@ class TileMap{
 			O tamanho retornado não leva em consideração zoom, mas leva em consideração escala.
 		*/
 		Vec2 GetTileSize(void) const;
+		/**
+			\brief Obtém todos os vizinhos de um determinado tile
+
+			O tamanho retornado não leva em consideração zoom, mas leva em consideração escala.
+		*/
+		std::vector<int> GetNeighbors(int tile) const;
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
@@ -168,6 +176,8 @@ class TileMap{
 		int mapDepth;/**< Número de camadas do TileMap.*/
 		std::vector<GameObject*> gameObjectMatrix;/**< TileMap linearizado de GameObjects*/	//bidimensional??
 		bool displayCollisionInfo;/**<Verdadeiro se as informações de colisão devem ser exibidas no TileMap::Render, falso caso contrário.*/
+		struct LessThanByHeuristic;
+		std::list<int> AStar(int originTile,int destTile,std::unique_ptr<AStarHeuristic> heuristic,std::string weightArq);
 };
 
 #endif // TILEMAP_H

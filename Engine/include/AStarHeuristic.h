@@ -1,7 +1,12 @@
-#include "TileMap.h"
+#ifndef ASTAR_H
+#define ASTAR_H
+
+#include "Vec2.h"
 
 class AStarHeuristic{
 //	virtual AStarHeuristic(){};
 	public:
-		virtual int operator()(int originTile,int destTile ,TileMap &tilemap)=0;
+		virtual int operator()(Vec2 origin, Vec2 destiny) = 0;
 };
+
+#endif
