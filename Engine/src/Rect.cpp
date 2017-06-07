@@ -8,10 +8,10 @@ Rect::Rect(float x, float y, float w, float h):x(x), y(y), w(w), h(h) {
 
 Rect::operator SDL_Rect ()const {
 	SDL_Rect rec;
-	rec.x= x;
-	rec.y= y;
-	rec.w= w;
-	rec.h= h;
+	rec.x= floor(x);
+	rec.y= floor(y);
+	rec.w= ceil(w);
+	rec.h= ceil(h);
 	return rec;
 }
 

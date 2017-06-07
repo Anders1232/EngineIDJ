@@ -1,5 +1,7 @@
 #include "EndState.h"
 
+#include "Camera.h"
+
 EndState::EndState(EndStateData stateData)
 		: bg((stateData.playerVictory)?"img/win.jpg":"img/lose.jpg"),
 		  music((stateData.playerVictory)?"audio/endStateWin.ogg": "audio/endStateLose.ogg"),
@@ -50,5 +52,7 @@ void EndState::Render() const {
 
 void EndState::Pause() {}
 
-void EndState::Resume() {}
+void EndState::Resume() {
+	Camera::ForceZoom(1.0);
+}
 

@@ -1,4 +1,6 @@
 #include "TitleState.h"
+
+#include "Camera.h"
 #include "InputManager.h"
 #include "Game.h"
 #include "StageState.h"
@@ -29,4 +31,6 @@ void TitleState::NewRender(void) const {
 
 void TitleState::Pause(void) {}
 
-void TitleState::Resume(void) {}
+void TitleState::Resume(void) {
+	Camera::ForceZoom(1.0);
+}
