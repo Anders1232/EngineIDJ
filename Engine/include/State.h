@@ -40,7 +40,6 @@ class State {
 			Pode-se fazer o uso do RenderArray por praticidade.
 		*/
 		virtual void Render(void) const =0;
-		virtual void NewRender(void) const =0;
 		/**
 			\brief Pausa o State
 
@@ -86,7 +85,6 @@ class State {
 			Percorre todos os GameObjects do vetor de GameObjects chamando o método Render de cada um deles.
 		*/
 		virtual void RenderArray(void) const;
-		virtual void NewRenderArray(void) const;
 		bool popRequested;/**< Armazena a informação se o state solicitou desempilhamento.*/
 		bool quitRequested;/**< Armazena a informação se o state solicitou que o jogo seja fechado.*/
 		std::vector<std::unique_ptr<GameObject>> objectArray;/**< Vetor de GameObjects.*/

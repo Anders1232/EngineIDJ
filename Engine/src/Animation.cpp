@@ -19,24 +19,14 @@ void Animation::Update(float dt) {
 	endTimer.Update(dt);
 }
 
-void Animation::NewRender(void) {
-	sp.NewRender(box, rotation);
+void Animation::Render(void) {
+	sp.Render(box, rotation);
 }
 
-void Animation::Render(void) {
-	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, rotation, true);
-}
 Rect Animation::GetWorldRenderedRect(void) const {
-	Rect rect;
-	rect.x= box.x-Camera::pos.x;
-	rect.y= box.y-Camera::pos.y;
-	rect.w= sp.GetWidth();
-	rect.h= sp.GetHeight();
-	
-	rect= rect * Camera::GetZoom();
-	
-	return rect+Camera::pos;
+	return Camera::WorldToScreen(box);
 }
+
 bool Animation::IsDead(void) {
 	if(oneTimeOnly) {
 		if(endTimer.Get()> timeLimit) {

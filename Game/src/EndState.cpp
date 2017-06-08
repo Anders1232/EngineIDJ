@@ -16,7 +16,7 @@ EndState::EndState(EndStateData stateData)
 	instruction.SetTimeShown(0.6);
 	instruction.SetStrobeFrequency(1.0);
 
-	bg.Render(0, 0);
+	// bg.Render(0, 0);
 	Vec2 pos= Game::GetInstance().GetWindowDimensions();
 	if(stateData.playerVictory) {
 		instruction.SetPos(0, pos.y*0.005, true);
@@ -40,13 +40,8 @@ void EndState::Update(float dt) {
 	}
 }
 
-void EndState::NewRender() const {
-	bg.NewRender(Rect(0,0,0,0));
-	instruction.Render();
-}
-
 void EndState::Render() const {
-	bg.Render(0, 0);
+	bg.Render(Rect(0,0,0,0), 0 , false);
 	instruction.Render();
 }
 
@@ -54,5 +49,6 @@ void EndState::Pause() {}
 
 void EndState::Resume() {
 	Camera::ForceZoom(1.0);
+	Camera::pos = Vec2(0, 0);
 }
 

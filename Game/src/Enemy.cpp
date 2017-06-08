@@ -26,12 +26,8 @@ void Enemy::Update(float dt){
 	}
 }
 
-void Enemy::NewRender(void) {
-	sp.NewRender(box);
-}
-
-void Enemy::Render(void){
-	sp.Render( (box.x-Camera::pos.x)*Camera::GetZoom(), (box.y-Camera::pos.y)*Camera::GetZoom(), 0, true);
+void Enemy::Render(void) {
+	sp.Render(box);
 }
 
 bool Enemy::IsDead(void){
@@ -48,13 +44,5 @@ bool Enemy::Is(string type){
 	return type == "Enemy";
 }
 Rect Enemy::GetWorldRenderedRect(void) const{
-	Rect rect;
-	rect.x= box.x-Camera::pos.x;
-	rect.y= box.y-Camera::pos.y;
-	rect.w= sp.GetWidth();
-	rect.h= sp.GetHeight();
-	
-	rect = rect*Camera::GetZoom();
-	
-	return rect+Camera::pos;
+	return Camera::WorldToScreen(box);
 }

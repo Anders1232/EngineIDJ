@@ -50,7 +50,7 @@ void Sprite::SetClip(int x, int y, int w, int h) {
 	clipRect.h = h;
 }
 
-void Sprite::NewRender(Rect world, float angle) const {
+void Sprite::Render(Rect world, float angle, bool isCoordOnWorld) const {
 	Game& game = Game::GetInstance();
 	
 	if ( -1 == SDL_SetTextureAlphaMod( texture.get(), alpha ) ) {
@@ -67,37 +67,12 @@ void Sprite::NewRender(Rect world, float angle) const {
 		world.w = GetWidth();
 		world.h = GetHeight();
 	}
-	
-	SDL_Rect dst = Camera::WorldToScreen(world);
-	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, angle, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
-		Error(SDL_GetError());
-	}
-}
 
-void Sprite::Render(int x, int y, float angle, bool zoom) const {
-	Game& game= Game::GetInstance();
-	Rect temp;
-	temp.x = x;
-	temp.y = y;
-	temp.w = GetWidth();
-	temp.h = GetHeight();
-//	std::cout << WHERE << "  rect.w = "<< rect.w<< endl;
-	if(zoom) {
-//		REPORT_DEBUG;
-		temp.w = temp.w*Camera::GetZoom();
-		temp.h = temp.h*Camera::GetZoom();
+	if (isCoordOnWorld) {
+		world = Camera::WorldToScreen(world);
 	}
-	SDL_Rect rect= temp;
-	if ( -1 == SDL_SetTextureAlphaMod( texture.get(), alpha ) ) {
-		CHECK_SDL_ERROR;
-	}
-	if ( -1 == SDL_SetTextureBlendMode( texture.get(), blendMode ) ) {
-		CHECK_SDL_ERROR;
-	}
-	if ( -1 == SDL_SetTextureColorMod( texture.get(), colorMultiplier.r, colorMultiplier.g, colorMultiplier.b ) ) {
-		CHECK_SDL_ERROR;
-	}
-	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &rect, angle, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
+	SDL_Rect dst = world;
+	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, angle, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 		Error(SDL_GetError());
 	}
 }

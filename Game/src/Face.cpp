@@ -31,12 +31,8 @@ void Face::Update(float dt ){
 	}
 }
 
-void Face::NewRender(void) {
-	sp.NewRender(box);
-}
-
-void Face::Render(){
-	sp.Render((box.x-Camera::pos.x)*Camera::GetZoom(), (box.y-Camera::pos.y)*Camera::GetZoom(), 0, true);
+void Face::Render(void) {
+	sp.Render(box);
 }
 
 bool Face::IsDead(void){
@@ -53,16 +49,8 @@ void Face::RequestDelete(void){
 void Face::NotifyCollision(GameObject &other){
 }
 
-Rect Face::GetWorldRenderedRect( ) const{
-	Rect rect;
-	rect.x= box.x-Camera::pos.x;
-	rect.y= box.y-Camera::pos.y;
-	rect.w= sp.GetWidth();
-	rect.h= sp.GetHeight();
-	
-	rect = rect*Camera::GetZoom();
-	
-	return rect+Camera::pos;
+Rect Face::GetWorldRenderedRect( ) const {
+	return Camera::WorldToScreen(box);
 }
 
 bool Face::Is(string type){

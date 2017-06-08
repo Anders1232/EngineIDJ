@@ -110,28 +110,13 @@ void StageState::Update(float dt) {
 		Game &game= Game::GetInstance();
 		game.SetMaxFramerate( ( (int64_t)game.GetMaxFramerate() )-5);
 	}
-	if(InputManager::GetInstance().KeyPress('g')){
-		tileMap->ShowCollisionInfo(true);
-	}
-	if(InputManager::GetInstance().KeyRelease('g')){
-		tileMap->ShowCollisionInfo(false);
-	}
+	tileMap->ShowCollisionInfo(InputManager::GetInstance().IsKeyDown('g'));
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }
 
-void StageState::NewRender(void) const {
-	bg.Render(STATE_RENDER_X, STATE_RENDER_Y);
-	tileMap->NewRender();
-	State::NewRenderArray();
-}
-
 void StageState::Render(void) const {
-	//renderizar o bg
-	REPORT_I_WAS_HERE;
-	bg.Render(STATE_RENDER_X, STATE_RENDER_Y);
-	REPORT_I_WAS_HERE;
-	tileMap->Render(Camera::pos.x, Camera::pos.y);
-	REPORT_I_WAS_HERE;
+	bg.Render(Rect(STATE_RENDER_X, STATE_RENDER_Y, 0, 0), 0, false);
+	tileMap->Render();
 	State::RenderArray();
 }
 

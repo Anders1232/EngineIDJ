@@ -81,8 +81,8 @@ class Sprite {
 			Os valores x, y, w e h da posição da tela serão multiplicados pelo valor de zoom contidos na câmera se o argumento zoom for verdadeiro. A imagem será rotacionada de acordo com o argumento angle.
 			Os valores de w e h de destino alteram de acordo com a escala do objeto.
 		*/
-		void Render(int x, int y, float angle=0, bool zoom= false) const;
-		void NewRender(Rect world, float angle=0) const;
+
+		void Render(Rect world, float angle=0, bool isCoordOnWorld=true) const;
 		/**
 			\brief Informa a largura do sprite
 

@@ -58,8 +58,8 @@ class TileMap{
 
 			Renderiza-se todas as layers começando pelas de menor valor numérico de profundidade até as de maior valor numérico.
 		*/
-		void Render(int cameraX=0, int cameraY=0, bool parallax= false) const;
-		void NewRender(Vec2 pos = Vec2(0,0), bool parallax = false) const;
+		
+		void Render(Vec2 pos = Vec2(0,0), bool parallax = false) const;
 		/**
 			\brief Renderiza a layer informada.
 			\param layer Layer a ser renderizada.
@@ -69,8 +69,8 @@ class TileMap{
 			Renderiza-se todas as posições da matriz na layer indicada, com suas alterações sendo feitas por parallaxe.
 			Observação: pode exibir o tileMap de colisão se assim for pedido em ShowCollisionInfo.
 		*/
-		void RenderLayer(int layer, int cameraX=0, int cameraY=0, bool parallax= false) const;
-		void NewRenderLayer(int layer, Vec2 pos = Vec2(0,0), bool parallax = false) const;
+		
+		void RenderLayer(int layer, Vec2 pos = Vec2(0,0), bool parallax = false) const;
 		/**
 			\brief Informa a largura do tileMap.
 
@@ -162,8 +162,8 @@ class TileMap{
 
 			Ele subtrai da coordenada o produto da câmera pelo incremento da layer.
 		*/
-		int CalculateParallaxScrolling(int num, int camera, int layer) const;
-		Vec2 NewCalculateParallaxScrolling(Vec2 num, Vec2 pos, int layer) const;
+		
+		Vec2 CalculateParallaxScrolling(Vec2 num, Vec2 pos, int layer) const;
 		std::vector<int> tileMatrix;/**< Matriz tridimentsional de índices linearizados em um vetor.*/
 		TileSet *tileSet;/**< TileSet utilizado para renderização.*/
 		int mapWidth;/**< Largura do TileMap.*/

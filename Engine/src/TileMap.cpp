@@ -53,25 +53,16 @@ int& TileMap::At(int x, int y, int z) const{
 	}
 }
 
-void TileMap::NewRender(Vec2 pos, bool parallax) const {
+void TileMap::Render(Vec2 pos, bool parallax) const {
 	for(int count = 0; count < mapDepth; count++) {
 		if(COLLISION_LAYER == count && !displayCollisionInfo) {
 			continue;
 		}
-		NewRenderLayer(count, pos, parallax);
+		RenderLayer(count, pos, parallax);
 	}
 }
 
-void TileMap::Render(int cameraX, int cameraY, bool parallax) const{
-	for(int count = 0; count < mapDepth; count++){
-		if(count == COLLISION_LAYER && !displayCollisionInfo){
-			continue;
-		}
-		RenderLayer(count, cameraX, cameraY, parallax);
-	}
-}
-
-void TileMap::NewRenderLayer(int layer, Vec2 pos, bool parallax) const {
+void TileMap::RenderLayer(int layer, Vec2 pos, bool parallax) const {
 	for (int x=0; x<mapWidth; x++) {
 		for (int y=0; y<mapHeight; y++) {
 			int index = At(x, y, layer);
@@ -79,51 +70,21 @@ void TileMap::NewRenderLayer(int layer, Vec2 pos, bool parallax) const {
 				Vec2 destination;
 				if (parallax) {
 					Vec2 tilePos(x*tileSet->GetTileWidth(), y*tileSet->GetTileHeight());
-					destination = NewCalculateParallaxScrolling(tilePos, pos, layer);
+					destination = CalculateParallaxScrolling(tilePos, pos, layer);
 				} else {
 					destination = pos + Vec2(x*tileSet->GetTileWidth(), y*tileSet->GetTileHeight());
 				}
-				tileSet->NewRender(index, destination);
+				tileSet->Render(index, destination);
 			}
 		}
 	}
 }
 
-void TileMap::RenderLayer(int layer, int cameraX, int cameraY, bool parallax) const{
-	for(int x=0; x < mapWidth; x++){
-		for(int y=0; y < mapHeight; y++){
-			REPORT_I_WAS_HERE;
-			int index= At(x, y, layer);
-			REPORT_I_WAS_HERE;
-			if(0 <= index){
-				REPORT_I_WAS_HERE;
-				int destinyX, destinyY;
-				if(parallax){
-					destinyX= CalculateParallaxScrolling((int)x*tileSet->GetTileWidth(),cameraX, layer);
-					destinyY= CalculateParallaxScrolling((int)y*tileSet->GetTileHeight(), cameraY, layer);
-				}
-				else{
-					destinyX= x*tileSet->GetTileWidth()-cameraX;
-					destinyY= y*tileSet->GetTileHeight()- cameraY;
-				}
-				tileSet->Render(index, destinyX, destinyY);
-			}
-		}
-	}
-}
-
-Vec2 TileMap::NewCalculateParallaxScrolling(Vec2 num, Vec2 pos, int layer) const {
+Vec2 TileMap::CalculateParallaxScrolling(Vec2 num, Vec2 pos, int layer) const {
 	return num-(pos+Camera::pos)*(layer+1);
 	return num-(pos+Camera::pos)*((layer+1)/(double)mapDepth);
 	return num*(1.0+(double)layer/(double)mapDepth);
 	return num*(1.0-(double)layer/(double)mapDepth);
-}
-
-int TileMap::CalculateParallaxScrolling(int num, int camera, int layer) const{
-	return (int)(num-camera*(layer+1));
-	return (int)(num-camera*(layer+1)/mapDepth );
-	return (int)( (double)num*(1.0+(double)layer/(double)mapDepth) );
-	return (int)( (double)num*(1.0-(double)layer/(double)mapDepth) );
 }
 
 int TileMap::GetWidth(void) const {
@@ -145,8 +106,12 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 //		position= position*Camera::GetZoom();
 // 	}
 	int x, xDir= mapWidth-1, xEsq=0;
-	int tileWidth= CalculateParallaxScrolling(tileSet->GetTileWidth(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
-	int tileHeight= CalculateParallaxScrolling(tileSet->GetTileHeight(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
+	Vec2 tileSize = CalculateParallaxScrolling( Vec2(tileSet->GetTileWidth(),tileSet->GetTileHeight()), Vec2(0, 0), layer);
+	tileSize = tileSize - CalculateParallaxScrolling( Vec2(0, 0), Vec2(0, 0), layer);
+	int tileWidth = tileSize.x;
+	int tileHeight = tileSize.y;
+	// int tileWidth= CalculateParallaxScrolling(tileSet->GetTileWidth(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
+	// int tileHeight= CalculateParallaxScrolling(tileSet->GetTileHeight(), 0, layer)-  CalculateParallaxScrolling(0, 0, layer);
 	if(position.x < 0){
 		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
 		return -1;

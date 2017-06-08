@@ -8,7 +8,6 @@ class TitleState: public State {
 	public:
 		TitleState(void);
 		void Update(float dt);
-		void NewRender(void) const;
 		void Render(void) const;
 		void Pause(void);
 		void Resume(void);

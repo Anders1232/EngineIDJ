@@ -15,8 +15,7 @@ class Face : public GameObject{
 		void Damage(int damage);
 	
 		void Update(float dt );
-		void NewRender(void);
-		void Render();
+		void Render(void);
 		bool IsDead(void);
 		void RequestDelete(void);
 		

@@ -36,9 +36,3 @@ void State::RenderArray(void) const {
 		objectArray[cont]->Render();
 	}
 }
-
-void State::NewRenderArray(void) const {
-	for(unsigned int cont=0; cont < objectArray.size(); cont++) {
-		objectArray[cont]->NewRender();
-	}
-}

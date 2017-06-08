@@ -22,15 +22,12 @@ void TitleState::Update(float dt) {
 }
 
 void TitleState::Render(void) const {
-	bg.Render(0, 0);
-}
-
-void TitleState::NewRender(void) const {
-	bg.NewRender(Rect(0,0,0,0));
+	bg.Render(Rect(0,0,0,0), 0, false);
 }
 
 void TitleState::Pause(void) {}
 
 void TitleState::Resume(void) {
 	Camera::ForceZoom(1.0);
+	Camera::pos = Vec2(0, 0);
 }

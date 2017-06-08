@@ -60,7 +60,6 @@ class GameObject{
 			Esse método deve ter a lógica necessário para ser renderizado na tela.
 		*/
 		virtual void Render(void)=0;
-		virtual void NewRender(void)=0;
 		/**
 			\brief Informa se esse gameObject não precisa mais existir.
 			\return Verdadeiro se esse GameObject não é mais necessário, false caso contrário.

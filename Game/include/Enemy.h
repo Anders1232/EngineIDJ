@@ -45,8 +45,8 @@ class Enemy : public GameObject
 			
 			Chama o método Update de todas as suas componentes.
 		*/
+
 		void Render(void);
-		void NewRender(void);
 		/**
 			\brief Verifica se esse GameObject deve ser destruído.
 			
