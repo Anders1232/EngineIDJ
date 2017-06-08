@@ -2,12 +2,11 @@
 
 #include "Camera.h"
 
-State::State(void): popRequested(false), quitRequested(false) {
+State::State(void) : popRequested(false), quitRequested(false) {
 	Camera::pos = Vec2(0,0);
 }
 
-State::~State(void) {
-}
+State::~State(void) {}
 
 void State::AddObject(GameObject *object) {
 	objectArray.push_back(std::unique_ptr<GameObject>(object));
@@ -22,7 +21,7 @@ bool State::QuitRequested(void) {
 }
 
 void State::UpdateArray(float dt) {
-	for(unsigned int cont=0; cont < objectArray.size(); cont++) {
+	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 		objectArray.at(cont)->Update(dt);
 		if(objectArray.at(cont)->IsDead()) {
 			objectArray.erase(objectArray.begin()+cont);
@@ -32,7 +31,7 @@ void State::UpdateArray(float dt) {
 }
 
 void State::RenderArray(void) const {
-	for(unsigned int cont=0; cont < objectArray.size(); cont++) {
+	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 		objectArray[cont]->Render();
 	}
 }

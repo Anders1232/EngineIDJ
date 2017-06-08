@@ -3,10 +3,13 @@
 #include "Game.h"
 #include "Camera.h"
 
-TileSet::TileSet(int tileWidth, int tileHeight, string file): tileSet(file), tileWidth(tileWidth), tileHeight(tileHeight) {
+TileSet::TileSet(int tileWidth, int tileHeight, string file)
+		: tileSet(file)
+		, tileWidth(tileWidth)
+		, tileHeight(tileHeight) {
 	REPORT_I_WAS_HERE;
-	rows= tileSet.GetHeight()/tileHeight;
-	columns= tileSet.GetWidth()/tileWidth;
+	rows = tileSet.GetHeight()/tileHeight;
+	columns = tileSet.GetWidth()/tileWidth;
 }
 
 void TileSet::Render(unsigned int index, Vec2 pos) {
@@ -21,7 +24,7 @@ void TileSet::Render(unsigned int index, Vec2 pos) {
 	wantedSubSprite.h = tileHeight;
 	Rect destinyRect(pos.x, pos.y, tileWidth, tileHeight);
 	SDL_Rect dst = Camera::WorldToScreen(destinyRect);
-	SDL_RenderCopy(Game::GetInstance().GetRenderer(), tileSet.GetTexture().get(),&wantedSubSprite, &dst);
+	SDL_RenderCopy(Game::GetInstance().GetRenderer(), tileSet.GetTexture().get(), &wantedSubSprite, &dst);
 }
 
 int TileSet::GetTileHeight(void) {
