@@ -5,8 +5,7 @@
 #include <memory>
 
 template<typename T>
-
-class my_priority_queue : public std::priority_queue<T, std::vector<T>>{
+class myPriorityQueue : public std::priority_queue <T, std::vector<T> >{
 	public:
 		bool remove(const T& value){
 		auto it = std::find(this->c.begin(), this->c.end(), value);

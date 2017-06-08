@@ -7,7 +7,7 @@ class ManhattanDistance : public AStarHeuristic
 {
 	public:
 		ManhattanDistance();
-		int operator()(Vec2 origin, Vec2 destiny);
+		int operator()(Vec2 origiTile, Vec2 destTile);
 };
 
 #endif // MANHATTANDISTANCE_H

@@ -4,10 +4,12 @@
 #include <string>
 #include <vector>
 #include <list>
+#include <queue>
 #include "Tileset.h"
 #include "Vec2.h"
 #include "GameObject.h"
 #include "AStarHeuristic.h"
+#include "Resources.h"
 
 #define TILE_VAZIO -1
 #define SPAWN_POINT (14)

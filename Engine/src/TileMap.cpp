@@ -280,17 +280,21 @@ struct TileMap::LessThanByHeuristic{
 
 	public:
 
-		LessThanByHeuristic(int origin,int dest,std::unique_ptr<AStarHeuristic> heuristic)
-		:originTile(origin),destTile(dest),heuristic(heuristic){}
+		LessThanByHeuristic(int origin,int dest,std::unique_ptr<AStarHeuristic> heuristic,TileMap tilemap):
+		originTile(origin),destTile(dest),heuristic(heuristic),tileMap(tilemap){}
 
 		bool operator()(const std::pair<double,int> lhs,const std::pair<double,int> rhs) const{
-			return lhs.second + heuristic(Vec2(lhs.first,destTile)) < rhs.second + heuristic(Vec2(rhs.first,destTile));
+			return lhs.first + (*heuristic)(Vec2(lhs.second / tileMap.GetWidth(),lhs.second % tileMap.GetWidth()),
+				                          Vec2(destTile / tileMap.GetWidth(),destTile % tileMap.GetWidth())) < 
+			       rhs.first + (*heuristic)(Vec2(rhs.second / tileMap.GetWidth(),rhs.second % tileMap.GetWidth()),
+				                          Vec2(destTile / tileMap.GetWidth(),destTile % tileMap.GetWidth()));
 		}
 
 	private:
 	
 		int originTile,destTile;
 		std::unique_ptr<AStarHeuristic> heuristic;
+		TileMap tileMap;
 
 };
 
@@ -300,7 +304,7 @@ std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarH
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > > paths;
 	//Heap para armazenar nós a serem processados
-	MyPriorityQueue<std::pair<double,int>,std::vector<std::pair<double,int> >,LessThanByHeuristic> processList;
+	std::priority_queue<std::pair<double,int>,std::vector<std::pair<double,int> >,LessThanByHeuristic(originTile,destTile,heuristic,*this)> processList;
 	//inicia o vetor de distâncias e de visited
 	std::vector<double> dist(tileMatrix.size(),INFINITE);
 	std::vector<double> visited(tileMatrix.size(),false);
@@ -328,7 +332,12 @@ std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarH
 				//Caso o vizinho já tenha sido processado em alguma iteração
 				if (dist[neighbors[j]] != INFINITE){
 					//Remove o custo e o caminho associado ao vizinho das listas visto que novos serão inseridos
-					processList.remove(std::make_pair(dist[neighbors[j]],neighbors[j]));
+					//processList.remove(std::make_pair(dist[neighbors[j]],neighbors[j]));
+					auto it = std::find(processList->c.begin(), processList->c.end(), std::make_pair(dist[neighbors[j]],neighbors[j]));
+					if (it != processList->c.end()) {
+						processList->c.erase(it);
+						std::make_heap(processList->c.begin(), processList->c.end(), processList->comp);
+					}
 					paths.remove(std::make_pair(neighbors[j],std::make_pair(current.second,weightVector[neighbors[j]])));
 				// atualiza a distância do vizinho e insere nas listas
 				dist[neighbors[j]] = dist[p.second] + weightVector[neighbors[j]];
