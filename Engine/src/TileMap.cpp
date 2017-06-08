@@ -263,16 +263,100 @@ Vec2 TileMap::GetTileSize(void) const{
 	return Vec2(tileSet->GetTileWidth(), tileSet->GetTileHeight());
 }
 
-std::vector<int> TileMap::GetNeighbors(int tile) const{
+bool TileMap::Traversable(int index) const{ }
+
+std::vector<int> TileMap::GetNeighbors(int tileIndex) const{
 
 //[i-1][j-1] -> soma-se -(width+1) da posicao atual
 //[i-1][j] -> soma-se -width da posicao atual
 //[i-1][j+1] -> soma-se (1 - width) da posicao atual
 //[i][j-1] -> soma-se (-1) da posicao atual
 //[i][j + 1] -> soma-se 1 da posicao atual
-//[i+1][j-1] -> soma-se width da posicao atual
-//[i+1][j] -> soma-se width + 1 da posicao atual
+//[i+1][j-1] -> soma-se width - 1 da posicao atual
+//[i+1][j] -> soma-se width da posicao atual
 //[i+1][j+1] -> soma-se (width+1) da posicao atual
+
+	std::vector<int> neighbors;
+	//Se não está no limite lateral direito nem esquerdo
+	if(0 != (tileIndex % mapWidth) && (tileIndex % mapWidth != mapWidth - 1)){
+		//Se não está no limite superior
+		if(0 <=  tileIndex - mapWidth - 1){
+
+			neighbors.push_back(tileIndex - mapWidth - 1);
+			neighbors.push_back(tileIndex - mapWidth);
+			neighbors.push_back(tileIndex - mapWidth + 1);
+			neighbors.push_back(tileIndex - 1);
+
+		}
+		else{
+
+			neighbors.push_back(tileIndex - 1);
+
+		}
+		//Se não está no limite inferior
+		if(tileIndex + mapWidth +1 < tileMatrix.size()){
+
+			neighbors.push_back(tileIndex + 1);
+			neighbors.push_back(tileIndex + mapWidth-1);
+			neighbors.push_back(tileIndex + mapWidth);
+			neighbors.push_back(tileIndex + mapWidth + 1);
+
+		}
+		else{
+
+			neighbors.push_back(tileIndex + 1);
+
+		}
+	}
+	//Se está no limite direito
+	else if(0 != (tileIndex % mapWidth)){
+		//Se não está no limite superior
+		if(0 <=  tileIndex - mapWidth){
+
+			neighbors.push_back(tileIndex - mapWidth - 1);
+			neighbors.push_back(tileIndex - mapWidth);
+			neighbors.push_back(tileIndex - 1);
+
+		}
+		else{
+
+			neighbors.push_back(tileIndex - 1);
+
+		}
+		//Se não está no limite inferior
+		if(tileIndex + mapWidth < tileMatrix.size()){
+
+			neighbors.push_back(tileIndex + mapWidth - 1);
+			neighbors.push_back(tileIndex + mapWidth);
+
+		}
+
+	}
+	//Se esta no limite esquerdo
+	else if(tileIndex % mapWidth != mapWidth - 1){
+		//Se não está no limite superior
+		if(0 <=  tileIndex - mapWidth - 1){
+
+			neighbors.push_back(tileIndex - mapWidth);
+			neighbors.push_back(tileIndex - mapWidth + 1);
+			neighbors.push_back(tileIndex + 1);
+
+		}
+		else{
+			
+			neighbors.push_back(tileIndex + 1);
+
+		}
+		//Se não está no limite inferior
+		if(tileIndex + mapWidth < tileMatrix.size()){
+
+			neighbors.push_back(tileIndex + mapWidth);
+			neighbors.push_back(tileIndex + mapWidth + 1);
+
+		}
+	}
+
+	return(neighbors);
 
 }
 
@@ -326,7 +410,7 @@ std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarH
 		// percorre os vértices "v" adjacentes de "current"
 		for(unsigned int j = 0 ; j < neighbors.size();j ++){
 			//Se o vértice já foi visitado ou não é atingível passa-se para o proximo
-			if(visited[neighbors[j]] || !tilemap.GetTileVector()[neighbors[j]].traversable){continue;}
+			if(visited[neighbors[j]] || !Traversable(neighbors[j]])){continue;}
 			//Verifica se o custo do caminho a partir de current é menor que o registrado no vizinho
 			if(dist[neighbors[j]] > dist[p.second] + weightVector[neighbors[j]]){
 				//Caso o vizinho já tenha sido processado em alguma iteração

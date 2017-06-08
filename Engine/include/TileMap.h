@@ -180,6 +180,7 @@ class TileMap{
 		bool displayCollisionInfo;/**<Verdadeiro se as informações de colisão devem ser exibidas no TileMap::Render, falso caso contrário.*/
 		struct LessThanByHeuristic;
 		std::list<int> AStar(int originTile,int destTile,std::unique_ptr<AStarHeuristic> heuristic,std::string weightArq);
+		bool Traversable(int index) const;
 };
 
 #endif // TILEMAP_H
