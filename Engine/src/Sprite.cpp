@@ -54,16 +54,6 @@ void Sprite::SetClip(int x, int y, int w, int h) {
 void Sprite::Render(Rect world, float angle, bool isCoordOnWorld) const {
 	Game& game = Game::GetInstance();
 	
-	if( -1 == SDL_SetTextureAlphaMod( texture.get(), alpha ) ) {
-		CHECK_SDL_ERROR;
-	}
-	if( -1 == SDL_SetTextureBlendMode( texture.get(), blendMode ) ) {
-		CHECK_SDL_ERROR;
-	}
-	if( -1 == SDL_SetTextureColorMod( texture.get(), colorMultiplier.r, colorMultiplier.g, colorMultiplier.b ) ) {
-		CHECK_SDL_ERROR;
-	}
-
 	if(0 >= world.w || 0 >= world.h) {
 		world.w = GetWidth();
 		world.h = GetHeight();
@@ -72,6 +62,32 @@ void Sprite::Render(Rect world, float angle, bool isCoordOnWorld) const {
 	if(isCoordOnWorld) {
 		world = Camera::WorldToScreen(world);
 	}
+
+	{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
+		Vec2 screenSize = game.GetWindowDimensions();
+		float points[4] = {world.x, world.y, world.x+world.w, world.y+world.h};
+		
+		bool isOutOfBounds = true;
+		isOutOfBounds = isOutOfBounds && (0 > points[0] || screenSize.x < points[0]);
+		isOutOfBounds = isOutOfBounds && (0 > points[1] || screenSize.y < points[1]);
+		isOutOfBounds = isOutOfBounds && (0 > points[2] || screenSize.x < points[2]);
+		isOutOfBounds = isOutOfBounds && (0 > points[3] || screenSize.y < points[3]);
+
+		if(isOutOfBounds) return;
+	}
+
+	if( -1 == SDL_SetTextureAlphaMod( texture.get(), alpha ) ) {
+		CHECK_SDL_ERROR;
+	}
+
+	if( -1 == SDL_SetTextureBlendMode( texture.get(), blendMode ) ) {
+		CHECK_SDL_ERROR;
+	}
+
+	if( -1 == SDL_SetTextureColorMod( texture.get(), colorMultiplier.r, colorMultiplier.g, colorMultiplier.b ) ) {
+		CHECK_SDL_ERROR;
+	}
+
 	SDL_Rect dst = world;
 	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, angle, NULL, SDL_FLIP_NONE) ){
 		// Verifica se haverá erro

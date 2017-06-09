@@ -79,6 +79,7 @@ class Sprite {
 			Renderiza o corte da imagem existente em clipRect nas posições (x, y) da informada nos argumentos.
 			A imagem será rotacionada de acordo com o argumento angle.
 			Os valores do retângulo serão convertidos do mundo para tela se isCoordOnWorld for verdadeiro.
+			É realizado uma otimização para que, se a Sprite não possuir nenhuma coordenada na tela, ela não será renderizada.
 		*/
 		void Render(Rect world, float angle=0, bool isCoordOnWorld=true) const;
 		/**
