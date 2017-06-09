@@ -1,15 +1,15 @@
 #ifndef ENEMY_H
 #define ENEMY_H
+
 #include "GameObject.h"
-#include "Wave.h"
-#include "Sprite.h"
 #include "Rect.h"
+#include "Sprite.h"
 #include "TileMap.h"
 #include "Timer.h"
+#include "Wave.h"
 
 #define BASE_HIT_POINTS 100
 #define DIFICULTY_CONSTANT 12
-
 
 /**
 	\brief Classe que modela inimigos
@@ -45,7 +45,6 @@ class Enemy : public GameObject
 			
 			Chama o método Update de todas as suas componentes.
 		*/
-
 		void Render(void);
 		/**
 			\brief Verifica se esse GameObject deve ser destruído.
@@ -86,4 +85,4 @@ class Enemy : public GameObject
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
 };
 
-#endif
+#endif // ENEMY_H

@@ -8,7 +8,6 @@
 
 #define FACE_HP (500)
 
-
 class Face : public GameObject{
 	public:
 		Face(float x, float y, Vec2 tileSize, TileMap *tileMap);
@@ -29,4 +28,4 @@ class Face : public GameObject{
 		bool isDraging;
 };
 
-#endif
+#endif // FACE_H

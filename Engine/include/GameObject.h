@@ -13,26 +13,26 @@
 #else
 	#error "Unknown compiler"
 #endif
-#include <vector>
 #include <memory>
-#include "Rect.h"
-#include "string"
+#include <string>
+#include <vector>
+
 #include "Component.h"
+#include "Rect.h"
 
 using std::string;
 using std::unique_ptr;
-
-/**
-	\brief Classe virtual que especifica o funcionamento de um GameObject.
-	
-	Especifica quais métodos um gameObject deve ter para conseguir ser manipulado corretamente pela engine.
-*/
 
 #ifndef COMPONENT
 class Component;
 #endif
 
 #define GAME_OBJECT
+/**
+	\brief Classe virtual que especifica o funcionamento de um GameObject.
+	
+	Especifica quais métodos um gameObject deve ter para conseguir ser manipulado corretamente pela engine.
+*/
 class GameObject{
 	public:
 		/**
@@ -98,7 +98,6 @@ class GameObject{
 		float rotation;/**< Rotação do GameObject.*/
 	protected:
 		std::vector<Component* > components;
-
 };
 
 #endif // GAMEOBJECT_H

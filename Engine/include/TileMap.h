@@ -3,9 +3,10 @@
 
 #include <string>
 #include <vector>
+
+#include "GameObject.h"
 #include "Tileset.h"
 #include "Vec2.h"
-#include "GameObject.h"
 
 #define TILE_VAZIO -1
 #define SPAWN_POINT (14)
@@ -53,23 +54,20 @@ class TileMap{
 		int& AtLayer(int index2D, int layer) const;
 		/**
 			\brief Renderiza o TileMap a partir da posição dada.
-			\param cameraX Valor x da câmera, será usado como coordenada X de início do tileMap.
-			\param cameraY Valor y da câmera, será usado como coordenada Y de início do tileMap.
+			\param pos Valor x,y da câmera, será usado como coordenada de início do tileMap.
+			\param parallax Flag para se ativar ou desativar o parallax das camadas
 
 			Renderiza-se todas as layers começando pelas de menor valor numérico de profundidade até as de maior valor numérico.
 		*/
-		
 		void Render(Vec2 pos = Vec2(0,0), bool parallax = false) const;
 		/**
 			\brief Renderiza a layer informada.
 			\param layer Layer a ser renderizada.
-			\param cameraX Valor x da câmera, será usado como coordenada X de início do tileMap.
-			\param cameraY Valor y da câmera, será usado como coordenada Y de início do tileMap.
+			\param pos Valor x,y da câmera, será usado como coordenada de início do tileMap.
 
 			Renderiza-se todas as posições da matriz na layer indicada, com suas alterações sendo feitas por parallaxe.
 			Observação: pode exibir o tileMap de colisão se assim for pedido em ShowCollisionInfo.
 		*/
-		
 		void RenderLayer(int layer, Vec2 pos = Vec2(0,0), bool parallax = false) const;
 		/**
 			\brief Informa a largura do tileMap.
@@ -156,13 +154,12 @@ class TileMap{
 		/**
 			\brief Calcula a paralaxe
 			\param num coordenada a ser modificada.
-			\param camera posição da mesma coordenada da câmera.
+			\param pos posição de começo da tilemap.
 			\param layer Layer da coordenada que ser modificada
 			\return Valor da coordenada alterado pela parallaxe.
 
 			Ele subtrai da coordenada o produto da câmera pelo incremento da layer.
 		*/
-		
 		Vec2 CalculateParallaxScrolling(Vec2 num, Vec2 pos, int layer) const;
 		std::vector<int> tileMatrix;/**< Matriz tridimentsional de índices linearizados em um vetor.*/
 		TileSet *tileSet;/**< TileSet utilizado para renderização.*/

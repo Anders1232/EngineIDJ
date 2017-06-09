@@ -1,8 +1,8 @@
 #ifndef TITLESTATE_H
 #define TITLESTATE_H
 
-#include "State.h"
 #include "Sprite.h"
+#include "State.h"
 
 class TitleState: public State {
 	public:
