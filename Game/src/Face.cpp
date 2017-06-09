@@ -7,7 +7,7 @@ typedef unsigned int uint;
 
 
 Face::Face(float x, float y, Vec2 tileSize, TileMap *tileMap)
-	:sp("img/tower/torre_fumaca.png"),
+	:sp("img/tower/torre_fumaca.png", true),
 	hitpoints(FACE_HP){
 		
 	box.x= x;

@@ -6,15 +6,19 @@
 
 #define SPRITE_OPEN_X (0)//alterar esses valores altera a parte da textura que será renderizada
 #define SPRITE_OPEN_Y (0)
+#define HIGHLIGHT 30
 
 Sprite::Sprite(void): Sprite("", 0, 1) {
 }
 
-Sprite::Sprite(std::string file, float frameTime, int frameCount)
+Sprite::Sprite(std::string file, bool highlighted, float frameTime, int frameCount)
 			: colorMultiplier(255, 255, 255), blendMode(ALPHA_BLEND)
 			, alpha(255), frameCount(frameCount)
 			, currentFrame(0), timeElapsed(0)
 			, frameTime(frameTime), scaleX(1.), scaleY(1.) {
+	if(highlighted){
+		colorMultiplier = Color(225, 225, 225);
+	}
 	REPORT_I_WAS_HERE;
 	if ( file.empty() ) {
 		texture = nullptr;
@@ -72,6 +76,11 @@ void Sprite::Render(int x, int y, float angle, bool zoom) const {
 	}
 	if ( -1 == SDL_SetTextureColorMod( texture.get(), colorMultiplier.r, colorMultiplier.g, colorMultiplier.b ) ) {
 		CHECK_SDL_ERROR;
+	}
+	if(InputManager::GetInstance().GetMouseX() >= temp.x && InputManager::GetInstance().GetMouseX() <= (temp.x + temp.w) && InputManager::GetInstance().GetMouseY() >= temp.y && InputManager::GetInstance().GetMouseY() <= (temp.y + temp.h)){
+		if ( -1 == SDL_SetTextureColorMod( texture.get(), (colorMultiplier.r + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.r + HIGHLIGHT), (colorMultiplier.g + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.g + HIGHLIGHT), (colorMultiplier.b + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.b + HIGHLIGHT) ) ) {
+			CHECK_SDL_ERROR;
+		}
 	}
 	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &rect, angle, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 		Error(SDL_GetError());

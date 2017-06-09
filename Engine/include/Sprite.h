@@ -40,12 +40,13 @@ class Sprite {
 		/**
 			\brief Cria um sprite válida.
 			\param file Arquivo que contém a imagem.
-			\param frameTime tempo em segundos que cada imagem de um sprite sheet deve durar.
-			\param frameCount quantas imagens tem no sprite sheet. Caso o valor seja 1 significa que é um sprite não animado.
+			\param highlighted Checa se a sprite deve alterar a cor (highlight) quando o mouse passar em cima.
+			\param frameTime Tempo em segundos que cada imagem de um sprite sheet deve durar.
+			\param frameCount Quantas imagens tem no sprite sheet. Caso o valor seja 1 significa que é um sprite não animado.
 
 			Uma instância de sprite é criada. A escala inicial(X e Y) é 1.0. o método Open é chamado para carregar a imagem.
 		*/
-		Sprite(std::string file, float frameTime=1, int frameCount=1);
+		Sprite(std::string file, bool highlighted= false, float frameTime=1, int frameCount=1);
 		/**
 			\brief Destrutor
 
@@ -198,5 +199,6 @@ class Sprite {
 		float scaleY;/**< Escala vertical do sprite.*/
 };
 
+#include "InputManager.h"
 
 #endif // SPRITE_H

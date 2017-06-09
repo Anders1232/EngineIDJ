@@ -53,15 +53,15 @@ int& TileMap::At(int x, int y, int z) const{
 	}
 }
 
-void TileMap::Render(int cameraX, int cameraY, bool parallax) const{
+void TileMap::Render(int cameraX, int cameraY, bool parallax, Vec2 mouse) const{
 	for(int count =0; count < mapDepth; count++){
 		if(count == COLLISION_LAYER && !displayCollisionInfo){
 			continue;
 		}
-		RenderLayer(count, cameraX, cameraY, parallax);
+		RenderLayer(count, cameraX, cameraY, parallax, mouse);
 	}
 }
-void TileMap::RenderLayer(int layer, int cameraX, int cameraY, bool parallax) const{
+void TileMap::RenderLayer(int layer, int cameraX, int cameraY, bool parallax, Vec2 mouse) const{
 	for(int x=0; x < mapWidth; x++){
 		for(int y=0; y < mapHeight; y++){
 			REPORT_I_WAS_HERE;
@@ -78,7 +78,7 @@ void TileMap::RenderLayer(int layer, int cameraX, int cameraY, bool parallax) co
 					destinyX= x*tileSet->GetTileWidth()-cameraX;
 					destinyY= y*tileSet->GetTileHeight()- cameraY;
 				}
-				tileSet->Render(index, destinyX, destinyY);
+				tileSet->Render(index, destinyX, destinyY, false, mouse.IsInRect(Rect(destinyX, destinyY, tileSet->GetTileWidth(), tileSet->GetTileHeight())));
 			}
 		}
 	}

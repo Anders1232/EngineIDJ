@@ -133,7 +133,14 @@ void StageState::Render(void) const {
 	REPORT_I_WAS_HERE;
 	bg.Render(STATE_RENDER_X, STATE_RENDER_Y);
 	REPORT_I_WAS_HERE;
-	tileMap->Render(Camera::pos.x, Camera::pos.y);
+	bool highlighted = true;
+	for(unsigned int cont=0; cont < objectArray.size(); cont++) {
+		if(InputManager::GetInstance().GetMousePos().IsInRect(objectArray.at(cont)->GetWorldRenderedRect())){
+			highlighted = false;
+			break;
+		}
+	}
+	tileMap->Render(Camera::pos.x, Camera::pos.y, false, highlighted ? InputManager::GetInstance().GetMousePos() : Vec2(-1, -1));
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
 }
