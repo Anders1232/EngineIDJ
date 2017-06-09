@@ -7,24 +7,25 @@
 
 #include <vector>
 #include <memory>
-#include "Rect.h"
-#include "string"
+#include <string>
+#include <vector>
+
 #include "Component.h"
+#include "Rect.h"
 
 using std::string;
 using std::unique_ptr;
-
-/**
-	\brief Classe virtual que especifica o funcionamento de um GameObject.
-	
-	Especifica quais métodos um gameObject deve ter para conseguir ser manipulado corretamente pela engine.
-*/
 
 #ifndef COMPONENT
 class Component;
 #endif
 
 #define GAME_OBJECT
+/**
+	\brief Classe virtual que especifica o funcionamento de um GameObject.
+	
+	Especifica quais métodos um gameObject deve ter para conseguir ser manipulado corretamente pela engine.
+*/
 class GameObject{
 	public:
 		/**
@@ -89,8 +90,7 @@ class GameObject{
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/
 	protected:
-		std::vector<Component* > components;
-
+		std::vector<Component* > components;/**< Vetor de componentes, que provêem funcionalidades adicionais.*/
 };
 
 #endif // GAMEOBJECT_H
