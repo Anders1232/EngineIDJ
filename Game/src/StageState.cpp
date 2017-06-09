@@ -89,12 +89,13 @@ void StageState::Update(float dt) {
 		std::cout << WHERE << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << " tiles." << std::endl;
 	}
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
-
-		REPORT_I_WAS_HERE;
-		Vec2 mousePos= InputManager::GetInstance().GetMousePos()*(1/Camera::GetZoom())+Camera::pos-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
+		TEMP_REPORT_I_WAS_HERE;
+//		Vec2 mousePos= InputManager::GetInstance().GetMousePos()*(1/Camera::GetZoom())+Camera::pos-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
+		Vec2 mousePos= InputManager::GetInstance().GetMousePos();
 		bool foundObject= false;
 		for(unsigned int i; i < objectArray.size();i ++){
-			if(mousePos.IsInRect(objectArray[i]->box)){
+			if(mousePos.IsInRect(objectArray[i]->GetWorldRenderedRect())){
+				TEMP_REPORT_I_WAS_HERE;
 				objectArray[i]->AddComponent(new DragAndDrop(tileMap,true));
 				foundObject= true;
 				break;
