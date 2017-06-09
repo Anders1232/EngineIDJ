@@ -75,13 +75,7 @@ void StageState::Update(float dt) {
 
 	waveManager.Update(nullGameObject,dt);
 
-	spawnTimer.Update(dt);
-	if(TIME_BETWEEN_SPAWNS < spawnTimer.Get()){
-		int selectedSpawnGroup= rand()%spawnGroups->size();
-		int selectedSpawnPosition= rand()% ( (*spawnGroups)[selectedSpawnGroup] ).size();
-		SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition]);
-		spawnTimer.Restart();
-	}
+	
 	if(InputManager::GetInstance().KeyPress('r')) {
 		popRequested= true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));

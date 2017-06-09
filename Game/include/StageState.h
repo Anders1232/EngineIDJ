@@ -13,7 +13,7 @@
 #include "Music.h"
 #include "Timer.h"
 #include "WaveManager.h"
-
+#include "EmptyGameObject.h"
 using std::vector;
 
 /**
@@ -39,7 +39,7 @@ class StageState: public State {
 		Timer spawnTimer;
 		void SpawnEnemy(int tileMapPosition);
 		WaveManager waveManager;
-		GameObject nullGameObject;
+		EmptyGameObject nullGameObject;
 		
 };
 
