@@ -106,7 +106,7 @@ void StageState::Update(float dt) {
 
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
 		TEMP_REPORT_I_WAS_HERE;
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
+		Vec2 mousePos = InputManager::GetInstance().GetMousePos();
 		bool foundObject = false;
 		for(unsigned int i = 0; i < objectArray.size(); i++){
 			if(mousePos.IsInRect(objectArray[i]->GetWorldRenderedRect())){
