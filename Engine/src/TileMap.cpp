@@ -368,21 +368,21 @@ struct TileMap::LessThanByHeuristic{
 
 	public:
 
-		LessThanByHeuristic(int origin,int dest,std::unique_ptr<AStarHeuristic> heuristic,TileMap tilemap):
-		originTile(origin),destTile(dest),heuristic(heuristic),tileMap(tilemap){}
+		LessThanByHeuristic(int origin,int dest,std::unique_ptr<AStarHeuristic> heuristic,int mapWidth):
+		originTile(origin),destTile(dest),heuristic(heuristic.release()),tileMapWidth(tileMapWidth){}
 
 		bool operator()(const std::pair<double,int> lhs,const std::pair<double,int> rhs) const{
-			return lhs.first + (*heuristic)(Vec2(lhs.second / tileMap.GetWidth(),lhs.second % tileMap.GetWidth()),
-				                          Vec2(destTile / tileMap.GetWidth(),destTile % tileMap.GetWidth())) < 
-			       rhs.first + (*heuristic)(Vec2(rhs.second / tileMap.GetWidth(),rhs.second % tileMap.GetWidth()),
-				                          Vec2(destTile / tileMap.GetWidth(),destTile % tileMap.GetWidth()));
+			return lhs.first + (*heuristic)(Vec2(lhs.second / tileMapWidth,lhs.second % tileMapWidth),
+				                          Vec2(destTile / tileMapWidth,destTile % tileMapWidth)) < 
+			       rhs.first + (*heuristic)(Vec2(rhs.second / tileMapWidth,rhs.second % tileMapWidth),
+				                          Vec2(destTile / tileMapWidth,destTile % tileMapWidth));
 		}
 
 	private:
 	
 		int originTile,destTile;
 		std::unique_ptr<AStarHeuristic> heuristic;
-		TileMap tileMap;
+		int tileMapWidth;
 
 };
 
@@ -391,14 +391,14 @@ std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarH
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > > paths;
 	//Heap para armazenar nós a serem processados
-	std::priority_queue<std::pair<double,int>,std::vector<std::pair<double,int> >,LessThanByHeuristic(originTile,destTile,heuristic,*this)> processList;
+	std::priority_queue<std::pair<double,int>,std::vector<std::pair<double,int> >,LessThanByHeuristic(originTile,destTile,heuristic,mapWidth)> processList;
 	//inicia o vetor de distâncias e de visited
 	std::vector<double> dist(tileMatrix.size(),std::numeric_limits<float>::max());
 	std::vector<double> visited(tileMatrix.size(),false);
 	//a distância de orig para orig é 0
 	dist[originTile] = 0.0;
 	//Inicializa listas de processamento e de caminhos
-	processList.emplace(std::make_pair(dist[originTile],originTile));
+	processList.emplace(std::make_pair(dist[originTile],originTile),LessThanByHeuristic(originTile,destTile,heuristic,mapWidth));
 	paths.push_back(std::make_pair(originTile,std::make_pair(originTile,dist[originTile])));
 
 	//Loop de processamento do Djkistra
