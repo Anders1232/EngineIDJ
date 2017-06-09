@@ -10,9 +10,23 @@
 <title>Wave</title>
 <polygon fill="white" stroke="none" points="-4,4 -4,-258 270,-258 270,4 -4,4"/>
 <!-- Node2 -->
+<<<<<<< HEAD
 <g id="node1" class="node"><title>Node2</title>
 <polygon fill="#bfbfbf" stroke="black" points="182,-0.5 182,-19.5 224,-19.5 224,-0.5 182,-0.5"/>
 <text text-anchor="middle" x="203" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Wave</text>
+=======
+<g id="node2" class="node"><title>Node2</title>
+<g id="a_node2"><a xlink:href="classGameObject.html" target="_top" xlink:title="Classe virtual que especifica o funcionamento de um GameObject. ">
+<polygon fill="white" stroke="black" points="34.8962,-67.5 34.8962,-86.5 105.896,-86.5 105.896,-67.5 34.8962,-67.5"/>
+<text text-anchor="middle" x="70.3962" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">GameObject</text>
+</a>
+</g>
+</g>
+<!-- Node2&#45;&gt;Node1 -->
+<g id="edge1" class="edge"><title>Node2&#45;&gt;Node1</title>
+<path fill="none" stroke="midnightblue" d="M83.5225,-59.2705C93.4661,-46.5972 106.723,-29.701 114.627,-19.6273"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="80.6936,-57.2059 77.2743,-67.2338 86.2008,-61.5269 80.6936,-57.2059"/>
+>>>>>>> c5107e99d962ecdbc0c16f62d763d212369ef492
 </g>
 <!-- Node3 -->
 <g id="node2" class="node"><title>Node3</title>

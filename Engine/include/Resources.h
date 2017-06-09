@@ -76,6 +76,38 @@ class Resources {
 			Internamente chama o ClearImages, ClearMusic, ClearSound e o ClearFonts. Veja a documentação de cada um desses métodos para mais informações.
 		*/
 		static void ClearResources(void);
+		/**
+			\brief Altera volume das músicas.
+			\param volume Variação no nolume que deve ser setado para as músicas.
+
+			Altera o volume das músicas do jogo. Como só pode ter uma música de cada vez, não é necessário percorres a tabela hash de músicas.
+			É feito checagem de limite desse valor para que esteja entre 0 e 128
+		*/
+		static void ChangeMusicVolume(int deltaVolume);
+		/**
+			\brief Altera volume dos sons.
+			\param volume Variação no volume único que deve ser setado para cada som.
+
+			A tabela de hash dos sons(soundTable) é percorrida alterando o volume de cada som.
+			É feito checagem de limite desse valor para que esteja entre 0 e 128
+		*/
+		static void ChangeSoundVolume(int deltaVolume);
+		/**
+			\brief Altera volume das músicas.
+			\param volume Volume que deve ser setado para as músicas.
+
+			Força um valor para o volume das músicas do jogo. Como só pode ter uma música de cada vez, não é necessário percorres a tabela hash de músicas.
+			É feito checagem de limite desse valor para que esteja entre 0 e 128
+		*/
+		static void ForceMusicVolume(int volume);
+		/**
+			\brief Altera volume dos sons.
+			\param volume Volume único que deve ser setado para cada som.
+
+			Força um valor para o volume dos sons. A tabela de hash dos sons(soundTable) é percorrida alterando o volume de cada som.
+			É feito checagem de limite desse valor para que esteja entre 0 e 128
+		*/
+		static void ForceSoundVolume(int volume);
 	private:
 		/**
 			\brief Constutor privado que não deve ser implementado.
@@ -111,6 +143,8 @@ class Resources {
 		static std::unordered_map<string, std::shared_ptr<Mix_Music>> musicTable;/**< Tabela de hash com as músicas carregadas.*/
 		static std::unordered_map<string, std::shared_ptr<Mix_Chunk>> soundTable;/**< Tabela de hash com os sons carregados.*/
 		static std::unordered_map<string, std::shared_ptr<TTF_Font>> fontTable;/**< Tabela de hash com as fontes carregadas. Cada combinação fonte-tamanho é uma entrada diferente no hash. Isso pe feito concatenando o tamanho da fonte ao nome do arquivo da mesma.*/
+		static int musicVolume;/**< Armazena volume da música. Esse valor pode ser de 0 a 128.*/
+		static int soundVolume;/**< Armazena volume dos sons. Esse valor pode ser de 0 a 128.*/
 };
 
 #endif // RESOURCES_H

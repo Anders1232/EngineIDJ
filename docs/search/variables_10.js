@@ -4,6 +4,7 @@ var searchData=
   ['scaley',['scaleY',['../classSprite.html#ac4085b0144253c09bc94151a53079104',1,'Sprite']]],
   ['sound',['sound',['../classSound.html#a44bbda770ac76c7455b60d3d63b663a7',1,'Sound']]],
   ['soundtable',['soundTable',['../classResources.html#abbd116a3bc870ba6578a89b4aa08908c',1,'Resources']]],
+  ['soundvolume',['soundVolume',['../classResources.html#aba29947d0dbb8e1a81a1d6b289c4d0f6',1,'Resources']]],
   ['sp',['sp',['../classAnimation.html#abf968c115c1d8c88da797215d58ad516',1,'Animation::sp()'],['../classEnemy.html#abcc409a6a5cdbc106ae12d8fb54e412a',1,'Enemy::sp()'],['../classFace.html#a8e816a2e8bcfa5418adfe35a3e9731ac',1,'Face::sp()']]],
   ['spawngroups',['spawnGroups',['../classStageState.html#a8ec235e907fe6fe1ed17605d259dc99b',1,'StageState']]],
   ['spawntimer',['spawnTimer',['../classStageState.html#a7dca45a4c9135041388460bdfc292064',1,'StageState']]],

@@ -9,6 +9,7 @@ var searchData=
   ['iscolliding',['IsColliding',['../classCollision.html#a8bfb131379c86c409bf38c68ef25fae6',1,'Collision']]],
   ['iscontrollersticking',['IsControllerSticking',['../classInputManager.html#a403608d0dbad0dcc605e82a6368d6fea',1,'InputManager']]],
   ['isdead',['IsDead',['../classAnimation.html#ad1eaa9ff240cbcc114270ea174523702',1,'Animation::IsDead()'],['../classGameObject.html#a076afa2ea9190c49046f86a0946b4543',1,'GameObject::IsDead()'],['../classWave.html#a257d6811c6b4eaf205e6415fed93fc53',1,'Wave::IsDead()'],['../classEnemy.html#ae5a8c620daad853579894fb72af5279e',1,'Enemy::IsDead()'],['../classFace.html#a03b6c43e0eacbc42a70c876b17adc960',1,'Face::IsDead()']]],
+<<<<<<< HEAD
   ['isframeratelimited',['IsFramerateLimited',['../classGame.html#a34933b11f79ccd70771f7d607a662f5e',1,'Game']]],
   ['isinrect',['IsInRect',['../classVec2.html#af03692ef1104fd9f184fe30a08bca03b',1,'Vec2']]],
   ['iskeydown',['IsKeyDown',['../classInputManager.html#afd4bcb5fd69d6262fa79f64a4ae43b01',1,'InputManager']]],
@@ -17,5 +18,13 @@ var searchData=
   ['ismousescrolling',['IsMouseScrolling',['../classInputManager.html#af2cd1790168883b923df1bb49a32de7b',1,'InputManager']]],
   ['ismouseup',['IsMouseUp',['../classInputManager.html#a95b4f956a2237be69fc94b04cfb57310',1,'InputManager']]],
   ['isopen',['IsOpen',['../classMusic.html#a4ba8807181f5bb36c795f778bcd7e160',1,'Music::IsOpen()'],['../classSound.html#a9e67e48d34d9ca3d31f0da846ada923b',1,'Sound::IsOpen()'],['../classSprite.html#ab803c38670069fe2def948d1017ea02f',1,'Sprite::IsOpen()']]],
+=======
+  ['isframeratelimited',['IsFramerateLimited',['../classGame.html#a3cee416ca88d258ceeab7c0eb3331b69',1,'Game']]],
+  ['isinrect',['IsInRect',['../classVec2.html#a788dc85f57e20be80e85543e6996a4f1',1,'Vec2']]],
+  ['iskeydown',['IsKeyDown',['../classInputManager.html#a97d25d372ab28dbc119b5a0919e38244',1,'InputManager']]],
+  ['ismousedown',['IsMouseDown',['../classInputManager.html#a410c6f6a0fa13dfd938d6d26a524fc19',1,'InputManager']]],
+  ['ismousescrolling',['IsMouseScrolling',['../classInputManager.html#aeb81e9386db70d1cc204e45963ec9077',1,'InputManager']]],
+  ['isopen',['IsOpen',['../classMusic.html#a7dd0d191e358d600f0ea8a1db75f833d',1,'Music::IsOpen()'],['../classSound.html#ac9de1bdc5b8c1857140a279990803394',1,'Sound::IsOpen()'],['../classSprite.html#a9f1e62573dd91cb03dbad7aa54807b8c',1,'Sprite::IsOpen()']]],
+>>>>>>> c5107e99d962ecdbc0c16f62d763d212369ef492
   ['isshowingcollisioninfo',['IsShowingCollisionInfo',['../classTileMap.html#a9cdb06bdaca86adf9fc179ed5cf7b148',1,'TileMap']]]
 ];

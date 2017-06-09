@@ -3,15 +3,16 @@
 
 #include <vector>
 #include <memory>
-#include "Sprite.h"
-#include "GameObject.h"
-#include "Tileset.h"
-#include "TileMap.h"
-#include "InputManager.h"
+
 #include "ActionManager.h"
-#include "State.h"
-#include "Music.h"
 #include "DragAndDrop.h"
+#include "GameObject.h"
+#include "InputManager.h"
+#include "Music.h"
+#include "Sprite.h"
+#include "State.h"
+#include "TileMap.h"
+#include "Tileset.h"
 #include "Timer.h"
 
 using std::vector;

@@ -3,6 +3,10 @@ var searchData=
   ['scale',['Scale',['../classSprite.html#aa8b31cd4deebedbbdf8ca3923a3064c6',1,'Sprite']]],
   ['scalex',['scaleX',['../classSprite.html#af76ca5d25866a3107bcec1d2e59f8bcb',1,'Sprite::scaleX()'],['../classSprite.html#a42b3a6ed82560c5b97085cc127984cf4',1,'Sprite::ScaleX(float scale)']]],
   ['scaley',['scaleY',['../classSprite.html#ac4085b0144253c09bc94151a53079104',1,'Sprite::scaleY()'],['../classSprite.html#ad4a9b4df6061cf7391403a4d03286ff0',1,'Sprite::ScaleY(float scale)']]],
+<<<<<<< HEAD
+=======
+  ['screentoworld',['ScreenToWorld',['../classCamera.html#ae9052ebbd6df7d3f72d535c6eb359aa6',1,'Camera::ScreenToWorld(Vec2 screen)'],['../classCamera.html#aea71faffba129d596f80d3ccc7a3e647',1,'Camera::ScreenToWorld(Rect screen)']]],
+>>>>>>> c5107e99d962ecdbc0c16f62d763d212369ef492
   ['sdl_5fassert',['SDL_ASSERT',['../Error_8h.html#a5e03114cdb9780c937e89ed7cb527ae1',1,'Error.h']]],
   ['setclip',['SetClip',['../classSprite.html#a3ad46a400f83d41eaba2c2df77e0cf7c',1,'Sprite']]],
   ['setcolor',['SetColor',['../classText.html#a16b351605f583b6ece8c93fc8c4df279',1,'Text']]],
@@ -33,6 +37,7 @@ var searchData=
   ['sound_2ecpp',['Sound.cpp',['../Sound_8cpp.html',1,'']]],
   ['sound_2eh',['Sound.h',['../Sound_8h.html',1,'']]],
   ['soundtable',['soundTable',['../classResources.html#abbd116a3bc870ba6578a89b4aa08908c',1,'Resources']]],
+  ['soundvolume',['soundVolume',['../classResources.html#aba29947d0dbb8e1a81a1d6b289c4d0f6',1,'Resources']]],
   ['sp',['sp',['../classAnimation.html#abf968c115c1d8c88da797215d58ad516',1,'Animation::sp()'],['../classEnemy.html#abcc409a6a5cdbc106ae12d8fb54e412a',1,'Enemy::sp()'],['../classFace.html#a8e816a2e8bcfa5418adfe35a3e9731ac',1,'Face::sp()']]],
   ['spawn_5fpoint',['SPAWN_POINT',['../TileMap_8h.html#aaf7f10acd2b757134cd6abd1da486075',1,'TileMap.h']]],
   ['spawnenemy',['SpawnEnemy',['../classStageState.html#a5812a63278bc2f2f911795f0184f1588',1,'StageState']]],
@@ -44,6 +49,7 @@ var searchData=
   ['sprite_2eh',['Sprite.h',['../Sprite_8h.html',1,'']]],
   ['sprite_5fopen_5fx',['SPRITE_OPEN_X',['../Sprite_8cpp.html#a633a5f76ec79ff55de6e3d689349b42f',1,'Sprite.cpp']]],
   ['sprite_5fopen_5fy',['SPRITE_OPEN_Y',['../Sprite_8cpp.html#a501ecbc025c08ea8b7557299a7eac6cd',1,'Sprite.cpp']]],
+  ['stage_5fstate_5fdelta_5fvolume',['STAGE_STATE_DELTA_VOLUME',['../StageState_8cpp.html#a5dbb658cc722b8012e13d00f54f4bde4',1,'StageState.cpp']]],
   ['stagestate',['StageState',['../classStageState.html',1,'StageState'],['../classStageState.html#a83447a9a485bd3cf9f2c0d293343ec42',1,'StageState::StageState()']]],
   ['stagestate_2ecpp',['StageState.cpp',['../StageState_8cpp.html',1,'']]],
   ['stagestate_2eh',['StageState.h',['../StageState_8h.html',1,'']]],

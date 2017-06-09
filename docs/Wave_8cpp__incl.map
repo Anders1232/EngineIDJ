@@ -1,8 +1,16 @@
 <map id="Engine/src/Wave.cpp" name="Engine/src/Wave.cpp">
+<<<<<<< HEAD
 <area shape="rect" id="node2" href="$Wave_8h.html" title="Wave.h" alt="" coords="261,80,328,107"/>
 <area shape="rect" id="node3" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="241,155,348,181"/>
 <area shape="rect" id="node6" href="$Rect_8h.html" title="Rect.h" alt="" coords="181,229,243,256"/>
 <area shape="rect" id="node10" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="339,304,469,331"/>
 <area shape="rect" id="node11" href="$Component_8h.html" title="Component.h" alt="" coords="398,229,498,256"/>
 <area shape="rect" id="node7" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="110,304,173,331"/>
+=======
+<area shape="rect" id="node2" href="$Wave_8h.html" title="Wave.h" alt="" coords="225,80,292,107"/>
+<area shape="rect" id="node3" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="205,155,312,181"/>
+<area shape="rect" id="node7" href="$Component_8h.html" title="Component.h" alt="" coords="261,229,361,256"/>
+<area shape="rect" id="node8" href="$Rect_8h.html" title="Rect.h" alt="" coords="385,229,447,256"/>
+<area shape="rect" id="node9" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="342,304,405,331"/>
+>>>>>>> c5107e99d962ecdbc0c16f62d763d212369ef492
 </map>

@@ -1,4 +1,5 @@
 <map id="Engine/src/Text.cpp" name="Engine/src/Text.cpp">
+<<<<<<< HEAD
 <area shape="rect" id="node2" href="$Text_8h.html" title="Text.h" alt="" coords="160,80,219,107"/>
 <area shape="rect" id="node3" href="$Rect_8h.html" title="Rect.h" alt="" coords="627,379,688,405"/>
 <area shape="rect" id="node6" href="$Timer_8h.html" title="Timer.h" alt="" coords="35,155,101,181"/>
@@ -11,4 +12,17 @@
 <area shape="rect" id="node14" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="347,304,453,331"/>
 <area shape="rect" id="node16" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="226,453,355,480"/>
 <area shape="rect" id="node17" href="$Component_8h.html" title="Component.h" alt="" coords="285,379,385,405"/>
+=======
+<area shape="rect" id="node2" href="$Text_8h.html" title="Text.h" alt="" coords="595,80,653,107"/>
+<area shape="rect" id="node3" href="$Rect_8h.html" title="Rect.h" alt="" coords="5,379,67,405"/>
+<area shape="rect" id="node6" href="$Timer_8h.html" title="Timer.h" alt="" coords="828,155,895,181"/>
+<area shape="rect" id="node9" href="$Resources_8h.html" title="Resources.h" alt="" coords="545,304,641,331"/>
+<area shape="rect" id="node11" href="$Game_8h.html" title="Game.h" alt="" coords="590,155,658,181"/>
+<area shape="rect" id="node19" href="$Error_8h.html" title="Error.h" alt="" coords="919,155,980,181"/>
+<area shape="rect" id="node4" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="373,453,435,480"/>
+<area shape="rect" id="node13" href="$State_8h.html" title="State.h" alt="" coords="387,229,451,256"/>
+<area shape="rect" id="node15" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="409,304,521,331"/>
+<area shape="rect" id="node17" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="169,304,276,331"/>
+<area shape="rect" id="node18" href="$Component_8h.html" title="Component.h" alt="" coords="173,379,273,405"/>
+>>>>>>> c5107e99d962ecdbc0c16f62d763d212369ef492
 </map>

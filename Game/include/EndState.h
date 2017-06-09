@@ -1,13 +1,14 @@
-#ifndef ENDDTATE_H
-#define ENDDTATE_H
+#ifndef ENDSTATE_H
+#define ENDSTATE_H
 
-#include "GameObject.h"
-#include "Sprite.h"
-#include "Music.h"
-#include "Text.h"
 #include "EndStateData.h"
+#include "GameObject.h"
+#include "Music.h"
+#include "Sprite.h"
+#include "Text.h"
 
 #define END_STATE_FONT_SIZE (40)
+#define END_STATE_DELTA_VOLUME (1) //11*11 = 121 ~128
 
 class EndState: public State {
 	public:
@@ -25,4 +26,4 @@ class EndState: public State {
 #include "InputManager.h"
 #include "StageState.h"
 
-#endif // ENDDTATE_H
+#endif // ENDSTATE_H

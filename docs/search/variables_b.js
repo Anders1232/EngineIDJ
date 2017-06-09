@@ -15,5 +15,6 @@ var searchData=
   ['mousex',['mouseX',['../classInputManager.html#a29fddcf9d741e4de04492ad76b7cb3af',1,'InputManager']]],
   ['mousey',['mouseY',['../classInputManager.html#afb189c58dd5ee470a3202c685c5c7f1e',1,'InputManager']]],
   ['music',['music',['../classMusic.html#a6cddb36711f395497d2daf3e3c955912',1,'Music::music()'],['../classEndState.html#ad053a1cc844baf965edafc3607da6868',1,'EndState::music()'],['../classStageState.html#a60c8325a1df466aff9f24ea167178350',1,'StageState::music()']]],
-  ['musictable',['musicTable',['../classResources.html#a6fa55a3d59924e7fbbcf734e01cfaa46',1,'Resources']]]
+  ['musictable',['musicTable',['../classResources.html#a6fa55a3d59924e7fbbcf734e01cfaa46',1,'Resources']]],
+  ['musicvolume',['musicVolume',['../classResources.html#a8aa3996e0494c61caaa105fa5cc5af54',1,'Resources']]]
 ];

@@ -30,5 +30,6 @@ var searchData=
   ['music_2ecpp',['Music.cpp',['../Music_8cpp.html',1,'']]],
   ['music_2eh',['Music.h',['../Music_8h.html',1,'']]],
   ['music_5ffade_5fout_5ftime_5fmsec',['MUSIC_FADE_OUT_TIME_MSEC',['../Music_8h.html#a56d75cf0fabf795cc2ec85cdfa487bf2',1,'Music.h']]],
-  ['musictable',['musicTable',['../classResources.html#a6fa55a3d59924e7fbbcf734e01cfaa46',1,'Resources']]]
+  ['musictable',['musicTable',['../classResources.html#a6fa55a3d59924e7fbbcf734e01cfaa46',1,'Resources']]],
+  ['musicvolume',['musicVolume',['../classResources.html#a8aa3996e0494c61caaa105fa5cc5af54',1,'Resources']]]
 ];

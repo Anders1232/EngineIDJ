@@ -84,9 +84,9 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a671a1040ef1ba7600a6ea21faa950819"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileSet.html#a671a1040ef1ba7600a6ea21faa950819">TileSet</a> (int <a class="el" href="classTileSet.html#a9ba9087a6da877f78af6cdf9afb0af7c">tileWidth</a>, int <a class="el" href="classTileSet.html#a9409211e1c5560f969b737714be977c0">tileHeight</a>, string file)</td></tr>
 <tr class="memdesc:a671a1040ef1ba7600a6ea21faa950819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia um tileSet.  <a href="#a671a1040ef1ba7600a6ea21faa950819">Mais...</a><br /></td></tr>
 <tr class="separator:a671a1040ef1ba7600a6ea21faa950819"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a110acfa6e07aa9e5af1798065f23b0f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileSet.html#a110acfa6e07aa9e5af1798065f23b0f1">Render</a> (unsigned int index, float x, float y, bool zoom=true)</td></tr>
-<tr class="memdesc:a110acfa6e07aa9e5af1798065f23b0f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza tile.  <a href="#a110acfa6e07aa9e5af1798065f23b0f1">Mais...</a><br /></td></tr>
-<tr class="separator:a110acfa6e07aa9e5af1798065f23b0f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95df02e09896949e7b3fa90d6d6afd34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileSet.html#a95df02e09896949e7b3fa90d6d6afd34">Render</a> (unsigned int index, <a class="el" href="classVec2.html">Vec2</a> pos)</td></tr>
+<tr class="memdesc:a95df02e09896949e7b3fa90d6d6afd34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza tile.  <a href="#a95df02e09896949e7b3fa90d6d6afd34">Mais...</a><br /></td></tr>
+<tr class="separator:a95df02e09896949e7b3fa90d6d6afd34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4114a74c06ab5241d904cce67538ae17"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileSet.html#a4114a74c06ab5241d904cce67538ae17">GetTileWidth</a> (void)</td></tr>
 <tr class="memdesc:a4114a74c06ab5241d904cce67538ae17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém largura de um tile.  <a href="#a4114a74c06ab5241d904cce67538ae17">Mais...</a><br /></td></tr>
 <tr class="separator:a4114a74c06ab5241d904cce67538ae17"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -201,9 +201,13 @@ Atributos Privados</h2></td></tr>
 
 </div>
 </div>
+<<<<<<< HEAD
 <a id="a110acfa6e07aa9e5af1798065f23b0f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a110acfa6e07aa9e5af1798065f23b0f1">&#9670;&nbsp;</a></span>Render()</h2>
 
+=======
+<a class="anchor" id="a95df02e09896949e7b3fa90d6d6afd34"></a>
+>>>>>>> c5107e99d962ecdbc0c16f62d763d212369ef492
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -216,20 +220,8 @@ Atributos Privados</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>zoom</em> = <code>true</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="classVec2.html">Vec2</a>&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -243,13 +235,11 @@ Atributos Privados</h2></td></tr>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>Índice do tile no tileSet. </td></tr>
-    <tr><td class="paramname">x</td><td>Posição x onde o tile deve ser renderizado. </td></tr>
-    <tr><td class="paramname">y</td><td>Posição y onde o tile deve ser renderizado. </td></tr>
-    <tr><td class="paramname">zoom</td><td>Verdadeiro se o tile deve sofrer zoom, falso caso contrário.</td></tr>
+    <tr><td class="paramname">pos</td><td>Posição x,y onde o tile deve ser renderizado.</td></tr>
   </table>
   </dd>
 </dl>
-<p>Usando aritmética de módulo conseguimos associar o index à uma posição (linha, coluna) na matriz de tiles. Essa informação é usada para entaão obter o x e y do tile no sprite. Após isso calcula-se o rect onde essa imagem será renderizada utilizando o x e y enviados como argumento e atribuindo a w e h tileWidth e tileHeight. Nesse momento verifica-se o o tile deve sofrer zoom, se sim, o rect calculado acima é multiplicado pelo valor de zoom armazenado na câmera. Após isso, renderiza-se o tile informado na posição calculada da tela. </p>
+<p>Usando aritmética de módulo conseguimos associar o index à uma posição (linha, coluna) na matriz de tiles. Essa informação é usada para entaão obter o x e y do tile no sprite. Após isso calcula-se o rect onde essa imagem será renderizada utilizando o x e y enviados como argumento e atribuindo a w e h tileWidth e tileHeight. Nesse momento, solicita-se para a câmera transformar a posição no mundo para a posição na tela. Após isso, renderiza-se o tile informado na posição calculada da tela. </p>
 
 </div>
 </div>
@@ -376,7 +366,11 @@ Atributos Privados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
+<<<<<<< HEAD
 Gerado em Sexta, 2 de Junho de 2017 20:52:13 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+=======
+Gerado em Sexta, 9 de Junho de 2017 15:37:14 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+>>>>>>> c5107e99d962ecdbc0c16f62d763d212369ef492
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
