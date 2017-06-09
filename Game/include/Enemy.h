@@ -80,7 +80,7 @@ class Enemy : public GameObject
 		Rect GetWorldRenderedRect(void) const;
 	
 	private:
-		enum EnemyType{ HOSTILE, NEUTRAL, ENGINEER, ARQUITET, ART, QUIMIC } type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
+		enum EnemyType{ HOSTILE, NEUTRAL, ENGINEER, ARQUITET, ART, QUIMIC, SIZE } type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
 		Sprite sp;/**< Sprite do inimigo.*/
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
 };
