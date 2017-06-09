@@ -263,7 +263,11 @@ Vec2 TileMap::GetTileSize(void) const{
 	return Vec2(tileSet->GetTileWidth(), tileSet->GetTileHeight());
 }
 
-bool TileMap::Traversable(int index) const{ }
+bool TileMap::Traversable(int index) const{ 
+
+	return(PAREDE == AtLayer(index,COLLISION_LAYER));
+
+}
 
 std::vector<int> TileMap::GetNeighbors(int tileIndex) const{
 
@@ -382,15 +386,14 @@ struct TileMap::LessThanByHeuristic{
 
 };
 
-std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarHeuristic> heuristic,std::string weightArq){
+std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarHeuristic> heuristic,std::map<int, int> weightMap){
 	//Obtem vetor de pesos do tile que deve ser considerado
-	std::vector<int>weightVector = Resources::GetTileVector(weightArq);
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > > paths;
 	//Heap para armazenar nós a serem processados
 	std::priority_queue<std::pair<double,int>,std::vector<std::pair<double,int> >,LessThanByHeuristic(originTile,destTile,heuristic,*this)> processList;
 	//inicia o vetor de distâncias e de visited
-	std::vector<double> dist(tileMatrix.size(),INFINITE);
+	std::vector<double> dist(tileMatrix.size(),std::numeric_limits<float>::max());
 	std::vector<double> visited(tileMatrix.size(),false);
 	//a distância de orig para orig é 0
 	dist[originTile] = 0.0;
@@ -410,11 +413,11 @@ std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarH
 		// percorre os vértices "v" adjacentes de "current"
 		for(unsigned int j = 0 ; j < neighbors.size();j ++){
 			//Se o vértice já foi visitado ou não é atingível passa-se para o proximo
-			if(visited[neighbors[j]] || !Traversable(neighbors[j]])){continue;}
+			if(visited[neighbors[j]] || !Traversable(neighbors[j]]) || weightMap[AtLayer(neighbors[j],COLLISION_LAYER)]){continue;}
 			//Verifica se o custo do caminho a partir de current é menor que o registrado no vizinho
-			if(dist[neighbors[j]] > dist[p.second] + weightVector[neighbors[j]]){
+			if(dist[neighbors[j]] > dist[p.second] + weightMap[AtLayer(neighbors[j],COLLISION_LAYER)]){
 				//Caso o vizinho já tenha sido processado em alguma iteração
-				if (dist[neighbors[j]] != INFINITE){
+				if (dist[neighbors[j]] != std::numeric_limits<float>::max()){
 					//Remove o custo e o caminho associado ao vizinho das listas visto que novos serão inseridos
 					//processList.remove(std::make_pair(dist[neighbors[j]],neighbors[j]));
 					auto it = std::find(processList->c.begin(), processList->c.end(), std::make_pair(dist[neighbors[j]],neighbors[j]));
@@ -422,11 +425,11 @@ std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarH
 						processList->c.erase(it);
 						std::make_heap(processList->c.begin(), processList->c.end(), processList->comp);
 					}
-					paths.remove(std::make_pair(neighbors[j],std::make_pair(current.second,weightVector[neighbors[j]])));
+					paths.remove(std::make_pair(neighbors[j],std::make_pair(current.second,weightMap[AtLayer(neighbors[j],COLLISION_LAYER)])));
 				// atualiza a distância do vizinho e insere nas listas
 				dist[neighbors[j]] = dist[p.second] + weightVector[neighbors[j]];
-				paths.push_back(std::make_pair(neighbors[j],std::make_pair(p.second,weightVector[neighbors[j]])));
-				processList.push_back(std::make_pair(weightVector[neighbors[j]],neighbors[j]));
+				paths.push_back(std::make_pair(neighbors[j],std::make_pair(p.second,weightMap[AtLayer(neighbors[j],COLLISION_LAYER)])));
+				processList.push_back(std::make_pair(weightMap[AtLayer(neighbors[j],COLLISION_LAYER)],neighbors[j]));
 			}
 		}
 		visited[current.second] = true;

@@ -1,6 +1,7 @@
 #include "ManhattanDistance.h"
 
 ManhattanDistance::ManhattanDistance(){
+	
 }
 
 int ManhattanDistance::operator()(Vec2 origin, Vec2 destiny){

@@ -5,6 +5,8 @@
 #include <vector>
 #include <list>
 #include <queue>
+#include <limits>
+#include <map>
 #include "Tileset.h"
 #include "Vec2.h"
 #include "GameObject.h"
@@ -179,7 +181,7 @@ class TileMap{
 		std::vector<GameObject*> gameObjectMatrix;/**< TileMap linearizado de GameObjects*/	//bidimensional??
 		bool displayCollisionInfo;/**<Verdadeiro se as informações de colisão devem ser exibidas no TileMap::Render, falso caso contrário.*/
 		struct LessThanByHeuristic;
-		std::list<int> AStar(int originTile,int destTile,std::unique_ptr<AStarHeuristic> heuristic,std::string weightArq);
+		std::list<int> AStar(int originTile,int destTile,std::unique_ptr<AStarHeuristic> heuristic,std::map<int, int> weightMap);
 		bool Traversable(int index) const;
 };
 
