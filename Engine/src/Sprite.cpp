@@ -1,41 +1,42 @@
 #include "Sprite.h"
+
+#include "Camera.h"
+#include "Error.h"
 #include "Game.h"
 #include "Resources.h"
-#include "Error.h"
-#include "Camera.h"
 
-#define SPRITE_OPEN_X (0)//alterar esses valores altera a parte da textura que será renderizada
+// Alterar esses valores altera a parte da textura que será renderizada
+#define SPRITE_OPEN_X (0)
 #define SPRITE_OPEN_Y (0)
 
-Sprite::Sprite(void): Sprite("", 0, 1) {
-}
+Sprite::Sprite(void): Sprite("", 0, 1) {}
 
 Sprite::Sprite(std::string file, float frameTime, int frameCount)
-			: colorMultiplier(255, 255, 255), blendMode(ALPHA_BLEND)
-			, alpha(255), frameCount(frameCount)
-			, currentFrame(0), timeElapsed(0)
-			, frameTime(frameTime), scaleX(1.), scaleY(1.) {
+		: colorMultiplier(255, 255, 255), blendMode(ALPHA_BLEND)
+		, alpha(255), frameCount(frameCount)
+		, currentFrame(0), timeElapsed(0)
+		, frameTime(frameTime), scaleX(1.), scaleY(1.) {
 	REPORT_I_WAS_HERE;
-	if ( file.empty() ) {
+	if(file.empty()) {
 		texture = nullptr;
 	} else {
-		Open( file );
+		Open(file);
 	}
 	REPORT_I_WAS_HERE;
 }
 
-Sprite::~Sprite() {
-}
+Sprite::~Sprite() {}
 
-void Sprite::Open(std::string file){
+void Sprite::Open(std::string file) {
 	REPORT_I_WAS_HERE;
-	texture= Resources::GetImage(file);
+	texture = Resources::GetImage(file);
 	REPORT_I_WAS_HERE;
 	if(nullptr == texture) {
 		Error(SDL_GetError());
 	}
 	REPORT_I_WAS_HERE;
-	if(SDL_QueryTexture(texture.get(), nullptr, nullptr, &width, &height)){//verificar se houve erro na chamada
+	// Verificar se houve erro na chamada
+	if(SDL_QueryTexture(texture.get(), nullptr, nullptr, &width, &height)) {
 		Error(SDL_GetError());
 	}
 	REPORT_I_WAS_HERE;
@@ -50,30 +51,46 @@ void Sprite::SetClip(int x, int y, int w, int h) {
 	clipRect.h = h;
 }
 
-void Sprite::Render(int x, int y, float angle, bool zoom) const {
-	Game& game= Game::GetInstance();
-	Rect temp;
-	temp.x = x;
-	temp.y = y;
-	temp.w = GetWidth();
-	temp.h = GetHeight();
-//	std::cout << WHERE << "  rect.w = "<< rect.w<< endl;
-	if(zoom) {
-//		REPORT_DEBUG;
-		temp.w = temp.w*Camera::GetZoom();
-		temp.h = temp.h*Camera::GetZoom();
+void Sprite::Render(Rect world, float angle, bool isCoordOnWorld) const {
+	Game& game = Game::GetInstance();
+	
+	if(0 >= world.w || 0 >= world.h) {
+		world.w = GetWidth();
+		world.h = GetHeight();
 	}
-	SDL_Rect rect= temp;
-	if ( -1 == SDL_SetTextureAlphaMod( texture.get(), alpha ) ) {
+
+	if(isCoordOnWorld) {
+		world = Camera::WorldToScreen(world);
+	}
+
+	{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
+		Vec2 screenSize = game.GetWindowDimensions();
+		float points[4] = {world.x, world.y, world.x+world.w, world.y+world.h};
+		
+		bool isOutOfBounds = true;
+		isOutOfBounds = isOutOfBounds && (0 > points[0] || screenSize.x < points[0]);
+		isOutOfBounds = isOutOfBounds && (0 > points[1] || screenSize.y < points[1]);
+		isOutOfBounds = isOutOfBounds && (0 > points[2] || screenSize.x < points[2]);
+		isOutOfBounds = isOutOfBounds && (0 > points[3] || screenSize.y < points[3]);
+
+		if(isOutOfBounds) return;
+	}
+
+	if( -1 == SDL_SetTextureAlphaMod( texture.get(), alpha ) ) {
 		CHECK_SDL_ERROR;
 	}
-	if ( -1 == SDL_SetTextureBlendMode( texture.get(), blendMode ) ) {
+
+	if( -1 == SDL_SetTextureBlendMode( texture.get(), blendMode ) ) {
 		CHECK_SDL_ERROR;
 	}
-	if ( -1 == SDL_SetTextureColorMod( texture.get(), colorMultiplier.r, colorMultiplier.g, colorMultiplier.b ) ) {
+
+	if( -1 == SDL_SetTextureColorMod( texture.get(), colorMultiplier.r, colorMultiplier.g, colorMultiplier.b ) ) {
 		CHECK_SDL_ERROR;
 	}
-	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &rect, angle, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
+
+	SDL_Rect dst = world;
+	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, angle, NULL, SDL_FLIP_NONE) ){
+		// Verifica se haverá erro
 		Error(SDL_GetError());
 	}
 }
@@ -99,47 +116,50 @@ std::shared_ptr<SDL_Texture> Sprite::GetTexture(void) const {
 }
 
 void Sprite::SetScaleX(float scale) {
-	scaleX= scale;
+	scaleX = scale;
 }
+
 void Sprite::SetScaleY(float scale) {
-	scaleY= scale;
+	scaleY = scale;
 }
+
 void Sprite::SetScale(float scale) {
-	scaleX= scale;
-	scaleY= scale;
+	scaleX = scale;
+	scaleY = scale;
 }
+
 void Sprite::ScaleX(float scale) {
-	scaleX*= scale;
+	scaleX *= scale;
 }
+
 void Sprite::ScaleY(float scale) {
 	scaleY *= scale;
 }
+
 void Sprite::Scale(float scale) {
 	scaleX *= scale;
 	scaleY *= scale;
 }
+
 void Sprite::Update(float dt) {
-	timeElapsed+= dt;
-	if(timeElapsed> frameTime) {
-		timeElapsed-= frameTime;
-		currentFrame= (currentFrame+1)%frameCount;
-		clipRect.x= currentFrame*(width/frameCount);
-//		clipRect.x= (newXRect>= width)? 0: newXRect;
+	timeElapsed += dt;
+	if(timeElapsed > frameTime) {
+		timeElapsed -= frameTime;
+		currentFrame = (currentFrame+1)%frameCount;
+		clipRect.x = currentFrame*(width/frameCount);
 	}
 }
 
 void Sprite::SetFrame(int frame) {
-	currentFrame= frame%frameCount;
-	int newXRect= currentFrame*(width/frameCount);
-	clipRect.x= newXRect;
+	currentFrame = frame%frameCount;
+	int newXRect = currentFrame*(width/frameCount);
+	clipRect.x = newXRect;
 }
 
 void Sprite::SetFrameCount(int frameCount) {
-	this->frameCount= frameCount;
-	clipRect.w= width/frameCount;
+	this->frameCount = frameCount;
+	clipRect.w = width/frameCount;
 }
 void Sprite::SetFrameTime(float frameTime) {
 	this->frameTime=frameTime;
 }
-
-

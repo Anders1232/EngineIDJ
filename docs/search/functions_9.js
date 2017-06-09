@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['keypress',['KeyPress',['../classInputManager.html#acf5d7a5b83dc24aba5d43372d6152dae',1,'InputManager']]],
-  ['keyrelease',['KeyRelease',['../classInputManager.html#a05892299bfc75aab9d2530737cf36248',1,'InputManager']]]
+  ['keypress',['KeyPress',['../classInputManager.html#a6793bc63304cafeaf45151d083946f42',1,'InputManager']]],
+  ['keyrelease',['KeyRelease',['../classInputManager.html#a161025491900d61e6090d6f6e576934f',1,'InputManager']]]
 ];

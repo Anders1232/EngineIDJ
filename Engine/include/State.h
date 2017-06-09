@@ -1,11 +1,12 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include "GameObject.h"
 #include <vector>
 #include <memory>
 #include "InputManager.h"
 #include "Resources.h"
+
+#include "GameObject.h"
 
 /**
 	\brief Classe virtual que modela um estado do jogo

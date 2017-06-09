@@ -8,14 +8,13 @@
 
 #define FACE_HP (500)
 
-
 class Face : public GameObject{
 	public:
 		Face(float x, float y, Vec2 tileSize, TileMap *tileMap);
 		void Damage(int damage);
 	
 		void Update(float dt );
-		void Render();
+		void Render(void);
 		bool IsDead(void);
 		void RequestDelete(void);
 		
@@ -29,4 +28,4 @@ class Face : public GameObject{
 		bool isDraging;
 };
 
-#endif
+#endif // FACE_H
