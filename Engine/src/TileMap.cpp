@@ -258,7 +258,7 @@ vector<vector<int>>* TileMap::GetSpawnPositions(void) const {
 		}
 		REPORT_I_WAS_HERE;
 	}
-
+#ifdef DEBUG
 	std::cout << WHERE << "\tNumero de spawn groups achados: " << (*spawnPoints).size() << END_LINE;
 	for(uint i = 0; i < (*spawnPoints).size(); i++) {
 		std::cout << WHERE << "\tSpawn groups " << i <<" tem tamanho " << (*spawnPoints)[i].size() << END_LINE;
@@ -267,7 +267,7 @@ vector<vector<int>>* TileMap::GetSpawnPositions(void) const {
 			std::cout << WHERE << "\tSpawn point: " << (*spawnPoints)[i][i2] << END_LINE;
 		}
 	}
-
+#endif
 	return spawnPoints;
 }
 

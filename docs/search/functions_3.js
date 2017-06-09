@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['endstate',['EndState',['../classEndState.html#a14303ccf71d755d28f5a0e79f40c69b4',1,'EndState']]],
-  ['endstatedata',['EndStateData',['../classEndStateData.html#a3193e460f24f5cbd1098030864c75ddc',1,'EndStateData::EndStateData(bool playerVictory)'],['../classEndStateData.html#a3193e460f24f5cbd1098030864c75ddc',1,'EndStateData::EndStateData(bool playerVictory)']]],
-  ['enemy',['Enemy',['../classEnemy.html#a647281cc33d151d321aac6301ca44c39',1,'Enemy']]]
+  ['damage',['Damage',['../classFace.html#a094c141b4019c35c7e8a8278d80ecb02',1,'Face']]],
+  ['distanceto',['DistanceTo',['../classVec2.html#a521ee085dda3e0116d086d9a043d7c2e',1,'Vec2']]],
+  ['dot',['Dot',['../classCollision.html#a8e858eea6ac033ac5e2a31946618c5c4',1,'Collision']]],
+  ['downarrowaction',['DownArrowAction',['../classActionManager.html#a4e532467961545ed717e59158ea89990',1,'ActionManager']]],
+  ['draganddrop',['DragAndDrop',['../classDragAndDrop.html#ae8bf1e903ebaceb56405f9ff26020c0b',1,'DragAndDrop']]]
 ];

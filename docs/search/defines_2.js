@@ -1,6 +1,8 @@
 var searchData=
 [
+  ['camera_5fdefault_5fmax_5fspeed',['CAMERA_DEFAULT_MAX_SPEED',['../Camera_8h.html#a19d3d4210908d99006705889d4f28013',1,'Camera.h']]],
   ['camera_5fdefault_5fmax_5fzoom',['CAMERA_DEFAULT_MAX_ZOOM',['../Camera_8h.html#a53a75501f4f47ca972ec050b09df05a3',1,'Camera.h']]],
+  ['camera_5fdefault_5fmin_5fspeed',['CAMERA_DEFAULT_MIN_SPEED',['../Camera_8h.html#a9569da4751beb571c5d04147a012b7fc',1,'Camera.h']]],
   ['camera_5fdefault_5fmin_5fzoom',['CAMERA_DEFAULT_MIN_ZOOM',['../Camera_8h.html#a00bdac33db330ffa8021dc36c85506fe',1,'Camera.h']]],
   ['camera_5fdefault_5fzoom_5fspeed',['CAMERA_DEFAULT_ZOOM_SPEED',['../Camera_8h.html#a896eaf751ce7e99c97bfaa76ca33f150',1,'Camera.h']]],
   ['camera_5fdefault_5fzoomable',['CAMERA_DEFAULT_ZOOMABLE',['../Camera_8h.html#a719f5e3a817ca056a76495044f676277',1,'Camera.h']]],

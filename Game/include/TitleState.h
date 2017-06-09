@@ -1,6 +1,7 @@
 #ifndef TITLESTATE_H
 #define TITLESTATE_H
 
+#include "ActionManager.h"
 #include "Sprite.h"
 #include "State.h"
 

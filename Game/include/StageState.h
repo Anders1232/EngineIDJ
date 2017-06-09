@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 
+#include "ActionManager.h"
 #include "GameObject.h"
 #include "InputManager.h"
 #include "Music.h"

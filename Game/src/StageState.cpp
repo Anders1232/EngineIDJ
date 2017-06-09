@@ -26,11 +26,12 @@
 #define STATE_RENDER_Y 0
 #define FACE_LINEAR_SIZE 30
 #define TIME_BETWEEN_SPAWNS (3.)
+#define STAGE_STATE_DELTA_VOLUME (1) //11*11 = 121 ~128
 
 StageState::StageState(void)
 		: State()
 		, bg("img/ocean.jpg")
-		, tileSet(30, 30,"img/tileset-basico.jpg")
+		, tileSet(120, 120,"img/map/tileset_v2.png")
 		, inputManager(InputManager::GetInstance())
 		, music("audio/stageState.ogg")
 		, spawnTimer() {
@@ -82,7 +83,7 @@ void StageState::Update(float dt) {
 		SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition] );
 		spawnTimer.Restart();
 	}
-		
+
 	if(InputManager::GetInstance().KeyPress('r')) {
 		popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
@@ -120,6 +121,23 @@ void StageState::Update(float dt) {
 	}
 
 	tileMap->ShowCollisionInfo(InputManager::GetInstance().IsKeyDown('g'));
+
+	if(InputManager::GetInstance().IsKeyDown('[')){
+		Resources::ChangeMusicVolume(-STAGE_STATE_DELTA_VOLUME);
+	}
+
+	if(InputManager::GetInstance().IsKeyDown(']')){
+		Resources::ChangeMusicVolume(STAGE_STATE_DELTA_VOLUME);
+	}
+
+	if(InputManager::GetInstance().IsKeyDown(',')){
+		Resources::ChangeSoundVolume(-STAGE_STATE_DELTA_VOLUME);
+	}
+
+	if(InputManager::GetInstance().IsKeyDown('.')){
+		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
+	}
+
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }
 

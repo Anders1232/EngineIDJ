@@ -7,11 +7,11 @@
 #define ENEMY_MOVE_SPEED (30.)
 
 Enemy::Enemy(Vec2 position, int life)
-		: sp("img/enemy/reference_assembled.png", 0.0, 4), dead(false) {
+		: sp("img/enemy/teste-cor.png", 0.0, 1), dead(false) {
 	box = position;
 	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED));
 	
-	sp.SetScale(0.2);
+	sp.SetScale(0.8);
 	sp.SetFrame(1);
 }
 

@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <memory>
+#include "InputManager.h"
+#include "Resources.h"
 
 #include "GameObject.h"
 
@@ -90,5 +92,7 @@ class State {
 		bool quitRequested;/**< Armazena a informação se o state solicitou que o jogo seja fechado.*/
 		std::vector<std::unique_ptr<GameObject>> objectArray;/**< Vetor de GameObjects.*/
 };
+
+#include "InputManager.h"
 
 #endif // STATE_H

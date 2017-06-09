@@ -18,7 +18,8 @@ EndState::EndState(EndStateData stateData)
 	Vec2 pos = Game::GetInstance().GetWindowDimensions();
 	if(stateData.playerVictory) {
 		instruction.SetPos(0, pos.y*0.005, true);
-	} else {
+	}
+	else {
 		instruction.SetPos(0, pos.y-instruction.GetSize().y, true);
 	}
 }
@@ -30,12 +31,10 @@ void EndState::Update(float dt) {
 	if(inputManager.QuitRequested()) {
 		quitRequested = true;
 	}
-	
-	if(inputManager.KeyPress(ESCAPE_KEY)) {
-		popRequested = true;
+	if(ActionManager::EscapeAction()) {
+		popRequested =true;
 	}
-	
-	if(inputManager.KeyPress(ESPACE_KEY)) {
+	if(ActionManager::StartAction()) {
 		popRequested = true;
 		Game::GetInstance().Push(new StageState());
 	}

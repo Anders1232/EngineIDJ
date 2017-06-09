@@ -11,9 +11,12 @@ RM = rm -f
 #Flags para geração automática de dependências
 DEP_FLAGS = -MT $@ -MMD -MP -MF $(DEP_PATH)/$.d
 LIBS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lm
+
 #Se o gcc não reconhecer a flag -fdiagnostics-color basta retirar ela
-#FLAGS= -std=c++11 -Wall -pedantic -Wextra -fmax-errors=5 -Wno-unused-parameter -fdiagnostics-color
-FLAGS= -std=c++11 -Wall -pedantic -Wextra -fmax-errors=5 -Wno-unused-parameter
+#FLAGS= -std=c++11 -Wall -pedantic -Wextra -fmax-errors=5 -Wno-unused-parameter -fdiagnostics-color -static-libgcc -static-libstdc++
+FLAGS= -std=c++11 -Wall -pedantic -Wextra -fmax-errors=5 -Wno-unused-parameter -fdiagnostics-color
+#FLAGS= -std=c++11 -Wall -pedantic -Wextra -fmax-errors=5 -Wno-unused-parameter
+DFLAGS = -g -O0
 
 INC_PATH = -Iinclude -I../Engine/include
 SRC_PATH = src
@@ -41,6 +44,7 @@ RM = del
 SDL_PATH = C:/Tools/msys64/mingw64
 INC_PATH += -I$(SDL_PATH)/include/SDL2
 FLAGS += -mwindows
+DFLAGS += -mconsole
 LIBS := -lmingw32 -lSDL2main $(LIBS)
 
 #Nome do executável
@@ -86,10 +90,10 @@ clean:
 #regra pra debug
 print-% : ; @echo $* = $($*)
 
-debug: FLAGS += -g -O0
+debug: FLAGS += $(DFLAGS)
 debug: all
 
-fdebug: FLAGS += -g -O0
+fdebug: FLAGS += $(DFLAGS)
 fdebug: objects
 
 release: FLAGS += -O3 -mtune=native

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zoom',['Zoom',['../classCamera.html#ad6638a961e2fefbe69d4d7d0a0591fb6',1,'Camera']]]
+  ['wave',['Wave',['../classWave.html#a3d8144ec0d6c0b0ede77ff59f54471aa',1,'Wave']]]
 ];
