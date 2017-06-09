@@ -23,10 +23,10 @@ void DragAndDrop::Update(GameObject &associated, float dt) {
 		}
 	}
 */
-	if(isDragging && inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON)) {
+	if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON)) {
 		Vec2 mousePos = Camera::ScreenToWorld(inputManager.GetMousePos());
 		associated.box = mousePos-Vec2(associated.box.w/2, associated.box.h/2);
-	} else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON) && isDragging) {
+	} else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON)) {
 		tileMap->InsertGO(&associated);
 		associated.RemoveComponent(DRAG_AND_DROP);
 	}
