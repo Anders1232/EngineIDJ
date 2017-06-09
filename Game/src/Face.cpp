@@ -11,8 +11,8 @@ Face::Face(float x, float y, Vec2 tileSize, TileMap *tileMap)
 		, hitpoints(FACE_HP) {
 	box.x = x;
 	box.y = y;
-	sp.ScaleX(tileSize.x/sp.GetWidth()*2);
-	sp.ScaleY(tileSize.y/sp.GetHeight()*2);
+	sp.ScaleX(tileSize.x/sp.GetWidth()*4);
+	sp.ScaleY(tileSize.y/sp.GetHeight()*4);
 	sp.colorMultiplier = Color( 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX );
 	sp.alpha = 255*(float)rand()/RAND_MAX;
 	box.w = sp.GetWidth();
