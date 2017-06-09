@@ -80,7 +80,7 @@ void TileMap::RenderLayer(int layer, Vec2 pos, bool parallax, Vec2 mouse) const 
 					destination = pos + Vec2(x*tileSet->GetTileWidth(), y*tileSet->GetTileHeight());
 				}
 				Rect tile(destination.x, destination.y, tileSet->GetTileWidth(), tileSet->GetTileHeight());
-				tileSet->Render(index, destination, mouse.IsInRect(Camera::WorldToScreen(tile));
+				tileSet->Render(index, destination, mouse.IsInRect(Camera::WorldToScreen(tile)));
 			}
 		}
 	}

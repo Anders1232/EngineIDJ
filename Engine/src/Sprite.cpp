@@ -93,7 +93,7 @@ void Sprite::Render(Rect world, float angle, bool isCoordOnWorld) const {
 	}
 
 	SDL_Rect dst = world;
-	if(InputManager::GetInstance().GetMouseX() >= temp.x && InputManager::GetInstance().GetMouseX() <= (temp.x + temp.w) && InputManager::GetInstance().GetMouseY() >= temp.y && InputManager::GetInstance().GetMouseY() <= (temp.y + temp.h)){
+	if(InputManager::GetInstance().GetMouseX() >= dst.x && InputManager::GetInstance().GetMouseX() <= (dst.x + dst.w) && InputManager::GetInstance().GetMouseY() >= dst.y && InputManager::GetInstance().GetMouseY() <= (dst.y + dst.h)){
 		if ( -1 == SDL_SetTextureColorMod( texture.get(), (colorMultiplier.r + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.r + HIGHLIGHT), (colorMultiplier.g + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.g + HIGHLIGHT), (colorMultiplier.b + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.b + HIGHLIGHT) ) ) {
 			CHECK_SDL_ERROR;
 		}

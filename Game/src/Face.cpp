@@ -7,22 +7,12 @@
 typedef unsigned int uint;
 
 Face::Face(float x, float y, Vec2 tileSize, TileMap *tileMap)
-<<<<<<< HEAD
-	:sp("img/tower/torre_fumaca.png", true),
-	hitpoints(FACE_HP){
-		
-	box.x= x;
-	box.y= y;
-	sp.ScaleX(tileSize.x/sp.GetWidth()*2);
-	sp.ScaleY(tileSize.y/sp.GetHeight()*2);
-=======
 		: sp("img/tower/torre_fumaca.png")
 		, hitpoints(FACE_HP) {
 	box.x = x;
 	box.y = y;
 	sp.ScaleX(tileSize.x/sp.GetWidth()*4);
 	sp.ScaleY(tileSize.y/sp.GetHeight()*4);
->>>>>>> c5107e99d962ecdbc0c16f62d763d212369ef492
 	sp.colorMultiplier = Color( 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX );
 	sp.alpha = 255*(float)rand()/RAND_MAX;
 	box.w = sp.GetWidth();
