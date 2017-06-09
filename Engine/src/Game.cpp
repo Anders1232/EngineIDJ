@@ -126,7 +126,7 @@ void Game::Push(State* state) {
 }
 
 void Game::Run(void) {
-	if(nullptr !=  storedState) {
+	if(nullptr != storedState) {
 		stateStack.push(std::unique_ptr<State>(storedState));
 		storedState= nullptr;
 	} else {

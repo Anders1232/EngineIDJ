@@ -6,11 +6,11 @@
 #include "ActionManager.h"
 
 #define CAMERA_DEFAULT_MIN_ZOOM (0.075)
-#define CAMERA_DEFAULT_MAX_ZOOM (1.5)
+#define CAMERA_DEFAULT_MAX_ZOOM (1.0)
 #define CAMERA_DEFAULT_ZOOMABLE (true)
 #define CAMERA_DEFAULT_ZOOM_SPEED (5.0/200.)
-#define CAMERA_DEFAULT_MIN_SPEED (150.)
-#define CAMERA_DEFAULT_MAX_SPEED (500.)
+#define CAMERA_DEFAULT_MIN_SPEED (200.)
+#define CAMERA_DEFAULT_MAX_SPEED (1000.)
 /**
 	\brief Classe que modela a câmera
 	

@@ -27,6 +27,9 @@
 #define FACE_LINEAR_SIZE 30
 #define TIME_BETWEEN_SPAWNS (3.)
 #define STAGE_STATE_DELTA_VOLUME (1) //11*11 = 121 ~128
+#define CAM_START_X 300
+#define CAM_START_Y 300
+#define CAM_START_ZOOM 0.3
 
 StageState::StageState(void)
 		: State()
@@ -41,6 +44,8 @@ StageState::StageState(void)
 	spawnGroups = tileMap->GetSpawnPositions();
 	REPORT_I_WAS_HERE;
 	music.Play(10);
+	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
+	Camera::ForceZoom(CAM_START_ZOOM);
 }
 
 StageState::~StageState(void) {
@@ -51,7 +56,7 @@ StageState::~StageState(void) {
 
 void StageState::Update(float dt) {
 	REPORT_I_WAS_HERE;
-	if(inputManager.KeyPress(ESCAPE_KEY)) {
+	if(ActionManager::EscapeAction()) {
 		popRequested = true;
 	}
 	if(inputManager.QuitRequested()) {
