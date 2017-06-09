@@ -1,3 +1,5 @@
+Game/src/GameResources.cpp
+Game/include/GameResources.h
 Game/src/StageState.cpp
 Game/src/TitleState.cpp
 Game/src/main.cpp
