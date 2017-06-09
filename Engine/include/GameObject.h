@@ -97,7 +97,7 @@ class GameObject{
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/
 	protected:
-		std::vector<Component* > components;
+		std::vector<Component* > components;/**< Vetor de componentes, que provêem funcionalidades adicionais.*/
 };
 
 #endif // GAMEOBJECT_H

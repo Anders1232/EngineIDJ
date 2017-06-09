@@ -1,4 +1,4 @@
 <map id="Wave" name="Wave">
-<area shape="rect" id="node2" href="$classGameObject.html" title="GameObject" alt="" coords="161,228,255,255"/>
-<area shape="rect" id="node4" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="280,139,331,165"/>
+<area shape="rect" id="node2" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="52,228,147,255"/>
+<area shape="rect" id="node3" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="74,139,125,165"/>
 </map>

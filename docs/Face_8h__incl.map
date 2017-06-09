@@ -1,10 +1,10 @@
 <map id="Game/include/Face.h" name="Game/include/Face.h">
-<area shape="rect" id="node2" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="189,155,296,181"/>
-<area shape="rect" id="node5" href="$Rect_8h.html" title="Rect.h" alt="" coords="5,229,67,256"/>
-<area shape="rect" id="node10" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="552,229,619,256"/>
-<area shape="rect" id="node12" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="345,80,423,107"/>
-<area shape="rect" id="node9" href="$Component_8h.html" title="Component.h" alt="" coords="91,229,191,256"/>
-<area shape="rect" id="node6" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="98,304,161,331"/>
-<area shape="rect" id="node11" href="$Color_8h.html" title="Color.h" alt="" coords="553,304,617,331"/>
-<area shape="rect" id="node13" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="501,155,573,181"/>
+<area shape="rect" id="node2" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="158,155,265,181"/>
+<area shape="rect" id="node7" href="$Rect_8h.html" title="Rect.h" alt="" coords="145,304,206,331"/>
+<area shape="rect" id="node10" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="382,229,449,256"/>
+<area shape="rect" id="node12" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="363,80,441,107"/>
+<area shape="rect" id="node6" href="$Component_8h.html" title="Component.h" alt="" coords="23,229,123,256"/>
+<area shape="rect" id="node8" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="400,379,463,405"/>
+<area shape="rect" id="node11" href="$Color_8h.html" title="Color.h" alt="" coords="370,304,434,331"/>
+<area shape="rect" id="node13" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="390,155,462,181"/>
 </map>
