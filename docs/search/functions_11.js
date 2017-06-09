@@ -3,6 +3,7 @@ var searchData=
   ['scale',['Scale',['../classSprite.html#aa8b31cd4deebedbbdf8ca3923a3064c6',1,'Sprite']]],
   ['scalex',['ScaleX',['../classSprite.html#a42b3a6ed82560c5b97085cc127984cf4',1,'Sprite']]],
   ['scaley',['ScaleY',['../classSprite.html#ad4a9b4df6061cf7391403a4d03286ff0',1,'Sprite']]],
+  ['screentoworld',['ScreenToWorld',['../classCamera.html#ae9052ebbd6df7d3f72d535c6eb359aa6',1,'Camera::ScreenToWorld(Vec2 screen)'],['../classCamera.html#aea71faffba129d596f80d3ccc7a3e647',1,'Camera::ScreenToWorld(Rect screen)']]],
   ['setclip',['SetClip',['../classSprite.html#a3ad46a400f83d41eaba2c2df77e0cf7c',1,'Sprite']]],
   ['setcolor',['SetColor',['../classText.html#a16b351605f583b6ece8c93fc8c4df279',1,'Text']]],
   ['setfontsize',['SetFontSize',['../classText.html#a0d37b9c067e62e10ebd1f0f74dbb5e66',1,'Text']]],

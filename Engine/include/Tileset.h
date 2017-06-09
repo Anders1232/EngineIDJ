@@ -2,6 +2,7 @@
 #define TILESET_H
 
 #include <string>
+
 #include "Sprite.h"
 
 using std::string;
@@ -26,18 +27,17 @@ class TileSet {
 		/**
 			\brief Renderiza tile.
 			\param index Índice do tile no tileSet.
-			\param x Posição x onde o tile deve ser renderizado.
-			\param y Posição y onde o tile deve ser renderizado.
-			\param zoom Verdadeiro se o tile deve sofrer zoom, falso caso contrário.
+			\param pos Posição x,y onde o tile deve ser renderizado.
 			\param highlighted Verdadeiro se for para o tile sofrer um Highlight.
 
 			Usando aritmética de módulo conseguimos associar o index à uma posição (linha, coluna) na matriz de tiles.
 			Essa informação é usada para entaão obter o x e y do tile no sprite.
 			Após isso calcula-se o rect onde essa imagem será renderizada utilizando o x e y enviados como argumento e atribuindo a w e h tileWidth e tileHeight.
-			Nesse momento verifica-se o o tile deve sofrer zoom, se sim, o rect calculado acima é multiplicado pelo valor de zoom armazenado na câmera.
+			Nesse momento, solicita-se para a câmera transformar a posição no mundo para a posição na tela.
 			Após isso, renderiza-se o tile informado na posição calculada da tela.
 		*/
-		void Render(unsigned int index, float x, float y, bool zoom= true, bool highlighted= false);
+		
+		void Render(unsigned int index, Vec2 pos, bool highlighted= false);
 		/**
 			\brief Obtém largura de um tile.
 			\return Valor de tileWidth.

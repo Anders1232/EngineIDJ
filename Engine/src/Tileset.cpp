@@ -5,27 +5,30 @@
 
 #define HIGHLIGHT 30
 
-TileSet::TileSet(int tileWidth, int tileHeight, string file): tileSet(file, true), tileWidth(tileWidth), tileHeight(tileHeight) {
+TileSet::TileSet(int tileWidth, int tileHeight, string file)
+		: tileSet(file, true)
+		, tileWidth(tileWidth)
+		, tileHeight(tileHeight) {
+
 	REPORT_I_WAS_HERE;
-	rows= tileSet.GetHeight()/tileHeight;
-	columns= tileSet.GetWidth()/tileWidth;
+	rows = tileSet.GetHeight()/tileHeight;
+	columns = tileSet.GetWidth()/tileWidth;
 }
 
-void TileSet::Render(unsigned int index, float x, float y, bool zoom, bool highlighted) {
-	ASSERT2(index < (unsigned int)rows*columns, "\tReceived "<<index<<" but tileSet has size " << (unsigned int)rows*columns );
+void TileSet::Render(unsigned int index, Vec2 pos, bool highlighted) {
+	ASSERT2((unsigned int)rows*columns > index, "\tReceived "<<index<<" but tileSet has size " << (unsigned int)rows*columns );
 	unsigned int desiredLine, desiredColumn;
-	desiredLine= index/columns;
-	desiredColumn= index%columns;
+	desiredLine = index/columns;
+	desiredColumn = index%columns;
 	SDL_Rect wantedSubSprite;
-	wantedSubSprite.x= desiredColumn*tileWidth;
-	wantedSubSprite.y= desiredLine*tileHeight;
-	wantedSubSprite.w= tileWidth;
-	wantedSubSprite.h= tileHeight;
-	Rect destinyRect(x, y, tileWidth, tileHeight);
-	if(zoom) {
-		destinyRect= destinyRect*Camera::GetZoom();
-	}
-	SDL_Rect destinyPosition= destinyRect;
+
+	wantedSubSprite.x = desiredColumn*tileWidth;
+	wantedSubSprite.y = desiredLine*tileHeight;
+	wantedSubSprite.w = tileWidth;
+	wantedSubSprite.h = tileHeight;
+	Rect destinyRect(pos.x, pos.y, tileWidth, tileHeight);
+	SDL_Rect dst = Camera::WorldToScreen(destinyRect);
+
 	Color color = Color(tileSet.colorMultiplier.r, tileSet.colorMultiplier.g, tileSet.colorMultiplier.b);
 	if(highlighted){
 		color.r = (tileSet.colorMultiplier.r + HIGHLIGHT) > 255 ? 255 : (tileSet.colorMultiplier.r + HIGHLIGHT);
@@ -35,7 +38,7 @@ void TileSet::Render(unsigned int index, float x, float y, bool zoom, bool highl
 	if ( -1 == SDL_SetTextureColorMod( tileSet.GetTexture().get(), color.r, color.g, color.b) ) {
 		CHECK_SDL_ERROR;
 	}
-	SDL_RenderCopy(Game::GetInstance().GetRenderer(), tileSet.GetTexture().get(), &wantedSubSprite, &destinyPosition);
+	SDL_RenderCopy(Game::GetInstance().GetRenderer(), tileSet.GetTexture().get(), &wantedSubSprite, &dst);
 //	REPORT_I_WAS_HERE;
 }
 

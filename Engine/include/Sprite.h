@@ -14,10 +14,11 @@
 	#error "Unknown compiler"
 #endif
 
-#include "Color.h"
-
 #include <string>
 #include <memory>
+
+#include "Color.h"
+#include "Rect.h"
 
 #define ALPHA_BLEND SDL_BLENDMODE_BLEND
 #define ADDITIVE SDL_BLENDMODE_ADD
@@ -72,16 +73,16 @@ class Sprite {
 		void SetClip(int x, int y, int w, int h);
 		/**
 			\brief Renderiza  a imagem.
-			\param x Ponto x da tela a partir do qual a imagem deve ser renderizada.
-			\param y Ponto y da tela a partir do qual a imagem deve ser renderizada.
+			\param world Região a partir do qual a imagem deve ser renderizada.
 			\param angle Ângulo de rotação da imagem.
-			\param zoom Verdadeiro se a imagem deve sofrer zoom, falso caso contrário.
+			\param isCoordOnWorld Verdadeiro se a região a ser renderizada deve ser convertida do mundo para tela. Falso se as coordenadas já estão convertidas (UI e BGs, por exemplo).
 
 			Renderiza o corte da imagem existente em clipRect nas posições (x, y) da informada nos argumentos.
-			Os valores x, y, w e h da posição da tela serão multiplicados pelo valor de zoom contidos na câmera se o argumento zoom for verdadeiro. A imagem será rotacionada de acordo com o argumento angle.
-			Os valores de w e h de destino alteram de acordo com a escala do objeto.
+			A imagem será rotacionada de acordo com o argumento angle.
+			Os valores do retângulo serão convertidos do mundo para tela se isCoordOnWorld for verdadeiro.
+			É realizado uma otimização para que, se a Sprite não possuir nenhuma coordenada na tela, ela não será renderizada.
 		*/
-		void Render(int x, int y, float angle=0, bool zoom= false) const;
+		void Render(Rect world, float angle=0, bool isCoordOnWorld=true) const;
 		/**
 			\brief Informa a largura do sprite
 

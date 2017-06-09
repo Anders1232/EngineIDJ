@@ -9,63 +9,63 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 138)">
 <title>Gráfico de Hierarquia de Classes</title>
 <polygon fill="white" stroke="none" points="-4,4 -4,-138 171,-138 171,4 -4,4"/>
-<!-- Node0 -->
-<g id="node1" class="node"><title>Node0</title>
-<g id="a_node1"><a xlink:href="classGameObject.html" target="_top" xlink:title="GameObject">
+<!-- Node1 -->
+<g id="node1" class="node"><title>Node1</title>
+<g id="a_node1"><a xlink:href="classGameObject.html" target="_top" xlink:title="Classe virtual que especifica o funcionamento de um GameObject. ">
 <polygon fill="white" stroke="black" points="0,-57.5 0,-76.5 71,-76.5 71,-57.5 0,-57.5"/>
 <text text-anchor="middle" x="35.5" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">GameObject</text>
 </a>
 </g>
 </g>
-<!-- Node1 -->
-<g id="node2" class="node"><title>Node1</title>
+<!-- Node2 -->
+<g id="node2" class="node"><title>Node2</title>
 <g id="a_node2"><a xlink:href="classAnimation.html" target="_top" xlink:title="Classe que modela animações. ">
 <polygon fill="white" stroke="black" points="107,-114.5 107,-133.5 167,-133.5 167,-114.5 107,-114.5"/>
 <text text-anchor="middle" x="137" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">Animation</text>
 </a>
 </g>
 </g>
-<!-- Node0&#45;&gt;Node1 -->
-<g id="edge1" class="edge"><title>Node0&#45;&gt;Node1</title>
+<!-- Node1&#45;&gt;Node2 -->
+<g id="edge1" class="edge"><title>Node1&#45;&gt;Node2</title>
 <path fill="none" stroke="midnightblue" d="M62.2229,-81.7358C80.2359,-92.0548 103.779,-105.542 119.37,-114.474"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="63.7957,-78.6031 53.3788,-76.6693 60.3161,-84.6771 63.7957,-78.6031"/>
 </g>
-<!-- Node2 -->
-<g id="node3" class="node"><title>Node2</title>
+<!-- Node3 -->
+<g id="node3" class="node"><title>Node3</title>
 <g id="a_node3"><a xlink:href="classEnemy.html" target="_top" xlink:title="Classe que modela inimigos. ">
 <polygon fill="white" stroke="black" points="113.5,-76.5 113.5,-95.5 160.5,-95.5 160.5,-76.5 113.5,-76.5"/>
 <text text-anchor="middle" x="137" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">Enemy</text>
 </a>
 </g>
 </g>
-<!-- Node0&#45;&gt;Node2 -->
-<g id="edge2" class="edge"><title>Node0&#45;&gt;Node2</title>
+<!-- Node1&#45;&gt;Node3 -->
+<g id="edge2" class="edge"><title>Node1&#45;&gt;Node3</title>
 <path fill="none" stroke="midnightblue" d="M81.1167,-75.5198C92.2879,-77.653 103.808,-79.8528 113.392,-81.6829"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="81.5001,-72.0298 71.021,-73.592 80.187,-78.9056 81.5001,-72.0298"/>
 </g>
-<!-- Node3 -->
-<g id="node4" class="node"><title>Node3</title>
+<!-- Node4 -->
+<g id="node4" class="node"><title>Node4</title>
 <g id="a_node4"><a xlink:href="classFace.html" target="_top" xlink:title="Face">
 <polygon fill="white" stroke="black" points="118,-38.5 118,-57.5 156,-57.5 156,-38.5 118,-38.5"/>
 <text text-anchor="middle" x="137" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">Face</text>
 </a>
 </g>
 </g>
-<!-- Node0&#45;&gt;Node3 -->
-<g id="edge3" class="edge"><title>Node0&#45;&gt;Node3</title>
+<!-- Node1&#45;&gt;Node4 -->
+<g id="edge3" class="edge"><title>Node1&#45;&gt;Node4</title>
 <path fill="none" stroke="midnightblue" d="M81.1987,-58.4646C94.0955,-56.0019 107.45,-53.4518 117.747,-51.4856"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="80.187,-55.0944 71.021,-60.408 81.5001,-61.9702 80.187,-55.0944"/>
 </g>
-<!-- Node4 -->
-<g id="node5" class="node"><title>Node4</title>
+<!-- Node5 -->
+<g id="node5" class="node"><title>Node5</title>
 <g id="a_node5"><a xlink:href="classWave.html" target="_top" xlink:title="Wave">
 <polygon fill="white" stroke="black" points="116,-0.5 116,-19.5 158,-19.5 158,-0.5 116,-0.5"/>
 <text text-anchor="middle" x="137" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Wave</text>
 </a>
 </g>
 </g>
-<!-- Node0&#45;&gt;Node4 -->
-<g id="edge4" class="edge"><title>Node0&#45;&gt;Node4</title>
+<!-- Node1&#45;&gt;Node5 -->
+<g id="edge4" class="edge"><title>Node1&#45;&gt;Node5</title>
 <path fill="none" stroke="midnightblue" d="M62.2229,-52.2642C80.2359,-41.9452 103.779,-28.4581 119.37,-19.5265"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="60.3161,-49.3229 53.3788,-57.3307 63.7957,-55.3969 60.3161,-49.3229"/>
 </g>

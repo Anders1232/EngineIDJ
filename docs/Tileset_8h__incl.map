@@ -1,4 +1,6 @@
 <map id="Engine/include/Tileset.h" name="Engine/include/Tileset.h">
-<area shape="rect" id="node3" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="91,80,158,107"/>
-<area shape="rect" id="node4" href="$Color_8h.html" title="Color.h" alt="" coords="97,155,161,181"/>
+<area shape="rect" id="node3" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="93,80,159,107"/>
+<area shape="rect" id="node5" href="$Color_8h.html" title="Color.h" alt="" coords="185,155,249,181"/>
+<area shape="rect" id="node6" href="$Rect_8h.html" title="Rect.h" alt="" coords="273,155,334,181"/>
+<area shape="rect" id="node7" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="229,229,292,256"/>
 </map>
