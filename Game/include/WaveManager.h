@@ -9,7 +9,7 @@
 
 #include <memory>
 //#include "EnemyData.h"
-
+typedef unsigned int uint;
 using std::vector;
 
 class WaveManager : public Component {
@@ -22,7 +22,7 @@ class WaveManager : public Component {
 		void StartWave();
 		bool EndWave();
 	private:
-		void SpawnEnemy(int tileMapPosition, int enemyId);
+		void SpawnEnemy(int tileMapPosition, int enemyId,uint baseHP, uint endPoint);
 		vector<vector<int>> *spawnGroups;
 		static int waveCount; //contador de waves restantes. Tbm usado para nivelar as waves
 		Timer spawnTimer;

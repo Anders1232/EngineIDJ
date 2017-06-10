@@ -47,7 +47,6 @@ bool WaveManager::EndWave(){
 void WaveManager::Update(GameObject &associated, float dt){
 	int enemyId;
 	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
-	EnemyData currentWaveEnemy = wavesAndEnemysData->second[waveIndex];
 	
 	if(EndWave()){
 		if(totalWaves==waveCount){ //Game end Condition
@@ -70,8 +69,12 @@ void WaveManager::Update(GameObject &associated, float dt){
 		if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){
 			for (uint i = 0; i < currentWave.spawnPointsData.size(); i++){
 				enemyId = currentWave.spawnPointsData[i].enemySpawnData[enemyIndex].enemyIndex;
-				int spawnPosition = rand()% currentWave.spawnPointsData[i].tiles.size();
-				SpawnEnemy( (*spawnGroups)[i][spawnPosition], enemyId );
+				uint baseHP = currentWave.spawnPointsData[i].enemySpawnData[enemyIndex].baseHP;
+				uint endPoint = currentWave.spawnPointsData[i].enemySpawnData[enemyIndex].endPoint;
+
+				int spawnPosition = rand()% ( (*spawnGroups)[i] ).size();
+				//int spawnPosition = rand()% currentWave.spawnPointsData[i].tiles.size();
+				SpawnEnemy( (*spawnGroups)[i][spawnPosition], enemyId, baseHP, endPoint );
 			}
 			spawnTimer.Restart();
 		}
@@ -81,13 +84,16 @@ void WaveManager::Update(GameObject &associated, float dt){
 	}
 }
 
-void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId){
+void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint endPoint ){
+	EnemyData currentWaveEnemyData = wavesAndEnemysData->second[waveIndex];
+	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
+
 	Vec2 tileSize= tileMap.GetTileSize();
 	Vec2 spawnPosition;
 	spawnPosition.x = (tileMapPosition%tileMap.GetWidth() ) * tileSize.x;
 	spawnPosition.y = (tileMapPosition/tileMap.GetWidth() ) * tileSize.y;
 	Enemy* enemy = new Enemy(spawnPosition, 1.);
-	//new Enemy(spawnPosition, enemyIndex, uint quant, uint baseHP, uint endPoint)
+	//new Enemy(spawnPosition, currentWaveEnemyData, enemyIndex, baseHP, endPoint)
 	Game::GetInstance().GetCurrentState().AddObject(enemy);
 }
 

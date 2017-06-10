@@ -29,7 +29,7 @@ struct EnemySpawnData{
 struct SpawnPointData{
 	public:
 		std::vector<EnemySpawnData> enemySpawnData;
-		std::vector<int> tiles;
+		//std::vector<int> tiles;
 };
 
 struct WaveData{

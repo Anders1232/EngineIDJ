@@ -13,13 +13,18 @@ Enemy::Enemy(Vec2 position, int life ):sp("img/enemy/reference_assembled.png",0.
 	sp.SetFrame(1);
 }
 
-Enemy::Enemy(Vec2 position, int enemyIndex, uint quant, uint baseHP, uint endPoint): sp(), dead(false){
+Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint): sp(), dead(false){
 	box = position;
 	this->enemyIndex = enemyIndex; 
 	this->quant = quant; 
 	this->baseHP = baseHP; 
 	this->endPoint = endPoint;
 
+	bodySpName.Open(enemyData.bodySpName);
+	headSpName.Open(enemyData.headSpName);
+	pantsSpName.Open(enemyData.pantsSpName);
+
+	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED)); //arg endPoint
 }
 
 
