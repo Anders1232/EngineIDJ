@@ -23,13 +23,13 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 
 WaveManager::~WaveManager(){
 	delete spawnGroups;
-
+	delete wavesAndEnemysData;
 }
 
 void WaveManager::StartWave(){
 	enemiesLeft=0;
-	for (uint i = 0; i < wavesAndEnemysData->first[waveIndex].spawnPointsData.size(); ++i){
-		for (uint j = 0; j < wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData.size(); ++i){
+	for (uint i = 0; i < wavesAndEnemysData->first[waveIndex].spawnPointsData.size(); i++){
+		for (uint j = 0; j < wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData.size(); j++){
 			enemiesLeft += wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData[j].quant;
 		}
 	}
@@ -39,13 +39,9 @@ void WaveManager::StartWave(){
 	++waveCount;
 }
 
+
 bool WaveManager::EndWave(){
-	if (0 >= enemiesLeft){
-		return true;
-	}
-	else{
-		return false;
-	}
+	return endWave;
 }
 
 void WaveManager::Update(GameObject &associated, float dt){
@@ -59,7 +55,6 @@ void WaveManager::Update(GameObject &associated, float dt){
 			StartWave();
 		}
 	}else {
-
 		spawnTimer.Update(dt);
 		if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){
 			int selectedSpawnGroup = rand()%spawnGroups->size();
@@ -67,8 +62,14 @@ void WaveManager::Update(GameObject &associated, float dt){
 			SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition] );
 			spawnTimer.Restart();
 		}
+		//usando Resources
+		
+
 	}
 
+	if (0 >= enemiesLeft){
+		endWave = true;
+	}
 }
 
 void WaveManager::SpawnEnemy(int tileMapPosition){
