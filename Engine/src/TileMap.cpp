@@ -390,45 +390,42 @@ std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarH
 	//Obtem vetor de pesos do tile que deve ser considerado
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > > paths;
-	//Heap para armazenar nós a serem processados
-	std::priority_queue<std::pair<double,int>,std::vector<std::pair<double,int> >,LessThanByHeuristic(originTile,destTile,heuristic,mapWidth)> processList;
+	std::vector<std::pair<double,int> > processList;
 	//inicia o vetor de distâncias e de visited
 	std::vector<double> dist(tileMatrix.size(),std::numeric_limits<float>::max());
 	std::vector<double> visited(tileMatrix.size(),false);
 	//a distância de orig para orig é 0
 	dist[originTile] = 0.0;
 	//Inicializa listas de processamento e de caminhos
-	processList.emplace(std::make_pair(dist[originTile],originTile),LessThanByHeuristic(originTile,destTile,heuristic,mapWidth));
+	processList.emplace(processList.begin(),std::make_pair(dist[originTile],originTile));
 	paths.push_back(std::make_pair(originTile,std::make_pair(originTile,dist[originTile])));
 
 	//Loop de processamento do Djkistra
 	while(!processList.empty()){
 		//Seleciona o nó com menor custo fazendo assim uma busca guiada(A*)
-		std::pair<double,unsigned int> current = processList.top();
-		processList.pop();// remove da lista
+		std::sort(processList.begin(), processList.end(), LessThanByHeuristic(originTile,destTile,heuristic,mapWidth));
+		std::pair<double,unsigned int> current = processList[0];
+		processList.erase(processList.begin());// remove da lista
 		//Obtém todos os vizinhos de "current"
-		std::vector<unsigned int> neighbors = tilemap.GetNeighbors(current.second);
+		std::vector<int> neighbors = GetNeighbors(current.second);
 		//Se chegou ao destino sai do loop
 		if(current.second = destTile){break;}
 		// percorre os vértices "v" adjacentes de "current"
 		for(unsigned int j = 0 ; j < neighbors.size();j ++){
 			//Se o vértice já foi visitado ou não é atingível passa-se para o proximo
-			if(visited[neighbors[j]] || !Traversable(neighbors[j]]) || weightMap[AtLayer(neighbors[j],COLLISION_LAYER)]){continue;}
+			if (visited[neighbors[j]] || !Traversable(neighbors[j]) || weightMap[AtLayer(neighbors[j],COLLISION_LAYER)]){continue;}
 			//Verifica se o custo do caminho a partir de current é menor que o registrado no vizinho
-			if(dist[neighbors[j]] > dist[p.second] + weightMap[AtLayer(neighbors[j],COLLISION_LAYER)]){
+			if(dist[neighbors[j]] > dist[current.second] + weightMap[AtLayer(neighbors[j],COLLISION_LAYER)]){
 				//Caso o vizinho já tenha sido processado em alguma iteração
 				if (dist[neighbors[j]] != std::numeric_limits<float>::max()){
 					//Remove o custo e o caminho associado ao vizinho das listas visto que novos serão inseridos
-					//processList.remove(std::make_pair(dist[neighbors[j]],neighbors[j]));
-					auto it = std::find(processList->c.begin(), processList->c.end(), std::make_pair(dist[neighbors[j]],neighbors[j]));
-					if (it != processList->c.end()) {
-						processList->c.erase(it);
-						std::make_heap(processList->c.begin(), processList->c.end(), processList->comp);
-					}
+					std::vector<std::pair<double,int> >::iterator it = find (processList.begin(), processList.end(), std::make_pair(dist[neighbors[j]],neighbors[j]));
+					processList.erase(it);
 					paths.remove(std::make_pair(neighbors[j],std::make_pair(current.second,weightMap[AtLayer(neighbors[j],COLLISION_LAYER)])));
+				}
 				// atualiza a distância do vizinho e insere nas listas
-				dist[neighbors[j]] = dist[p.second] + weightVector[neighbors[j]];
-				paths.push_back(std::make_pair(neighbors[j],std::make_pair(p.second,weightMap[AtLayer(neighbors[j],COLLISION_LAYER)])));
+				dist[neighbors[j]] = dist[current.second] + weightMap[AtLayer(neighbors[j],COLLISION_LAYER)];
+				paths.push_back(std::make_pair(neighbors[j],std::make_pair(current.second,weightMap[AtLayer(neighbors[j],COLLISION_LAYER)])));
 				processList.push_back(std::make_pair(weightMap[AtLayer(neighbors[j],COLLISION_LAYER)],neighbors[j]));
 			}
 		}
@@ -436,7 +433,7 @@ std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarH
 	}
 	//Deducao do caminho
 	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > >::iterator it;
-	std::list<unsigned int> path;
+	std::list<int> path;
 	unsigned int actual_node,aux_compare;
 	actual_node = destTile;
 	
