@@ -298,7 +298,7 @@ std::vector<int> TileMap::GetNeighbors(int tileIndex) const{
 
 		}
 		//Se não está no limite inferior
-		if(tileIndex + mapWidth +1 < tileMatrix.size()){
+		if(tileIndex + mapWidth + 1 < (int)tileMatrix.size()){
 
 			neighbors.push_back(tileIndex + 1);
 			neighbors.push_back(tileIndex + mapWidth-1);
@@ -328,7 +328,7 @@ std::vector<int> TileMap::GetNeighbors(int tileIndex) const{
 
 		}
 		//Se não está no limite inferior
-		if(tileIndex + mapWidth < tileMatrix.size()){
+		if(tileIndex + mapWidth < (int)tileMatrix.size()){
 
 			neighbors.push_back(tileIndex + mapWidth - 1);
 			neighbors.push_back(tileIndex + mapWidth);
@@ -352,7 +352,7 @@ std::vector<int> TileMap::GetNeighbors(int tileIndex) const{
 
 		}
 		//Se não está no limite inferior
-		if(tileIndex + mapWidth < tileMatrix.size()){
+		if(tileIndex + mapWidth < (int)tileMatrix.size()){
 
 			neighbors.push_back(tileIndex + mapWidth);
 			neighbors.push_back(tileIndex + mapWidth + 1);
@@ -368,8 +368,8 @@ struct TileMap::LessThanByHeuristic{
 
 	public:
 
-		LessThanByHeuristic(int origin,int dest,std::unique_ptr<AStarHeuristic> heuristic,int mapWidth):
-		originTile(origin),destTile(dest),heuristic(heuristic.release()),tileMapWidth(tileMapWidth){}
+		LessThanByHeuristic(int origin,int dest,AStarHeuristic* heuristic,int mapWidth):
+		originTile(origin),destTile(dest),heuristic(heuristic),tileMapWidth(tileMapWidth){}
 
 		bool operator()(const std::pair<double,int> lhs,const std::pair<double,int> rhs) const{
 			return lhs.first + (*heuristic)(Vec2(lhs.second / tileMapWidth,lhs.second % tileMapWidth),
@@ -381,15 +381,15 @@ struct TileMap::LessThanByHeuristic{
 	private:
 	
 		int originTile,destTile;
-		std::unique_ptr<AStarHeuristic> heuristic;
+		AStarHeuristic* heuristic;
 		int tileMapWidth;
 
 };
 
-std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarHeuristic> heuristic,std::map<int, int> weightMap){
+std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, int> weightMap){
 	//Obtem vetor de pesos do tile que deve ser considerado
 	//lista  de caminhos <destino,<anterior,custo>>);
-	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > > paths;
+	std::list<std::pair<int ,std::pair<int,double> > > paths;
 	std::vector<std::pair<double,int> > processList;
 	//inicia o vetor de distâncias e de visited
 	std::vector<double> dist(tileMatrix.size(),std::numeric_limits<float>::max());
@@ -404,12 +404,12 @@ std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarH
 	while(!processList.empty()){
 		//Seleciona o nó com menor custo fazendo assim uma busca guiada(A*)
 		std::sort(processList.begin(), processList.end(), LessThanByHeuristic(originTile,destTile,heuristic,mapWidth));
-		std::pair<double,unsigned int> current = processList[0];
+		std::pair<double,int> current = processList[0];
 		processList.erase(processList.begin());// remove da lista
 		//Obtém todos os vizinhos de "current"
 		std::vector<int> neighbors = GetNeighbors(current.second);
 		//Se chegou ao destino sai do loop
-		if(current.second = destTile){break;}
+		if(current.second == destTile){break;}
 		// percorre os vértices "v" adjacentes de "current"
 		for(unsigned int j = 0 ; j < neighbors.size();j ++){
 			//Se o vértice já foi visitado ou não é atingível passa-se para o proximo
@@ -432,9 +432,9 @@ std::list<int> TileMap::AStar(int originTile,int destTile,std::unique_ptr<AStarH
 		visited[current.second] = true;
 	}
 	//Deducao do caminho
-	std::list<std::pair<unsigned int ,std::pair<unsigned int,double> > >::iterator it;
+	std::list<std::pair<int ,std::pair<int,double> > >::iterator it;
 	std::list<int> path;
-	unsigned int actual_node,aux_compare;
+	int actual_node;
 	actual_node = destTile;
 	
 	while(actual_node != originTile){

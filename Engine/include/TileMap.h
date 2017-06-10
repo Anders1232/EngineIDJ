@@ -181,7 +181,7 @@ class TileMap{
 		std::vector<GameObject*> gameObjectMatrix;/**< TileMap linearizado de GameObjects*/	//bidimensional??
 		bool displayCollisionInfo;/**<Verdadeiro se as informações de colisão devem ser exibidas no TileMap::Render, falso caso contrário.*/
 		struct LessThanByHeuristic;
-		std::list<int> AStar(int originTile,int destTile,std::unique_ptr<AStarHeuristic> heuristic,std::map<int, int> weightMap);
+		std::list<int> AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, int> weightMap);
 		bool Traversable(int index) const;
 };
 
