@@ -2,6 +2,7 @@
 #include "Camera.h"
 #include "Error.h"
 #include "AIGoDown.h"
+#include "HitPoints.h"
 
 #define ENEMY_MOVE_SPEED (30.)
 
@@ -23,8 +24,21 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	bodySpName.Open(enemyData.bodySpName);
 	headSpName.Open(enemyData.headSpName);
 	pantsSpName.Open(enemyData.pantsSpName);
+	
+	bodySpName.SetScaleX(enemyData.scaleX);
+	headSpName.SetScaleX(enemyData.scaleX);
+	pantsSpName.SetScaleX(enemyData.scaleX);
+	bodySpName.SetScaleY(enemyData.scaleY);
+	headSpName.SetScaleY(enemyData.scaleY);
+	pantsSpName.SetScaleY(enemyData.scaleY);
 
+	bodySpName.SetFrame(1);
+	headSpName.SetFrame(1);
+	pantsSpName.SetFrame(1);
+	
 	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED)); //arg endPoint
+	//components.emplace_back(new PathFinding(endPoint)); //arg endPoint
+	components.push_back(new HitPoints(baseHP)); 
 }
 
 

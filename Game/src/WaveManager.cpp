@@ -13,7 +13,7 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 	endWave=false;
 	enemiesLeft = 0;
 	spawnGroups= tileMap.GetSpawnPositions();
-	wavesAndEnemysData = GameResources::GetWaveData();
+	wavesAndEnemysData = nullptr; //GameResources::GetWaveData();
 	enemyIndex = 0;
 	waveIndex=0;
 	totalWaves = wavesAndEnemysData->first.size();
