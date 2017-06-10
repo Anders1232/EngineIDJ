@@ -5,6 +5,8 @@
 #include <vector>
 #include "Error.h"
 
+typedef unsigned int uint;
+
 struct EnemyData{
 		//todo: ver coo colocar cores e transparência aqui
 	public:
@@ -14,7 +16,7 @@ struct EnemyData{
 		std::string bodySpName;
 		std::string headSpName;
 		std::string pantsSpName;
-}
+};
 
 struct EnemySpawnData{
 	public:
@@ -22,12 +24,12 @@ struct EnemySpawnData{
 		uint quant;
 		uint baseHP;
 		uint endPoint;
-}
+};
 
 struct SpawnPointData{
 	public:
 		std::vector<EnemySpawnData> enemySpawnData;
-}
+};
 
 struct WaveData{
 	public:

@@ -23,7 +23,6 @@
 #define STATE_RENDER_X 0//esse valores calculam o offset em relação ao canto superior esquedo da imagem daquilo que será renderizado
 #define STATE_RENDER_Y 0
 #define FACE_LINEAR_SIZE 30
-#define TIME_BETWEEN_SPAWNS (3.)
 #define STAGE_STATE_DELTA_VOLUME (1) //11*11 = 121 ~128
 
 StageState::StageState(void)
