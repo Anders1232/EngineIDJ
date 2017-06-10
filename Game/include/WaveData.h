@@ -12,7 +12,7 @@ struct EnemyData{
 	public:
 		std::string name;
 		float scaleX;
-		float sacleY;
+		float scaleY;
 		std::string bodySpName;
 		std::string headSpName;
 		std::string pantsSpName;
@@ -22,13 +22,14 @@ struct EnemySpawnData{
 	public:
 		int enemyIndex;
 		uint quant;
-		uint baseHP;
+		uint baseHP; //wave base units HP
 		uint endPoint;
 };
 
 struct SpawnPointData{
 	public:
 		std::vector<EnemySpawnData> enemySpawnData;
+		std::vector<int> tiles;
 };
 
 struct WaveData{

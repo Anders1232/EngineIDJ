@@ -22,7 +22,7 @@ class WaveManager : public Component {
 		void StartWave();
 		bool EndWave();
 	private:
-		void SpawnEnemy(int tileMapPosition);
+		void SpawnEnemy(int tileMapPosition, int enemyId);
 		vector<vector<int>> *spawnGroups;
 		static int waveCount; //contador de waves restantes. Tbm usado para nivelar as waves
 		Timer spawnTimer;
@@ -30,7 +30,7 @@ class WaveManager : public Component {
 		TileMap &tileMap;
 		bool endWave; //true se a level acabou
 		std::shared_ptr< std::pair< std::vector<WaveData>, std::vector<EnemyData> > > wavesAndEnemysData;
-		int waveIndex, totalWaves;
+		int waveIndex, enemyIndex, totalWaves;
 
 };
 

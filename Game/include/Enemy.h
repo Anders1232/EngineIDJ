@@ -8,7 +8,7 @@
 
 #define BASE_HIT_POINTS 100
 #define DIFICULTY_CONSTANT 12
-
+typedef unsigned int uint;
 
 /**
 	\brief Classe que modela inimigos
@@ -26,6 +26,7 @@ class Enemy : public GameObject
 			No momento a position informa o extremo superior esquedo a partir do qual o gameObject será instanciado.
 		*/
 		Enemy(Vec2 position, int life); // calcula vida e velocidade 
+		Enemy(Vec2 position, int enemyIndex, uint quant, uint baseHP, uint endPoint);
 		/**
 			\brief Destrutor
 			
@@ -82,6 +83,9 @@ class Enemy : public GameObject
 		enum EnemyType{ HOSTILE, NEUTRAL, ENGINEER, ARQUITET, ART, QUIMIC } type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
 		Sprite sp;/**< Sprite do inimigo.*/
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
+		
+		int enemyIndex; 
+		uint quant, baseHP, endPoint;
 };
 
 #endif

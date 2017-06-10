@@ -12,6 +12,17 @@ Enemy::Enemy(Vec2 position, int life ):sp("img/enemy/reference_assembled.png",0.
 	sp.SetScale(0.2);
 	sp.SetFrame(1);
 }
+
+Enemy::Enemy(Vec2 position, int enemyIndex, uint quant, uint baseHP, uint endPoint): sp(), dead(false){
+	box = position;
+	this->enemyIndex = enemyIndex; 
+	this->quant = quant; 
+	this->baseHP = baseHP; 
+	this->endPoint = endPoint;
+
+}
+
+
 Enemy::~Enemy(){
 	for(uint i =0; i < components.size(); i++){
 		delete components[i];
