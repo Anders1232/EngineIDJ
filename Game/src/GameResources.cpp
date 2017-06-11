@@ -22,7 +22,7 @@ std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > Game
 	return waveDataMap[file];
 }
 
-void GameResources::ReadWaveData(std::string file){
+void GameResources::ReadWeightData(std::string file){
 	FILE *filePtr= fopen(file.c_str(), "r");
 	std::shared_ptr<std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE> > newEntry(new std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE>() );
 	char readEnemyType[ENEMY_TYPE_MAX_STRING_SIZE+1];
@@ -60,7 +60,7 @@ void GameResources::ReadWaveData(std::string file){
 	}
 }
 
-//void GameResources::ReadWeightData(std::string file);
+void GameResources::ReadWaveData(std::string file);
 
 //void GameResources::SaveWeightData(std::array<std::map<int, int> *data)
 
