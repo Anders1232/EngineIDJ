@@ -24,6 +24,9 @@ std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > Game
 
 void GameResources::ReadWeightData(std::string file){
 	FILE *filePtr= fopen(file.c_str(), "r");
+	if(NULL == filePtr){
+		Error("\tCould not open " << file);
+	}
 	std::shared_ptr<std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE> > newEntry(new std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE>() );
 	char readEnemyType[ENEMY_TYPE_MAX_STRING_SIZE+1];
 	readEnemyType[ENEMY_TYPE_MAX_STRING_SIZE]= '\0';
@@ -58,9 +61,13 @@ void GameResources::ReadWeightData(std::string file){
 			Error("\tFile " << file << " have invalid format.");
 		}
 	}
+	fclose(filePtr);
+	weightDataMap[file]= newEntry;
 }
 
-void GameResources::ReadWaveData(std::string file);
+void GameResources::ReadWaveData(std::string file){
+	
+}
 
 //void GameResources::SaveWeightData(std::array<std::map<int, int> *data)
 
