@@ -15,7 +15,7 @@ struct EnemyData{
 		std::string bodySpName;
 		std::string headSpName;
 		std::string pantsSpName;
-}
+};
 
 struct EnemySpawnData{
 	public:
@@ -23,12 +23,12 @@ struct EnemySpawnData{
 		uint quant;
 		uint baseHP;
 		uint endPoint;
-}
+};
 
 struct SpawnPointData{
 	public:
 		std::vector<EnemySpawnData> enemySpawnData;
-}
+};
 
 struct WaveData{
 	public:
