@@ -17,6 +17,7 @@ class GameResources{
 		static std::shared_ptr<std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE> > GetWeightData(std::string file);//para o pathfiding
 		static std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > GetWaveData(std::string file);
 	private:
+		static EnemyType GetEnemyTypeFromString(std::string);
 		static void ReadWaveData(std::string file);
 		static void ReadWeightData(std::string file);
 		static void SaveWeightData(std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE > &data);

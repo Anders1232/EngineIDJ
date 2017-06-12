@@ -6,8 +6,14 @@
 #include "Error.h"
 
 struct EnemyData{
-		//todo: ver coo colocar cores e transparência aqui
+		//todo: ver como colocar cores e transparência aqui
 	public:
+		EnemyData(std::string name, int enemyType, float scaleX, float scaleY, std::string spName):
+			name(name),
+			enemyType(enemyType),
+			scaleX(scaleX),
+			scaleY(scaleY),
+			spName(spName){}
 		std::string name;
 		int enemyType;
 		float scaleX;
@@ -19,8 +25,13 @@ struct EnemyData{
 
 struct EnemySpawnData{
 	public:
+		EnemySpawnData(int index, int numberOfEnemies, int baseHP, uint endPoint):
+			enemyIndex(index),
+			numberOfEnemies(numberOfEnemies),
+			baseHP(baseHP),
+			endPoint(endPoint){}
 		int enemyIndex;
-		uint quant;
+		uint numberOfEnemies;
 		uint baseHP;
 		uint endPoint;
 };
@@ -32,8 +43,8 @@ struct SpawnPointData{
 
 struct WaveData{
 	public:
-		WaveData();
-		
+//		WaveData();
+		std::string waveName;
 		std::vector<SpawnPointData> spawnPointsData;
 		
 };
