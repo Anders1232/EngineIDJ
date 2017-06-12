@@ -10,7 +10,7 @@
 #define SPRITE_OPEN_Y (0)
 #define HIGHLIGHT 30
 
-Sprite::Sprite(void): Sprite("", 0, 1) {}
+Sprite::Sprite(void): Sprite("", false, 0, 1) {}
 
 Sprite::Sprite(std::string file, bool highlighted, float frameTime, int frameCount)
 		: colorMultiplier(255, 255, 255), blendMode(ALPHA_BLEND)
@@ -93,8 +93,11 @@ void Sprite::Render(Rect world, float angle, bool isCoordOnWorld) const {
 	}
 
 	SDL_Rect dst = world;
-	if(Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos()).IsInRect(dst)){
-		if ( -1 == SDL_SetTextureColorMod( texture.get(), (colorMultiplier.r + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.r + HIGHLIGHT), (colorMultiplier.g + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.g + HIGHLIGHT), (colorMultiplier.b + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.b + HIGHLIGHT) ) ) {
+	if(InputManager::GetInstance().GetMousePos().IsInRect(dst)){
+		Color colorHighlighted(	(colorMultiplier.r + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.r + HIGHLIGHT),
+								(colorMultiplier.g + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.g + HIGHLIGHT),
+								(colorMultiplier.b + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.b + HIGHLIGHT) );
+		if ( -1 == SDL_SetTextureColorMod( texture.get(), colorHighlighted.r, colorHighlighted.g, colorHighlighted.b) ) {
 			CHECK_SDL_ERROR;
 		}
 	}
