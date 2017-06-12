@@ -11,10 +11,10 @@ struct EnemyData{
 		std::string name;
 		int enemyType;
 		float scaleX;
-		float sacleY;
-		std::string bodySpName;
-		std::string headSpName;
-		std::string pantsSpName;
+		float scaleY;
+		std::string spName;
+//		std::string headSpName;
+//		std::string pantsSpName;
 };
 
 struct EnemySpawnData{
