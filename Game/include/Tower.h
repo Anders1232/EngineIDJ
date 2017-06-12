@@ -3,14 +3,14 @@
 #include "Rect.h"
 #include "TileMap.h"
 
-#ifndef FACE_H
-#define FACE_H
+#ifndef TOWER_H
+#define TOWER_H
 
-#define FACE_HP (500)
+#define TOWER_HP (500)
 
-class Face : public GameObject{
+class Tower : public GameObject{
 	public:
-		Face(float x, float y, Vec2 tileSize, TileMap *tileMap);
+		Tower(float x, float y, Vec2 tileSize, TileMap *tileMap);
 		void Damage(int damage);
 	
 		void Update(float dt );
@@ -21,11 +21,11 @@ class Face : public GameObject{
 		void NotifyCollision(GameObject &other);
 		Rect GetWorldRenderedRect(void) const;
 		bool Is(string type);
-		~Face();
+		~Tower();
 	private:
 		Sprite sp;
 		int hitpoints;
 		bool isDraging;
 };
 
-#endif // FACE_H
+#endif // TOWER_H

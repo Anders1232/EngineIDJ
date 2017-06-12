@@ -1,4 +1,4 @@
-#include "Face.h"
+#include "Tower.h"
 
 #include "Camera.h"
 #include "DragAndDrop.h"
@@ -6,9 +6,9 @@
 
 typedef unsigned int uint;
 
-Face::Face(float x, float y, Vec2 tileSize, TileMap *tileMap)
+Tower::Tower(float x, float y, Vec2 tileSize, TileMap *tileMap)
 		: sp("img/tower/torre_fumaca.png")
-		, hitpoints(FACE_HP) {
+		, hitpoints(TOWER_HP) {
 	box.x = x;
 	box.y = y;
 	sp.ScaleX(tileSize.x/sp.GetWidth()*4);
@@ -20,41 +20,41 @@ Face::Face(float x, float y, Vec2 tileSize, TileMap *tileMap)
 	components.emplace_back( new DragAndDrop(tileMap, true, true) );
 }
 
-Face::~Face() {
+Tower::~Tower() {
 	for(uint i = 0; i < components.size(); i++) {
 		delete components[i];
 	}
 	components.clear();
 }
 
-void Face::Damage(int damage) {
+void Tower::Damage(int damage) {
 	hitpoints = hitpoints - damage;
 }
 
-void Face::Update(float dt ) {
+void Tower::Update(float dt ) {
 	for(uint count = 0; count < components.size(); count++) {
 		components[count]->Update(*this, dt);
 	}
 }
 
-void Face::Render(void) {
+void Tower::Render(void) {
 	sp.Render(box);
 }
 
-bool Face::IsDead(void) {
+bool Tower::IsDead(void) {
 	 return 0 >= hitpoints;
 }
 
-void Face::RequestDelete(void) {
+void Tower::RequestDelete(void) {
 	hitpoints = 0;
 }
 
-void Face::NotifyCollision(GameObject &other) {}
+void Tower::NotifyCollision(GameObject &other) {}
 
-Rect Face::GetWorldRenderedRect() const {
+Rect Tower::GetWorldRenderedRect() const {
 	return Camera::WorldToScreen(box);
 }
 
-bool Face::Is(string type) {
-	return "Face" == type;
+bool Tower::Is(string type) {
+	return "Tower" == type;
 }
