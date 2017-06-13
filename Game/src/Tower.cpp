@@ -6,9 +6,15 @@
 
 typedef unsigned int uint;
 
-Tower::Tower(float x, float y, Vec2 tileSize, TileMap *tileMap)
-		: sp("img/tower/torre_fumaca.png")
-		, hitpoints(TOWER_HP) {
+Tower::Tower(TowerType type, float x, float y, Vec2 tileSize, TileMap *tileMap)
+		: sp(type == TowerType::MEDICINE ? "img/tower/torre_fumaca.png" :
+			type == TowerType::SOCIOLOGY ? "img/tower/torre_fumaca.png" :
+			type == TowerType::ENGINEERING ? "img/tower/torre_fumaca.png" :
+			type == TowerType::ARTS ? "img/tower/torre_fumaca.png" :
+			type == TowerType::COMPUTATION ? "img/tower/torre_fumaca.png":
+			"",
+			true)
+		, hitpoints(TOWER_BASE_HP) {
 	box.x = x;
 	box.y = y;
 	sp.ScaleX(tileSize.x/sp.GetWidth()*4);
