@@ -2,6 +2,7 @@
 #include "Sprite.h"
 #include "Rect.h"
 #include "TileMap.h"
+#include "Vec2.h"
 
 #ifndef TOWER_H
 #define TOWER_H
@@ -25,7 +26,7 @@ class Tower : public GameObject{
 			COMPUTATION
 		} TowerType;
 		
-		Tower(TowerType, float x, float y, Vec2 tileSize, TileMap *tileMap);
+		Tower(TowerType, Vec2 pos, Vec2 tileSize, TileMap *tileMap);
 		void Damage(int damage);
 	
 		void Update(float dt );

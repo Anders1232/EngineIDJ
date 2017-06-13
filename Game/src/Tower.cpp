@@ -6,7 +6,7 @@
 
 typedef unsigned int uint;
 
-Tower::Tower(TowerType type, float x, float y, Vec2 tileSize, TileMap *tileMap)
+Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, TileMap *tileMap)
 		: sp(type == TowerType::MEDICINE ? "img/tower/torre_fumaca.png" :
 			type == TowerType::SOCIOLOGY ? "img/tower/torre_fumaca.png" :
 			type == TowerType::ENGINEERING ? "img/tower/torre_fumaca.png" :
@@ -15,12 +15,12 @@ Tower::Tower(TowerType type, float x, float y, Vec2 tileSize, TileMap *tileMap)
 			"",
 			true)
 		, hitpoints(TOWER_BASE_HP) {
-	box.x = x;
-	box.y = y;
-	sp.ScaleX(tileSize.x/sp.GetWidth()*4);
-	sp.ScaleY(tileSize.y/sp.GetHeight()*4);
+	box.x = pos.x;
+	box.y = pos.y;
+	sp.ScaleX(tileSize.x/sp.GetWidth());
+	sp.ScaleY(tileSize.y/sp.GetHeight());
 	sp.colorMultiplier = Color( 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX );
-	sp.alpha = 255*(float)rand()/RAND_MAX;
+	sp.alpha = 127*(float)rand()/RAND_MAX+127;
 	box.w = sp.GetWidth();
 	box.h = sp.GetHeight();
 	components.emplace_back( new DragAndDrop(tileMap, true, true) );

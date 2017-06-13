@@ -24,7 +24,7 @@
 // Esse valores calculam o offset em relação ao canto superior esquedo da imagem daquilo que será renderizado
 #define STATE_RENDER_X 0
 #define STATE_RENDER_Y 0
-#define TOWER_LINEAR_SIZE 30
+#define TOWER_LINEAR_SIZE 120
 #define TIME_BETWEEN_SPAWNS (3.)
 #define STAGE_STATE_DELTA_VOLUME (1) //11*11 = 121 ~128
 #define CAM_START_X 300
@@ -107,12 +107,12 @@ void StageState::Update(float dt) {
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)) {
 		REPORT_I_WAS_HERE;
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);//metade to tamanho da Tower passado abaixo
-		AddObject( new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos.x, mousePos.y, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), tileMap) );
+		AddObject( new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), tileMap) );
 	}
 
 	if(InputManager::GetInstance().KeyPress('e')) {
 		printf("Tower criado\n");
-		AddObject(new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), 0, 0, Vec2(64, 64), tileMap));
+		AddObject(new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), Vec2(0, 0), Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), tileMap));
 	}
 
 	if(InputManager::GetInstance().KeyPress('=')) {
