@@ -107,12 +107,12 @@ void StageState::Update(float dt) {
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)) {
 		REPORT_I_WAS_HERE;
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);//metade to tamanho da Tower passado abaixo
-		AddObject( new Tower(static_cast<Tower::TowerType>(rand() % 5), mousePos.x, mousePos.y, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), tileMap) );
+		AddObject( new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos.x, mousePos.y, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), tileMap) );
 	}
 
 	if(InputManager::GetInstance().KeyPress('e')) {
 		printf("Tower criado\n");
-		AddObject(new Tower(static_cast<Tower::TowerType>(rand() % 5), 0, 0, Vec2(64, 64), tileMap));
+		AddObject(new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), 0, 0, Vec2(64, 64), tileMap));
 	}
 
 	if(InputManager::GetInstance().KeyPress('=')) {
