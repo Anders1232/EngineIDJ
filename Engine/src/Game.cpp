@@ -49,7 +49,7 @@ Game::Game(std::string title,int width, int height)
 		Error("Loading IMG_INIT_TIF failed: " << IMG_GetError());
 	}
 
-	window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, 0);
+	window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_RESIZABLE);
 	if(nullptr == window) {
 		Error(SDL_GetError());
 	}
