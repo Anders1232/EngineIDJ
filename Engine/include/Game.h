@@ -153,6 +153,33 @@ class Game {
 			Retorna se o controle de framerate está limitando o framerate a um máximo ou não.
 		*/
 		bool IsFramerateLimited(void) const;
+		/**
+			\brief Define as dimensões da janela corrente
+			\param size Vec2(x, y) que representa os novos tamanhos da janela.
+
+			Altera as dimensões da janela de acordo com o tamanho (width, height) recebido.
+		*/
+		void SetWindowDimensions(Vec2 size);
+		/**
+			\brief Define a janela como tela cheia
+			\param isFullScreen Flag que determina se a janela deve ser fullscreen ou windowed.
+
+			Define a janela como tela cheia (true) ou windowed (false) dependendo da flag recebida.
+		*/
+		void SetWindowFullscreen(bool isFullScreen);
+		/**
+			\brief Define se a janela deve ser maximizada
+
+			Define se a janela deve ter seu tamanho máximo sem torná-la tela cheia.
+		*/
+		void SetWindowMaximized(void);
+		/**
+			\brief Define se a janela deve ter bordas
+			\param isBorderless
+
+			Define se a janela deve ter bordas(false) ou não (true) de acordo com a flag recebida.
+		*/
+		void SetWindowBorderless(bool isBorderless);
 	private:
 		/**
 			\brief Calcula o tempo transcorrido desde a última chamada a essa função

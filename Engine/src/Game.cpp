@@ -134,17 +134,7 @@ void Game::Run(void) {
 		return;
 	}
 
-	int w = 1024, h = 600;
 	while(!stateStack.empty()) {
-		// SDL_Surface* surf = SDL_GetWindowSurface(window);
-        // SDL_GetWindowSize(window, &w, &h); // essa
-        // SDL_Rect rect = {0, 0, w, h}; // essa
-		// SDL_RenderSetViewport(renderer, &rect); // essa
-		// SDL_RenderSetLogicalSize(renderer, w, h); // essa
-        // SDL_FillRect(surf, &rect, 0xffffffff);
-        // SDL_UpdateWindowSurface(window);
-		// renderer->refresh();
-
 		if (capFramerate) {
 			float timeRemaining = frameDuration - (SDL_GetTicks() - frameStart);
 			if (0 < timeRemaining) {
@@ -234,4 +224,23 @@ void Game::LimitFramerate(bool limit) {
 
 bool Game::IsFramerateLimited(void) const {
 	return capFramerate;
+}
+
+void Game::SetWindowDimensions(Vec2 size){
+	SDL_SetWindowSize(window, size.x, size.y);
+}
+
+void Game::SetWindowFullscreen(bool isFullScreen){
+	SDL_SetWindowFullscreen(window, isFullScreen ? SDL_WINDOW_FULLSCREEN : 0);
+	if(!isFullScreen){
+		SetWindowDimensions(Vec2(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED));
+	}
+}
+
+void Game::SetWindowMaximized(void){
+	SDL_MaximizeWindow(window);
+}
+
+void Game::SetWindowBorderless(bool isBorderless){
+	SDL_SetWindowBordered(SDL_Window* window, !isBorderless);
 }
