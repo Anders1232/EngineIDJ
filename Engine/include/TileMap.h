@@ -108,6 +108,14 @@ class TileMap{
 		*/
 		void InsertGO(GameObject* obj);
 		/**
+			\brief Remove GameObjct no tileMap
+			\param obj GameObject a ser retirado no tileMap de GameObjects.
+
+			Utiliza a posição do mouse no momento(que deve ser a mesma do centro do GameObject) para identificar onde o GameObject deve ser retirado no tileMap de GameObjects. Então obj é colocado nessa posição, sua posição é alterada para se encaixar exatamente com o início da posição.
+			Atualiza-se o tileMao de colisão para adicionar a informação que tem um GameObject na posição respectiva.
+		*/
+		void RemoveGO(GameObject* obj);
+		/**
 			\brief Ativa ou desativa a exibição na tela das informações do tileMap de colisão
 
 			Se show for verdadeiro, futuras chamadas à Render fará com que seja exibido o tileMap de colisão.

@@ -196,6 +196,16 @@ void TileMap::InsertGO(GameObject* obj) {
 	}
 }
 
+void TileMap::RemoveGO(GameObject* obj){
+
+		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
+		obj->box = mousePos-Vec2(obj->box.w/2, obj->box.h/2);
+		int position = GetTileMousePos(mousePos, false, COLLISION_LAYER);
+		gameObjectMatrix[position] = nullptr;
+		tileMatrix[position + (COLLISION_LAYER * mapWidth * mapHeight)] = -1;
+
+}
+
 void TileMap::ShowCollisionInfo(bool show) {
 	displayCollisionInfo = show;
 }
