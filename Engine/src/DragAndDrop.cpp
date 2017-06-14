@@ -11,11 +11,19 @@ DragAndDrop::DragAndDrop(TileMap *map, bool dragOnActionHold)
 void DragAndDrop::Update(GameObject &associated, float dt) {
 	InputManager &inputManager= InputManager::GetInstance();
 
-	if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON)){
+	if(inputManager.MousePress(RIGHT_MOUSE_BUTTON)){
 
 		tileMap->RemoveGO(&associated);
 
-	} else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON)) {
+	}
+	else if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON)){
+
+		Vec2 mousePos= inputManager.GetMousePos()*(1/Camera::GetZoom());
+		associated.box= mousePos+Camera::pos-Vec2(associated.box.w/2, associated.box.h/2);
+
+	} 
+	else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON)) {
+
 		tileMap->InsertGO(&associated);
 		associated.RemoveComponent(DRAG_AND_DROP);
 

@@ -187,7 +187,7 @@ void TileMap::InsertGO(GameObject* obj) {
 		obj->box.x = column*tileSet->GetTileWidth();
 		obj->box.y = line*tileSet->GetTileHeight();
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
-	} else if(0 > AtLayer(position, COLLISION_LAYER)) {
+	} else if(0 > AtLayer(position, COLLISION_LAYER)){
 		REPORT_DEBUG("\ttentado inserir objeto em posição inválida, pois nela está" << tileMatrix[position+(COLLISION_LAYER * mapWidth*mapHeight)]);
 		obj->RequestDelete();
 	} else {
@@ -198,11 +198,20 @@ void TileMap::InsertGO(GameObject* obj) {
 
 void TileMap::RemoveGO(GameObject* obj){
 
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
-		obj->box = mousePos-Vec2(obj->box.w/2, obj->box.h/2);
-		int position = GetTileMousePos(mousePos, false, COLLISION_LAYER);
+	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
+	int position = GetTileMousePos(mousePos, false, COLLISION_LAYER);
+	
+	if(0 == AtLayer(position, COLLISION_LAYER)){
+
 		gameObjectMatrix[position] = nullptr;
 		tileMatrix[position + (COLLISION_LAYER * mapWidth * mapHeight)] = -1;
+
+	}
+	else{
+
+		REPORT_DEBUG("\ttentado remover objeto de posicao inválida");
+
+	}
 
 }
 
