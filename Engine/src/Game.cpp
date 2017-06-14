@@ -134,7 +134,17 @@ void Game::Run(void) {
 		return;
 	}
 
+	int w = 1024, h = 600;
 	while(!stateStack.empty()) {
+		// SDL_Surface* surf = SDL_GetWindowSurface(window);
+        // SDL_GetWindowSize(window, &w, &h); // essa
+        // SDL_Rect rect = {0, 0, w, h}; // essa
+		// SDL_RenderSetViewport(renderer, &rect); // essa
+		// SDL_RenderSetLogicalSize(renderer, w, h); // essa
+        // SDL_FillRect(surf, &rect, 0xffffffff);
+        // SDL_UpdateWindowSurface(window);
+		// renderer->refresh();
+
 		if (capFramerate) {
 			float timeRemaining = frameDuration - (SDL_GetTicks() - frameStart);
 			if (0 < timeRemaining) {
