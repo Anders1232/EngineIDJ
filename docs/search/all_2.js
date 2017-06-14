@@ -1,7 +1,7 @@
 var searchData=
 [
   ['calculatedeltatime',['CalculateDeltaTime',['../classGame.html#afddce07e3e3d3ca05a6c2f2ca9e64940',1,'Game']]],
-  ['calculateparallaxscrolling',['CalculateParallaxScrolling',['../classTileMap.html#ae6d986365a0704b8e5aa7495a575ee64',1,'TileMap']]],
+  ['calculateparallaxscrolling',['CalculateParallaxScrolling',['../classTileMap.html#adda18b2c09dbcc6cfb91b39ae9bee271',1,'TileMap']]],
   ['camera',['Camera',['../classCamera.html',1,'Camera'],['../classCamera.html#a01f94c3543f56ede7af49dc778f19331',1,'Camera::Camera()']]],
   ['camera_2ecpp',['Camera.cpp',['../Camera_8cpp.html',1,'']]],
   ['camera_2eh',['Camera.h',['../Camera_8h.html',1,'']]],
@@ -13,7 +13,7 @@ var searchData=
   ['camera_5fdefault_5fzoomable',['CAMERA_DEFAULT_ZOOMABLE',['../Camera_8h.html#a719f5e3a817ca056a76495044f676277',1,'Camera.h']]],
   ['camera_5fmove_5fspeed',['CAMERA_MOVE_SPEED',['../Camera_8cpp.html#a6962606bd42615342e6dc4ab58ad5cd4',1,'Camera.cpp']]],
   ['capframerate',['capFramerate',['../classGame.html#a9c4d90234bc5a4ca540b09d8a534ece1',1,'Game']]],
-  ['center',['Center',['../classRect.html#af5db0f5526e20b63eebbe14ef2f4f6fb',1,'Rect']]],
+  ['center',['Center',['../classRect.html#ac42ead7988bf077364ce61231980bff2',1,'Rect']]],
   ['changemusicvolume',['ChangeMusicVolume',['../classResources.html#a1655776bc711f51ad1234d002c1919cd',1,'Resources']]],
   ['changesoundvolume',['ChangeSoundVolume',['../classResources.html#a92d5aad816000142eb6e67d4cc1f7d1e',1,'Resources']]],
   ['channel',['channel',['../classSound.html#af3895edf5a39772f1de32cfbfff90909',1,'Sound']]],
@@ -36,6 +36,7 @@ var searchData=
   ['component',['Component',['../classComponent.html',1,'Component'],['../Component_8h.html#a5b6d014748674102c3db9f0270a12f60',1,'COMPONENT():&#160;Component.h']]],
   ['component_2ecpp',['Component.cpp',['../Component_8cpp.html',1,'']]],
   ['component_2eh',['Component.h',['../Component_8h.html',1,'']]],
+  ['component_5ftype_5fsize',['COMPONENT_TYPE_SIZE',['../Component_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0a0afded8a801f33f6a572853b4bffa17b',1,'Component.h']]],
   ['components',['components',['../classGameObject.html#adf77cf3872333bf5e3007ad98e8afd18',1,'GameObject']]],
   ['componenttype',['ComponentType',['../Component_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0',1,'Component.h']]],
   ['controllerleftstickstate',['controllerLeftStickState',['../classInputManager.html#a6792c10cb9eef8bfaa6a12b8405bad13',1,'InputManager']]],
