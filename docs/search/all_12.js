@@ -41,7 +41,7 @@ var searchData=
   ['spawngroups',['spawnGroups',['../classStageState.html#a8ec235e907fe6fe1ed17605d259dc99b',1,'StageState']]],
   ['spawntimer',['spawnTimer',['../classStageState.html#a7dca45a4c9135041388460bdfc292064',1,'StageState']]],
   ['speed',['speed',['../classAIGoDown.html#ac494b9b70caa1919b45937492946cfe2',1,'AIGoDown']]],
-  ['sprite',['Sprite',['../classSprite.html',1,'Sprite'],['../classSprite.html#abee3d268d8e467d9e23bfe0693e64144',1,'Sprite::Sprite(void)'],['../classSprite.html#a5b32e7b8aede63b8a2720ecfa670d0e3',1,'Sprite::Sprite(std::string file, float frameTime=1, int frameCount=1)']]],
+  ['sprite',['Sprite',['../classSprite.html',1,'Sprite'],['../classSprite.html#abee3d268d8e467d9e23bfe0693e64144',1,'Sprite::Sprite(void)'],['../classSprite.html#a944623d99293e5b8c7d06d12cd727fda',1,'Sprite::Sprite(std::string file, bool highlighted=false, float frameTime=1, int frameCount=1)']]],
   ['sprite_2ecpp',['Sprite.cpp',['../Sprite_8cpp.html',1,'']]],
   ['sprite_2eh',['Sprite.h',['../Sprite_8h.html',1,'']]],
   ['sprite_5fopen_5fx',['SPRITE_OPEN_X',['../Sprite_8cpp.html#a633a5f76ec79ff55de6e3d689349b42f',1,'Sprite.cpp']]],
