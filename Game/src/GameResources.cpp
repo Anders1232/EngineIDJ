@@ -63,7 +63,13 @@ void GameResources::ReadWaveData(std::string file){
 	enemyName[ENEMY_MAX_NAME_LENGHT]= '\0';
 	fscanf(filePtr, "--ENEMIES--\n");
 	ASSERT2(0 == ferror(filePtr), "\tFile format invalid! Expecting \"--ENEMIES--\".");
-	while(1== fscanf(filePtr, "\t%s\n", enemyName) ){
+	
+	while( true ){
+		fscanf(filePtr, "\t%s\n", enemyName);
+		string name = enemyName;
+		if (name.compare("--WAVES--") != 0){
+			printf("para tudo!!\n");break;
+		}
 		int enemyTypeIndex;
 		printf("\nenemyName:%s\n", enemyName);
 		ASSERT2(1 == fscanf(filePtr, "\t\t%s\n", readEnemyType), "\tFile format invalid! Expecting a string");

@@ -9,6 +9,7 @@
         img/enemy/reference_assembled
         1.0
         1.0
+        
 --WAVES--
 Wave1
     spawnPoint:1
