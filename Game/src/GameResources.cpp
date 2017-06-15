@@ -64,6 +64,9 @@ void GameResources::ReadWaveData(std::string file){
 	fscanf(filePtr, "--ENEMIES--\n");
 	ASSERT2(0 == ferror(filePtr), "\tFile format invalid! Expecting \"--ENEMIES--\".");
 	while(1== fscanf(filePtr, "\t%s\n", enemyName) ){
+		if(!strcmp("--WAVES--", enemyName)){
+			break;
+		}
 		int enemyTypeIndex;
 		ASSERT2(1 == fscanf(filePtr, "\t\t%s\n", readEnemyType), "\tFile format invaled! Expecting a string");
 		char spriteFileName[ENEMY_MAX_SPRITE_NAME_LENGHT+1];
@@ -76,8 +79,8 @@ void GameResources::ReadWaveData(std::string file){
 		newEntry->second.emplace_back(enemyName, enemyTypeIndex, scaleX, scaleY, spriteFileName);//vê se esse uso consegue instanciar a struct, caso contrário criar construtor
 	}
 	//agora é ler o waveData
-	fscanf(filePtr, "--WAVES--\n");
-	ASSERT2(0 == ferror(filePtr), "\tFile format invalid! Expecting \"--WAVES--\".");
+//	fscanf(filePtr, "--WAVES--\n");
+//	ASSERT2(0 == ferror(filePtr), "\tFile format invalid! Expecting \"--WAVES--\".");
 	char waveName[WAVE_NAME_MAX_LENGHT+1];
 	waveName[WAVE_NAME_MAX_LENGHT]= '\0';
 	vector<WaveData> &waveVec= newEntry->first;
