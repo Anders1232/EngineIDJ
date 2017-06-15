@@ -180,6 +180,12 @@ class Game {
 			Define se a janela deve ter bordas(false) ou não (true) de acordo com a flag recebida.
 		*/
 		void SetWindowBorderless(bool isBorderless);
+		/**
+			\brief Reposiciona a janela
+
+			Posiciona a janela no sentro da tela.
+		*/
+		void SetWindowCentered(void);
 	private:
 		/**
 			\brief Calcula o tempo transcorrido desde a última chamada a essa função

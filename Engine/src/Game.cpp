@@ -228,19 +228,24 @@ bool Game::IsFramerateLimited(void) const {
 
 void Game::SetWindowDimensions(Vec2 size){
 	SDL_SetWindowSize(window, size.x, size.y);
+	SetWindowCentered();
 }
 
 void Game::SetWindowFullscreen(bool isFullScreen){
 	SDL_SetWindowFullscreen(window, isFullScreen ? SDL_WINDOW_FULLSCREEN : 0);
-	if(!isFullScreen){
-		SetWindowDimensions(Vec2(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED));
-	}
+	SetWindowCentered();
 }
 
 void Game::SetWindowMaximized(void){
 	SDL_MaximizeWindow(window);
+	SetWindowCentered();
 }
 
 void Game::SetWindowBorderless(bool isBorderless){
-	SDL_SetWindowBordered(SDL_Window* window, !isBorderless);
+	SDL_SetWindowBordered(window, isBorderless ? SDL_FALSE : SDL_TRUE);
+	SetWindowCentered();
+}
+
+void Game::SetWindowCentered(void){
+	SDL_SetWindowPosition(window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
 }
