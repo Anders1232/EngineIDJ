@@ -109,9 +109,9 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:abee3d268d8e467d9e23bfe0693e64144"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#abee3d268d8e467d9e23bfe0693e64144">Sprite</a> (void)</td></tr>
 <tr class="memdesc:abee3d268d8e467d9e23bfe0693e64144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um sprite não associado a uma imagem.  <a href="#abee3d268d8e467d9e23bfe0693e64144">Mais...</a><br /></td></tr>
 <tr class="separator:abee3d268d8e467d9e23bfe0693e64144"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b32e7b8aede63b8a2720ecfa670d0e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a5b32e7b8aede63b8a2720ecfa670d0e3">Sprite</a> (std::string file, float <a class="el" href="classSprite.html#a5d41b63da1b5ee4a734ce060ab876878">frameTime</a>=1, int <a class="el" href="classSprite.html#a8dc8d5c9530bad6113d37fe5e53e4668">frameCount</a>=1)</td></tr>
-<tr class="memdesc:a5b32e7b8aede63b8a2720ecfa670d0e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um sprite válida.  <a href="#a5b32e7b8aede63b8a2720ecfa670d0e3">Mais...</a><br /></td></tr>
-<tr class="separator:a5b32e7b8aede63b8a2720ecfa670d0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a944623d99293e5b8c7d06d12cd727fda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a944623d99293e5b8c7d06d12cd727fda">Sprite</a> (std::string file, bool highlighted=false, float <a class="el" href="classSprite.html#a5d41b63da1b5ee4a734ce060ab876878">frameTime</a>=1, int <a class="el" href="classSprite.html#a8dc8d5c9530bad6113d37fe5e53e4668">frameCount</a>=1)</td></tr>
+<tr class="memdesc:a944623d99293e5b8c7d06d12cd727fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um sprite válida.  <a href="#a944623d99293e5b8c7d06d12cd727fda">Mais...</a><br /></td></tr>
+<tr class="separator:a944623d99293e5b8c7d06d12cd727fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8accab430f9d90ae5117b57d67e32b84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#a8accab430f9d90ae5117b57d67e32b84">~Sprite</a> ()</td></tr>
 <tr class="memdesc:a8accab430f9d90ae5117b57d67e32b84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor.  <a href="#a8accab430f9d90ae5117b57d67e32b84">Mais...</a><br /></td></tr>
 <tr class="separator:a8accab430f9d90ae5117b57d67e32b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -223,7 +223,7 @@ Atributos Privados</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a5b32e7b8aede63b8a2720ecfa670d0e3"></a>
+<a class="anchor" id="a944623d99293e5b8c7d06d12cd727fda"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -232,6 +232,12 @@ Atributos Privados</h2></td></tr>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>highlighted</em> = <code>false</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -257,8 +263,9 @@ Atributos Privados</h2></td></tr>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">file</td><td>Arquivo que contém a imagem. </td></tr>
-    <tr><td class="paramname">frameTime</td><td>tempo em segundos que cada imagem de um sprite sheet deve durar. </td></tr>
-    <tr><td class="paramname">frameCount</td><td>quantas imagens tem no sprite sheet. Caso o valor seja 1 significa que é um sprite não animado.</td></tr>
+    <tr><td class="paramname">highlighted</td><td>Checa se a sprite deve alterar a cor (highlight) quando o mouse passar em cima. </td></tr>
+    <tr><td class="paramname">frameTime</td><td>Tempo em segundos que cada imagem de um sprite sheet deve durar. </td></tr>
+    <tr><td class="paramname">frameCount</td><td>Quantas imagens tem no sprite sheet. Caso o valor seja 1 significa que é um sprite não animado.</td></tr>
   </table>
   </dd>
 </dl>
@@ -991,7 +998,7 @@ Atributos Privados</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 9 de Junho de 2017 15:37:14 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Quarta, 14 de Junho de 2017 17:28:53 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
