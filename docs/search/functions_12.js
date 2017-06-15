@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['unfollow',['Unfollow',['../classCamera.html#aa9ca7decdebf7147c9d6dc747e7d59e9',1,'Camera']]],
-  ['update',['Update',['../classAIGoDown.html#ae88285cea2d7672c14a3c8ab26207b96',1,'AIGoDown::Update()'],['../classAnimation.html#a1871db60d1fb351aeb77ada38dd4dd9c',1,'Animation::Update()'],['../classCamera.html#a3d528df411b986596b652b61120ff302',1,'Camera::Update()'],['../classComponent.html#a0e159ba9d0cdeb481f8cc87c8ad99660',1,'Component::Update()'],['../classDragAndDrop.html#a1ae8df8b7ff9ef703b57354c410b5ef3',1,'DragAndDrop::Update()'],['../classGameObject.html#a93ed63df640deb516a020530e7f8e045',1,'GameObject::Update()'],['../classHitPoints.html#a6ba0651108974380597c64c55959a538',1,'HitPoints::Update()'],['../classInputManager.html#afc344b3b2e204cfb39ee17b33bcc5eab',1,'InputManager::Update()'],['../classSprite.html#a1f5ac7fbd3e6efeca11cedb6b822df43',1,'Sprite::Update()'],['../classState.html#ad79561dfb4e1a6b722a3d9c84b06e91c',1,'State::Update()'],['../classText.html#a7e995169e7723f5185e7432175d3a194',1,'Text::Update()'],['../classTimer.html#aaf9c3b63c5934eb6338f846788262987',1,'Timer::Update()'],['../classWave.html#ae58656ceaba495efc644adc287afae1d',1,'Wave::Update()'],['../classEndState.html#a0fabb275706a8324521ed1e88efda11d',1,'EndState::Update()'],['../classEnemy.html#a9a1ef91d86d0a6994ee63b81f266fc22',1,'Enemy::Update()'],['../classFace.html#ac9d2c445a21685b42741794a65b77543',1,'Face::Update()'],['../classStageState.html#ae77d7d804ee36c434faf52ace163e85a',1,'StageState::Update()'],['../classTitleState.html#a11c14c15e072eff738fd48f3f0b7c1bf',1,'TitleState::Update()']]],
-  ['updatearray',['UpdateArray',['../classState.html#abb605ec5fe585d227fbf267e0e6c80a9',1,'State']]],
-  ['updatestack',['UpdateStack',['../classGame.html#ae67b3fda973e4b05513d02c968b0ac17',1,'Game']]]
+  ['text',['Text',['../classText.html#aa8407cc951fc6848de89878339e6623b',1,'Text']]],
+  ['tilemap',['TileMap',['../classTileMap.html#acf6fe3a182047153ec9c25fadc55056c',1,'TileMap']]],
+  ['tileset',['TileSet',['../classTileSet.html#a671a1040ef1ba7600a6ea21faa950819',1,'TileSet']]],
+  ['timer',['Timer',['../classTimer.html#af866f8d58d5ed1da7a0c61df4975be3e',1,'Timer']]],
+  ['titlestate',['TitleState',['../classTitleState.html#a0694f4ac042f6baf1516c26e7385a570',1,'TitleState']]]
 ];

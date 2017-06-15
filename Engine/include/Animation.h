@@ -2,8 +2,8 @@
 #define ANIMATION_H
 
 #include "GameObject.h"
-#include "Timer.h"
 #include "Sprite.h"
+#include "Timer.h"
 
 /**
 	\brief Classe que modela animações.

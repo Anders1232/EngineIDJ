@@ -1,5 +1,6 @@
 <map id="Engine/include/Component.h" name="Engine/include/Component.h">
-<area shape="rect" id="node2" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="113,80,220,107"/>
-<area shape="rect" id="node5" href="$Rect_8h.html" title="Rect.h" alt="" coords="181,155,243,181"/>
-<area shape="rect" id="node6" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="138,229,201,256"/>
+<area shape="rect" id="node2" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="86,80,192,107"/>
+<area shape="rect" id="node3" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="143,304,250,331"/>
+<area shape="rect" id="node7" href="$Rect_8h.html" title="Rect.h" alt="" coords="278,155,339,181"/>
+<area shape="rect" id="node8" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="234,229,297,256"/>
 </map>

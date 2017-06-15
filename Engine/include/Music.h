@@ -1,23 +1,16 @@
 #ifndef MUSIC_H
 #define MUSIC_H
 
-#ifdef _WIN32
-	#include <SDL.h>
-	#include <SDL_image.h>
-#elif __APPLE__
-	#include "TargetConditionals.h"
-	//mac
-#elif __linux__
-	#include <SDL2/SDL.h>
-	#include <SDL2/SDL_image.h>
-	#include <SDL2/SDL_mixer.h>
-#else
-	#error "Unknown compiler"
-#endif
+#define INCLUDE_SDL 
+#define INCLUDE_SDL_IMAGE 
+#define INCLUDE_SDL_MIXER 
+#include "SDL_include.h"
 
 #include <string>
+#include <memory>
 #include "Resources.h"
 #include "Error.h"
+#include "InputManager.h"
 
 #define MUSIC_FADE_OUT_TIME_MSEC (2000)
 
@@ -72,7 +65,7 @@ class Music {
 
 			Verifica se a instância de Music está associada à música de algum arquivo.
 		*/
-		bool IsOpen(void)const;
+		bool IsOpen(void) const;
 	private:
 		std::shared_ptr<Mix_Music> music;/**< Ponteiro para Mix_Music com a música.*/
 };

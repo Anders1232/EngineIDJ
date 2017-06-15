@@ -1,19 +1,8 @@
 #ifndef VEC2OP_H
 #define VEC2OP_H
 
-#ifdef _WIN32
-	#include <SDL.h>
-	#include <SDL_image.h>
-#elif __APPLE__
-	#include "TargetConditionals.h"
-	//mac
-#elif __linux__
-	#include <SDL2/SDL.h>
-	// linux
-#else
-	#error "Unknown compiler"
-#endif
-
+#define INCLUDE_SDL 
+#include "SDL_include.h"
 
 /**
 	\brief Classe que modela um vetor(no sentido físico)

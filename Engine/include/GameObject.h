@@ -1,38 +1,31 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
-#ifdef _WIN32
-	#include <SDL.h>
-	#include <SDL_image.h>
-#elif __APPLE__
-	#include "TargetConditionals.h"
-	//mac
-#elif __linux__
-	#include <SDL2/SDL.h>
-	#include <SDL2/SDL_image.h>
-#else
-	#error "Unknown compiler"
-#endif
+#define INCLUDE_SDL 
+#define INCLUDE_SDL_IMAGE 
+#include "SDL_include.h"
+
 #include <vector>
 #include <memory>
-#include "Rect.h"
-#include "string"
+#include <string>
+#include <vector>
+
 #include "Component.h"
+#include "Rect.h"
 
 using std::string;
 using std::unique_ptr;
-
-/**
-	\brief Classe virtual que especifica o funcionamento de um GameObject.
-	
-	Especifica quais métodos um gameObject deve ter para conseguir ser manipulado corretamente pela engine.
-*/
 
 #ifndef COMPONENT
 class Component;
 #endif
 
 #define GAME_OBJECT
+/**
+	\brief Classe virtual que especifica o funcionamento de um GameObject.
+	
+	Especifica quais métodos um gameObject deve ter para conseguir ser manipulado corretamente pela engine.
+*/
 class GameObject{
 	public:
 		/**
@@ -97,8 +90,7 @@ class GameObject{
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/
 	protected:
-		std::vector<Component* > components;
-
+		std::vector<Component* > components;/**< Vetor de componentes, que provêem funcionalidades adicionais.*/
 };
 
 #endif // GAMEOBJECT_H
