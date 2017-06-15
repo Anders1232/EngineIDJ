@@ -148,8 +148,19 @@ void StageState::Update(float dt) {
 }
 
 void StageState::Render(void) const {
+	//renderizar o bg
+	REPORT_I_WAS_HERE;
 	bg.Render(Rect(STATE_RENDER_X, STATE_RENDER_Y, 0, 0), 0, false);
-	tileMap->Render();
+	REPORT_I_WAS_HERE;
+	bool highlighted = true;
+	for(unsigned int cont=0; cont < objectArray.size(); cont++) {
+		if(InputManager::GetInstance().GetMousePos().IsInRect(objectArray.at(cont)->GetWorldRenderedRect())){
+			highlighted = false;
+			break;
+		}
+	}
+	tileMap->Render(Vec2(0,0), false, highlighted ?  Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos()) : Vec2(-1, -1));
+	REPORT_I_WAS_HERE;
 	State::RenderArray();
 }
 
