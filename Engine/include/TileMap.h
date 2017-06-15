@@ -121,6 +121,11 @@ class TileMap{
 			Atualiza-se o tileMap de colisão para adicionar a informação que tem um GameObject na posição respectiva.
 		*/
 		void RemoveGO(void);
+		/**
+			\brief Obtém GameObject de uma determinada posição do tileMap
+
+			Faz-se checagem de limites para saber se a posição desejada existe.
+		*/
 		GameObject* GetGO(int index);
 		/**
 			\brief Ativa ou desativa a exibição na tela das informações do tileMap de colisão
