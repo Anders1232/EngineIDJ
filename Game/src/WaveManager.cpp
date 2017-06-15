@@ -12,6 +12,7 @@ int WaveManager::waveCount = 0;
 WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 	endWave=false;
 	enemiesLeft = 0;
+	playerLifes = 30;
 	spawnGroups= tileMap.GetSpawnPositions();
 	wavesAndEnemysData = nullptr; //GameResources::GetWaveData();
 	enemyIndex = 0;
@@ -47,7 +48,7 @@ bool WaveManager::EndWave(){
 void WaveManager::Update(GameObject &associated, float dt){
 	int enemyId;
 	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
-	
+
 	if(EndWave()){
 		if(totalWaves==waveCount){ //Game end Condition
 			return;
@@ -93,11 +94,28 @@ void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint
 	spawnPosition.x = (tileMapPosition%tileMap.GetWidth() ) * tileSize.x;
 	spawnPosition.y = (tileMapPosition/tileMap.GetWidth() ) * tileSize.y;
 	Enemy* enemy = new Enemy(spawnPosition, 1.);
-	//new Enemy(spawnPosition, currentWaveEnemyData, enemyIndex, baseHP, endPoint)
 	Game::GetInstance().GetCurrentState().AddObject(enemy);
 }
+
 
 
 bool WaveManager::Is(ComponentType type) const{
 	return type == WAVE_MANAGER;
 }
+
+
+void NotifyEnemyGotToHisDestiny(){
+	--playerLifes;
+
+}
+void NotifyEnemyGotKilled(){
+	--enemiesLeft;
+}
+
+int GetLifesLeft(){
+	return playerLifes;
+}
+int GetEnemiesLeft(){
+	return enemiesLeft;
+}
+
