@@ -106,57 +106,44 @@ void StageState::Update(float dt) {
 
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
 		TEMP_REPORT_I_WAS_HERE;
-		Vec2 mousePos = InputManager::GetInstance().GetMousePos();
-		bool foundObject = false;
-		for(unsigned int i = 0; i < objectArray.size(); i++){
-			if(mousePos.IsInRect(objectArray[i]->GetWorldRenderedRect())){
-				TEMP_REPORT_I_WAS_HERE;
-				objectArray[i]->AddComponent(new DragAndDrop(tileMap,true));
-				foundObject = true;
-				break;
-			}
+		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
+		int position = tileMap->GetTileMousePos(mousePos, false, COLLISION_LAYER);
+		GameObject *go= tileMap->GetGO(position);
+		if(nullptr == go){
+			std::cout<<WHERE<<"\t[WARNING] Expected GameObject" END_LINE;
 		}
-/*		if(!foundObject){
-			AddObject( new Face(mousePos.x, mousePos.y, Vec2(FACE_LINEAR_SIZE, FACE_LINEAR_SIZE), tileMap) );
+		else{
+			go->AddComponent(new DragAndDrop(tileMap));
+			tileMap->RemoveGO(position);
 		}
-*/	}
-
+	}
 	if(InputManager::GetInstance().KeyPress('e')){
-
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
 		Face *faceCreated = new Face(mousePos.x, mousePos.y, Vec2(FACE_LINEAR_SIZE, FACE_LINEAR_SIZE), tileMap);
 		AddObject(faceCreated);
 		tileMap->InsertGO(faceCreated);
 	}
-
 	if(InputManager::GetInstance().KeyPress('=')) {
 		Game &game = Game::GetInstance();
 		game.SetMaxFramerate(game.GetMaxFramerate()+5);
 	}
-
 	if(InputManager::GetInstance().KeyPress('-')) {
 		Game &game = Game::GetInstance();
 		game.SetMaxFramerate( ( (int64_t)game.GetMaxFramerate() )-5);
 	}
-
 	tileMap->ShowCollisionInfo(InputManager::GetInstance().IsKeyDown('g'));
-
 	if(InputManager::GetInstance().IsKeyDown('[')){
 		Resources::ChangeMusicVolume(-STAGE_STATE_DELTA_VOLUME);
 	}
-
 	if(InputManager::GetInstance().IsKeyDown(']')){
 		Resources::ChangeMusicVolume(STAGE_STATE_DELTA_VOLUME);
 	}
-
 	if(InputManager::GetInstance().IsKeyDown(',')){
 		Resources::ChangeSoundVolume(-STAGE_STATE_DELTA_VOLUME);
 	}
-
 	if(InputManager::GetInstance().IsKeyDown('.')){
 		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
 	}
-
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }
 

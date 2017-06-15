@@ -196,23 +196,24 @@ void TileMap::InsertGO(GameObject* obj) {
 	}
 }
 
-void TileMap::RemoveGO(GameObject* obj){
-
-	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
-	int position = GetTileMousePos(mousePos, false, COLLISION_LAYER);
-	
+void TileMap::RemoveGO(int position){
+	TEMP_REPORT_I_WAS_HERE;
 	if(0 == AtLayer(position, COLLISION_LAYER)){
-
+		if(nullptr == gameObjectMatrix[position]){
+			std::cout<<WHERE<< "\t Trying to remove a gameObject where there is none" END_LINE;
+		}
 		gameObjectMatrix[position] = nullptr;
 		tileMatrix[position + (COLLISION_LAYER * mapWidth * mapHeight)] = -1;
-
 	}
 	else{
-
 		REPORT_DEBUG("\ttentado remover objeto de posicao inválida");
-
 	}
+}
 
+void TileMap::RemoveGO(void){
+	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
+	int position = GetTileMousePos(mousePos, false, COLLISION_LAYER);
+	RemoveGO(position);
 }
 
 void TileMap::ShowCollisionInfo(bool show) {
@@ -293,3 +294,8 @@ vector<vector<int>>* TileMap::GetSpawnPositions(void) const {
 Vec2 TileMap::GetTileSize(void) const{
 	return Vec2(tileSet->GetTileWidth(), tileSet->GetTileHeight());
 }
+
+GameObject* TileMap::GetGO(int index){
+	return gameObjectMatrix.at(index);
+}
+
