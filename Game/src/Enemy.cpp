@@ -21,20 +21,24 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	this->baseHP = baseHP; 
 	this->endPoint = endPoint;
 
-	bodySpName.Open(enemyData.bodySpName);
-	headSpName.Open(enemyData.headSpName);
-	pantsSpName.Open(enemyData.pantsSpName);
+	spName.Open(enemyData.spName);
+	//bodySpName.Open(enemyData.bodySpName);
+	//headSpName.Open(enemyData.headSpName);
+	//pantsSpName.Open(enemyData.pantsSpName);
 	
-	bodySpName.SetScaleX(enemyData.scaleX);
-	headSpName.SetScaleX(enemyData.scaleX);
-	pantsSpName.SetScaleX(enemyData.scaleX);
-	bodySpName.SetScaleY(enemyData.scaleY);
-	headSpName.SetScaleY(enemyData.scaleY);
-	pantsSpName.SetScaleY(enemyData.scaleY);
+	spName.SetScaleX(enemyData.scaleX);
+	spName.SetScaleY(enemyData.scaleY);
+	//bodySpName.SetScaleX(enemyData.scaleX);
+	//headSpName.SetScaleX(enemyData.scaleX);
+	//pantsSpName.SetScaleX(enemyData.scaleX);
+	//bodySpName.SetScaleY(enemyData.scaleY);
+	//headSpName.SetScaleY(enemyData.scaleY);
+	//pantsSpName.SetScaleY(enemyData.scaleY);
 
-	bodySpName.SetFrame(1);
-	headSpName.SetFrame(1);
-	pantsSpName.SetFrame(1);
+	spName.SetFrame(1);
+	//bodySpName.SetFrame(1);
+	//headSpName.SetFrame(1);
+	//pantsSpName.SetFrame(1);
 	
 	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED)); //arg endPoint
 	//components.emplace_back(new PathFinding(endPoint)); //arg endPoint

@@ -4,6 +4,7 @@
 #include "Vec2.h"
 #include "Game.h"
 #include "Enemy.h"
+#include "GameResources.h"
 
 #define TIME_BETWEEN_SPAWN (3.)
 
@@ -14,7 +15,7 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 	enemiesLeft = 0;
 	playerLifes = 30;
 	spawnGroups= tileMap.GetSpawnPositions();
-	wavesAndEnemysData = nullptr; //GameResources::GetWaveData();
+	wavesAndEnemysData = GameResources::GetWaveData("assets/wave&enemyData.txt");
 	enemyIndex = 0;
 	waveIndex=0;
 	totalWaves = wavesAndEnemysData->first.size();
@@ -31,7 +32,7 @@ void WaveManager::StartWave(){
 	enemiesLeft=0;
 	for (uint i = 0; i < wavesAndEnemysData->first[waveIndex].spawnPointsData.size(); i++){
 		for (uint j = 0; j < wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData.size(); j++){
-			enemiesLeft += wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData[j].quant;
+			enemiesLeft += wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData[j].numberOfEnemies;
 		}
 	}
 	
@@ -104,18 +105,18 @@ bool WaveManager::Is(ComponentType type) const{
 }
 
 
-void NotifyEnemyGotToHisDestiny(){
+void WaveManager::NotifyEnemyGotToHisDestiny(){
 	--playerLifes;
 
 }
-void NotifyEnemyGotKilled(){
+void WaveManager::NotifyEnemyGotKilled(){
 	--enemiesLeft;
 }
 
-int GetLifesLeft(){
+int WaveManager::GetLifesLeft(){
 	return playerLifes;
 }
-int GetEnemiesLeft(){
+int WaveManager::GetEnemiesLeft(){
 	return enemiesLeft;
 }
 

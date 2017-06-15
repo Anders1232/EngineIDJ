@@ -65,14 +65,15 @@ void GameResources::ReadWaveData(std::string file){
 	ASSERT2(0 == ferror(filePtr), "\tFile format invalid! Expecting \"--ENEMIES--\".");
 	while(1== fscanf(filePtr, "\t%s\n", enemyName) ){
 		int enemyTypeIndex;
-		ASSERT2(1 == fscanf(filePtr, "\t\t%s\n", readEnemyType), "\tFile format invaled! Expecting a string");
+		printf("\nenemyName:%s\n", enemyName);
+		ASSERT2(1 == fscanf(filePtr, "\t\t%s\n", readEnemyType), "\tFile format invalid! Expecting a string");
 		char spriteFileName[ENEMY_MAX_SPRITE_NAME_LENGHT+1];
 		spriteFileName[ENEMY_MAX_SPRITE_NAME_LENGHT]= '\0';
 		//para dicionar mais sprites necessita-se duplicar essas linhas
 		ASSERT2( (1 == fscanf(filePtr, "\t\t%s\n", spriteFileName) ), "\tFile format invalid! Expecting a string with sprite file." );
 		float scaleX, scaleY;
-		ASSERT2(1 == fscanf(filePtr, "\t\t%f\n", &scaleX), "\tFile format invalid! Expecting a float.");
-		ASSERT2(1 == fscanf(filePtr, "\t\t%f\n", &scaleY), "\tFile format invalid! Expecting a float.");
+		ASSERT2(1 == fscanf(filePtr, "\t\t%f\n", &scaleX), "\tScaleX File format invalid! Expecting a float.");
+		ASSERT2(1 == fscanf(filePtr, "\t\t%f\n", &scaleY), "\tScaleY File format invalid! Expecting a float.");
 		newEntry->second.emplace_back(enemyName, enemyTypeIndex, scaleX, scaleY, spriteFileName);//vê se esse uso consegue instanciar a struct, caso contrário criar construtor
 	}
 	//agora é ler o waveData
