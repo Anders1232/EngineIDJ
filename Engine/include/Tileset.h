@@ -28,6 +28,7 @@ class TileSet {
 			\brief Renderiza tile.
 			\param index Índice do tile no tileSet.
 			\param pos Posição x,y onde o tile deve ser renderizado.
+			\param highlighted Verdadeiro se for para o tile sofrer um Highlight.
 
 			Usando aritmética de módulo conseguimos associar o index à uma posição (linha, coluna) na matriz de tiles.
 			Essa informação é usada para entaão obter o x e y do tile no sprite.
@@ -36,7 +37,7 @@ class TileSet {
 			Após isso, renderiza-se o tile informado na posição calculada da tela.
 		*/
 		
-		void Render(unsigned int index, Vec2 pos);
+		void Render(unsigned int index, Vec2 pos, bool highlighted= false);
 		/**
 			\brief Obtém largura de um tile.
 			\return Valor de tileWidth.
