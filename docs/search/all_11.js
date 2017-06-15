@@ -2,6 +2,8 @@ var searchData=
 [
   ['r',['r',['../structColor.html#ab9a9c7134511f9b116a6fcc81a303ba6',1,'Color']]],
   ['readme_2emd',['README.md',['../README_8md.html',1,'']]],
+  ['readwavedata',['ReadWaveData',['../classGameResources.html#abc0fa0c66d2702c8cb3178751ccc05ce',1,'GameResources']]],
+  ['readweightdata',['ReadWeightData',['../classGameResources.html#a60015c6dfd57e0ecfd01788c9af0a018',1,'GameResources']]],
   ['rect',['Rect',['../classRect.html',1,'Rect'],['../classRect.html#a62fb6094640e8a5a9969382d404e9d5e',1,'Rect::Rect(void)'],['../classRect.html#a21e3f21b1579b6aea19ea88d89c019ef',1,'Rect::Rect(float x, float y, float w, float h)']]],
   ['rect_2ecpp',['Rect.cpp',['../Rect_8cpp.html',1,'']]],
   ['rect_2eh',['Rect.h',['../Rect_8h.html',1,'']]],
