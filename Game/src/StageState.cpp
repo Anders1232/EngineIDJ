@@ -143,25 +143,6 @@ void StageState::Update(float dt) {
 		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
 	}
 
-	if(InputManager::GetInstance().IsKeyDown('m')){
-		Game::GetInstance().SetWindowDimensions(Vec2(800, 400));
-	}
-	if(InputManager::GetInstance().IsKeyDown('n')){
-		Game::GetInstance().SetWindowFullscreen(true);
-	}
-	if(InputManager::GetInstance().IsKeyDown('/')){
-		Game::GetInstance().SetWindowFullscreen(false);
-	}
-	if(InputManager::GetInstance().IsKeyDown('b')){
-		Game::GetInstance().SetWindowMaximized();
-	}
-	if(InputManager::GetInstance().IsKeyDown('v')){
-		Game::GetInstance().SetWindowBorderless(true);
-	}
-	if(InputManager::GetInstance().IsKeyDown('c')){
-		Game::GetInstance().SetWindowBorderless(false);
-	}
-
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }
 
