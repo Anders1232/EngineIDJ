@@ -92,17 +92,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="StageState_8h.html">StageState.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Game_8h.html">Game.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Error_8h.html">Error.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Camera_8h.html">Camera.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Collision_8h.html">Collision.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="EndStateData_8h.html">EndStateData.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Face_8h.html">Face.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Enemy_8h.html">Enemy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Error_8h.html">Error.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Face_8h.html">Face.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Game_8h.html">Game.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Gráfico de dependência de inclusões para StageState.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="StageState_8cpp__incl.svg" width="2283" height="635"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="StageState_8cpp__incl.svg" width="2310" height="710"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -118,8 +118,50 @@ Definições e Macros</h2></td></tr>
 <tr class="separator:a0ef95dcc696568b2b2c856681079ba89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dbb658cc722b8012e13d00f54f4bde4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a5dbb658cc722b8012e13d00f54f4bde4">STAGE_STATE_DELTA_VOLUME</a>&#160;&#160;&#160;(1)</td></tr>
 <tr class="separator:a5dbb658cc722b8012e13d00f54f4bde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58f35e25c13bb24aa54a987cd1ce803d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a58f35e25c13bb24aa54a987cd1ce803d">CAM_START_X</a>&#160;&#160;&#160;300</td></tr>
+<tr class="separator:a58f35e25c13bb24aa54a987cd1ce803d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23bfb27612786648f85c1d4e8268178b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a23bfb27612786648f85c1d4e8268178b">CAM_START_Y</a>&#160;&#160;&#160;300</td></tr>
+<tr class="separator:a23bfb27612786648f85c1d4e8268178b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f9c38f1221c38679673d781cbefada8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a3f9c38f1221c38679673d781cbefada8">CAM_START_ZOOM</a>&#160;&#160;&#160;0.3</td></tr>
+<tr class="separator:a3f9c38f1221c38679673d781cbefada8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Definições e macros</h2>
+<a class="anchor" id="a58f35e25c13bb24aa54a987cd1ce803d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CAM_START_X&#160;&#160;&#160;300</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a23bfb27612786648f85c1d4e8268178b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CAM_START_Y&#160;&#160;&#160;300</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3f9c38f1221c38679673d781cbefada8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CAM_START_ZOOM&#160;&#160;&#160;0.3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a2b3bf4a4b5ae1e21ee8d8134377a2d0e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -183,7 +225,7 @@ Definições e Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quarta, 14 de Junho de 2017 16:35:11 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Quinta, 15 de Junho de 2017 00:59:32 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

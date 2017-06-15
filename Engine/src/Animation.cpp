@@ -1,54 +1,48 @@
 #include "Animation.h"
+
 #include "Camera.h"
 
-Animation::Animation
-(
-	float x,
-	float y,
-	float rotation,
-	string sprite,
-	int frameCount,
-	float frameTime,
-	bool ends
-): GameObject(), endTimer(), timeLimit(frameCount*frameTime), oneTimeOnly(ends), sp(sprite, frameTime, frameCount) {
+Animation::Animation(
+		float x, float y, float rotation,
+		string sprite, int frameCount,
+		float frameTime, bool ends
+		) : GameObject(), endTimer(), timeLimit(frameCount*frameTime)
+		, oneTimeOnly(ends), sp(sprite, frameTime, frameCount) {
 	box= Vec2(x, y);
-	this->rotation= rotation;
+	this->rotation = rotation;
 }
+
 void Animation::Update(float dt) {
 	sp.Update(dt);
 	endTimer.Update(dt);
 }
+
 void Animation::Render(void) {
-	sp.Render(box.x-Camera::pos.x, box.y-Camera::pos.y, rotation, true);
+	sp.Render(box, rotation);
 }
+
 Rect Animation::GetWorldRenderedRect(void) const {
-	Rect rect;
-	rect.x= box.x-Camera::pos.x;
-	rect.y= box.y-Camera::pos.y;
-	rect.w= sp.GetWidth();
-	rect.h= sp.GetHeight();
-	
-	rect= rect * Camera::GetZoom();
-	
-	return rect+Camera::pos;
+	return Camera::WorldToScreen(box);
 }
+
 bool Animation::IsDead(void) {
 	if(oneTimeOnly) {
-		if(endTimer.Get()> timeLimit) {
+		if(endTimer.Get() > timeLimit) {
 			return true;
 		}
 	}
 	return false;
 }
+
 void Animation::NotifyCollision(GameObject &other) {}
+
 bool Animation::Is(string type) {
-	return type=="Animation";
+	return "Animation" == type;
 }
 
-void Animation::RequestDelete(void){
-	if(!oneTimeOnly){
-		oneTimeOnly= true;
+void Animation::RequestDelete(void) {
+	if(!oneTimeOnly) {
+		oneTimeOnly = true;
 	}
 	endTimer.Update(timeLimit);
 }
-

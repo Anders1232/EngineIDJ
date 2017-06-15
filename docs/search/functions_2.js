@@ -1,7 +1,7 @@
 var searchData=
 [
   ['calculatedeltatime',['CalculateDeltaTime',['../classGame.html#afddce07e3e3d3ca05a6c2f2ca9e64940',1,'Game']]],
-  ['calculateparallaxscrolling',['CalculateParallaxScrolling',['../classTileMap.html#adda18b2c09dbcc6cfb91b39ae9bee271',1,'TileMap']]],
+  ['calculateparallaxscrolling',['CalculateParallaxScrolling',['../classTileMap.html#a442af6700e8477097e14378bbf2551a2',1,'TileMap']]],
   ['camera',['Camera',['../classCamera.html#a01f94c3543f56ede7af49dc778f19331',1,'Camera']]],
   ['center',['Center',['../classRect.html#ac42ead7988bf077364ce61231980bff2',1,'Rect']]],
   ['changemusicvolume',['ChangeMusicVolume',['../classResources.html#a1655776bc711f51ad1234d002c1919cd',1,'Resources']]],

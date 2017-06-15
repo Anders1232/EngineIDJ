@@ -1,5 +1,5 @@
 <map id="Animation" name="Animation">
-<area shape="rect" id="node2" href="$classGameObject.html" title="GameObject" alt="" coords="503,185,597,212"/>
+<area shape="rect" id="node2" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="503,185,597,212"/>
 <area shape="rect" id="node3" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="252,185,303,212"/>
 <area shape="rect" id="node6" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="522,456,578,483"/>
 <area shape="rect" id="node14" href="$classTimer.html" title="Temporizador. " alt="" coords="409,13,463,40"/>

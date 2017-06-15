@@ -8,25 +8,16 @@
 #include "Vec2.h"
 
 #ifdef _WIN32
-	#include <SDL.h>
-	#include <SDL_image.h>
-	#include <SDL_mixer.h>
-	#include <stdint.h>
 	typedef uint8_t u_int8_t;
 	typedef uint16_t u_int16_t;
 	typedef uint32_t u_int32_t;
-
-#elif __APPLE__
-	#include "TargetConditionals.h"
-	//mac
-#elif __linux__
-	#include <SDL2/SDL.h>
-	#include <SDL2/SDL_image.h>
-	#include <SDL2/SDL_mixer.h>
-	#include <SDL2/SDL_ttf.h>
-#else
-	#error "Unknown compiler"
 #endif
+
+#define INCLUDE_SDL 
+#define INCLUDE_SDL_IMAGE 
+#define INCLUDE_SDL_MIXER 
+#define INCLUDE_SDL_TTF 
+#include "SDL_include.h"
 
 #define MIXER_CHUCK_SIZE 1024
 #define INITIAL_FRAMERATE 60

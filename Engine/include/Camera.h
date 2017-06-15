@@ -5,12 +5,12 @@
 #include "Vec2.h"
 #include "ActionManager.h"
 
-#define CAMERA_DEFAULT_MIN_ZOOM (0.3)
-#define CAMERA_DEFAULT_MAX_ZOOM (1.5)
+#define CAMERA_DEFAULT_MIN_ZOOM (0.075)
+#define CAMERA_DEFAULT_MAX_ZOOM (1.0)
 #define CAMERA_DEFAULT_ZOOMABLE (true)
 #define CAMERA_DEFAULT_ZOOM_SPEED (5.0/200.)
-#define CAMERA_DEFAULT_MIN_SPEED (150.)
-#define CAMERA_DEFAULT_MAX_SPEED (500.)
+#define CAMERA_DEFAULT_MIN_SPEED (200.)
+#define CAMERA_DEFAULT_MAX_SPEED (1000.)
 /**
 	\brief Classe que modela a câmera
 	
@@ -127,6 +127,42 @@ class Camera {
 			Esse efeito é obtido atribuindo newZoomSpeed à zoomSpeed.
 		*/
 		static void SetZoomSpeed(float newZoomSpeed);
+		/**
+			\brief Converte um ponto do espaço de coordenadas do mundo para o espaço de coordenadas da tela
+			\param world o ponto no mundo a ser convertido
+			\return	o ponto no espaço da tela
+
+			Essa função realiza o cálculo para se retornar onde, no espaço de coordenadas da tela, um ponto no mundo estaria localizado.
+			O zoom é considerado nesse cálculo.
+		*/
+		static Vec2 WorldToScreen(Vec2 world);
+		/**
+			\brief Converte um retângulo do espaço de coordenadas do mundo para o espaço de coordenadas da tela
+			\param world o retângulo no mundo a ser convertido
+			\return o retângulo no espaço da tela
+
+			Essa função realiza o cálculo para se retornar onde, no espaço de coordenadas da tela, um retângulo no mundo estaria localizado.
+			O zoom é considerado nesse cálculo.
+		*/
+		static Rect WorldToScreen(Rect world);
+		/**
+			\brief Converte um ponto do espaço de coordenadas da tela para o espaço de coordenadas do mundo
+			\param screen o ponto na tela a ser convertido
+			\return	o ponto no espaço do mundo
+
+			Essa função realiza o cálculo para se retornar onde, no espaço de coordenadas do mundo, um ponto na tela estaria localizado.
+			O zoom é considerado nesse cálculo.
+		*/
+		static Vec2 ScreenToWorld(Vec2 screen);
+		/**
+			\brief Converte um retângulo do espaço de coordenadas da tela para o espaço de coordenadas do mundo
+			\param screen o retângulo na tela a ser convertido
+			\return	o retângulo no espaço do mundo
+
+			Essa função realiza o cálculo para se retornar onde, no espaço de coordenadas do mundo, um retângulo na tela estaria localizado.
+			O zoom é considerado nesse cálculo.
+		*/
+		static Rect ScreenToWorld(Rect screen);
 	private:
 		/*! \brief Construtor privado que não deve ser implementado.
 		 *

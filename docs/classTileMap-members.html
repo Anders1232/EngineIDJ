@@ -92,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classTileMap.html#a3b8dec192ee9ccca2b4476821235cc0a">At</a>(int x, int y, int z=0) const </td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classTileMap.html#a8540f1f0249118c02cced90e0175c461">AtLayer</a>(int index2D, int layer) const </td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classTileMap.html#adda18b2c09dbcc6cfb91b39ae9bee271">CalculateParallaxScrolling</a>(int num, int camera, int layer) const </td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classTileMap.html#a442af6700e8477097e14378bbf2551a2">CalculateParallaxScrolling</a>(Vec2 num, Vec2 pos, int layer) const </td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="classTileMap.html#a513f0605dd5fbd29705099aee423e600">displayCollisionInfo</a></td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classTileMap.html#a52b6a4fcc0c13eb4224850f592f10eba">gameObjectMatrix</a></td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="classTileMap.html#aeb8c6a4101e449c33d963041345d918e">GetDepth</a>(void) const </td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"></td></tr>
@@ -107,8 +107,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
   <tr class="even"><td class="entry"><a class="el" href="classTileMap.html#a9f9975834cc5f1acad95d72828858862">mapDepth</a></td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="classTileMap.html#a8fec89ca278b51de7f3e38831d9fb161">mapHeight</a></td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classTileMap.html#ae2361e840eacaebbbbc91541ded00655">mapWidth</a></td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classTileMap.html#a24297a2f616184d6cddc4808450087b3">Render</a>(int cameraX=0, int cameraY=0, bool parallax=false) const </td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classTileMap.html#a9e46eebb879d8a138c661a987664b1f3">RenderLayer</a>(int layer, int cameraX=0, int cameraY=0, bool parallax=false) const </td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classTileMap.html#a43569e73246f2b5253c537a12051ac90">Render</a>(Vec2 pos=Vec2(0, 0), bool parallax=false, Vec2 mouse=Vec2(-1,-1)) const </td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classTileMap.html#aa87fcf8c31e0730c3a969a7e9abf838a">RenderLayer</a>(int layer, Vec2 pos=Vec2(0, 0), bool parallax=false, Vec2 mouse=Vec2(-1,-1)) const </td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classTileMap.html#aeaeb5ed2cc7e621ab2fe9f5ee26b2b69">SetTileSet</a>(TileSet *tileSet)</td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classTileMap.html#a31b1607f50b08cf2c49c71a8478ec07d">ShowCollisionInfo</a>(bool show)</td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classTileMap.html#acf6fe3a182047153ec9c25fadc55056c">TileMap</a>(string file, TileSet *tileSet)</td><td class="entry"><a class="el" href="classTileMap.html">TileMap</a></td><td class="entry"></td></tr>
@@ -117,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quarta, 14 de Junho de 2017 16:35:11 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Quinta, 15 de Junho de 2017 00:59:32 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

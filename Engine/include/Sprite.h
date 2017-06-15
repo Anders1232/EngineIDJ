@@ -1,23 +1,15 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-#ifdef _WIN32
-	#include <SDL.h>
-	#include <SDL_image.h>
-#elif __APPLE__
-	#include "TargetConditionals.h"
-	//mac
-#elif __linux__
-	#include <SDL2/SDL.h>
-	#include<SDL2/SDL_image.h>
-#else
-	#error "Unknown compiler"
-#endif
-
-#include "Color.h"
+#define INCLUDE_SDL 
+#define INCLUDE_SDL_IMAGE 
+#include "SDL_include.h"
 
 #include <string>
 #include <memory>
+
+#include "Color.h"
+#include "Rect.h"
 
 #define ALPHA_BLEND SDL_BLENDMODE_BLEND
 #define ADDITIVE SDL_BLENDMODE_ADD
@@ -40,12 +32,13 @@ class Sprite {
 		/**
 			\brief Cria um sprite válida.
 			\param file Arquivo que contém a imagem.
-			\param frameTime tempo em segundos que cada imagem de um sprite sheet deve durar.
-			\param frameCount quantas imagens tem no sprite sheet. Caso o valor seja 1 significa que é um sprite não animado.
+			\param highlighted Checa se a sprite deve alterar a cor (highlight) quando o mouse passar em cima.
+			\param frameTime Tempo em segundos que cada imagem de um sprite sheet deve durar.
+			\param frameCount Quantas imagens tem no sprite sheet. Caso o valor seja 1 significa que é um sprite não animado.
 
 			Uma instância de sprite é criada. A escala inicial(X e Y) é 1.0. o método Open é chamado para carregar a imagem.
 		*/
-		Sprite(std::string file, float frameTime=1, int frameCount=1);
+		Sprite(std::string file, bool highlighted= false, float frameTime=1, int frameCount=1);
 		/**
 			\brief Destrutor
 
@@ -71,16 +64,16 @@ class Sprite {
 		void SetClip(int x, int y, int w, int h);
 		/**
 			\brief Renderiza  a imagem.
-			\param x Ponto x da tela a partir do qual a imagem deve ser renderizada.
-			\param y Ponto y da tela a partir do qual a imagem deve ser renderizada.
+			\param world Região a partir do qual a imagem deve ser renderizada.
 			\param angle Ângulo de rotação da imagem.
-			\param zoom Verdadeiro se a imagem deve sofrer zoom, falso caso contrário.
+			\param isCoordOnWorld Verdadeiro se a região a ser renderizada deve ser convertida do mundo para tela. Falso se as coordenadas já estão convertidas (UI e BGs, por exemplo).
 
 			Renderiza o corte da imagem existente em clipRect nas posições (x, y) da informada nos argumentos.
-			Os valores x, y, w e h da posição da tela serão multiplicados pelo valor de zoom contidos na câmera se o argumento zoom for verdadeiro. A imagem será rotacionada de acordo com o argumento angle.
-			Os valores de w e h de destino alteram de acordo com a escala do objeto.
+			A imagem será rotacionada de acordo com o argumento angle.
+			Os valores do retângulo serão convertidos do mundo para tela se isCoordOnWorld for verdadeiro.
+			É realizado uma otimização para que, se a Sprite não possuir nenhuma coordenada na tela, ela não será renderizada.
 		*/
-		void Render(int x, int y, float angle=0, bool zoom= false) const;
+		void Render(Rect world, float angle=0, bool isCoordOnWorld=true) const;
 		/**
 			\brief Informa a largura do sprite
 
@@ -198,5 +191,6 @@ class Sprite {
 		float scaleY;/**< Escala vertical do sprite.*/
 };
 
+#include "InputManager.h"
 
 #endif // SPRITE_H
