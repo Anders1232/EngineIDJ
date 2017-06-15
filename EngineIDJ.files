@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+Game/src/GameResources.cpp
+>>>>>>> 26dd0f213f0d2ac56a7c8cacdd67601b04737654
 Game/src/StageState.cpp
 Game/src/TitleState.cpp
 Game/src/WaveData.cpp
@@ -7,16 +11,28 @@ Game/src/Face.cpp
 Game/src/Enemy.cpp
 Game/src/EndStateData.cpp
 Game/src/EndState.cpp
+<<<<<<< HEAD
 Game/include/WaveManager.h
 Game/include/WaveData.h
 Game/include/TitleState.h
 Game/include/StageState.h
+=======
+Game/include/WaveData.h
+Game/include/TitleState.h
+Game/include/StageState.h
+Game/include/GameResources.h
+>>>>>>> 26dd0f213f0d2ac56a7c8cacdd67601b04737654
 Game/include/Face.h
 Game/include/Enemy.h
 Game/include/EndStateData.h
 Game/include/EndState.h
+<<<<<<< HEAD
 Game/include/EmptyGameObject.h
 Game/include/Defines.h
+=======
+Game/include/Defines.h
+Engine/src/Wave.cpp
+>>>>>>> 26dd0f213f0d2ac56a7c8cacdd67601b04737654
 Engine/src/Vec2.cpp
 Engine/src/Timer.cpp
 Engine/src/Tileset.cpp
@@ -39,6 +55,7 @@ Engine/src/Camera.cpp
 Engine/src/Animation.cpp
 Engine/src/AIGoDown.cpp
 Engine/src/ActionManager.cpp
+<<<<<<< HEAD
 Engine/include/Error.h
 Engine/include/Game.h
 Engine/include/GameObject.h
@@ -57,6 +74,26 @@ Engine/include/Tileset.h
 Engine/include/Timer.h
 Engine/include/Vec2.h
 Engine/include/emptyGameObject.h
+=======
+Engine/include/Wave.h
+Engine/include/Vec2.h
+Engine/include/Timer.h
+Engine/include/Tileset.h
+Engine/include/TileMap.h
+Engine/include/Text.h
+Engine/include/StateData.h
+Engine/include/State.h
+Engine/include/Sprite.h
+Engine/include/Sound.h
+Engine/include/Resources.h
+Engine/include/Rect.h
+Engine/include/Music.h
+Engine/include/InputManager.h
+Engine/include/HitPoints.h
+Engine/include/GameObject.h
+Engine/include/Game.h
+Engine/include/Error.h
+>>>>>>> 26dd0f213f0d2ac56a7c8cacdd67601b04737654
 Engine/include/DragAndDrop.h
 Engine/include/Component.h
 Engine/include/Color.h

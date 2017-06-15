@@ -13,7 +13,8 @@ enum ComponentType{
 	HIT_POINTS,
 	AI_GO_DOWN,
 	WAVE_MANAGER,
-	SIZE
+	SIZE,
+	COMPONENT_TYPE_SIZE
 };
 
 #ifndef GAME_OBJECT

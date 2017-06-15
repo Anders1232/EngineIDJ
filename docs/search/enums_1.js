@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['enemytype',['EnemyType',['../classEnemy.html#a98c2ee2c2081001de17a4bc9fa8da94f',1,'Enemy']]]
+  ['enemytype',['EnemyType',['../Enemy_8h.html#ac3e413a86119db4b031458c7259e268e',1,'Enemy.h']]]
 ];

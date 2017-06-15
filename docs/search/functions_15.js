@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wave',['Wave',['../classWave.html#a3d8144ec0d6c0b0ede77ff59f54471aa',1,'Wave']]]
+  ['wavemanager',['WaveManager',['../classWaveManager.html#abeaaac097df73bdd816db74c00bc203e',1,'WaveManager']]]
 ];

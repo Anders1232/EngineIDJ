@@ -1,6 +1,7 @@
 <map id="GameObject" name="GameObject">
-<area shape="rect" id="node2" href="$classAnimation.html" title="Classe que modela animações. " alt="" coords="5,80,85,107"/>
-<area shape="rect" id="node3" href="$classEnemy.html" title="Classe que modela inimigos. " alt="" coords="110,80,173,107"/>
-<area shape="rect" id="node4" href="$classFace.html" title="Face" alt="" coords="197,80,248,107"/>
-<area shape="rect" id="node5" href="$classWave.html" title="Wave" alt="" coords="272,80,328,107"/>
+<area shape="rect" id="node2" href="$classAnimation.html" title="Classe que modela animações. " alt="" coords="5,80,84,107"/>
+<area shape="rect" id="node3" href="$classemptyGameObject.html" title="emptyGameObject" alt="" coords="109,80,239,107"/>
+<area shape="rect" id="node4" href="$classEmptyGameObject.html" title="EmptyGameObject" alt="" coords="264,80,397,107"/>
+<area shape="rect" id="node5" href="$classEnemy.html" title="Classe que modela inimigos. " alt="" coords="422,80,484,107"/>
+<area shape="rect" id="node6" href="$classFace.html" title="Face" alt="" coords="509,80,560,107"/>
 </map>

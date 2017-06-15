@@ -11,6 +11,17 @@
 #define DIFICULTY_CONSTANT 12
 typedef unsigned int uint;
 
+enum EnemyType{
+	HOSTILE=0,
+	NEUTRAL=1,
+	ENGINEER=2,
+	ARQUITET=3,
+	ART=4,
+	QUIMIC=5,
+	ENEMY_TYPE_SIZE=6
+};
+
+
 /**
 	\brief Classe que modela inimigos
 	
@@ -81,7 +92,7 @@ class Enemy : public GameObject
 		Rect GetWorldRenderedRect(void) const;
 	
 	private:
-		enum EnemyType{ HOSTILE, NEUTRAL, ENGINEER, ARQUITET, ART, QUIMIC } type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
+		EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
 		Sprite sp;/**< Sprite do inimigo.*/
 		Sprite bodySpName;
 		Sprite headSpName;

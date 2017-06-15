@@ -1,6 +1,6 @@
 <map id="Engine/include/Music.h" name="Engine/include/Music.h">
-<area shape="rect" id="node4" href="$Resources_8h.html" title="Resources.h" alt="" coords="157,80,253,107"/>
-<area shape="rect" id="node6" href="$Error_8h.html" title="Error.h" alt="" coords="489,80,550,107"/>
-<area shape="rect" id="node9" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="282,80,394,107"/>
-<area shape="rect" id="node10" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="400,155,463,181"/>
+<area shape="rect" id="node4" href="$Resources_8h.html" title="Resources.h" alt="" coords="156,80,252,107"/>
+<area shape="rect" id="node6" href="$Error_8h.html" title="Error.h" alt="" coords="488,80,549,107"/>
+<area shape="rect" id="node9" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="281,80,392,107"/>
+<area shape="rect" id="node10" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="399,155,461,181"/>
 </map>
