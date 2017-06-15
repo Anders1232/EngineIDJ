@@ -1,16 +1,9 @@
 <map id="Engine/src/AIGoDown.cpp" name="Engine/src/AIGoDown.cpp">
-<<<<<<< HEAD
-<area shape="rect" id="node2" href="$AIGoDown_8h.html" title="AIGoDown.h" alt="" coords="184,80,281,107"/>
-<area shape="rect" id="node3" href="$Component_8h.html" title="Component.h" alt="" coords="183,155,283,181"/>
+<area shape="rect" id="node2" href="$AIGoDown_8h.html" title="AIGoDown.h" alt="" coords="191,80,288,107"/>
+<area shape="rect" id="node3" href="$Component_8h.html" title="Component.h" alt="" coords="189,155,289,181"/>
 <area shape="rect" id="node4" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="5,304,135,331"/>
-<area shape="rect" id="node5" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="179,229,286,256"/>
-<area shape="rect" id="node8" href="$Rect_8h.html" title="Rect.h" alt="" coords="335,304,397,331"/>
-<area shape="rect" id="node9" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="292,379,355,405"/>
-=======
-<area shape="rect" id="node2" href="$AIGoDown_8h.html" title="AIGoDown.h" alt="" coords="118,80,215,107"/>
-<area shape="rect" id="node3" href="$Component_8h.html" title="Component.h" alt="" coords="117,155,217,181"/>
-<area shape="rect" id="node4" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="113,229,220,256"/>
-<area shape="rect" id="node8" href="$Rect_8h.html" title="Rect.h" alt="" coords="261,304,323,331"/>
-<area shape="rect" id="node9" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="218,379,281,405"/>
->>>>>>> c5107e99d962ecdbc0c16f62d763d212369ef492
+<area shape="rect" id="node5" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="186,229,293,256"/>
+<area shape="rect" id="node6" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="331,453,438,480"/>
+<area shape="rect" id="node10" href="$Rect_8h.html" title="Rect.h" alt="" coords="466,304,527,331"/>
+<area shape="rect" id="node11" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="423,379,485,405"/>
 </map>

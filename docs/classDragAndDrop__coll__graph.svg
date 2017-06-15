@@ -9,100 +9,100 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 460)">
 <title>DragAndDrop</title>
 <polygon fill="white" stroke="none" points="-4,4 -4,-460 776.5,-460 776.5,4 -4,4"/>
-<!-- Node2 -->
-<g id="node1" class="node"><title>Node2</title>
+<!-- Node1 -->
+<g id="node1" class="node"><title>Node1</title>
 <polygon fill="#bfbfbf" stroke="black" points="521.5,-0.5 521.5,-19.5 597.5,-19.5 597.5,-0.5 521.5,-0.5"/>
 <text text-anchor="middle" x="559.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">DragAndDrop</text>
 </g>
-<!-- Node3 -->
-<g id="node2" class="node"><title>Node3</title>
+<!-- Node2 -->
+<g id="node2" class="node"><title>Node2</title>
 <g id="a_node2"><a xlink:href="classComponent.html" target="_top" xlink:title="Modela os componentes. ">
 <polygon fill="white" stroke="black" points="449,-67.5 449,-86.5 516,-86.5 516,-67.5 449,-67.5"/>
 <text text-anchor="middle" x="482.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Component</text>
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node2 -->
-<g id="edge1" class="edge"><title>Node3&#45;&gt;Node2</title>
+<!-- Node2&#45;&gt;Node1 -->
+<g id="edge1" class="edge"><title>Node2&#45;&gt;Node1</title>
 <path fill="none" stroke="midnightblue" d="M500.609,-60.7134C515.779,-47.907 536.888,-30.0884 549.28,-19.6273"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="498.268,-58.1088 492.885,-67.2338 502.784,-63.4577 498.268,-58.1088"/>
 </g>
-<!-- Node4 -->
-<g id="node3" class="node"><title>Node4</title>
+<!-- Node3 -->
+<g id="node3" class="node"><title>Node3</title>
 <g id="a_node3"><a xlink:href="classTileMap.html" target="_top" xlink:title="Classe que modela o TileMap. ">
 <polygon fill="white" stroke="black" points="534,-67.5 534,-86.5 585,-86.5 585,-67.5 534,-67.5"/>
 <text text-anchor="middle" x="559.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">TileMap</text>
 </a>
 </g>
 </g>
-<!-- Node4&#45;&gt;Node2 -->
-<g id="edge2" class="edge"><title>Node4&#45;&gt;Node2</title>
+<!-- Node3&#45;&gt;Node1 -->
+<g id="edge2" class="edge"><title>Node3&#45;&gt;Node1</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M559.5,-57.037C559.5,-44.6703 559.5,-29.1198 559.5,-19.6273"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="556,-57.2338 559.5,-67.2338 563,-57.2338 556,-57.2338"/>
 <text text-anchor="middle" x="577" y="-41" font-family="Helvetica,sans-Serif" font-size="10.00"> tileMap</text>
 </g>
-<!-- Node5 -->
-<g id="node4" class="node"><title>Node5</title>
+<!-- Node4 -->
+<g id="node4" class="node"><title>Node4</title>
 <g id="a_node4"><a xlink:href="classTileSet.html" target="_top" xlink:title="Classe responsável por modelar um tileset. ">
 <polygon fill="white" stroke="black" points="297,-134.5 297,-153.5 344,-153.5 344,-134.5 297,-134.5"/>
 <text text-anchor="middle" x="320.5" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">TileSet</text>
 </a>
 </g>
 </g>
-<!-- Node5&#45;&gt;Node4 -->
-<g id="edge3" class="edge"><title>Node5&#45;&gt;Node4</title>
+<!-- Node4&#45;&gt;Node3 -->
+<g id="edge3" class="edge"><title>Node4&#45;&gt;Node3</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M345.327,-129.751C361.927,-121.437 384.494,-111.16 405.5,-105 456.829,-89.9472 472.085,-97.6744 524.5,-87 527.574,-86.374 530.782,-85.6492 533.955,-84.8881"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="343.606,-126.7 336.301,-134.373 346.797,-132.93 343.606,-126.7"/>
 <text text-anchor="middle" x="421" y="-108" font-family="Helvetica,sans-Serif" font-size="10.00"> tileSet</text>
 </g>
-<!-- Node6 -->
-<g id="node5" class="node"><title>Node6</title>
+<!-- Node5 -->
+<g id="node5" class="node"><title>Node5</title>
 <g id="a_node5"><a xlink:href="classSprite.html" target="_top" xlink:title="Classe que modela uma sprite. ">
 <polygon fill="white" stroke="black" points="234.5,-235.5 234.5,-254.5 276.5,-254.5 276.5,-235.5 234.5,-235.5"/>
 <text text-anchor="middle" x="255.5" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">Sprite</text>
 </a>
 </g>
 </g>
-<!-- Node6&#45;&gt;Node5 -->
-<g id="edge4" class="edge"><title>Node6&#45;&gt;Node5</title>
+<!-- Node5&#45;&gt;Node4 -->
+<g id="edge4" class="edge"><title>Node5&#45;&gt;Node4</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M266.805,-226.781C280.817,-205.441 304.148,-169.905 314.837,-153.625"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="263.831,-224.934 261.268,-235.214 269.683,-228.776 263.831,-224.934"/>
 <text text-anchor="middle" x="317" y="-186" font-family="Helvetica,sans-Serif" font-size="10.00"> tileSet</text>
 </g>
-<!-- Node7 -->
-<g id="node6" class="node"><title>Node7</title>
+<!-- Node6 -->
+<g id="node6" class="node"><title>Node6</title>
 <polygon fill="white" stroke="#bfbfbf" points="142,-436.5 142,-455.5 219,-455.5 219,-436.5 142,-436.5"/>
 <text text-anchor="middle" x="180.5" y="-443.5" font-family="Helvetica,sans-Serif" font-size="10.00">unsigned char</text>
 </g>
-<!-- Node7&#45;&gt;Node6 -->
-<g id="edge5" class="edge"><title>Node7&#45;&gt;Node6</title>
+<!-- Node6&#45;&gt;Node5 -->
+<g id="edge5" class="edge"><title>Node6&#45;&gt;Node5</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M172.371,-426.822C164.577,-406.697 155.373,-373.587 165.5,-347 181.301,-305.518 222.826,-270.236 243.48,-254.609"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="169.242,-428.414 176.316,-436.302 175.705,-425.724 169.242,-428.414"/>
 <text text-anchor="middle" x="179" y="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00"> alpha</text>
 </g>
-<!-- Node13 -->
-<g id="node12" class="node"><title>Node13</title>
+<!-- Node12 -->
+<g id="node12" class="node"><title>Node12</title>
 <g id="a_node12"><a xlink:href="structColor.html" target="_top" xlink:title="Struct para armazenar informações de cor. ">
 <polygon fill="white" stroke="black" points="201.5,-347.5 201.5,-366.5 241.5,-366.5 241.5,-347.5 201.5,-347.5"/>
 <text text-anchor="middle" x="221.5" y="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00">Color</text>
 </a>
 </g>
 </g>
-<!-- Node7&#45;&gt;Node13 -->
-<g id="edge12" class="edge"><title>Node7&#45;&gt;Node13</title>
+<!-- Node6&#45;&gt;Node12 -->
+<g id="edge12" class="edge"><title>Node6&#45;&gt;Node12</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M188.875,-427.23C197.572,-408.774 210.815,-380.672 217.435,-366.625"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="185.678,-425.802 184.581,-436.34 192.01,-428.786 185.678,-425.802"/>
 <text text-anchor="middle" x="213" y="-410" font-family="Helvetica,sans-Serif" font-size="10.00"> g</text>
 <text text-anchor="middle" x="213" y="-399" font-family="Helvetica,sans-Serif" font-size="10.00">r</text>
 <text text-anchor="middle" x="213" y="-388" font-family="Helvetica,sans-Serif" font-size="10.00">b</text>
 </g>
-<!-- Node8 -->
-<g id="node7" class="node"><title>Node8</title>
+<!-- Node7 -->
+<g id="node7" class="node"><title>Node7</title>
 <polygon fill="white" stroke="#bfbfbf" points="0,-347.5 0,-366.5 35,-366.5 35,-347.5 0,-347.5"/>
 <text text-anchor="middle" x="17.5" y="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00">float</text>
 </g>
-<!-- Node8&#45;&gt;Node6 -->
-<g id="edge6" class="edge"><title>Node8&#45;&gt;Node6</title>
+<!-- Node7&#45;&gt;Node5 -->
+<g id="edge6" class="edge"><title>Node7&#45;&gt;Node5</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M15.1798,-336.803C14.3879,-320.753 16.1503,-298.396 29.5,-285 58.0974,-256.304 184.039,-248.586 234.492,-246.627"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="11.7267,-337.497 16.0787,-347.156 18.7005,-336.891 11.7267,-337.497"/>
 <text text-anchor="middle" x="57" y="-321" font-family="Helvetica,sans-Serif" font-size="10.00"> scaleY</text>
@@ -110,32 +110,32 @@
 <text text-anchor="middle" x="57" y="-299" font-family="Helvetica,sans-Serif" font-size="10.00">timeElapsed</text>
 <text text-anchor="middle" x="57" y="-288" font-family="Helvetica,sans-Serif" font-size="10.00">scaleX</text>
 </g>
-<!-- Node9 -->
-<g id="node8" class="node"><title>Node9</title>
+<!-- Node8 -->
+<g id="node8" class="node"><title>Node8</title>
 <polygon fill="white" stroke="#bfbfbf" points="58.5,-347.5 58.5,-366.5 120.5,-366.5 120.5,-347.5 58.5,-347.5"/>
 <text text-anchor="middle" x="89.5" y="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00">SDL_Rect</text>
 </g>
-<!-- Node9&#45;&gt;Node6 -->
-<g id="edge7" class="edge"><title>Node9&#45;&gt;Node6</title>
+<!-- Node8&#45;&gt;Node5 -->
+<g id="edge7" class="edge"><title>Node8&#45;&gt;Node5</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M87.7514,-337.034C87.3753,-321.13 89.5619,-298.856 102.5,-285 120.366,-265.866 196.741,-253.574 234.373,-248.565"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="84.2731,-337.503 88.3611,-347.278 91.2607,-337.087 84.2731,-337.503"/>
 <text text-anchor="middle" x="122.5" y="-304.5" font-family="Helvetica,sans-Serif" font-size="10.00"> clipRect</text>
 </g>
-<!-- Node10 -->
-<g id="node9" class="node"><title>Node10</title>
+<!-- Node9 -->
+<g id="node9" class="node"><title>Node9</title>
 <polygon fill="white" stroke="#bfbfbf" points="524,-347.5 524,-366.5 553,-366.5 553,-347.5 524,-347.5"/>
 <text text-anchor="middle" x="538.5" y="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00">int</text>
 </g>
-<!-- Node10&#45;&gt;Node4 -->
-<g id="edge16" class="edge"><title>Node10&#45;&gt;Node4</title>
+<!-- Node9&#45;&gt;Node3 -->
+<g id="edge16" class="edge"><title>Node9&#45;&gt;Node3</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M544.264,-337.796C556.51,-298.051 584.794,-200.31 594.5,-116 595.059,-111.143 596.657,-109.387 594.5,-105 590.708,-97.2863 583.535,-91.1541 576.665,-86.6961"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="540.902,-336.82 541.264,-347.409 547.584,-338.906 540.902,-336.82"/>
 <text text-anchor="middle" x="611" y="-197" font-family="Helvetica,sans-Serif" font-size="10.00"> mapDepth</text>
 <text text-anchor="middle" x="611" y="-186" font-family="Helvetica,sans-Serif" font-size="10.00">mapHeight</text>
 <text text-anchor="middle" x="611" y="-175" font-family="Helvetica,sans-Serif" font-size="10.00">mapWidth</text>
 </g>
-<!-- Node10&#45;&gt;Node5 -->
-<g id="edge13" class="edge"><title>Node10&#45;&gt;Node5</title>
+<!-- Node9&#45;&gt;Node4 -->
+<g id="edge13" class="edge"><title>Node9&#45;&gt;Node4</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M537.627,-337.094C536.114,-321.868 532.088,-300.519 521.5,-285 474.884,-216.674 383.077,-171.357 341.656,-153.527"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="534.156,-337.622 538.362,-347.346 541.138,-337.121 534.156,-337.622"/>
 <text text-anchor="middle" x="529" y="-259" font-family="Helvetica,sans-Serif" font-size="10.00"> tileHeight</text>
@@ -143,8 +143,8 @@
 <text text-anchor="middle" x="529" y="-237" font-family="Helvetica,sans-Serif" font-size="10.00">tileWidth</text>
 <text text-anchor="middle" x="529" y="-226" font-family="Helvetica,sans-Serif" font-size="10.00">columns</text>
 </g>
-<!-- Node10&#45;&gt;Node6 -->
-<g id="edge8" class="edge"><title>Node10&#45;&gt;Node6</title>
+<!-- Node9&#45;&gt;Node5 -->
+<g id="edge8" class="edge"><title>Node9&#45;&gt;Node5</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M514.07,-347.19C489.576,-339.825 479.676,-343.023 463.5,-329 446.827,-314.546 458.087,-298.327 440.5,-285 414.796,-265.523 319.554,-252.968 276.67,-248.185"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="513.2,-350.59 523.794,-350.433 515.415,-343.949 513.2,-350.59"/>
 <text text-anchor="middle" x="492.5" y="-321" font-family="Helvetica,sans-Serif" font-size="10.00"> width</text>
@@ -152,69 +152,69 @@
 <text text-anchor="middle" x="492.5" y="-299" font-family="Helvetica,sans-Serif" font-size="10.00">height</text>
 <text text-anchor="middle" x="492.5" y="-288" font-family="Helvetica,sans-Serif" font-size="10.00">frameCount</text>
 </g>
-<!-- Node11 -->
-<g id="node10" class="node"><title>Node11</title>
+<!-- Node10 -->
+<g id="node10" class="node"><title>Node10</title>
 <polygon fill="white" stroke="#bfbfbf" points="259.5,-347.5 259.5,-366.5 397.5,-366.5 397.5,-347.5 259.5,-347.5"/>
 <text text-anchor="middle" x="328.5" y="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00">shared_ptr&lt; SDL_Texture &gt;</text>
 </g>
-<!-- Node11&#45;&gt;Node6 -->
-<g id="edge9" class="edge"><title>Node11&#45;&gt;Node6</title>
+<!-- Node10&#45;&gt;Node5 -->
+<g id="edge9" class="edge"><title>Node10&#45;&gt;Node5</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M325.905,-337.183C323.091,-322.009 317.445,-300.686 306.5,-285 297.443,-272.02 282.742,-261.44 271.445,-254.591"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="322.503,-338.075 327.546,-347.393 329.415,-336.964 322.503,-338.075"/>
 <text text-anchor="middle" x="341.5" y="-304.5" font-family="Helvetica,sans-Serif" font-size="10.00"> texture</text>
 </g>
-<!-- Node12 -->
-<g id="node11" class="node"><title>Node12</title>
+<!-- Node11 -->
+<g id="node11" class="node"><title>Node11</title>
 <polygon fill="white" stroke="#bfbfbf" points="415.5,-347.5 415.5,-366.5 505.5,-366.5 505.5,-347.5 415.5,-347.5"/>
 <text text-anchor="middle" x="460.5" y="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00">SDL_BlendMode</text>
 </g>
-<!-- Node12&#45;&gt;Node6 -->
-<g id="edge10" class="edge"><title>Node12&#45;&gt;Node6</title>
+<!-- Node11&#45;&gt;Node5 -->
+<g id="edge10" class="edge"><title>Node11&#45;&gt;Node5</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M415.068,-343.824C405.989,-340.04 396.961,-335.182 389.5,-329 371.832,-314.362 380.269,-299.515 362.5,-285 337.235,-264.361 300.088,-254.125 276.872,-249.457"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="413.894,-347.122 424.486,-347.389 416.373,-340.575 413.894,-347.122"/>
 <text text-anchor="middle" x="415" y="-304.5" font-family="Helvetica,sans-Serif" font-size="10.00"> blendMode</text>
 </g>
-<!-- Node13&#45;&gt;Node6 -->
-<g id="edge11" class="edge"><title>Node13&#45;&gt;Node6</title>
+<!-- Node12&#45;&gt;Node5 -->
+<g id="edge11" class="edge"><title>Node12&#45;&gt;Node5</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M226.764,-337.568C230.912,-323.206 236.908,-302.784 242.5,-285 245.797,-274.515 249.832,-262.532 252.523,-254.647"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="223.387,-336.649 223.991,-347.226 230.115,-338.581 223.387,-336.649"/>
 <text text-anchor="middle" x="274.5" y="-304.5" font-family="Helvetica,sans-Serif" font-size="10.00"> colorMultiplier</text>
 </g>
-<!-- Node14 -->
-<g id="node13" class="node"><title>Node14</title>
+<!-- Node13 -->
+<g id="node13" class="node"><title>Node13</title>
 <polygon fill="white" stroke="#bfbfbf" points="362.5,-134.5 362.5,-153.5 434.5,-153.5 434.5,-134.5 362.5,-134.5"/>
 <text text-anchor="middle" x="398.5" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">vector&lt; int &gt;</text>
 </g>
-<!-- Node14&#45;&gt;Node4 -->
-<g id="edge14" class="edge"><title>Node14&#45;&gt;Node4</title>
+<!-- Node13&#45;&gt;Node3 -->
+<g id="edge14" class="edge"><title>Node13&#45;&gt;Node3</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M418.874,-128.748C430.851,-120.88 446.537,-111.429 461.5,-105 468.189,-102.126 506.966,-91.7406 533.69,-84.7202"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="416.851,-125.891 410.512,-134.38 420.761,-131.697 416.851,-125.891"/>
 <text text-anchor="middle" x="483" y="-108" font-family="Helvetica,sans-Serif" font-size="10.00"> tileMatrix</text>
 </g>
-<!-- Node15 -->
-<g id="node14" class="node"><title>Node15</title>
+<!-- Node14 -->
+<g id="node14" class="node"><title>Node14</title>
 <polygon fill="white" stroke="#bfbfbf" points="453,-134.5 453,-153.5 576,-153.5 576,-134.5 453,-134.5"/>
 <text text-anchor="middle" x="514.5" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">vector&lt; GameObject * &gt;</text>
 </g>
-<!-- Node15&#45;&gt;Node4 -->
-<g id="edge15" class="edge"><title>Node15&#45;&gt;Node4</title>
+<!-- Node14&#45;&gt;Node3 -->
+<g id="edge15" class="edge"><title>Node14&#45;&gt;Node3</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M508.792,-124.217C507.886,-117.752 508.161,-110.709 511.5,-105 516.472,-96.4991 525.213,-90.4679 533.886,-86.2954"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="505.44,-125.257 511.099,-134.214 512.261,-123.683 505.44,-125.257"/>
 <text text-anchor="middle" x="553" y="-108" font-family="Helvetica,sans-Serif" font-size="10.00"> gameObjectMatrix</text>
 </g>
-<!-- Node16 -->
-<g id="node15" class="node"><title>Node16</title>
+<!-- Node15 -->
+<g id="node15" class="node"><title>Node15</title>
 <polygon fill="white" stroke="#bfbfbf" points="682,-134.5 682,-153.5 717,-153.5 717,-134.5 682,-134.5"/>
 <text text-anchor="middle" x="699.5" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">bool</text>
 </g>
-<!-- Node16&#45;&gt;Node2 -->
-<g id="edge18" class="edge"><title>Node16&#45;&gt;Node2</title>
+<!-- Node15&#45;&gt;Node1 -->
+<g id="edge18" class="edge"><title>Node15&#45;&gt;Node1</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M723.161,-127.645C730.334,-121.016 735.211,-112.965 730.5,-105 701.7,-56.304 637.706,-31.1391 596.69,-19.5273"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="720.515,-125.273 714.822,-134.208 724.845,-130.774 720.515,-125.273"/>
 <text text-anchor="middle" x="745" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00"> dragOnHold</text>
 </g>
-<!-- Node16&#45;&gt;Node4 -->
-<g id="edge17" class="edge"><title>Node16&#45;&gt;Node4</title>
+<!-- Node15&#45;&gt;Node3 -->
+<g id="edge17" class="edge"><title>Node15&#45;&gt;Node3</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M672.441,-130.208C662.968,-125.723 652.26,-120.645 642.5,-116 632.269,-111.13 629.778,-109.77 619.5,-105 605.926,-98.7011 590.533,-91.7787 578.737,-86.5202"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="671.24,-133.512 681.776,-134.625 674.234,-127.184 671.24,-133.512"/>
 <text text-anchor="middle" x="686.5" y="-108" font-family="Helvetica,sans-Serif" font-size="10.00"> displayCollisionInfo</text>
