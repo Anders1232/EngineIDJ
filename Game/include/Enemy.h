@@ -38,7 +38,7 @@ class Enemy : public GameObject
 			
 			No momento a position informa o extremo superior esquedo a partir do qual o gameObject será instanciado.
 		*/
-		Enemy(Vec2 position, int life); // calcula vida e velocidade 
+		Enemy(Vec2 position,EnemyType type, int life); // calcula vida e velocidade 
 		/**
 			\brief Destrutor
 			

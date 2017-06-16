@@ -114,22 +114,22 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 	int tileHeight = tileSize.y;
 	
 	if(position.x < 0){
-		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
+		std::cerr << WHERE << "Devo lançar exceção aqui?(-1)" << endl;
 		return -1;
 	}
 	
 	if(position.y < 0){
-		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
+		std::cerr << WHERE << "Devo lançar exceção aqui?(-2)" << endl;
 		return -2;
 	}
 	
 	if(position.x >= (GetWidth()-1)* tileWidth ){
-		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
+		std::cerr << WHERE << "Devo lançar exceção aqui?(-3)" << endl;
 		return -3;
 	}
 	
 	if(position.y >= (GetHeight()-1)* tileHeight ){
-		std::cerr << WHERE << "Devo lançar exceção aqui?" << endl;
+		std::cerr << WHERE << "Devo lançar exceção aqui?(-4)" << endl;
 		return -4;
 	}
 	

@@ -16,7 +16,9 @@ void AIPrintPath::Update(GameObject& associated,float dt){
 
 			Vec2 pos = Camera::ScreenToWorld(((Enemy&)associated).box);
 			int position = tilemap->GetTileMousePos(pos, false, 0);
-			tilemap->ShowPath(tilemap->AStar(position,dest,heuristic,(*GameResources::GetWeightData("WeightData.txt"))[((Enemy&)associated).GetType()]));
+			std::map<int, int> weightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
+			std::cout << "chegou aqui" << std::endl;
+			tilemap->ShowPath(tilemap->AStar(position,dest,heuristic,weightMap));
 
 		}
 
