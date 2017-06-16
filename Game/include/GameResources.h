@@ -61,8 +61,8 @@ class GameResources{
 			Arquivo não existente ou em formato inválido faz com que Error() seja chamada, gerando uma interrupção do programa.
 		*/
 		static void ReadWeightData(std::string file);
-		static std::unordered_map<std::string, std::shared_ptr<std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE> > > weightDataMap;/**<Mapa de WeightData indexada pelo nome do arquivo.*/
-		static std::unordered_map<std::string, std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > > waveDataMap;/**<Mapa de WaveData indexado pelo nome do arquivo.*/
+		static std::unordered_map<string, std::shared_ptr<std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE > > > weightDataMap;/**<Mapa de WeightData indexada pelo nome do arquivo.*/
+		static std::unordered_map<string, std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > > waveDataMap;/**<Mapa de WaveData indexado pelo nome do arquivo.*/
 };
 
 #endif // GAMERESOURCES_H

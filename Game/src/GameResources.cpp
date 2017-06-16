@@ -10,8 +10,9 @@
 #define ENEMY_MAX_SPRITE_NAME_LENGHT (100)
 #define WAVE_NAME_MAX_LENGHT (100)
 
-std::unordered_map<std::string, std::shared_ptr<std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE> > > GameResources::weightDataMap;
-std::unordered_map<std::string, std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > > GameResources::waveDataMap;
+
+std::unordered_map<string, std::shared_ptr<std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE> > > GameResources::weightDataMap;
+std::unordered_map<string, std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > > GameResources::waveDataMap;
 
 std::shared_ptr<std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE> > GameResources::GetWeightData(std::string file){
 	if(weightDataMap.end() == weightDataMap.find(file)) {
@@ -96,14 +97,25 @@ void GameResources::ReadWaveData(std::string file){
 		//printf("\nwaveName : %s",waveName);
 		//TEMP_REPORT_I_WAS_HERE;
 		waveVec.emplace_back();
-		waveVec[waveVec.size()-1].waveName= waveName;
-		vector<SpawnPointData> &spawnPointsVec= waveVec[waveVec.size()-1].spawnPointsData;
+
+		std::cout<< "debug waveVec.Size-1 : ";
+		std::cout << waveVec.size()-1 << "\n";
+
+		waveVec[waveVec.size()-1].waveName = waveName;
+		vector<SpawnPointData> &spawnPointsVec = waveVec[waveVec.size()-1].spawnPointsData;
 		int spawnPoint;
 		ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 		while(1 == fscanf(filePtr, " SpawnPoint:%d\n", &spawnPoint)){
 			TEMP_REPORT_I_WAS_HERE;
-			spawnPointsVec.reserve(spawnPoint+1);
-			vector<EnemySpawnData> &enemySpawnVector= spawnPointsVec[spawnPoint].enemySpawnData;
+			spawnPointsVec.reserve(spawnPoint+10);
+
+			//vector<EnemySpawnData> &enemySpawnVector;
+			//std::cout << "\nalooocando spawnPoint: ";
+			//printf("%d\n", spawnPoint);
+			//printf("%d\n", spawnPointsVec[spawnPoint].enemySpawnData);
+			//std::cout << std::endl;
+
+			vector<EnemySpawnData> &enemySpawnVector = spawnPointsVec[spawnPoint].enemySpawnData;
 			int enemyIndex;
 			while(1 == fscanf(filePtr, " %d\n", &enemyIndex) ){
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
@@ -124,6 +136,7 @@ void GameResources::ReadWaveData(std::string file){
 				}
 				TEMP_REPORT_I_WAS_HERE;
 				enemySpawnVector.emplace_back(enemyIndex, numberOfEnemies, enemyHP, endPoint);
+				TEMP_REPORT_I_WAS_HERE;
 			}
 		}
 	}
