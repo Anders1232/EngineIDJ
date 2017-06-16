@@ -52,6 +52,7 @@ void GameResources::ReadWeightData(std::string file){
 }
 
 void GameResources::ReadWaveData(std::string file){
+	TEMP_REPORT_I_WAS_HERE;
 	FILE *filePtr= fopen(file.c_str(), "r");
 	if(NULL == filePtr){
 		Error("\tCould not open " << file);
@@ -65,13 +66,13 @@ void GameResources::ReadWaveData(std::string file){
 	enemyName[ENEMY_MAX_NAME_LENGHT]= '\0';
 	fscanf(filePtr, "--ENEMIES--\n");
 	ASSERT2(0 == ferror(filePtr), "\tFile format invalid! Expecting \"--ENEMIES--\".");
+	TEMP_REPORT_I_WAS_HERE;
 	
-	while( true ){
-		fscanf(filePtr, "\t%s\n", enemyName);
-		string name = enemyName;
-		if (name.compare("--WAVES--") != 0){
+	while( 1 == fscanf(filePtr, "\t%s\n", enemyName)){
+		if (!strcmp("--WAVES--", enemyName)){
 			break;
 		}
+		TEMP_REPORT_I_WAS_HERE;
 		int enemyTypeIndex;
 		
 		printf("\nenemyName:%s\n", enemyName);
