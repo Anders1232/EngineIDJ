@@ -11,6 +11,7 @@
 #include <vector>
 
 #include "Component.h"
+#include "ComponentType.h"
 #include "Rect.h"
 
 using std::string;
@@ -34,6 +35,18 @@ class GameObject{
 			Não é virtual, sua implementação inicializa a rotação com o valor zero. Pode ser usado pelos herdeiros.
 		*/
 		GameObject(void);
+		/**
+			\brief Adiciona componente a um gameobjet.
+			\param component componente a ser adicionado.
+			
+		*/
+		void AddComponent(Component* component);
+		/**
+			\brief Remove componente a um gameobjet.
+			\param type tipo do componente a ser adicionado.
+			
+		*/
+		void RemoveComponent(ComponentType type);
 		/**
 			\brief Destrutor
 			

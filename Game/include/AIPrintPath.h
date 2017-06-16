@@ -19,14 +19,14 @@ class AIPrintPath : public Component
 			\param dest tile de destino.
 			Instancia o componente.
 		*/
-		AIPrintPath(int dest,TileMap* tilemap);
+		AIPrintPath(TileMap* tilemap);
 		/**
 			\brief Atualiza estado.
 			\param associated GameObject que contém esse componente.
 			
 			Instancia o componente.
 		*/
-		void Update(GameObject &associated,int newDest);
+		void Update(GameObject &associated,float dt);
 		/**
 			\brief Verifica se essa componente é do tipo informado.
 			

@@ -1,16 +1,19 @@
 #include "AIPrintPath.h"
 
-AIPrintPath::AIPrintPath(int dest,TileMap* tilemap):dest(dest),tilemap(tilemap){
+AIPrintPath::AIPrintPath(TileMap* tilemap):tilemap(tilemap){
 
 	heuristic = new ManhattanDistance();
+
 }
 
-void AIPrintPath::Update(GameObject& associated,int newDest){
+void AIPrintPath::Update(GameObject& associated,float dt){
 
-	if(associated.Is("Enemy")){
-		if((newDest != dest && !path.empty()) || path.empty()){
+	if(InputManager::GetInstance().MousePress(LEFT_MOUSE_BUTTON)) {
 
-			dest = newDest;
+		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
+		dest = tilemap->GetTileMousePos(mousePos, false, 0);
+		if(associated.Is("Enemy")){
+
 			Vec2 pos = Camera::ScreenToWorld(((Enemy&)associated).box);
 			int position = tilemap->GetTileMousePos(pos, false, 0);
 			tilemap->ShowPath(tilemap->AStar(position,dest,heuristic,(*GameResources::GetWeightData("WeightData.txt"))[((Enemy&)associated).GetType()]));

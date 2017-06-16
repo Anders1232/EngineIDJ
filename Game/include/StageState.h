@@ -13,6 +13,8 @@
 #include "TileMap.h"
 #include "Tileset.h"
 #include "Timer.h"
+#include "AIGoDown.h"
+#include "AIPrintPath.h"
 
 using std::vector;
 
