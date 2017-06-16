@@ -48,23 +48,24 @@ Rect UIelement::ComputeBox(Rect parentCanvas) const {
     box.w = sp.GetWidth();
     box.h = sp.GetHeight();
 
-    float boundingSide = 1, boxSide = 1;
+    Vec2 multiplier;
+    float Mx = boundingBox.w/box.w;
+    float My = boundingBox.h/box.h;
+
     if(BehaviorType::STRETCH == behavior) {
-        box.w = boundingBox.w;
-        box.h = boundingBox.h;
+        multiplier = Vec2(Mx, My);
     } else if(BehaviorType::FIT == behavior) {
-        boxSide = box.w > box.h ? box.w : box.h;
-        boundingSide = boundingBox.w < boundingBox.h ? boundingBox.w : boundingBox.h;
+        float min = Mx < My ? Mx : My;
+        multiplier = Vec2(min, min);
     } else if(BehaviorType::FILL == behavior) {
-        boxSide = box.w < box.h ? box.w : box.h;
-        boundingSide = boundingBox.w > boundingBox.h ? boundingBox.w : boundingBox.h;
+        float max = Mx > My ? Mx : My;
+        multiplier = Vec2(max, max);
     } else {
         Error("Tipo de comportamento de UI indefinido.");
     }
     
-    float multiplier = boundingSide/boxSide;
-    box.w = multiplier*(box.w);
-    box.h = multiplier*(box.h);
+    box.w = multiplier.x*(box.w);
+    box.h = multiplier.y*(box.h);
     box.x = boundingBox.x + (boundingBox.w - box.w)/2 + parentCanvas.x;
     box.y = boundingBox.y + (boundingBox.h - box.h)/2 + parentCanvas.y;
 
