@@ -278,7 +278,7 @@ Vec2 TileMap::GetTileSize(void) const{
 
 bool TileMap::Traversable(int index) const{ 
 
-	return(PAREDE == AtLayer(index,COLLISION_LAYER));
+	return(TILE_VAZIO == AtLayer(index,COLLISION_LAYER));
 
 }
 
@@ -426,20 +426,20 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 		// percorre os vértices "v" adjacentes de "current"
 		for(unsigned int j = 0 ; j < neighbors.size();j ++){
 			//Se o vértice já foi visitado ou não é atingível passa-se para o proximo
-			if (visited[neighbors[j]] || !Traversable(neighbors[j]) || weightMap[AtLayer(neighbors[j],COLLISION_LAYER)]){continue;}
+			if (visited[neighbors[j]] || !Traversable(neighbors[j])){continue;}
 			//Verifica se o custo do caminho a partir de current é menor que o registrado no vizinho
-			if(dist[neighbors[j]] > dist[current.second] + weightMap[AtLayer(neighbors[j],COLLISION_LAYER)]){
+			if(dist[neighbors[j]] > dist[current.second] + weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)]){
 				//Caso o vizinho já tenha sido processado em alguma iteração
 				if (dist[neighbors[j]] != std::numeric_limits<float>::max()){
 					//Remove o custo e o caminho associado ao vizinho das listas visto que novos serão inseridos
 					std::vector<std::pair<double,int> >::iterator it = find (processList.begin(), processList.end(), std::make_pair(dist[neighbors[j]],neighbors[j]));
 					processList.erase(it);
-					paths.remove(std::make_pair(neighbors[j],std::make_pair(current.second,weightMap[AtLayer(neighbors[j],COLLISION_LAYER)])));
+					paths.remove(std::make_pair(neighbors[j],std::make_pair(current.second,weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)])));
 				}
 				// atualiza a distância do vizinho e insere nas listas
-				dist[neighbors[j]] = dist[current.second] + weightMap[AtLayer(neighbors[j],COLLISION_LAYER)];
-				paths.push_back(std::make_pair(neighbors[j],std::make_pair(current.second,weightMap[AtLayer(neighbors[j],COLLISION_LAYER)])));
-				processList.push_back(std::make_pair(weightMap[AtLayer(neighbors[j],COLLISION_LAYER)],neighbors[j]));
+				dist[neighbors[j]] = dist[current.second] + weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)];
+				paths.push_back(std::make_pair(neighbors[j],std::make_pair(current.second,weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)])));
+				processList.push_back(std::make_pair(weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)],neighbors[j]));
 			}
 		}
 		visited[current.second] = true;
