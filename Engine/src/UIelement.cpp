@@ -1,4 +1,5 @@
 #include "UIelement.h"
+#include "Error.h"
 
 UIelement::UIelement(std::string file, BehaviorType behavior)
          : sp(file)
@@ -33,20 +34,21 @@ void UIelement::Render() {
     boundingBox.h = winSize.y*anchors.h+offsets.h - boundingBox.y;
 
     Rect pos;
+    pos.w = sp.GetWidth();
+    pos.h = sp.GetHeight();
+
     float boundingSide = 1, posSide = 1;
     if(BehaviorType::STRETCH == behavior) {
         pos.w = boundingBox.w;
         pos.h = boundingBox.h;
     } else if(BehaviorType::FIT == behavior) {
-        pos.w = sp.GetWidth();
-        pos.h = sp.GetHeight();
         posSide = pos.w > pos.h ? pos.w : pos.h;
         boundingSide = boundingBox.w < boundingBox.h ? boundingBox.w : boundingBox.h;
     } else if(BehaviorType::FILL == behavior) {
-        pos.w = sp.GetWidth();
-        pos.h = sp.GetHeight();
         posSide = pos.w < pos.h ? pos.w : pos.h;
         boundingSide = boundingBox.w > boundingBox.h ? boundingBox.w : boundingBox.h;
+    } else {
+        Error("Tipo de comportamento de UI indefinido.");
     }
     
     float multiplier = boundingSide/posSide;
