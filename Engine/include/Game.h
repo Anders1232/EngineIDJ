@@ -183,9 +183,30 @@ class Game {
 		/**
 			\brief Reposiciona a janela
 
-			Posiciona a janela no sentro da tela.
+			Posiciona a janela no centro da tela.
 		*/
 		void SetWindowCentered(void);
+		/**
+			\brief Informa se a janela está em tela cheia.
+			\return Veja a descrição
+
+			Retorna true se a janela estiver no modo tela cheia ou false se a janela não estiver em tela cheia.
+		*/
+		bool GetWindowFullscreen(void) const;
+		/**
+			\brief Informa se a janela está em seu tamanho máximo.
+			\return Veja a descrição
+
+			Retorna true se a janela maximizada ou false se não estiver maximizada.
+		*/
+		bool GetWindowMaximized(void) const;
+		/**
+			\brief Informa se a janela tem bordas.
+			\return Veja a descrição
+
+			Retorna true se a janela estiver sem bordas ou false se estiver com bordas.
+		*/
+		bool GetWindowBorderless(void) const;
 	private:
 		/**
 			\brief Calcula o tempo transcorrido desde a última chamada a essa função

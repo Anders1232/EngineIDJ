@@ -249,3 +249,15 @@ void Game::SetWindowBorderless(bool isBorderless){
 void Game::SetWindowCentered(void){
 	SDL_SetWindowPosition(window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
 }
+
+bool Game::GetWindowFullscreen(void) const{
+	return SDL_GetWindowFlags(window) & SDL_WINDOW_FULLSCREEN;
+}
+
+bool Game::GetWindowMaximized(void) const{
+	return SDL_GetWindowFlags(window) & SDL_WINDOW_MAXIMIZED;
+}
+
+bool Game::GetWindowBorderless(void) const{
+	return SDL_GetWindowFlags(window) & SDL_WINDOW_BORDERLESS;
+}
