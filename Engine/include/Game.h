@@ -21,6 +21,7 @@
 
 #define MIXER_CHUCK_SIZE 1024
 #define INITIAL_FRAMERATE 60
+#define CLEAR_COLOR 255,0,255,255 // Pink (RGBA)
 
 /**
 	\brief Classe que modela o todo-poderoso Jogo

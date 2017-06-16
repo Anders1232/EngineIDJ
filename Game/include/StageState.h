@@ -25,7 +25,6 @@ class StageState: public State {
 		void Pause(void);
 		void Resume(void);
 	private:
-		Sprite bg;
 		TileMap *tileMap;
 		TileSet tileSet;
 		InputManager &inputManager;

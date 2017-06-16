@@ -20,12 +20,12 @@ class UIelement {
     void SetBehavior(BehaviorType type);
     void Update(float dt);
     void Render(Rect parentCanvas) const;
+    Rect ComputeBox(Rect parentCanvas) const;
   private:
     Sprite sp;
     Rect anchors; // Coordenadas W e H sao absolutas, e nao relativas como comumente usadas em Rects
     Rect offsets; // Coordenadas W e H sao absolutas, e nao relativas como comumente usadas em Rects
     BehaviorType behavior;
-    Rect ComputeBox(Rect parentCanvas) const;
 };
 
 #endif // UIELEMENT_H

@@ -33,7 +33,6 @@
 
 StageState::StageState(void)
 		: State()
-		, bg("img/ocean.jpg")
 		, tileSet(120, 120,"img/map/tileset_v2.png")
 		, inputManager(InputManager::GetInstance())
 		, music("audio/stageState.ogg")
@@ -149,7 +148,6 @@ void StageState::Update(float dt) {
 void StageState::Render(void) const {
 	//renderizar o bg
 	REPORT_I_WAS_HERE;
-	bg.Render(Rect(STATE_RENDER_X, STATE_RENDER_Y, 0, 0), 0, false);
 	REPORT_I_WAS_HERE;
 	bool highlighted = true;
 	for(unsigned int cont=0; cont < objectArray.size(); cont++) {
