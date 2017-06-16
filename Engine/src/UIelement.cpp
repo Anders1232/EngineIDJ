@@ -71,3 +71,15 @@ Rect UIelement::ComputeBox(Rect parentCanvas) const {
 
     return box;
 }
+
+float UIelement::GetSpriteWidth(void) {
+    return sp.GetWidth();
+}
+
+float UIelement::GetSpriteHeight(void) {
+    return sp.GetHeight();
+}
+
+void UIelement::SetSpriteScale(float scale) {
+    sp.SetScale(scale);
+}

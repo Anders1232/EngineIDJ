@@ -14,6 +14,10 @@ class TitleState: public State {
 		void Resume(void);
 	private:
 		UIelement bg;
+		UIelement lua;
+		// UIelement nuvemA;
+		UIelement nuvemB;
+		UIelement icc;
 };
 
 #endif // TITLESTATE_H
