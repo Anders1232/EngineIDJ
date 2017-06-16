@@ -99,29 +99,28 @@ void GameResources::ReadWaveData(std::string file){
 		//TEMP_REPORT_I_WAS_HERE;
 		waveVec.emplace_back();
 
-		//std::cout<< "debug waveVec.Size-1 : ";
-		//std::cout << waveVec.size()-1 << "\n";
+		std::cout<< "debug waveVec.Size-1 : ";
+		std::cout << waveVec.size()-1 << "\n";
 
 		waveVec[waveVec.size()-1].waveName = waveName;
 		vector<SpawnPointData> &spawnPointsVec = waveVec[waveVec.size()-1].spawnPointsData;
 		int spawnPoint;
 		ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 		TEMP_REPORT_I_WAS_HERE;
-		while(1 == fscanf(filePtr, " SpawnPoint:%d\n", &spawnPoint)){
-			std::cout <<  WHERE<< "\t\t" << spawnPoint << END_LINE;
+		while(1 == fscanf(filePtr, "\tSpawnPoint:%d\n", &spawnPoint)){
+//			std::cout <<  WHERE<< "\t\t" << spawnPoint << END_LINE;
 			spawnPointsVec.reserve(spawnPoint+1);
 
-			//vector<EnemySpawnData> &enemySpawnVector;
 			//std::cout << "\nalooocando spawnPoint: ";
 			//printf("%d\n", spawnPoint);
-			//printf("%d\n", spawnPointsVec[spawnPoint].enemySpawnData);
 			//std::cout << std::endl;
 
 			vector<EnemySpawnData> &enemySpawnVector = spawnPointsVec[spawnPoint].enemySpawnData;
 			int enemyIndex;
-			while(1 == fscanf(filePtr, " %d\n", &enemyIndex) ){
+			TEMP_REPORT_I_WAS_HERE;
+			while(1 == fscanf(filePtr, "\t\t\t%d\n", &enemyIndex) ){
 				std::cout <<  WHERE<< "\t\t" << enemyIndex << END_LINE;
-
+				TEMP_REPORT_I_WAS_HERE;
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 				int numberOfEnemies;
 				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &numberOfEnemies), "\tFile format invaled! Expecting a integer.");
