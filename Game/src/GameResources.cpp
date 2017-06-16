@@ -3,6 +3,7 @@
 #include "GameResources.h"
 #include "stdio.h"
 #include "Error.h"
+#include <vector>
 
 #define ENEMY_TYPE_MAX_STRING_SIZE (50)
 #define WAVE_DATA_FILENAME_MAX_SIZE (50)
@@ -119,7 +120,7 @@ void GameResources::ReadWaveData(std::string file){
 			int enemyIndex;
 			TEMP_REPORT_I_WAS_HERE;
 			while(1 == fscanf(filePtr, "\t\t\t%d\n", &enemyIndex) ){
-				std::cout <<  WHERE<< "\t\t" << enemyIndex << END_LINE;
+				std::cout <<  WHERE<< "\t\tenemyIndex: " << enemyIndex << END_LINE;
 				TEMP_REPORT_I_WAS_HERE;
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 				int numberOfEnemies;
