@@ -107,13 +107,15 @@ void GameResources::ReadWaveData(std::string file){
 		ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 		TEMP_REPORT_I_WAS_HERE;
 		while(1 == fscanf(filePtr, "\tSpawnPoint:%d\n", &spawnPoint)){
-			spawnPointsVec.reserve(spawnPoint+1);//não brinquem de aumentar o valor do +1
-
+			if(spawnPointsVec.size() < spawnPoint+1){
+				spawnPointsVec.resize(spawnPoint+1);
+			}
 			//std::cout << "\nalooocando spawnPoint: ";
 			//printf("%d\n", spawnPoint);
 			//std::cout << std::endl;
 
 			vector<EnemySpawnData> &enemySpawnVector = spawnPointsVec[spawnPoint].enemySpawnData;
+//			enemySpawnVector= vector<EnemySpawnData>();
 			int enemyIndex;
 			TEMP_REPORT_I_WAS_HERE;
 			while(1 == fscanf(filePtr, "\t\t\t%d\n", &enemyIndex) ){
