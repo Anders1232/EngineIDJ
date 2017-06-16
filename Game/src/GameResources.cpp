@@ -2,6 +2,7 @@
 #include <string.h>
 #include "GameResources.h"
 #include "stdio.h"
+#include "Error.h"
 
 #define ENEMY_TYPE_MAX_STRING_SIZE (50)
 #define WAVE_DATA_FILENAME_MAX_SIZE (50)
@@ -68,10 +69,12 @@ void GameResources::ReadWaveData(std::string file){
 		fscanf(filePtr, "\t%s\n", enemyName);
 		string name = enemyName;
 		if (name.compare("--WAVES--") != 0){
-			printf("para tudo!!\n");break;
+			break;
 		}
 		int enemyTypeIndex;
+		
 		printf("\nenemyName:%s\n", enemyName);
+		
 		ASSERT2(1 == fscanf(filePtr, "\t\t%s\n", readEnemyType), "\tFile format invalid! Expecting a string");
 		char spriteFileName[ENEMY_MAX_SPRITE_NAME_LENGHT+1];
 		spriteFileName[ENEMY_MAX_SPRITE_NAME_LENGHT]= '\0';
@@ -83,34 +86,50 @@ void GameResources::ReadWaveData(std::string file){
 		newEntry->second.emplace_back(enemyName, enemyTypeIndex, scaleX, scaleY, spriteFileName);//vê se esse uso consegue instanciar a struct, caso contrário criar construtor
 	}
 	//agora é ler o waveData
-	fscanf(filePtr, "--WAVES--\n");
-	ASSERT2(0 == ferror(filePtr), "\tFile format invalid! Expecting \"--WAVES--\".");
+//	fscanf(filePtr, "--WAVES--\n");
+	//ASSERT2(0 == ferror(filePtr), "\tFile format invalid! Expecting \"--WAVES--\".");
 	char waveName[WAVE_NAME_MAX_LENGHT+1];
 	waveName[WAVE_NAME_MAX_LENGHT]= '\0';
 	vector<WaveData> &waveVec= newEntry->first;
 	while(1== fscanf(filePtr, " %s\n", waveName) ){
+		std::cout <<  WHERE<< "\t\t" << waveName << END_LINE;
+		//printf("\nwaveName : %s",waveName);
+		//TEMP_REPORT_I_WAS_HERE;
 		waveVec.emplace_back();
 		waveVec[waveVec.size()-1].waveName= waveName;
 		vector<SpawnPointData> &spawnPointsVec= waveVec[waveVec.size()-1].spawnPointsData;
 		int spawnPoint;
-		while(1 == fscanf(filePtr, " SpawnPoint%d\n", &spawnPoint)){
+		ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
+		while(1 == fscanf(filePtr, " SpawnPoint:%d\n", &spawnPoint)){
+			TEMP_REPORT_I_WAS_HERE;
 			spawnPointsVec.reserve(spawnPoint+1);
 			vector<EnemySpawnData> &enemySpawnVector= spawnPointsVec[spawnPoint].enemySpawnData;
 			int enemyIndex;
 			while(1 == fscanf(filePtr, " %d\n", &enemyIndex) ){
+				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 				int numberOfEnemies;
 				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &numberOfEnemies), "\tFile format invaled! Expecting a integer.");
 				int enemyHP;
+				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &enemyHP), "\tFile format invaled! Expecting a integer.");
 				uint endPoint;
+				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 				ASSERT2(1 == fscanf(filePtr, "\t\t%u\n", &endPoint), "\tFile format invaled! Expecting a integer.");
+				REPORT_DEBUG2(1, "\t enemyIndex= " << enemyIndex);
+				REPORT_DEBUG2(1, "\t numberOfEnemies= " << numberOfEnemies);
+				REPORT_DEBUG2(1, "\t enemyHP= " << enemyHP);
+				REPORT_DEBUG2(1, "\t endPoint= " << endPoint);
+				if(ferror(filePtr)){
+					break;
+				}
+				TEMP_REPORT_I_WAS_HERE;
 				enemySpawnVector.emplace_back(enemyIndex, numberOfEnemies, enemyHP, endPoint);
 			}
 		}
-		
 	}
 	fclose(filePtr);
 	waveDataMap[file]= newEntry;
+	
 }
 
 EnemyType GameResources::GetEnemyTypeFromString(std::string str){
