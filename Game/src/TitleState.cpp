@@ -18,7 +18,8 @@ void TitleState::Update(float dt) {
 }
 
 void TitleState::Render(void) const {
-	bg.Render(Rect(0,0,0,0), 0, false);
+	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
+	bg.Render(Rect(0., 0., winSize.x, winSize.y));
 }
 
 void TitleState::Pause(void) {}

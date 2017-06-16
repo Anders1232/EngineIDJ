@@ -2,7 +2,7 @@
 #define TITLESTATE_H
 
 #include "ActionManager.h"
-#include "Sprite.h"
+#include "UIelement.h"
 #include "State.h"
 
 class TitleState: public State {
@@ -13,7 +13,7 @@ class TitleState: public State {
 		void Pause(void);
 		void Resume(void);
 	private:
-		Sprite bg;
+		UIelement bg;
 };
 
 #endif // TITLESTATE_H

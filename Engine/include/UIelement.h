@@ -1,15 +1,13 @@
 #ifndef UIELEMENT_H
 #define UIELEMENT_H
 
-#include "Game.h"
-#include "GameObject.h"
 #include "Sprite.h"
 #include "Rect.h"
 #include "Vec2.h"
 
 #include <string>
 
-class UIelement : public GameObject {
+class UIelement {
   public:
     enum BehaviorType {
         FIT,
@@ -19,13 +17,15 @@ class UIelement : public GameObject {
     UIelement(std::string file, BehaviorType behavior = BehaviorType::STRETCH);
     void SetAnchors(Vec2 min, Vec2 max);
     void SetOffsets(Vec2 min, Vec2 max);
+    void SetBehavior(BehaviorType type);
     void Update(float dt);
-    void Render();
+    void Render(Rect parentCanvas) const;
   private:
     Sprite sp;
-    Rect anchors;
-    Rect offsets;
+    Rect anchors; // Coordenadas W e H sao absolutas, e nao relativas como comumente usadas em Rects
+    Rect offsets; // Coordenadas W e H sao absolutas, e nao relativas como comumente usadas em Rects
     BehaviorType behavior;
+    Rect ComputeBox(Rect parentCanvas) const;
 };
 
 #endif // UIELEMENT_H
