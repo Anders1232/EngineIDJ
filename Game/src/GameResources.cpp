@@ -129,6 +129,29 @@ EnemyType GameResources::GetEnemyTypeFromString(std::string str){
 		Error("\tTipo de inimigo não identificado " << str);
 	}
 }
+std::string GameResources::GetStringFromEnemyType(EnemyType type){
+	if(EnemyType::HOSTILE == type){
+		return "HOSTILE";
+	}
+	else if(EnemyType::NEUTRAL == type){
+		return "NEUTRAL";
+	}
+	else if(EnemyType::ENGINEER == type){
+		return "ENGINEER";
+	}
+	else if(EnemyType::ARQUITET == type){
+		return "ARQUITET";
+	}
+	else if(EnemyType::ART == type){
+		return "ART";
+	}
+	else if(EnemyType::QUIMIC == type){
+		return "QUIMIC";
+	}
+	else{
+		Error("\tTipo de inimigo não identificado ");
+	}
+}
 //void GameResources::SaveWeightData(std::array<std::map<int, int> *data)
 
 //void GameResources::SaveWaveData(voidstd::pair<std::vector<WaveData>, std::vector<EnemyData> > *data);

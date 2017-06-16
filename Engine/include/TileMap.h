@@ -149,8 +149,8 @@ class TileMap{
 
 			O tamanho retornado não leva em consideração zoom, mas leva em consideração escala.
 		*/
-		std::vector<int> GetNeighbors(int tile) const;
 		void ShowPath(std::list<int>path);
+		std::list<int> AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, int> weightMap);
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
@@ -186,8 +186,8 @@ class TileMap{
 		std::vector<GameObject*> gameObjectMatrix;/**< TileMap linearizado de GameObjects*/	//bidimensional??
 		bool displayCollisionInfo;/**<Verdadeiro se as informações de colisão devem ser exibidas no TileMap::Render, falso caso contrário.*/
 		struct LessThanByHeuristic;
-		std::list<int> AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, int> weightMap);
 		bool Traversable(int index) const;
+		std::vector<int> GetNeighbors(int tile) const;
 };
 
 #endif // TILEMAP_H

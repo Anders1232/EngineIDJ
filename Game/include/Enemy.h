@@ -89,10 +89,15 @@ class Enemy : public GameObject
 			Utilizado para verificar onde o mouse está.
 		*/
 		Rect GetWorldRenderedRect(void) const;
+		/**
+			\brief Obtém o type do objeto
+			
+		*/
+		EnemyType GetType(void) const;
 	
 	private:
 
-		enum EnemyType{ HOSTILE, NEUTRAL, ENGINEER, ARQUITET, ART, QUIMIC, SIZE } type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
+		enum EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
 		Sprite sp;/**< Sprite do inimigo.*/
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
 };

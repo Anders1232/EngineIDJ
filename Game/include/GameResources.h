@@ -38,6 +38,11 @@ class GameResources{
 			Arquivo não existente ou em formato inválido faz com que Error() seja chamada, gerando uma interrupção do programa.
 		*/
 		static std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > GetWaveData(std::string file);
+		/**
+			\brief Obtém string a partir de EnemyType
+
+		*/
+		static std::string GetStringFromEnemyType(EnemyType type);
 //		static void SaveWeightData(std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE > &data);
 //		static void SaveWaveData(std::pair<std::vector<WaveData>, std::vector<EnemyData> > &data);
 	private:

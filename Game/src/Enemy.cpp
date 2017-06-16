@@ -48,3 +48,9 @@ bool Enemy::Is(string type) {
 Rect Enemy::GetWorldRenderedRect(void) const {
 	return Camera::WorldToScreen(box);
 }
+
+EnemyType Enemy::GetType(void) const{
+
+	return type;
+
+}
