@@ -5,7 +5,6 @@
 #include "GameObject.h"
 #include "Sprite.h"
 #include "Rect.h"
-#include "Resources.h"
 #include "Vec2.h"
 
 #include <string>

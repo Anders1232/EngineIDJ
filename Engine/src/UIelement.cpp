@@ -29,26 +29,31 @@ void UIelement::Render() {
     Rect boundingBox;
     boundingBox.x = winSize.x*anchors.x+offsets.x;
     boundingBox.y = winSize.y*anchors.y+offsets.y;
-    boundingBox.w = winSize.x*anchors.w+offsets.w;
-    boundingBox.h = winSize.y*anchors.h+offsets.h;
+    boundingBox.w = winSize.x*anchors.w+offsets.w - boundingBox.x;
+    boundingBox.h = winSize.y*anchors.h+offsets.h - boundingBox.y;
 
     Rect pos;
-    pos.x = boundingBox.x;
-    pos.y = boundingBox.y;
-    float multiplier;
-    float max = 1, min = 1;
+    float boundingSide = 1, posSide = 1;
     if(BehaviorType::STRETCH == behavior) {
-        pos.w = boundingBox.w - boundingBox.x;
-        pos.h = boundingBox.h - boundingBox.y;
+        pos.w = boundingBox.w;
+        pos.h = boundingBox.h;
     } else if(BehaviorType::FIT == behavior) {
-        max = sp.GetWidth() > sp.GetHeight() ? sp.GetWidth() : sp.GetHeight();
-        min = boundingBox.w - boundingBox.x < boundingBox.y - boundingBox.y ? boundingBox.w - boundingBox.x : boundingBox.y - boundingBox.y;
+        pos.w = sp.GetWidth();
+        pos.h = sp.GetHeight();
+        posSide = pos.w > pos.h ? pos.w : pos.h;
+        boundingSide = boundingBox.w < boundingBox.h ? boundingBox.w : boundingBox.h;
     } else if(BehaviorType::FILL == behavior) {
-        min = sp.GetWidth() < sp.GetHeight() ? sp.GetWidth() : sp.GetHeight();
-        max = boundingBox.w - boundingBox.x > boundingBox.y - boundingBox.y ? boundingBox.w - boundingBox.x : boundingBox.y - boundingBox.y;
+        pos.w = sp.GetWidth();
+        pos.h = sp.GetHeight();
+        posSide = pos.w < pos.h ? pos.w : pos.h;
+        boundingSide = boundingBox.w > boundingBox.h ? boundingBox.w : boundingBox.h;
     }
-    multiplier = min/max;
-    pos.w = multiplier*(boundingBox.w - boundingBox.x);
-    pos.h = multiplier*(boundingBox.h - boundingBox.h);
+    
+    float multiplier = boundingSide/posSide;
+    pos.w = multiplier*(pos.w);
+    pos.h = multiplier*(pos.h);
+    pos.x = boundingBox.x + (boundingBox.w - pos.w)/2;
+    pos.y = boundingBox.y + (boundingBox.h - pos.h)/2;
+
     sp.Render(pos, 0, false);
 }
