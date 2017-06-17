@@ -14,7 +14,7 @@ var searchData=
   ['tilemap_2ecpp',['TileMap.cpp',['../TileMap_8cpp.html',1,'']]],
   ['tilemap_2eh',['TileMap.h',['../TileMap_8h.html',1,'']]],
   ['tilematrix',['tileMatrix',['../classTileMap.html#ac1d3ce0587c4e615682b71fd96295e0e',1,'TileMap']]],
-  ['tileset',['TileSet',['../classTileSet.html',1,'TileSet'],['../classTileMap.html#a24b2ea7aecfd795f1e13dfa9b0b3cb76',1,'TileMap::tileSet()'],['../classTileSet.html#adbd7ac102ce306e4f367c32cfa576979',1,'TileSet::tileSet()'],['../classStageState.html#ac1ef17645d0585767eaf96693a88d9bb',1,'StageState::tileSet()'],['../classTileSet.html#a671a1040ef1ba7600a6ea21faa950819',1,'TileSet::TileSet()']]],
+  ['tileset',['TileSet',['../classTileSet.html',1,'TileSet'],['../classTileSet.html#a671a1040ef1ba7600a6ea21faa950819',1,'TileSet::TileSet()'],['../classTileMap.html#a24b2ea7aecfd795f1e13dfa9b0b3cb76',1,'TileMap::tileSet()'],['../classTileSet.html#adbd7ac102ce306e4f367c32cfa576979',1,'TileSet::tileSet()'],['../classStageState.html#ac1ef17645d0585767eaf96693a88d9bb',1,'StageState::tileSet()']]],
   ['tileset_2ecpp',['Tileset.cpp',['../Tileset_8cpp.html',1,'']]],
   ['tileset_2eh',['Tileset.h',['../Tileset_8h.html',1,'']]],
   ['tilewidth',['tileWidth',['../classTileSet.html#a9ba9087a6da877f78af6cdf9afb0af7c',1,'TileSet']]],
@@ -36,5 +36,5 @@ var searchData=
   ['tower_5fbase_5fhp',['TOWER_BASE_HP',['../Tower_8h.html#a6a2af83ac78171fbd34362529674b253',1,'Tower.h']]],
   ['tower_5flinear_5fsize',['TOWER_LINEAR_SIZE',['../StageState_8cpp.html#aa36454fb50ff803104734eece82589ca',1,'StageState.cpp']]],
   ['towertype',['TowerType',['../classTower.html#a2a6d5a7ae2af5e4481abcb2d3b535174',1,'Tower::TowerType()'],['../classTower.html#a7b293b49f79494ccfe2592109d8a1ec5',1,'Tower::TowerType()']]],
-  ['type',['type',['../classEnemy.html#a810c9c09be3480cdd23cd4caf345f24f',1,'Enemy']]]
+  ['type',['type',['../classEnemy.html#a51791619a70962355568fae00cb96cdb',1,'Enemy']]]
 ];

@@ -2,6 +2,7 @@ var searchData=
 [
   ['b',['b',['../structColor.html#a9f00605f7024dcb79342e97fae52c1bd',1,'Color']]],
   ['base_5fhit_5fpoints',['BASE_HIT_POINTS',['../Enemy_8h.html#ada0d607190454d90a3a5c59916a05af4',1,'Enemy.h']]],
+  ['basehp',['baseHP',['../structEnemySpawnData.html#a72e910b56ecf52d3a24aca7207a2fa9f',1,'EnemySpawnData']]],
   ['bg',['bg',['../classEndState.html#aeb91899a27b89589e22685a888d4ba0a',1,'EndState::bg()'],['../classStageState.html#aa52c55dee219d1bbd1690e8c3c8e34f6',1,'StageState::bg()'],['../classTitleState.html#acecffd14c654d7b19636d926579cbe44',1,'TitleState::bg()']]],
   ['blended',['BLENDED',['../Text_8h.html#ad5957a553b7d89d4921c39cc3ad6bc45a2dddf3d92f4ebca37b63bfd88f337f3a',1,'Text.h']]],
   ['blendmode',['blendMode',['../classSprite.html#a9081ab1c8e4ca96a21d97a937550da8c',1,'Sprite']]],

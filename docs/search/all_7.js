@@ -9,6 +9,6 @@ var searchData=
   ['hitpoints',['HitPoints',['../classHitPoints.html',1,'HitPoints'],['../classHitPoints.html#a8a6cf09b404be54b96831e1e0974a71c',1,'HitPoints::HitPoints()'],['../classTower.html#a0abb3e35e3d258ee29977075df34cab4',1,'Tower::hitpoints()']]],
   ['hitpoints_2ecpp',['HItPoints.cpp',['../HItPoints_8cpp.html',1,'']]],
   ['hitpoints_2eh',['HitPoints.h',['../HitPoints_8h.html',1,'']]],
-  ['hostile',['HOSTILE',['../classEnemy.html#a98c2ee2c2081001de17a4bc9fa8da94fa2b536c5cc8abb19efeb0ad91e9ff6cbf',1,'Enemy']]],
+  ['hostile',['HOSTILE',['../Enemy_8h.html#ac3e413a86119db4b031458c7259e268ea5e344b55f70ed8001ac9e7bb5d226851',1,'Enemy.h']]],
   ['hp',['hp',['../classHitPoints.html#a5ec030fa360b2f032c3cde31540f3bf1',1,'HitPoints']]]
 ];
