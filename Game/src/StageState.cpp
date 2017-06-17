@@ -42,7 +42,7 @@ StageState::StageState(void)
 		, music("audio/stageState.ogg")
 		, spawnTimer()
 		, isLightning(false)
-		, lightningTime()
+		, lightningTimer()
 		, lightningColor(255, 255, 255, 0) {
 	REPORT_I_WAS_HERE;
 	tileMap = new TileMap(std::string("map/tileMap.txt"), &tileSet);
@@ -150,22 +150,15 @@ void StageState::Update(float dt) {
 		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
 	}
 
-	if(InputManager::GetInstance().KeyPress('m') || isLightning){
-		isLightning = true;
-		lightningTime.Update(dt);
-		if(lightningTime.Get() < MAX_TIME_LIGHTINING_RISE){
-			lightningColor.a += 40;
-		}
-		else if(lightningTime.Get() >= MAX_TIME_LIGHTINING_RISE && lightningTime.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING){
-			lightningColor.a = 255;
-		}
-		else if(lightningTime.Get() >= MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING  && lightningTime.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE){
-			lightningColor.a -= 2;
-		}
-		else{
-			lightningTime.Restart();
-			isLightning = false;
-			lightningColor.a = 0;
+	if(isLightning){
+		ShowLightning(dt);
+	}
+	else{
+		isLightning = false;
+		lightningTimer.Update(dt);
+		if(lightningTimer.Get() > rand() % 80 + 20){
+			isLightning = true;
+			lightningTimer.Restart();
 		}
 	}
 
@@ -205,4 +198,25 @@ void StageState::SpawnEnemy(int tileMapPosition) {
 	spawnPosition.x = (tileMapPosition % tileMap->GetWidth() ) * tileSize.x;
 	spawnPosition.y = (tileMapPosition / tileMap->GetWidth() ) * tileSize.y;
 	objectArray.push_back(unique_ptr<GameObject>( new Enemy(spawnPosition, 1.0) ));
+}
+
+void StageState::ShowLightning(float dt){
+	isLightning = true;
+	lightningTimer.Update(dt);
+
+	if(lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE){
+		lightningColor.a += 256 * dt / MAX_TIME_LIGHTINING_RISE;
+	}
+	else if(lightningTimer.Get() >= MAX_TIME_LIGHTINING_RISE && lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING){
+		lightningColor.a = 255;
+	}
+	else if(lightningTimer.Get() >= MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING  && lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE){
+		float fullTime = (MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE) - (MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING);
+		lightningColor.a -= 256* ((dt / fullTime) + 1);
+	}
+	else{
+		lightningColor.a = 0;
+		isLightning = false;
+		lightningTimer.Restart();
+	}
 }

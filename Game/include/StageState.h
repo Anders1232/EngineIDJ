@@ -24,6 +24,7 @@ class StageState: public State {
 		void Render(void) const;
 		void Pause(void);
 		void Resume(void);
+		void ShowLightning(float dt);
 	private:
 		Sprite bg;
 		TileMap *tileMap;
@@ -33,7 +34,7 @@ class StageState: public State {
 		vector<vector<int>> *spawnGroups;
 		Timer spawnTimer;
 		bool isLightning;
-		Timer lightningTime;
+		Timer lightningTimer;
 		Color lightningColor;
 		void SpawnEnemy(int tileMapPosition);
 };
