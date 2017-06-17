@@ -53,7 +53,6 @@ void GameResources::ReadWeightData(std::string file){
 }
 
 void GameResources::ReadWaveData(std::string file){
-	TEMP_REPORT_I_WAS_HERE;
 	FILE *filePtr= fopen(file.c_str(), "r");
 	if(NULL == filePtr){
 		Error("\tCould not open " << file);
@@ -67,16 +66,12 @@ void GameResources::ReadWaveData(std::string file){
 	enemyName[ENEMY_MAX_NAME_LENGHT]= '\0';
 	fscanf(filePtr, "--ENEMIES--\n");
 	ASSERT2(0 == ferror(filePtr), "\tFile format invalid! Expecting \"--ENEMIES--\".");
-	TEMP_REPORT_I_WAS_HERE;
 	
 	while( 1 == fscanf(filePtr, "\t%s\n", enemyName)){
 		if (!strcmp("--WAVES--", enemyName)){
 			break;
 		}
-		TEMP_REPORT_I_WAS_HERE;
 		int enemyTypeIndex;
-		
-		printf("\nenemyName:%s\n", enemyName);
 		
 		ASSERT2(1 == fscanf(filePtr, "\t\t%s\n", readEnemyType), "\tFile format invalid! Expecting a string");
 		char spriteFileName[ENEMY_MAX_SPRITE_NAME_LENGHT+1];
@@ -106,7 +101,6 @@ void GameResources::ReadWaveData(std::string file){
 		vector<SpawnPointData> &spawnPointsVec = waveVec[waveVec.size()-1].spawnPointsData;
 		uint spawnPoint;
 		ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
-		TEMP_REPORT_I_WAS_HERE;
 		while(1 == fscanf(filePtr, "\tSpawnPoint:%u\n", &spawnPoint)){
 			if(spawnPointsVec.size() < spawnPoint+1){
 				spawnPointsVec.resize(spawnPoint+1);
@@ -118,10 +112,8 @@ void GameResources::ReadWaveData(std::string file){
 			vector<EnemySpawnData> &enemySpawnVector = spawnPointsVec[spawnPoint].enemySpawnData;
 //			enemySpawnVector= vector<EnemySpawnData>();
 			int enemyIndex;
-			TEMP_REPORT_I_WAS_HERE;
 			while(1 == fscanf(filePtr, "\t\t\t%d\n", &enemyIndex) ){
-				std::cout <<  WHERE<< "\t\tenemyIndex: " << enemyIndex << END_LINE;
-				TEMP_REPORT_I_WAS_HERE;
+				//std::cout <<  WHERE<< "\t\tenemyIndex: " << enemyIndex << END_LINE;
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 				int numberOfEnemies;
 				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &numberOfEnemies), "\tFile format invaled! Expecting a integer.");
@@ -138,11 +130,10 @@ void GameResources::ReadWaveData(std::string file){
 				if(ferror(filePtr)){
 					break;
 				}
-				REPORT_DEBUG2(1, "\t enemySpawnVector size= " << enemySpawnVector.size());
-				REPORT_DEBUG2(1, "\t Lido enemySpawn de index= " <<enemyIndex << " quantidade= " << numberOfEnemies
-							<< " HP base = " <<enemyHP << " e com endPoint" << endPoint);
+				//REPORT_DEBUG2(1, "\t enemySpawnVector size= " << enemySpawnVector.size());
+				//REPORT_DEBUG2(1, "\t Lido enemySpawn de index= " <<enemyIndex << " quantidade= " << numberOfEnemies
+				//			<< " HP base = " <<enemyHP << " e com endPoint" << endPoint);
 				enemySpawnVector.emplace_back(enemyIndex, numberOfEnemies, enemyHP, endPoint);
-				TEMP_REPORT_I_WAS_HERE;
 			}
 		}
 	}
@@ -177,4 +168,3 @@ EnemyType GameResources::GetEnemyTypeFromString(std::string str){
 //void GameResources::SaveWeightData(std::array<std::map<int, int> *data)
 
 //void GameResources::SaveWaveData(voidstd::pair<std::vector<WaveData>, std::vector<EnemyData> > *data);
-

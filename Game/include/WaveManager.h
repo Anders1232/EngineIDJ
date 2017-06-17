@@ -6,10 +6,8 @@
 #include "TileMap.h"
 #include "Component.h"
 #include "WaveData.h"
-
+#include "Error.h"
 #include <memory>
-//#include "EnemyData.h"
-typedef unsigned int uint;
 using std::vector;
 
 /**
