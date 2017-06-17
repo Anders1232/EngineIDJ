@@ -1,8 +1,9 @@
 <map id="Engine/include/Camera.h" name="Engine/include/Camera.h">
-<area shape="rect" id="node2" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="257,80,364,107"/>
-<area shape="rect" id="node8" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="450,229,513,256"/>
-<area shape="rect" id="node10" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="528,80,648,107"/>
-<area shape="rect" id="node6" href="$Component_8h.html" title="Component.h" alt="" coords="261,155,361,181"/>
-<area shape="rect" id="node7" href="$Rect_8h.html" title="Rect.h" alt="" coords="385,155,447,181"/>
-<area shape="rect" id="node11" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="535,155,647,181"/>
+<area shape="rect" id="node2" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="229,80,336,107"/>
+<area shape="rect" id="node9" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="475,229,538,256"/>
+<area shape="rect" id="node11" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="544,80,664,107"/>
+<area shape="rect" id="node3" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="377,304,484,331"/>
+<area shape="rect" id="node7" href="$Component_8h.html" title="Component.h" alt="" coords="283,155,383,181"/>
+<area shape="rect" id="node8" href="$Rect_8h.html" title="Rect.h" alt="" coords="408,155,469,181"/>
+<area shape="rect" id="node12" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="548,155,660,181"/>
 </map>
