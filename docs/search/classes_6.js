@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hitpoints',['HitPoints',['../classHitPoints.html',1,'']]]
+  ['inputmanager',['InputManager',['../classInputManager.html',1,'']]]
 ];

@@ -12,7 +12,7 @@ enum ComponentType{
 	DRAG_AND_DROP=0,
 	HIT_POINTS,
 	AI_GO_DOWN,
-	SIZE
+	COMPONENT_TYPE_SIZE
 };
 
 #ifndef GAME_OBJECT

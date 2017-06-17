@@ -33,7 +33,7 @@ var searchData=
   ['showcollisioninfo',['ShowCollisionInfo',['../classTileMap.html#a31b1607f50b08cf2c49c71a8478ec07d',1,'TileMap']]],
   ['sound',['Sound',['../classSound.html#a539c205cdf06fe2c621fd77c37bcfac9',1,'Sound::Sound()'],['../classSound.html#af2c277cdc12b7df1de53e5b855e4f09c',1,'Sound::Sound(string file)']]],
   ['spawnenemy',['SpawnEnemy',['../classStageState.html#a5812a63278bc2f2f911795f0184f1588',1,'StageState']]],
-  ['sprite',['Sprite',['../classSprite.html#abee3d268d8e467d9e23bfe0693e64144',1,'Sprite::Sprite(void)'],['../classSprite.html#a5b32e7b8aede63b8a2720ecfa670d0e3',1,'Sprite::Sprite(std::string file, float frameTime=1, int frameCount=1)']]],
+  ['sprite',['Sprite',['../classSprite.html#abee3d268d8e467d9e23bfe0693e64144',1,'Sprite::Sprite(void)'],['../classSprite.html#a944623d99293e5b8c7d06d12cd727fda',1,'Sprite::Sprite(std::string file, bool highlighted=false, float frameTime=1, int frameCount=1)']]],
   ['stagestate',['StageState',['../classStageState.html#a83447a9a485bd3cf9f2c0d293343ec42',1,'StageState']]],
   ['startaction',['StartAction',['../classActionManager.html#ae3da833a8f3d476ba588a9ed7e61aeac',1,'ActionManager']]],
   ['state',['State',['../classState.html#aef73d18751fc737c6b4f0893660a0d81',1,'State']]],

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['hitpoints_2ecpp',['HItPoints.cpp',['../HItPoints_8cpp.html',1,'']]],
-  ['hitpoints_2eh',['HitPoints.h',['../HitPoints_8h.html',1,'']]]
+  ['inputmanager_2ecpp',['InputManager.cpp',['../InputManager_8cpp.html',1,'']]],
+  ['inputmanager_2eh',['InputManager.h',['../InputManager_8h.html',1,'']]]
 ];
