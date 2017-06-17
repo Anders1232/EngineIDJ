@@ -1,4 +1,4 @@
-<map id="Face" name="Face">
+<map id="Tower" name="Tower">
 <area shape="rect" id="node2" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="488,83,583,109"/>
 <area shape="rect" id="node3" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="237,56,288,83"/>
 <area shape="rect" id="node6" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="507,395,563,421"/>
