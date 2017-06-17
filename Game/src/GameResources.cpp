@@ -105,15 +105,11 @@ void GameResources::ReadWaveData(std::string file){
 			if(spawnPointsVec.size() < spawnPoint+1){
 				spawnPointsVec.resize(spawnPoint+1);
 			}
-			//std::cout << "\nalooocando spawnPoint: ";
-			//printf("%d\n", spawnPoint);
-			//std::cout << std::endl;
+
 
 			vector<EnemySpawnData> &enemySpawnVector = spawnPointsVec[spawnPoint].enemySpawnData;
-//			enemySpawnVector= vector<EnemySpawnData>();
 			int enemyIndex;
 			while(1 == fscanf(filePtr, "\t\t\t%d\n", &enemyIndex) ){
-				//std::cout <<  WHERE<< "\t\tenemyIndex: " << enemyIndex << END_LINE;
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 				int numberOfEnemies;
 				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &numberOfEnemies), "\tFile format invaled! Expecting a integer.");
@@ -130,9 +126,6 @@ void GameResources::ReadWaveData(std::string file){
 				if(ferror(filePtr)){
 					break;
 				}
-				//REPORT_DEBUG2(1, "\t enemySpawnVector size= " << enemySpawnVector.size());
-				//REPORT_DEBUG2(1, "\t Lido enemySpawn de index= " <<enemyIndex << " quantidade= " << numberOfEnemies
-				//			<< " HP base = " <<enemyHP << " e com endPoint" << endPoint);
 				enemySpawnVector.emplace_back(enemyIndex, numberOfEnemies, enemyHP, endPoint);
 			}
 		}
