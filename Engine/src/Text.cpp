@@ -32,8 +32,8 @@ Text::~Text() {
 void Text::Update(float dt){
 	textTime.Update(dt);
 	if(textTime.Get() >= strobeFrequency){
-        textTime.Restart();
-    }
+		textTime.Restart();
+	}
 }
 
 void Text::Render(int cameraX, int cameraY) const {

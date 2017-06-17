@@ -57,6 +57,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
+<<<<<<< HEAD
 <polygon fill="white" stroke="#bfbfbf" points="197,-100.5 197,-119.5 259,-119.5 259,-100.5 197,-100.5"/>
 <text text-anchor="middle" x="228" y="-107.5" font-family="Helvetica,sans-Serif" font-size="10.00">SDL_Rect</text>
 </g>
@@ -65,6 +66,16 @@
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M228,-90.2203C228,-68.9514 228,-35.2197 228,-19.5374"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="224.5,-90.3031 228,-100.303 231.5,-90.3032 224.5,-90.3031"/>
 <text text-anchor="middle" x="248" y="-57.5" font-family="Helvetica,sans-Serif" font-size="10.00"> clipRect</text>
+=======
+<polygon fill="white" stroke="#bfbfbf" points="197.5,-100.5 197.5,-119.5 259.5,-119.5 259.5,-100.5 197.5,-100.5"/>
+<text text-anchor="middle" x="228.5" y="-107.5" font-family="Helvetica,sans-Serif" font-size="10.00">SDL_Rect</text>
+</g>
+<!-- Node4&#45;&gt;Node1 -->
+<g id="edge3" class="edge"><title>Node4&#45;&gt;Node1</title>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M228.5,-90.2203C228.5,-68.9514 228.5,-35.2197 228.5,-19.5374"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="225,-90.3031 228.5,-100.303 232,-90.3032 225,-90.3031"/>
+<text text-anchor="middle" x="248.5" y="-57.5" font-family="Helvetica,sans-Serif" font-size="10.00"> clipRect</text>
+>>>>>>> bf4e2285b2b341e482bc808a5988dde9e137c701
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>

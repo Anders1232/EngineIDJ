@@ -28,6 +28,9 @@
 *.out
 *.app
 
+# Configuração local do vscode
+.vscode/launch.json
+
 #configuração local do Qt
 *.user
 
@@ -37,3 +40,7 @@ JOGO*
 dep/*
 */dep
 
+#arquivos da IDE Clion
+.idea/EngineIDJ.iml
+.idea/modules.xml
+.idea/workspace.xml

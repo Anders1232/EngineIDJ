@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['uint',['uint',['../Error_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;Error.h'],['../HitPoints_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;HitPoints.h'],['../Enemy_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;Enemy.h'],['../WaveManager_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;WaveManager.h'],['../Face_8cpp.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;Face.cpp']]],
+  ['uint',['uint',['../Error_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;Error.h'],['../HitPoints_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;HitPoints.h'],['../Enemy_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;Enemy.h'],['../Face_8cpp.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;Face.cpp']]],
   ['unfollow',['Unfollow',['../classCamera.html#aa9ca7decdebf7147c9d6dc747e7d59e9',1,'Camera']]],
   ['up_5farrow_5fkey',['UP_ARROW_KEY',['../InputManager_8h.html#ad411242de334297d01bdadac8f47e90b',1,'InputManager.h']]],
   ['uparrowaction',['UpArrowAction',['../classActionManager.html#adfe15b32de9e9c3fab2e288c8c1d7c33',1,'ActionManager']]],

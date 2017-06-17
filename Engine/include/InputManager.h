@@ -1,19 +1,9 @@
 #ifndef INPUTMANAGER_H
 #define INPUTMANAGER_H
 
-#ifdef _WIN32
-	#include <SDL.h>
-	#include <SDL_image.h>
-#elif __APPLE__
-	#include "TargetConditionals.h"
-	//mac
-#elif __linux__
-	#include <SDL2/SDL.h>
-	#include <SDL2/SDL_image.h>
-	#include <SDL2/SDL_mixer.h>
-#else
-	#error "Unknown compiler"
-#endif
+#define INCLUDE_SDL 
+#define INCLUDE_SDL_IMAGE 
+#include "SDL_include.h"
 
 #include "Vec2.h"
 #include <unordered_map>

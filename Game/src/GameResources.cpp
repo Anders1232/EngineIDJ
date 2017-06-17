@@ -2,6 +2,7 @@
 #include <string.h>
 #include "GameResources.h"
 #include "stdio.h"
+
 #include "Error.h"
 #include <vector>
 
@@ -10,6 +11,7 @@
 #define ENEMY_MAX_NAME_LENGHT (100)
 #define ENEMY_MAX_SPRITE_NAME_LENGHT (100)
 #define WAVE_NAME_MAX_LENGHT (100)
+
 
 
 std::unordered_map<string, std::shared_ptr<std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE> > > GameResources::weightDataMap;
@@ -74,6 +76,7 @@ void GameResources::ReadWaveData(std::string file){
 		int enemyTypeIndex;
 		
 		ASSERT2(1 == fscanf(filePtr, "\t\t%s\n", readEnemyType), "\tFile format invalid! Expecting a string");
+
 		char spriteFileName[ENEMY_MAX_SPRITE_NAME_LENGHT+1];
 		spriteFileName[ENEMY_MAX_SPRITE_NAME_LENGHT]= '\0';
 		//para dicionar mais sprites necessita-se duplicar essas linhas
@@ -83,9 +86,6 @@ void GameResources::ReadWaveData(std::string file){
 		ASSERT2(1 == fscanf(filePtr, "\t\t%f\n", &scaleY), "\tScaleY File format invalid! Expecting a float.");
 		newEntry->second.emplace_back(enemyName, enemyTypeIndex, scaleX, scaleY, spriteFileName);//vê se esse uso consegue instanciar a struct, caso contrário criar construtor
 	}
-	//agora é ler o waveData
-//	fscanf(filePtr, "--WAVES--\n");
-	//ASSERT2(0 == ferror(filePtr), "\tFile format invalid! Expecting \"--WAVES--\".");
 	char waveName[WAVE_NAME_MAX_LENGHT+1];
 	waveName[WAVE_NAME_MAX_LENGHT]= '\0';
 	vector<WaveData> &waveVec= newEntry->first;

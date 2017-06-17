@@ -1,5 +1,5 @@
 <map id="Enemy" name="Enemy">
-<area shape="rect" id="node2" href="$classGameObject.html" title="GameObject" alt="" coords="491,83,586,109"/>
+<area shape="rect" id="node2" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="491,83,586,109"/>
 <area shape="rect" id="node3" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="240,56,291,83"/>
 <area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="511,395,567,421"/>
 <area shape="rect" id="node13" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="239,327,292,353"/>

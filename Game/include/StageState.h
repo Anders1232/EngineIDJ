@@ -3,14 +3,15 @@
 
 #include <vector>
 #include <memory>
-#include "Sprite.h"
-#include "GameObject.h"
-#include "Tileset.h"
-#include "TileMap.h"
-#include "InputManager.h"
+
 #include "ActionManager.h"
-#include "State.h"
+#include "GameObject.h"
+#include "InputManager.h"
 #include "Music.h"
+#include "Sprite.h"
+#include "State.h"
+#include "TileMap.h"
+#include "Tileset.h"
 #include "Timer.h"
 #include "WaveManager.h"
 #include "EmptyGameObject.h"
@@ -36,7 +37,7 @@ class StageState: public State {
 		InputManager &inputManager;
 		Music music;
 		vector<vector<int>> *spawnGroups;
-		Timer spawnTimer;
+		//Timer spawnTimer;
 		void SpawnEnemy(int tileMapPosition);
 		WaveManager waveManager;
 		EmptyGameObject nullGameObject;

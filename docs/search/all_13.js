@@ -1,7 +1,7 @@
 var searchData=
 [
   ['temp_5freport_5fi_5fwas_5fhere',['TEMP_REPORT_I_WAS_HERE',['../Error_8h.html#a460a42aaa4200700dfb4a73f852e93b8',1,'Error.h']]],
-  ['text',['Text',['../classText.html',1,'Text'],['../classText.html#a7da8331e2da684bb0485a3ee7893b415',1,'Text::text()'],['../classText.html#aa8407cc951fc6848de89878339e6623b',1,'Text::Text(string fontFile, int fontSize, TextStyle style, SDL_Color color, bool isStrobing=false, int x=0, int y=0)']]],
+  ['text',['Text',['../classText.html',1,'Text'],['../classText.html#aa8407cc951fc6848de89878339e6623b',1,'Text::Text(string fontFile, int fontSize, TextStyle style, SDL_Color color, bool isStrobing=false, int x=0, int y=0)'],['../classText.html#a7da8331e2da684bb0485a3ee7893b415',1,'Text::text()']]],
   ['text_2ecpp',['Text.cpp',['../Text_8cpp.html',1,'']]],
   ['text_2eh',['Text.h',['../Text_8h.html',1,'']]],
   ['text_5ffrequency',['TEXT_FREQUENCY',['../Text_8h.html#a51c895f669b6bbf3a538dd9b2f987549',1,'Text.h']]],

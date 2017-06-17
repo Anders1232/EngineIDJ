@@ -1,7 +1,10 @@
 var searchData=
 [
   ['calculatedeltatime',['CalculateDeltaTime',['../classGame.html#afddce07e3e3d3ca05a6c2f2ca9e64940',1,'Game']]],
-  ['calculateparallaxscrolling',['CalculateParallaxScrolling',['../classTileMap.html#adda18b2c09dbcc6cfb91b39ae9bee271',1,'TileMap']]],
+  ['calculateparallaxscrolling',['CalculateParallaxScrolling',['../classTileMap.html#a442af6700e8477097e14378bbf2551a2',1,'TileMap']]],
+  ['cam_5fstart_5fx',['CAM_START_X',['../StageState_8cpp.html#a58f35e25c13bb24aa54a987cd1ce803d',1,'StageState.cpp']]],
+  ['cam_5fstart_5fy',['CAM_START_Y',['../StageState_8cpp.html#a23bfb27612786648f85c1d4e8268178b',1,'StageState.cpp']]],
+  ['cam_5fstart_5fzoom',['CAM_START_ZOOM',['../StageState_8cpp.html#a3f9c38f1221c38679673d781cbefada8',1,'StageState.cpp']]],
   ['camera',['Camera',['../classCamera.html',1,'Camera'],['../classCamera.html#a01f94c3543f56ede7af49dc778f19331',1,'Camera::Camera()']]],
   ['camera_2ecpp',['Camera.cpp',['../Camera_8cpp.html',1,'']]],
   ['camera_2eh',['Camera.h',['../Camera_8h.html',1,'']]],

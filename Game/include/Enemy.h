@@ -1,8 +1,10 @@
 #ifndef ENEMY_H
 #define ENEMY_H
+
 #include "GameObject.h"
 #include "Sprite.h"
 #include "Rect.h"
+#include "Sprite.h"
 #include "TileMap.h"
 #include "Timer.h"
 #include "WaveData.h"
@@ -105,4 +107,4 @@ class Enemy : public GameObject
 		uint quant, baseHP, endPoint;
 };
 
-#endif
+#endif // ENEMY_H
