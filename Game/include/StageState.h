@@ -33,7 +33,8 @@ class StageState: public State {
 		vector<vector<int>> *spawnGroups;
 		Timer spawnTimer;
 		bool isLightning;
-		Timer lightTime;
+		Timer lightningTime;
+		Color lightningColor;
 		void SpawnEnemy(int tileMapPosition);
 };
 

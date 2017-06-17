@@ -30,6 +30,9 @@
 #define CAM_START_X 300
 #define CAM_START_Y 300
 #define CAM_START_ZOOM 0.3
+#define MAX_TIME_LIGHTINING_RISE 0.1
+#define MAX_TIME_LIGHTINING 0.3
+#define MAX_TIME_LIGHTINING_FADE 2
 
 StageState::StageState(void)
 		: State()
@@ -39,7 +42,8 @@ StageState::StageState(void)
 		, music("audio/stageState.ogg")
 		, spawnTimer()
 		, isLightning(false)
-		, lightTime() {
+		, lightningTime()
+		, lightningColor(255, 255, 255, 0) {
 	REPORT_I_WAS_HERE;
 	tileMap = new TileMap(std::string("map/tileMap.txt"), &tileSet);
 	REPORT_I_WAS_HERE;
@@ -146,19 +150,22 @@ void StageState::Update(float dt) {
 	}
 
 	if(InputManager::GetInstance().KeyPress('m') || isLightning){
-		// isLightning = true;
-		// if(lightTime.Get() < 0.5){
-		// 	SDL_Surface* surface = SDL_GetWindowSurface(Game::GetInstance().GetWindow());
-
-		// 	/* Filling the surface with red color. */
-		// 	SDL_FillRect(surface, NULL, SDL_MapRGBA(surface->format, 255, 255, 255, alpha));
-		// 	SDL_UpdateWindowSurface(Game::GetInstance().GetWindow());
-		// }
-		// else{
-		// 	lightTime.Restart();
-		// 	isLightning = false;
-		// }
-		// lightTime.Update(dt);
+		isLightning = true;
+		lightningTime.Update(dt);
+		if(lightningTime.Get() < MAX_TIME_LIGHTINING_RISE){
+			lightningColor.a += 40;
+		}
+		else if(lightningTime.Get() >= MAX_TIME_LIGHTINING_RISE && lightningTime.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING){
+			lightningColor.a = 255;
+		}
+		else if(lightningTime.Get() >= MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING  && lightningTime.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE){
+			lightningColor.a -= 2;
+		}
+		else{
+			lightningTime.Restart();
+			isLightning = false;
+			lightningColor.a = 0;
+		}
 	}
 
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
@@ -179,6 +186,12 @@ void StageState::Render(void) const {
 	tileMap->Render(Vec2(0,0), false, highlighted ?  Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos()) : Vec2(-1, -1));
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
+
+	if(isLightning){
+		SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), lightningColor.r, lightningColor.g, lightningColor.b, lightningColor.a);
+		SDL_SetRenderDrawBlendMode(Game::GetInstance().GetRenderer(), SDL_BLENDMODE_BLEND);
+		SDL_RenderFillRect(Game::GetInstance().GetRenderer(), NULL);
+	}
 }
 
 void StageState::Pause(void) {}
