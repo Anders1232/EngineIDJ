@@ -381,8 +381,8 @@ struct TileMap::LessThanByHeuristic{
 
 	public:
 
-		LessThanByHeuristic(int origin,int dest,AStarHeuristic* heuristic,int mapWidth):
-		originTile(origin),destTile(dest),heuristic(heuristic),tileMapWidth(tileMapWidth){}
+		LessThanByHeuristic(int dest,AStarHeuristic* heuristic,int mapWidth):
+		destTile(dest),heuristic(heuristic),tileMapWidth(tileMapWidth){}
 
 		bool operator()(const std::pair<double,int> lhs,const std::pair<double,int> rhs) const{
 			return lhs.first + (*heuristic)(Vec2(lhs.second / tileMapWidth,lhs.second % tileMapWidth),
@@ -393,32 +393,37 @@ struct TileMap::LessThanByHeuristic{
 
 	private:
 	
-		int originTile,destTile;
+		int destTile;
 		AStarHeuristic* heuristic;
 		int tileMapWidth;
 
 };
 
-std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, int> weightMap){
+std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap){
 	//Obtem vetor de pesos do tile que deve ser considerado
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<int ,std::pair<int,double> > > paths;
 	std::vector<std::pair<double,int> > processList;
 	//inicia o vetor de distâncias e de visited
-	std::vector<double> dist(tileMatrix.size(),std::numeric_limits<float>::max());
-	std::vector<double> visited(tileMatrix.size(),false);
+	std::vector<double> dist(tileMatrix.size(),std::numeric_limits<double>::max());
+	std::vector<bool> visited(tileMatrix.size(),false);
 	//a distância de orig para orig é 0
 	dist[originTile] = 0.0;
 	//Inicializa listas de processamento e de caminhos
 	processList.emplace(processList.begin(),std::make_pair(dist[originTile],originTile));
 	paths.push_back(std::make_pair(originTile,std::make_pair(originTile,dist[originTile])));
-
+	std::vector<std::pair<double,int> >::iterator itp;
+	//Define functor a ser usado no ordenamento do vetor de tiles
+	LessThanByHeuristic compareFunc = LessThanByHeuristic(destTile,heuristic,mapWidth);
 	//Loop de processamento do Djkistra
 	while(!processList.empty()){
 		//Seleciona o nó com menor custo fazendo assim uma busca guiada(A*)
-		std::sort(processList.begin(), processList.end(), LessThanByHeuristic(originTile,destTile,heuristic,mapWidth));
+		std::cout << processList[0].first << " " << processList[0].second << "-" << processList.size() << std::endl;
+		std::cout << processList.size() << std::endl;
+		std::sort(processList.begin(), processList.end(), compareFunc);
 		std::pair<double,int> current = processList[0];
-		processList.erase(processList.begin());// remove da lista
+		itp = processList.begin();
+		processList.erase(itp);// remove da lista
 		//Obtém todos os vizinhos de "current"
 		std::vector<int> neighbors = GetNeighbors(current.second);
 		//Se chegou ao destino sai do loop
@@ -430,20 +435,25 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 			//Verifica se o custo do caminho a partir de current é menor que o registrado no vizinho
 			if(dist[neighbors[j]] > dist[current.second] + weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)]){
 				//Caso o vizinho já tenha sido processado em alguma iteração
-				if (dist[neighbors[j]] != std::numeric_limits<float>::max()){
+				if(dist[neighbors[j]] != std::numeric_limits<double>::max()){
+					std::cout << "chegou aqui mais dentro ainda" << std::endl;
 					//Remove o custo e o caminho associado ao vizinho das listas visto que novos serão inseridos
 					std::vector<std::pair<double,int> >::iterator it = find (processList.begin(), processList.end(), std::make_pair(dist[neighbors[j]],neighbors[j]));
 					processList.erase(it);
 					paths.remove(std::make_pair(neighbors[j],std::make_pair(current.second,weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)])));
+					std::cout << "chegou aqui mais dentro ainda" << std::endl;
 				}
 				// atualiza a distância do vizinho e insere nas listas
 				dist[neighbors[j]] = dist[current.second] + weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)];
 				paths.push_back(std::make_pair(neighbors[j],std::make_pair(current.second,weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)])));
 				processList.push_back(std::make_pair(weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)],neighbors[j]));
+				std::cout << "chegou aqui dentro" << std::endl;
 			}
 		}
 		visited[current.second] = true;
+		std::cout << "chegou aqui" << std::endl;
 	}
+	
 	//Deducao do caminho
 	std::list<std::pair<int ,std::pair<int,double> > >::iterator it;
 	std::list<int> path;

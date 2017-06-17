@@ -7,6 +7,7 @@
 #include <queue>
 #include <limits>
 #include <map>
+#include <functional>
 #include "Tileset.h"
 #include "Vec2.h"
 #include "GameObject.h"
@@ -150,7 +151,7 @@ class TileMap{
 			O tamanho retornado não leva em consideração zoom, mas leva em consideração escala.
 		*/
 		void ShowPath(std::list<int>path);
-		std::list<int> AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, int> weightMap);
+		std::list<int> AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap);
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.

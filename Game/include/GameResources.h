@@ -30,7 +30,7 @@ class GameResources{
 			Obtém referência para informações do WeightData do nome do arquivo informado, se as informações do arquivo informado não tiverem sido carregadas elas o serão.
 			Arquivo não existente ou em formato inválido faz com que Error() seja chamada, gerando uma interrupção do programa.
 		*/
-		static std::shared_ptr<std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE> > GetWeightData(std::string file);//para o pathfiding
+		static std::shared_ptr<std::array<std::map<int, double>, EnemyType::ENEMY_TYPE_SIZE> > GetWeightData(std::string file);//para o pathfiding
 		/**
 			\brief Obtém WaveData a partir de arquivo.
 
@@ -66,7 +66,7 @@ class GameResources{
 			Arquivo não existente ou em formato inválido faz com que Error() seja chamada, gerando uma interrupção do programa.
 		*/
 		static void ReadWeightData(std::string file);
-		static std::unordered_map<std::string, std::shared_ptr<std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE> > > weightDataMap;/**<Mapa de WeightData indexada pelo nome do arquivo.*/
+		static std::unordered_map<std::string, std::shared_ptr<std::array<std::map<int, double>, EnemyType::ENEMY_TYPE_SIZE> > > weightDataMap;/**<Mapa de WeightData indexada pelo nome do arquivo.*/
 		static std::unordered_map<std::string, std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > > waveDataMap;/**<Mapa de WaveData indexado pelo nome do arquivo.*/
 };
 
