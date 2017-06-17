@@ -1,8 +1,9 @@
 <map id="Engine/include/HitPoints.h" name="Engine/include/HitPoints.h">
-<area shape="rect" id="node2" href="$Component_8h.html" title="Component.h" alt="" coords="102,80,202,107"/>
-<area shape="rect" id="node10" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="229,155,296,181"/>
-<area shape="rect" id="node3" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="99,155,205,181"/>
-<area shape="rect" id="node7" href="$Rect_8h.html" title="Rect.h" alt="" coords="261,229,323,256"/>
-<area shape="rect" id="node8" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="218,304,281,331"/>
-<area shape="rect" id="node11" href="$Color_8h.html" title="Color.h" alt="" coords="347,229,411,256"/>
+<area shape="rect" id="node2" href="$Component_8h.html" title="Component.h" alt="" coords="131,80,231,107"/>
+<area shape="rect" id="node11" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="289,155,356,181"/>
+<area shape="rect" id="node3" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="128,155,235,181"/>
+<area shape="rect" id="node4" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="193,379,300,405"/>
+<area shape="rect" id="node8" href="$Rect_8h.html" title="Rect.h" alt="" coords="219,229,280,256"/>
+<area shape="rect" id="node9" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="139,304,202,331"/>
+<area shape="rect" id="node12" href="$Color_8h.html" title="Color.h" alt="" coords="448,229,512,256"/>
 </map>
