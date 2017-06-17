@@ -400,7 +400,12 @@ struct TileMap::LessThanByHeuristic{
 };
 
 std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap){
-	//Obtem vetor de pesos do tile que deve ser considerado
+	std::list<int> path;//caminho final a ser retornado
+	//Verifica se o tile de destino é livre
+	if(!Traversable(destTile)){
+		std::cout <<"\tTile de destino não acessível" <<std::endl;
+		return path;
+	}
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<int ,std::pair<int,double> > > paths;
 	std::vector<std::pair<double,int> > processList;
@@ -418,7 +423,6 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 	//Loop de processamento do Djkistra
 	while(!processList.empty()){
 		//Seleciona o nó com menor custo fazendo assim uma busca guiada(A*)
-		std::cout << processList[0].first << " " << processList[0].second << "-" << processList.size() << std::endl;
 		std::cout << processList.size() << std::endl;
 		std::sort(processList.begin(), processList.end(), compareFunc);
 		std::pair<double,int> current = processList[0];
@@ -436,27 +440,22 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 			if(dist[neighbors[j]] > dist[current.second] + weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)]){
 				//Caso o vizinho já tenha sido processado em alguma iteração
 				if(dist[neighbors[j]] != std::numeric_limits<double>::max()){
-					std::cout << "chegou aqui mais dentro ainda" << std::endl;
 					//Remove o custo e o caminho associado ao vizinho das listas visto que novos serão inseridos
 					std::vector<std::pair<double,int> >::iterator it = find (processList.begin(), processList.end(), std::make_pair(dist[neighbors[j]],neighbors[j]));
 					processList.erase(it);
 					paths.remove(std::make_pair(neighbors[j],std::make_pair(current.second,weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)])));
-					std::cout << "chegou aqui mais dentro ainda" << std::endl;
 				}
 				// atualiza a distância do vizinho e insere nas listas
 				dist[neighbors[j]] = dist[current.second] + weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)];
 				paths.push_back(std::make_pair(neighbors[j],std::make_pair(current.second,weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)])));
 				processList.push_back(std::make_pair(weightMap[AtLayer(neighbors[j],WALKABLE_LAYER)],neighbors[j]));
-				std::cout << "chegou aqui dentro" << std::endl;
 			}
 		}
 		visited[current.second] = true;
-		std::cout << "chegou aqui" << std::endl;
 	}
 	
 	//Deducao do caminho
 	std::list<std::pair<int ,std::pair<int,double> > >::iterator it;
-	std::list<int> path;
 	int actual_node;
 	actual_node = destTile;
 	

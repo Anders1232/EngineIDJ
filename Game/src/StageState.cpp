@@ -110,9 +110,39 @@ void StageState::Update(float dt) {
 		AddObject( new Face(mousePos.x, mousePos.y, Vec2(FACE_LINEAR_SIZE, FACE_LINEAR_SIZE), tileMap) );
 	}
 
-	if(InputManager::GetInstance().KeyPress('b')) {
+	if(InputManager::GetInstance().KeyPress('n')) {
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
 		Enemy* e = new Enemy(mousePos, EnemyType::NEUTRAL,1.0);
+		e->AddComponent(new AIPrintPath(tileMap));
+		AddObject(e);
+	}
+	if(InputManager::GetInstance().KeyPress('h')) {
+		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
+		Enemy* e = new Enemy(mousePos, EnemyType::HOSTILE,1.0);
+		e->AddComponent(new AIPrintPath(tileMap));
+		AddObject(e);
+	}
+	if(InputManager::GetInstance().KeyPress('e')) {
+		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
+		Enemy* e = new Enemy(mousePos, EnemyType::ENGINEER,1.0);
+		e->AddComponent(new AIPrintPath(tileMap));
+		AddObject(e);
+	}
+	if(InputManager::GetInstance().KeyPress('a')) {
+		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
+		Enemy* e = new Enemy(mousePos, EnemyType::ARQUITET,1.0);
+		e->AddComponent(new AIPrintPath(tileMap));
+		AddObject(e);
+	}
+	if(InputManager::GetInstance().KeyPress('t')){
+		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
+		Enemy* e = new Enemy(mousePos, EnemyType::ART,1.0);
+		e->AddComponent(new AIPrintPath(tileMap));
+		AddObject(e);
+	}
+	if(InputManager::GetInstance().KeyPress('q')) {
+		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
+		Enemy* e = new Enemy(mousePos, EnemyType::QUIMIC,1.0);
 		e->AddComponent(new AIPrintPath(tileMap));
 		AddObject(e);
 	}
