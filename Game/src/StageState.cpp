@@ -118,11 +118,6 @@ void StageState::Update(float dt) {
 			tileMap->RemoveGO(position);
 		}
 	}
-	if(InputManager::GetInstance().KeyPress('e')){
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
-		Face *faceCreated = new Face(mousePos.x, mousePos.y, Vec2(FACE_LINEAR_SIZE, FACE_LINEAR_SIZE), tileMap);
-		AddObject(faceCreated);
-		tileMap->InsertGO(faceCreated);
 =======
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)) {
 		REPORT_I_WAS_HERE;
@@ -130,11 +125,13 @@ void StageState::Update(float dt) {
 		AddObject( new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), tileMap) );
 	}
 
+>>>>>>> 9c1891d2f5c3053c9246325ebfdbcfcce1be9cf3
 	if(InputManager::GetInstance().KeyPress('e')) {
 		printf("Tower criado\n");
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
-		AddObject(new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), tileMap));
->>>>>>> 9c1891d2f5c3053c9246325ebfdbcfcce1be9cf3
+		Tower *newTower= new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), tileMap);
+		AddObject(newTower);
+		tileMap->InsertGO(newTower);
 	}
 	if(InputManager::GetInstance().KeyPress('=')) {
 		Game &game = Game::GetInstance();
