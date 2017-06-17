@@ -401,6 +401,8 @@ struct TileMap::LessThanByHeuristic{
 
 std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap){
 	std::list<int> path;//caminho final a ser retornado
+	double weight;//Auxiliar para peso associado a cada tile
+	std::pair<double,int> current;//Auxiliar para tile atual que está sendo processado
 	//Verifica se o tile de destino é livre
 	if(!Traversable(destTile)){
 		std::cout <<"\tTile de destino não acessível" <<std::endl;
@@ -423,9 +425,8 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 	//Loop de processamento do Djkistra
 	while(!processList.empty()){
 		//Seleciona o nó com menor custo fazendo assim uma busca guiada(A*)
-		std::cout << processList.size() << std::endl;
 		std::sort(processList.begin(), processList.end(), compareFunc);
-		std::pair<double,int> current = processList[0];
+		current = processList[0];
 
 		if(current.second == destTile){break;}
 
@@ -438,37 +439,29 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 		for(unsigned int j = 0 ; j < neighbors.size();j ++){
 			//Se o vértice já foi visitado ou não é atingível passa-se para o proximo
 			if (visited[neighbors[j]] || !Traversable(neighbors[j])){continue;}
-			//try{
-
-				double weight = weightMap.at(AtLayer(neighbors[j],WALKABLE_LAYER));
-				//Verifica se o custo do caminho a partir de current é menor que o registrado no vizinho
-				if(dist[neighbors[j]] > dist[current.second] + weight){
-					//Caso o vizinho já tenha sido processado em alguma iteração
-					if(dist[neighbors[j]] != std::numeric_limits<double>::max()){
-						//Remove o custo e o caminho associado ao vizinho das listas visto que novos serão inseridos
-						std::vector<std::pair<double,int> >::iterator it = find (processList.begin(), processList.end(), std::make_pair(dist[neighbors[j]],neighbors[j]));
-						processList.erase(it);
-						paths.remove(std::make_pair(neighbors[j],std::make_pair(current.second,weight)));
-					}
-					// atualiza a distância do vizinho e insere nas listas
-					dist[neighbors[j]] = dist[current.second] + weight;
-					paths.push_back(std::make_pair(neighbors[j],std::make_pair(current.second,weight)));
-					processList.push_back(std::make_pair(weight,neighbors[j]));
+			try{weight = weightMap.at(AtLayer(neighbors[j],WALKABLE_LAYER));}
+			catch(const std::out_of_range& oor){continue;}
+			//Verifica se o custo do caminho a partir de current é menor que o registrado no vizinho
+			if(dist[neighbors[j]] > dist[current.second] + weight){
+				//Caso o vizinho já tenha sido processado em alguma iteração
+				if(dist[neighbors[j]] != std::numeric_limits<double>::max()){
+					//Remove o custo e o caminho associado ao vizinho das listas visto que novos serão inseridos
+					std::vector<std::pair<double,int> >::iterator it = find (processList.begin(), processList.end(), std::make_pair(dist[neighbors[j]],neighbors[j]));
+					processList.erase(it);
+					paths.remove(std::make_pair(neighbors[j],std::make_pair(current.second,weight)));
 				}
-			/*}catch(const std::out_of_range& oor){
-
-				continue;
-
-			}*/
+				// atualiza a distância do vizinho e insere nas listas
+				dist[neighbors[j]] = dist[current.second] + weight;
+				paths.push_back(std::make_pair(neighbors[j],std::make_pair(current.second,weight)));
+				processList.push_back(std::make_pair(weight,neighbors[j]));
+			}
 		}
 		visited[current.second] = true;
 	}
-	
 	//Deducao do caminho
 	std::list<std::pair<int ,std::pair<int,double> > >::iterator it;
 	int actual_node;
-	actual_node = destTile;
-	
+	actual_node = current.second;
 	while(actual_node != originTile){
 		for(it = paths.begin(); it != paths.end(); ++ it){
 			if(it->first == actual_node){

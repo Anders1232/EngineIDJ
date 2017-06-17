@@ -45,6 +45,7 @@ void GameResources::ReadWeightData(std::string file){
 		if(1 == numbersRead){//pequena checagem de erro
 			Error("\tFile " << file << " have invalid format.");
 		}
+		fseek (filePtr,-1,SEEK_CUR);
 	}
 	fclose(filePtr);
 	weightDataMap[file] = newEntry;

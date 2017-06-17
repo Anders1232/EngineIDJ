@@ -134,7 +134,7 @@ void StageState::Update(float dt) {
 		e->AddComponent(new AIPrintPath(tileMap));
 		AddObject(e);
 	}
-	if(InputManager::GetInstance().KeyPress('t')){
+	if(InputManager::GetInstance().KeyPress('u')){
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
 		Enemy* e = new Enemy(mousePos, EnemyType::ART,1.0);
 		e->AddComponent(new AIPrintPath(tileMap));
@@ -147,7 +147,7 @@ void StageState::Update(float dt) {
 		AddObject(e);
 	}
 
-	if(InputManager::GetInstance().KeyPress('e')){
+	if(InputManager::GetInstance().KeyPress('t')){
 		printf("Face criado\n");
 		AddObject(new Face(0, 0, Vec2(64, 64), tileMap));
 	}
