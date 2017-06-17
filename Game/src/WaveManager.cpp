@@ -37,7 +37,7 @@ void WaveManager::StartWave(){
 			enemiesLeft += wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData[j].numberOfEnemies;
 		}
 	}
-	printf("\n %d enemiesLeft!!\n", enemiesLeft);
+	//printf("\n %d enemiesLeft!!\n", enemiesLeft);
 	waveTotalEnemies = enemiesLeft;
 	enemyIndex = 0;
 	endWave = false;
@@ -64,9 +64,9 @@ void WaveManager::Update(GameObject &associated, float dt){
 	}else{
 		if(enemyIndex < waveTotalEnemies){ //check if spawned all enemies from current wave
 			spawnTimer.Update(dt);
-			if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){
-				
-				for (uint i = 0; i < currentWave.spawnPointsData.size(); i++){
+			if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){ // spawn cooldown
+				//spawn 1 enemy at each existing spawn group
+				for (uint i = 0; i < currentWave.spawnPointsData.size() and enemyIndex < waveTotalEnemies; i++){ 
 					enemyId = currentWave.spawnPointsData[i].enemySpawnData[enemyIndex].enemyIndex;//here
 					uint baseHP = currentWave.spawnPointsData[i].enemySpawnData[enemyIndex].baseHP;
 					uint endPoint = currentWave.spawnPointsData[i].enemySpawnData[enemyIndex].endPoint;
@@ -93,7 +93,7 @@ void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint
 	Enemy* enemy = new Enemy(spawnPosition, 1.);
 	Game::GetInstance().GetCurrentState().AddObject(enemy);
 	enemyIndex++;
-	printf("\n%d enemies spawned!",enemyIndex);
+	//printf("\n%d enemies spawned!",enemyIndex+1);
 
 }
 
