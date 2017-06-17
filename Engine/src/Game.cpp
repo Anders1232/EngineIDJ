@@ -49,7 +49,7 @@ Game::Game(std::string title,int width, int height)
 		Error("Loading IMG_INIT_TIF failed: " << IMG_GetError());
 	}
 
-	window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, 0);
+	window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_RESIZABLE);
 	if(nullptr == window) {
 		Error(SDL_GetError());
 	}
@@ -224,4 +224,40 @@ void Game::LimitFramerate(bool limit) {
 
 bool Game::IsFramerateLimited(void) const {
 	return capFramerate;
+}
+
+void Game::SetWindowDimensions(Vec2 size){
+	SDL_SetWindowSize(window, size.x, size.y);
+	SetWindowCentered();
+}
+
+void Game::SetWindowFullscreen(bool isFullScreen){
+	SDL_SetWindowFullscreen(window, isFullScreen ? SDL_WINDOW_FULLSCREEN : 0);
+	SetWindowCentered();
+}
+
+void Game::SetWindowMaximized(void){
+	SDL_MaximizeWindow(window);
+	SetWindowCentered();
+}
+
+void Game::SetWindowBorderless(bool isBorderless){
+	SDL_SetWindowBordered(window, isBorderless ? SDL_FALSE : SDL_TRUE);
+	SetWindowCentered();
+}
+
+void Game::SetWindowCentered(void){
+	SDL_SetWindowPosition(window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+}
+
+bool Game::GetWindowFullscreen(void) const{
+	return SDL_GetWindowFlags(window) & SDL_WINDOW_FULLSCREEN;
+}
+
+bool Game::GetWindowMaximized(void) const{
+	return SDL_GetWindowFlags(window) & SDL_WINDOW_MAXIMIZED;
+}
+
+bool Game::GetWindowBorderless(void) const{
+	return SDL_GetWindowFlags(window) & SDL_WINDOW_BORDERLESS;
 }
