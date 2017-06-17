@@ -1,9 +1,3 @@
-Engine/include/ComponentType.h
-Game/src/Minion.cpp
-Game/src/Penguins.cpp
-Game/src/StageState.cpp
-Game/src/TitleState.cpp
-Game/src/main.cpp
 Engine/include/ActionManager.h
 Engine/include/AIGoDown.h
 Engine/include/Animation.h
@@ -11,6 +5,7 @@ Engine/include/Camera.h
 Engine/include/Collision.h
 Engine/include/Color.h
 Engine/include/Component.h
+Engine/include/ComponentType.h
 Engine/include/DragAndDrop.h
 Engine/include/Error.h
 Engine/include/Game.h
@@ -58,13 +53,16 @@ Game/include/Defines.h
 Game/include/EndState.h
 Game/include/EndStateData.h
 Game/include/Enemy.h
-Game/include/Face.h
+Game/include/GameResources.h
 Game/include/StageState.h
 Game/include/TitleState.h
+Game/include/Tower.h
+Game/include/WaveData.h
 Game/src/EndState.cpp
 Game/src/EndStateData.cpp
 Game/src/Enemy.cpp
-Game/src/Face.cpp
+Game/src/GameResources.cpp
 Game/src/main.cpp
 Game/src/StageState.cpp
 Game/src/TitleState.cpp
+Game/src/Tower.cpp

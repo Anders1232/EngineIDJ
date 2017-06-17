@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['damage',['Damage',['../classFace.html#a094c141b4019c35c7e8a8278d80ecb02',1,'Face']]],
+  ['damage',['Damage',['../classTower.html#a106ad22999d0a1262223d120602cf9d8',1,'Tower']]],
   ['dead',['dead',['../classEnemy.html#a4b1b61e7bc79aca01f3e4b3ef19cb787',1,'Enemy']]],
   ['debug',['DEBUG',['../Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83',1,'Error.h']]],
   ['defines_2eh',['Defines.h',['../Defines_8h.html',1,'']]],

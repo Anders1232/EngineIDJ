@@ -5,7 +5,7 @@
 #include "EndStateData.h"
 #include "Enemy.h"
 #include "Error.h"
-#include "Face.h"
+#include "Tower.h"
 #include "Game.h"
 
 #ifdef _WIN32
@@ -24,7 +24,7 @@
 // Esse valores calculam o offset em relação ao canto superior esquedo da imagem daquilo que será renderizado
 #define STATE_RENDER_X 0
 #define STATE_RENDER_Y 0
-#define FACE_LINEAR_SIZE 30
+#define TOWER_LINEAR_SIZE 120
 #define TIME_BETWEEN_SPAWNS (3.)
 #define STAGE_STATE_DELTA_VOLUME (1) //11*11 = 121 ~128
 #define CAM_START_X 300
@@ -104,6 +104,7 @@ void StageState::Update(float dt) {
 		std::cout << WHERE << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << " tiles." << std::endl;
 	}
 
+<<<<<<< HEAD
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
 		TEMP_REPORT_I_WAS_HERE;
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
@@ -122,6 +123,18 @@ void StageState::Update(float dt) {
 		Face *faceCreated = new Face(mousePos.x, mousePos.y, Vec2(FACE_LINEAR_SIZE, FACE_LINEAR_SIZE), tileMap);
 		AddObject(faceCreated);
 		tileMap->InsertGO(faceCreated);
+=======
+	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)) {
+		REPORT_I_WAS_HERE;
+		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);//metade to tamanho da Tower passado abaixo
+		AddObject( new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), tileMap) );
+	}
+
+	if(InputManager::GetInstance().KeyPress('e')) {
+		printf("Tower criado\n");
+		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
+		AddObject(new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), tileMap));
+>>>>>>> 9c1891d2f5c3053c9246325ebfdbcfcce1be9cf3
 	}
 	if(InputManager::GetInstance().KeyPress('=')) {
 		Game &game = Game::GetInstance();
