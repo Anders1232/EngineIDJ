@@ -138,6 +138,8 @@ void GameResources::ReadWaveData(std::string file){
 					break;
 				}
 				REPORT_DEBUG2(1, "\t enemySpawnVector size= " << enemySpawnVector.size());
+				REPORT_DEBUG2(1, "\t Lido enemySpawn de index= " <<enemyIndex << " quantidade= " << numberOfEnemies
+							<< " HP base = " <<enemyHP << " e com endPoint" << endPoint);
 				enemySpawnVector.emplace_back(enemyIndex, numberOfEnemies, enemyHP, endPoint);
 				TEMP_REPORT_I_WAS_HERE;
 			}
