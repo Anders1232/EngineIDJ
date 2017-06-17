@@ -177,7 +177,6 @@ class Sprite {
 		void Scale(float scale);
 		Color colorMultiplier;/**< A cor a ser usada para multiplicar a sprite.*/
 		SDL_BlendMode blendMode;/**< O modo de mistura da sprite com as inferiores.*/
-		unsigned char alpha;/**< A transparência da textura.*/
 	private:
 		std::shared_ptr<SDL_Texture> texture;/**< Ponteiro para a textura manejada pelo sprite.*/
 		int width;/**< Largura da textura em pixels.*/

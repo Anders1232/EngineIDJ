@@ -153,6 +153,13 @@ class Game {
 			Retorna se o controle de framerate está limitando o framerate a um máximo ou não.
 		*/
 		bool IsFramerateLimited(void) const;
+		/**
+			\brief Obtém referência do SDL_Window
+			\return Referncia para SDL_Window
+
+			Retorna a referência do SDL_Window do Game
+		*/
+		SDL_Window* GetWindow(void) const;
 	private:
 		/**
 			\brief Calcula o tempo transcorrido desde a última chamada a essa função

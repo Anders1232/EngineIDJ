@@ -225,3 +225,7 @@ void Game::LimitFramerate(bool limit) {
 bool Game::IsFramerateLimited(void) const {
 	return capFramerate;
 }
+
+SDL_Window* Game::GetWindow(void) const {
+	return window;
+}

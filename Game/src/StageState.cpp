@@ -37,7 +37,9 @@ StageState::StageState(void)
 		, tileSet(120, 120,"img/map/tileset_v2.png")
 		, inputManager(InputManager::GetInstance())
 		, music("audio/stageState.ogg")
-		, spawnTimer() {
+		, spawnTimer()
+		, isLightning(false)
+		, lightTime() {
 	REPORT_I_WAS_HERE;
 	tileMap = new TileMap(std::string("map/tileMap.txt"), &tileSet);
 	REPORT_I_WAS_HERE;
@@ -141,6 +143,22 @@ void StageState::Update(float dt) {
 
 	if(InputManager::GetInstance().IsKeyDown('.')){
 		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
+	}
+
+	if(InputManager::GetInstance().KeyPress('m') || isLightning){
+		// isLightning = true;
+		// if(lightTime.Get() < 0.5){
+		// 	SDL_Surface* surface = SDL_GetWindowSurface(Game::GetInstance().GetWindow());
+
+		// 	/* Filling the surface with red color. */
+		// 	SDL_FillRect(surface, NULL, SDL_MapRGBA(surface->format, 255, 255, 255, alpha));
+		// 	SDL_UpdateWindowSurface(Game::GetInstance().GetWindow());
+		// }
+		// else{
+		// 	lightTime.Restart();
+		// 	isLightning = false;
+		// }
+		// lightTime.Update(dt);
 	}
 
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());

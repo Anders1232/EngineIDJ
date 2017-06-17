@@ -13,8 +13,7 @@ Face::Face(float x, float y, Vec2 tileSize, TileMap *tileMap)
 	box.y = y;
 	sp.ScaleX(tileSize.x/sp.GetWidth()*4);
 	sp.ScaleY(tileSize.y/sp.GetHeight()*4);
-	sp.colorMultiplier = Color( 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX );
-	sp.alpha = 255*(float)rand()/RAND_MAX;
+	sp.colorMultiplier = Color( 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX );
 	box.w = sp.GetWidth();
 	box.h = sp.GetHeight();
 	components.emplace_back( new DragAndDrop(tileMap, true, true) );

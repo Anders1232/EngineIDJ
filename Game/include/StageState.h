@@ -32,6 +32,8 @@ class StageState: public State {
 		Music music;
 		vector<vector<int>> *spawnGroups;
 		Timer spawnTimer;
+		bool isLightning;
+		Timer lightTime;
 		void SpawnEnemy(int tileMapPosition);
 };
 
