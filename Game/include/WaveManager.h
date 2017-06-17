@@ -25,6 +25,11 @@ class WaveManager : public Component {
 		*/
 
 		WaveManager(TileMap& tileMap, string waveFile);
+		/**
+			\brief Destrutor
+			Destroi ponteiro de spawnGroups.
+		*/
+
 		~WaveManager();
 		/**
 			\brief Atualiza estado.
@@ -72,10 +77,18 @@ class WaveManager : public Component {
 		*/		
 		int GetEnemiesLeft();
 	private:
+		/** 
+			\brief Criar um novo inimigo no mapa
+			\param tileMapPosition: POsiçao do tileMap. Usado para calcular a posiçao exata de spawn do inimigo.
+			\param enemyId: identificador de inimigo no waveData.
+			\param baseHP: HP base do inimigo para a wave atual.
+			\param endPoint: posiçao de destino para aonde o inimigo vai. Lido de WaveData.
+			
+		*/				
 		void SpawnEnemy(int tileMapPosition, int enemyId,uint baseHP, uint endPoint);
 		vector<vector<int>> *spawnGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
 		static int waveCount; /**<Contador de waves restantes. Tbm usado para nivelar as waves.*/
-		Timer spawnTimer; /**<**/
+		Timer spawnTimer; /**<Contador para o cooldown de respawn **/
 		
 		int enemiesLeft;/**<Contador de inimigos restantes da wave atual.*/
 		int playerLifes;/**<Contador de inimigos restantes da wave atual.*/
@@ -84,7 +97,7 @@ class WaveManager : public Component {
 		bool endWave; /**<Flag de fim da wave atual. true se a level acabou.*/
 		std::shared_ptr< std::pair< std::vector<WaveData>, std::vector<EnemyData> > > wavesAndEnemysData; /**<Shared Pointer QUe vai armazenar a leitura do arquivo com as informaçoes de Wave e Inimigo.*/
 		int waveIndex, enemyIndex, totalWaves;/**<Identificador da wave atual, identificador do inimigo atual e o contador de waves. Vitoria se da quando contador for igual ao numero total.*/
-
+		int waveTotalEnemies; /**<Indica o numero total de inimigos da wave atual.*/
 
 
 };
