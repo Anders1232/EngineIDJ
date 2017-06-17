@@ -104,10 +104,10 @@ void GameResources::ReadWaveData(std::string file){
 
 		waveVec[waveVec.size()-1].waveName = waveName;
 		vector<SpawnPointData> &spawnPointsVec = waveVec[waveVec.size()-1].spawnPointsData;
-		int spawnPoint;
+		uint spawnPoint;
 		ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 		TEMP_REPORT_I_WAS_HERE;
-		while(1 == fscanf(filePtr, "\tSpawnPoint:%d\n", &spawnPoint)){
+		while(1 == fscanf(filePtr, "\tSpawnPoint:%u\n", &spawnPoint)){
 			if(spawnPointsVec.size() < spawnPoint+1){
 				spawnPointsVec.resize(spawnPoint+1);
 			}
