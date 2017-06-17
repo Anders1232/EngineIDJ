@@ -148,20 +148,16 @@ void Resources::ClearFonts(void) {
 }
 
 void Resources::ChangeMusicVolume(int deltaVolume){
-	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
 	musicVolume+= deltaVolume;
-	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
 	VOLUME_BOUND_ADJUST(musicVolume);
-	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
 	Mix_VolumeMusic(musicVolume);
 }
 
 void Resources::ChangeSoundVolume(int deltaVolume){
-	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
 	soundVolume+= deltaVolume;
-	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
+	REPORT_DEBUG("\tsoundVolume= " << soundVolume);
 	VOLUME_BOUND_ADJUST(soundVolume);
-	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
+	REPORT_DEBUG("\tsoundVolume= " << soundVolume);
 	std::unordered_map<string, std::shared_ptr<Mix_Chunk>>::iterator i= soundTable.begin();
 	while(i != soundTable.end()) {
 		Mix_VolumeChunk(i->second.get(), soundVolume);
@@ -170,20 +166,20 @@ void Resources::ChangeSoundVolume(int deltaVolume){
 }
 
 void Resources::ForceMusicVolume(int volume){
-	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
+	REPORT_DEBUG("\tmusicVolume= " << musicVolume);
 	musicVolume= volume;
-	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
+	REPORT_DEBUG("\tmusicVolume= " << musicVolume);
 	VOLUME_BOUND_ADJUST(musicVolume);
-	REPORT_DEBUG2(1,"\tmusicVolume= " << musicVolume);
+	REPORT_DEBUG("\tmusicVolume= " << musicVolume);
 	Mix_VolumeMusic(musicVolume);
 }
 
 void Resources::ForceSoundVolume(int volume){
-	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
+	REPORT_DEBUG("\tsoundVolume= " << soundVolume);
 	soundVolume= volume;
-	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
+	REPORT_DEBUG("\tsoundVolume= " << soundVolume);
 	VOLUME_BOUND_ADJUST(soundVolume);
-	REPORT_DEBUG2(1,"\tsoundVolume= " << soundVolume);
+	REPORT_DEBUG("\tsoundVolume= " << soundVolume);
 	std::unordered_map<string, std::shared_ptr<Mix_Chunk>>::iterator i= soundTable.begin();
 	while(i != soundTable.end()) {
 		Mix_VolumeChunk(i->second.get(), soundVolume);

@@ -52,7 +52,7 @@ bool WaveManager::EndWave(){
 void WaveManager::Update(GameObject &associated, float dt){
 	int enemyId;
 	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
-	printf("\nwaveIndex:%d enemiesLeft:%d playerLifes:%d time:%.2f " , waveIndex, enemiesLeft, playerLifes, spawnTimer.Get());
+	//printf("\nwaveIndex:%d enemiesLeft:%d playerLifes:%d time:%.2f " , waveIndex, enemiesLeft, playerLifes, spawnTimer.Get());
 
 	if(EndWave()){
 		if(totalWaves==waveCount){ //Check Game over Condition

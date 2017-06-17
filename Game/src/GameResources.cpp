@@ -94,9 +94,6 @@ void GameResources::ReadWaveData(std::string file){
 		//TEMP_REPORT_I_WAS_HERE;
 		waveVec.emplace_back();
 
-		std::cout<< "debug waveVec.Size-1 : ";
-		std::cout << waveVec.size()-1 << "\n";
-
 		waveVec[waveVec.size()-1].waveName = waveName;
 		vector<SpawnPointData> &spawnPointsVec = waveVec[waveVec.size()-1].spawnPointsData;
 		uint spawnPoint;
@@ -119,10 +116,10 @@ void GameResources::ReadWaveData(std::string file){
 				uint endPoint;
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 				ASSERT2(1 == fscanf(filePtr, "\t\t%u\n", &endPoint), "\tFile format invaled! Expecting a integer.");
-				REPORT_DEBUG2(1, "\t enemyIndex= " << enemyIndex);
-				REPORT_DEBUG2(1, "\t numberOfEnemies= " << numberOfEnemies);
-				REPORT_DEBUG2(1, "\t enemyHP= " << enemyHP);
-				REPORT_DEBUG2(1, "\t endPoint= " << endPoint);
+				REPORT_DEBUG( "\t enemyIndex= " << enemyIndex);
+				REPORT_DEBUG( "\t numberOfEnemies= " << numberOfEnemies);
+				REPORT_DEBUG( "\t enemyHP= " << enemyHP);
+				REPORT_DEBUG( "\t endPoint= " << endPoint);
 				if(ferror(filePtr)){
 					break;
 				}
