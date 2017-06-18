@@ -45,5 +45,4 @@ dep/*
 .idea/modules.xml
 .idea/workspace.xml
 
-#documentaçao doxygen
-docs/*
+
