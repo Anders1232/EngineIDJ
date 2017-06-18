@@ -3,5 +3,5 @@
 <area shape="rect" id="node2" href="$classAIGoDown.html" title="Componete IA que se move para baixo. " alt="" coords="154,5,241,32"/>
 <area shape="rect" id="node3" href="$classDragAndDrop.html" title="Classe responsável por arrastar e posicionar Objetos. " alt="" coords="147,56,248,83"/>
 <area shape="rect" id="node4" href="$classHitPoints.html" title="HitPoints" alt="" coords="159,107,235,133"/>
-<area shape="rect" id="node5" href="$classWaveManager.html" title="Classe que gerenci´a as waves do jogo. Responsavel por iniciar, encerrar e contar as waves..." alt="" coords="144,157,251,184"/>
+<area shape="rect" id="node5" href="$classWaveManager.html" title="Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves..." alt="" coords="144,157,251,184"/>
 </map>

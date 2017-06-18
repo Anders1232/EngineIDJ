@@ -1,6 +1,6 @@
 <map id="StageState" name="StageState">
 <area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="1241,447,1295,473"/>
-<area shape="rect" id="node17" href="$classWaveManager.html" title="Classe que gerenci´a as waves do jogo. Responsavel por iniciar, encerrar e contar as waves..." alt="" coords="1568,607,1675,633"/>
+<area shape="rect" id="node17" href="$classWaveManager.html" title="Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves..." alt="" coords="1568,607,1675,633"/>
 <area shape="rect" id="node19" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1234,387,1302,413"/>
 <area shape="rect" id="node28" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="1217,905,1319,932"/>
 <area shape="rect" id="node6" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="1593,191,1650,217"/>

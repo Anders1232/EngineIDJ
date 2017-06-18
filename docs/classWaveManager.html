@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!--header-->
 <div class="contents">
 
-<p>Classe que gerenci´a as waves do jogo. Responsavel por iniciar, encerrar e contar as waves. Mantem a contagem de vidas restantes e inimigos restantes que sao usadas para condiçao de fim de jogo.  
+<p>Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves. Também gerencia o spawn dos inimigos na wave atual. Mantem a contagem de vidas restantes e inimigos restantes que sao usadas para condição de fim de jogo.  
  <a href="classWaveManager.html#details">Mais...</a></p>
 
 <p><code>#include &lt;WaveManager.h&gt;</code></p>
@@ -106,8 +106,7 @@ Diagrama de Hierarquia para WaveManager:</div>
 <div class="dynheader">
 Diagrama de colaboração para WaveManager:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classWaveManager__coll__graph.svg" width="1518" height="722"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classWaveManager__coll__graph.svg" width="1518" height="722"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -116,25 +115,25 @@ Métodos Públicos</h2></td></tr>
 <tr class="memdesc:abeaaac097df73bdd816db74c00bc203e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor.  <a href="#abeaaac097df73bdd816db74c00bc203e">Mais...</a><br /></td></tr>
 <tr class="separator:abeaaac097df73bdd816db74c00bc203e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abead530485a53219fd0fd27146cdb33f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#abead530485a53219fd0fd27146cdb33f">~WaveManager</a> ()</td></tr>
-<tr class="memdesc:abead530485a53219fd0fd27146cdb33f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor Destroi ponteiro de spawnGroups.  <a href="#abead530485a53219fd0fd27146cdb33f">Mais...</a><br /></td></tr>
+<tr class="memdesc:abead530485a53219fd0fd27146cdb33f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor. Destrói o ponteiro de spawnGroups.  <a href="#abead530485a53219fd0fd27146cdb33f">Mais...</a><br /></td></tr>
 <tr class="separator:abead530485a53219fd0fd27146cdb33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af03a0b16b8649875d370ecd97b607ebc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#af03a0b16b8649875d370ecd97b607ebc">Update</a> (<a class="el" href="classGameObject.html">GameObject</a> &amp;associated, float dt)</td></tr>
 <tr class="memdesc:af03a0b16b8649875d370ecd97b607ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza estado. Atualiza o estado da wave atual.  <a href="#af03a0b16b8649875d370ecd97b607ebc">Mais...</a><br /></td></tr>
 <tr class="separator:af03a0b16b8649875d370ecd97b607ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f7b6ac70478d5ce9543cc988e6f5a10"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a1f7b6ac70478d5ce9543cc988e6f5a10">Is</a> (<a class="el" href="Component_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0">ComponentType</a> type) const </td></tr>
-<tr class="memdesc:a1f7b6ac70478d5ce9543cc988e6f5a10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipo Retorna o tipo da componente se e´ igual a WAVE_MANAGER. true ou false.  <a href="#a1f7b6ac70478d5ce9543cc988e6f5a10">Mais...</a><br /></td></tr>
+<tr class="memdesc:a1f7b6ac70478d5ce9543cc988e6f5a10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipo Retorna o tipo da componente se é igual a WAVE_MANAGER. true ou false.  <a href="#a1f7b6ac70478d5ce9543cc988e6f5a10">Mais...</a><br /></td></tr>
 <tr class="separator:a1f7b6ac70478d5ce9543cc988e6f5a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa56d31703d3d02067e75debabbfae300"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#aa56d31703d3d02067e75debabbfae300">StartWave</a> ()</td></tr>
-<tr class="memdesc:aa56d31703d3d02067e75debabbfae300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa um nova wave reinicia os atributos da classe ( enemyIndex, endWave e waveCount) para executar uma nova wave e conta o novo numero de inimigos restantes.  <a href="#aa56d31703d3d02067e75debabbfae300">Mais...</a><br /></td></tr>
+<tr class="memdesc:aa56d31703d3d02067e75debabbfae300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa um nova wave. reinicia os atributos da classe (enemyIndex, endWave e waveCount) para executar uma nova wave e conta o novo número de inimigos restantes.  <a href="#aa56d31703d3d02067e75debabbfae300">Mais...</a><br /></td></tr>
 <tr class="separator:aa56d31703d3d02067e75debabbfae300"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50348ec5262024b3f5386f849bf02172"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a50348ec5262024b3f5386f849bf02172">EndWave</a> ()</td></tr>
-<tr class="memdesc:a50348ec5262024b3f5386f849bf02172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica Fim de wave Verifica se a flag de fim de wave foi acionada. Retorna endWave.  <a href="#a50348ec5262024b3f5386f849bf02172">Mais...</a><br /></td></tr>
+<tr class="memdesc:a50348ec5262024b3f5386f849bf02172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica Fim de wave. Verifica se a flag de fim de wave foi acionada. Retorna endWave.  <a href="#a50348ec5262024b3f5386f849bf02172">Mais...</a><br /></td></tr>
 <tr class="separator:a50348ec5262024b3f5386f849bf02172"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa19e180ce6afba1fad0b92ab25a3dba5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#aa19e180ce6afba1fad0b92ab25a3dba5">NotifyEnemyGotToHisDestiny</a> ()</td></tr>
-<tr class="memdesc:aa19e180ce6afba1fad0b92ab25a3dba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inimigo Chegou ao Destino Recebe uma notificaçao da componente <a class="el" href="classHitPoints.html">HitPoints</a>, se o inimigo foi destruido por chegar ao destino e decrementa o contador de vidas.  <a href="#aa19e180ce6afba1fad0b92ab25a3dba5">Mais...</a><br /></td></tr>
+<tr class="memdesc:aa19e180ce6afba1fad0b92ab25a3dba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inimigo Chegou ao Destino. Recebe uma notificação da componente <a class="el" href="classHitPoints.html">HitPoints</a>, se o inimigo foi destruido por chegar ao destino e decrementa o contador de vidas.  <a href="#aa19e180ce6afba1fad0b92ab25a3dba5">Mais...</a><br /></td></tr>
 <tr class="separator:aa19e180ce6afba1fad0b92ab25a3dba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a565c7b86ea66365e8fbc552c5918ce82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a565c7b86ea66365e8fbc552c5918ce82">NotifyEnemyGotKilled</a> ()</td></tr>
-<tr class="memdesc:a565c7b86ea66365e8fbc552c5918ce82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inimigo Destruido Recebe uma notificaçao se o inimigo foi destruido e decrementa o contador de inimigos restantes.  <a href="#a565c7b86ea66365e8fbc552c5918ce82">Mais...</a><br /></td></tr>
+<tr class="memdesc:a565c7b86ea66365e8fbc552c5918ce82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inimigo Destruido. Recebe uma notificação se o inimigo foi destruido e decrementa o contador de inimigos restantes.  <a href="#a565c7b86ea66365e8fbc552c5918ce82">Mais...</a><br /></td></tr>
 <tr class="separator:a565c7b86ea66365e8fbc552c5918ce82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1409142aba1b106a0c2826ca2cbb97a7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a1409142aba1b106a0c2826ca2cbb97a7">GetLifesLeft</a> ()</td></tr>
 <tr class="memdesc:a1409142aba1b106a0c2826ca2cbb97a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pegar vidas Restantes.  <a href="#a1409142aba1b106a0c2826ca2cbb97a7">Mais...</a><br /></td></tr>
@@ -186,8 +185,8 @@ Atributos Privados Estáticos</h2></td></tr>
 <tr class="separator:a393dd32c231c18d444ed25cb5dcfa33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
-<div class="textblock"><p>Classe que gerenci´a as waves do jogo. Responsavel por iniciar, encerrar e contar as waves. Mantem a contagem de vidas restantes e inimigos restantes que sao usadas para condiçao de fim de jogo. </p>
-<p>A waveManager e´ um componente. Ela gerencia as waves usando como base os inimigos restantes e vidas restantes. </p>
+<div class="textblock"><p>Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves. Também gerencia o spawn dos inimigos na wave atual. Mantem a contagem de vidas restantes e inimigos restantes que sao usadas para condição de fim de jogo. </p>
+<p>A waveManager é um componente. Ela gerencia as waves usando como base os inimigos restantes e vidas restantes. </p>
 </div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a class="anchor" id="abeaaac097df73bdd816db74c00bc203e"></a>
 <div class="memitem">
@@ -216,8 +215,8 @@ Atributos Privados Estáticos</h2></td></tr>
 <p>Construtor. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tileMap</td><td>Usada para inicializar spawnGroup, um vetor de grupos, e cada grupo, um vetor de spawn points. um vetor de vetor! </td></tr>
-    <tr><td class="paramname">waveFile</td><td>Nome do arquivo aonde sera´ feita a leitura dos dados contendo todas as informaçoes de wave e inimigos do jogo. </td></tr>
+    <tr><td class="paramname">tileMap</td><td>Usada para inicializar spawnGroup, um vetor de grupos, e cada grupo, um vetor de spawn points. Um vetor de vetor! </td></tr>
+    <tr><td class="paramname">waveFile</td><td>Nome do arquivo aonde será feita a leitura dos dados contendo todas as informações de wave e inimigos do jogo. </td></tr>
   </table>
   </dd>
 </dl>
@@ -237,7 +236,7 @@ Atributos Privados Estáticos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Destrutor Destroi ponteiro de spawnGroups. </p>
+<p>Destrutor. Destrói o ponteiro de spawnGroups. </p>
 
 </div>
 </div>
@@ -255,7 +254,7 @@ Atributos Privados Estáticos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Verifica Fim de wave Verifica se a flag de fim de wave foi acionada. Retorna endWave. </p>
+<p>Verifica Fim de wave. Verifica se a flag de fim de wave foi acionada. Retorna endWave. </p>
 
 </div>
 </div>
@@ -273,7 +272,7 @@ Atributos Privados Estáticos</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Pegar inimigos Restantes. </p>
-<dl class="section return"><dt>Retorna</dt><dd>enemiesLeft: inimigos restantes Retorna os inimigos restantes da wave atual </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>enemiesLeft: Inimigos restantes. Retorna os inimigos restantes da wave atual. </dd></dl>
 
 </div>
 </div>
@@ -291,7 +290,7 @@ Atributos Privados Estáticos</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Pegar vidas Restantes. </p>
-<dl class="section return"><dt>Retorna</dt><dd>playerLifes: vidas restantes Retorna as vidas restantes da wave atual </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>playerLifes: vidas restantes. Retorna as vidas restantes da wave atual. </dd></dl>
 
 </div>
 </div>
@@ -317,7 +316,7 @@ Atributos Privados Estáticos</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Tipo Retorna o tipo da componente se e´ igual a WAVE_MANAGER. true ou false. </p>
+<p>Tipo Retorna o tipo da componente se é igual a WAVE_MANAGER. true ou false. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">type</td><td>Tipo da Compomente a ser comparada com WAVE_MANAGER. </td></tr>
@@ -342,7 +341,7 @@ Atributos Privados Estáticos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inimigo Destruido Recebe uma notificaçao se o inimigo foi destruido e decrementa o contador de inimigos restantes. </p>
+<p>Inimigo Destruido. Recebe uma notificação se o inimigo foi destruido e decrementa o contador de inimigos restantes. </p>
 
 </div>
 </div>
@@ -359,7 +358,7 @@ Atributos Privados Estáticos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inimigo Chegou ao Destino Recebe uma notificaçao da componente <a class="el" href="classHitPoints.html">HitPoints</a>, se o inimigo foi destruido por chegar ao destino e decrementa o contador de vidas. </p>
+<p>Inimigo Chegou ao Destino. Recebe uma notificação da componente <a class="el" href="classHitPoints.html">HitPoints</a>, se o inimigo foi destruido por chegar ao destino e decrementa o contador de vidas. </p>
 
 </div>
 </div>
@@ -410,10 +409,10 @@ Atributos Privados Estáticos</h2></td></tr>
 <p>Criar um novo inimigo no mapa. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tileMapPosition</td><td>POsiçao do tileMap. Usado para calcular a posiçao exata de spawn do inimigo. </td></tr>
+    <tr><td class="paramname">tileMapPosition</td><td>Posição do tileMap. Usado para calcular a posição exata de spawn do inimigo. </td></tr>
     <tr><td class="paramname">enemyId</td><td>identificador de inimigo no waveData. </td></tr>
     <tr><td class="paramname">baseHP</td><td>HP base do inimigo para a wave atual. </td></tr>
-    <tr><td class="paramname">endPoint</td><td>posiçao de destino para aonde o inimigo vai. Lido de <a class="el" href="structWaveData.html">WaveData</a>. </td></tr>
+    <tr><td class="paramname">endPoint</td><td>posição de destino para aonde o inimigo vai. Lido de <a class="el" href="structWaveData.html">WaveData</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -433,7 +432,7 @@ Atributos Privados Estáticos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inicializa um nova wave reinicia os atributos da classe ( enemyIndex, endWave e waveCount) para executar uma nova wave e conta o novo numero de inimigos restantes. </p>
+<p>Inicializa um nova wave. reinicia os atributos da classe (enemyIndex, endWave e waveCount) para executar uma nova wave e conta o novo número de inimigos restantes. </p>
 
 </div>
 </div>
@@ -472,8 +471,8 @@ Atributos Privados Estáticos</h2></td></tr>
 <p>Atualiza estado. Atualiza o estado da wave atual. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">associated.</td><td>So recebe este argumento por ser um componente. Mas como wave nao faz parte de um <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a>, ele recebe o parametro <a class="el" href="classEmptyGameObject.html">EmptyGameObject</a> em que nao e´ usada. </td></tr>
-    <tr><td class="paramname">dt</td><td>tempo dt, e´ usado para fazer o spawn de tempos em tempos dos inimigos. </td></tr>
+    <tr><td class="paramname">associated.</td><td>So recebe este argumento por ser um componente. Mas como wave nao faz parte de um <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a>, ele recebe o parametro <a class="el" href="classEmptyGameObject.html">EmptyGameObject</a> em que nao é usada. </td></tr>
+    <tr><td class="paramname">dt</td><td>tempo dt, é usado para fazer o spawn de tempos em tempos dos inimigos. </td></tr>
   </table>
   </dd>
 </dl>
@@ -604,7 +603,7 @@ Atributos Privados Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Contador para o cooldown de respawn </p>
+<p>Contador para o cooldown de respawn. </p>
 
 </div>
 </div>
@@ -646,7 +645,7 @@ Atributos Privados Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Identificador da wave atual, identificador do inimigo atual e o contador de waves. Vitoria se da quando contador for igual ao numero total. </p>
+<p>Identificador da wave atual, identificador do inimigo atual e o contador de waves. Vitória se da quando contador for igual ao número total. </p>
 
 </div>
 </div>
@@ -667,7 +666,7 @@ Atributos Privados Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Contador de waves restantes. Tbm usado para nivelar as waves. </p>
+<p>Contador de waves restantes. Também usado para nivelar as waves. </p>
 
 </div>
 </div>
@@ -708,7 +707,7 @@ Atributos Privados Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Shared Pointer QUe vai armazenar a leitura do arquivo com as informaçoes de Wave e Inimigo. </p>
+<p>Shared Pointer, vai armazenar a leitura do arquivo com as informaçoes de Wave e Inimigo. </p>
 
 </div>
 </div>
@@ -729,7 +728,7 @@ Atributos Privados Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Indica o numero total de inimigos da wave atual. </p>
+<p>Indica o número total de inimigos da wave atual. </p>
 
 </div>
 </div>
@@ -740,7 +739,7 @@ Atributos Privados Estáticos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Domingo, 18 de Junho de 2017 00:05:09 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Domingo, 18 de Junho de 2017 17:05:15 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

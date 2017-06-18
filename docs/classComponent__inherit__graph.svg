@@ -55,7 +55,7 @@
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="classWaveManager.html" target="_top" xlink:title="Classe que gerenci´a as waves do jogo. Responsavel por iniciar, encerrar e contar as waves...">
+<g id="a_node5"><a xlink:href="classWaveManager.html" target="_top" xlink:title="Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves...">
 <polygon fill="white" stroke="black" points="253,-0.5 253,-19.5 333,-19.5 333,-0.5 253,-0.5"/>
 <text text-anchor="middle" x="293" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">WaveManager</text>
 </a>
