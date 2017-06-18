@@ -1,7 +1,7 @@
 #include "HitPoints.h"
 
-HitPoints::HitPoints(float hp) : healthBar(), healthColor(){
-	this->hp = hp;
+HitPoints::HitPoints(uint hp) : healthBar(), healthColor(){
+	this->hp = (int)hp;
 
 }
 HitPoints::~HitPoints(){

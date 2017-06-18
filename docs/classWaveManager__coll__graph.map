@@ -1,0 +1,8 @@
+<map id="WaveManager" name="WaveManager">
+<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="1061,5,1150,32"/>
+<area shape="rect" id="node6" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1071,235,1139,261"/>
+<area shape="rect" id="node7" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="715,228,778,255"/>
+<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="491,455,547,481"/>
+<area shape="rect" id="node14" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="236,528,289,555"/>
+<area shape="rect" id="node18" href="$classTimer.html" title="Temporizador. " alt="" coords="579,640,634,667"/>
+</map>

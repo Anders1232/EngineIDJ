@@ -1,0 +1,44 @@
+--ENEMIES--
+    Marcelo_ladeira
+        QUIMIC
+        img/enemy/reference_assembled
+        1.0
+        1.0
+    Ladeira_Marcelo
+        ART
+        img/enemy/reference_assembled
+        1.0
+        1.0
+    Madeira_ladeira
+        QUIMIC
+        img/enemy/reference_assembled
+        1.0
+        1.0
+    Ladeira_Madeira
+        ART
+        img/enemy/reference_assembled
+        1.0
+        1.0
+--WAVES--
+Wave1
+    SpawnPoint:0
+            0
+            5
+            100
+            0
+            
+            1
+            5
+            120
+            1
+
+    SpawnPoint:1
+            0
+            10
+            120
+            0
+            
+            1
+            10
+            150
+            1
