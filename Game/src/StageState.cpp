@@ -117,7 +117,7 @@ void StageState::Update(float dt) {
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
 		Tower *newTower= new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), tileMap);
 		AddObject(newTower);
-		tileMap->InsertGO(newTower);
+		tileMap.InsertGO(newTower);
 	}
 	if(InputManager::GetInstance().KeyPress('=')) {
 		Game &game = Game::GetInstance();
@@ -127,7 +127,7 @@ void StageState::Update(float dt) {
 		Game &game = Game::GetInstance();
 		game.SetMaxFramerate( ( (int64_t)game.GetMaxFramerate() )-5);
 	}
-	tileMap->ShowCollisionInfo(InputManager::GetInstance().IsKeyDown('g'));
+	tileMap.ShowCollisionInfo(InputManager::GetInstance().IsKeyDown('g'));
 	if(InputManager::GetInstance().IsKeyDown('[')){
 		Resources::ChangeMusicVolume(-STAGE_STATE_DELTA_VOLUME);
 	}
