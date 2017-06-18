@@ -1,3 +1,107 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+Game/src/GameResources.cpp
+>>>>>>> 26dd0f213f0d2ac56a7c8cacdd67601b04737654
+=======
+Game/src/GameResources.cpp
+>>>>>>> bf4e2285b2b341e482bc808a5988dde9e137c701
+Game/src/StageState.cpp
+Game/src/TitleState.cpp
+Game/src/WaveData.cpp
+Game/src/WaveManager.cpp
+Game/src/main.cpp
+Game/src/Face.cpp
+Game/src/Enemy.cpp
+Game/src/EndStateData.cpp
+Game/src/EndState.cpp
+<<<<<<< HEAD
+<<<<<<< HEAD
+Game/include/WaveManager.h
+Game/include/WaveData.h
+Game/include/TitleState.h
+Game/include/StageState.h
+=======
+=======
+>>>>>>> bf4e2285b2b341e482bc808a5988dde9e137c701
+Game/include/WaveData.h
+Game/include/TitleState.h
+Game/include/StageState.h
+Game/include/GameResources.h
+<<<<<<< HEAD
+>>>>>>> 26dd0f213f0d2ac56a7c8cacdd67601b04737654
+=======
+>>>>>>> bf4e2285b2b341e482bc808a5988dde9e137c701
+Game/include/Face.h
+Game/include/Enemy.h
+Game/include/EndStateData.h
+Game/include/EndState.h
+<<<<<<< HEAD
+<<<<<<< HEAD
+Game/include/Defines.h
+=======
+Game/include/Defines.h
+Engine/src/Wave.cpp
+>>>>>>> 26dd0f213f0d2ac56a7c8cacdd67601b04737654
+=======
+Game/include/Defines.h
+Engine/src/Wave.cpp
+>>>>>>> bf4e2285b2b341e482bc808a5988dde9e137c701
+Engine/src/Vec2.cpp
+Engine/src/Timer.cpp
+Engine/src/Tileset.cpp
+Engine/src/TileMap.cpp
+Engine/src/Text.cpp
+Engine/src/State.cpp
+Engine/src/Sprite.cpp
+Engine/src/Sound.cpp
+Engine/src/Resources.cpp
+Engine/src/Rect.cpp
+Engine/src/Music.cpp
+Engine/src/InputManager.cpp
+Engine/src/HItPoints.cpp
+Engine/src/GameObject.cpp
+Engine/src/Game.cpp
+Engine/src/DragAndDrop.cpp
+Engine/src/Component.cpp
+Engine/src/Color.cpp
+Engine/src/Camera.cpp
+Engine/src/Animation.cpp
+Engine/src/AIGoDown.cpp
+Engine/src/ActionManager.cpp
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+Engine/include/Wave.h
+Engine/include/Vec2.h
+Engine/include/Timer.h
+Engine/include/Tileset.h
+Engine/include/TileMap.h
+Engine/include/Text.h
+Engine/include/StateData.h
+Engine/include/State.h
+Engine/include/Sprite.h
+Engine/include/Sound.h
+Engine/include/Resources.h
+Engine/include/Rect.h
+Engine/include/Music.h
+Engine/include/InputManager.h
+Engine/include/HitPoints.h
+Engine/include/GameObject.h
+Engine/include/Game.h
+Engine/include/Error.h
+Engine/include/DragAndDrop.h
+Engine/include/Component.h
+Engine/include/Color.h
+Engine/include/Collision.h
+Engine/include/Camera.h
+Engine/include/Animation.h
+Engine/include/AIGoDown.h
+Engine/include/ActionManager.h
+=======
+>>>>>>> cc3bfc49d98b75ba776e94e4a99e2a7358d33229
 Engine/include/ActionManager.h
 Engine/include/AIGoDown.h
 Engine/include/Animation.h
@@ -7,6 +111,7 @@ Engine/include/Color.h
 Engine/include/Component.h
 Engine/include/ComponentType.h
 Engine/include/DragAndDrop.h
+>>>>>>> bf4e2285b2b341e482bc808a5988dde9e137c701
 Engine/include/Error.h
 Engine/include/Game.h
 Engine/include/GameObject.h
@@ -15,7 +120,10 @@ Engine/include/InputManager.h
 Engine/include/Music.h
 Engine/include/Rect.h
 Engine/include/Resources.h
+<<<<<<< HEAD
+=======
 Engine/include/SDL_include.h
+>>>>>>> bf4e2285b2b341e482bc808a5988dde9e137c701
 Engine/include/Sound.h
 Engine/include/Sprite.h
 Engine/include/State.h
@@ -25,6 +133,37 @@ Engine/include/TileMap.h
 Engine/include/Tileset.h
 Engine/include/Timer.h
 Engine/include/Vec2.h
+<<<<<<< HEAD
+Engine/include/emptyGameObject.h
+=======
+Engine/include/Wave.h
+Engine/include/Vec2.h
+Engine/include/Timer.h
+Engine/include/Tileset.h
+Engine/include/TileMap.h
+Engine/include/Text.h
+Engine/include/StateData.h
+Engine/include/State.h
+Engine/include/Sprite.h
+Engine/include/Sound.h
+Engine/include/Resources.h
+Engine/include/Rect.h
+Engine/include/Music.h
+Engine/include/InputManager.h
+Engine/include/HitPoints.h
+Engine/include/GameObject.h
+Engine/include/Game.h
+Engine/include/Error.h
+>>>>>>> 26dd0f213f0d2ac56a7c8cacdd67601b04737654
+Engine/include/DragAndDrop.h
+Engine/include/Component.h
+Engine/include/Color.h
+Engine/include/Collision.h
+Engine/include/Camera.h
+Engine/include/Animation.h
+Engine/include/AIGoDown.h
+Engine/include/ActionManager.h
+=======
 Engine/include/Wave.h
 Engine/src/ActionManager.cpp
 Engine/src/AIGoDown.cpp
@@ -65,4 +204,80 @@ Game/src/GameResources.cpp
 Game/src/main.cpp
 Game/src/StageState.cpp
 Game/src/TitleState.cpp
+<<<<<<< HEAD
 Game/src/Tower.cpp
+=======
+>>>>>>> cc513032ce88dfd3ef4d544a2dbf208300eb5ab0
+>>>>>>> bf4e2285b2b341e482bc808a5988dde9e137c701
+>>>>>>> cc3bfc49d98b75ba776e94e4a99e2a7358d33229
+Engine/include/ActionManager.h
+Engine/include/AIGoDown.h
+Engine/include/Animation.h
+Engine/include/Camera.h
+Engine/include/Collision.h
+Engine/include/Color.h
+Engine/include/Component.h
+Engine/include/ComponentType.h
+Engine/include/DragAndDrop.h
+Engine/include/emptyGameObject.h
+Engine/include/Error.h
+Engine/include/Game.h
+Engine/include/GameObject.h
+Engine/include/HitPoints.h
+Engine/include/InputManager.h
+Engine/include/Music.h
+Engine/include/Rect.h
+Engine/include/Resources.h
+Engine/include/SDL_include.h
+Engine/include/Sound.h
+Engine/include/Sprite.h
+Engine/include/State.h
+Engine/include/StateData.h
+Engine/include/Text.h
+Engine/include/TileMap.h
+Engine/include/Tileset.h
+Engine/include/Timer.h
+Engine/include/Vec2.h
+Engine/src/ActionManager.cpp
+Engine/src/AIGoDown.cpp
+Engine/src/Animation.cpp
+Engine/src/Camera.cpp
+Engine/src/Color.cpp
+Engine/src/Component.cpp
+Engine/src/DragAndDrop.cpp
+Engine/src/Game.cpp
+Engine/src/GameObject.cpp
+Engine/src/HItPoints.cpp
+Engine/src/InputManager.cpp
+Engine/src/Music.cpp
+Engine/src/Rect.cpp
+Engine/src/Resources.cpp
+Engine/src/Sound.cpp
+Engine/src/Sprite.cpp
+Engine/src/State.cpp
+Engine/src/Text.cpp
+Engine/src/TileMap.cpp
+Engine/src/Tileset.cpp
+Engine/src/Timer.cpp
+Engine/src/Vec2.cpp
+Game/include/Defines.h
+Game/include/EmptyGameObject.h
+Game/include/EndState.h
+Game/include/EndStateData.h
+Game/include/Enemy.h
+Game/include/GameResources.h
+Game/include/StageState.h
+Game/include/TitleState.h
+Game/include/Tower.h
+Game/include/WaveData.h
+Game/include/WaveManager.h
+Game/src/EndState.cpp
+Game/src/EndStateData.cpp
+Game/src/Enemy.cpp
+Game/src/GameResources.cpp
+Game/src/main.cpp
+Game/src/StageState.cpp
+Game/src/TitleState.cpp
+Game/src/Tower.cpp
+Game/src/WaveData.cpp
+Game/src/WaveManager.cpp

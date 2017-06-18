@@ -2,11 +2,13 @@
 #define ENEMY_H
 
 #include "GameObject.h"
+#include "Sprite.h"
 #include "Rect.h"
 #include "Sprite.h"
 #include "TileMap.h"
 #include "Timer.h"
-#include "Wave.h"
+#include "Error.h"
+#include "WaveData.h"
 
 #define BASE_HIT_POINTS 100
 #define DIFICULTY_CONSTANT 12
@@ -39,6 +41,7 @@ class Enemy : public GameObject
 			No momento a position informa o extremo superior esquedo a partir do qual o gameObject será instanciado.
 		*/
 		Enemy(Vec2 position, int life); // calcula vida e velocidade 
+		Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint);
 		/**
 			\brief Destrutor
 			
@@ -94,7 +97,15 @@ class Enemy : public GameObject
 	private:
 		EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
 		Sprite sp;/**< Sprite do inimigo.*/
+		Sprite bodySpName;
+		Sprite headSpName;
+		Sprite pantsSpName;
+		Sprite spName;
+
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
+		
+		int enemyIndex; 
+		uint quant, baseHP, endPoint;
 };
 
 #endif // ENEMY_H
