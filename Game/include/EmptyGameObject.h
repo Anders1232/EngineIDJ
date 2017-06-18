@@ -18,7 +18,7 @@ public:
 		Rect rect;
 		return rect;
 	}
-	bool Is(string type){return false;}
+	bool Is(string type){return  "EmptyGameObject" == type;}
 
 
 };

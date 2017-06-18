@@ -17,11 +17,6 @@
 #include "EmptyGameObject.h"
 using std::vector;
 
-/**
-	\todo Fazer com que o tileMap n~ao seja mais um ponteiro.
-
-
-*/
 class StageState: public State {
 	public:
 		StageState(void);
@@ -33,7 +28,7 @@ class StageState: public State {
 	private:
 		Sprite bg;
 		TileSet tileSet;
-		TileMap tileMap; //*tileMap
+		TileMap tileMap;
 		InputManager &inputManager;
 		Music music;
 		vector<vector<int>> *spawnGroups;
