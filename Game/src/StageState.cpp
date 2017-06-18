@@ -5,7 +5,7 @@
 #include "EndStateData.h"
 #include "Enemy.h"
 #include "Error.h"
-#include "Face.h"
+#include "Tower.h"
 #include "Game.h"
 
 #ifdef _WIN32
@@ -25,6 +25,8 @@
 #define STATE_RENDER_X 0
 #define STATE_RENDER_Y 0
 #define FACE_LINEAR_SIZE 30
+#define TOWER_LINEAR_SIZE 120
+#define TIME_BETWEEN_SPAWNS (3.)
 #define STAGE_STATE_DELTA_VOLUME (1) //11*11 = 121 ~128
 #define CAM_START_X 300
 #define CAM_START_Y 300
@@ -94,12 +96,19 @@ void StageState::Update(float dt) {
 
 	if(InputManager::GetInstance().KeyPress('q')) {
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
-		std::cout << WHERE << "O mouse está no tile " << tileMap.GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap.GetHeight()*tileMap.GetHeight() << " tiles." << std::endl;
+		std::cout << WHERE << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << " tiles." << std::endl;
+	}
+
+	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)) {
+		REPORT_I_WAS_HERE;
+		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);//metade to tamanho da Tower passado abaixo
+		AddObject( new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), tileMap) );
 	}
 
 	if(InputManager::GetInstance().KeyPress('e')) {
-		printf("Face criado\n");
-		AddObject(new Face(0, 0, Vec2(64, 64), &tileMap));
+		printf("Tower criado\n");
+		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
+		AddObject(new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), tileMap));
 	}
 
 	if(InputManager::GetInstance().KeyPress('=')) {

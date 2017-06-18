@@ -45,7 +45,10 @@ var searchData=
   ['getwavedata',['GetWaveData',['../classGameResources.html#a703acf6508012a262661bfaac5efa7fc',1,'GameResources']]],
   ['getweightdata',['GetWeightData',['../classGameResources.html#afaa372572900c7ab1c7d8e5862d4de34',1,'GameResources']]],
   ['getwidth',['GetWidth',['../classSprite.html#ad3d43826d2f41185964ec4a1eb492248',1,'Sprite::GetWidth()'],['../classTileMap.html#a072dbe1dbd793712baefe154c3058ab2',1,'TileMap::GetWidth()']]],
+  ['getwindowborderless',['GetWindowBorderless',['../classGame.html#a1462f830e61a7ece6075391faf9d2765',1,'Game']]],
   ['getwindowdimensions',['GetWindowDimensions',['../classGame.html#adbeb87bbabcc73f936e149c2d83d9d33',1,'Game']]],
-  ['getworldrenderedrect',['GetWorldRenderedRect',['../classAnimation.html#a0c0ff21f388105a5ed1560de9071f895',1,'Animation::GetWorldRenderedRect()'],['../classGameObject.html#a686136f4cf17c54345a7d28187b25893',1,'GameObject::GetWorldRenderedRect()'],['../classEmptyGameObject.html#a5f41e1fb299bf9b13d7cd68a88530fc5',1,'EmptyGameObject::GetWorldRenderedRect()'],['../classEnemy.html#ac7f63bc4fdfa5cf88f85eec8e9053df2',1,'Enemy::GetWorldRenderedRect()'],['../classFace.html#ab414dd8e68874fe87d4524e2347a23f7',1,'Face::GetWorldRenderedRect()']]],
+  ['getwindowfullscreen',['GetWindowFullscreen',['../classGame.html#ab578fc018939b5c1fe15b993856828ad',1,'Game']]],
+  ['getwindowmaximized',['GetWindowMaximized',['../classGame.html#a73b7de2577d86f15887e091330513dc2',1,'Game']]],
+  ['getworldrenderedrect',['GetWorldRenderedRect',['../classAnimation.html#a0c0ff21f388105a5ed1560de9071f895',1,'Animation::GetWorldRenderedRect()'],['../classGameObject.html#a686136f4cf17c54345a7d28187b25893',1,'GameObject::GetWorldRenderedRect()'],['../classEmptyGameObject.html#a5f41e1fb299bf9b13d7cd68a88530fc5',1,'EmptyGameObject::GetWorldRenderedRect()'],['../classEnemy.html#ac7f63bc4fdfa5cf88f85eec8e9053df2',1,'Enemy::GetWorldRenderedRect()'],['../classTower.html#a70062b0fd7a5cc0f255173c93b431f99',1,'Tower::GetWorldRenderedRect()']]],
   ['getzoom',['GetZoom',['../classCamera.html#af6fe062fcf5e1e31224d4dd9f6cafa51',1,'Camera']]]
 ];

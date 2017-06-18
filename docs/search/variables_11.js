@@ -5,7 +5,7 @@ var searchData=
   ['sound',['sound',['../classSound.html#a44bbda770ac76c7455b60d3d63b663a7',1,'Sound']]],
   ['soundtable',['soundTable',['../classResources.html#abbd116a3bc870ba6578a89b4aa08908c',1,'Resources']]],
   ['soundvolume',['soundVolume',['../classResources.html#aba29947d0dbb8e1a81a1d6b289c4d0f6',1,'Resources']]],
-  ['sp',['sp',['../classAnimation.html#abf968c115c1d8c88da797215d58ad516',1,'Animation::sp()'],['../classEnemy.html#abcc409a6a5cdbc106ae12d8fb54e412a',1,'Enemy::sp()'],['../classFace.html#a8e816a2e8bcfa5418adfe35a3e9731ac',1,'Face::sp()']]],
+  ['sp',['sp',['../classAnimation.html#abf968c115c1d8c88da797215d58ad516',1,'Animation::sp()'],['../classEnemy.html#abcc409a6a5cdbc106ae12d8fb54e412a',1,'Enemy::sp()'],['../classTower.html#a48a882e7718850a2ecb72dbdaa183968',1,'Tower::sp()']]],
   ['spawngroups',['spawnGroups',['../classStageState.html#a8ec235e907fe6fe1ed17605d259dc99b',1,'StageState::spawnGroups()'],['../classWaveManager.html#a09ade817ca7b744f1f00a6bf2eecbae6',1,'WaveManager::spawnGroups()']]],
   ['spawnpointsdata',['spawnPointsData',['../structWaveData.html#a138a3e0eed46e91e1024e9bbc9076061',1,'WaveData']]],
   ['spawntimer',['spawnTimer',['../classWaveManager.html#aba881a7a8545c3ae65df0b49c64c2895',1,'WaveManager']]],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uint',['uint',['../Error_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;Error.h'],['../HitPoints_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;HitPoints.h'],['../Enemy_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;Enemy.h'],['../Face_8cpp.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;Face.cpp']]]
+  ['towertype',['TowerType',['../classTower.html#a7b293b49f79494ccfe2592109d8a1ec5',1,'Tower']]]
 ];
