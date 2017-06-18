@@ -1,8 +1,0 @@
-<map id="Engine/include/Wave.h" name="Engine/include/Wave.h">
-<area shape="rect" id="node2" href="$Wave_8cpp.html" title="Engine/src/Wave.cpp" alt="" coords="69,80,215,107"/>
-<area shape="rect" id="node3" href="$Enemy_8h.html" title="Game/include/Enemy.h" alt="" coords="240,80,399,107"/>
-<area shape="rect" id="node4" href="$GameResources_8h.html" title="Game/include/GameResources.h" alt="" coords="5,155,220,181"/>
-<area shape="rect" id="node6" href="$Enemy_8cpp.html" title="Game/src/Enemy.cpp" alt="" coords="245,155,394,181"/>
-<area shape="rect" id="node7" href="$StageState_8cpp.html" title="Game/src/StageState.cpp" alt="" coords="418,155,591,181"/>
-<area shape="rect" id="node5" href="$GameResources_8cpp.html" title="Game/src/GameResources.cpp" alt="" coords="9,229,216,256"/>
-</map>

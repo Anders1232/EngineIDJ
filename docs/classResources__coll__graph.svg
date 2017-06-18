@@ -74,15 +74,9 @@
 </g>
 <!-- Node6&#45;&gt;Node1 -->
 <g id="edge5" class="edge"><title>Node6&#45;&gt;Node1</title>
-<<<<<<< HEAD
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M126.301,-45.5218C150.94,-56.0697 178.64,-69.5455 202,-85 217.605,-95.3241 233.082,-110.602 242.344,-120.43"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="127.598,-42.2705 117.023,-41.6245 124.887,-48.7242 127.598,-42.2705"/>
 <text text-anchor="middle" x="170" y="-88" font-family="Helvetica,sans-Serif" font-size="10.00"> soundTable</text>
-=======
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M124.783,-45.4815C149.236,-56.0612 176.779,-69.5696 200,-85 215.584,-95.3556 231.067,-110.625 240.336,-120.443"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="126.15,-42.2597 115.578,-41.5722 123.414,-48.7028 126.15,-42.2597"/>
-<text text-anchor="middle" x="168.5" y="-88" font-family="Helvetica,sans-Serif" font-size="10.00"> soundTable</text>
->>>>>>> bf4e2285b2b341e482bc808a5988dde9e137c701
 </g>
 </g>
 </svg>
