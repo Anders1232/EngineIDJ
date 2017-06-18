@@ -4,8 +4,6 @@
 #include "Camera.h"
 #include "Error.h"
 
-#define ENEMY_MOVE_SPEED (120.)
-
 Enemy::Enemy(Vec2 position, int life)
 		: sp("img/enemy/teste-cor.png", 0.0, 1), dead(false) {
 	box = position;
