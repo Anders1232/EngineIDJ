@@ -114,7 +114,6 @@ void StageState::Update(float dt) {
 		}
 		else{
 			go->AddComponent(new DragAndDrop(tileMap));
-			tileMap->RemoveGO(position);
 		}
 	}
 	if(InputManager::GetInstance().KeyPress('e')) {

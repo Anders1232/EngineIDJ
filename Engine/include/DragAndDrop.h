@@ -36,6 +36,7 @@ class DragAndDrop : public Component{
 		bool Is(ComponentType) const;
 	private:
 		bool dragOnHold;/**< [Não utilizado no momento] Armazena a informação se o botão deve ser segurado para arrastar, ou apenas pressiona uma vez para arrastar e outra vez para soltar.*/
+		Vec2 associatedInitialPos;/**<Vec2 no qual o será armazenada a posição do objeto associado no instante do drag.*/
 		TileMap *tileMap;/**< TileMap no qual o GameObject será inserido após o drag.*/
 };
 

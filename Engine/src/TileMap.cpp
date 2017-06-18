@@ -166,7 +166,6 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 	
 	return y*mapWidth+x;
 }
-
 void TileMap::InsertGO(GameObject* obj) {
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 	int position = GetTileMousePos(mousePos, false, 0);
@@ -188,12 +187,46 @@ void TileMap::InsertGO(GameObject* obj) {
 		obj->box.x = column*tileSet->GetTileWidth();
 		obj->box.y = line*tileSet->GetTileHeight();
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
-	} else if(0 > AtLayer(position, COLLISION_LAYER)){
+	} else if(0 > AtLayer(position, COLLISION_LAYER)) {
 		REPORT_DEBUG("\ttentado inserir objeto em posição inválida, pois nela está" << tileMatrix[position+(COLLISION_LAYER * mapWidth*mapHeight)]);
 		obj->RequestDelete();
 	} else {
 		REPORT_DEBUG("\ttentado inserir objeto em posição já ocupada!");
 		obj->RequestDelete();
+	}
+}
+
+void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
+	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
+	int position = GetTileMousePos(mousePos, false, 0);
+	REPORT_DEBUG("\t position = " << position << "\t of " << mapHeight*mapWidth << " tiles.");
+	
+	if(0 > position) {
+		std::cout << WHERE << "[ERROR] Tried to put the gameObject on an invalid tileMap position." << END_LINE;
+		//obj->box = initialPos;
+		return;
+	}
+	
+	if(-1 == AtLayer(position, COLLISION_LAYER)) {
+		REPORT_DEBUG("\tInserting the gameObject at position " << position);
+		gameObjectMatrix[position] = obj;
+		tileMatrix[position+(COLLISION_LAYER*mapWidth*mapHeight)] = PAREDE;
+		
+		int line = position / GetWidth();
+		int column = position % GetWidth();
+		obj->box.x = column*tileSet->GetTileWidth();
+		obj->box.y = line*tileSet->GetTileHeight();
+		RemoveGO(GetTileMousePos(initialPos, false, COLLISION_LAYER));
+		//TODO: aqui ajudar a box para ficar exatamente no tileMap
+	} 
+	else {
+
+		int initialTile = GetTileMousePos(initialPos, false, 0);
+		int line =  initialTile / GetWidth();
+		int column =  initialTile % GetWidth();
+		obj->box.x = column*tileSet->GetTileWidth();
+		obj->box.y = line*tileSet->GetTileHeight();
+
 	}
 }
 
