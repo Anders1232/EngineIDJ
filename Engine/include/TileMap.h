@@ -56,19 +56,22 @@ class TileMap{
 			\brief Renderiza o TileMap a partir da posição dada.
 			\param pos Valor x,y da câmera, será usado como coordenada de início do tileMap.
 			\param parallax Flag para se ativar ou desativar o parallax das camadas
+			\param mouse Posição do mouse para checar qual tile deve sofre highlight.
 
 			Renderiza-se todas as layers começando pelas de menor valor numérico de profundidade até as de maior valor numérico.
+			Verifica em qual tile o mouse está para renderizá-lo highlighted.
 		*/
-		void Render(Vec2 pos = Vec2(0,0), bool parallax = false) const;
+		void Render(Vec2 pos = Vec2(0,0), bool parallax = false, Vec2 mouse= Vec2(-1, -1)) const;
 		/**
 			\brief Renderiza a layer informada.
 			\param layer Layer a ser renderizada.
 			\param pos Valor x,y da câmera, será usado como coordenada de início do tileMap.
+			\param mouse Posição do mouse para checar qual tile deve sofre highlight.
 
 			Renderiza-se todas as posições da matriz na layer indicada, com suas alterações sendo feitas por parallaxe.
 			Observação: pode exibir o tileMap de colisão se assim for pedido em ShowCollisionInfo.
 		*/
-		void RenderLayer(int layer, Vec2 pos = Vec2(0,0), bool parallax = false) const;
+		void RenderLayer(int layer, Vec2 pos = Vec2(0,0), bool parallax = false, Vec2 mouse= Vec2(-1, -1)) const;
 		/**
 			\brief Informa a largura do tileMap.
 
@@ -109,12 +112,24 @@ class TileMap{
 		void InsertGO(GameObject* obj);
 		/**
 			\brief Remove GameObjct no tileMap
-			\param obj GameObject a ser retirado no tileMap de GameObjects.
+			\param position Posição que contém o Gameobject a ser retirado.
 
-			Utiliza a posição do mouse no momento(que deve ser a mesma do centro do GameObject) para identificar onde o GameObject deve ser retirado no tileMap de GameObjects. Então obj é colocado nessa posição, sua posição é alterada para se encaixar exatamente com o início da posição.
-			Atualiza-se o tileMao de colisão para adicionar a informação que tem um GameObject na posição respectiva.
+			Atualiza-se o tileMap de colisão para adicionar a informação que tem um GameObject na posição respectiva.
 		*/
-		void RemoveGO(GameObject* obj);
+		void RemoveGO(int position);
+		/**
+			\brief Remove GameObjct no tileMap
+
+			Variação do RemoveGO que internamente faz a busca o GameObject que está debaixo do mouse para remover.
+			Atualiza-se o tileMap de colisão para adicionar a informação que tem um GameObject na posição respectiva.
+		*/
+		void RemoveGO(void);
+		/**
+			\brief Obtém GameObject de uma determinada posição do tileMap
+
+			Faz-se checagem de limites para saber se a posição desejada existe.
+		*/
+		GameObject* GetGO(int index);
 		/**
 			\brief Ativa ou desativa a exibição na tela das informações do tileMap de colisão
 

@@ -1,5 +1,7 @@
 <map id="Engine/include/Sprite.h" name="Engine/include/Sprite.h">
-<area shape="rect" id="node4" href="$Color_8h.html" title="Color.h" alt="" coords="178,80,242,107"/>
-<area shape="rect" id="node5" href="$Rect_8h.html" title="Rect.h" alt="" coords="266,80,327,107"/>
-<area shape="rect" id="node6" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="223,155,285,181"/>
+<area shape="rect" id="node2" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="206,229,313,256"/>
+<area shape="rect" id="node5" href="$Color_8h.html" title="Color.h" alt="" coords="197,80,261,107"/>
+<area shape="rect" id="node6" href="$Rect_8h.html" title="Rect.h" alt="" coords="285,80,346,107"/>
+<area shape="rect" id="node9" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="370,80,482,107"/>
+<area shape="rect" id="node7" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="304,155,367,181"/>
 </map>

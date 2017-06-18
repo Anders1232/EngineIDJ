@@ -1,14 +1,10 @@
 var searchData=
 [
   ['calculatedeltatime',['CalculateDeltaTime',['../classGame.html#afddce07e3e3d3ca05a6c2f2ca9e64940',1,'Game']]],
-<<<<<<< HEAD
-  ['calculateparallaxscrolling',['CalculateParallaxScrolling',['../classTileMap.html#ae6d986365a0704b8e5aa7495a575ee64',1,'TileMap']]],
-=======
   ['calculateparallaxscrolling',['CalculateParallaxScrolling',['../classTileMap.html#a442af6700e8477097e14378bbf2551a2',1,'TileMap']]],
   ['cam_5fstart_5fx',['CAM_START_X',['../StageState_8cpp.html#a58f35e25c13bb24aa54a987cd1ce803d',1,'StageState.cpp']]],
   ['cam_5fstart_5fy',['CAM_START_Y',['../StageState_8cpp.html#a23bfb27612786648f85c1d4e8268178b',1,'StageState.cpp']]],
   ['cam_5fstart_5fzoom',['CAM_START_ZOOM',['../StageState_8cpp.html#a3f9c38f1221c38679673d781cbefada8',1,'StageState.cpp']]],
->>>>>>> c5107e99d962ecdbc0c16f62d763d212369ef492
   ['camera',['Camera',['../classCamera.html',1,'Camera'],['../classCamera.html#a01f94c3543f56ede7af49dc778f19331',1,'Camera::Camera()']]],
   ['camera_2ecpp',['Camera.cpp',['../Camera_8cpp.html',1,'']]],
   ['camera_2eh',['Camera.h',['../Camera_8h.html',1,'']]],
@@ -20,13 +16,9 @@ var searchData=
   ['camera_5fdefault_5fzoomable',['CAMERA_DEFAULT_ZOOMABLE',['../Camera_8h.html#a719f5e3a817ca056a76495044f676277',1,'Camera.h']]],
   ['camera_5fmove_5fspeed',['CAMERA_MOVE_SPEED',['../Camera_8cpp.html#a6962606bd42615342e6dc4ab58ad5cd4',1,'Camera.cpp']]],
   ['capframerate',['capFramerate',['../classGame.html#a9c4d90234bc5a4ca540b09d8a534ece1',1,'Game']]],
-<<<<<<< HEAD
-  ['center',['Center',['../classRect.html#af5db0f5526e20b63eebbe14ef2f4f6fb',1,'Rect']]],
-=======
   ['center',['Center',['../classRect.html#ac42ead7988bf077364ce61231980bff2',1,'Rect']]],
   ['changemusicvolume',['ChangeMusicVolume',['../classResources.html#a1655776bc711f51ad1234d002c1919cd',1,'Resources']]],
   ['changesoundvolume',['ChangeSoundVolume',['../classResources.html#a92d5aad816000142eb6e67d4cc1f7d1e',1,'Resources']]],
->>>>>>> c5107e99d962ecdbc0c16f62d763d212369ef492
   ['channel',['channel',['../classSound.html#af3895edf5a39772f1de32cfbfff90909',1,'Sound']]],
   ['check_5fsdl_5ferror',['CHECK_SDL_ERROR',['../Error_8h.html#ae8a1602ad06ce181163389d874118387',1,'Error.h']]],
   ['clearfonts',['ClearFonts',['../classResources.html#abfa5ce49b74cb81a0f3c7a47d94e0eda',1,'Resources']]],
@@ -38,7 +30,7 @@ var searchData=
   ['collision',['Collision',['../classCollision.html',1,'']]],
   ['collision_2eh',['Collision.h',['../Collision_8h.html',1,'']]],
   ['collision_5flayer',['COLLISION_LAYER',['../TileMap_8h.html#a22d205877ba623d755a2c7306a45170a',1,'TileMap.h']]],
-  ['color',['Color',['../structColor.html',1,'Color'],['../structColor.html#a01fc8b90de599a12365e87b9a0719264',1,'Color::Color()'],['../classText.html#ab0f771bd18d8e968f7aaee4a4e26e385',1,'Text::color()']]],
+  ['color',['Color',['../structColor.html',1,'Color'],['../classText.html#ab0f771bd18d8e968f7aaee4a4e26e385',1,'Text::color()'],['../structColor.html#a01fc8b90de599a12365e87b9a0719264',1,'Color::Color()']]],
   ['color_2ecpp',['Color.cpp',['../Color_8cpp.html',1,'']]],
   ['color_2eh',['Color.h',['../Color_8h.html',1,'']]],
   ['color_5fmodulation',['COLOR_MODULATION',['../Sprite_8h.html#af80a45759a911ffaa1db89816b1820ee',1,'Sprite.h']]],
@@ -50,6 +42,7 @@ var searchData=
   ['components',['components',['../classGameObject.html#adf77cf3872333bf5e3007ad98e8afd18',1,'GameObject']]],
   ['componenttype',['ComponentType',['../ComponentType_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0',1,'ComponentType.h']]],
   ['componenttype_2eh',['ComponentType.h',['../ComponentType_8h.html',1,'']]],
+  ['computation',['COMPUTATION',['../classTower.html#a2a6d5a7ae2af5e4481abcb2d3b535174ab86334aefa7228ebf61c4f4a42f69bee',1,'Tower']]],
   ['controllerleftstickstate',['controllerLeftStickState',['../classInputManager.html#a6792c10cb9eef8bfaa6a12b8405bad13',1,'InputManager']]],
   ['controllerrightstickstate',['controllerRightStickState',['../classInputManager.html#a39f7982405d422569fe99511ef4d1dce',1,'InputManager']]],
   ['controllerstate',['controllerState',['../classInputManager.html#a223465815735da41043f434567f0a96a',1,'InputManager']]],

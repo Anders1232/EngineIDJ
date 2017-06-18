@@ -13,10 +13,9 @@ void GameObject::AddComponent(Component* component){
 void GameObject::RemoveComponent(ComponentType type){
 	for(unsigned int i = 0;i < components.size();i++){
 		if(components[i]->Is(type)){
+			delete components[i];
 			components.erase(components.begin() + i);
 			return;
-			
 		}
 	}
-
 }

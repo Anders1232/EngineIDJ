@@ -58,16 +58,16 @@ int& TileMap::At(int x, int y, int z) const {
 	}
 }
 
-void TileMap::Render(Vec2 pos, bool parallax) const {
+void TileMap::Render(Vec2 pos, bool parallax, Vec2 mouse) const {
 	for(int count = 0; count < mapDepth; count++) {
 		if(COLLISION_LAYER == count && !displayCollisionInfo) {
 			continue;
 		}
-		RenderLayer(count, pos, parallax);
+		RenderLayer(count, pos, parallax, mouse);
 	}
 }
 
-void TileMap::RenderLayer(int layer, Vec2 pos, bool parallax) const {
+void TileMap::RenderLayer(int layer, Vec2 pos, bool parallax, Vec2 mouse) const {
 	for (int x = 0; x < mapWidth; x++) {
 		for (int y = 0; y < mapHeight; y++) {
 			int index = At(x, y, layer);
@@ -79,7 +79,8 @@ void TileMap::RenderLayer(int layer, Vec2 pos, bool parallax) const {
 				} else {
 					destination = pos + Vec2(x*tileSet->GetTileWidth(), y*tileSet->GetTileHeight());
 				}
-				tileSet->Render(index, destination);
+				Rect tile(destination.x, destination.y, tileSet->GetTileWidth(), tileSet->GetTileHeight());
+				tileSet->Render(index, destination, mouse.IsInRect(tile));
 			}
 		}
 	}
@@ -196,23 +197,24 @@ void TileMap::InsertGO(GameObject* obj) {
 	}
 }
 
-void TileMap::RemoveGO(GameObject* obj){
-
-	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
-	int position = GetTileMousePos(mousePos, false, COLLISION_LAYER);
-	
+void TileMap::RemoveGO(int position){
+	TEMP_REPORT_I_WAS_HERE;
 	if(0 == AtLayer(position, COLLISION_LAYER)){
-
+		if(nullptr == gameObjectMatrix[position]){
+			std::cout<<WHERE<< "\t Trying to remove a gameObject where there is none" END_LINE;
+		}
 		gameObjectMatrix[position] = nullptr;
 		tileMatrix[position + (COLLISION_LAYER * mapWidth * mapHeight)] = -1;
-
 	}
 	else{
-
 		REPORT_DEBUG("\ttentado remover objeto de posicao inválida");
-
 	}
+}
 
+void TileMap::RemoveGO(void){
+	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
+	int position = GetTileMousePos(mousePos, false, COLLISION_LAYER);
+	RemoveGO(position);
 }
 
 void TileMap::ShowCollisionInfo(bool show) {
@@ -293,3 +295,8 @@ vector<vector<int>>* TileMap::GetSpawnPositions(void) const {
 Vec2 TileMap::GetTileSize(void) const{
 	return Vec2(tileSet->GetTileWidth(), tileSet->GetTileHeight());
 }
+
+GameObject* TileMap::GetGO(int index){
+	return gameObjectMatrix.at(index);
+}
+

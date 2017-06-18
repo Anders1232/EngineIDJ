@@ -1,32 +1,17 @@
 <map id="Engine/src/DragAndDrop.cpp" name="Engine/src/DragAndDrop.cpp">
-<<<<<<< HEAD
-<area shape="rect" id="node2" href="$DragAndDrop_8h.html" title="DragAndDrop.h" alt="" coords="374,80,486,107"/>
-<area shape="rect" id="node16" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="671,304,783,331"/>
-<area shape="rect" id="node19" href="$Camera_8h.html" title="Camera.h" alt="" coords="639,155,717,181"/>
-<area shape="rect" id="node21" href="$Error_8h.html" title="Error.h" alt="" coords="867,80,929,107"/>
-<area shape="rect" id="node3" href="$Component_8h.html" title="Component.h" alt="" coords="380,155,480,181"/>
-<area shape="rect" id="node12" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="253,155,332,181"/>
-<area shape="rect" id="node4" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="463,304,592,331"/>
-<area shape="rect" id="node5" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="377,229,483,256"/>
-<area shape="rect" id="node8" href="$Rect_8h.html" title="Rect.h" alt="" coords="377,304,438,331"/>
-<area shape="rect" id="node9" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="535,379,597,405"/>
-<area shape="rect" id="node13" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="99,229,171,256"/>
-<area shape="rect" id="node14" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="102,304,169,331"/>
-<area shape="rect" id="node15" href="$Color_8h.html" title="Color.h" alt="" coords="103,379,167,405"/>
-<area shape="rect" id="node20" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="667,229,787,256"/>
-=======
-<area shape="rect" id="node2" href="$DragAndDrop_8h.html" title="DragAndDrop.h" alt="" coords="255,80,367,107"/>
-<area shape="rect" id="node15" href="$Camera_8h.html" title="Camera.h" alt="" coords="449,155,528,181"/>
-<area shape="rect" id="node17" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="529,304,641,331"/>
-<area shape="rect" id="node20" href="$Error_8h.html" title="Error.h" alt="" coords="678,80,739,107"/>
-<area shape="rect" id="node3" href="$Component_8h.html" title="Component.h" alt="" coords="261,155,361,181"/>
-<area shape="rect" id="node11" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="159,155,237,181"/>
-<area shape="rect" id="node4" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="246,229,353,256"/>
-<area shape="rect" id="node8" href="$Rect_8h.html" title="Rect.h" alt="" coords="198,379,259,405"/>
-<area shape="rect" id="node9" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="384,453,447,480"/>
-<area shape="rect" id="node12" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="99,229,171,256"/>
-<area shape="rect" id="node13" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="102,304,169,331"/>
-<area shape="rect" id="node14" href="$Color_8h.html" title="Color.h" alt="" coords="103,379,167,405"/>
-<area shape="rect" id="node16" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="478,229,598,256"/>
->>>>>>> c5107e99d962ecdbc0c16f62d763d212369ef492
+<area shape="rect" id="node2" href="$DragAndDrop_8h.html" title="DragAndDrop.h" alt="" coords="538,80,650,107"/>
+<area shape="rect" id="node17" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="790,379,902,405"/>
+<area shape="rect" id="node20" href="$Camera_8h.html" title="Camera.h" alt="" coords="761,229,840,256"/>
+<area shape="rect" id="node22" href="$Error_8h.html" title="Error.h" alt="" coords="990,80,1051,107"/>
+<area shape="rect" id="node3" href="$Component_8h.html" title="Component.h" alt="" coords="544,229,644,256"/>
+<area shape="rect" id="node13" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="421,155,500,181"/>
+<area shape="rect" id="node4" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="535,379,664,405"/>
+<area shape="rect" id="node5" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="362,304,469,331"/>
+<area shape="rect" id="node6" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="362,528,469,555"/>
+<area shape="rect" id="node10" href="$Rect_8h.html" title="Rect.h" alt="" coords="317,379,378,405"/>
+<area shape="rect" id="node11" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="671,453,733,480"/>
+<area shape="rect" id="node14" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="209,229,281,256"/>
+<area shape="rect" id="node15" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="211,304,278,331"/>
+<area shape="rect" id="node16" href="$Color_8h.html" title="Color.h" alt="" coords="135,379,199,405"/>
+<area shape="rect" id="node21" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="790,304,910,331"/>
 </map>
