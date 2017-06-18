@@ -207,6 +207,7 @@ void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 		return;
 	}
 	
+	int initialTile = GetTileMousePos(initialPos, false, 0);
 	if(-1 == AtLayer(position, COLLISION_LAYER)) {
 		REPORT_DEBUG("\tInserting the gameObject at position " << position);
 		gameObjectMatrix[position] = obj;
@@ -216,12 +217,11 @@ void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 		int column = position % GetWidth();
 		obj->box.x = column*tileSet->GetTileWidth();
 		obj->box.y = line*tileSet->GetTileHeight();
-		RemoveGO(GetTileMousePos(initialPos, false, COLLISION_LAYER));
+		RemoveGO(initialTile);
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
 	} 
 	else {
 
-		int initialTile = GetTileMousePos(initialPos, false, 0);
 		int line =  initialTile / GetWidth();
 		int column =  initialTile % GetWidth();
 		obj->box.x = column*tileSet->GetTileWidth();
@@ -233,14 +233,16 @@ void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 void TileMap::RemoveGO(int position){
 	TEMP_REPORT_I_WAS_HERE;
 	if(0 == AtLayer(position, COLLISION_LAYER)){
+		TEMP_REPORT_I_WAS_HERE;
 		if(nullptr == gameObjectMatrix[position]){
-			std::cout<<WHERE<< "\t Trying to remove a gameObject where there is none" END_LINE;
+			REPORT_DEBUG("\t Trying to remove a gameObject where there is none");
 		}
+		REPORT_DEBUG("\tRemoving the gameObject at position " << position);
 		gameObjectMatrix[position] = nullptr;
 		tileMatrix[position + (COLLISION_LAYER * mapWidth * mapHeight)] = -1;
 	}
 	else{
-		REPORT_DEBUG("\ttentado remover objeto de posicao inválida");
+		REPORT_DEBUG("\ttentado remover objeto de posicao inválida" << std::endl);
 	}
 }
 

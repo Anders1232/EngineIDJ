@@ -19,7 +19,7 @@ class DragAndDrop : public Component{
 		
 			Instancia o DragAndDrop, informando se o objeto está sendo arrastado.
 		*/
-		DragAndDrop(TileMap *map,bool dragOnActionHold= true);
+		DragAndDrop(TileMap *map,Vec2 associatedInitialPos,bool dragOnActionHold= true);
 		/**
 			\brief Atualiza o estado do objeto em arrasto.
 			\param associated GameObject que possui esse componente.

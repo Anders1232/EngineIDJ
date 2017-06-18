@@ -23,7 +23,6 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, TileMap *tileMap)
 	sp.alpha = 127*(float)rand()/RAND_MAX+127;
 	box.w = sp.GetWidth();
 	box.h = sp.GetHeight();
-	components.emplace_back( new DragAndDrop(tileMap, true) );
 }
 
 Tower::~Tower() {

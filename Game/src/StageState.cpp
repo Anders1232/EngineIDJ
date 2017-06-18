@@ -113,7 +113,8 @@ void StageState::Update(float dt) {
 			std::cout<<WHERE<<"\t[WARNING] Expected GameObject" END_LINE;
 		}
 		else{
-			go->AddComponent(new DragAndDrop(tileMap));
+			go->AddComponent(new DragAndDrop(tileMap,mousePos));
+			printf("adicionou drag'n drop\n");
 		}
 	}
 	if(InputManager::GetInstance().KeyPress('e')) {
