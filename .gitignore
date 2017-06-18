@@ -44,3 +44,6 @@ dep/*
 .idea/EngineIDJ.iml
 .idea/modules.xml
 .idea/workspace.xml
+
+#documentaçao doxygen
+docs/*
