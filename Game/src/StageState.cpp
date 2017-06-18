@@ -62,9 +62,9 @@ void StageState::Update(float dt) {
 		quitRequested = true;
 	}
 	REPORT_I_WAS_HERE;
-	
 	UpdateArray(dt);
 	REPORT_I_WAS_HERE;
+
 	if(!objectArray.empty()){
 		for(unsigned int count1 = 0; count1 < objectArray.size()-1; count1++) {
 			for(unsigned int count2 = count1+1; count2 < objectArray.size(); count2++) {
@@ -77,12 +77,10 @@ void StageState::Update(float dt) {
 		}
 	}
 	REPORT_I_WAS_HERE;
-	
 	Camera::Update(dt);
 	REPORT_I_WAS_HERE;
 
 	waveManager.Update(nullGameObject,dt);
-
 
 	if(InputManager::GetInstance().KeyPress('r')) {
 		popRequested = true;
@@ -156,7 +154,6 @@ void StageState::Render(void) const {
 void StageState::Pause(void) {}
 
 void StageState::Resume(void) {}
-
 
 void StageState::SpawnEnemy(int tileMapPosition){
 	Vec2 tileSize= tileMap.GetTileSize();
