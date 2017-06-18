@@ -96,14 +96,14 @@ void StageState::Update(float dt) {
 
 	if(InputManager::GetInstance().KeyPress('q')) {
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
-		std::cout << WHERE << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << " tiles." << std::endl;
+		std::cout << WHERE << "O mouse está no tile " << tileMap.GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap.GetHeight()*tileMap.GetHeight() << " tiles." << END_LINE;
 	}
 
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
 		TEMP_REPORT_I_WAS_HERE;
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
-		int position = tileMap->GetTileMousePos(mousePos, false, COLLISION_LAYER);
-		GameObject *go= tileMap->GetGO(position);
+		int position = tileMap.GetTileMousePos(mousePos, false, COLLISION_LAYER);
+		GameObject *go= tileMap.GetGO(position);
 		if(nullptr == go){
 			std::cout<<WHERE<<"\t[WARNING] Expected GameObject" END_LINE;
 		}

@@ -35,7 +35,7 @@ class StageState: public State {
 		//Timer spawnTimer;
 		void SpawnEnemy(int tileMapPosition);
 		WaveManager waveManager;
-		EmptyGameObject nullGameObject;
+		GameObject nullGameObject;
 		vector<int> waves;//vetor de waves a ser lido no arquivo
 };
 

@@ -14,15 +14,14 @@ void DragAndDrop::Update(GameObject &associated, float dt) {
 		Vec2 mousePos= inputManager.GetMousePos()*(1/Camera::GetZoom());
 		associated.box= mousePos+Camera::pos-Vec2(associated.box.w/2, associated.box.h/2);
 	} 
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 	else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON)){
 		tileMap->InsertGO(&associated,associatedInitialPos);
-		associated.RemoveComponent(DRAG_AND_DROP);
-=======
-	else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON) && isDragging) {
+=======*/
+	else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON)) {
 		tileMap->InsertGO(&associated);
-		isDragging = false;
->>>>>>> cc3bfc49d98b75ba776e94e4a99e2a7358d33229
+		associated.RemoveComponent(DRAG_AND_DROP);
+//>>>>>>> cc3bfc49d98b75ba776e94e4a99e2a7358d33229
 	}
 }
 
