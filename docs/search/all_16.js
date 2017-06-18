@@ -16,6 +16,7 @@ var searchData=
   ['wavename',['waveName',['../structWaveData.html#a763662257fce043d8f04dbbe300431c4',1,'WaveData']]],
   ['waves',['waves',['../classStageState.html#a623b3279c9ec443c003b48ea0551ee8c',1,'StageState']]],
   ['wavesandenemysdata',['wavesAndEnemysData',['../classWaveManager.html#a901e502d64f7c64c72f87cf8cd41deca',1,'WaveManager']]],
+  ['wavetotalenemies',['waveTotalEnemies',['../classWaveManager.html#ab8af4ebd0ddd0ef92664d0c6de9ae425',1,'WaveManager']]],
   ['weightdatamap',['weightDataMap',['../classGameResources.html#aa899cf537a4de5d75f7cf94954a24200',1,'GameResources']]],
   ['where',['WHERE',['../Error_8h.html#acd4a2dee55f5359c0389baab37c2f468',1,'Error.h']]],
   ['width',['width',['../classSprite.html#a0a3364944c5e361fc9e7ae406224d682',1,'Sprite']]],

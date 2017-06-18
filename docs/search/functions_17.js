@@ -1,7 +1,7 @@
 var searchData=
 [
   ['_7ecomponent',['~Component',['../classComponent.html#ae18722fd3bbb40cef7daf1b94aabb397',1,'Component']]],
-  ['_7eemptygameobject',['~emptyGameObject',['../classemptyGameObject.html#adc185127883e58d732e38a1796977f4e',1,'emptyGameObject::~emptyGameObject()'],['../classEmptyGameObject.html#a510f01a12592696921676200f125e3eb',1,'EmptyGameObject::~EmptyGameObject()']]],
+  ['_7eemptygameobject',['~EmptyGameObject',['../classEmptyGameObject.html#a510f01a12592696921676200f125e3eb',1,'EmptyGameObject::~EmptyGameObject()'],['../classemptyGameObject.html#adc185127883e58d732e38a1796977f4e',1,'emptyGameObject::~emptyGameObject()']]],
   ['_7eenemy',['~Enemy',['../classEnemy.html#ac0eec4755e28c02688065f9657150ac3',1,'Enemy']]],
   ['_7eface',['~Face',['../classFace.html#a182c8c9ba652d46b01fdf6816cd65590',1,'Face']]],
   ['_7egame',['~Game',['../classGame.html#ae3d112ca6e0e55150d2fdbc704474530',1,'Game']]],

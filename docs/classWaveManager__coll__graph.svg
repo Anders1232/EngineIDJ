@@ -47,7 +47,8 @@
 <g id="edge3" class="edge"><title>Node4&#45;&gt;Node1</title>
 <path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M211.734,-364.643C243.566,-392.875 313.663,-446.894 384,-446.894 384,-446.894 384,-446.894 826,-446.894 906.086,-446.894 998.42,-428.981 1049.61,-417.435"/>
 <polygon fill="#9a32cd" stroke="#9a32cd" points="213.899,-361.881 204.144,-357.749 209.193,-367.063 213.899,-361.881"/>
-<text text-anchor="middle" x="556" y="-504.894" font-family="Helvetica,sans-Serif" font-size="10.00"> totalWaves</text>
+<text text-anchor="middle" x="556" y="-515.894" font-family="Helvetica,sans-Serif" font-size="10.00"> totalWaves</text>
+<text text-anchor="middle" x="556" y="-504.894" font-family="Helvetica,sans-Serif" font-size="10.00">waveTotalEnemies</text>
 <text text-anchor="middle" x="556" y="-493.894" font-family="Helvetica,sans-Serif" font-size="10.00">playerLifes</text>
 <text text-anchor="middle" x="556" y="-482.894" font-family="Helvetica,sans-Serif" font-size="10.00">enemiesLeft</text>
 <text text-anchor="middle" x="556" y="-471.894" font-family="Helvetica,sans-Serif" font-size="10.00">waveIndex</text>
