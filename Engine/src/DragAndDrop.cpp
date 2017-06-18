@@ -5,7 +5,7 @@
 #include "InputManager.h"
 
 DragAndDrop::DragAndDrop(TileMap *map,Vec2 associatedInitialPos, bool dragOnActionHold)
-		: dragOnHold(dragOnActionHold), tileMap(map),associatedInitialPos(associatedInitialPos) {
+		: dragOnHold(dragOnActionHold),associatedInitialPos(associatedInitialPos), tileMap(map) {
 }
 
 void DragAndDrop::Update(GameObject &associated, float dt) {
