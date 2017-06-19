@@ -1,22 +1,22 @@
 --ENEMIES--
     Marcelo_ladeira
         QUIMIC
-        img/enemy/reference_assembled
+        img/enemy/teste-cor.png
         1.0
         1.0
     Ladeira_Marcelo
         ART
-        img/enemy/reference_assembled
+        img/enemy/teste-cor.png
         1.0
         1.0
     Madeira_ladeira
         QUIMIC
-        img/enemy/reference_assembled
+        img/enemy/teste-cor.png
         1.0
         1.0
     Ladeira_Madeira
         ART
-        img/enemy/reference_assembled
+        img/enemy/teste-cor.png
         1.0
         1.0
 --WAVES--

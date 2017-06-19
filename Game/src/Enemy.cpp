@@ -18,7 +18,7 @@ Enemy::Enemy(Vec2 position, int life)
 }
 
 Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint)
-: sp("img/enemy/teste-cor.png", true, 0.0, 1), dead(false){
+: sp(enemyData.spName, true, 0.0, 1), dead(false){
 	box = position;
 	this->enemyIndex = enemyIndex; 
 	//this->quant = quant; 
