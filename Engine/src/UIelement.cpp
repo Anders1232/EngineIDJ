@@ -37,12 +37,17 @@ void UIelement::Render(Rect parentCanvas) const {
     sp.Render(box, 0, false);
 }
 
-Rect UIelement::ComputeBox(Rect parentCanvas) const {
+Rect UIelement::ComputeBoundingbox(Rect parentCanvas) const {
     Rect boundingBox;
     boundingBox.x = parentCanvas.w*anchors.x+offsets.x;
     boundingBox.y = parentCanvas.h*anchors.y+offsets.y;
     boundingBox.w = parentCanvas.w*anchors.w+offsets.w - boundingBox.x;
     boundingBox.h = parentCanvas.h*anchors.h+offsets.h - boundingBox.y;
+    return boundingBox;
+}
+
+Rect UIelement::ComputeBox(Rect parentCanvas) const {
+    Rect boundingBox = ComputeBoundingbox(parentCanvas);
 
     Rect box;
     box.w = sp.GetWidth();
@@ -82,4 +87,10 @@ float UIelement::GetSpriteHeight(void) {
 
 void UIelement::SetSpriteScale(float scale) {
     sp.SetScale(scale);
+}
+
+void UIelement::SetSpriteColorMultiplier(Color color, unsigned char alpha, SDL_BlendMode blendMode) {
+    sp.colorMultiplier = color;
+    sp.alpha = alpha;
+    sp.blendMode = blendMode;
 }

@@ -9,19 +9,25 @@ TitleState::TitleState()
 		: State()
 		, bg("img/UI/main-menu/bg.png", UIelement::BehaviorType::STRETCH)
 		, lua("img/UI/main-menu/lua.png", UIelement::BehaviorType::STRETCH)
-		, nuvemB("img/UI/main-menu/nuvemB.png", UIelement::BehaviorType::STRETCH)
 		/*, nuvemA("img/UI/main-menu/nuvemA.png", UIelement::BehaviorType::STRETCH)*/
-		, icc("img/UI/main-menu/icc.png", UIelement::BehaviorType::STRETCH) {
+		, nuvemB("img/UI/main-menu/nuvemB.png", UIelement::BehaviorType::STRETCH)
+		, icc("img/UI/main-menu/icc.png", UIelement::BehaviorType::STRETCH)
+		, overlay("img/UI/main-menu/overlay.png", UIelement::BehaviorType::STRETCH)
+		, title("img/UI/main-menu/title.png", UIelement::BehaviorType::STRETCH) {
 	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
 
 	lua.SetSpriteScale(0.75);
-	lua.SetOffsets( { (winSize.x - lua.GetSpriteWidth())/2-30, 60.},
-					{-(winSize.x + lua.GetSpriteWidth())/2-30, (float)-(60.+lua.GetSpriteHeight())} );
+	lua.SetAnchors( {(float)(0.5 - (lua.GetSpriteWidth()/2.+30.)/winSize.x), (float)(60./winSize.y)},
+					{(float)(0.5 + (lua.GetSpriteWidth()/2.-30.)/winSize.x), (float)(60. + lua.GetSpriteHeight())/winSize.y } );
 	nuvemB.SetSpriteScale(0.7);
-	nuvemB.SetOffsets( {winSize.x - nuvemB.GetSpriteWidth()-110, 70.},
-					   {-110., (float)(-(winSize.y - nuvemB.GetSpriteHeight())+70.)});
-	icc.SetOffsets( {0., 80.},
-					{0., 0.});
+	nuvemB.SetAnchors( {(float)(1. - (nuvemB.GetSpriteWidth()+110.)/winSize.x), (float)(70./winSize.y)},
+					   {(float)(1. - 110./winSize.x), (float)(70.+nuvemB.GetSpriteHeight())/winSize.y } );
+	icc.SetAnchors( {0., (float)(80./winSize.y)},
+					{1., 1.});
+	overlay.SetSpriteColorMultiplier({255,255,255}, 135);
+	title.SetSpriteScale(0.7);
+	title.SetAnchors( {(float)(0.5 - (title.GetSpriteWidth()/2.)/winSize.x), (float)(60./winSize.y)},
+					  {(float)(0.5 + (title.GetSpriteWidth()/2.)/winSize.x), (float)(60. + title.GetSpriteHeight())/winSize.y } );
 }
 
 void TitleState::Update(float dt) {
@@ -41,6 +47,8 @@ void TitleState::Render(void) const {
 	lua.Render(titleCanvas);
 	nuvemB.Render(titleCanvas);
 	icc.Render(titleCanvas);
+	overlay.Render(titleCanvas);
+	title.Render(titleCanvas);
 }
 
 void TitleState::Pause(void) {}

@@ -20,10 +20,12 @@ class UIelement {
     void SetBehavior(BehaviorType type);
     void Update(float dt);
     void Render(Rect parentCanvas) const;
+    Rect ComputeBoundingbox(Rect parentCanvas) const;
     Rect ComputeBox(Rect parentCanvas) const;
     float GetSpriteWidth(void);
     float GetSpriteHeight(void);
     void SetSpriteScale(float scale);
+    void SetSpriteColorMultiplier(Color scale, unsigned char alpha, SDL_BlendMode blendMode = ALPHA_BLEND);
   private:
     Sprite sp;
     Rect anchors; // Coordenadas W e H sao absolutas, e nao relativas como comumente usadas em Rects

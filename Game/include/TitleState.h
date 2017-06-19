@@ -18,6 +18,8 @@ class TitleState: public State {
 		// UIelement nuvemA;
 		UIelement nuvemB;
 		UIelement icc;
+		UIelement overlay;
+		UIelement title;
 };
 
 #endif // TITLESTATE_H
