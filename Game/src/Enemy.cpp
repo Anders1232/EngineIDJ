@@ -14,23 +14,24 @@ Enemy::Enemy(Vec2 position, int life)
 	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED));
 	
 	sp.SetScale(0.8);
-	sp.SetFrame(1);
+	sp.SetFrame(1); 
 }
 
-Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint): sp(), dead(false){
+Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint)
+: sp("img/enemy/teste-cor.png", true, 0.0, 1), dead(false){
 	box = position;
 	this->enemyIndex = enemyIndex; 
-	this->quant = quant; 
+	//this->quant = quant; 
 	this->baseHP = baseHP; 
 	this->endPoint = endPoint;
 
-	spName.Open(enemyData.spName);
+	//spName.Open(enemyData.spName);
 	//bodySpName.Open(enemyData.bodySpName);
 	//headSpName.Open(enemyData.headSpName);
 	//pantsSpName.Open(enemyData.pantsSpName);
 	
-	spName.SetScaleX(enemyData.scaleX);
-	spName.SetScaleY(enemyData.scaleY);
+	sp.SetScaleX(enemyData.scaleX);
+	sp.SetScaleY(enemyData.scaleY);
 	//bodySpName.SetScaleX(enemyData.scaleX);
 	//headSpName.SetScaleX(enemyData.scaleX);
 	//pantsSpName.SetScaleX(enemyData.scaleX);
@@ -38,7 +39,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	//headSpName.SetScaleY(enemyData.scaleY);
 	//pantsSpName.SetScaleY(enemyData.scaleY);
 
-	spName.SetFrame(1);
+	sp.SetFrame(1);
 	//bodySpName.SetFrame(1);
 	//headSpName.SetFrame(1);
 	//pantsSpName.SetFrame(1);

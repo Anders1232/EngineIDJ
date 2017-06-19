@@ -99,12 +99,12 @@ class Enemy : public GameObject
 		Sprite bodySpName;
 		Sprite headSpName;
 		Sprite pantsSpName;
-		Sprite spName;
 
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
 		
 		int enemyIndex; 
-		uint quant, baseHP, endPoint;
+		//uint quant;
+		uint baseHP, endPoint;
 };
 
 #endif // ENEMY_H
