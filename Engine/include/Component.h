@@ -2,18 +2,13 @@
 #define COMPONENT_H
 
 #include "GameObject.h"
+#include "ComponentType.h"
 
 /**
 	\brief Tipos de Componentes
 
 	Enumeração com os tipos de componentes possíveis, usado no método Is que todo componente deve implementar.
 */
-enum ComponentType{
-	DRAG_AND_DROP=0,
-	HIT_POINTS,
-	AI_GO_DOWN,
-	SIZE
-};
 
 #ifndef GAME_OBJECT
 class GameObject;

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['objectarray',['objectArray',['../classState.html#a08eaf3c9720d7f90ce579630ca938687',1,'State']]],
-  ['onetimeonly',['oneTimeOnly',['../classAnimation.html#a66b3ba0956af0c060e64cd3553d25ca6',1,'Animation']]]
+  ['name',['name',['../structEnemyData.html#ac9e9c1009aab94258d7c7a290ebd5937',1,'EnemyData']]],
+  ['numberofenemies',['numberOfEnemies',['../structEnemySpawnData.html#ab3ec9a12baad5ddbf06b1bba52768e0d',1,'EnemySpawnData']]]
 ];

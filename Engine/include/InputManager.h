@@ -1,21 +1,13 @@
 #ifndef INPUTMANAGER_H
 #define INPUTMANAGER_H
 
-#ifdef _WIN32
-	#include <SDL.h>
-	#include <SDL_image.h>
-#elif __APPLE__
-	#include "TargetConditionals.h"
-	//mac
-#elif __linux__
-	#include <SDL2/SDL.h>
-	#include <SDL2/SDL_image.h>
-	#include <SDL2/SDL_mixer.h>
-#else
-	#error "Unknown compiler"
-#endif
+#define INCLUDE_SDL 
+#define INCLUDE_SDL_IMAGE 
+#include "SDL_include.h"
 
 #include "Vec2.h"
+#include <unordered_map>
+#include <cstdint>
 
 #define LEFT_ARROW_KEY SDLK_LEFT
 #define RIGHT_ARROW_KEY SDLK_RIGHT
@@ -171,6 +163,56 @@ class InputManager {
 			Essa instância estática é retornada.
 		*/
 		static InputManager& GetInstance(void);
+
+		/**
+			\brief Informa se um botão do controle foi pressionado no frame corrente
+			\param button Botão do controle cujo o estado é requerido
+			\return Booleano que informa se o botão foi pressionado ou não no frame corrente.
+
+			Retorna verdadeiro se o controllerState do botão for falso E o mouseUpdate do botão for igual ao updateCounter.
+			Caso contrário retorna-se o valor falso.
+		*/
+
+		bool ButtonPress(int button) const;
+		/**
+			\brief Informa se um botão do controle foi solto no frame corrente
+			\param button Botão do controle cujo o estado é requierido
+			\return Booleano que informa se o botão foi solto ou não no frame corrente.
+
+			Retorna verdadeiro se o controllerState do botao for falso E o controllerUpdate do botão for igual ao updateCounter.
+			Caso contrário retorna-se o valor falso.
+		*/
+		bool ButtonRelease(int button) const;
+		/**
+			\brief Informa se um botão do controle está pressionada no momento
+			\param button Botão do mouse cujo o estado é requierido
+			\return Booleano que informa se o botão está pressionado ou não.
+
+			Retorna verdadeiro se o controllerState do botão for verdadeiro.
+			Caso contrário retorna-se o valor falso.
+			
+		*/
+		bool IsButtonDown(int button) const;
+		/**
+			\brief Calcula o deslocamento do sticker esquerdo de um controle
+			\return Vetor bidimensional que informa se o botão está pressionado ou não.
+			
+		*/
+		Vec2 GetControllerLeftStickState() const;
+		/**
+			\brief Calcula o deslocamento do sticker direito de um controle
+			\return Vetor bidimensional que informa se o botão está pressionado ou não.
+			
+		*/
+		Vec2 GetControllerRightStickState() const;
+		/**\brief Informa se algum sticker do controle está sendo deslocado nesse frame
+			\return Booleano que informa se algum sticker está em uso ou não.
+
+			Retorna verdadeiro se o mouseScroolUpdate for igual a updateCounter.
+			Caso contrário retorna-se o valor falso.
+		*/
+		bool IsControllerSticking(void) const;
+
 	private:
 		/**
 			\brief Inicializa os atributos
@@ -190,8 +232,15 @@ class InputManager {
 		int updateCounter;/**< Armazena a informação de quantas vezes o update foi chamada. É usado nos <input>Update para saber se a modificação no estado foi detectada no frame corrente.*/
 		int mouseX;/**< Armazena a posição X do mouse na janela.*/
 		int mouseY;/**< Armazena a posição Y do mouse na janela.*/
-		bool keyState[416];/**< Armazena as informações de quais botões do teclado estão pressionados. As 127 primeiras posições são relativas às suas correspondentes ASCII. As outras posições rastreiam o estado das teclas não-ASCII, como ctrl, shift, caps lock, F1...F12, etc.*/
-		int keyUpdate[416];/**< Armazena as informações de quando os estados dos botões no respectivo keyState foram modificadas. É usado junto com o updateCounter para saber quão recente a informação é.*/
+		std::unordered_map<int,bool> keyState;/**< Armazena as informações de quais botões do teclado estão pressionados. As 127 primeiras posições são relativas às suas correspondentes ASCII. As outras posições rastreiam o estado das teclas não-ASCII, como ctrl, shift, caps lock, F1...F12, etc.*/
+		std::unordered_map<int,int>keyUpdate;/**< Armazena as informações de quando os estados dos botões no respectivo keyState foram modificadas. É usado junto com o updateCounter para saber quão recente a informação é.*/
+		std::unordered_map<int,SDL_GameController*>padToController;/**< Armazena a relação entre o indice de um controle e o seu referente ponteiro do tipo SDL_GameController**/
+		
+		std::unordered_map<int,bool> controllerState;/**< Armazena as informações de quais botões do controle estão pressionados.*/
+		std::unordered_map<int,int>	controllerUpdate;/**< Armazena as informações de quando os estados dos botões do controle no respectivo keyState foram modificadas. É usado junto com o updateCounter para saber quão recente a informação é.*/
+		Vec2 controllerLeftStickState;/**< Armazena a informação de em qual timestamp(updateCounter) o controllerLeftStickState foi alterado.*/
+		int controllerStickUpdate;/**< Armazena a informação do último stick feito no controle.*/
+		Vec2 controllerRightStickState;/**< Armazena a informação de em qual timestamp(updateCounter) o controllerStickState foi alterado.*/
 		int mouseScroolUpdate;/**< Armazena a informação de em qual timestamp(updateCounter) o mouseScrollState foi alterado.*/
 		Vec2 mouseScroolState;/**< Armazena a informação do último scroll feito no mouse.*/
 };

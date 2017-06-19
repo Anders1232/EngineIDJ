@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['face',['Face',['../classFace.html#a020c08753f0c2cfbc0cc61cccbc12f86',1,'Face']]],
-  ['follow',['Follow',['../classCamera.html#a4290d7e4815d2e0726d88b743d44e8df',1,'Camera']]],
-  ['forcezoom',['ForceZoom',['../classCamera.html#a7dc4b1fd7f5e03ffb25d306fe81ee4c0',1,'Camera']]],
-  ['frompolarcoord',['FromPolarCoord',['../classVec2.html#ac794548df48539be24dd1e8ebebf8038',1,'Vec2']]]
+  ['endstate',['EndState',['../classEndState.html#a14303ccf71d755d28f5a0e79f40c69b4',1,'EndState']]],
+  ['endstatedata',['EndStateData',['../classEndStateData.html#a3193e460f24f5cbd1098030864c75ddc',1,'EndStateData::EndStateData(bool playerVictory)'],['../classEndStateData.html#a3193e460f24f5cbd1098030864c75ddc',1,'EndStateData::EndStateData(bool playerVictory)']]],
+  ['enemy',['Enemy',['../classEnemy.html#a647281cc33d151d321aac6301ca44c39',1,'Enemy']]],
+  ['enemydata',['EnemyData',['../structEnemyData.html#ab1a2bd7f5b59acd6c05e54cab9bdb14e',1,'EnemyData']]],
+  ['enemyspawndata',['EnemySpawnData',['../structEnemySpawnData.html#a35615c166fa07eb12329fb6b6bea9b4c',1,'EnemySpawnData']]],
+  ['escapeaction',['EscapeAction',['../classActionManager.html#a38448cfc2312f0028f8d95cf0915c78d',1,'ActionManager']]]
 ];

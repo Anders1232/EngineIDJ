@@ -9,10 +9,12 @@ var searchData=
   ['mapwidth',['mapWidth',['../classTileMap.html#ae2361e840eacaebbbbc91541ded00655',1,'TileMap']]],
   ['margem_5ferro_5fcomparacao',['MARGEM_ERRO_COMPARACAO',['../Vec2_8h.html#a1759b83db156ac7ed195b3e04757ee14',1,'Vec2.h']]],
   ['maxframerate',['maxFramerate',['../classGame.html#a5424a424548c7bdb04de05c5c836002d',1,'Game']]],
+  ['maxspeed',['maxSpeed',['../classCamera.html#a1f02ea6332c710065fa256ed52acd6f1',1,'Camera']]],
   ['maxzoom',['maxZoom',['../classCamera.html#af418b7887d39c773d73cb179c497a8da',1,'Camera']]],
   ['membermult',['MemberMult',['../classVec2.html#a0af80a4efc933b61b2885a815a15a77f',1,'Vec2']]],
   ['middle_5fmouse_5fbutton',['MIDDLE_MOUSE_BUTTON',['../InputManager_8h.html#a0f26b1a0dee82337d947288c4ebcee16',1,'InputManager.h']]],
   ['min_5ftime_5fshown',['MIN_TIME_SHOWN',['../Text_8h.html#ae0001748c8e43f9667011d62636fb7a0',1,'Text.h']]],
+  ['minspeed',['minSpeed',['../classCamera.html#a6c5fe02b8b21a7c9784f970f08b4864a',1,'Camera']]],
   ['minzoom',['minZoom',['../classCamera.html#a65d5a8e5533b568224d9fc488bfdcb28',1,'Camera']]],
   ['mixer_5fchuck_5fsize',['MIXER_CHUCK_SIZE',['../Game_8h.html#aa464e7a29fa5110de8238c0cfb4458a2',1,'Game.h']]],
   ['mousepress',['MousePress',['../classInputManager.html#ad07e913718fc94601dfccb5c3a6fb0ae',1,'InputManager']]],
@@ -28,5 +30,6 @@ var searchData=
   ['music_2ecpp',['Music.cpp',['../Music_8cpp.html',1,'']]],
   ['music_2eh',['Music.h',['../Music_8h.html',1,'']]],
   ['music_5ffade_5fout_5ftime_5fmsec',['MUSIC_FADE_OUT_TIME_MSEC',['../Music_8h.html#a56d75cf0fabf795cc2ec85cdfa487bf2',1,'Music.h']]],
-  ['musictable',['musicTable',['../classResources.html#a6fa55a3d59924e7fbbcf734e01cfaa46',1,'Resources']]]
+  ['musictable',['musicTable',['../classResources.html#a6fa55a3d59924e7fbbcf734e01cfaa46',1,'Resources']]],
+  ['musicvolume',['musicVolume',['../classResources.html#a8aa3996e0494c61caaa105fa5cc5af54',1,'Resources']]]
 ];

@@ -1,14 +1,26 @@
 #ifndef ENEMY_H
 #define ENEMY_H
+
 #include "GameObject.h"
-#include "Wave.h"
-#include "Sprite.h"
 #include "Rect.h"
+#include "Sprite.h"
 #include "TileMap.h"
 #include "Timer.h"
+#include "Wave.h"
 
 #define BASE_HIT_POINTS 100
 #define DIFICULTY_CONSTANT 12
+#define ENEMY_MOVE_SPEED (120.)
+
+enum EnemyType{
+	HOSTILE=0,
+	NEUTRAL=1,
+	ENGINEER=2,
+	ARQUITET=3,
+	ART=4,
+	QUIMIC=5,
+	ENEMY_TYPE_SIZE=6
+};
 
 
 /**
@@ -26,7 +38,7 @@ class Enemy : public GameObject
 			
 			No momento a position informa o extremo superior esquedo a partir do qual o gameObject será instanciado.
 		*/
-		Enemy(Vec2 position, int life); // calcula vida e velocidade 
+		Enemy(Vec2 position,EnemyType type, int life); // calcula vida e velocidade 
 		/**
 			\brief Destrutor
 			
@@ -78,11 +90,17 @@ class Enemy : public GameObject
 			Utilizado para verificar onde o mouse está.
 		*/
 		Rect GetWorldRenderedRect(void) const;
+		/**
+			\brief Obtém o type do objeto
+			
+		*/
+		EnemyType GetType(void) const;
 	
 	private:
-		enum EnemyType{ HOSTILE, NEUTRAL, ENGINEER, ARQUITET, ART, QUIMIC } type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
+
+		enum EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
 		Sprite sp;/**< Sprite do inimigo.*/
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
 };
 
-#endif
+#endif // ENEMY_H

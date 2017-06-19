@@ -1,20 +1,10 @@
 #ifndef SOUND_H
 #define SOUND_H
 
-#ifdef _WIN32
-	#include <SDL.h>
-	#include <SDL_image.h>
-	#include <SDL_mixer.h>
-#elif __APPLE__
-	#include "TargetConditionals.h"
-	//mac
-#elif __linux__
-	#include <SDL2/SDL.h>
-	#include <SDL2/SDL_image.h>
-	#include <SDL2/SDL_mixer.h>
-#else
-	#error "Unknown compiler"
-#endif
+#define INCLUDE_SDL 
+#define INCLUDE_SDL_IMAGE 
+#define INCLUDE_SDL_MIXER 
+#include "SDL_include.h"
 
 #include <memory>
 
@@ -71,7 +61,7 @@ class Sound {
 
 			Verifica se a instância de Sound está associada ao som de algum arquivo.
 		*/
-		bool IsOpen(void);
+		bool IsOpen(void) const;
 	private:
 		std::shared_ptr<Mix_Chunk> sound; /**< Ponteiro para o Mix_Chunk com o som.*/
 		int channel;/**< Canal no qual o som está sendo tocado. -1 caso o som não esteja sendo tocado. O valor tem que ser -1 pois esse valor indica na hora da reprodução do som que p sistema pode escolher o canal no qual o som deve ser executado.*/

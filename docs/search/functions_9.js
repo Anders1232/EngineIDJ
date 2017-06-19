@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['limitframerate',['LimitFramerate',['../classGame.html#a3fb091ff0a082d2652a98fee63c62b83',1,'Game']]],
-  ['load',['Load',['../classTileMap.html#a57d5a9e280c52b74e8e1f0c3a2c876b7',1,'TileMap']]]
+  ['keypress',['KeyPress',['../classInputManager.html#a6793bc63304cafeaf45151d083946f42',1,'InputManager']]],
+  ['keyrelease',['KeyRelease',['../classInputManager.html#a161025491900d61e6090d6f6e576934f',1,'InputManager']]]
 ];

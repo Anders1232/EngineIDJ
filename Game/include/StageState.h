@@ -3,14 +3,18 @@
 
 #include <vector>
 #include <memory>
-#include "Sprite.h"
+
+#include "ActionManager.h"
 #include "GameObject.h"
-#include "Tileset.h"
-#include "TileMap.h"
 #include "InputManager.h"
-#include "State.h"
 #include "Music.h"
+#include "Sprite.h"
+#include "State.h"
+#include "TileMap.h"
+#include "Tileset.h"
 #include "Timer.h"
+#include "AIGoDown.h"
+#include "AIPrintPath.h"
 
 using std::vector;
 

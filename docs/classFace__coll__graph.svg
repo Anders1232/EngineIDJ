@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="classGameObject.html" target="_top" xlink:title="GameObject">
+<g id="a_node2"><a xlink:href="classGameObject.html" target="_top" xlink:title="Classe virtual que especifica o funcionamento de um GameObject. ">
 <polygon fill="white" stroke="black" points="362,-397.5 362,-416.5 433,-416.5 433,-397.5 362,-397.5"/>
 <text text-anchor="middle" x="397.5" y="-404.5" font-family="Helvetica,sans-Serif" font-size="10.00">GameObject</text>
 </a>

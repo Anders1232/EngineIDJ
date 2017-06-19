@@ -1,38 +1,32 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
-#ifdef _WIN32
-	#include <SDL.h>
-	#include <SDL_image.h>
-#elif __APPLE__
-	#include "TargetConditionals.h"
-	//mac
-#elif __linux__
-	#include <SDL2/SDL.h>
-	#include <SDL2/SDL_image.h>
-#else
-	#error "Unknown compiler"
-#endif
+#define INCLUDE_SDL 
+#define INCLUDE_SDL_IMAGE 
+#include "SDL_include.h"
+
 #include <vector>
 #include <memory>
-#include "Rect.h"
-#include "string"
+#include <string>
+#include <vector>
+
 #include "Component.h"
+#include "ComponentType.h"
+#include "Rect.h"
 
 using std::string;
 using std::unique_ptr;
-
-/**
-	\brief Classe virtual que especifica o funcionamento de um GameObject.
-	
-	Especifica quais métodos um gameObject deve ter para conseguir ser manipulado corretamente pela engine.
-*/
 
 #ifndef COMPONENT
 class Component;
 #endif
 
 #define GAME_OBJECT
+/**
+	\brief Classe virtual que especifica o funcionamento de um GameObject.
+	
+	Especifica quais métodos um gameObject deve ter para conseguir ser manipulado corretamente pela engine.
+*/
 class GameObject{
 	public:
 		/**
@@ -41,6 +35,18 @@ class GameObject{
 			Não é virtual, sua implementação inicializa a rotação com o valor zero. Pode ser usado pelos herdeiros.
 		*/
 		GameObject(void);
+		/**
+			\brief Adiciona componente a um gameobjet.
+			\param component componente a ser adicionado.
+			
+		*/
+		void AddComponent(Component* component);
+		/**
+			\brief Remove componente a um gameobjet.
+			\param type tipo do componente a ser adicionado.
+			
+		*/
+		void RemoveComponent(ComponentType type);
 		/**
 			\brief Destrutor
 			
@@ -97,8 +103,7 @@ class GameObject{
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/
 	protected:
-		std::vector<Component* > components;
-
+		std::vector<Component* > components;/**< Vetor de componentes, que provêem funcionalidades adicionais.*/
 };
 
 #endif // GAMEOBJECT_H

@@ -3,13 +3,22 @@
 
 #include <string>
 #include <vector>
+#include <list>
+#include <queue>
+#include <limits>
+#include <map>
+#include <functional>
 #include "Tileset.h"
 #include "Vec2.h"
 #include "GameObject.h"
+#include "AStarHeuristic.h"
+#include "Resources.h"
 
 #define TILE_VAZIO -1
 #define SPAWN_POINT (14)
 #define COLLISION_LAYER (1)
+#define WALKABLE_LAYER (0)
+#define SMILE_TILE_SET (14)
 
 using std::string;
 using std::vector;
@@ -53,22 +62,24 @@ class TileMap{
 		int& AtLayer(int index2D, int layer) const;
 		/**
 			\brief Renderiza o TileMap a partir da posição dada.
-			\param cameraX Valor x da câmera, será usado como coordenada X de início do tileMap.
-			\param cameraY Valor y da câmera, será usado como coordenada Y de início do tileMap.
+			\param pos Valor x,y da câmera, será usado como coordenada de início do tileMap.
+			\param parallax Flag para se ativar ou desativar o parallax das camadas
+			\param mouse Posição do mouse para checar qual tile deve sofre highlight.
 
 			Renderiza-se todas as layers começando pelas de menor valor numérico de profundidade até as de maior valor numérico.
+			Verifica em qual tile o mouse está para renderizá-lo highlighted.
 		*/
-		void Render(int cameraX=0, int cameraY=0, bool parallax= false) const;
+		void Render(Vec2 pos = Vec2(0,0), bool parallax = false, Vec2 mouse= Vec2(-1, -1)) const;
 		/**
 			\brief Renderiza a layer informada.
 			\param layer Layer a ser renderizada.
-			\param cameraX Valor x da câmera, será usado como coordenada X de início do tileMap.
-			\param cameraY Valor y da câmera, será usado como coordenada Y de início do tileMap.
+			\param pos Valor x,y da câmera, será usado como coordenada de início do tileMap.
+			\param mouse Posição do mouse para checar qual tile deve sofre highlight.
 
 			Renderiza-se todas as posições da matriz na layer indicada, com suas alterações sendo feitas por parallaxe.
 			Observação: pode exibir o tileMap de colisão se assim for pedido em ShowCollisionInfo.
 		*/
-		void RenderLayer(int layer, int cameraX=0, int cameraY=0, bool parallax= false) const;
+		void RenderLayer(int layer, Vec2 pos = Vec2(0,0), bool parallax = false, Vec2 mouse= Vec2(-1, -1)) const;
 		/**
 			\brief Informa a largura do tileMap.
 
@@ -134,6 +145,21 @@ class TileMap{
 			O tamanho retornado não leva em consideração zoom, mas leva em consideração escala.
 		*/
 		Vec2 GetTileSize(void) const;
+		/**
+			\brief Altera o tilemap mostrando o caminho contido em list
+
+		*/
+		void ShowPath(std::list<int>path);
+		/**
+			\brief Calcula o caminho menos custoso entre dois pontos baseado em uma heuristica utilizando o algoritmo A*.
+			\param originTile Tile de origem
+			\param destTile Tile de destino
+			\param heuristic Heuristica a ser usada
+			\param weightMap Dicionário com os pesos relacionados a cada tipo de tile do mapa
+
+			Retorna uma lista com a sequencia dos indices dos tiles que formam o caminho
+		*/
+		std::list<int> AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap);
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
@@ -154,13 +180,13 @@ class TileMap{
 		/**
 			\brief Calcula a paralaxe
 			\param num coordenada a ser modificada.
-			\param camera posição da mesma coordenada da câmera.
+			\param pos posição de começo da tilemap.
 			\param layer Layer da coordenada que ser modificada
 			\return Valor da coordenada alterado pela parallaxe.
 
 			Ele subtrai da coordenada o produto da câmera pelo incremento da layer.
 		*/
-		int CalculateParallaxScrolling(int num, int camera, int layer) const;
+		Vec2 CalculateParallaxScrolling(Vec2 num, Vec2 pos, int layer) const;
 		std::vector<int> tileMatrix;/**< Matriz tridimentsional de índices linearizados em um vetor.*/
 		TileSet *tileSet;/**< TileSet utilizado para renderização.*/
 		int mapWidth;/**< Largura do TileMap.*/
@@ -168,6 +194,19 @@ class TileMap{
 		int mapDepth;/**< Número de camadas do TileMap.*/
 		std::vector<GameObject*> gameObjectMatrix;/**< TileMap linearizado de GameObjects*/	//bidimensional??
 		bool displayCollisionInfo;/**<Verdadeiro se as informações de colisão devem ser exibidas no TileMap::Render, falso caso contrário.*/
+		struct LessThanByHeuristic;/**<Estrutura que guarda a implementação do operador usado na ordenação de uma lista baseada na heuristica*/
+		/**
+			\Verifica se um determinado tile está livre na camada de colisão
+
+			\return true se o tile está livre na camada de colisão
+		*/
+		bool Traversable(int index) const;
+		/**
+			\brief Obtém todos os vizinhos de um determinado tile
+
+			\return vetor com o indice dos tiles dos vizinhos.
+		*/
+		std::vector<int> GetNeighbors(int tile) const;
 };
 
 #endif // TILEMAP_H
