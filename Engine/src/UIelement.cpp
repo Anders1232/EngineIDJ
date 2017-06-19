@@ -1,10 +1,10 @@
 #include "UIelement.h"
 
+#include "Game.h"
 #include "Error.h"
 
-UIelement::UIelement(std::string file, BehaviorType behavior)
-         : sp(file)
-         , behavior(behavior) {
+UIelement::UIelement(BehaviorType behavior)
+         : behavior(behavior) {
     SetAnchors( {0.,0.}, {1.,1.} );
     SetOffsets( {0.,0.}, {0.,0.} );
 }
@@ -31,13 +31,26 @@ void UIelement::SetBehavior(BehaviorType type) {
     behavior = type;
 }
 
-void UIelement::Render(Rect parentCanvas) const {
-    Rect box = ComputeBox(parentCanvas);
-
-    sp.Render(box, 0, false);
+void UIelement::Update(float dt, Rect parentCanvas) {
+    boundingBox = ComputeBoundingbox(parentCanvas);
+    box = ComputeBox();
+    box.x += parentCanvas.x;
+    box.y += parentCanvas.y;
 }
 
-Rect UIelement::ComputeBoundingbox(Rect parentCanvas) const {
+void UIelement::Render(bool debugRender) const {
+    if (debugRender) {
+        SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 0, 0, 255);
+        SDL_Rect bounding = boundingBox;
+        SDL_RenderDrawRect(Game::GetInstance().GetRenderer(), &bounding);
+
+        SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 255, 0, 255);
+        SDL_Rect renderBox = box;
+        SDL_RenderDrawRect(Game::GetInstance().GetRenderer(), &renderBox);
+    }
+}
+
+Rect UIelement::ComputeBoundingbox(Rect parentCanvas) {
     Rect boundingBox;
     boundingBox.x = parentCanvas.w*anchors.x+offsets.x;
     boundingBox.y = parentCanvas.h*anchors.y+offsets.y;
@@ -46,12 +59,9 @@ Rect UIelement::ComputeBoundingbox(Rect parentCanvas) const {
     return boundingBox;
 }
 
-Rect UIelement::ComputeBox(Rect parentCanvas) const {
-    Rect boundingBox = ComputeBoundingbox(parentCanvas);
-
-    Rect box;
-    box.w = sp.GetWidth();
-    box.h = sp.GetHeight();
+Rect UIelement::ComputeBox() {
+    box.w = kernelSize.x;
+    box.h = kernelSize.y;
 
     Vec2 multiplier;
     float Mx = boundingBox.w/box.w;
@@ -71,26 +81,12 @@ Rect UIelement::ComputeBox(Rect parentCanvas) const {
     
     box.w = multiplier.x*(box.w);
     box.h = multiplier.y*(box.h);
-    box.x = boundingBox.x + (boundingBox.w - box.w)/2 + parentCanvas.x;
-    box.y = boundingBox.y + (boundingBox.h - box.h)/2 + parentCanvas.y;
+    box.x = boundingBox.x + (boundingBox.w - box.w)/2;
+    box.y = boundingBox.y + (boundingBox.h - box.h)/2;
 
     return box;
 }
 
-float UIelement::GetSpriteWidth(void) {
-    return sp.GetWidth();
-}
-
-float UIelement::GetSpriteHeight(void) {
-    return sp.GetHeight();
-}
-
-void UIelement::SetSpriteScale(float scale) {
-    sp.SetScale(scale);
-}
-
-void UIelement::SetSpriteColorMultiplier(Color color, unsigned char alpha, SDL_BlendMode blendMode) {
-    sp.colorMultiplier = color;
-    sp.alpha = alpha;
-    sp.blendMode = blendMode;
+UIelement::operator Rect() {
+    return box;
 }

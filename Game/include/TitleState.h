@@ -2,7 +2,7 @@
 #define TITLESTATE_H
 
 #include "ActionManager.h"
-#include "UIelement.h"
+#include "Image.h"
 #include "State.h"
 
 class TitleState: public State {
@@ -13,13 +13,13 @@ class TitleState: public State {
 		void Pause(void);
 		void Resume(void);
 	private:
-		UIelement bg;
-		UIelement lua;
-		// UIelement nuvemA;
-		UIelement nuvemB;
-		UIelement icc;
-		UIelement overlay;
-		UIelement title;
+		Image bg;
+		Image lua;
+		// Image nuvemA;
+		Image nuvemB;
+		Image icc;
+		Image overlay;
+		Image title;
 };
 
 #endif // TITLESTATE_H

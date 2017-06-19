@@ -38,17 +38,24 @@ void TitleState::Update(float dt) {
 	} else if(ActionManager::EscapeAction()) {
 		popRequested = true;
 	}
+
+	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
+	Rect titleCanvas(0., 0., winSize.x, winSize.y);
+	bg.Update(dt, titleCanvas);
+	lua.Update(dt, titleCanvas);
+	nuvemB.Update(dt, titleCanvas);
+	icc.Update(dt, titleCanvas);
+	overlay.Update(dt, titleCanvas);
+	title.Update(dt, titleCanvas);
 }
 
 void TitleState::Render(void) const {
-	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
-	Rect titleCanvas(0., 0., winSize.x, winSize.y);
-	bg.Render(titleCanvas);
-	lua.Render(titleCanvas);
-	nuvemB.Render(titleCanvas);
-	icc.Render(titleCanvas);
-	overlay.Render(titleCanvas);
-	title.Render(titleCanvas);
+	bg.Render();
+	lua.Render();
+	nuvemB.Render();
+	icc.Render();
+	overlay.Render();
+	title.Render(true);
 }
 
 void TitleState::Pause(void) {}
