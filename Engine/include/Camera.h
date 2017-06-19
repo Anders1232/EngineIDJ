@@ -70,7 +70,7 @@ class Camera {
 			\brief Força um valor para o zoom.
 			\param newZoom novo valor para o Zoom
 			
-			O valor informado se torna o zoom corrente. O novo valor do zoom pode extrapolar os limites existentes. Esse valor, mesmo que fora dos limites, será convertido para a escala logarítimica e atribuído ao currentLogZoom.
+			O valor informado se torna o zoom corrente. O novo valor do zoom pode extrapolar os limites existentes. Esse valor, mesmo que fora dos limites, será convertido para a escala logarítmica e atribuído ao currentLogZoom.
 		*/
 		static void ForceLinearZoom(float newZoom);
 		/**
@@ -91,7 +91,7 @@ class Camera {
 			\brief Altera o zoom corrente.
 			\param deltaZoom Variação no zoom.
 
-			O zoom corrente é alterado logaritimicamente em deltaZoom*logZoomSpeed. Só tem efeito se o valor de zoomFixed for falso.
+			O zoom corrente é alterado logaritmicamente em deltaZoom*logZoomSpeed. Só tem efeito se o valor de zoomFixed for falso.
 			Se o novo valor para o zoom extrapolar o limite superior, o valor do limite superior será usado.
 			Se o novo valor para o zoom extrapolar o limite inferior, o valor do limite inferior será usado.
 			Também ajusta a posição da câmera para que o ponto onde o mouse estava continue no mesmo lugar.
