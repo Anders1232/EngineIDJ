@@ -13,13 +13,9 @@ Vec2 Camera::pos = Vec2(0,0);
 float Camera::minSpeed = CAMERA_DEFAULT_MIN_SPEED;
 float Camera::maxSpeed = CAMERA_DEFAULT_MAX_SPEED;
 float Camera::currentSpeed = CAMERA_DEFAULT_MIN_SPEED;
-float Camera::currentZoom = 1.0;
-float Camera::currentLogZoom = 1.0;
-float Camera::minZoom = CAMERA_DEFAULT_MIN_ZOOM;
+float Camera::currentLogZoom = 0.0;
 float Camera::minLogZoom = CAMERA_DEFAULT_MIN_LOG_ZOOM;
-float Camera::maxZoom = CAMERA_DEFAULT_MAX_ZOOM;
 float Camera::maxLogZoom = CAMERA_DEFAULT_MAX_LOG_ZOOM;
-float Camera::zoomSpeed = CAMERA_DEFAULT_ZOOM_SPEED;
 float Camera::logZoomSpeed = CAMERA_DEFAULT_LOG_ZOOM_SPEED;
 bool Camera::zoomFixed = !CAMERA_DEFAULT_ZOOMABLE;
 
@@ -33,14 +29,14 @@ void Camera::Unfollow(void) {
 
 void Camera::Update(float dt) {
 	if(nullptr != focus) {
-		// Centrar a câmera na tela
-		pos= (focus->box).Center() - (Game::GetInstance().GetWindowDimensions()*0.5* (1./Camera::GetZoom()));
+		// Centrar o foco no centro da tela
+		pos = ScreenToWorld(WorldToScreen((focus->box).Center()) - Game::GetInstance().GetWindowDimensions()*0.5);
 	} else {
 		// Normaliza o nível de zoom atual
 		float zoomLevel = (currentLogZoom-minLogZoom)/(maxLogZoom-minLogZoom);
 		// Interpola linearmente entre min e max baseado no nível de zoom
-		float speed = zoomLevel*maxSpeed + (1-zoomLevel)*minSpeed;
-		if(INPUT_MANAGER.IsKeyDown(LEFT_ARROW_KEY) || INPUT_MANAGER.IsKeyDown('a')) {
+		float speed = zoomLevel*minSpeed + (1-zoomLevel)*maxSpeed;
+		if(ActionManager::LeftArrowAction()) {
 			pos.x -= speed*dt;
 		}
 		if(ActionManager::RightArrowAction()) {
@@ -53,13 +49,17 @@ void Camera::Update(float dt) {
 			pos.y -= speed*dt;
 		}
 	}
-	if(InputManager::GetInstance().IsMouseScrolling()){
-		Camera::Zoom( (float)InputManager::GetInstance().MouseScroll().y );
+	if(INPUT_MANAGER.IsMouseScrolling()){
+		Camera::Zoom( (float)INPUT_MANAGER.MouseScroll().y );
 	}
 }
 
-void Camera::ForceZoom(float newZoom) {
-	currentLogZoom = std::log(newZoom)/std::log(CAMERA_LOGZOOM_BASE);
+void Camera::ForceLinearZoom(float newZoom) {
+	currentLogZoom = std::log(newZoom)/std::log(CAMERA_LOG_ZOOM_BASE);
+}
+
+void Camera::ForceLogZoom(float newLogZoom) {
+	currentLogZoom = newLogZoom;
 }
 
 void Camera::SetZoomable(bool zoomable) {
@@ -78,12 +78,16 @@ void Camera::Zoom(float deltaZoom) {
 }
 
 void Camera::SetZoomLimits(float minZoom, float maxZoom) {
-	Camera::minLogZoom = (minZoom == 0) ? CAMERA_DEFAULT_MIN_ZOOM : minZoom;
-	Camera::maxLogZoom = (maxZoom == 0) ? CAMERA_DEFAULT_MAX_ZOOM : maxZoom;
+	Camera::minLogZoom = minZoom;
+	Camera::maxLogZoom = maxZoom;
 }
 
-float Camera::GetZoom(void) {
-	return std::pow(CAMERA_LOGZOOM_BASE, currentLogZoom);
+float Camera::GetLinearZoom(void) {
+	return std::pow(CAMERA_LOG_ZOOM_BASE, currentLogZoom);
+}
+
+float Camera::GetLogZoom(void) {
+	return currentLogZoom;
 }
 
 void Camera::SetZoomSpeed(float newZoomSpeed) {
@@ -92,7 +96,7 @@ void Camera::SetZoomSpeed(float newZoomSpeed) {
 
 Vec2 Camera::WorldToScreen(Vec2 world) {
 	Vec2 screen = world-pos;
-	float currentZoom = GetZoom();
+	float currentZoom = GetLinearZoom();
 	screen.x *= currentZoom;
 	screen.y *= currentZoom;
 	return screen;
@@ -100,7 +104,7 @@ Vec2 Camera::WorldToScreen(Vec2 world) {
 
 Rect Camera::WorldToScreen(Rect world) {
 	Rect screen;
-	float currentZoom = GetZoom();
+	float currentZoom = GetLinearZoom();
 	screen.x = (world.x-pos.x)*currentZoom;
 	screen.y = (world.y-pos.y)*currentZoom;
 	screen.w = world.w*currentZoom;
@@ -110,7 +114,7 @@ Rect Camera::WorldToScreen(Rect world) {
 
 Vec2 Camera::ScreenToWorld(Vec2 screen) {
 	Vec2 world;
-	float currentZoom = GetZoom();
+	float currentZoom = GetLinearZoom();
 	world.x = screen.x/currentZoom;
 	world.y = screen.y/currentZoom;
 	world = world+pos;
@@ -119,7 +123,7 @@ Vec2 Camera::ScreenToWorld(Vec2 screen) {
 
 Rect Camera::ScreenToWorld(Rect screen) {
 	Rect world;
-	float currentZoom = GetZoom();
+	float currentZoom = GetLinearZoom();
 	world.x = (screen.x/currentZoom)+pos.x;
 	world.y = (screen.y/currentZoom)+pos.y;
 	world.w = screen.w/currentZoom;
@@ -128,8 +132,8 @@ Rect Camera::ScreenToWorld(Rect screen) {
 }
 	
 void Camera::SetSpeedLimits(float minSpeed, float maxSpeed) {
-	Camera::minSpeed = (0 == minSpeed) ? CAMERA_DEFAULT_MIN_SPEED : minSpeed;
-	Camera::maxSpeed = (0 == maxSpeed) ? CAMERA_DEFAULT_MAX_SPEED : maxSpeed;	
+	Camera::minSpeed = minSpeed;
+	Camera::maxSpeed = maxSpeed;	
 }
 
 float Camera::GetMinSpeed(void) {
