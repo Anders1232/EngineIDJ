@@ -59,7 +59,7 @@ class GameObject{
 			
 			No corpo método o GameObject deve atualizar seu estado, utilizando o argumento passado e quaisquer outras funcionalidades que necessitar.
 		*/
-		void Update(float dt){};
+		void Update(float dt);
 		/**
 			\brief Renderiza o GameObject.
 			
@@ -104,6 +104,7 @@ class GameObject{
 		float rotation;/**< Rotação do GameObject.*/
 	protected:
 		std::vector<Component* > components;/**< Vetor de componentes, que provêem funcionalidades adicionais.*/
+		bool dead;
 };
 
 #endif // GAMEOBJECT_H
