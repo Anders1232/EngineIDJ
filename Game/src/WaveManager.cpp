@@ -7,7 +7,7 @@
 #include "GameResources.h"
 #include "Error.h"
 
-#define TIME_BETWEEN_SPAWN (2.)
+#define TIME_BETWEEN_SPAWN (0.8)
 
 int WaveManager::waveCount = 0;
 
@@ -66,12 +66,13 @@ void WaveManager::Update(GameObject &associated, float dt){
 			spawnTimer.Update(dt);
 			if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){ // spawn cooldown
 				//spawn 1 enemy at each existing spawn group
-				for (uint i = 0; i < currentWave.spawnPointsData.size() and enemyIndex < waveTotalEnemies; i++){ 
-					enemyId = currentWave.spawnPointsData[i].enemySpawnData[enemyIndex].enemyIndex;//here
-					uint baseHP = currentWave.spawnPointsData[i].enemySpawnData[enemyIndex].baseHP;
-					uint endPoint = currentWave.spawnPointsData[i].enemySpawnData[enemyIndex].endPoint;
+				for (uint i = 0; i < currentWave.spawnPointsData.size() && enemyIndex < waveTotalEnemies; i++){
+					EnemySpawnData &enemyToSpawn= currentWave.spawnPointsData[i].enemySpawnData[enemyIndex];
+					REPORT_DEBUG2(1, "\t enemyIndex= " << enemyToSpawn.enemyIndex);
+					REPORT_DEBUG2(1, "\t baseHP= " << enemyToSpawn.baseHP);
+					REPORT_DEBUG2(1, "\t endPoint= " << enemyToSpawn.endPoint);
 					int spawnPosition = rand()% ( (*spawnGroups)[i] ).size();
-					SpawnEnemy( (*spawnGroups)[i][spawnPosition], enemyId, baseHP, endPoint );
+					SpawnEnemy( (*spawnGroups)[i][spawnPosition], enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, enemyToSpawn.endPoint );
 				}
 				spawnTimer.Restart();
 			}
