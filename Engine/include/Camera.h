@@ -7,10 +7,15 @@
 
 #define CAMERA_DEFAULT_MIN_ZOOM (0.075)
 #define CAMERA_DEFAULT_MAX_ZOOM (1.0)
+#define CAMERA_DEFAULT_MIN_LOG_ZOOM (-4.0)
+#define CAMERA_DEFAULT_MAX_LOG_ZOOM (0.0)
 #define CAMERA_DEFAULT_ZOOMABLE (true)
 #define CAMERA_DEFAULT_ZOOM_SPEED (5.0/200.)
+#define CAMERA_DEFAULT_LOG_ZOOM_SPEED (0.25)
 #define CAMERA_DEFAULT_MIN_SPEED (200.)
 #define CAMERA_DEFAULT_MAX_SPEED (1000.)
+#define CAMERA_DEFAULT_MOVE_SPEED (100.)
+#define CAMERA_LOGZOOM_BASE 2
 /**
 	\brief Classe que modela a câmera
 	
@@ -171,10 +176,14 @@ class Camera {
 		Camera();
 		static GameObject* focus;/**< Gameobject que ficará centralizado na câmera. Caso seja nullptr a câmera se moverá pelas setinhas/WASD.*/
 		static float currentZoom;/**< Armazena o valor do zoom atual, informando em quantas vezes os objetos devem ser ampliados. Ele deve estar estre o minZoom e o maxZoom, a não ser que o método ForceZoom seja usado. Os métodos Zoom e ForceZoom alteram seu valor.*/
+		static float currentLogZoom;/**< Armazena o valor do zoom atual, informando em quantas vezes os objetos devem ser ampliados. Ele deve estar estre o minZoom e o maxZoom, a não ser que o método ForceZoom seja usado. Os métodos Zoom e ForceZoom alteram seu valor.*/
 		static float minZoom;/**< Armazena o valor mínimo que o zoom pode ter. Esse limite é ignorado pelo método ForceZoom. É alterado pelo SetZoomLimits.*/
+		static float minLogZoom;/**< Armazena o valor mínimo que o zoom pode ter. Esse limite é ignorado pelo método ForceZoom. É alterado pelo SetZoomLimits.*/
 		static float maxZoom;/**< Armazena o valor mínimo que o zoom pode ter. Esse limite é ignorado pelo método ForceZoom. É alterado pelo SetZoomLimits.*/
+		static float maxLogZoom;/**< Armazena o valor mínimo que o zoom pode ter. Esse limite é ignorado pelo método ForceZoom. É alterado pelo SetZoomLimits.*/
 		static bool zoomFixed;/**< Se for verdadeiro, o zoom não será alterado pelo método Zoom. Caso contrário o método Zoom pode mudar o valor corrente do zoom. É alterado pelo método SetZoomable.*/
 		static float zoomSpeed;/**< Armazena a velocidade com a qual o zoom deve ocorrer. O argumento do método Zoom é multiplicado por esse valor para depois ser somado ao currentZoom.*/
+		static float logZoomSpeed;/**< Armazena a velocidade com a qual o zoom deve ocorrer. O argumento do método Zoom é multiplicado por esse valor para depois ser somado ao currentZoom.*/
 		static float minSpeed;/**< Armazena o valor mínimo da velocidade da câmera.*/
 		static float maxSpeed;/**< Armazena o valor máximo da velocidade da câmera.*/
 		static float currentSpeed;/**< Armazena a velocidade atual de movimento da câmera quando não está focalizada em nenhum objeto.*/
