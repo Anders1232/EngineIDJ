@@ -68,11 +68,16 @@ void Camera::SetZoomable(bool zoomable) {
 
 void Camera::Zoom(float deltaZoom) {
 	if(!zoomFixed) {
+		Vec2 oldMousePos = ScreenToWorld(INPUT_MANAGER.GetMousePos());
 		currentLogZoom += deltaZoom*logZoomSpeed;
 		if(maxLogZoom < currentLogZoom) {
 			currentLogZoom = maxLogZoom;
 		} else if(minLogZoom > currentLogZoom) {
 			currentLogZoom = minLogZoom;
+		}
+		if(nullptr == focus) {
+			Vec2 newMousePos = ScreenToWorld(INPUT_MANAGER.GetMousePos());
+			pos = pos + (oldMousePos - newMousePos);
 		}
 	}
 }
