@@ -13,6 +13,7 @@
 #define CAMERA_DEFAULT_MAX_SPEED (2000.)
 #define CAMERA_DEFAULT_MOVE_SPEED (100.)
 #define CAMERA_LOG_ZOOM_BASE 2
+
 /**
 	\brief Classe que modela a câmera
 	
@@ -22,6 +23,10 @@
 		- Zoom atual
 		- Velocidade de zoom
 		- Zoom mínimo e máximo
+
+	O zoom é armazenado internamente de forma logarítmica para permitir um comportamento linear nas suas velocidades de zoom e movimentação da câmera,
+	que dependem diretamente do nível atual de zoom. A base do zoom é representado em CAMERA_LOG_ZOOM_BASE e indica que, um zoom de 2, representa
+	multiplicar as sprites por CAMERA_LOG_ZOOM_BASE^(2). Já um zoom de -2 representa CAMERA_LOG_ZOOM_BASE^(-2).
 */
 class Camera {
 	public:
@@ -65,9 +70,15 @@ class Camera {
 			\brief Força um valor para o zoom.
 			\param newZoom novo valor para o Zoom
 			
-			O valor informado se torna o zoom corrente. O novo valor do zoom pode extrapolar os limites existentes. Esse valor, mesmo que fora dos limites, será atribuído ao currentZoom.,
+			O valor informado se torna o zoom corrente. O novo valor do zoom pode extrapolar os limites existentes. Esse valor, mesmo que fora dos limites, será convertido para a escala logarítimica e atribuído ao currentLogZoom.
 		*/
 		static void ForceLinearZoom(float newZoom);
+		/**
+			\brief Força um valor para o zoom.
+			\param newZoom novo valor para o Zoom
+			
+			O valor informado se torna o zoom corrente. O novo valor do zoom pode extrapolar os limites existentes. Esse valor, mesmo que fora dos limites, será atribuído ao currentLogZoom.
+		*/
 		static void ForceLogZoom(float newZoom);
 		/**
 			\brief Trava ou destrava o zoom.
@@ -80,9 +91,10 @@ class Camera {
 			\brief Altera o zoom corrente.
 			\param deltaZoom Variação no zoom.
 
-			O zoom corrente é alterado linearmente em deltaZoom*zoomSpeed. Só tem efeito se o valor de zoomFixed for falso.
-			Se o novo valor para o zoom extrapolar o limite superior, o valor do limite superior será atribuído ao currentZoom.
-			Se o novo valor para o zoom extrapolar o limite inferior, o valor do limite inferior será atribuído ao currentZoom.
+			O zoom corrente é alterado logaritimicamente em deltaZoom*logZoomSpeed. Só tem efeito se o valor de zoomFixed for falso.
+			Se o novo valor para o zoom extrapolar o limite superior, o valor do limite superior será usado.
+			Se o novo valor para o zoom extrapolar o limite inferior, o valor do limite inferior será usado.
+			Também ajusta a posição da câmera para que o ponto onde o mouse estava continue no mesmo lugar.
 		*/
 		static void Zoom(float deltaZoom);
 		/**
@@ -90,7 +102,7 @@ class Camera {
 			\param minZoom Novo limite inferior.
 			\param maxZoom Novo limite superior.
 
-			Se o valor de minZoom ou maxZoom for zero, o valor default será atribuído no lugar.
+			Se o valor de minZoom ou maxZoom não forem fornecidos, o valor default será atribuído no lugar.
 		*/
 		static void SetZoomLimits(float minZoom=CAMERA_DEFAULT_MIN_LOG_ZOOM, float maxZoom=CAMERA_DEFAULT_MAX_LOG_ZOOM);// No args to set to default
 		/**
@@ -107,7 +119,7 @@ class Camera {
 			\param minSpeed Novo limite inferior.
 			\param maxSpeed Novo limite superior.
 
-			Se o valor de minSpeed ou maxSpeed for zero, o valor default será atribuído no lugar.
+			Se o valor de minSpeed ou maxSpeed não forem fornecidos, o valor default será atribuído no lugar.
 		*/
 		static void SetSpeedLimits(float minSpeed=CAMERA_DEFAULT_MIN_SPEED, float maxSpeed=CAMERA_DEFAULT_MAX_SPEED);
 		/**
