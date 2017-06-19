@@ -1,6 +1,5 @@
 #include "Enemy.h"
 
-
 #include "Camera.h"
 #include "Error.h"
 #include "AIGoDown.h"
@@ -21,7 +20,6 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 : sp(enemyData.spName, true, 0.0, 1), dead(false){
 	box = position;
 	this->enemyIndex = enemyIndex; 
-	//this->quant = quant; 
 	this->baseHP = baseHP; 
 	this->endPoint = endPoint;
 
@@ -43,7 +41,26 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	//bodySpName.SetFrame(1);
 	//headSpName.SetFrame(1);
 	//pantsSpName.SetFrame(1);
-	
+
+	//each type will have their own components
+	switch(enemyData.enemyType){
+		case HOSTILE:
+			break;
+		case NEUTRAL:
+			break;
+		case ENGINEER:
+			break;
+		case ARQUITET:
+			break;
+		case ART:
+			break;
+		case QUIMIC:
+			break;
+		default:
+		std::cout << "Enemy type not identified" << "\n";
+			break;
+	}
+
 	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED)); //arg endPoint
 	//components.emplace_back(new PathFinding(endPoint)); //arg endPoint
 	components.push_back(new HitPoints(baseHP)); 
