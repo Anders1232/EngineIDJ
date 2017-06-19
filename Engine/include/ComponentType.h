@@ -13,7 +13,7 @@ enum ComponentType{
 	AI_GO_DOWN,
 	AI_GO_TO,
 	AI_PRINT_PATH,
-	COMPONENT_TYPE_SIZE,
+	AI_ART,
 	SIZE
 };
 
