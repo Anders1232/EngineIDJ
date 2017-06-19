@@ -31,16 +31,17 @@ AIArt::AIEvent AIArt::ComputeEvents(GameObject &associated){
 			return AIEvent::STUN;
 
 		}
+		if(path.empty()){
+			float position = tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0);
+			std::map<int, double> weightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
+			path = tilemap->AStar(position,destTile,heuristic,weightMap);
+			if(path.empty() && position != destTile){
 
-		float position = tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0);
-		std::map<int, double> weightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
+				return AIEvent::PATH_BLOCKED;
 
-		if(tilemap->AStar(position,destTile,heuristic,weightMap).empty() && position != destTile){
-
-			return AIEvent::PATH_BLOCKED;
+			}
 
 		}
-
 	}
 	else if(actualState == AIState::WAITING){
 
@@ -67,18 +68,19 @@ AIArt::AIEvent AIArt::ComputeEvents(GameObject &associated){
 			return AIEvent::NOT_STUN;
 
 		}
+		if(path.empty()){
+			float position = tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0);
+			std::map<int, double> weightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
+			path = tilemap->AStar(position,destTile,heuristic,weightMap);
+			if(path.empty()){
 
-		float position = tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0);
-		std::map<int, double> weightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
+				return AIEvent::PATH_BLOCKED;
 
-		if(!tilemap->AStar(position,destTile,heuristic,weightMap).empty()){
-
-			return AIEvent::PATH_BLOCKED;
-
+			}
 		}
 
 	}
-	
+
 	return NONE;
 	
 }
@@ -86,6 +88,7 @@ AIArt::AIEvent AIArt::ComputeEvents(GameObject &associated){
 void AIArt::Update(GameObject &associated, float dt){
 
 	actualState = dfa[actualState][ComputeEvents(associated)];
+	if(actualState)
 	associated.box.y+= speed*dt;
 
 }
