@@ -4,6 +4,7 @@
 #include "Component.h"
 #include "TileMap.h"
 #include "GameResources.h"
+#include "ManhattanDistance.h"
 #include <list>
 
 /**
@@ -18,7 +19,7 @@ class AIArt : public Component
 			\param dest tile de destino.
 			Instancia o componente.
 		*/
-		AIArt(float speed,int dest);
+		AIArt(float speed,int dest,TileMap* tilemap);
 		/**
 			\brief Atualiza estado.
 			\param associated GameObject que contém esse componente.
@@ -35,14 +36,17 @@ class AIArt : public Component
 		bool Is(ComponentType type) const;
 	private:
 
-		void Compute();
+		enum AIState{WALKING,WAITING,FINDINGHEALTH,STUNNED,STATE_NUM};
+		enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,FOUNDHEALTH,STUN,NOT_STUN,EVENT_NUM}; 
+
+		AIEvent ComputeEvents(GameObject &associated);
 
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
 		int destTile;/**< indice do tile de destino*/
 		std::list<int> path;/**< Caminho a ser executado pela IA*/
+		ManhattanDistance *heuristic;/**<Heuristica a ser utilizada pelo A* no calculo do caminho*/
 		Vec2 tempDestination;
-		enum AIState{WALKING,WAITING,FINDINGHEALTH,STUNNED,STATE_NUM};
-		enum AIEvent{PATH_BLOCKED,PATH_FREE,FOUNDHEALTH,STUN,NOT_STUN,EVENT_NUM}; 
+		TileMap* tilemap;
 
 		AIState actualState;
 		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM]; 
