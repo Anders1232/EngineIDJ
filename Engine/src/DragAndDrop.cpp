@@ -4,7 +4,7 @@
 #include "Error.h"
 #include "InputManager.h"
 
-DragAndDrop::DragAndDrop(TileMap *map,Vec2 associatedInitialPos, bool dragOnActionHold)
+DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, bool dragOnActionHold)
 		: dragOnHold(dragOnActionHold),associatedInitialPos(associatedInitialPos), tileMap(map) {
 }
 
@@ -19,7 +19,7 @@ void DragAndDrop::Update(GameObject &associated, float dt) {
 		tileMap->InsertGO(&associated,associatedInitialPos);
 =======*/
 	else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON)) {
-		tileMap->InsertGO(&associated);
+		tileMap.InsertGO(&associated);
 		associated.RemoveComponent(DRAG_AND_DROP);
 //>>>>>>> cc3bfc49d98b75ba776e94e4a99e2a7358d33229
 	}

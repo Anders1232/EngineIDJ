@@ -6,7 +6,7 @@
 
 typedef unsigned int uint;
 
-Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, TileMap *tileMap)
+Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, TileMap &tileMap)
 		: sp(type == TowerType::MEDICINE ? "img/tower/torre_fumaca.png" :
 			type == TowerType::SOCIOLOGY ? "img/tower/torre_fumaca.png" :
 			type == TowerType::ENGINEERING ? "img/tower/torre_fumaca.png" :
