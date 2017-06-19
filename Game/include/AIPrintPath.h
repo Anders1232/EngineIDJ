@@ -36,8 +36,8 @@ class AIPrintPath : public Component
 	private:
 		int dest;/**< indice do tile de destino*/
 		TileMap* tilemap;/**< indice do tile de destino*/
-		std::list<int> path;
-		ManhattanDistance *heuristic;
+		std::list<int> path;/**<Caminho a ser desenhado no tilemap*/
+		ManhattanDistance *heuristic;/**<Heuristica a ser utilizada pelo A* no calculo do caminho*/
 };
 
 #endif 

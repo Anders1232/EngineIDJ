@@ -146,11 +146,19 @@ class TileMap{
 		*/
 		Vec2 GetTileSize(void) const;
 		/**
-			\brief Obtém todos os vizinhos de um determinado tile
+			\brief Altera o tilemap mostrando o caminho contido em list
 
-			O tamanho retornado não leva em consideração zoom, mas leva em consideração escala.
 		*/
 		void ShowPath(std::list<int>path);
+		/**
+			\brief Calcula o caminho menos custoso entre dois pontos baseado em uma heuristica utilizando o algoritmo A*.
+			\param originTile Tile de origem
+			\param destTile Tile de destino
+			\param heuristic Heuristica a ser usada
+			\param weightMap Dicionário com os pesos relacionados a cada tipo de tile do mapa
+
+			Retorna uma lista com a sequencia dos indices dos tiles que formam o caminho
+		*/
 		std::list<int> AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap);
 	protected:
 		/**
@@ -186,8 +194,18 @@ class TileMap{
 		int mapDepth;/**< Número de camadas do TileMap.*/
 		std::vector<GameObject*> gameObjectMatrix;/**< TileMap linearizado de GameObjects*/	//bidimensional??
 		bool displayCollisionInfo;/**<Verdadeiro se as informações de colisão devem ser exibidas no TileMap::Render, falso caso contrário.*/
-		struct LessThanByHeuristic;
+		struct LessThanByHeuristic;/**<Estrutura que guarda a implementação do operador usado na ordenação de uma lista baseada na heuristica*/
+		/**
+			\Verifica se um determinado tile está livre na camada de colisão
+
+			\return true se o tile está livre na camada de colisão
+		*/
 		bool Traversable(int index) const;
+		/**
+			\brief Obtém todos os vizinhos de um determinado tile
+
+			\return vetor com o indice dos tiles dos vizinhos.
+		*/
 		std::vector<int> GetNeighbors(int tile) const;
 };
 

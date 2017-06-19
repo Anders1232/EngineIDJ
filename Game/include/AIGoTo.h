@@ -36,7 +36,7 @@ class AIGoTo : public Component
 	private:
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
 		int dest;/**< indice do tile de destino*/
-		std::list<int> path;
+		std::list<int> path;/**< Caminho a ser executado pela IA*/
 };
 
 #endif 
