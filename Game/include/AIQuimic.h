@@ -1,5 +1,5 @@
-#ifndef AIART_H
-#define AIART_H
+#ifndef AIQUIMIC_H
+#define AIQUIMIC_H
 
 #include "Component.h"
 #include "TileMap.h"
@@ -10,7 +10,7 @@
 /**
 	\brief Componete IA que se move para ponto de destino
 */
-class AIArt : public Component
+class AIQuimic : public Component
 {
 	public:
 		/**
@@ -20,7 +20,7 @@ class AIArt : public Component
 			\param associado objeto associado a essa IA.
 			Instancia o componente.
 		*/
-		AIArt(float speed,int dest,TileMap* tilemap,GameObject &associated);
+		AIQuimic(float speed,int dest,TileMap* tilemap,GameObject &associated);
 		/**
 			\brief Atualiza estado.
 			\param dt Intervalo de tempo desde a última chamada.
@@ -36,8 +36,8 @@ class AIArt : public Component
 		bool Is(ComponentType type) const;
 	private:
 
-		enum AIState{WALKING,WAITING,STUNNED,STATE_NUM};
-		enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,STUN,NOT_STUN,EVENT_NUM}; 
+		enum AIState{WALKING,WALKING_SLOWLY,SENDING_BOMB,STUNNED,STATE_NUM};
+		enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,SMOKE,NOT_SMOKE,STUN,NOT_STUN,EVENT_NUM}; 
 
 		AIEvent ComputeEvents();
 
