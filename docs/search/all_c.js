@@ -9,6 +9,7 @@ var searchData=
   ['mapwidth',['mapWidth',['../classTileMap.html#ae2361e840eacaebbbbc91541ded00655',1,'TileMap']]],
   ['margem_5ferro_5fcomparacao',['MARGEM_ERRO_COMPARACAO',['../Vec2_8h.html#a1759b83db156ac7ed195b3e04757ee14',1,'Vec2.h']]],
   ['maxframerate',['maxFramerate',['../classGame.html#a5424a424548c7bdb04de05c5c836002d',1,'Game']]],
+  ['maxnumberofenemiesinspawnpoint',['maxNumberOfEnemiesInSpawnPoint',['../classWaveManager.html#a64c49de73005706f16187749699f9d0a',1,'WaveManager']]],
   ['maxspeed',['maxSpeed',['../classCamera.html#a1f02ea6332c710065fa256ed52acd6f1',1,'Camera']]],
   ['maxzoom',['maxZoom',['../classCamera.html#af418b7887d39c773d73cb179c497a8da',1,'Camera']]],
   ['medicine',['MEDICINE',['../classTower.html#a2a6d5a7ae2af5e4481abcb2d3b535174ac31db47fbddcd21f0f823dfb4d8e58de',1,'Tower']]],

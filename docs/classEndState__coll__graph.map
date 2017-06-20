@@ -1,9 +1,9 @@
 <map id="EndState" name="EndState">
-<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="512,501,565,528"/>
-<area shape="rect" id="node15" href="$classText.html" title="Classe que modela textos. " alt="" coords="515,728,563,755"/>
-<area shape="rect" id="node5" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="510,919,567,945"/>
-<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="511,224,567,251"/>
-<area shape="rect" id="node14" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="252,75,305,101"/>
-<area shape="rect" id="node18" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="253,677,304,704"/>
-<area shape="rect" id="node21" href="$classTimer.html" title="Temporizador. " alt="" coords="251,829,306,856"/>
+<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="509,501,562,528"/>
+<area shape="rect" id="node15" href="$classText.html" title="Classe que modela textos. " alt="" coords="511,728,559,755"/>
+<area shape="rect" id="node5" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="507,919,564,945"/>
+<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="507,224,563,251"/>
+<area shape="rect" id="node14" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="251,75,304,101"/>
+<area shape="rect" id="node18" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="252,677,303,704"/>
+<area shape="rect" id="node21" href="$classTimer.html" title="Temporizador. " alt="" coords="250,829,305,856"/>
 </map>

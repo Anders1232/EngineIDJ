@@ -30,13 +30,14 @@ void InputManager::Update(){
 		}
 		// Se o evento for clique...
 		else if(SDL_MOUSEBUTTONDOWN == event.type){
-			 mouseState[event.button.button] = true;
-			 mouseUpdate[event.button.button] = updateCounter;
+			mouseState[event.button.button] = true;
+			mouseUpdate[event.button.button] = updateCounter;
 			
 		}
 		else if(SDL_MOUSEBUTTONUP == event.type ) {
 			
 			mouseState[event.button.button] = false;
+			mouseUpdate[event.button.button] = updateCounter;
 		}
 		else if(SDL_MOUSEWHEEL == event.type){
 			mouseScroolState= Vec2(event.wheel.x, event.wheel.y);
@@ -50,6 +51,7 @@ void InputManager::Update(){
 		}
 		else if(SDL_KEYUP == event.type ){
 			keyState[event.key.keysym.sym] = false;
+			keyUpdate[event.key.keysym.sym] = updateCounter;
 		}
 		else if(SDL_CONTROLLERDEVICEADDED == event.type ){
 			std::cout <<" reconheceu controle" << std::endl;
@@ -60,7 +62,6 @@ void InputManager::Update(){
 			}
 		}
 		else if(SDL_CONTROLLERDEVICEREMOVED == event.type ){
-		
 			try{
 				SDL_GameController *pad = padToController.at(event.cdevice.which);
 				SDL_GameControllerClose(pad);
@@ -76,6 +77,7 @@ void InputManager::Update(){
 		}
 		else if(SDL_CONTROLLERBUTTONUP == event.type ){
 			controllerState[event.cbutton.button] = false;
+			controllerUpdate[event.cbutton.button] = updateCounter;
 		}
 		else if(SDL_CONTROLLERAXISMOTION == event.type ){			
 			if(SDL_CONTROLLER_AXIS_TRIGGERLEFT == event.caxis.axis ){
@@ -102,7 +104,7 @@ void InputManager::Update(){
 
 bool InputManager::KeyPress(int key) const{
 	try{
-		return(keyUpdate.at(key) == updateCounter);
+		return(keyUpdate.at(key) == updateCounter && keyState.at(key));
 	}
 	catch (const std::out_of_range& oor){
 		return false;
@@ -111,7 +113,7 @@ bool InputManager::KeyPress(int key) const{
 
 bool InputManager::KeyRelease(int key) const{
 	try{
-		return(keyUpdate.at(key) != updateCounter);
+		return(keyUpdate.at(key) != updateCounter && !keyState.at(key));
 	}
 	catch (const std::out_of_range& oor){
 		return false;
@@ -127,9 +129,18 @@ bool InputManager::IsKeyDown(int key) const{
 	}
 }
 
+bool InputManager::IsKeyUp(int key) const{
+	try{
+		return(keyState.at(key) == false);
+	}
+	catch (const std::out_of_range& oor){
+		return false;
+	}
+}
+
 bool InputManager::ButtonPress(int button) const{
 	try{
-		return(controllerUpdate.at(button) == updateCounter);
+		return(controllerUpdate.at(button) == updateCounter && controllerState.at(button));
 	}
 	catch (const std::out_of_range& oor){
 		return false;
@@ -138,7 +149,7 @@ bool InputManager::ButtonPress(int button) const{
 
 bool InputManager::ButtonRelease(int button) const{
 	try{
-		return(controllerUpdate.at(button) != updateCounter);
+		return(controllerUpdate.at(button) != updateCounter && !controllerState.at(button));
 	}
 	catch (const std::out_of_range& oor){
 		return false;
@@ -148,6 +159,15 @@ bool InputManager::ButtonRelease(int button) const{
 bool InputManager::IsButtonDown(int button) const{
 	try{
 		return(controllerState.at(button) == true);
+	}
+	catch (const std::out_of_range& oor){
+		return false;
+	}
+}
+
+bool InputManager::IsButtonUp(int button) const{
+	try{
+		return(controllerState.at(button) == false);
 	}
 	catch (const std::out_of_range& oor){
 		return false;
@@ -167,15 +187,19 @@ bool InputManager::IsControllerSticking(void) const{
 }
 
 bool InputManager::MousePress(int button) const{
-	return (mouseUpdate[button] == updateCounter);
+	return (mouseUpdate[button] == updateCounter && mouseState[button]);
 }
 
 bool InputManager::MouseRelease(int button) const{
-	return (mouseUpdate[button] != updateCounter);
+	return (mouseUpdate[button] == updateCounter && !mouseState[button]);
 }
 
 bool InputManager::IsMouseDown(int button) const{
 	return (true == mouseState[button] );
+}
+
+bool InputManager::IsMouseUp(int button) const{
+	return (false == mouseState[button] );
 }
 
 int InputManager::GetMouseX() const{

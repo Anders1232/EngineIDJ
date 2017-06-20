@@ -2,7 +2,7 @@ var searchData=
 [
   ['w',['w',['../classRect.html#a049f7ee5e7eb0475229bf3ed9b3bad44',1,'Rect']]],
   ['wave_5fdata_5ffilename_5fmax_5fsize',['WAVE_DATA_FILENAME_MAX_SIZE',['../GameResources_8cpp.html#acba0378bce3efaced29b11b1da49216a',1,'GameResources.cpp']]],
-  ['wave_5fmanager',['WAVE_MANAGER',['../Component_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0a3aaf870ecb3dda4b45be77230383a524',1,'Component.h']]],
+  ['wave_5fmanager',['WAVE_MANAGER',['../ComponentType_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0a3aaf870ecb3dda4b45be77230383a524',1,'ComponentType.h']]],
   ['wave_5fname_5fmax_5flenght',['WAVE_NAME_MAX_LENGHT',['../GameResources_8cpp.html#ac10bbdfcdd2b87dc3db7b89123ca2812',1,'GameResources.cpp']]],
   ['wavecount',['waveCount',['../classStateData.html#aa724dc9afb6b0b068e001c4b74b3dfd2',1,'StateData::waveCount()'],['../classWaveManager.html#a393dd32c231c18d444ed25cb5dcfa33a',1,'WaveManager::waveCount()']]],
   ['wavedata',['WaveData',['../structWaveData.html',1,'']]],
