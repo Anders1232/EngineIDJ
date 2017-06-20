@@ -17,7 +17,7 @@ Face::Face(float x, float y, Vec2 tileSize, TileMap *tileMap)
 	sp.alpha = 255*(float)rand()/RAND_MAX;
 	box.w = sp.GetWidth();
 	box.h = sp.GetHeight();
-	components.emplace_back( new DragAndDrop(tileMap, true, true) );
+	components.emplace_back( new DragAndDrop(tileMap,*this, true, true) );
 }
 
 Face::~Face() {
@@ -33,7 +33,7 @@ void Face::Damage(int damage) {
 
 void Face::Update(float dt ) {
 	for(uint count = 0; count < components.size(); count++) {
-		components[count]->Update(*this, dt);
+		components[count]->Update(dt);
 	}
 }
 

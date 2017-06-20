@@ -18,7 +18,7 @@ class AIGoTo : public Component
 			\param dest tile de destino.
 			Instancia o componente.
 		*/
-		AIGoTo(float speed,int dest);
+		AIGoTo(float speed,int dest,GameObject &associated);
 		/**
 			\brief Atualiza estado.
 			\param associated GameObject que contém esse componente.
@@ -26,7 +26,7 @@ class AIGoTo : public Component
 			
 			Instancia o componente.
 		*/
-		void Update(GameObject &associated, float dt);
+		void Update(float dt);
 		/**
 			\brief Verifica se essa componente é do tipo informado.
 			
@@ -37,6 +37,7 @@ class AIGoTo : public Component
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
 		int dest;/**< indice do tile de destino*/
 		std::list<int> path;/**< Caminho a ser executado pela IA*/
+		GameObject &associated;
 };
 
 #endif 

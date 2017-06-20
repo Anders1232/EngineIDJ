@@ -21,7 +21,7 @@ Enemy::~Enemy() {
 void Enemy::Update(float dt) {
 	int forLimit = components.size();
 	for(int i = 0; i < forLimit; i++){
-		components[i]->Update(*this, dt);
+		components[i]->Update(dt);
 	}
 }
 

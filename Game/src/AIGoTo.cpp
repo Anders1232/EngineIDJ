@@ -1,9 +1,9 @@
 #include "AIGoTo.h"
 
-AIGoTo::AIGoTo(float speed,int dest):speed(speed),dest(dest){
+AIGoTo::AIGoTo(float speed,int dest,GameObject &associated):speed(speed),dest(dest),associated(associated){
 }
 
-void AIGoTo::Update(GameObject &associated, float dt){
+void AIGoTo::Update(float dt){
 
 	associated.box.y+= speed*dt;
 

@@ -19,7 +19,7 @@ class AIArt : public Component
 			\param dest tile de destino.
 			Instancia o componente.
 		*/
-		AIArt(float speed,int dest,TileMap* tilemap);
+		AIArt(float speed,int dest,TileMap* tilemap,GameObject &associated);
 		/**
 			\brief Atualiza estado.
 			\param associated GameObject que contém esse componente.
@@ -27,7 +27,7 @@ class AIArt : public Component
 			
 			Instancia o componente.
 		*/
-		void Update(GameObject &associated, float dt);
+		void Update(float dt);
 		/**
 			\brief Verifica se essa componente é do tipo informado.
 			
@@ -39,14 +39,17 @@ class AIArt : public Component
 		enum AIState{WALKING,WAITING,FINDINGHEALTH,STUNNED,STATE_NUM};
 		enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,FOUNDHEALTH,STUN,NOT_STUN,EVENT_NUM}; 
 
-		AIEvent ComputeEvents(GameObject &associated);
+		AIEvent ComputeEvents();
 
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
+		Vec2 vecSpeed;
 		int destTile;/**< indice do tile de destino*/
 		std::list<int> path;/**< Caminho a ser executado pela IA*/
 		ManhattanDistance *heuristic;/**<Heuristica a ser utilizada pelo A* no calculo do caminho*/
+		std::map<int, double> tileWeightMap;
 		Vec2 tempDestination;
 		TileMap* tilemap;
+		GameObject &associated;
 
 		AIState actualState;
 		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM]; 

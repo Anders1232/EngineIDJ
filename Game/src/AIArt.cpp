@@ -3,10 +3,12 @@
 //AIState{WALKING,WAITING,FINDINGHEALTH,STUNNED};
 //AIEvent{PATH_BLOCKED,PATH_FREE,FOUNDHEALTH,STUN,NOT_STUN}; 
 
-AIArt::AIArt(float speed,int dest,TileMap* tilemap):speed(speed),destTile(dest),tilemap(tilemap){
+AIArt::AIArt(float speed,int dest,TileMap* tilemap,GameObject &associated):speed(speed),destTile(dest),tilemap(tilemap),associated(associated){
 
 	heuristic = new ManhattanDistance();
-
+	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
+	path = tilemap->AStar(tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
+	
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
 	dfa[AIState::WALKING][AIEvent::PATH_BLOCKED] = AIState::WAITING;
 	dfa[AIState::WALKING][AIEvent::NONE] = AIState::WALKING;
@@ -22,7 +24,7 @@ AIArt::AIArt(float speed,int dest,TileMap* tilemap):speed(speed),destTile(dest),
 	actualState = AIState::WAITING;
 }
 
-AIArt::AIEvent AIArt::ComputeEvents(GameObject &associated){
+AIArt::AIEvent AIArt::ComputeEvents(){
 
 	if(actualState == AIState::WALKING){
 
@@ -32,16 +34,11 @@ AIArt::AIEvent AIArt::ComputeEvents(GameObject &associated){
 
 		}
 		if(path.empty()){
-			float position = tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0);
-			std::map<int, double> weightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
-			path = tilemap->AStar(position,destTile,heuristic,weightMap);
-			if(path.empty() && position != destTile){
 
-				return AIEvent::PATH_BLOCKED;
-
-			}
+			return AIEvent::PATH_BLOCKED;
 
 		}
+
 	}
 	else if(actualState == AIState::WAITING){
 
@@ -50,11 +47,7 @@ AIArt::AIEvent AIArt::ComputeEvents(GameObject &associated){
 			return AIEvent::STUN;
 
 		}
-
-		float position = tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0);
-		std::map<int, double> weightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
-
-		if(!tilemap->AStar(position,destTile,heuristic,weightMap).empty()){
+		if(!path.empty()){
 
 			return AIEvent::PATH_FREE;
 
@@ -69,14 +62,9 @@ AIArt::AIEvent AIArt::ComputeEvents(GameObject &associated){
 
 		}
 		if(path.empty()){
-			float position = tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0);
-			std::map<int, double> weightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
-			path = tilemap->AStar(position,destTile,heuristic,weightMap);
-			if(path.empty()){
 
-				return AIEvent::PATH_BLOCKED;
+			return AIEvent::PATH_BLOCKED;
 
-			}
 		}
 
 	}
@@ -85,11 +73,42 @@ AIArt::AIEvent AIArt::ComputeEvents(GameObject &associated){
 	
 }
 
-void AIArt::Update(GameObject &associated, float dt){
+void AIArt::Update(float dt){
 
-	actualState = dfa[actualState][ComputeEvents(associated)];
-	if(actualState)
-	associated.box.y+= speed*dt;
+	actualState = dfa[actualState][ComputeEvents()];
+
+	if(actualState == AIState::WALKING){
+
+		float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
+		float weight = tileWeightMap.at(tilemap->AtLayer(path.front(),WALKABLE_LAYER));
+		vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
+
+		if((vecSpeed * dt).Magnitude() >= lastDistance){
+
+			associated.box.x = (tempDestination.x - (associated.box.w/2));
+			associated.box.y = (tempDestination.y - (associated.box.h/2));
+			tempDestination = Vec2(path.front() / tilemap->GetWidth(),path.front() % tilemap->GetWidth());
+			path.pop_front();
+
+		}
+		else{
+
+			associated.box.x = (associated.box.Center().x + (vecSpeed * dt).x - associated.box.w/2);
+			associated.box.y = (associated.box.Center().y + (vecSpeed * dt).y - associated.box.h/2);
+
+		}
+	}
+	else if(actualState == AIState::WAITING){
+
+		if(path.front() != destTile){
+			path = tilemap->AStar(tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
+		}
+	}
+	else{
+
+		//Aqui executa animações do efeito estonteante
+
+	}
 
 }
 

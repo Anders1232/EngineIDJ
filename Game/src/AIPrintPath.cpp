@@ -1,12 +1,12 @@
 #include "AIPrintPath.h"
 
-AIPrintPath::AIPrintPath(TileMap* tilemap):tilemap(tilemap){
+AIPrintPath::AIPrintPath(TileMap* tilemap,GameObject &associated):tilemap(tilemap),associated(associated){
 
 	heuristic = new ManhattanDistance();
 
 }
 
-void AIPrintPath::Update(GameObject& associated,float dt){
+void AIPrintPath::Update(float dt){
 
 	if(InputManager::GetInstance().MousePress(LEFT_MOUSE_BUTTON)) {
 
