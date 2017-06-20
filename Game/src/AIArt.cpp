@@ -77,9 +77,9 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 void AIArt::Update(float dt){
 
 	std::cout << "Transição atual: " << ComputeEvents() << std::endl;
+	std::cout << "Estado atual: " << actualState << std::endl;
 	actualState = dfa[actualState][ComputeEvents()];
-	//std::cout << "Estado atual: " << actualState << std::endl;
-	//std::cout << "Tamanho do caminho: " << path.size() << std::endl;
+	std::cout << "Tamanho do caminho: " << path.size() << std::endl;
 	if(actualState == AIState::WALKING){
 
 		float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
