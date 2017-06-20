@@ -72,7 +72,7 @@ class Enemy : public GameObject
 			
 			Deve fazer o necessário para que futuras chamadas a IsDead retornem verdadeiro.
 		*/
-		void RequestDelete();
+		void RequestDelete(void);
 		/**
 			\brief Notifica evento de colisão.
 			\todo Verificar viabilidade de tratar colisão em componentes.

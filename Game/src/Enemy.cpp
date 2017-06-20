@@ -69,7 +69,7 @@ bool Enemy::IsDead(void) {
 	return false;
 }
 
-void Enemy::RequestDelete() {}
+void Enemy::RequestDelete(void) {}
 
 void Enemy::NotifyCollision(GameObject &object) {}
 
