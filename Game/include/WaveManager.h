@@ -84,7 +84,8 @@ class WaveManager : public Component {
 			\param baseHP: HP base do inimigo para a wave atual.
 			\param endPoint: posição de destino para aonde o inimigo vai. Lido de WaveData.
 			
-		*/				
+		*/		
+		void WaveEnemiesIterator(int i);		
 		void SpawnEnemy(int tileMapPosition, int enemyId,uint baseHP, uint endPoint);
 		vector<vector<int>> *spawnGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
 		static int waveCount; /**<Contador de waves restantes. Também usado para nivelar as waves.*/
@@ -98,7 +99,9 @@ class WaveManager : public Component {
 		std::shared_ptr< std::pair< std::vector<WaveData>, std::vector<EnemyData> > > wavesAndEnemysData; /**<Shared Pointer, vai armazenar a leitura do arquivo com as informaçoes de Wave e Inimigo.*/
 		int waveIndex, enemyIndex, totalWaves;/**<Identificador da wave atual, identificador do inimigo atual e o contador de waves. Vitória se da quando contador for igual ao número total.*/
 		int waveTotalEnemies; /**<Indica o número total de inimigos da wave atual.*/
-
+		int enemyTypes;
+		int enemyType;
+		uint enemyTypeCount;
 
 };
 

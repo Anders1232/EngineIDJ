@@ -86,6 +86,8 @@ class GameObject{
 
 			Obtém Rect informando a posição renderizada, computando zoom, escala e posição da câmera.
 		*/
+		virtual void NotifyDeath();
+
 		virtual Rect GetWorldRenderedRect(void) const=0;
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/

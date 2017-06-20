@@ -17,7 +17,7 @@ Enemy::Enemy(Vec2 position, int life)
 }
 
 Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint)
-: sp(enemyData.spName, true, 0.0, 1), dead(false){
+: sp("img/enemy/teste-cor.png", true, 0.0, 1), dead(false){
 	box = position;
 	this->enemyIndex = enemyIndex; 
 	this->baseHP = baseHP; 
@@ -42,8 +42,8 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	//headSpName.SetFrame(1);
 	//pantsSpName.SetFrame(1);
 
-	//each type will have their own components
-	switch(enemyData.enemyType){
+	//each type will have their own components. dando invalid read.
+	/*switch(enemyData.enemyType){
 		case HOSTILE:
 			break;
 		case NEUTRAL:
@@ -57,13 +57,13 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 		case QUIMIC:
 			break;
 		default:
-		std::cout << "Enemy type not identified" << "\n";
+			//std::cout << "Enemy type not identified: "<< enemyData.enemyType << "\n";
 			break;
-	}
+	}*/
 
 	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED)); //arg endPoint
 	//components.emplace_back(new PathFinding(endPoint)); //arg endPoint
-	components.push_back(new HitPoints(baseHP)); 
+	//components.push_back(new HitPoints(baseHP)); 
 }
 
 
@@ -79,6 +79,8 @@ void Enemy::Update(float dt) {
 	for(int i = 0; i < forLimit; i++){
 		components[i]->Update(*this, dt);
 	}
+	//HitPoints *hp= GetComponent(COMPONENt_Type::IT_POINTS);
+	//hp->Damage();
 }
 
 void Enemy::Render(void) {
@@ -86,7 +88,7 @@ void Enemy::Render(void) {
 }
 
 bool Enemy::IsDead(void) {
-	return false;
+	return dead;
 }
 
 void Enemy::RequestDelete() {}
@@ -99,4 +101,8 @@ bool Enemy::Is(string type) {
 
 Rect Enemy::GetWorldRenderedRect(void) const {
 	return Camera::WorldToScreen(box);
+}
+
+void Enemy::NotifyDeath(){
+	dead = true;
 }

@@ -92,7 +92,7 @@ class Enemy : public GameObject
 			Utilizado para verificar onde o mouse está.
 		*/
 		Rect GetWorldRenderedRect(void) const;
-	
+		void NotifyDeath();
 	private:
 		EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
 		Sprite sp;/**< Sprite do inimigo.*/
