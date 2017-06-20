@@ -98,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="dynheader">
 Diagrama de Hierarquia para Component:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classComponent__inherit__graph.svg" width="324" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classComponent__inherit__graph.svg" width="456" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
@@ -107,7 +107,7 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a0e159ba9d0cdeb481f8cc87c8ad99660"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#a0e159ba9d0cdeb481f8cc87c8ad99660">Update</a> (<a class="el" href="classGameObject.html">GameObject</a> &amp;associated, float dt)=0</td></tr>
 <tr class="memdesc:a0e159ba9d0cdeb481f8cc87c8ad99660"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza estado do componente.  <a href="#a0e159ba9d0cdeb481f8cc87c8ad99660">Mais...</a><br /></td></tr>
 <tr class="separator:a0e159ba9d0cdeb481f8cc87c8ad99660"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81f861605b8c887e7634e56424c21a2a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#a81f861605b8c887e7634e56424c21a2a">Is</a> (<a class="el" href="Component_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0">ComponentType</a> type) const =0</td></tr>
+<tr class="memitem:a81f861605b8c887e7634e56424c21a2a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#a81f861605b8c887e7634e56424c21a2a">Is</a> (<a class="el" href="ComponentType_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0">ComponentType</a> type) const =0</td></tr>
 <tr class="memdesc:a81f861605b8c887e7634e56424c21a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica o subtipo de componente.  <a href="#a81f861605b8c887e7634e56424c21a2a">Mais...</a><br /></td></tr>
 <tr class="separator:a81f861605b8c887e7634e56424c21a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae18722fd3bbb40cef7daf1b94aabb397"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#ae18722fd3bbb40cef7daf1b94aabb397">~Component</a> (void)</td></tr>
@@ -156,7 +156,7 @@ Métodos Públicos</h2></td></tr>
         <tr>
           <td class="memname">virtual bool Component::Is </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="Component_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0">ComponentType</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="ComponentType_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0">ComponentType</a>&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -177,7 +177,7 @@ Métodos Públicos</h2></td></tr>
 </dl>
 <p>Retorna verdadeiro se o componente for do tipo type, falso caso contrário. </p>
 
-<p>Implementado por <a class="el" href="classDragAndDrop.html#aa85e00937c061a0870dec8cb8b88832a">DragAndDrop</a>, <a class="el" href="classAIGoDown.html#a3bc05633c885a17df20237b21eef67f2">AIGoDown</a> e <a class="el" href="classHitPoints.html#a40320d864738f749dc4b8c012acdcc67">HitPoints</a>.</p>
+<p>Implementado por <a class="el" href="classWaveManager.html#a1f7b6ac70478d5ce9543cc988e6f5a10">WaveManager</a>, <a class="el" href="classDragAndDrop.html#aa85e00937c061a0870dec8cb8b88832a">DragAndDrop</a>, <a class="el" href="classAIGoDown.html#a3bc05633c885a17df20237b21eef67f2">AIGoDown</a> e <a class="el" href="classHitPoints.html#a40320d864738f749dc4b8c012acdcc67">HitPoints</a>.</p>
 
 </div>
 </div>
@@ -222,7 +222,7 @@ Métodos Públicos</h2></td></tr>
 </dl>
 <p>Deve conter a lógica principal provida pelo componente, utilizando o gameObject que o contém sempre que necessário. </p>
 
-<p>Implementado por <a class="el" href="classDragAndDrop.html#a1ae8df8b7ff9ef703b57354c410b5ef3">DragAndDrop</a>, <a class="el" href="classAIGoDown.html#ae88285cea2d7672c14a3c8ab26207b96">AIGoDown</a> e <a class="el" href="classHitPoints.html#a6ba0651108974380597c64c55959a538">HitPoints</a>.</p>
+<p>Implementado por <a class="el" href="classWaveManager.html#af03a0b16b8649875d370ecd97b607ebc">WaveManager</a>, <a class="el" href="classDragAndDrop.html#a1ae8df8b7ff9ef703b57354c410b5ef3">DragAndDrop</a>, <a class="el" href="classAIGoDown.html#ae88285cea2d7672c14a3c8ab26207b96">AIGoDown</a> e <a class="el" href="classHitPoints.html#a6ba0651108974380597c64c55959a538">HitPoints</a>.</p>
 
 </div>
 </div>
@@ -232,7 +232,7 @@ Métodos Públicos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quinta, 15 de Junho de 2017 16:09:08 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 20 de Junho de 2017 20:31:14 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

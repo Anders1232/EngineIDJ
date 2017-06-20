@@ -72,6 +72,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
       <li class="current"><a href="functions.html"><span>Todos</span></a></li>
       <li><a href="functions_func.html"><span>Funções</span></a></li>
       <li><a href="functions_vars.html"><span>Variáveis</span></a></li>
+      <li><a href="functions_type.html"><span>Definições&#160;de&#160;Tipos</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerações</span></a></li>
+      <li><a href="functions_eval.html"><span>Valores&#160;enumerados</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -139,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 : <a class="el" href="classStageState.html#acbf7ba483ee1ae6fe7d20f22b5c721b3">StageState</a>
 </li>
 <li>InsertGO()
-: <a class="el" href="classTileMap.html#a9370c61beefad2f657c022a0a2462336">TileMap</a>
+: <a class="el" href="classTileMap.html#a916d38c429fe9d66b92c2687656c0e3c">TileMap</a>
 </li>
 <li>instance
 : <a class="el" href="classGame.html#aa469cdc0a30f4fd2d6d99b23f4fbf257">Game</a>
@@ -154,14 +157,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 , <a class="el" href="classDragAndDrop.html#aa85e00937c061a0870dec8cb8b88832a">DragAndDrop</a>
 , <a class="el" href="classEndStateData.html#abce01a73395040307914a4aa62741463">EndStateData</a>
 , <a class="el" href="classEnemy.html#a029a0d93da4adf4f638c47a84c41803b">Enemy</a>
-, <a class="el" href="classFace.html#ad00cc296dbf18f70a7d57c65b3a6c44e">Face</a>
-, <a class="el" href="classGameObject.html#a3ddba599a800d774463c7082b7ef4801">GameObject</a>
+, <a class="el" href="classGameObject.html#a3c4f6a6becd8452063e5064c44426442">GameObject</a>
 , <a class="el" href="classHitPoints.html#a40320d864738f749dc4b8c012acdcc67">HitPoints</a>
 , <a class="el" href="classStateData.html#a63b33546d704a06bf8f9df6b0590eae4">StateData</a>
-, <a class="el" href="classWave.html#a371f8d5f56843b48e90509b6c9de0b1a">Wave</a>
+, <a class="el" href="classTower.html#ad7d3cb08eafeb8350ee3292748862481">Tower</a>
+, <a class="el" href="classWaveManager.html#a1f7b6ac70478d5ce9543cc988e6f5a10">WaveManager</a>
 </li>
 <li>IsButtonDown()
 : <a class="el" href="classInputManager.html#ae8ab294770c3c7cedf5c7dcc59bb08d5">InputManager</a>
+</li>
+<li>IsButtonUp()
+: <a class="el" href="classInputManager.html#adfe35729c6567be8627d84d4d014be58">InputManager</a>
 </li>
 <li>IsColliding()
 : <a class="el" href="classCollision.html#a8bfb131379c86c409bf38c68ef25fae6">Collision</a>
@@ -172,15 +178,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <li>IsDead()
 : <a class="el" href="classAnimation.html#ad1eaa9ff240cbcc114270ea174523702">Animation</a>
 , <a class="el" href="classEnemy.html#ae5a8c620daad853579894fb72af5279e">Enemy</a>
-, <a class="el" href="classFace.html#a03b6c43e0eacbc42a70c876b17adc960">Face</a>
-, <a class="el" href="classGameObject.html#a076afa2ea9190c49046f86a0946b4543">GameObject</a>
-, <a class="el" href="classWave.html#a257d6811c6b4eaf205e6415fed93fc53">Wave</a>
-</li>
-<li>isDragging
-: <a class="el" href="classDragAndDrop.html#ae70478ad1144137afdf8fefe453379c8">DragAndDrop</a>
+, <a class="el" href="classGameObject.html#a64489eaccea42957d3aa8c33d1fa16ba">GameObject</a>
+, <a class="el" href="classTower.html#af187931f0dab9b34b18bd152a1d00484">Tower</a>
 </li>
 <li>isDraging
-: <a class="el" href="classFace.html#a617f599a3f170e5692495ba63a9fa5a7">Face</a>
+: <a class="el" href="classTower.html#a7a2b297edf481c2eb2eeaa8a83d20bf8">Tower</a>
 </li>
 <li>IsFramerateLimited()
 : <a class="el" href="classGame.html#a3cee416ca88d258ceeab7c0eb3331b69">Game</a>
@@ -191,11 +193,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <li>IsKeyDown()
 : <a class="el" href="classInputManager.html#a97d25d372ab28dbc119b5a0919e38244">InputManager</a>
 </li>
+<li>IsKeyUp()
+: <a class="el" href="classInputManager.html#a0b9ab4448dcc8a220147bec9d44d6e23">InputManager</a>
+</li>
 <li>IsMouseDown()
 : <a class="el" href="classInputManager.html#a410c6f6a0fa13dfd938d6d26a524fc19">InputManager</a>
 </li>
 <li>IsMouseScrolling()
 : <a class="el" href="classInputManager.html#aeb81e9386db70d1cc204e45963ec9077">InputManager</a>
+</li>
+<li>IsMouseUp()
+: <a class="el" href="classInputManager.html#a97d0df155dc07d57b4f7c9e7f66b0f2e">InputManager</a>
 </li>
 <li>IsOpen()
 : <a class="el" href="classMusic.html#a7dd0d191e358d600f0ea8a1db75f833d">Music</a>
@@ -212,7 +220,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quinta, 15 de Junho de 2017 16:09:08 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 20 de Junho de 2017 20:31:14 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
