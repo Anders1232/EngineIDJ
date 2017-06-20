@@ -15,6 +15,7 @@ class UIelement {
         STRETCH
     };
     UIelement(BehaviorType behavior = BehaviorType::STRETCH);
+    ~UIelement();
     void SetAnchors(Vec2 min, Vec2 max);
     void SetOffsets(Vec2 min, Vec2 max);
     void SetBehavior(BehaviorType type);

@@ -1,8 +1,8 @@
 #include "Image.h"
 
 Image::Image(std::string file, UIelement::BehaviorType behavior)
-         : UIelement(behavior)
-         , sp(file) {
+         : UIelement(behavior) {
+    sp = Sprite(file);
     SetKernelSize();
 }
 

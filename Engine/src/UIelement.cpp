@@ -9,6 +9,8 @@ UIelement::UIelement(BehaviorType behavior)
     SetOffsets( {0.,0.}, {0.,0.} );
 }
 
+UIelement::~UIelement() {}
+
 void UIelement::SetAnchors(Vec2 min, Vec2 max) {
     if(min.x < 0.) min.x = 0.;
     if(min.y < 0.) min.y = 0.;

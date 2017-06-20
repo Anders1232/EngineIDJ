@@ -7,6 +7,7 @@
 
 TitleState::TitleState()
 		: State()
+		, UIcanvas({16,9})
 		, bg("img/UI/main-menu/bg.png", UIelement::BehaviorType::STRETCH)
 		, lua("img/UI/main-menu/lua.png", UIelement::BehaviorType::STRETCH)
 		/*, nuvemA("img/UI/main-menu/nuvemA.png", UIelement::BehaviorType::STRETCH)*/
@@ -41,12 +42,13 @@ void TitleState::Update(float dt) {
 
 	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
 	Rect titleCanvas(0., 0., winSize.x, winSize.y);
-	bg.Update(dt, titleCanvas);
-	lua.Update(dt, titleCanvas);
-	nuvemB.Update(dt, titleCanvas);
-	icc.Update(dt, titleCanvas);
-	overlay.Update(dt, titleCanvas);
-	title.Update(dt, titleCanvas);
+	UIcanvas.Update(dt, titleCanvas);
+	bg.Update(dt, UIcanvas);
+	lua.Update(dt, UIcanvas);
+	nuvemB.Update(dt, UIcanvas);
+	icc.Update(dt, UIcanvas);
+	overlay.Update(dt, UIcanvas);
+	title.Update(dt, UIcanvas);
 }
 
 void TitleState::Render(void) const {
@@ -55,7 +57,7 @@ void TitleState::Render(void) const {
 	nuvemB.Render();
 	icc.Render();
 	overlay.Render();
-	title.Render(true);
+	title.Render(false);
 }
 
 void TitleState::Pause(void) {}

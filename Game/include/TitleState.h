@@ -3,6 +3,7 @@
 
 #include "ActionManager.h"
 #include "Image.h"
+#include "Canvas.h"
 #include "State.h"
 
 class TitleState: public State {
@@ -13,6 +14,7 @@ class TitleState: public State {
 		void Pause(void);
 		void Resume(void);
 	private:
+		Canvas UIcanvas;
 		Image bg;
 		Image lua;
 		// Image nuvemA;
