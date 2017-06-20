@@ -31,7 +31,7 @@ void State::UpdateArray(float dt) {
 }
 
 void State::RenderArray(void) const {
-	TEMP_REPORT_I_WAS_HERE;
+	REPORT_I_WAS_HERE;
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 		objectArray[cont]->Render();
 	}

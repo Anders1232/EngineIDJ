@@ -32,8 +32,6 @@ class StageState: public State {
 		InputManager &inputManager;
 		Music music;
 		vector<vector<int>> *spawnGroups;
-		//Timer spawnTimer;
-		void SpawnEnemy(int tileMapPosition);
 		WaveManager waveManager;
 		GameObject nullGameObject;
 		vector<int> waves;//vetor de waves a ser lido no arquivo
