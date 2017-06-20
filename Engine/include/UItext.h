@@ -122,6 +122,7 @@ class UItext : public UIelement {
 		*/
 		void SetStrobeFrequency(float fullTime);
 		void SetKernelSize(Vec2 kernelSize = Vec2());
+		bool Is(std::string UItype) const;
 	private:
 		/**
 			\brief Cria a textura que contém o texto

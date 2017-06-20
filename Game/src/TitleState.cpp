@@ -7,7 +7,7 @@
 
 TitleState::TitleState()
 		: State()
-		, UIcanvas({1024,600}, UIelement::BehaviorType::FIT)
+		, canvas({1024,600}, UIelement::BehaviorType::FIT)
 		, bg("img/UI/main-menu/bg.png", UIelement::BehaviorType::STRETCH)
 		, lua("img/UI/main-menu/lua.png", UIelement::BehaviorType::STRETCH)
 		/*, nuvemA("img/UI/main-menu/nuvemA.png", UIelement::BehaviorType::STRETCH)*/
@@ -15,7 +15,8 @@ TitleState::TitleState()
 		, icc("img/UI/main-menu/icc.png", UIelement::BehaviorType::STRETCH)
 		, overlay("img/UI/main-menu/overlay.png", UIelement::BehaviorType::STRETCH)
 		, title("img/UI/main-menu/title.png", UIelement::BehaviorType::FIT)
-		, textGroup(UIelement::BehaviorType::STRETCH)
+		, optionsGroup(UIelement::BehaviorType::STRETCH)
+		// , testButton()
 		, playText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Play")
 		, editorText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Editor de Fases")
 		, configText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Configuracoes")
@@ -34,7 +35,9 @@ TitleState::TitleState()
 	title.SetSpriteScale(0.7);
 	title.SetAnchors( {(float)(0.5 - (title.GetSpriteWidth()/2.)/winSize.x), (float)(60./winSize.y)},
 					  {(float)(0.5 + (title.GetSpriteWidth()/2.)/winSize.x), (float)(60. + title.GetSpriteHeight())/winSize.y } );
-	textGroup.SetAnchors( {0.3, 0.45},
+	// testButton.SetAnchors( {0.3, 0.4},
+	// 					   {0.8, 0.6} );
+	optionsGroup.SetAnchors( {0.3, 0.45},
 						  {0.7, 0.9} );
 	playText.SetAnchors( {0., 0. },
 					 	 {1., 0.25 } );
@@ -58,18 +61,18 @@ void TitleState::Update(float dt) {
 	// UI
 	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
 	Rect titleCanvas(0., 0., winSize.x, winSize.y);
-	UIcanvas.Update(dt, titleCanvas);
-	bg.Update(dt, UIcanvas);
-	lua.Update(dt, UIcanvas);
-	nuvemB.Update(dt, UIcanvas);
-	icc.Update(dt, UIcanvas);
-	overlay.Update(dt, UIcanvas);
-	title.Update(dt, UIcanvas);
-	textGroup.Update(dt, UIcanvas);
-	playText.Update(dt, textGroup);
-	editorText.Update(dt, textGroup);
-	configText.Update(dt, textGroup);
-	exitText.Update(dt, textGroup);
+	canvas.Update(dt, titleCanvas);
+	bg.Update(dt, canvas);
+	lua.Update(dt, canvas);
+	nuvemB.Update(dt, canvas);
+	icc.Update(dt, canvas);
+	overlay.Update(dt, canvas);
+	title.Update(dt, canvas);
+	optionsGroup.Update(dt, canvas);
+	playText.Update(dt, optionsGroup);
+	editorText.Update(dt, optionsGroup);
+	configText.Update(dt, optionsGroup);
+	exitText.Update(dt, optionsGroup);
 }
 
 void TitleState::Render(void) const {

@@ -22,6 +22,7 @@ class UIelement {
     virtual void SetKernelSize(Vec2 kernelSize) = 0;
     virtual void Update(float dt, Rect parentCanvas);
     virtual void Render(bool debugRender = false) const;
+    virtual bool Is(std::string UItype) const = 0;
     Rect ComputeBoundingbox(Rect parentCanvas);
     Rect ComputeBox();
     operator Rect();

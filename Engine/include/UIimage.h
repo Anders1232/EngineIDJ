@@ -1,5 +1,5 @@
-#ifndef IMAGE_H
-#define IMAGE_H
+#ifndef UIIMAGE_H
+#define UIIMAGE_H
 
 #include "Color.h"
 #include "Sprite.h"
@@ -9,9 +9,9 @@
 
 #include <string>
 
-class Image : public UIelement {
+class UIimage : public UIelement {
   public:
-    Image(std::string file, UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
+    UIimage(std::string file, UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
     void Render(bool debugRender = false) const;
     float GetSpriteWidth(void);
     float GetSpriteHeight(void);
@@ -19,8 +19,9 @@ class Image : public UIelement {
     void SetSpriteScale(float scale);
     void SetSpriteColorMultiplier(Color scale, unsigned char alpha, SDL_BlendMode blendMode = ALPHA_BLEND);
     void SetKernelSize(Vec2 kernelSize = Vec2());
+    bool Is(std::string UItype) const;
   private:
     Sprite sp;
 };
 
-#endif // IMAGE_H
+#endif // UIIMAGE_H

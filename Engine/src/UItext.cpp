@@ -106,3 +106,7 @@ void UItext::SetKernelSize(Vec2 kernelSize) { // É para ser ignorado mesmo
 	SDL_QueryTexture(texture, nullptr, nullptr, &w, &h);
 	this->kernelSize = Vec2(w, h);
 }
+
+bool UItext::Is(std::string UItype) const {
+	return "UItext" == UItype;
+}

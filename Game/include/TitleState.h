@@ -2,9 +2,10 @@
 #define TITLESTATE_H
 
 #include "ActionManager.h"
-#include "Image.h"
-#include "Canvas.h"
+#include "UIimage.h"
+#include "UIcanvas.h"
 #include "UItext.h"
+#include "UIbutton.h"
 #include "State.h"
 
 class TitleState: public State {
@@ -15,15 +16,20 @@ class TitleState: public State {
 		void Pause(void);
 		void Resume(void);
 	private:
-		Canvas UIcanvas;
-		Image bg;
-		Image lua;
-		// Image nuvemA;
-		Image nuvemB;
-		Image icc;
-		Image overlay;
-		Image title;
-		Canvas textGroup;
+		UIcanvas canvas;
+		UIimage bg;
+		UIimage lua;
+		// UIimage nuvemA;
+		UIimage nuvemB;
+		UIimage icc;
+		UIimage overlay;
+		UIimage title;
+		UIcanvas optionsGroup;
+		// UIbutton testButton;
+		// UItext enabledText;
+		// UItext highlightedText;
+		// UItext disabledText;
+		// UItext selectedText;
 		UItext playText;
 		UItext editorText;
 		UItext configText;
