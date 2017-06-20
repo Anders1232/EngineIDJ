@@ -29,7 +29,7 @@ WaveManager::~WaveManager(){
 	delete spawnGroups;
 }
 
-void WaveManager::StartWave(){
+void WaveManager::StartWave(void){
 	enemiesLeft=0;
 	printf("Wave Start\n");
 	for (uint i = 0; i < wavesAndEnemysData->first[waveIndex].spawnPointsData.size(); i++){
@@ -45,7 +45,7 @@ void WaveManager::StartWave(){
 }
 
 
-bool WaveManager::EndWave(){
+bool WaveManager::EndWave(void) const{
 	return endWave;
 }
  
@@ -78,6 +78,7 @@ void WaveManager::Update(GameObject &associated, float dt){
 		}
 	}
 	if (0 >= enemiesLeft){
+		LoadNextAssets();
 		endWave = true;
 	}
 }
@@ -104,18 +105,24 @@ bool WaveManager::Is(ComponentType type) const{
 }
 
 
-void WaveManager::NotifyEnemyGotToHisDestiny(){
+void WaveManager::NotifyEnemyGotToHisDestiny(void){
 	--playerLifes;
 
 }
-void WaveManager::NotifyEnemyGotKilled(){
+void WaveManager::NotifyEnemyGotKilled(void){
 	--enemiesLeft;
 }
 
-int WaveManager::GetLifesLeft(){
+int WaveManager::GetLifesLeft(void){
 	return playerLifes;
 }
-int WaveManager::GetEnemiesLeft(){
+int WaveManager::GetEnemiesLeft(void){
 	return enemiesLeft;
 }
 
+void WaveManager::LoadNextAssets(void){
+	// Resources::GetImage();
+	// Resources::GetFont();
+	// Resources::GetMusic();
+	// Resources::GetSound();
+}

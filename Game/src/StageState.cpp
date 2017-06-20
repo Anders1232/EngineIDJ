@@ -171,3 +171,12 @@ void StageState::SpawnEnemy(int tileMapPosition){
 	spawnPosition.y= (tileMapPosition/tileMap.GetWidth() ) * tileSize.y;
 	objectArray.push_back(unique_ptr<GameObject>(new Enemy(spawnPosition, 1.) ) );
 }
+
+void StageState::LoadAssets(void){
+	Resources::GetImage("img/ocean.jpg");
+	Resources::GetImage("img/map/tileset_v2.png");
+	// Resources::GetImage();
+	// Resources::GetFont();
+	// Resources::GetMusic();
+	// Resources::GetSound();
+}
