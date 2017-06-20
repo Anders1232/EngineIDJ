@@ -41,6 +41,15 @@ class Enemy : public GameObject
 			No momento a position informa o extremo superior esquedo a partir do qual o gameObject será instanciado.
 		*/
 		Enemy(Vec2 position, int life); // calcula vida e velocidade 
+		/**
+			\brief Construtor
+			\todo Documentar!
+			\todo Verificar se está sendo usado.
+			\param position posição onde o inimigo deve ser instancido.
+			\param life Quantidade de vida que o inimigo deve ter.
+			
+			No momento a position informa o extremo superior esquedo a partir do qual o gameObject será instanciado.
+		*/
 		Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint);
 		/**
 			\brief Destrutor

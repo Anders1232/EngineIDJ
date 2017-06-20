@@ -14,6 +14,7 @@ class DragAndDrop : public Component{
 			\brief Construtor.
 			\param map Usado para inserir o objeto no tileMap.
 			\param draggin Informa se o objeto esta sendo arrastado.
+			\param redrag Verdadeiro se for um redrag, falso caso seja um drag inicial.
 			\param dragOnActionHold Variável não utilizada, tem como objetivo verificar se o arrastar é enquanto o botão da ação é segurado ou se pressiona uma vez para arrastar e outra vez para soltar.
 			\todo Implementar o dragOnActionHold.
 		

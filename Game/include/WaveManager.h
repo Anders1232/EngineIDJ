@@ -84,7 +84,7 @@ class WaveManager : public Component {
 			\param baseHP: HP base do inimigo para a wave atual.
 			\param endPoint: posição de destino para aonde o inimigo vai. Lido de WaveData.
 			
-		*/				
+		*/
 		void SpawnEnemy(int tileMapPosition, int enemyId,uint baseHP, uint endPoint);
 		vector<vector<int>> *spawnGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
 		static int waveCount; /**<Contador de waves restantes. Também usado para nivelar as waves.*/
