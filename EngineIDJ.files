@@ -61,7 +61,7 @@ Engine/src/Resources.cpp
 Engine/src/Rect.cpp
 Engine/src/Music.cpp
 Engine/src/InputManager.cpp
-Engine/src/HItPoints.cpp
+Engine/src/HitPoints.cpp
 Engine/src/GameObject.cpp
 Engine/src/Game.cpp
 Engine/src/DragAndDrop.cpp
