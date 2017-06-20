@@ -11,7 +11,7 @@ void HitPoints::Update(GameObject &associated, float dt){
 
 	
 	if(hp <= 0){
-		associated.NotifyDeath();
+		//associated.NotifyDeath();
 	}
 
 }
