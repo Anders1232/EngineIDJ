@@ -68,35 +68,37 @@ void WaveManager::Update(GameObject &associated, float dt){
 			StartWave();
 		}
 	}else{
-		spawnTimer.Update(dt);
-		if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){ // spawn cooldown
-			//spawn 1 enemy at each existing spawn group
-			for (uint i = 0; i < currentWave.spawnPointsData.size(); i++){
-				int enemiesCounter= enemyIndex;
-				int indexOfTheEnemyToSpawn=0;
-				bool breaked= false;
-				while(enemiesCounter >= currentWave.spawnPointsData[i].enemySpawnData[indexOfTheEnemyToSpawn].numberOfEnemies){
-					if(indexOfTheEnemyToSpawn>= currentWave.spawnPointsData[i].enemySpawnData.size()){
-						breaked= true;
-						break;
+		if(enemyIndex <= maxNumberOfEnemiesInSpawnPoint){
+			spawnTimer.Update(dt);
+			if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){ // spawn cooldown
+				//spawn 1 enemy at each existing spawn group
+				for (uint i = 0; i < currentWave.spawnPointsData.size(); i++){
+					int enemiesCounter= enemyIndex;
+					int indexOfTheEnemyToSpawn=0;
+					bool breaked= false;
+					while(enemiesCounter >= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn).numberOfEnemies){
+						if(indexOfTheEnemyToSpawn>= currentWave.spawnPointsData.at(i).enemySpawnData.size()){
+							breaked= true;
+							break;
+						}
+						enemiesCounter-= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn).numberOfEnemies;
+						indexOfTheEnemyToSpawn++;
 					}
-					enemiesCounter-= currentWave.spawnPointsData[i].enemySpawnData[indexOfTheEnemyToSpawn].numberOfEnemies;
-					indexOfTheEnemyToSpawn++;
+					if(breaked){
+						continue;
+					}
+					std::cout<<WHERE<< "\t indexOfTheEnemyToSpawn= " << indexOfTheEnemyToSpawn<<END_LINE;
+					
+					EnemySpawnData &enemyToSpawn= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn);
+					REPORT_DEBUG2(1, "\t enemyIndex= " << enemyToSpawn.enemyIndex);
+					REPORT_DEBUG2(1, "\t baseHP= " << enemyToSpawn.baseHP);
+					REPORT_DEBUG2(1, "\t endPoint= " << enemyToSpawn.endPoint);
+					int spawnPosition = rand()% ( (*spawnGroups).at(i) ).size();
+					SpawnEnemy( (*spawnGroups).at(i).at(spawnPosition), enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, enemyToSpawn.endPoint );
 				}
-				if(breaked){
-					continue;
-				}
-				std::cout<<WHERE<< "\t indexOfTheEnemyToSpawn= " << indexOfTheEnemyToSpawn<<END_LINE;
-				
-				EnemySpawnData &enemyToSpawn= currentWave.spawnPointsData[i].enemySpawnData[indexOfTheEnemyToSpawn];
-				REPORT_DEBUG2(1, "\t enemyIndex= " << enemyToSpawn.enemyIndex);
-				REPORT_DEBUG2(1, "\t baseHP= " << enemyToSpawn.baseHP);
-				REPORT_DEBUG2(1, "\t endPoint= " << enemyToSpawn.endPoint);
-				int spawnPosition = rand()% ( (*spawnGroups)[i] ).size();
-				SpawnEnemy( (*spawnGroups)[i][spawnPosition], enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, enemyToSpawn.endPoint );
+				spawnTimer.Restart();
+				enemyIndex++;
 			}
-			spawnTimer.Restart();
-			enemyIndex++;
 		}
 	}
 	if (0 >= enemiesLeft){
