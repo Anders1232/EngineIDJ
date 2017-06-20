@@ -4,7 +4,8 @@
 #include "Error.h"
 
 UIelement::UIelement(BehaviorType behavior)
-         : behavior(behavior) {
+         : kernelSize(1,1)
+         , behavior(behavior) {
     SetAnchors( {0.,0.}, {1.,1.} );
     SetOffsets( {0.,0.}, {0.,0.} );
 }
@@ -44,11 +45,11 @@ void UIelement::Update(float dt, Rect parentCanvas) {
 
 void UIelement::Render(bool debugRender) const {
     if (debugRender) {
-        SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 0, 0, 255);
+        SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 0, 0, 255); // Bounding Vermelho
         SDL_Rect bounding = boundingBox;
         SDL_RenderDrawRect(Game::GetInstance().GetRenderer(), &bounding);
 
-        SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 255, 0, 255);
+        SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 255, 0, 255); // Box Amarelo
         SDL_Rect renderBox = box;
         SDL_RenderDrawRect(Game::GetInstance().GetRenderer(), &renderBox);
     }

@@ -23,7 +23,11 @@ class TitleState: public State {
 		Image icc;
 		Image overlay;
 		Image title;
-		UItext test;
+		Canvas textGroup;
+		UItext playText;
+		UItext editorText;
+		UItext configText;
+		UItext exitText;
 };
 
 #endif // TITLESTATE_H

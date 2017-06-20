@@ -15,7 +15,11 @@ TitleState::TitleState()
 		, icc("img/UI/main-menu/icc.png", UIelement::BehaviorType::STRETCH)
 		, overlay("img/UI/main-menu/overlay.png", UIelement::BehaviorType::STRETCH)
 		, title("img/UI/main-menu/title.png", UIelement::BehaviorType::FIT)
-		, test("font/Call me maybe.ttf", 32, UItext::TextStyle::BLENDED, {255,255,255,255}) {
+		, textGroup(UIelement::BehaviorType::STRETCH)
+		, playText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Play")
+		, editorText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Editor de Fases")
+		, configText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Configuracoes")
+		, exitText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Exit") {
 	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
 
 	lua.SetSpriteScale(0.75);
@@ -30,9 +34,16 @@ TitleState::TitleState()
 	title.SetSpriteScale(0.7);
 	title.SetAnchors( {(float)(0.5 - (title.GetSpriteWidth()/2.)/winSize.x), (float)(60./winSize.y)},
 					  {(float)(0.5 + (title.GetSpriteWidth()/2.)/winSize.x), (float)(60. + title.GetSpriteHeight())/winSize.y } );
-	test.SetAnchors( {(float)(0.5 - (test.GetSize().x/2.)/winSize.x), (float)(0.5 - (test.GetSize().y/2.)/winSize.y) },
-					 {(float)(0.5 + (test.GetSize().x/2.)/winSize.x), (float)(0.5 - (test.GetSize().y/2.)/winSize.y) } );
-	test.SetText("Test");
+	textGroup.SetAnchors( {0.3, 0.45},
+						  {0.7, 0.9} );
+	playText.SetAnchors( {0., 0. },
+					 	 {1., 0.25 } );
+	editorText.SetAnchors( {0., 0.25},
+						   {1., 0.5} );
+	configText.SetAnchors( {0., 0.5},
+						   {1., 0.75} );
+	exitText.SetAnchors( {0., 0.75},
+						 {1., 1.} );
 }
 
 void TitleState::Update(float dt) {
@@ -54,7 +65,11 @@ void TitleState::Update(float dt) {
 	icc.Update(dt, UIcanvas);
 	overlay.Update(dt, UIcanvas);
 	title.Update(dt, UIcanvas);
-	test.Update(dt, UIcanvas);
+	textGroup.Update(dt, UIcanvas);
+	playText.Update(dt, textGroup);
+	editorText.Update(dt, textGroup);
+	configText.Update(dt, textGroup);
+	exitText.Update(dt, textGroup);
 }
 
 void TitleState::Render(void) const {
@@ -65,7 +80,10 @@ void TitleState::Render(void) const {
 	icc.Render();
 	overlay.Render();
 	title.Render();
-	test.Render();
+	playText.Render();
+	editorText.Render();
+	configText.Render();
+	exitText.Render();
 }
 
 void TitleState::Pause(void) {}

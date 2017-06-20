@@ -56,6 +56,8 @@ class UItext : public UIelement {
 			int fontSize,
 			TextStyle style,
 			SDL_Color color,
+			string text,
+			UIelement::BehaviorType behavior = UIelement::BehaviorType::FIT,
 			bool isStrobing = false
 		);
 		/**

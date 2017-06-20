@@ -4,10 +4,12 @@ UItext::UItext( string fontFile,
 				int fontSize,
 				TextStyle style,
 				SDL_Color color,
+				string text,
+				UIelement::BehaviorType behavior,
 				bool isStrobing )
-		: UIelement(UIelement::BehaviorType::FIT)
+		: UIelement(behavior)
 		, font(Resources::GetFont(fontFile, fontSize))
-		, texture(nullptr), text(" "), style(style)
+		, texture(nullptr), text(text), style(style)
 		, fontSize(fontSize), color(color), textTime()
 		, fontFile(fontFile), isStrobe(isStrobing)
 		, strobeFrequency(TEXT_FREQUENCY)
@@ -30,6 +32,7 @@ void UItext::Update(float dt, Rect parentCanvas) {
 }
 
 void UItext::Render(bool debugRender) const {
+	UIelement::Render(debugRender);
 	if(isStrobe ? textTime.Get() < timeShown : true) {
 		SDL_Rect srcRect;
 		srcRect.x = 0;
@@ -101,5 +104,5 @@ void UItext::SetKernelSize(Vec2 kernelSize) { // É para ser ignorado mesmo
 	int w = 0;
 	int h = 0;
 	SDL_QueryTexture(texture, nullptr, nullptr, &w, &h);
-	kernelSize = Vec2(w, h);
+	this->kernelSize = Vec2(w, h);
 }
