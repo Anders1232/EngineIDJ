@@ -64,6 +64,7 @@ void WaveManager::Update(GameObject &associated, float dt){
 			//Ao invés de não fazer nada deve-ser informar o fim de jogo
 			return;
 		}else{
+			TEMP_REPORT_I_WAS_HERE;
 			++waveIndex;
 			StartWave();
 		}
@@ -76,13 +77,26 @@ void WaveManager::Update(GameObject &associated, float dt){
 					int enemiesCounter= enemyIndex;
 					int indexOfTheEnemyToSpawn=0;
 					bool breaked= false;
+					TEMP_REPORT_I_WAS_HERE;
 					while(enemiesCounter >= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn).numberOfEnemies){
+						TEMP_REPORT_I_WAS_HERE;
 						if(indexOfTheEnemyToSpawn>= currentWave.spawnPointsData.at(i).enemySpawnData.size()){
+							TEMP_REPORT_I_WAS_HERE;
 							breaked= true;
+							TEMP_REPORT_I_WAS_HERE;
 							break;
 						}
+						TEMP_REPORT_I_WAS_HERE;
 						enemiesCounter-= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn).numberOfEnemies;
 						indexOfTheEnemyToSpawn++;
+						TEMP_REPORT_I_WAS_HERE;
+						if(indexOfTheEnemyToSpawn>= currentWave.spawnPointsData.at(i).enemySpawnData.size()){
+							TEMP_REPORT_I_WAS_HERE;
+							breaked= true;
+							TEMP_REPORT_I_WAS_HERE;
+							break;
+						}
+						TEMP_REPORT_I_WAS_HERE;
 					}
 					if(breaked){
 						continue;
@@ -96,11 +110,15 @@ void WaveManager::Update(GameObject &associated, float dt){
 					int spawnPosition = rand()% ( (*spawnGroups).at(i) ).size();
 					SpawnEnemy( (*spawnGroups).at(i).at(spawnPosition), enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, enemyToSpawn.endPoint );
 				}
+				TEMP_REPORT_I_WAS_HERE;
 				spawnTimer.Restart();
 				enemyIndex++;
 			}
+			TEMP_REPORT_I_WAS_HERE;
 		}
+		TEMP_REPORT_I_WAS_HERE;
 	}
+	TEMP_REPORT_I_WAS_HERE;
 	if (0 >= enemiesLeft){
 		endWave = true;
 	}
