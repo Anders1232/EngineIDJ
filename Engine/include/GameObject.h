@@ -59,13 +59,13 @@ class GameObject{
 			
 			No corpo método o GameObject deve atualizar seu estado, utilizando o argumento passado e quaisquer outras funcionalidades que necessitar.
 		*/
-		void Update(float dt);
+		virtual void Update(float dt);
 		/**
 			\brief Renderiza o GameObject.
 			
 			Esse método deve ter a lógica necessário para ser renderizado na tela.
 		*/
-		void Render(void);
+		virtual void Render(void);
 		/**
 			\brief Informa se esse gameObject não precisa mais existir.
 			\return Verdadeiro se esse GameObject não é mais necessário, false caso contrário.
@@ -85,7 +85,7 @@ class GameObject{
 			
 			Deve realizar as ações para tratamento da colisão.
 		*/
-		void NotifyCollision(GameObject &other);
+		virtual void NotifyCollision(GameObject &other);
 		/**
 			\brief Informa que tipo de GameObject é.
 			\param type Tipo com o qual quer se verificar que esse GameObject é.
@@ -93,13 +93,13 @@ class GameObject{
 			
 			É usado no tratamento de colisão para que se identifique com quem colidiu.
 		*/
-		bool Is(string type);
+		virtual bool Is(string type);
 		/**
 			\brief Obtém Rect informando a posição renderizada da animação.
 
 			Obtém Rect informando a posição renderizada, computando zoom, escala e posição da câmera.
 		*/
-		Rect GetWorldRenderedRect(void) const;
+		virtual Rect GetWorldRenderedRect(void) const;
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/
 	protected:

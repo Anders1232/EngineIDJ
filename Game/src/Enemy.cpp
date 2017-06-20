@@ -62,6 +62,7 @@ void Enemy::Update(float dt) {
 }
 
 void Enemy::Render(void) {
+	std::cout<<WHERE<<"\t Box:: x("<<box.x<<"), y(" <<box.y<< "), w("<<box.w<<"), h("<<box.h<<")" END_LINE;
 	sp.Render(box);
 }
 

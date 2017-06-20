@@ -164,7 +164,7 @@ void StageState::Render(void) const {
 void StageState::Pause(void) {}
 
 void StageState::Resume(void) {}
-
+/*
 void StageState::SpawnEnemy(int tileMapPosition){
 	Vec2 tileSize= tileMap.GetTileSize();
 	Vec2 spawnPosition;
@@ -172,3 +172,4 @@ void StageState::SpawnEnemy(int tileMapPosition){
 	spawnPosition.y= (tileMapPosition/tileMap.GetWidth() ) * tileSize.y;
 	objectArray.push_back(unique_ptr<GameObject>(new Enemy(spawnPosition, 1.) ) );
 }
+*/

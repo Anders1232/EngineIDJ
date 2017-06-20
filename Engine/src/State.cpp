@@ -1,5 +1,5 @@
 #include "State.h"
-
+#include "Error.h"
 #include "Camera.h"
 
 State::State(void) : popRequested(false), quitRequested(false) {
@@ -31,6 +31,7 @@ void State::UpdateArray(float dt) {
 }
 
 void State::RenderArray(void) const {
+	TEMP_REPORT_I_WAS_HERE;
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 		objectArray[cont]->Render();
 	}
