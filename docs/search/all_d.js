@@ -7,6 +7,6 @@ var searchData=
   ['notifycollision',['NotifyCollision',['../classAnimation.html#a611b21418311eb697ec4af1aaff92657',1,'Animation::NotifyCollision()'],['../classGameObject.html#ab6f7263c38623812def797a179686b90',1,'GameObject::NotifyCollision()'],['../classEnemy.html#a805f30a2ffcc14e4875717ed0cfa58fc',1,'Enemy::NotifyCollision()'],['../classTower.html#a53579fcf0d8d7524ef63e41c8c66b2c5',1,'Tower::NotifyCollision()']]],
   ['notifyenemygotkilled',['NotifyEnemyGotKilled',['../classWaveManager.html#a565c7b86ea66365e8fbc552c5918ce82',1,'WaveManager']]],
   ['notifyenemygottohisdestiny',['NotifyEnemyGotToHisDestiny',['../classWaveManager.html#aa19e180ce6afba1fad0b92ab25a3dba5',1,'WaveManager']]],
-  ['nullgameobject',['nullGameObject',['../classStageState.html#a2ce0ac2e7b7bcc09d5b6b98905ae7f0c',1,'StageState']]],
+  ['nullgameobject',['nullGameObject',['../classStageState.html#ac699412f052e7954008dd7e7feb52e36',1,'StageState']]],
   ['numberofenemies',['numberOfEnemies',['../structEnemySpawnData.html#ab3ec9a12baad5ddbf06b1bba52768e0d',1,'EnemySpawnData']]]
 ];

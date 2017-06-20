@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['emptygameobject',['emptyGameObject',['../classemptyGameObject.html#ac31c7c7a23729ac8d5a078dde77e201f',1,'emptyGameObject']]],
   ['endstate',['EndState',['../classEndState.html#a14303ccf71d755d28f5a0e79f40c69b4',1,'EndState']]],
   ['endstatedata',['EndStateData',['../classEndStateData.html#a3193e460f24f5cbd1098030864c75ddc',1,'EndStateData::EndStateData(bool playerVictory)'],['../classEndStateData.html#a3193e460f24f5cbd1098030864c75ddc',1,'EndStateData::EndStateData(bool playerVictory)']]],
   ['endwave',['EndWave',['../classWaveManager.html#a50348ec5262024b3f5386f849bf02172',1,'WaveManager']]],

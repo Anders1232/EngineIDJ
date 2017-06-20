@@ -4,6 +4,7 @@ var searchData=
   ['mapheight',['mapHeight',['../classTileMap.html#a8fec89ca278b51de7f3e38831d9fb161',1,'TileMap']]],
   ['mapwidth',['mapWidth',['../classTileMap.html#ae2361e840eacaebbbbc91541ded00655',1,'TileMap']]],
   ['maxframerate',['maxFramerate',['../classGame.html#a5424a424548c7bdb04de05c5c836002d',1,'Game']]],
+  ['maxnumberofenemiesinspawnpoint',['maxNumberOfEnemiesInSpawnPoint',['../classWaveManager.html#a64c49de73005706f16187749699f9d0a',1,'WaveManager']]],
   ['maxspeed',['maxSpeed',['../classCamera.html#a1f02ea6332c710065fa256ed52acd6f1',1,'Camera']]],
   ['maxzoom',['maxZoom',['../classCamera.html#af418b7887d39c773d73cb179c497a8da',1,'Camera']]],
   ['minspeed',['minSpeed',['../classCamera.html#a6c5fe02b8b21a7c9784f970f08b4864a',1,'Camera']]],

@@ -8,7 +8,7 @@ var searchData=
   ['include_5fsdl_5fttf',['INCLUDE_SDL_TTF',['../Game_8h.html#aad46f7f4765b889de5a07dd2d8aaa2e5',1,'INCLUDE_SDL_TTF():&#160;Game.h'],['../Resources_8h.html#aad46f7f4765b889de5a07dd2d8aaa2e5',1,'INCLUDE_SDL_TTF():&#160;Resources.h'],['../Text_8h.html#aad46f7f4765b889de5a07dd2d8aaa2e5',1,'INCLUDE_SDL_TTF():&#160;Text.h']]],
   ['initial_5fframerate',['INITIAL_FRAMERATE',['../Game_8h.html#a3318188045b827a2e08aa1935eb8ff24',1,'Game.h']]],
   ['input_5fmanager',['INPUT_MANAGER',['../Camera_8cpp.html#ad2c7741149bf2d26ce3649737749d3ff',1,'Camera.cpp']]],
-  ['inputmanager',['InputManager',['../classInputManager.html',1,'InputManager'],['../classGame.html#a57010b9ce85884e0f4059d8d8474e610',1,'Game::inputManager()'],['../classStageState.html#acbf7ba483ee1ae6fe7d20f22b5c721b3',1,'StageState::inputManager()'],['../classInputManager.html#a8be46886da639b26d67181c29dab6d6c',1,'InputManager::InputManager()']]],
+  ['inputmanager',['InputManager',['../classInputManager.html',1,'InputManager'],['../classInputManager.html#a8be46886da639b26d67181c29dab6d6c',1,'InputManager::InputManager()'],['../classGame.html#a57010b9ce85884e0f4059d8d8474e610',1,'Game::inputManager()'],['../classStageState.html#acbf7ba483ee1ae6fe7d20f22b5c721b3',1,'StageState::inputManager()']]],
   ['inputmanager_2ecpp',['InputManager.cpp',['../InputManager_8cpp.html',1,'']]],
   ['inputmanager_2eh',['InputManager.h',['../InputManager_8h.html',1,'']]],
   ['insertgo',['InsertGO',['../classTileMap.html#a9370c61beefad2f657c022a0a2462336',1,'TileMap::InsertGO(GameObject *obj)'],['../classTileMap.html#a916d38c429fe9d66b92c2687656c0e3c',1,'TileMap::InsertGO(GameObject *obj, Vec2 initialPos)']]],

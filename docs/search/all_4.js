@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['emptygameobject',['emptyGameObject',['../classemptyGameObject.html',1,'emptyGameObject'],['../classemptyGameObject.html#ac31c7c7a23729ac8d5a078dde77e201f',1,'emptyGameObject::emptyGameObject()']]],
-  ['emptygameobject_2eh',['emptyGameObject.h',['../emptyGameObject_8h.html',1,'']]],
   ['end_5fline',['END_LINE',['../Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f',1,'Error.h']]],
   ['end_5fstate_5fdelta_5fvolume',['END_STATE_DELTA_VOLUME',['../EndState_8h.html#a8c776b55093efb545c75f4a409cb93b6',1,'EndState.h']]],
   ['end_5fstate_5ffont_5fsize',['END_STATE_FONT_SIZE',['../EndState_8h.html#a072640bf35e47c51689c7e84ca5fe4b4',1,'EndState.h']]],
