@@ -21,7 +21,7 @@ AIArt::AIArt(float speed,int dest,TileMap* tilemap,GameObject &associated):speed
 	dfa[AIState::STUNNED][AIEvent::PATH_BLOCKED] = AIState::WAITING;
 	dfa[AIState::STUNNED][AIEvent::NONE] = AIState::STUNNED;
 
-	actualState = AIState::WALKING;
+	actualState = AIState::WAITING;
 }
 
 AIArt::AIEvent AIArt::ComputeEvents(){
@@ -41,7 +41,7 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 
 	}
 	else if(actualState == AIState::WAITING){
-		//std::cout <<"chegou 1" << std::endl;
+		std::cout <<"chegou 1" << std::endl;
 		if(tilemap->Stun(associated.box)){
 
 			return AIEvent::STUN;
@@ -78,7 +78,7 @@ void AIArt::Update(float dt){
 
 	std::cout << "Transição atual: " << ComputeEvents() << std::endl;
 	actualState = dfa[actualState][ComputeEvents()];
-	//std::cout << "Estado atual: " << actualState << std::endl;
+	//std::cout << "Estado atual: " << actualredrState << std::endl;
 	//std::cout << "Tamanho do caminho: " << path.size() << std::endl;
 	if(actualState == AIState::WALKING){
 
