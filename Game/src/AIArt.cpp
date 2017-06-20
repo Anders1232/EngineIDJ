@@ -8,7 +8,7 @@ AIArt::AIArt(float speed,int dest,TileMap* tilemap,GameObject &associated):speed
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
 	path = tilemap->AStar(tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
-	
+
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
 	dfa[AIState::WALKING][AIEvent::PATH_BLOCKED] = AIState::WAITING;
 	dfa[AIState::WALKING][AIEvent::NONE] = AIState::WALKING;
@@ -41,7 +41,7 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 
 	}
 	else if(actualState == AIState::WAITING){
-
+		//std::cout <<"chegou 1" << std::endl;
 		if(tilemap->Stun(associated.box)){
 
 			return AIEvent::STUN;
@@ -49,6 +49,7 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 		}
 		if(!path.empty()){
 
+			std::cout << AIEvent::PATH_FREE << std::endl;
 			return AIEvent::PATH_FREE;
 
 		}
@@ -75,8 +76,10 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 
 void AIArt::Update(float dt){
 
+	std::cout << "Transição atual: " << ComputeEvents() << std::endl;
 	actualState = dfa[actualState][ComputeEvents()];
-
+	//std::cout << "Estado atual: " << actualState << std::endl;
+	//std::cout << "Tamanho do caminho: " << path.size() << std::endl;
 	if(actualState == AIState::WALKING){
 
 		float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();

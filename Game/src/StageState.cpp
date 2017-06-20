@@ -211,6 +211,6 @@ void StageState::SpawnEnemy(int tileMapPosition) {
 	spawnPosition.x = (tileMapPosition % tileMap->GetWidth() ) * tileSize.x;
 	spawnPosition.y = (tileMapPosition / tileMap->GetWidth() ) * tileSize.y;
 	Enemy *e = new Enemy(spawnPosition,EnemyType::NEUTRAL, 1.0);
-	e->AddComponent(new AIArt(ENEMY_MOVE_SPEED,5310,tileMap,*e));
+	e->AddComponent(new AIArt(ENEMY_MOVE_SPEED,2216,tileMap,*e));
 	objectArray.push_back(unique_ptr<GameObject>(e));
 }

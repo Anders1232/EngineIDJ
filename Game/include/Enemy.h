@@ -101,6 +101,7 @@ class Enemy : public GameObject
 		enum EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
 		Sprite sp;/**< Sprite do inimigo.*/
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
+		int life;
 };
 
 #endif // ENEMY_H
