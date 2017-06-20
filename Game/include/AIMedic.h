@@ -10,7 +10,7 @@
 /**
 	\brief Componete IA que se move para ponto de destino
 */
-class AIArt : public Component
+class AIMedic : public Component
 {
 	public:
 		/**
@@ -20,7 +20,7 @@ class AIArt : public Component
 			\param associado objeto associado a essa IA.
 			Instancia o componente.
 		*/
-		AIArt(float speed,int dest,TileMap* tilemap,GameObject &associated);
+		AIMedic(float speed,int dest,TileMap* tilemap,GameObject &associated);
 		/**
 			\brief Atualiza estado.
 			\param dt Intervalo de tempo desde a última chamada.
@@ -36,7 +36,7 @@ class AIArt : public Component
 		bool Is(ComponentType type) const;
 	private:
 
-		enum AIState{WALKING,WALKING,_SLOWLY,WAITING,STUNNED,STATE_NUM};
+		enum AIState{WALKING,WALKING_SLOWLY,WAITING,STUNNED,STATE_NUM};
 		enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,SMOKE,NOT_SMOKE,STUN,NOT_STUN,EVENT_NUM}; 
 
 		AIEvent ComputeEvents();

@@ -14,6 +14,7 @@ enum ComponentType{
 	AI_GO_TO,
 	AI_PRINT_PATH,
 	AI_ART,
+	AI_MEDIC,
 	SIZE
 };
 
