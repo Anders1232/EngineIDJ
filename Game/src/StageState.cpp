@@ -100,7 +100,7 @@ void StageState::Update(float dt) {
 	}
 
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
-		TEMP_REPORT_I_WAS_HERE;
+		REPORT_I_WAS_HERE;
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 		int position = tileMap.GetTileMousePos(mousePos, false, COLLISION_LAYER);
 		GameObject *go= tileMap.GetGO(position);

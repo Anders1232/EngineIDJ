@@ -231,9 +231,8 @@ void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 }
 
 void TileMap::RemoveGO(int position){
-	TEMP_REPORT_I_WAS_HERE;
+	REPORT_I_WAS_HERE;
 	if(0 == AtLayer(position, COLLISION_LAYER)){
-		TEMP_REPORT_I_WAS_HERE;
 		if(nullptr == gameObjectMatrix[position]){
 			REPORT_DEBUG("\t Trying to remove a gameObject where there is none");
 		}
@@ -314,7 +313,7 @@ vector<vector<int>>* TileMap::GetSpawnPositions(void) const {
 		}
 		REPORT_I_WAS_HERE;
 	}
-#ifdef DEBUG
+#if DEBUG
 	std::cout << WHERE << "\tNumero de spawn groups achados: " << (*spawnPoints).size() << END_LINE;
 	for(uint i = 0; i < (*spawnPoints).size(); i++) {
 		std::cout << WHERE << "\tSpawn groups " << i <<" tem tamanho " << (*spawnPoints)[i].size() << END_LINE;

@@ -55,7 +55,6 @@ bool WaveManager::EndWave(){
 }
  
 void WaveManager::Update(GameObject &associated, float dt){
-	int enemyId;
 	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
 
 	if(EndWave()){
@@ -73,8 +72,8 @@ void WaveManager::Update(GameObject &associated, float dt){
 			if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){ // spawn cooldown
 				//spawn 1 enemy at each existing spawn group
 				for (uint i = 0; i < currentWave.spawnPointsData.size(); i++){
-					int enemiesCounter= enemyIndex;
-					int indexOfTheEnemyToSpawn=0;
+					uint enemiesCounter= enemyIndex;
+					uint indexOfTheEnemyToSpawn=0;
 					bool breaked= false;
 					REPORT_I_WAS_HERE;
 					while(enemiesCounter >= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn).numberOfEnemies){
@@ -100,12 +99,12 @@ void WaveManager::Update(GameObject &associated, float dt){
 					if(breaked){
 						continue;
 					}
-					std::cout<<WHERE<< "\t indexOfTheEnemyToSpawn= " << indexOfTheEnemyToSpawn<<END_LINE;
+					REPORT_DEBUG("\t indexOfTheEnemyToSpawn= " << indexOfTheEnemyToSpawn);
 					
 					EnemySpawnData &enemyToSpawn= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn);
-					REPORT_DEBUG2(1, "\t enemyIndex= " << enemyToSpawn.enemyIndex);
-					REPORT_DEBUG2(1, "\t baseHP= " << enemyToSpawn.baseHP);
-					REPORT_DEBUG2(1, "\t endPoint= " << enemyToSpawn.endPoint);
+					REPORT_DEBUG("\t enemyIndex= " << enemyToSpawn.enemyIndex);
+					REPORT_DEBUG("\t baseHP= " << enemyToSpawn.baseHP);
+					REPORT_DEBUG("\t endPoint= " << enemyToSpawn.endPoint);
 					int spawnPosition = rand()% ( (*spawnGroups).at(i) ).size();
 					SpawnEnemy( (*spawnGroups).at(i).at(spawnPosition), enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, enemyToSpawn.endPoint );
 				}
