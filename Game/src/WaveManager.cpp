@@ -74,7 +74,7 @@ void WaveManager::Update(GameObject &associated, float dt){
 		if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){ // spawn cooldown
 			//spawn 1 enemy at each existing spawn group
 			for (uint i = 0; i < currentWave.spawnPointsData.size(); i++){
-				if()
+				//if()
 				EnemySpawnData &enemyToSpawn= currentWave.spawnPointsData[i].enemySpawnData[enemyIndex];
 				REPORT_DEBUG2(1, "\t enemyIndex= " << enemyToSpawn.enemyIndex);
 				REPORT_DEBUG2(1, "\t baseHP= " << enemyToSpawn.baseHP);

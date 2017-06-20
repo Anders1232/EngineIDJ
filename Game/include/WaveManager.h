@@ -98,7 +98,7 @@ class WaveManager : public Component {
 		std::shared_ptr< std::pair< std::vector<WaveData>, std::vector<EnemyData> > > wavesAndEnemysData; /**<Shared Pointer, vai armazenar a leitura do arquivo com as informaçoes de Wave e Inimigo.*/
 		int waveIndex, enemyIndex, totalWaves;/**<Identificador da wave atual, identificador do inimigo atual e o contador de waves. Vitória se da quando contador for igual ao número total.*/
 		int waveTotalEnemies; /**<Indica o número total de inimigos da wave atual.*/
-
+		int maxNumberOfEnemiesInSpawnPoint;
 
 };
 
