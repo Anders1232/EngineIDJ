@@ -36,6 +36,8 @@ void UIelement::SetBehavior(BehaviorType type) {
 void UIelement::Update(float dt, Rect parentCanvas) {
     boundingBox = ComputeBoundingbox(parentCanvas);
     box = ComputeBox();
+    boundingBox.x += parentCanvas.x;
+    boundingBox.y += parentCanvas.y;
     box.x += parentCanvas.x;
     box.y += parentCanvas.y;
 }

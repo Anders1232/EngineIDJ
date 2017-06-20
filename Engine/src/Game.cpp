@@ -58,9 +58,6 @@ Game::Game(std::string title,int width, int height)
 	if(nullptr == renderer) {
 		Error(SDL_GetError());
 	}
-	if(-1 == SDL_SetRenderDrawColor(renderer, CLEAR_COLOR)) {
-		Error(SDL_GetError());
-	}
 
 	result = Mix_Init(MIX_INIT_MP3 | MIX_INIT_OGG);
 	if(0 == result) {
@@ -152,6 +149,9 @@ void Game::Run(void) {
 		CalculateDeltaTime();
 		inputManager.Update();
 		stateStack.top()->Update(GetDeltaTime());
+		if(-1 == SDL_SetRenderDrawColor(renderer, CLEAR_COLOR)) {
+			Error(SDL_GetError());
+		}
 		SDL_RenderClear(renderer);
 		stateStack.top()->Render();
 		SDL_RenderPresent(renderer);

@@ -7,14 +7,14 @@
 
 TitleState::TitleState()
 		: State()
-		, UIcanvas({16,9})
+		, UIcanvas({1024,600}, UIelement::BehaviorType::FIT)
 		, bg("img/UI/main-menu/bg.png", UIelement::BehaviorType::STRETCH)
 		, lua("img/UI/main-menu/lua.png", UIelement::BehaviorType::STRETCH)
 		/*, nuvemA("img/UI/main-menu/nuvemA.png", UIelement::BehaviorType::STRETCH)*/
 		, nuvemB("img/UI/main-menu/nuvemB.png", UIelement::BehaviorType::STRETCH)
 		, icc("img/UI/main-menu/icc.png", UIelement::BehaviorType::STRETCH)
 		, overlay("img/UI/main-menu/overlay.png", UIelement::BehaviorType::STRETCH)
-		, title("img/UI/main-menu/title.png", UIelement::BehaviorType::STRETCH) {
+		, title("img/UI/main-menu/title.png", UIelement::BehaviorType::FIT) {
 	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
 
 	lua.SetSpriteScale(0.75);
@@ -57,7 +57,7 @@ void TitleState::Render(void) const {
 	nuvemB.Render();
 	icc.Render();
 	overlay.Render();
-	title.Render(false);
+	title.Render();
 }
 
 void TitleState::Pause(void) {}

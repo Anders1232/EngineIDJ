@@ -26,6 +26,7 @@ Vec2 Image::GetSpriteDimensions(void) {
 
 void Image::SetSpriteScale(float scale) {
     sp.SetScale(scale);
+    SetKernelSize();
 }
 
 void Image::SetSpriteColorMultiplier(Color color, unsigned char alpha, SDL_BlendMode blendMode) {
