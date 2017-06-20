@@ -4,6 +4,7 @@
 #include "ActionManager.h"
 #include "Image.h"
 #include "Canvas.h"
+#include "UItext.h"
 #include "State.h"
 
 class TitleState: public State {
@@ -22,6 +23,7 @@ class TitleState: public State {
 		Image icc;
 		Image overlay;
 		Image title;
+		UItext test;
 };
 
 #endif // TITLESTATE_H

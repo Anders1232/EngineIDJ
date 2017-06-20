@@ -14,7 +14,8 @@ TitleState::TitleState()
 		, nuvemB("img/UI/main-menu/nuvemB.png", UIelement::BehaviorType::STRETCH)
 		, icc("img/UI/main-menu/icc.png", UIelement::BehaviorType::STRETCH)
 		, overlay("img/UI/main-menu/overlay.png", UIelement::BehaviorType::STRETCH)
-		, title("img/UI/main-menu/title.png", UIelement::BehaviorType::FIT) {
+		, title("img/UI/main-menu/title.png", UIelement::BehaviorType::FIT)
+		, test("font/Call me maybe.ttf", 32, UItext::TextStyle::BLENDED, {255,255,255,255}) {
 	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
 
 	lua.SetSpriteScale(0.75);
@@ -29,6 +30,9 @@ TitleState::TitleState()
 	title.SetSpriteScale(0.7);
 	title.SetAnchors( {(float)(0.5 - (title.GetSpriteWidth()/2.)/winSize.x), (float)(60./winSize.y)},
 					  {(float)(0.5 + (title.GetSpriteWidth()/2.)/winSize.x), (float)(60. + title.GetSpriteHeight())/winSize.y } );
+	test.SetAnchors( {(float)(0.5 - (test.GetSize().x/2.)/winSize.x), (float)(0.5 - (test.GetSize().y/2.)/winSize.y) },
+					 {(float)(0.5 + (test.GetSize().x/2.)/winSize.x), (float)(0.5 - (test.GetSize().y/2.)/winSize.y) } );
+	test.SetText("Test");
 }
 
 void TitleState::Update(float dt) {
@@ -40,6 +44,7 @@ void TitleState::Update(float dt) {
 		popRequested = true;
 	}
 
+	// UI
 	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
 	Rect titleCanvas(0., 0., winSize.x, winSize.y);
 	UIcanvas.Update(dt, titleCanvas);
@@ -49,15 +54,18 @@ void TitleState::Update(float dt) {
 	icc.Update(dt, UIcanvas);
 	overlay.Update(dt, UIcanvas);
 	title.Update(dt, UIcanvas);
+	test.Update(dt, UIcanvas);
 }
 
 void TitleState::Render(void) const {
+	// UI
 	bg.Render();
 	lua.Render();
 	nuvemB.Render();
 	icc.Render();
 	overlay.Render();
 	title.Render();
+	test.Render();
 }
 
 void TitleState::Pause(void) {}
