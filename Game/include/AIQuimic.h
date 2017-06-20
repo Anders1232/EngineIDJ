@@ -8,7 +8,7 @@
 #include <list>
 
 /**
-	\brief Componete IA que se move para ponto de destino
+	\brief Componete IA que reproduz o comportamento do estudande de quimica
 */
 class AIQuimic : public Component
 {

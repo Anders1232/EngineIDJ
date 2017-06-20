@@ -21,7 +21,7 @@ AIArt::AIArt(float speed,int dest,TileMap* tilemap,GameObject &associated):speed
 	dfa[AIState::STUNNED][AIEvent::PATH_BLOCKED] = AIState::WAITING;
 	dfa[AIState::STUNNED][AIEvent::NONE] = AIState::STUNNED;
 
-	actualState = AIState::WAITING;
+	actualState = AIState::WALKING;
 }
 
 AIArt::AIEvent AIArt::ComputeEvents(){
