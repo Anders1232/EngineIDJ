@@ -1,5 +1,5 @@
 <map id="Camera" name="Camera">
-<area shape="rect" id="node2" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="110,227,162,254"/>
-<area shape="rect" id="node4" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="283,316,378,343"/>
-<area shape="rect" id="node5" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="438,139,489,165"/>
+<area shape="rect" id="node2" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="127,227,179,254"/>
+<area shape="rect" id="node4" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="301,316,395,343"/>
+<area shape="rect" id="node5" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="456,139,507,165"/>
 </map>

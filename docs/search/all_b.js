@@ -10,5 +10,6 @@ var searchData=
   ['lifes',['lifes',['../classStateData.html#a4cfaba2a0f99c715f37607b068617210',1,'StateData']]],
   ['limitframerate',['LimitFramerate',['../classGame.html#a3fb091ff0a082d2652a98fee63c62b83',1,'Game']]],
   ['load',['Load',['../classTileMap.html#a57d5a9e280c52b74e8e1f0c3a2c876b7',1,'TileMap']]],
+  ['logzoomspeed',['logZoomSpeed',['../classCamera.html#ab9c22201b3c224e7c0f6e7a6733c33ff',1,'Camera']]],
   ['lista_20de_20futuras_20atividades',['Lista de Futuras Atividades',['../todo.html',1,'']]]
 ];
