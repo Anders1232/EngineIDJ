@@ -1,42 +1,75 @@
 #include "UIbutton.h"
 
-UIbutton::UIbutton(UIelement::BehaviorType behavior, UIbutton::State initialState)
-        : UIelement(behavior)
-        , actualState(initialState)
-        , elements{nullptr} {}
+UIbutton::UIbutton(UIbutton::State initialState)
+        : actualState(initialState)
+        , disabledCallback(nullptr)
+        , enabledCallback(nullptr)
+        , highlightedCallback(nullptr)
+        , selectedCallback(nullptr)
+        , clickedCallback(nullptr) {}
 
-const UIelement* UIbutton::GetUIelement(UIbutton::State whichElement) const {
-    int index = static_cast<int>(whichElement);
-    return elements[index];
-}
-
-void UIbutton::SetUIelement(UIbutton::State whichElement, UIelement* element) {
-    int index = static_cast<int>(whichElement);
-    elements[index] = element;
-}
-
-void UIbutton::Update(float dt, Rect parentCanvas) {
-    UIelement::Update(dt, parentCanvas);
-    for(int i = 0; i < 4; i++) {
-        if(nullptr != elements[i]) {
-            elements[i]->Update(dt, box);
+void UIbutton::SetCallback(UIbutton::State stateToSet, ButtonCallback callback) {
+    switch(actualState) {
+        case UIbutton::State::DISABLED: {
+            disabledCallback = callback;
+            break;
+        }
+        case UIbutton::State::ENABLED: {
+            enabledCallback = callback;
+            break;
+        }
+        case UIbutton::State::HIGHLIGHTED: {
+            highlightedCallback = callback;
+            break;
+        }
+        case UIbutton::State::SELECTED: {
+            selectedCallback = callback;
+            break;
         }
     }
 }
 
-void UIbutton::Render(bool debugRender) const {
-    UIelement::Render(debugRender);
-    const UIelement* toRender = GetUIelement(actualState);
-    if (nullptr != toRender) {
-        toRender->Render(debugRender);
+void UIbutton::SetClickCallback(ButtonCallback callback) {
+    clickedCallback = callback;
+}
+
+void UIbutton::SetUIbuttonState(UIbutton::State newState) {
+    actualState = newState;
+    switch(actualState) {
+        case UIbutton::State::DISABLED: {
+            if(nullptr != disabledCallback) {
+                disabledCallback(this);
+            }
+            break;
+        }
+        case UIbutton::State::ENABLED: {
+            if(nullptr != enabledCallback) {
+                enabledCallback(this);
+            }
+            break;
+        }
+        case UIbutton::State::HIGHLIGHTED: {
+            if(nullptr != highlightedCallback) {
+                highlightedCallback(this);
+            }
+            break;
+        }
+        case UIbutton::State::SELECTED: {
+            if(nullptr != selectedCallback) {
+                selectedCallback(this);
+            }
+            break;
+        }
     }
 }
 
-void UIbutton::SetKernelSize(Vec2 kernelSize) { // É para ser ignorado mesmo
-    for(int i = 0; i < 4; i++) {
-        if(nullptr != elements[i]) {
-            elements[i]->SetKernelSize(kernelSize);
-        }
+UIbutton::State UIbutton::GetUIbuttonState(void) {
+    return actualState;
+}
+
+void UIbutton::Click() {
+    if(nullptr != clickedCallback) {
+        clickedCallback(this);
     }
 }
 

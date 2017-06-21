@@ -3,9 +3,10 @@
 
 #include "Rect.h"
 #include "Vec2.h"
-#include "UIelement.h"
 
-class UIbutton : public UIelement {
+#include <string>
+
+class UIbutton {
   public:
     enum State : int {
         DISABLED = 0,
@@ -13,16 +14,21 @@ class UIbutton : public UIelement {
         HIGHLIGHTED,
         SELECTED
     };
-    UIbutton(UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH, UIbutton::State initialState = UIbutton::State::ENABLED);
-    const UIelement* GetUIelement(UIbutton::State whichElement) const;
-    void SetUIelement(UIbutton::State whichElement, UIelement*);
-    void Update(float dt, Rect parentCanvas);
-    void Render(bool debugRender = false) const;
-    void SetKernelSize(Vec2 kernelSize = Vec2());
-    bool Is(std::string UItype) const;
+    typedef void (*ButtonCallback) (UIbutton*);
+    void SetCallback(UIbutton::State stateToSet, ButtonCallback callback);
+    void SetClickCallback(ButtonCallback callback);
+    void SetUIbuttonState(UIbutton::State newState);
+    UIbutton::State GetUIbuttonState(void);
+    void Click();
+    virtual bool Is(std::string UItype) const;
+  protected:
+    UIbutton(UIbutton::State initialState = UIbutton::State::ENABLED);
     UIbutton::State actualState;
-  private:
-    UIelement* elements[4];
+    ButtonCallback disabledCallback;
+    ButtonCallback enabledCallback;
+    ButtonCallback highlightedCallback;
+    ButtonCallback selectedCallback;
+    ButtonCallback clickedCallback;
 };
 
 #endif // UIBUTTON_H

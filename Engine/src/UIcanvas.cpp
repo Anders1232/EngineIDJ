@@ -6,10 +6,10 @@ UIcanvas::UIcanvas(Vec2 aspectRatio, UIelement::BehaviorType behavior) : UIeleme
     kernelSize = aspectRatio;
 }
 
-void UIcanvas::SetKernelSize(Vec2 kernelSize) {
-    this->kernelSize = kernelSize;
+void UIcanvas::SetAspectRatio(Vec2 aspectRatio) {
+    this->kernelSize = aspectRatio;
 }
 
 bool UIcanvas::Is(std::string UItype) const {
-    return "UIcanvas" == UItype;
+    return "UIcanvas" == UItype || UIelement::Is(UItype);
 }

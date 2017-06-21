@@ -121,7 +121,6 @@ class UItext : public UIelement {
 			Altera o tempo total de cada ciclo de piscagem (tempo de texto sendo renderizado + tempo sem renderização).
 		*/
 		void SetStrobeFrequency(float fullTime);
-		void SetKernelSize(Vec2 kernelSize = Vec2());
 		bool Is(std::string UItype) const;
 	private:
 		/**

@@ -14,19 +14,17 @@ class UIelement {
         FILL,
         STRETCH
     };
-    UIelement(BehaviorType behavior = BehaviorType::STRETCH);
-    ~UIelement();
     void SetAnchors(Vec2 min, Vec2 max);
     void SetOffsets(Vec2 min, Vec2 max);
     void SetBehavior(BehaviorType type);
-    virtual void SetKernelSize(Vec2 kernelSize) = 0;
     virtual void Update(float dt, Rect parentCanvas);
     virtual void Render(bool debugRender = false) const;
-    virtual bool Is(std::string UItype) const = 0;
+    virtual bool Is(std::string UItype) const;
     Rect ComputeBoundingbox(Rect parentCanvas);
     Rect ComputeBox();
     operator Rect();
   protected:
+    UIelement(BehaviorType behavior = BehaviorType::STRETCH);
     Rect boundingBox;
     Rect box;
     Vec2 kernelSize;

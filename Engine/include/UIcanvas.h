@@ -11,7 +11,7 @@ class UIcanvas : public UIelement {
   public:
     UIcanvas(UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
     UIcanvas(Vec2 aspectRatio, UIelement::BehaviorType behavior = UIelement::BehaviorType::FIT);
-    void SetKernelSize(Vec2 kernelSize);
+    void SetAspectRatio(Vec2 aspectRatio);
     bool Is(std::string UItype) const;
 };
 

@@ -85,7 +85,10 @@ void UItext::RemakeTexture(void) {
 	}
 	texture = SDL_CreateTextureFromSurface(Game::GetInstance().GetRenderer(), temp);
 	SDL_FreeSurface(temp);
-	SetKernelSize();
+	int w = 0;
+	int h = 0;
+	SDL_QueryTexture(texture, nullptr, nullptr, &w, &h);
+	kernelSize = Vec2(w, h);
 }
 
 Vec2 UItext::GetSize(void) const {
@@ -100,13 +103,6 @@ void UItext::SetStrobeFrequency(float fullTime) {
 	strobeFrequency = fullTime;
 }
 
-void UItext::SetKernelSize(Vec2 kernelSize) { // É para ser ignorado mesmo
-	int w = 0;
-	int h = 0;
-	SDL_QueryTexture(texture, nullptr, nullptr, &w, &h);
-	this->kernelSize = Vec2(w, h);
-}
-
 bool UItext::Is(std::string UItype) const {
-	return "UItext" == UItype;
+	return "UItext" == UItype || UIelement::Is(UItype);
 }

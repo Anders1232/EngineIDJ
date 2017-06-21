@@ -18,7 +18,6 @@ class UIimage : public UIelement {
     Vec2 GetSpriteDimensions(void);
     void SetSpriteScale(float scale);
     void SetSpriteColorMultiplier(Color scale, unsigned char alpha, SDL_BlendMode blendMode = ALPHA_BLEND);
-    void SetKernelSize(Vec2 kernelSize = Vec2());
     bool Is(std::string UItype) const;
   private:
     Sprite sp;

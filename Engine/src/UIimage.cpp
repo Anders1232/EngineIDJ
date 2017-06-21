@@ -3,7 +3,7 @@
 UIimage::UIimage(std::string file, UIelement::BehaviorType behavior)
          : UIelement(behavior) {
     sp = Sprite(file);
-    SetKernelSize();
+    kernelSize = Vec2(sp.GetWidth(), sp.GetHeight());
 }
 
 void UIimage::Render(bool debugRender) const {
@@ -26,7 +26,7 @@ Vec2 UIimage::GetSpriteDimensions(void) {
 
 void UIimage::SetSpriteScale(float scale) {
     sp.SetScale(scale);
-    SetKernelSize();
+    kernelSize = Vec2(sp.GetWidth(), sp.GetHeight());
 }
 
 void UIimage::SetSpriteColorMultiplier(Color color, unsigned char alpha, SDL_BlendMode blendMode) {
@@ -35,10 +35,6 @@ void UIimage::SetSpriteColorMultiplier(Color color, unsigned char alpha, SDL_Ble
     sp.blendMode = blendMode;
 }
 
-void UIimage::SetKernelSize(Vec2 kernelSize) { // É para ignorar o argumento mesmo
-    this->kernelSize = Vec2(sp.GetWidth(), sp.GetHeight());
-}
-
 bool UIimage::Is(std::string UItype) const {
-    return "UIimage" == UItype;
+    return "UIimage" == UItype || UIelement::Is(UItype);
 }
