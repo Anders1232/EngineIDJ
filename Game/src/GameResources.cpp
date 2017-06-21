@@ -155,6 +155,30 @@ EnemyType GameResources::GetEnemyTypeFromString(std::string str){
 		Error("\tTipo de inimigo não identificado " << str);
 	}
 }
+
+void GameResources::Clear(void){
+	auto i= weightDataMap.begin();
+	while(i != weightDataMap.end()) {
+		if((*i).second.unique()) {
+			i= weightDataMap.erase(i);
+		}
+		else {
+			i++;
+		}
+	}
+	
+	auto j= waveDataMap.begin();
+	while(j != waveDataMap.end()) {
+		if((*j).second.unique()) {
+			j= waveDataMap.erase(j);
+		}
+		else {
+			j++;
+		}
+	}
+
+}
+
 //void GameResources::SaveWeightData(std::array<std::map<int, int> *data)
 
 //void GameResources::SaveWaveData(voidstd::pair<std::vector<WaveData>, std::vector<EnemyData> > *data);

@@ -6,6 +6,7 @@
 #include "Error.h"
 #include "Tower.h"
 #include "Game.h"
+#include "GameResources.h"
 
 #define INCLUDE_SDL 
 #define INCLUDE_SDL_IMAGE 
@@ -52,6 +53,7 @@ StageState::~StageState(void) {
 	objectArray.clear();
 	//delete tileMap;
 	delete spawnGroups;
+	GameResources::Clear();
 }
 
 void StageState::Update(float dt) {
@@ -84,11 +86,11 @@ void StageState::Update(float dt) {
 	waveManager.Update(nullGameObject,dt);
 	//Game Over Conditions
 	if(waveManager.GetLifesLeft() == 0){
-    	popRequested = true;
-    	Game::GetInstance().Push(new EndState(EndStateData(false)));
+		popRequested = true;
+		Game::GetInstance().Push(new EndState(EndStateData(false)));
 	}else if(waveManager.Victory()){
 		popRequested = true;
-    	Game::GetInstance().Push(new EndState(EndStateData(true)));
+		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
 
 	if(InputManager::GetInstance().KeyPress('r')) {
@@ -191,9 +193,6 @@ void StageState::Render(void) const {
 void StageState::Pause(void) {}
 
 void StageState::Resume(void) {}
-
-
-
 void StageState::ShowLightning(float dt){
 	isLightning = true;
 	lightningTimer.Update(dt);

@@ -52,7 +52,7 @@ class GameObject{
 			
 			Basicamente é para obrigar quem implementar de usar um destrutor.
 		*/
-		~GameObject(void);
+		virtual ~GameObject(void);
 		/**
 			\brief Atualizar estado.
 			\param dt tempo transcorrido desde a última chamada ao método.

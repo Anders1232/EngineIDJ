@@ -3,6 +3,11 @@
 #include "Camera.h"
 
 GameObject::~GameObject(){
+	TEMP_REPORT_I_WAS_HERE;
+	for(uint i = 0; i < components.size(); i++) {
+		delete components[i];
+	}
+	components.clear();
 }
 
 GameObject::GameObject(void): rotation(0.), dead(false){
