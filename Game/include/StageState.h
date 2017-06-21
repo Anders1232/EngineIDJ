@@ -41,9 +41,6 @@ class StageState: public State {
 		GameObject nullGameObject;
 		vector<int> waves;//vetor de waves a ser lido no arquivo
 		void SpawnEnemy(int tileMapPosition);
-		WaveManager waveManager;
-		GameObject nullGameObject;
-		vector<int> waves;//vetor de waves a ser lido no arquivo
 };
 
 #include "EndState.h"
