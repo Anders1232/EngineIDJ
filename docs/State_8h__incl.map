@@ -1,9 +1,0 @@
-<map id="Engine/include/State.h" name="Engine/include/State.h">
-<area shape="rect" id="node4" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="8,80,119,107"/>
-<area shape="rect" id="node9" href="$Resources_8h.html" title="Resources.h" alt="" coords="256,80,352,107"/>
-<area shape="rect" id="node11" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="475,80,582,107"/>
-<area shape="rect" id="node5" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="388,304,495,331"/>
-<area shape="rect" id="node6" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="410,229,472,256"/>
-<area shape="rect" id="node12" href="$Component_8h.html" title="Component.h" alt="" coords="478,155,578,181"/>
-<area shape="rect" id="node13" href="$Rect_8h.html" title="Rect.h" alt="" coords="654,155,715,181"/>
-</map>

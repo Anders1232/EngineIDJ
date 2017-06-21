@@ -1,7 +1,0 @@
-<map id="Game/include/EndStateData.h" name="Game/include/EndStateData.h">
-<area shape="rect" id="node2" href="$EndState_8h.html" title="Game/include/EndState.h" alt="" coords="89,80,260,107"/>
-<area shape="rect" id="node4" href="$StageState_8cpp.html" title="Game/src/StageState.cpp" alt="" coords="264,229,437,256"/>
-<area shape="rect" id="node3" href="$StageState_8h.html" title="Game/include/StageState.h" alt="" coords="5,155,187,181"/>
-<area shape="rect" id="node6" href="$EndState_8cpp.html" title="Game/src/EndState.cpp" alt="" coords="212,155,375,181"/>
-<area shape="rect" id="node5" href="$TitleState_8cpp.html" title="Game/src/TitleState.cpp" alt="" coords="14,229,177,256"/>
-</map>
