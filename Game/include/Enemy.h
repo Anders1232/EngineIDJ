@@ -7,11 +7,12 @@
 #include "Sprite.h"
 #include "TileMap.h"
 #include "Timer.h"
+#include "Error.h"
 #include "WaveData.h"
 
 #define BASE_HIT_POINTS 100
 #define DIFICULTY_CONSTANT 12
-typedef unsigned int uint;
+#define ENEMY_MOVE_SPEED (120.)
 
 enum EnemyType{
 	HOSTILE=0,
@@ -40,6 +41,15 @@ class Enemy : public GameObject
 			No momento a position informa o extremo superior esquedo a partir do qual o gameObject será instanciado.
 		*/
 		Enemy(Vec2 position, int life); // calcula vida e velocidade 
+		/**
+			\brief Construtor
+			\todo Documentar!
+			\todo Verificar se está sendo usado.
+			\param position posição onde o inimigo deve ser instancido.
+			\param life Quantidade de vida que o inimigo deve ter.
+			
+			No momento a position informa o extremo superior esquedo a partir do qual o gameObject será instanciado.
+		*/
 		Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint);
 		/**
 			\brief Destrutor
@@ -71,7 +81,7 @@ class Enemy : public GameObject
 			
 			Deve fazer o necessário para que futuras chamadas a IsDead retornem verdadeiro.
 		*/
-		void RequestDelete();
+		void RequestDelete(void);
 		/**
 			\brief Notifica evento de colisão.
 			\todo Verificar viabilidade de tratar colisão em componentes.

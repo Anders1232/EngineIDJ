@@ -10,7 +10,7 @@ var searchData=
   ['spawnpointsdata',['spawnPointsData',['../structWaveData.html#a138a3e0eed46e91e1024e9bbc9076061',1,'WaveData']]],
   ['spawntimer',['spawnTimer',['../classWaveManager.html#aba881a7a8545c3ae65df0b49c64c2895',1,'WaveManager']]],
   ['speed',['speed',['../classAIGoDown.html#ac494b9b70caa1919b45937492946cfe2',1,'AIGoDown']]],
-  ['spname',['spName',['../classEnemy.html#af77576ea07c1bc3944ae6d202505ed40',1,'Enemy::spName()'],['../structEnemyData.html#a240820c76207cb6032a4a3799c0f1bc0',1,'EnemyData::spName()']]],
+  ['spname',['spName',['../structEnemyData.html#a240820c76207cb6032a4a3799c0f1bc0',1,'EnemyData']]],
   ['statestack',['stateStack',['../classGame.html#a2706caaad0c60784a6671efc9ee147f8',1,'Game']]],
   ['storedstate',['storedState',['../classGame.html#a46a38cae75b6557890d7c47ad8350a1d',1,'Game']]],
   ['strobefrequency',['strobeFrequency',['../classText.html#a38e924c6d2f551bae9ab4b73cab1360c',1,'Text']]],

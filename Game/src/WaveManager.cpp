@@ -7,7 +7,7 @@
 #include "GameResources.h"
 #include "Error.h"
 
-#define TIME_BETWEEN_SPAWN (2.)
+#define TIME_BETWEEN_SPAWN (0.8)
 
 int WaveManager::waveCount = 0;
 
@@ -25,25 +25,28 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 }
 
 WaveManager::~WaveManager(){
-	//wavesAndEnemysData.clear();
 	delete spawnGroups;
 }
 
 void WaveManager::StartWave(){
 	enemiesLeft=0;
+	maxNumberOfEnemiesInSpawnPoint=0;
+	int numberOfEnemiesInSpawnPoint;
 	printf("Wave Start\n");
 	for (uint i = 0; i < wavesAndEnemysData->first[waveIndex].spawnPointsData.size(); i++){
+		numberOfEnemiesInSpawnPoint=0;
 		for (uint j = 0; j < wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData.size(); j++){
 			enemiesLeft += wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData[j].numberOfEnemies;
+			numberOfEnemiesInSpawnPoint+= wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData[j].numberOfEnemies;
+		}
+		if(numberOfEnemiesInSpawnPoint > maxNumberOfEnemiesInSpawnPoint){
+			maxNumberOfEnemiesInSpawnPoint= numberOfEnemiesInSpawnPoint;
 		}
 	}
-	//printf("\n %d enemiesLeft!!\n", enemiesLeft);
 	waveTotalEnemies = enemiesLeft;
 	enemyIndex = 0;
 	endWave = false;
 	++waveCount;
-	enemyType=0;
-	enemyTypeCount=0;
 
 }
 
@@ -53,60 +56,73 @@ bool WaveManager::EndWave(){
 }
  
 void WaveManager::Update(GameObject &associated, float dt){
-	int enemyId;
 	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
-	//printf("\nwaveIndex:%d enemiesLeft:%d playerLifes:%d time:%.2f " , waveIndex, enemiesLeft, playerLifes, spawnTimer.Get());
 
 	if(EndWave()){
 		if(totalWaves==waveCount){ //Check Game over Condition
+			//Ao invés de não fazer nada deve-ser informar o fim de jogo
 			return;
 		}else{
+			REPORT_I_WAS_HERE;
 			++waveIndex;
 			StartWave();
 		}
 	}else{
-		if(enemyIndex < waveTotalEnemies){ //check if spawned all enemies from current wave
+		if(enemyIndex <= maxNumberOfEnemiesInSpawnPoint){
 			spawnTimer.Update(dt);
 			if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){ // spawn cooldown
 				//spawn 1 enemy at each existing spawn group
-				for (uint i = 0; i < currentWave.spawnPointsData.size() and enemyIndex < waveTotalEnemies; i++){ 
-					//WaveEnemiesIterator(i);
 
-					enemyId = currentWave.spawnPointsData[i].enemySpawnData[0].enemyIndex;//here
-					uint baseHP = currentWave.spawnPointsData[i].enemySpawnData[0].baseHP;
-					uint endPoint = currentWave.spawnPointsData[i].enemySpawnData[0].endPoint;
-					int spawnPosition = rand()% ( (*spawnGroups)[i] ).size();
-					SpawnEnemy( (*spawnGroups)[i][spawnPosition], enemyId, baseHP, endPoint );
-
-					printf("\ni:%u enemyIndex:%d enemyId:%d baseHP:%u endPoint:%u \n", i,enemyIndex,enemyId,baseHP,endPoint);	
-
+				for (uint i = 0; i < currentWave.spawnPointsData.size(); i++){
+					uint enemiesCounter= enemyIndex;
+					uint indexOfTheEnemyToSpawn=0;
+					bool breaked= false;
+					REPORT_I_WAS_HERE;
+					while(enemiesCounter >= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn).numberOfEnemies){
+						REPORT_I_WAS_HERE;
+						if(indexOfTheEnemyToSpawn>= currentWave.spawnPointsData.at(i).enemySpawnData.size()){
+							REPORT_I_WAS_HERE;
+							breaked= true;
+							REPORT_I_WAS_HERE;
+							break;
+						}
+						REPORT_I_WAS_HERE;
+						enemiesCounter-= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn).numberOfEnemies;
+						indexOfTheEnemyToSpawn++;
+						REPORT_I_WAS_HERE;
+						if(indexOfTheEnemyToSpawn>= currentWave.spawnPointsData.at(i).enemySpawnData.size()){
+							REPORT_I_WAS_HERE;
+							breaked= true;
+							REPORT_I_WAS_HERE;
+							break;
+						}
+						REPORT_I_WAS_HERE;
+					}
+					if(breaked){
+						continue;
+					}
+					REPORT_DEBUG("\t indexOfTheEnemyToSpawn= " << indexOfTheEnemyToSpawn);
+					
+					EnemySpawnData &enemyToSpawn= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn);
+					REPORT_DEBUG("\t enemyIndex= " << enemyToSpawn.enemyIndex);
+					REPORT_DEBUG("\t baseHP= " << enemyToSpawn.baseHP);
+					REPORT_DEBUG("\t endPoint= " << enemyToSpawn.endPoint);
+					int spawnPosition = rand()% ( (*spawnGroups).at(i) ).size();
+					SpawnEnemy( (*spawnGroups).at(i).at(spawnPosition), enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, enemyToSpawn.endPoint );
 				}
+				REPORT_I_WAS_HERE;
 				spawnTimer.Restart();
 
-			for (uint i = 0; i < wavesAndEnemysData->first[waveIndex].spawnPointsData.size(); i++){
-				for (uint j = 0; j < wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData.size(); j++){
-					enemiesLeft += wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData[j].numberOfEnemies;
-				}
+				enemyIndex++;
 			}
-
-			}
+			REPORT_I_WAS_HERE;
 		}
+		REPORT_I_WAS_HERE;
 	}
+	REPORT_I_WAS_HERE;
 	if (0 >= enemiesLeft){
 		endWave = true;
 	}
-}
-void WaveManager::WaveEnemiesIterator(int i){
-	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
-
-	enemyTypes = currentWave.spawnPointsData[i].enemySpawnData.size();
-	printf("ANTES enemyTypeCount:%d enemyTypes:%d enemyType:%d, numberOfEnemies \n",enemyTypeCount,enemyTypes,enemyType);
-
-	if (enemyTypeCount >= currentWave.spawnPointsData[i].enemySpawnData[enemyTypes].numberOfEnemies){
-		enemyType++;
-		enemyTypeCount=0;
-	}
-	printf("Depois enemyTypeCount:%d enemyTypes:%d enemyType:%d \n",enemyTypeCount,enemyTypes,enemyType);
 }
 
 void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint endPoint ){
@@ -117,13 +133,10 @@ void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint
 	Vec2 spawnPosition;
 	spawnPosition.x = (tileMapPosition%tileMap.GetWidth() ) * tileSize.x;
 	spawnPosition.y = (tileMapPosition/tileMap.GetWidth() ) * tileSize.y;
-	Enemy* enemy = new Enemy(spawnPosition, 1.);
-	//Enemy* enemy = new Enemy(spawnPosition, enemyIndex, currentWaveEnemyData, baseHP, endPoint );
+	//Enemy* enemy = new Enemy(spawnPosition, 1.);
+	Enemy* enemy = new Enemy(spawnPosition, enemyIndex, currentWaveEnemyData, baseHP, endPoint );
 
 	Game::GetInstance().GetCurrentState().AddObject(enemy);
-	enemyIndex++;
-	//printf("\n%d enemies spawned!",enemyIndex+1);
-
 }
 
 

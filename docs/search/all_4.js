@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['emptygameobject',['emptyGameObject',['../classemptyGameObject.html',1,'emptyGameObject'],['../classEmptyGameObject.html',1,'EmptyGameObject'],['../classEmptyGameObject.html#ac3590d6e9f0a10036903fa4f063ab164',1,'EmptyGameObject::EmptyGameObject()'],['../classemptyGameObject.html#ac31c7c7a23729ac8d5a078dde77e201f',1,'emptyGameObject::emptyGameObject()']]],
-  ['emptygameobject_2eh',['emptyGameObject.h',['../emptyGameObject_8h.html',1,'(Namespace global)'],['../EmptyGameObject_8h.html',1,'(Namespace global)']]],
   ['end_5fline',['END_LINE',['../Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f',1,'Error.h']]],
   ['end_5fstate_5fdelta_5fvolume',['END_STATE_DELTA_VOLUME',['../EndState_8h.html#a8c776b55093efb545c75f4a409cb93b6',1,'EndState.h']]],
   ['end_5fstate_5ffont_5fsize',['END_STATE_FONT_SIZE',['../EndState_8h.html#a072640bf35e47c51689c7e84ca5fe4b4',1,'EndState.h']]],
@@ -21,7 +19,7 @@ var searchData=
   ['enemy_2eh',['Enemy.h',['../Enemy_8h.html',1,'']]],
   ['enemy_5fmax_5fname_5flenght',['ENEMY_MAX_NAME_LENGHT',['../GameResources_8cpp.html#a7d7daa95ffbbfd903316a4925c80e34b',1,'GameResources.cpp']]],
   ['enemy_5fmax_5fsprite_5fname_5flenght',['ENEMY_MAX_SPRITE_NAME_LENGHT',['../GameResources_8cpp.html#ab98fb479b08224afd21558786955fd5e',1,'GameResources.cpp']]],
-  ['enemy_5fmove_5fspeed',['ENEMY_MOVE_SPEED',['../Enemy_8cpp.html#ad1fc3c040531dd8cbbe7675e1db12fd3',1,'Enemy.cpp']]],
+  ['enemy_5fmove_5fspeed',['ENEMY_MOVE_SPEED',['../Enemy_8h.html#ad1fc3c040531dd8cbbe7675e1db12fd3',1,'Enemy.h']]],
   ['enemy_5ftype_5fmax_5fstring_5fsize',['ENEMY_TYPE_MAX_STRING_SIZE',['../GameResources_8cpp.html#a5d81999fe9db12aeaf11146381e3fbc0',1,'GameResources.cpp']]],
   ['enemy_5ftype_5fsize',['ENEMY_TYPE_SIZE',['../Enemy_8h.html#ac3e413a86119db4b031458c7259e268ea52cb0d4e9f1f7b966b59d26e46483514',1,'Enemy.h']]],
   ['enemydata',['EnemyData',['../structEnemyData.html',1,'EnemyData'],['../structEnemyData.html#ab1a2bd7f5b59acd6c05e54cab9bdb14e',1,'EnemyData::EnemyData()']]],

@@ -5,8 +5,6 @@
 #include "AIGoDown.h"
 #include "HitPoints.h"
 
-#define ENEMY_MOVE_SPEED (120.)
-
 Enemy::Enemy(Vec2 position, int life)
 		: sp("img/enemy/teste-cor.png", true, 0.0, 1), dead(false) {
 	box = position;
@@ -17,7 +15,7 @@ Enemy::Enemy(Vec2 position, int life)
 }
 
 Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint)
-: sp("img/enemy/teste-cor.png", true, 0.0, 1), dead(false){
+: sp(enemyData.spName, true, 0.0, 1), dead(false){
 	box = position;
 	this->enemyIndex = enemyIndex; 
 	this->baseHP = baseHP; 
@@ -43,23 +41,29 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	//pantsSpName.SetFrame(1);
 
 	//each type will have their own components. dando invalid read.
-	/*switch(enemyData.enemyType){
+	switch(enemyData.enemyType){
 		case HOSTILE:
+			std::cout << "Enemy type: "<< enemyData.enemyType << "\n";
 			break;
 		case NEUTRAL:
+			std::cout << "Enemy type: "<< enemyData.enemyType << "\n";
 			break;
 		case ENGINEER:
+			std::cout << "Enemy type: "<< enemyData.enemyType << "\n";
 			break;
 		case ARQUITET:
+			std::cout << "Enemy type: "<< enemyData.enemyType << "\n";
 			break;
 		case ART:
+			std::cout << "Enemy type: "<< enemyData.enemyType << "\n";
 			break;
 		case QUIMIC:
+			std::cout << "Enemy type: "<< enemyData.enemyType << "\n";
 			break;
 		default:
-			//std::cout << "Enemy type not identified: "<< enemyData.enemyType << "\n";
+			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";
 			break;
-	}*/
+	}
 
 	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED)); //arg endPoint
 	//components.emplace_back(new PathFinding(endPoint)); //arg endPoint
@@ -84,6 +88,7 @@ void Enemy::Update(float dt) {
 }
 
 void Enemy::Render(void) {
+	REPORT_DEBUG("\t Box:: x("<<box.x<<"), y(" <<box.y<< "), w("<<box.w<<"), h("<<box.h<<")");
 	sp.Render(box);
 }
 
@@ -91,7 +96,7 @@ bool Enemy::IsDead(void) {
 	return dead;
 }
 
-void Enemy::RequestDelete() {}
+void Enemy::RequestDelete(void) {}
 
 void Enemy::NotifyCollision(GameObject &object) {}
 

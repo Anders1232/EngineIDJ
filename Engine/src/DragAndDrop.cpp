@@ -4,20 +4,24 @@
 #include "Error.h"
 #include "InputManager.h"
 
-DragAndDrop::DragAndDrop(TileMap *map, bool dragging, bool dragOnActionHold)
-	: isDragging(dragging), dragOnHold(dragOnActionHold), tileMap(map) {
+DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, bool redrag, bool dragOnActionHold)
+		: dragOnHold(dragOnActionHold),associatedInitialPos(associatedInitialPos), tileMap(map), redrag(redrag) {
 }
 
 void DragAndDrop::Update(GameObject &associated, float dt) {
 	InputManager &inputManager= InputManager::GetInstance();
-	
-
-	if(isDragging && inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON)) {
-		Vec2 mousePos = Camera::ScreenToWorld(inputManager.GetMousePos());
-		associated.box = mousePos-Vec2(associated.box.w/2, associated.box.h/2);
-	} else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON) && isDragging) {
-		tileMap->InsertGO(&associated);
-		isDragging = false;
+	if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON)){
+		Vec2 mousePos= inputManager.GetMousePos()*(1/Camera::GetZoom());
+		associated.box= mousePos+Camera::pos-Vec2(associated.box.w/2, associated.box.h/2);
+	} 
+	else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON)) {
+		if(redrag){
+			tileMap.InsertGO(&associated, associatedInitialPos);
+		}
+		else{
+			tileMap.InsertGO(&associated);
+		}
+		associated.RemoveComponent(DRAG_AND_DROP);
 	}
 }
 
