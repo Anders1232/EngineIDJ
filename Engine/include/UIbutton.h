@@ -14,9 +14,9 @@ class UIbutton {
         HIGHLIGHTED,
         SELECTED
     };
-    typedef void (*ButtonCallback) (UIbutton*);
-    void SetCallback(UIbutton::State stateToSet, ButtonCallback callback);
-    void SetClickCallback(ButtonCallback callback);
+    typedef void (*ButtonCallback) (void*);
+    void SetCallback(UIbutton::State stateToSet, void* caller, ButtonCallback callback);
+    void SetClickCallback(void* caller, ButtonCallback callback);
     virtual void SetUIbuttonState(UIbutton::State newState);
     UIbutton::State GetUIbuttonState(void) const;
     void Click();
@@ -29,6 +29,11 @@ class UIbutton {
     ButtonCallback highlightedCallback;
     ButtonCallback selectedCallback;
     ButtonCallback clickedCallback;
+    void* disableCaller;
+    void* enabledCaller;
+    void* highlightedCaller;
+    void* selectedCaller;
+    void* clickCaller;
 };
 
 #endif // UIBUTTON_H

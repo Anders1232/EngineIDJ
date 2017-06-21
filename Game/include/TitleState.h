@@ -17,6 +17,7 @@ class TitleState: public State {
 		void Render(void) const;
 		void Pause(void);
 		void Resume(void);
+		void Exit(void);
 	private:
 		void UpdateUI(float dt);
 		UIcanvas canvas;
