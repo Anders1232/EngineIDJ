@@ -58,3 +58,13 @@ void GameObject::RemoveComponent(ComponentType type){
 	}
 }
 
+Component& GameObject::GetComponent(ComponentType type){
+	for(unsigned int i = 0;i < components.size();i++){
+		if(components[i]->Is(type)){
+			return *(components[i]);
+		}
+	}
+	Error("Component not found!");
+}
+
+

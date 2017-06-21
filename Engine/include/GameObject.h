@@ -46,6 +46,12 @@ class GameObject{
 			\param type tipo do componente a ser adicionado.
 			
 		*/
+		Component& GetComponent(ComponentType type);
+		/**
+			\brief Obtém componente
+			\param type tipo do componente a ser buscado.
+			
+		*/
 		void RemoveComponent(ComponentType type);
 		/**
 			\brief Destrutor
