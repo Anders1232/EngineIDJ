@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['emptygameobject_2eh',['emptyGameObject.h',['../emptyGameObject_8h.html',1,'(Namespace global)'],['../EmptyGameObject_8h.html',1,'(Namespace global)']]],
   ['endstate_2ecpp',['EndState.cpp',['../EndState_8cpp.html',1,'']]],
   ['endstate_2eh',['EndState.h',['../EndState_8h.html',1,'']]],
   ['endstatedata_2ecpp',['EndStateData.cpp',['../EndStateData_8cpp.html',1,'']]],

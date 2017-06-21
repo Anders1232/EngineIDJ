@@ -6,8 +6,6 @@
 #include "AIGoDown.h"
 #include "HitPoints.h"
 
-#define ENEMY_MOVE_SPEED (120.)
-
 Enemy::Enemy(Vec2 position, int life)
 		: sp("img/enemy/teste-cor.png", true, 0.0, 1), dead(false) {
 	box = position;
@@ -64,6 +62,7 @@ void Enemy::Update(float dt) {
 }
 
 void Enemy::Render(void) {
+	REPORT_DEBUG("\t Box:: x("<<box.x<<"), y(" <<box.y<< "), w("<<box.w<<"), h("<<box.h<<")");
 	sp.Render(box);
 }
 
@@ -71,7 +70,7 @@ bool Enemy::IsDead(void) {
 	return false;
 }
 
-void Enemy::RequestDelete() {}
+void Enemy::RequestDelete(void) {}
 
 void Enemy::NotifyCollision(GameObject &object) {}
 

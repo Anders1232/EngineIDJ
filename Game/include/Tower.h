@@ -26,7 +26,7 @@ class Tower : public GameObject{
 			COMPUTATION
 		} TowerType;
 		
-		Tower(TowerType, Vec2 pos, Vec2 tileSize, TileMap *tileMap);
+		Tower(TowerType, Vec2 pos, Vec2 tileSize);
 		void Damage(int damage);
 	
 		void Update(float dt );

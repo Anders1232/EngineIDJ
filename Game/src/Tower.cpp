@@ -6,7 +6,7 @@
 
 typedef unsigned int uint;
 
-Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, TileMap *tileMap)
+Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize)
 		: sp(type == TowerType::MEDICINE ? "img/tower/torre_fumaca.png" :
 			type == TowerType::SOCIOLOGY ? "img/tower/torre_fumaca.png" :
 			type == TowerType::ENGINEERING ? "img/tower/torre_fumaca.png" :
@@ -23,7 +23,6 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, TileMap *tileMap)
 	sp.alpha = 127*(float)rand()/RAND_MAX+127;
 	box.w = sp.GetWidth();
 	box.h = sp.GetHeight();
-	components.emplace_back( new DragAndDrop(tileMap, true, true) );
 }
 
 Tower::~Tower() {

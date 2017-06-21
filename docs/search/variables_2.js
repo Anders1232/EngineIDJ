@@ -13,6 +13,6 @@ var searchData=
   ['controllerstickupdate',['controllerStickUpdate',['../classInputManager.html#a5e6ccd1ed40908fa5663445ae9fb622d',1,'InputManager']]],
   ['controllerupdate',['controllerUpdate',['../classInputManager.html#a53817858b539f080e0cebad2b03cc0d2',1,'InputManager']]],
   ['currentframe',['currentFrame',['../classSprite.html#a556cfc67b1b98691aa2e5b41f076fded',1,'Sprite']]],
-  ['currentspeed',['currentSpeed',['../classCamera.html#a6649a58e8ca32d16710bc01300df49fe',1,'Camera']]],
-  ['currentzoom',['currentZoom',['../classCamera.html#ac867d6d379c0d052ae65d57c7c313970',1,'Camera']]]
+  ['currentlogzoom',['currentLogZoom',['../classCamera.html#a1e954aeda32920bf73cfa4fac8ca6f94',1,'Camera']]],
+  ['currentspeed',['currentSpeed',['../classCamera.html#a6649a58e8ca32d16710bc01300df49fe',1,'Camera']]]
 ];
