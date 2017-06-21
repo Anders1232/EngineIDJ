@@ -4,8 +4,6 @@
 #include "DragAndDrop.h"
 #include "Error.h"
 
-typedef unsigned int uint;
-
 Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize)
 		: sp(type == TowerType::MEDICINE ? "img/tower/torre_fumaca.png" :
 			type == TowerType::SOCIOLOGY ? "img/tower/torre_fumaca.png" :
