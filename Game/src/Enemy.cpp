@@ -95,6 +95,7 @@ void Enemy::Update(float dt) {
 void Enemy::Render(void) {
 	REPORT_DEBUG("\t Box:: x("<<box.x<<"), y(" <<box.y<< "), w("<<box.w<<"), h("<<box.h<<")");
 	sp.Render(box);
+	hitpoints->Render(*this);
 }
 
 bool Enemy::IsDead(void) {

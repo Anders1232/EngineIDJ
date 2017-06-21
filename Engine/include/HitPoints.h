@@ -13,6 +13,7 @@ class HitPoints : public Component {
 		void Damage(int damage);
 		bool Is(ComponentType) const;
 		int GetHp();
+		void Render(GameObject &associated);
 	private:
 		int hp;
 		Sprite healthBar;
