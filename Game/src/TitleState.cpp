@@ -7,11 +7,11 @@
 
 TitleState::TitleState()
 		: State()
-		, canvas({1024,600}, UIelement::BehaviorType::FIT)
+		, canvas({1024,600}, UIelement::BehaviorType::STRETCH)
 		, bg("img/UI/main-menu/bg.png", UIelement::BehaviorType::STRETCH)
-		, lua("img/UI/main-menu/lua.png", UIelement::BehaviorType::STRETCH)
-		/*, nuvemA("img/UI/main-menu/nuvemA.png", UIelement::BehaviorType::STRETCH)*/
-		, nuvemB("img/UI/main-menu/nuvemB.png", UIelement::BehaviorType::STRETCH)
+		, lua("img/UI/main-menu/lua.png", UIelement::BehaviorType::FIT)
+		/*, nuvemA("img/UI/main-menu/nuvemA.png", UIelement::BehaviorType::FILL)*/
+		, nuvemB("img/UI/main-menu/nuvemB.png", UIelement::BehaviorType::FILL)
 		, icc("img/UI/main-menu/icc.png", UIelement::BehaviorType::STRETCH)
 		, overlay("img/UI/main-menu/overlay.png", UIelement::BehaviorType::STRETCH)
 		, title("img/UI/main-menu/title.png", UIelement::BehaviorType::FIT)
@@ -38,7 +38,7 @@ TitleState::TitleState()
 						  {0.7, 0.9} );
 	playText.ConfigColors( { 70, 70, 70,100},
 						   {164,133,166,255},
-						   {219,180,223,255} );
+						   {227,196,230,255} );
 	playText.SetClickCallback( this, [] (void* caller) {
 									Game::GetInstance().Push(new StageState());
 								} );
@@ -46,17 +46,17 @@ TitleState::TitleState()
 					 	 {1., 0.25 } );
 	editorText.ConfigColors( { 70, 70, 70,100},
 						  	 {164,133,166,255},
-						  	 {219,180,223,255} );
+						  	 {227,196,230,255} );
 	editorText.SetAnchors( {0., 0.25},
 						   {1., 0.5} );
 	configText.ConfigColors( { 70, 70, 70,100},
 						  	 {164,133,166,255},
-						  	 {219,180,223,255} );
+						  	 {227,196,230,255} );
 	configText.SetAnchors( {0., 0.5},
 						   {1., 0.75} );
 	exitText.ConfigColors( { 70, 70, 70,100},
 						   {164,133,166,255},
-						   {219,180,223,255} );
+						   {227,196,230,255} );
 	exitText.SetClickCallback( this, [] (void* caller) {
 									TitleState* titleState = static_cast<TitleState*>(caller);
 									titleState->Exit();
