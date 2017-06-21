@@ -1,14 +1,14 @@
 #include "AIArt.h"
 
-//AIState{WALKING,WAITING,FINDINGHEALTH,STUNNED};
-//AIEvent{PATH_BLOCKED,PATH_FREE,FOUNDHEALTH,STUN,NOT_STUN}; 
+//enum AIState{WALKING,WAITING,STUNNED,STATE_NUM};
+//enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,STUN,NOT_STUN,EVENT_NUM}; 
 
 AIArt::AIArt(float speed,int dest,TileMap* tilemap,GameObject &associated):speed(speed),destTile(dest),tilemap(tilemap),associated(associated){
 
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
 	path = tilemap->AStar(tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
-
+	
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
 	dfa[AIState::WALKING][AIEvent::PATH_BLOCKED] = AIState::WAITING;
 	dfa[AIState::WALKING][AIEvent::NONE] = AIState::WALKING;
@@ -28,45 +28,48 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 
 	if(actualState == AIState::WALKING){
 
-		if(tilemap->Stun(associated.box)){
+		if(false){// Aqui verifica-se a colisão com o elemento estonteante
 
 			return AIEvent::STUN;
 
 		}
-		if(path.empty()){
+		else if(path.empty()){
 
 			return AIEvent::PATH_BLOCKED;
 
 		}
+		else{return NONE;}
 
 	}
 	else if(actualState == AIState::WAITING){
-		std::cout <<"chegou 1" << std::endl;
-		if(tilemap->Stun(associated.box)){
+
+		if(false){// Aqui verifica-se a colisão com o elemento estonteante
 
 			return AIEvent::STUN;
 
 		}
-		if(!path.empty()){
+		else if(!path.empty()){
 
-			std::cout << AIEvent::PATH_FREE << std::endl;
+			//std::cout << "PATH_FREE" << std::endl;
 			return AIEvent::PATH_FREE;
 
 		}
+		else{return NONE;}
 
 	}
 	else if(actualState == AIState::STUNNED){
 
-		if(!tilemap->Stun(associated.box)){
+		if(false){// Aqui verifica-se a colisão com o elemento estonteante
 
 			return AIEvent::NOT_STUN;
 
 		}
-		if(path.empty()){
+		else if(path.empty()){
 
 			return AIEvent::PATH_BLOCKED;
 
 		}
+		else{return NONE;}
 
 	}
 
@@ -76,18 +79,18 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 
 void AIArt::Update(float dt){
 
-	std::cout << "Transição atual: " << ComputeEvents() << std::endl;
-	actualState = dfa[actualState][ComputeEvents()];
-	//std::cout << "Estado atual: " << actualredrState << std::endl;
-	//std::cout << "Tamanho do caminho: " << path.size() << std::endl;
+	AIEvent actualTransition = ComputeEvents();
+	//std::cout << "Estado atual: " << actualState << std::endl;
+	//std::cout << "Transição atual : " << actualTransition << std::endl;
+	actualState = dfa[actualState][actualTransition];
+
 	if(actualState == AIState::WALKING){
 
+		tempDestination = Vec2(tilemap->GetTileSize().x * (path.front() % tilemap->GetWidth()),tilemap->GetTileSize().y*(path.front() / tilemap->GetWidth()));
 		float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
 		float weight = tileWeightMap.at(tilemap->AtLayer(path.front(),WALKABLE_LAYER));
-		vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
-
-		if((vecSpeed * dt).Magnitude() >= lastDistance){
-
+		
+		if((vecSpeed.MemberMult(dt)).Magnitude() >= lastDistance){
 			associated.box.x = (tempDestination.x - (associated.box.w/2));
 			associated.box.y = (tempDestination.y - (associated.box.h/2));
 			tempDestination = Vec2(path.front() / tilemap->GetWidth(),path.front() % tilemap->GetWidth());
@@ -95,9 +98,9 @@ void AIArt::Update(float dt){
 
 		}
 		else{
-
-			associated.box.x = (associated.box.Center().x + (vecSpeed * dt).x - associated.box.w/2);
-			associated.box.y = (associated.box.Center().y + (vecSpeed * dt).y - associated.box.h/2);
+		
+			associated.box.x = (associated.box.Center().x + (vecSpeed.MemberMult(dt)).x - associated.box.w/2);
+			associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
 
 		}
 	}

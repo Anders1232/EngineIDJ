@@ -16,6 +16,7 @@ enum ComponentType{
 	AI_ART,
 	AI_MEDIC,
 	AI_QUIMIC,
+	AI_ENGINEER,
 	SIZE
 };
 

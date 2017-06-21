@@ -282,12 +282,6 @@ bool TileMap::Traversable(int index) const{
 
 }
 
-bool TileMap::Stun(Vec2 pos) const{ 
-
-	return false;
-	
-}
-
 std::vector<int> TileMap::GetNeighbors(int tileIndex) const{
 
 //[i-1][j-1] -> soma-se -(width+1) da posicao atual
