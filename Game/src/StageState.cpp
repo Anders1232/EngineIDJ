@@ -84,7 +84,7 @@ void StageState::Update(float dt) {
 	Camera::Update(dt);
 	REPORT_I_WAS_HERE;
 	spawnTimer.Update(dt);
-	if(TIME_BETWEEN_SPAWNS < spawnTimer.Get()) {
+	if(TIME_BETWEEN_SPAWNS < spawnTimer.Get()){
 		int selectedSpawnGroup = rand() % spawnGroups->size();
 		int selectedEndGroup = rand() % spawnGroups->size();
 		int selectedSpawnPosition = rand() % ( (*spawnGroups)[selectedSpawnGroup] ).size();
@@ -215,6 +215,6 @@ void StageState::SpawnEnemy(int tileMapPosition,int endTileMap){
 	spawnPosition.y = (tileMapPosition / tileMap->GetWidth() ) * tileSize.y;
 	//int enemyType = rand() % 5 + 2;
 	Enemy *e = new Enemy(spawnPosition,EnemyType::ART, 1.0);
-	e->AddComponent(new AIArt(ENEMY_MOVE_SPEED,endTileMap,tileMap,*e));
+	e->AddComponent(new AIArt(ENEMY_MOVE_SPEED,7649,tileMap,*e));
 	objectArray.push_back(unique_ptr<GameObject>(e));
 }
