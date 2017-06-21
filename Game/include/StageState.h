@@ -25,6 +25,7 @@ class StageState: public State {
 		void Render(void) const;
 		void Pause(void);
 		void Resume(void);
+		
 	private:
 		Sprite bg;
 		TileSet tileSet;

@@ -76,6 +76,7 @@ class WaveManager : public Component {
 			Retorna os inimigos restantes da wave atual.
 		*/		
 		int GetEnemiesLeft();
+		bool Victory();
 	private:
 		/** 
 			\brief Criar um novo inimigo no mapa.
@@ -100,6 +101,7 @@ class WaveManager : public Component {
 		int waveTotalEnemies; /**<Indica o número total de inimigos da wave atual.*/
 
 		int maxNumberOfEnemiesInSpawnPoint;
+		bool victory;
 
 };
 

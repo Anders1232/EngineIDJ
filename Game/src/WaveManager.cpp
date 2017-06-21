@@ -11,6 +11,7 @@
 
 int WaveManager::waveCount = 0;
 
+
 WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 	endWave=false;
 	enemiesLeft = 0;
@@ -20,6 +21,7 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 	enemyIndex = 0;
 	waveIndex=0;
 	totalWaves = wavesAndEnemysData->first.size();
+	victory = false;
 	StartWave();
 
 }
@@ -61,6 +63,7 @@ void WaveManager::Update(GameObject &associated, float dt){
 	if(EndWave()){
 		if(totalWaves==waveCount){ //Check Game over Condition
 			//Ao invés de não fazer nada deve-ser informar o fim de jogo
+			victory = true;
 			return;
 		}else{
 			REPORT_I_WAS_HERE;
@@ -160,4 +163,7 @@ int WaveManager::GetLifesLeft(){
 int WaveManager::GetEnemiesLeft(){
 	return enemiesLeft;
 }
+bool WaveManager::Victory(){
+	return victory;
 
+}

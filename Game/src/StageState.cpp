@@ -82,6 +82,14 @@ void StageState::Update(float dt) {
 	REPORT_I_WAS_HERE;
 
 	waveManager.Update(nullGameObject,dt);
+	//Game Over Conditions
+	if(waveManager.GetLifesLeft() == 0){
+    	popRequested = true;
+    	Game::GetInstance().Push(new EndState(EndStateData(false)));
+	}else if(waveManager.Victory()){
+		popRequested = true;
+    	Game::GetInstance().Push(new EndState(EndStateData(true)));
+	}
 
 	if(InputManager::GetInstance().KeyPress('r')) {
 		popRequested = true;
