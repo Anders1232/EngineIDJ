@@ -19,7 +19,7 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize)
 	box.y = pos.y;
 	sp.ScaleX(tileSize.x/sp.GetWidth());
 	sp.ScaleY(tileSize.y/sp.GetHeight());
-	sp.colorMultiplier = Color( 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX );
+	sp.colorMultiplier = Color( 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 127 + 127*(float)rand()/RAND_MAX );
 	box.w = sp.GetWidth();
 	box.h = sp.GetHeight();
 }

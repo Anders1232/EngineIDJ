@@ -6,6 +6,10 @@ UIcanvas::UIcanvas(Vec2 aspectRatio, UIelement::BehaviorType behavior) : UIeleme
     kernelSize = aspectRatio;
 }
 
+void UIcanvas::Update(float dt, Rect parentCanvas) {
+    UIelement::Update(dt, parentCanvas);
+}
+
 void UIcanvas::SetAspectRatio(Vec2 aspectRatio) {
     this->kernelSize = aspectRatio;
 }

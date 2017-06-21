@@ -8,6 +8,7 @@
 #include "UItext.h"
 #include "UItextButton.h"
 #include "UIbutton.h"
+#include "UIverticalGroup.h"
 #include "State.h"
 
 class TitleState: public State {
@@ -28,7 +29,7 @@ class TitleState: public State {
 		UIimage icc;
 		UIimage overlay;
 		UIimage title;
-		UIcanvas optionsGroup;
+		UIverticalGroup optionsGroup;
 		UItextButton playText;
 		UItextButton editorText;
 		UItextButton configText;
