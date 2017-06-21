@@ -1,5 +1,0 @@
-<map id="HitPoints" name="HitPoints">
-<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="5,272,95,299"/>
-<area shape="rect" id="node3" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="357,272,413,299"/>
-<area shape="rect" id="node9" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="645,139,698,165"/>
-</map>

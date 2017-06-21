@@ -15,6 +15,7 @@
 #include "Tileset.h"
 #include "Timer.h"
 #include "WaveManager.h"
+
 using std::vector;
 
 class StageState: public State {
@@ -36,6 +37,9 @@ class StageState: public State {
 		bool isLightning;
 		Timer lightningTimer;
 		Color lightningColor;
+		WaveManager waveManager;
+		GameObject nullGameObject;
+		vector<int> waves;//vetor de waves a ser lido no arquivo
 		void SpawnEnemy(int tileMapPosition);
 		WaveManager waveManager;
 		GameObject nullGameObject;

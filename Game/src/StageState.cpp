@@ -36,16 +36,20 @@
 #define MAX_TIME_LIGHTINING_FADE 2
 
 StageState::StageState(void)
-		: State(),
-		bg("img/ocean.jpg"),
-		tileSet(120, 120,"img/map/tileset_v2.png"),
-		tileMap("map/tileMap.txt", &tileSet),
-		inputManager(InputManager::GetInstance()),
-		music("audio/stageState.ogg"),
-		isLightning(false),
-		lightningTimer(),
-		lightningColor(255, 255, 255, 0),
-		waveManager(tileMap, "assets/wave&enemyData.txt"){
+		: State()
+		, bg("img/ocean.jpg")
+		, tileSet(120, 120,"img/map/tileset_v2.png")
+		, tileMap("map/tileMap.txt", &tileSet)
+		, inputManager(InputManager::GetInstance())
+		, music("audio/stageState.ogg")
+		, isLightning(false)
+		, lightningTimer()
+		, lightningColor(255, 255, 255, 0)
+		, waveManager(tileMap, "assets/wave&enemyData.txt") {
+		
+	REPORT_I_WAS_HERE;
+	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
+	
 	REPORT_I_WAS_HERE;
 	spawnGroups = tileMap.GetSpawnPositions();
 	REPORT_I_WAS_HERE;
