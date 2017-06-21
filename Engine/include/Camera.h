@@ -113,6 +113,13 @@ class Camera {
 			Se for menor que 1.0 significa que as imagens devem ser reduzidas.
 		*/
 		static float GetLinearZoom(void);
+		/**
+			\brief Informa o valor do zoom corrente na escala logarítmica.
+
+			Se o valor for 0.0 significa que nenhum zoom está sendo aplicado.
+			Se for maior que 0.0 significa que as imagens devem ser ampliadas.
+			Se for menor que 0.0 significa que as imagens devem ser reduzidas.
+		*/
 		static float GetLogZoom(void);
 		/**
 			\brief Estabelece os limites superior e inferior da velocidade da câmera.
