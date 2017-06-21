@@ -138,7 +138,7 @@ class TileMap{
 
 			É responsabilidade do chamador desalocar o vector retornado.
 		*/
-		vector<vector<int>>* GetSpawnPositions(void) const;
+		vector<vector<int>>* GetTileGroups(int tileType) const;
 		/**
 			\brief Obtém o tamanho de um tile
 

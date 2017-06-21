@@ -3,7 +3,7 @@
 #include "Camera.h"
 #include "Error.h"
 
-Enemy::Enemy(Vec2 position,EnemyType type, int life): sp("img/enemy/teste-cor.png", true, 0.0, 1),type(type),life(life) {
+Enemy::Enemy(Vec2 position,EnemyType type, int life):type(type), sp("img/enemy/teste-cor.png", true, 0.0, 1), life(life) {
 	box = position;
 	dead = false;
 	sp.SetScale(0.8);
