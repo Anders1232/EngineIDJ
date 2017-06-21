@@ -125,11 +125,11 @@ class Enemy : public GameObject
 		std::vector<std::vector<Sprite>> sp;/**< Sprite do inimigo.*/
 
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
-		EnemyDirections direction;
 		
 		int enemyIndex;
 		HitPoints *hitpoints;
 		uint baseHP, endPoint;
+		EnemyDirections direction;
 };
 
 #endif // ENEMY_H

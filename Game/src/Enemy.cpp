@@ -16,11 +16,15 @@ Enemy::Enemy(Vec2 position, int life)
 }
 */
 Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint)
-	: sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE), dead(false){
+	: sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE), dead(false), direction(EnemyDirections::DOWN){
 	box = position;
 	this->enemyIndex = enemyIndex; 
 	this->baseHP = baseHP; 
 	this->endPoint = endPoint;
+
+	for(uint i=0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
+		sp[i]= vector<Sprite>();
+	}
 
 	std::string basePath= "img/"+enemyData.spFolder;
 	basePath= basePath+ "/";
