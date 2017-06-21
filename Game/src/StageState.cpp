@@ -217,7 +217,10 @@ void StageState::SpawnEnemy(int tileMapPosition,int endTileMap){
 	spawnPosition.x = (tileMapPosition % tileMap->GetWidth() ) * tileSize.x;
 	spawnPosition.y = (tileMapPosition / tileMap->GetWidth() ) * tileSize.y;
 	//int enemyType = rand() % 5 + 2;
-	Enemy *e = new Enemy(spawnPosition,EnemyType::QUIMIC, 1.0);
-	e->AddComponent(new AIQuimic(ENEMY_MOVE_SPEED,8089,tileMap,*e));
+	int randomEndGroup=rand()%(*endGroups).size();
+	int destinyPos= (*endGroups)[randomEndGroup][ (rand()%((*endGroups)[randomEndGroup]).size() )];
+	
+	Enemy *e = new Enemy(spawnPosition,EnemyType::ART, 1.0);
+	e->AddComponent(new AIArt(ENEMY_MOVE_SPEED,destinyPos,tileMap,*e));
 	objectArray.push_back(unique_ptr<GameObject>(e));
 }
