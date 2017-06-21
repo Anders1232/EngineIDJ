@@ -27,6 +27,7 @@ class StageState: public State {
 		void Pause(void);
 		void Resume(void);
 		void LoadAssets(void);
+		void ShowLightning(float dt);
 	private:
 		Sprite bg;
 		TileSet tileSet;
@@ -34,6 +35,9 @@ class StageState: public State {
 		InputManager &inputManager;
 		Music music;
 		vector<vector<int>> *spawnGroups;
+		bool isLightning;
+		Timer lightningTimer;
+		Color lightningColor;
 		WaveManager waveManager;
 		GameObject nullGameObject;
 		vector<int> waves;//vetor de waves a ser lido no arquivo
