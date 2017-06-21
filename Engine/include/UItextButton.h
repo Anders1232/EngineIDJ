@@ -16,6 +16,7 @@ class UItextButton : public UItext, public UIbutton {
 			UItext::TextStyle style,
 			SDL_Color color,
 			string text,
+            UIbutton::State startingState = UIbutton::State::ENABLED,
 			UIelement::BehaviorType behavior = UIelement::BehaviorType::FIT,
 			bool isStrobing = false
 		);

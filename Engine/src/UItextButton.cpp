@@ -7,10 +7,11 @@ UItextButton::UItextButton( string fontFile,
                             UItext::TextStyle style,
                             SDL_Color color,
                             string text,
+                            UIbutton::State startingState,
                             UIelement::BehaviorType behavior,
                             bool isStrobing)
         : UItext(fontFile, fontSize, style, color, text, behavior, isStrobing)
-        , UIbutton()
+        , UIbutton(startingState)
         , disabledColor(color)
         , enabledColor(color)
         , highlightedColor(color) {}

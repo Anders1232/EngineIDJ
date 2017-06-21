@@ -18,7 +18,7 @@ TitleState::TitleState()
 		, optionsGroup(UIelement::BehaviorType::STRETCH)
 		// , testButton()
 		, playText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Play")
-		, editorText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Editor de Fases")
+		, editorText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Editor de Fases", UIbutton::State::DISABLED)
 		, configText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Configuracoes")
 		, exitText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Exit") {
 	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
@@ -35,8 +35,6 @@ TitleState::TitleState()
 	title.SetSpriteScale(0.7);
 	title.SetAnchors( {(float)(0.5 - (title.GetSpriteWidth()/2.)/winSize.x), (float)(60./winSize.y)},
 					  {(float)(0.5 + (title.GetSpriteWidth()/2.)/winSize.x), (float)(60. + title.GetSpriteHeight())/winSize.y } );
-	// testButton.SetAnchors( {0.3, 0.4},
-	// 					   {0.8, 0.6} );
 	optionsGroup.SetAnchors( {0.3, 0.45},
 						  {0.7, 0.9} );
 	playText.ConfigColors( { 70, 70, 70,100},
@@ -47,6 +45,9 @@ TitleState::TitleState()
 								} );
 	playText.SetAnchors( {0., 0. },
 					 	 {1., 0.25 } );
+	editorText.ConfigColors( { 70, 70, 70,100},
+						  	 {164,133,166,255},
+						  	 {219,180,223,255} );
 	editorText.SetAnchors( {0., 0.25},
 						   {1., 0.5} );
 	configText.SetAnchors( {0., 0.5},
@@ -56,41 +57,13 @@ TitleState::TitleState()
 }
 
 void TitleState::Update(float dt) {
-	if(ActionManager::StartAction()) {
-		Game::GetInstance().Push(new StageState());
-	} else if(InputManager::GetInstance().QuitRequested()) {
+	if(INPUT_MANAGER.QuitRequested()) {
 		quitRequested = true;
 	} else if(ActionManager::EscapeAction()) {
 		popRequested = true;
 	}
 
-	Vec2 mousePos = INPUT_MANAGER.GetMousePos();
-	if(playText.GetUIbuttonState() != UIbutton::State::DISABLED) {
-		if(mousePos.IsInRect(playText.GetBoundingBox())) {
-			playText.SetUIbuttonState(UIbutton::State::HIGHLIGHTED);
-			if(INPUT_MANAGER.MouseRelease(LEFT_MOUSE_BUTTON)) {
-				playText.Click();
-			}
-		} else {
-			playText.SetUIbuttonState(UIbutton::State::ENABLED);
-		}
-	}
-
-	// UI
-	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
-	Rect titleCanvas(0., 0., winSize.x, winSize.y);
-	canvas.Update(dt, titleCanvas);
-	bg.Update(dt, canvas);
-	lua.Update(dt, canvas);
-	nuvemB.Update(dt, canvas);
-	icc.Update(dt, canvas);
-	overlay.Update(dt, canvas);
-	title.Update(dt, canvas);
-	optionsGroup.Update(dt, canvas);
-	playText.Update(dt, optionsGroup);
-	editorText.Update(dt, optionsGroup);
-	configText.Update(dt, optionsGroup);
-	exitText.Update(dt, optionsGroup);
+	UpdateUI(dt);
 }
 
 void TitleState::Render(void) const {
@@ -112,4 +85,46 @@ void TitleState::Pause(void) {}
 void TitleState::Resume(void) {
 	Camera::ForceLogZoom(0.0);
 	Camera::pos = Vec2(0, 0);
+}
+
+void TitleState::UpdateUI(float dt) {
+	Vec2 mousePos = INPUT_MANAGER.GetMousePos();
+
+	if(playText.GetUIbuttonState() != UIbutton::State::DISABLED) {
+		if(mousePos.IsInRect(playText.GetBoundingBox())) {
+			playText.SetUIbuttonState(UIbutton::State::HIGHLIGHTED);
+			if(INPUT_MANAGER.MouseRelease(LEFT_MOUSE_BUTTON)) {
+				playText.Click();
+			}
+		} else {
+			playText.SetUIbuttonState(UIbutton::State::ENABLED);
+		}
+	}
+
+	if(editorText.GetUIbuttonState() != UIbutton::State::DISABLED) {
+		if(mousePos.IsInRect(editorText.GetBoundingBox())) {
+			editorText.SetUIbuttonState(UIbutton::State::HIGHLIGHTED);
+			if(INPUT_MANAGER.MouseRelease(LEFT_MOUSE_BUTTON)) {
+				editorText.Click();
+			}
+		} else {
+			editorText.SetUIbuttonState(UIbutton::State::ENABLED);
+		}
+	}
+
+
+	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
+	Rect titleCanvas(0., 0., winSize.x, winSize.y);
+	canvas.Update(dt, titleCanvas);
+	bg.Update(dt, canvas);
+	lua.Update(dt, canvas);
+	nuvemB.Update(dt, canvas);
+	icc.Update(dt, canvas);
+	overlay.Update(dt, canvas);
+	title.Update(dt, canvas);
+	optionsGroup.Update(dt, canvas);
+	playText.Update(dt, optionsGroup);
+	editorText.Update(dt, optionsGroup);
+	configText.Update(dt, optionsGroup);
+	exitText.Update(dt, optionsGroup);
 }

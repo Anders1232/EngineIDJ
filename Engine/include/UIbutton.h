@@ -18,7 +18,7 @@ class UIbutton {
     void SetCallback(UIbutton::State stateToSet, ButtonCallback callback);
     void SetClickCallback(ButtonCallback callback);
     virtual void SetUIbuttonState(UIbutton::State newState);
-    UIbutton::State GetUIbuttonState(void);
+    UIbutton::State GetUIbuttonState(void) const;
     void Click();
     virtual bool Is(std::string UItype) const;
   protected:

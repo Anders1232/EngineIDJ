@@ -18,6 +18,7 @@ class TitleState: public State {
 		void Pause(void);
 		void Resume(void);
 	private:
+		void UpdateUI(float dt);
 		UIcanvas canvas;
 		UIimage bg;
 		UIimage lua;
@@ -28,9 +29,9 @@ class TitleState: public State {
 		UIimage title;
 		UIcanvas optionsGroup;
 		UItextButton playText;
-		UItext editorText;
-		UItext configText;
-		UItext exitText;
+		UItextButton editorText;
+		UItextButton configText;
+		UItextButton exitText;
 };
 
 #endif // TITLESTATE_H

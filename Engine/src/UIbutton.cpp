@@ -63,7 +63,7 @@ void UIbutton::SetUIbuttonState(UIbutton::State newState) {
     }
 }
 
-UIbutton::State UIbutton::GetUIbuttonState(void) {
+UIbutton::State UIbutton::GetUIbuttonState(void) const {
     return actualState;
 }
 
