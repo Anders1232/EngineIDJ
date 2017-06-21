@@ -2,9 +2,11 @@
 #define TITLESTATE_H
 
 #include "ActionManager.h"
+#include "Rect.h"
 #include "UIimage.h"
 #include "UIcanvas.h"
 #include "UItext.h"
+#include "UItextButton.h"
 #include "UIbutton.h"
 #include "State.h"
 
@@ -25,7 +27,7 @@ class TitleState: public State {
 		UIimage overlay;
 		UIimage title;
 		UIcanvas optionsGroup;
-		UItext playText;
+		UItextButton playText;
 		UItext editorText;
 		UItext configText;
 		UItext exitText;

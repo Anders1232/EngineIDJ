@@ -53,6 +53,10 @@ void UIelement::Render(bool debugRender) const {
     }
 }
 
+Rect UIelement::GetBoundingBox(void) const {
+    return boundingBox;
+}
+
 Rect UIelement::ComputeBoundingbox(Rect parentCanvas) {
     Rect boundingBox;
     boundingBox.x = parentCanvas.w*anchors.x+offsets.x;
@@ -90,7 +94,7 @@ Rect UIelement::ComputeBox() {
     return box;
 }
 
-UIelement::operator Rect() {
+UIelement::operator Rect() const {
     return box;
 }
 

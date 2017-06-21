@@ -20,9 +20,10 @@ class UIelement {
     virtual void Update(float dt, Rect parentCanvas);
     virtual void Render(bool debugRender = false) const;
     virtual bool Is(std::string UItype) const;
+    Rect GetBoundingBox(void) const;
     Rect ComputeBoundingbox(Rect parentCanvas);
     Rect ComputeBox();
-    operator Rect();
+    operator Rect() const;
   protected:
     UIelement(BehaviorType behavior = BehaviorType::STRETCH);
     Rect boundingBox;

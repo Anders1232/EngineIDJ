@@ -39,6 +39,12 @@ TitleState::TitleState()
 	// 					   {0.8, 0.6} );
 	optionsGroup.SetAnchors( {0.3, 0.45},
 						  {0.7, 0.9} );
+	playText.ConfigColors( { 70, 70, 70,100},
+						   {164,133,166,255},
+						   {219,180,223,255} );
+	playText.SetClickCallback( [] (UIbutton* a) {
+									Game::GetInstance().Push(new StageState());
+								} );
 	playText.SetAnchors( {0., 0. },
 					 	 {1., 0.25 } );
 	editorText.SetAnchors( {0., 0.25},
@@ -56,6 +62,18 @@ void TitleState::Update(float dt) {
 		quitRequested = true;
 	} else if(ActionManager::EscapeAction()) {
 		popRequested = true;
+	}
+
+	Vec2 mousePos = INPUT_MANAGER.GetMousePos();
+	if(playText.GetUIbuttonState() != UIbutton::State::DISABLED) {
+		if(mousePos.IsInRect(playText.GetBoundingBox())) {
+			playText.SetUIbuttonState(UIbutton::State::HIGHLIGHTED);
+			if(INPUT_MANAGER.MouseRelease(LEFT_MOUSE_BUTTON)) {
+				playText.Click();
+			}
+		} else {
+			playText.SetUIbuttonState(UIbutton::State::ENABLED);
+		}
 	}
 
 	// UI
