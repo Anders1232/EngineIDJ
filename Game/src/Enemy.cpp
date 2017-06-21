@@ -102,9 +102,9 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			std::cout << "Enemy type: ARQUITET "<< enemyData.enemyType << "\n";
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
-					sp[i][i2].colorMultiplier.r = 9;
-					sp[i][i2].colorMultiplier.g = 30;
-					sp[i][i2].colorMultiplier.b = 232;
+					sp[i][i2].colorMultiplier.r = 255;
+					sp[i][i2].colorMultiplier.g = 51;
+					sp[i][i2].colorMultiplier.b = 255;
 				}
 			}
 			components.emplace_back(new AIGoDown(ENEMY_ARQUITET_MOVE_SPEED));
@@ -148,6 +148,7 @@ Enemy::~Enemy(){
 		delete components[i];
 	}
 	components.clear();
+	delete hitpoints;
 	sp.clear();
 }
 
