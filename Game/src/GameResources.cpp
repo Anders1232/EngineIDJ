@@ -76,7 +76,7 @@ void GameResources::ReadWaveData(std::string file){
 		int enemyTypeIndex;
 		
 		ASSERT2(1 == fscanf(filePtr, "\t\t%s\n", readEnemyType), "\tFile format invalid! Expecting a string");
-
+		enemyTypeIndex= GetEnemyTypeFromString(readEnemyType);
 		char spriteFileName[ENEMY_MAX_SPRITE_NAME_LENGHT+1];
 		spriteFileName[ENEMY_MAX_SPRITE_NAME_LENGHT]= '\0';
 		//para dicionar mais sprites necessita-se duplicar essas linhas
