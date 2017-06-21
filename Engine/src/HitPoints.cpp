@@ -1,6 +1,6 @@
 #include "HitPoints.h"
 
-HitPoints::HitPoints(uint hp) : healthBar("img/effect/health_bar.png"), healthColor(){
+HitPoints::HitPoints(uint hp) : healthBar("img/effect/health_bar.png"), healthColor("img/effect/health_color.png"){
 	this->hp = (int)hp;
 
 }
@@ -16,6 +16,7 @@ void HitPoints::Update(GameObject &associated, float dt){
 
 void HitPoints::Render(GameObject &associated){
 	healthBar.Render(associated.box);
+	healthColor.Render(associated.box);
 }
 
 bool HitPoints::Is(ComponentType type) const{
