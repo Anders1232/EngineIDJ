@@ -76,6 +76,11 @@ class WaveManager : public Component {
 			Retorna os inimigos restantes da wave atual.
 		*/		
 		int GetEnemiesLeft();
+		/** 
+			\brief Condiçao de Vitoria.
+			\return victory: verdadeiro se as waves acabaram.
+			Retorna se a condiçao de vitoria foi satisfeita.
+		*/				
 		bool Victory();
 	private:
 		/** 
@@ -100,8 +105,8 @@ class WaveManager : public Component {
 		int waveIndex, enemyIndex, totalWaves;/**<Identificador da wave atual, identificador do inimigo atual e o contador de waves. Vitória se da quando contador for igual ao número total.*/
 		int waveTotalEnemies; /**<Indica o número total de inimigos da wave atual.*/
 
-		int maxNumberOfEnemiesInSpawnPoint;
-		bool victory;
+		int maxNumberOfEnemiesInSpawnPoint; /**<Numero maximo de um tipo de inimigo dentro de uma SpawnGroup. */
+		bool victory;/**< Verdadeiro se o jogador passou por todas as waves com vidas restantes. */
 
 };
 

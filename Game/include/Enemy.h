@@ -119,6 +119,11 @@ class Enemy : public GameObject
 			Utilizado para verificar onde o mouse está.
 		*/
 		Rect GetWorldRenderedRect(void) const;
+		/**
+			\brief Notificado por HitPoints se morreu.
+			
+			Ao hp ser menor ou igual a zero, HitPoints chama esse metodo.
+		*/		
 		void NotifyDeath();
 	private:
 		EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
@@ -126,10 +131,10 @@ class Enemy : public GameObject
 
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
 		
-		int enemyIndex;
-		HitPoints *hitpoints;
-		uint baseHP, endPoint;
-		EnemyDirections direction;
+		int enemyIndex;/**<Identificador do inimigo */
+		HitPoints *hitpoints;/**< Ponteiro para a componente HitPoints. Usada para chamada com argumentos. */
+		uint baseHP, endPoint; /**< Respectivamentes a vida base do inimigo e seu ponto de destino. */
+		EnemyDirections direction; /**< Direçao para aonde a sprite do inimigo esta voltada. Norte, Sul, Leste ou Oeste */
 };
 
 #endif // ENEMY_H
