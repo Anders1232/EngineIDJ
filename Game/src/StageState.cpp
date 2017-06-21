@@ -42,7 +42,7 @@ StageState::StageState(void)
 	REPORT_I_WAS_HERE;
 	tileMap = new TileMap(std::string("map/tileMap.txt"), &tileSet);
 	REPORT_I_WAS_HERE;
-	spawnGroups = tileMap->GetSpawnPositions();
+	spawnGroups = tileMap->GetTileGroups(SPAWN_POINT);
 	REPORT_I_WAS_HERE;
 	music.Play(10);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
