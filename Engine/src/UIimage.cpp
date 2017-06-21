@@ -29,9 +29,8 @@ void UIimage::SetSpriteScale(float scale) {
     kernelSize = Vec2(sp.GetWidth(), sp.GetHeight());
 }
 
-void UIimage::SetSpriteColorMultiplier(Color color, unsigned char alpha, SDL_BlendMode blendMode) {
+void UIimage::SetSpriteColorMultiplier(Color color, SDL_BlendMode blendMode) {
     sp.colorMultiplier = color;
-    sp.alpha = alpha;
     sp.blendMode = blendMode;
 }
 

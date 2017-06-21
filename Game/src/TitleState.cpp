@@ -31,7 +31,7 @@ TitleState::TitleState()
 					   {(float)(1. - 110./winSize.x), (float)(70.+nuvemB.GetSpriteHeight())/winSize.y } );
 	icc.SetAnchors( {0., (float)(80./winSize.y)},
 					{1., 1.});
-	overlay.SetSpriteColorMultiplier({255,255,255}, 135);
+	overlay.SetSpriteColorMultiplier({255,255,255,135});
 	title.SetSpriteScale(0.7);
 	title.SetAnchors( {(float)(0.5 - (title.GetSpriteWidth()/2.)/winSize.x), (float)(60./winSize.y)},
 					  {(float)(0.5 + (title.GetSpriteWidth()/2.)/winSize.x), (float)(60. + title.GetSpriteHeight())/winSize.y } );
