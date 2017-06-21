@@ -1,0 +1,6 @@
+<map id="Component" name="Component">
+<area shape="rect" id="node2" href="$classAIGoDown.html" title="Componete IA que se move para baixo. " alt="" coords="5,80,92,107"/>
+<area shape="rect" id="node3" href="$classDragAndDrop.html" title="Classe responsável por arrastar e posicionar Objetos. " alt="" coords="117,80,218,107"/>
+<area shape="rect" id="node4" href="$classHitPoints.html" title="HitPoints" alt="" coords="243,80,319,107"/>
+<area shape="rect" id="node5" href="$classWaveManager.html" title="Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves..." alt="" coords="343,80,450,107"/>
+</map>

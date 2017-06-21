@@ -24,6 +24,6 @@ void TitleState::Render(void) const {
 void TitleState::Pause(void) {}
 
 void TitleState::Resume(void) {
-	Camera::ForceZoom(1.0);
+	Camera::ForceLogZoom(0.0);
 	Camera::pos = Vec2(0, 0);
 }

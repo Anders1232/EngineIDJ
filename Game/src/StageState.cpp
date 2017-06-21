@@ -8,18 +8,9 @@
 #include "Tower.h"
 #include "Game.h"
 
-#ifdef _WIN32
-	#include <SDL.h>
-	#include <SDL_image.h>
-#elif __APPLE__
-	#include "TargetConditionals.h"
-	//mac
-#elif __linux__
-	#include <SDL2/SDL.h>
-	#include <SDL2/SDL_image.h>
-#else
-	#error "Unknown compiler"
-#endif
+#define INCLUDE_SDL 
+#define INCLUDE_SDL_IMAGE 
+#include "SDL_include.h"
 
 // Esse valores calculam o offset em relação ao canto superior esquedo da imagem daquilo que será renderizado
 #define STATE_RENDER_X 0
@@ -55,7 +46,7 @@ StageState::StageState(void)
 	REPORT_I_WAS_HERE;
 	music.Play(10);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
-	Camera::ForceZoom(CAM_START_ZOOM);
+	Camera::ForceLogZoom(CAM_START_ZOOM);
 }
 
 StageState::~StageState(void) {
@@ -177,7 +168,7 @@ void StageState::Render(void) const {
 			break;
 		}
 	}
-	tileMap.Render(Vec2(0,0), false, highlighted ?  Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos()) : Vec2(-1, -1));
+	tileMap.Render(Vec2(0,0), false, highlighted ? Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos()) : Vec2(-1, -1));
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
 

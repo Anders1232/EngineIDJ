@@ -53,7 +53,7 @@ int& TileMap::At(int x, int y, int z) const {
 	try {
 		return ( (int&)tileMatrix.at(index) );
 	} catch(...) {
-		static const int  m1=-1;
+		static const int m1=-1;
 		return (int&)m1;
 	}
 }
@@ -139,7 +139,7 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 			if(position.x < (x+1)*tileWidth) {
 				break;
 			} else {
-				//x  está pra direita
+				//x está pra direita
 				xEsq = x;
 			}
 		} else {
@@ -155,7 +155,7 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 			if(position.y < (y+1)*tileHeight) {
 				break;
 			} else {
-				//y  está pra direita
+				//y está pra direita
 				yEsq = y;
 			}
 		} else {
@@ -222,8 +222,8 @@ void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 	} 
 	else {
 
-		int line =  initialTile / GetWidth();
-		int column =  initialTile % GetWidth();
+		int line = initialTile / GetWidth();
+		int column = initialTile % GetWidth();
 		obj->box.x = column*tileSet->GetTileWidth();
 		obj->box.y = line*tileSet->GetTileHeight();
 
