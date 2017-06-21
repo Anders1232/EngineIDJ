@@ -30,7 +30,7 @@ var searchData=
   ['collision',['Collision',['../classCollision.html',1,'']]],
   ['collision_2eh',['Collision.h',['../Collision_8h.html',1,'']]],
   ['collision_5flayer',['COLLISION_LAYER',['../TileMap_8h.html#a22d205877ba623d755a2c7306a45170a',1,'TileMap.h']]],
-  ['color',['Color',['../structColor.html',1,'Color'],['../classText.html#ab0f771bd18d8e968f7aaee4a4e26e385',1,'Text::color()'],['../structColor.html#a01fc8b90de599a12365e87b9a0719264',1,'Color::Color()']]],
+  ['color',['Color',['../structColor.html',1,'Color'],['../classText.html#ab0f771bd18d8e968f7aaee4a4e26e385',1,'Text::color()'],['../structColor.html#a1f9035eaa8f9eb07c55359e60e895b73',1,'Color::Color()']]],
   ['color_2ecpp',['Color.cpp',['../Color_8cpp.html',1,'']]],
   ['color_2eh',['Color.h',['../Color_8h.html',1,'']]],
   ['color_5fmodulation',['COLOR_MODULATION',['../Sprite_8h.html#af80a45759a911ffaa1db89816b1820ee',1,'Sprite.h']]],

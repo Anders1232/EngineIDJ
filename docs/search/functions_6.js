@@ -37,6 +37,7 @@ var searchData=
   ['getwavedata',['GetWaveData',['../classGameResources.html#a703acf6508012a262661bfaac5efa7fc',1,'GameResources']]],
   ['getweightdata',['GetWeightData',['../classGameResources.html#afaa372572900c7ab1c7d8e5862d4de34',1,'GameResources']]],
   ['getwidth',['GetWidth',['../classSprite.html#ad3d43826d2f41185964ec4a1eb492248',1,'Sprite::GetWidth()'],['../classTileMap.html#a072dbe1dbd793712baefe154c3058ab2',1,'TileMap::GetWidth()']]],
+  ['getwindow',['GetWindow',['../classGame.html#a37fe21c58692aca137c2d8530bb0ed29',1,'Game']]],
   ['getwindowborderless',['GetWindowBorderless',['../classGame.html#a1462f830e61a7ece6075391faf9d2765',1,'Game']]],
   ['getwindowdimensions',['GetWindowDimensions',['../classGame.html#adbeb87bbabcc73f936e149c2d83d9d33',1,'Game']]],
   ['getwindowfullscreen',['GetWindowFullscreen',['../classGame.html#ab578fc018939b5c1fe15b993856828ad',1,'Game']]],

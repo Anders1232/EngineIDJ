@@ -1,8 +1,8 @@
 <map id="WaveManager" name="WaveManager">
 <area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="1082,23,1171,49"/>
-<area shape="rect" id="node6" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1093,252,1161,279"/>
-<area shape="rect" id="node7" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="723,245,786,272"/>
-<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="487,472,543,499"/>
-<area shape="rect" id="node14" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="233,545,287,572"/>
-<area shape="rect" id="node18" href="$classTimer.html" title="Temporizador. " alt="" coords="575,657,629,684"/>
+<area shape="rect" id="node6" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1093,253,1161,280"/>
+<area shape="rect" id="node7" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="723,389,786,416"/>
+<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="487,471,543,497"/>
+<area shape="rect" id="node18" href="$classTimer.html" title="Temporizador. " alt="" coords="575,640,629,667"/>
+<area shape="rect" id="node13" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="233,572,287,599"/>
 </map>
