@@ -10,7 +10,7 @@
 
 #define BASE_HIT_POINTS 100
 #define DIFICULTY_CONSTANT 12
-#define ENEMY_MOVE_SPEED (120.)
+#define ENEMY_MOVE_SPEED (2000.)
 
 enum EnemyType{
 	HOSTILE=0,

@@ -86,7 +86,7 @@ void StageState::Update(float dt) {
 	if(TIME_BETWEEN_SPAWNS < spawnTimer.Get()) {
 		int selectedSpawnGroup = rand() % spawnGroups->size();
 		int selectedSpawnPosition = rand() % ( (*spawnGroups)[selectedSpawnGroup] ).size();
-		SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition] );
+		//SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition] );
 		spawnTimer.Restart();
 	}
 
@@ -120,7 +120,7 @@ void StageState::Update(float dt) {
 	if(InputManager::GetInstance().KeyPress('h')) {
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
 		Enemy* e = new Enemy(mousePos, EnemyType::HOSTILE,1.0);
-		e->AddComponent(new AIPrintPath(tileMap,*e));
+		e->AddComponent(new AIArt(ENEMY_MOVE_SPEED,2134,tileMap,*e));
 		AddObject(e);
 	}
 	if(InputManager::GetInstance().KeyPress('e')) {
