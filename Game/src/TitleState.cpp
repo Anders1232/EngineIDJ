@@ -27,3 +27,7 @@ void TitleState::Resume(void) {
 	Camera::ForceZoom(1.0);
 	Camera::pos = Vec2(0, 0);
 }
+
+void TitleState::LoadAssets(void){
+	Resources::GetImage("img/title.jpg");
+}
