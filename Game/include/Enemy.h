@@ -22,7 +22,11 @@
 #define ENEMY_ARQUITET_MOVE_SPEED (150.)
 #define ENEMY_ART_MOVE_SPEED (100.)
 
-
+/**
+	\brief Enum que informa o tipo do inimigo
+	
+	Cada inimigo e´ composto por um tipo, e cada tipo tem suas propriedades diferentes.
+*/
 enum EnemyType{
 	HOSTILE=0,
 	NEUTRAL=1,
@@ -32,7 +36,11 @@ enum EnemyType{
 	QUIMIC=5,
 	ENEMY_TYPE_SIZE=6
 };
-
+/**
+	\brief Enum que diz a orientaçao do inimigo
+	
+	Refere-se a algum dos 4 lados que o inimigo pode estar de frente.
+*/
 enum EnemyDirections{
 	UP=0,
 	RIGHT=1,

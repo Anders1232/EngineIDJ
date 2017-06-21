@@ -8,7 +8,6 @@
 #include "WaveData.h"
 #include "Error.h"
 #include <memory>
-
 using std::vector;
 
 /**
@@ -80,7 +79,7 @@ class WaveManager : public Component {
 		/** 
 			\brief Condiçao de Vitoria.
 			\return victory: verdadeiro se as waves acabaram.
-			Retorna se a condiçao de vitoria foi satisfeita.
+			Retorna true se a condiçao de vitoria foi satisfeita.
 		*/				
 		bool Victory();
 	private:

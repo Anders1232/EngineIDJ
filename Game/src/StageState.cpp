@@ -42,7 +42,6 @@ StageState::StageState(void)
 	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
 	
 	REPORT_I_WAS_HERE;
-	spawnGroups = tileMap.GetSpawnPositions();
 	REPORT_I_WAS_HERE;
 	music.Play(10);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
@@ -52,7 +51,6 @@ StageState::StageState(void)
 StageState::~StageState(void) {
 	objectArray.clear();
 	//delete tileMap;
-	delete spawnGroups;
 	GameResources::Clear();
 }
 
