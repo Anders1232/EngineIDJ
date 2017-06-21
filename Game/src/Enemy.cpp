@@ -29,7 +29,8 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	sp[EnemyDirections::UP].emplace_back(basePath+"cabeca_tras.png", true, 0., 1);
 	sp[EnemyDirections::UP].emplace_back(basePath+"cabelo_tras.png", true, 0., 1);
 	sp[EnemyDirections::UP].emplace_back(basePath+"torso_tras.png", true, 0., 1);
-
+	
+	box = position;
 	sp[EnemyDirections::RIGHT].emplace_back(basePath+"perna_dir.png", true, 0., 1);
 	sp[EnemyDirections::RIGHT].emplace_back(basePath+"cabeca_dir.png", true, 0., 1);
 	sp[EnemyDirections::RIGHT].emplace_back(basePath+"cabelo_dir.png", true, 0., 1);
@@ -46,14 +47,14 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	sp[EnemyDirections::LEFT].emplace_back(basePath+"torso_esq.png", true, 0., 1);
 	
 	for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
-		for(uint i2= 0; i < sp[i].size(); i2++){
+		for(uint i2= 0; i2 < sp[i].size(); i2++){
 			sp[i][i2].SetScaleX(enemyData.scaleX);
 			sp[i][i2].SetScaleY(enemyData.scaleY);
 		}
 	}
 	
 	for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
-		for(uint i2= 0; i < sp[i].size(); i2++){
+		for(uint i2= 0; i2 < sp[i].size(); i2++){
 			sp[i][i2].SetFrame(1);
 		}
 	}
@@ -63,7 +64,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 		case EnemyType::HOSTILE:
 			std::cout << "Enemy type: HOSTILE "<< enemyData.enemyType << "\n";
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
-				for(uint i2= 0; i < sp[i].size(); i2++){
+				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 85;
 					sp[i][i2].colorMultiplier.g = 85;
 					sp[i][i2].colorMultiplier.b = 85;
@@ -74,7 +75,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 		case EnemyType::NEUTRAL:
 			std::cout << "Enemy type: NEUTRAL "<< enemyData.enemyType << "\n";
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
-				for(uint i2= 0; i < sp[i].size(); i2++){
+				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 255;
 					sp[i][i2].colorMultiplier.g = 255;
 					sp[i][i2].colorMultiplier.b = 255;
@@ -85,7 +86,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 		case EnemyType::ENGINEER:
 			std::cout << "Enemy type: ENGINEER "<< enemyData.enemyType << "\n";
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
-				for(uint i2= 0; i < sp[i].size(); i2++){
+				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 44;
 					sp[i][i2].colorMultiplier.g = 44;
 					sp[i][i2].colorMultiplier.b = 105;
@@ -96,7 +97,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 		case EnemyType::ARQUITET:
 			std::cout << "Enemy type: ARQUITET "<< enemyData.enemyType << "\n";
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
-				for(uint i2= 0; i < sp[i].size(); i2++){
+				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 9;
 					sp[i][i2].colorMultiplier.g = 30;
 					sp[i][i2].colorMultiplier.b = 232;
@@ -107,7 +108,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 		case EnemyType::ART:
 			std::cout << "Enemy type: ART "<< enemyData.enemyType << "\n";
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
-				for(uint i2= 0; i < sp[i].size(); i2++){
+				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 220;
 					sp[i][i2].colorMultiplier.g = 90;
 					sp[i][i2].colorMultiplier.b = 15;
@@ -118,7 +119,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 		case EnemyType::QUIMIC:
 			std::cout << "Enemy type: QUIMIC "<< enemyData.enemyType << "\n";
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
-				for(uint i2= 0; i < sp[i].size(); i2++){
+				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 100;
 					sp[i][i2].colorMultiplier.g = 250;
 					sp[i][i2].colorMultiplier.b = 100;
