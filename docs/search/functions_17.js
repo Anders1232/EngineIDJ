@@ -11,5 +11,5 @@ var searchData=
   ['_7estate',['~State',['../classState.html#a42d951e307f5b6d1966e15f417cc4101',1,'State']]],
   ['_7etext',['~Text',['../classText.html#a2d49e5c280e205125b149f7777ae30c7',1,'Text']]],
   ['_7etower',['~Tower',['../classTower.html#a96972da33c287758c036c944eccdc5fe',1,'Tower']]],
-  ['_7ewave',['~Wave',['../classWave.html#a1ee01745e8ec8fff53f1581f0bd3af1f',1,'Wave']]]
+  ['_7ewavemanager',['~WaveManager',['../classWaveManager.html#abead530485a53219fd0fd27146cdb33f',1,'WaveManager']]]
 ];

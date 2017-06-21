@@ -8,7 +8,10 @@ var searchData=
   ['leftarrowaction',['LeftArrowAction',['../classActionManager.html#afb4776f0e58c20d5c09c7e437298ae1b',1,'ActionManager']]],
   ['leftshoulderaction',['LeftShoulderAction',['../classActionManager.html#a61be8917bbd2964348cb99087f71bc99',1,'ActionManager']]],
   ['lifes',['lifes',['../classStateData.html#a4cfaba2a0f99c715f37607b068617210',1,'StateData']]],
+  ['lightningcolor',['lightningColor',['../classStageState.html#ab9c135b5484327f9ded7e0a5d067cd20',1,'StageState']]],
+  ['lightningtimer',['lightningTimer',['../classStageState.html#aa53aa34e27fb6460a4c921ef6d56f04e',1,'StageState']]],
   ['limitframerate',['LimitFramerate',['../classGame.html#a3fb091ff0a082d2652a98fee63c62b83',1,'Game']]],
   ['load',['Load',['../classTileMap.html#a57d5a9e280c52b74e8e1f0c3a2c876b7',1,'TileMap']]],
+  ['logzoomspeed',['logZoomSpeed',['../classCamera.html#ab9c22201b3c224e7c0f6e7a6733c33ff',1,'Camera']]],
   ['lista_20de_20futuras_20atividades',['Lista de Futuras Atividades',['../todo.html',1,'']]]
 ];

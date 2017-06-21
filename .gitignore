@@ -40,3 +40,9 @@ JOGO*
 dep/*
 */dep
 
+#arquivos da IDE Clion
+.idea/EngineIDJ.iml
+.idea/modules.xml
+.idea/workspace.xml
+
+

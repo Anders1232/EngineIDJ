@@ -102,7 +102,7 @@ void Text::RemakeTexture(void) {
 		bgColor= {0, 0, 0, 0};//preto
 		temp= TTF_RenderText_Shaded(font.get(), text.c_str(), color, bgColor);
 	}
-	else if(BLENDED ==  style) {
+	else if(BLENDED == style) {
 		temp = TTF_RenderText_Blended(font.get(), text.c_str(), color);
 	}
 	texture= SDL_CreateTextureFromSurface(Game::GetInstance().GetRenderer(), temp);

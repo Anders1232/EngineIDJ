@@ -5,6 +5,7 @@
 #include <vector>
 #include "Error.h"
 
+
 struct EnemyData{
 		//todo: ver como colocar cores e transparência aqui
 	public:
@@ -25,6 +26,7 @@ struct EnemyData{
 
 struct EnemySpawnData{
 	public:
+
 		EnemySpawnData(int index, int numberOfEnemies, int baseHP, uint endPoint):
 			enemyIndex(index),
 			numberOfEnemies(numberOfEnemies),
