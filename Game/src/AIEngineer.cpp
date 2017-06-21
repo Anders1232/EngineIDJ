@@ -31,7 +31,80 @@ AIEngineer::AIEngineer(float speed,int dest,TileMap* tilemap,GameObject &associa
 
 AIEngineer::AIEvent AIEngineer::ComputeEvents(){
 
-	
+	if(actualState == AIState::WALKING){
+
+		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+
+			return AIEvent::STUN;
+
+		}
+		else if(path.empty()){
+
+			return AIEvent::PATH_BLOCKED;
+
+		}
+		else if(false){// Aqui verifica-se a colisão com o elemento de fumaça
+
+			return AIEvent::SMOKE;
+
+		}
+		else{return NONE;}
+
+	}
+	else if(actualState == AIState::WALKING_SLOWLY){
+
+		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+
+			return AIEvent::STUN;
+
+		}
+		else if(false){// Aqui verifica-se o fim da colisão com o elemento de fumaça
+
+			return AIEvent::NOT_SMOKE;
+
+		}
+		else if(path.empty()){
+
+			return AIEvent::PATH_BLOCKED;
+
+		}
+		else{return NONE;}
+
+	}
+	else if(actualState == AIState::BUILDING_BARRIER){
+
+		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+
+			return AIEvent::STUN;
+
+		}
+		else if(!path.empty()){
+
+			//std::cout << "PATH_FREE" << std::endl;
+			return AIEvent::PATH_FREE;
+
+		}
+		else{return NONE;}
+
+	}
+	else if(actualState == AIState::STUNNED){
+
+		if(false){// Aqui verifica-se o fim da colisão com o elemento estonteante
+
+			return AIEvent::NOT_STUN;
+
+		}
+		else if(path.empty()){
+
+			return AIEvent::PATH_BLOCKED;
+
+		}
+		else{return NONE;}
+
+	}
+
+	return NONE;
+
 }
 
 void AIEngineer::Update(float dt){
