@@ -10,11 +10,14 @@ var searchData=
   ['getcurrentstate',['GetCurrentState',['../classGame.html#a1f9d6f97e969424844881dd7ad2e353e',1,'Game']]],
   ['getdeltatime',['GetDeltaTime',['../classGame.html#aa2feacb19b45ff0ec0935ea1a6f9c9ab',1,'Game']]],
   ['getdepth',['GetDepth',['../classTileMap.html#aeb8c6a4101e449c33d963041345d918e',1,'TileMap']]],
+  ['getenemiesleft',['GetEnemiesLeft',['../classWaveManager.html#a7cefa420665f27cfbec19c34fbdba628',1,'WaveManager']]],
   ['getenemytypefromstring',['GetEnemyTypeFromString',['../classGameResources.html#af464a5b36f51029efbdc0eabf1ed89c9',1,'GameResources']]],
   ['getfont',['GetFont',['../classResources.html#a661a92ea82fb73e31092059d6fc383c3',1,'Resources']]],
+  ['getgo',['GetGO',['../classTileMap.html#a4694be5ef653fd6c67c9c045918c3c77',1,'TileMap']]],
   ['getheight',['GetHeight',['../classSprite.html#a2a5a7c73dd94f822b0a248de3621e5eb',1,'Sprite::GetHeight()'],['../classTileMap.html#a9fe48260088655aa252b4d40e60f1390',1,'TileMap::GetHeight()']]],
   ['getimage',['GetImage',['../classResources.html#a557aa346c974a8bce80017dbabd653d9',1,'Resources']]],
   ['getinstance',['GetInstance',['../classGame.html#a25d213802ed39215e3ab2cb04edf46c8',1,'Game::GetInstance()'],['../classInputManager.html#a1f095ed502f0bd09390d05cdc0acdcd9',1,'InputManager::GetInstance()']]],
+  ['getlifesleft',['GetLifesLeft',['../classWaveManager.html#a1409142aba1b106a0c2826ca2cbb97a7',1,'WaveManager']]],
   ['getmaxframerate',['GetMaxFramerate',['../classGame.html#aafc542fc5f826d2eed771c8bd75d6930',1,'Game']]],
   ['getmaxspeed',['GetMaxSpeed',['../classCamera.html#a58085208a970a15b8bb1d8edee343ad0',1,'Camera']]],
   ['getminspeed',['GetMinSpeed',['../classCamera.html#a4824e13cac9ebd8f79abbae248a2b614',1,'Camera']]],
@@ -38,6 +41,6 @@ var searchData=
   ['getwindowdimensions',['GetWindowDimensions',['../classGame.html#adbeb87bbabcc73f936e149c2d83d9d33',1,'Game']]],
   ['getwindowfullscreen',['GetWindowFullscreen',['../classGame.html#ab578fc018939b5c1fe15b993856828ad',1,'Game']]],
   ['getwindowmaximized',['GetWindowMaximized',['../classGame.html#a73b7de2577d86f15887e091330513dc2',1,'Game']]],
-  ['getworldrenderedrect',['GetWorldRenderedRect',['../classAnimation.html#a0c0ff21f388105a5ed1560de9071f895',1,'Animation::GetWorldRenderedRect()'],['../classGameObject.html#a686136f4cf17c54345a7d28187b25893',1,'GameObject::GetWorldRenderedRect()'],['../classWave.html#ae8d831a974e0f487125ebab6f712b91a',1,'Wave::GetWorldRenderedRect()'],['../classEnemy.html#ac7f63bc4fdfa5cf88f85eec8e9053df2',1,'Enemy::GetWorldRenderedRect()'],['../classTower.html#a70062b0fd7a5cc0f255173c93b431f99',1,'Tower::GetWorldRenderedRect()']]],
+  ['getworldrenderedrect',['GetWorldRenderedRect',['../classAnimation.html#a0c0ff21f388105a5ed1560de9071f895',1,'Animation::GetWorldRenderedRect()'],['../classGameObject.html#a6144b71795035bd65b81ed36abc19638',1,'GameObject::GetWorldRenderedRect()'],['../classEnemy.html#ac7f63bc4fdfa5cf88f85eec8e9053df2',1,'Enemy::GetWorldRenderedRect()'],['../classTower.html#a70062b0fd7a5cc0f255173c93b431f99',1,'Tower::GetWorldRenderedRect()']]],
   ['getzoom',['GetZoom',['../classCamera.html#af6fe062fcf5e1e31224d4dd9f6cafa51',1,'Camera']]]
 ];

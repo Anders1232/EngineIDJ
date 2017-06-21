@@ -136,6 +136,18 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a9370c61beefad2f657c022a0a2462336"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a9370c61beefad2f657c022a0a2462336">InsertGO</a> (<a class="el" href="classGameObject.html">GameObject</a> *obj)</td></tr>
 <tr class="memdesc:a9370c61beefad2f657c022a0a2462336"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere GameObjct no tileMap.  <a href="#a9370c61beefad2f657c022a0a2462336">Mais...</a><br /></td></tr>
 <tr class="separator:a9370c61beefad2f657c022a0a2462336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a916d38c429fe9d66b92c2687656c0e3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a916d38c429fe9d66b92c2687656c0e3c">InsertGO</a> (<a class="el" href="classGameObject.html">GameObject</a> *obj, <a class="el" href="classVec2.html">Vec2</a> initialPos)</td></tr>
+<tr class="memdesc:a916d38c429fe9d66b92c2687656c0e3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere GameObjct no tileMap ou o posiciona na posição passada caso não seja possivel.  <a href="#a916d38c429fe9d66b92c2687656c0e3c">Mais...</a><br /></td></tr>
+<tr class="separator:a916d38c429fe9d66b92c2687656c0e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a911e2833ea395e1c5b67d3fadbc84b9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a911e2833ea395e1c5b67d3fadbc84b9d">RemoveGO</a> (int position)</td></tr>
+<tr class="memdesc:a911e2833ea395e1c5b67d3fadbc84b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove GameObjct no tileMap.  <a href="#a911e2833ea395e1c5b67d3fadbc84b9d">Mais...</a><br /></td></tr>
+<tr class="separator:a911e2833ea395e1c5b67d3fadbc84b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafae8f5c077ee78cd8d9fc471ba6c82b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#aafae8f5c077ee78cd8d9fc471ba6c82b">RemoveGO</a> (void)</td></tr>
+<tr class="memdesc:aafae8f5c077ee78cd8d9fc471ba6c82b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove GameObjct no tileMap.  <a href="#aafae8f5c077ee78cd8d9fc471ba6c82b">Mais...</a><br /></td></tr>
+<tr class="separator:aafae8f5c077ee78cd8d9fc471ba6c82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4694be5ef653fd6c67c9c045918c3c77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGameObject.html">GameObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a4694be5ef653fd6c67c9c045918c3c77">GetGO</a> (int index)</td></tr>
+<tr class="memdesc:a4694be5ef653fd6c67c9c045918c3c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> de uma determinada posição do tileMap.  <a href="#a4694be5ef653fd6c67c9c045918c3c77">Mais...</a><br /></td></tr>
+<tr class="separator:a4694be5ef653fd6c67c9c045918c3c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31b1607f50b08cf2c49c71a8478ec07d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a31b1607f50b08cf2c49c71a8478ec07d">ShowCollisionInfo</a> (bool show)</td></tr>
 <tr class="memdesc:a31b1607f50b08cf2c49c71a8478ec07d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ativa ou desativa a exibição na tela das informações do tileMap de colisão.  <a href="#a31b1607f50b08cf2c49c71a8478ec07d">Mais...</a><br /></td></tr>
 <tr class="separator:a31b1607f50b08cf2c49c71a8478ec07d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -372,6 +384,25 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a4694be5ef653fd6c67c9c045918c3c77"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGameObject.html">GameObject</a> * TileMap::GetGO </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtém <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> de uma determinada posição do tileMap. </p>
+<p>Faz-se checagem de limites para saber se a posição desejada existe. </p>
+
+</div>
+</div>
 <a class="anchor" id="a9fe48260088655aa252b4d40e60f1390"></a>
 <div class="memitem">
 <div class="memproto">
@@ -520,6 +551,41 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a916d38c429fe9d66b92c2687656c0e3c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TileMap::InsertGO </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGameObject.html">GameObject</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classVec2.html">Vec2</a>&#160;</td>
+          <td class="paramname"><em>initialPos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Insere GameObjct no tileMap ou o posiciona na posição passada caso não seja possivel. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td><a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> a ser inserido no tileMap de GameObjects.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Utiliza a posição do mouse no momento(que deve ser a mesma do centro do GameObject) para identificar onde o <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> deve ser colocado no tileMap de GameObjects. Então obj é colocado nessa posição, sua posição é alterada para se encaixar exatamente com o início da posição. Atualiza-se o tileMao de colisão para adicionar a informação que tem um <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> na posição respectiva. </p>
+
+</div>
+</div>
 <a class="anchor" id="a9cdb06bdaca86adf9fc179ed5cf7b148"></a>
 <div class="memitem">
 <div class="memproto">
@@ -585,6 +651,50 @@ Atributos Protegidos</h2></td></tr>
   </dd>
 </dl>
 <p>O arquivo deve começar com 3 números: largura, altura e profundidade. Depois disso dever existir um números inteiros igual ao produto dos três números lidos organizados em layers, linhas e colunas. O argumento setOfficialSize deve ser verdadeiro se estiver lendo o arquivo de tileMap relativo com informações do tileSet. </p>
+
+</div>
+</div>
+<a class="anchor" id="a911e2833ea395e1c5b67d3fadbc84b9d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TileMap::RemoveGO </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove GameObjct no tileMap. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Posição que contém o Gameobject a ser retirado.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Atualiza-se o tileMap de colisão para adicionar a informação que tem um <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> na posição respectiva. </p>
+
+</div>
+</div>
+<a class="anchor" id="aafae8f5c077ee78cd8d9fc471ba6c82b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TileMap::RemoveGO </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove GameObjct no tileMap. </p>
+<p>Variação do RemoveGO que internamente faz a busca o <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> que está debaixo do mouse para remover. Atualiza-se o tileMap de colisão para adicionar a informação que tem um <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> na posição respectiva. </p>
 
 </div>
 </div>
@@ -881,7 +991,7 @@ Atributos Protegidos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sábado, 17 de Junho de 2017 16:22:21 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Terça, 20 de Junho de 2017 20:31:14 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

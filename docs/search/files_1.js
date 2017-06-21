@@ -6,5 +6,6 @@ var searchData=
   ['color_2ecpp',['Color.cpp',['../Color_8cpp.html',1,'']]],
   ['color_2eh',['Color.h',['../Color_8h.html',1,'']]],
   ['component_2ecpp',['Component.cpp',['../Component_8cpp.html',1,'']]],
-  ['component_2eh',['Component.h',['../Component_8h.html',1,'']]]
+  ['component_2eh',['Component.h',['../Component_8h.html',1,'']]],
+  ['componenttype_2eh',['ComponentType.h',['../ComponentType_8h.html',1,'']]]
 ];

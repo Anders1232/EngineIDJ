@@ -5,6 +5,7 @@
 #include <memory>
 
 #include "ActionManager.h"
+#include "DragAndDrop.h"
 #include "GameObject.h"
 #include "InputManager.h"
 #include "Music.h"
@@ -13,7 +14,7 @@
 #include "TileMap.h"
 #include "Tileset.h"
 #include "Timer.h"
-
+#include "WaveManager.h"
 using std::vector;
 
 class StageState: public State {
@@ -27,16 +28,18 @@ class StageState: public State {
 		void ShowLightning(float dt);
 	private:
 		Sprite bg;
-		TileMap *tileMap;
 		TileSet tileSet;
+		TileMap tileMap;
 		InputManager &inputManager;
 		Music music;
 		vector<vector<int>> *spawnGroups;
-		Timer spawnTimer;
 		bool isLightning;
 		Timer lightningTimer;
 		Color lightningColor;
 		void SpawnEnemy(int tileMapPosition);
+		WaveManager waveManager;
+		GameObject nullGameObject;
+		vector<int> waves;//vetor de waves a ser lido no arquivo
 };
 
 #include "EndState.h"
