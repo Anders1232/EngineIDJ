@@ -43,23 +43,23 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 
 	//each type will have their own components. dando invalid read.
 	switch(enemyData.enemyType){
-		case HOSTILE:
-			std::cout << "Enemy type: "<< enemyData.enemyType << "\n";
+		case EnemyType::HOSTILE:
+			std::cout << "Enemy type: HOSTILE "<< enemyData.enemyType << "\n";
 			break;
-		case NEUTRAL:
-			std::cout << "Enemy type: "<< enemyData.enemyType << "\n";
+		case EnemyType::NEUTRAL:
+			std::cout << "Enemy type: NEUTRAL "<< enemyData.enemyType << "\n";
 			break;
-		case ENGINEER:
-			std::cout << "Enemy type: "<< enemyData.enemyType << "\n";
+		case EnemyType::ENGINEER:
+			std::cout << "Enemy type: ENGINEER "<< enemyData.enemyType << "\n";
 			break;
-		case ARQUITET:
-			std::cout << "Enemy type: "<< enemyData.enemyType << "\n";
+		case EnemyType::ARQUITET:
+			std::cout << "Enemy type: ARQUITET "<< enemyData.enemyType << "\n";
 			break;
-		case ART:
-			std::cout << "Enemy type: "<< enemyData.enemyType << "\n";
+		case EnemyType::ART:
+			std::cout << "Enemy type: ART "<< enemyData.enemyType << "\n";
 			break;
-		case QUIMIC:
-			std::cout << "Enemy type: "<< enemyData.enemyType << "\n";
+		case EnemyType::QUIMIC:
+			std::cout << "Enemy type: QUIMIC "<< enemyData.enemyType << "\n";
 			break;
 		default:
 			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";

@@ -7,9 +7,8 @@ HitPoints::HitPoints(uint hp) : healthBar(), healthColor(){
 HitPoints::~HitPoints(){
 
 }
-void HitPoints::Update(GameObject &associated, float dt){
 
-	printf("oi\n");
+void HitPoints::Update(GameObject &associated, float dt){
 	if(hp <= 0){
 		//associated.NotifyDeath();
 	}
