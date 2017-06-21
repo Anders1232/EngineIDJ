@@ -83,6 +83,7 @@ void AIArt::Update(float dt){
 	//std::cout << "Estado atual: " << actualState << std::endl;
 	//std::cout << "Transição atual : " << actualTransition << std::endl;
 	actualState = dfa[actualState][actualTransition];
+
 	if(actualState == AIState::WALKING){
 
 		tempDestination = Vec2(tilemap->GetTileSize().x * (path.front() % tilemap->GetWidth()),tilemap->GetTileSize().y*(path.front() / tilemap->GetWidth()));
