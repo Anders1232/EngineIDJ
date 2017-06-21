@@ -86,7 +86,7 @@ void StageState::Update(float dt) {
 	if(TIME_BETWEEN_SPAWNS < spawnTimer.Get()) {
 		int selectedSpawnGroup = rand() % spawnGroups->size();
 		int selectedSpawnPosition = rand() % ( (*spawnGroups)[selectedSpawnGroup] ).size();
-		//SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition] );
+		SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition] );
 		spawnTimer.Restart();
 	}
 

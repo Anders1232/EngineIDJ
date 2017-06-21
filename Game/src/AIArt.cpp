@@ -28,7 +28,7 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 
 	if(actualState == AIState::WALKING){
 
-		if(tilemap->Stun(associated.box)){
+		if(false){// Aqui verifica-se a colisão com o elemento estonteante
 
 			return AIEvent::STUN;
 
@@ -43,7 +43,7 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 	}
 	else if(actualState == AIState::WAITING){
 
-		if(tilemap->Stun(associated.box)){
+		if(false){// Aqui verifica-se a colisão com o elemento estonteante
 
 			return AIEvent::STUN;
 
@@ -59,7 +59,7 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 	}
 	else if(actualState == AIState::STUNNED){
 
-		if(!tilemap->Stun(associated.box)){
+		if(false){// Aqui verifica-se a colisão com o elemento estonteante
 
 			return AIEvent::NOT_STUN;
 

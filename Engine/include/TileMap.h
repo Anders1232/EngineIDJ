@@ -149,8 +149,7 @@ class TileMap{
 			\brief Altera o tilemap mostrando o caminho contido em list
 
 		*/
-		bool Stun(Vec2 pos) const;
-		
+
 		void ShowPath(std::list<int>path);
 		/**
 			\brief Calcula o caminho menos custoso entre dois pontos baseado em uma heuristica utilizando o algoritmo A*.

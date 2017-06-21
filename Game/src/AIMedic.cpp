@@ -29,6 +29,54 @@ AIMedic::AIMedic(float speed,int dest,TileMap* tilemap,GameObject &associated):s
 
 AIMedic::AIEvent AIMedic::ComputeEvents(){
 
+	if(actualState == AIState::WALKING){
+
+		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+
+			return AIEvent::STUN;
+
+		}
+		else if(path.empty()){
+
+			return AIEvent::PATH_BLOCKED;
+
+		}
+		else{return NONE;}
+
+	}
+	else if(actualState == AIState::WAITING){
+
+		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+
+			return AIEvent::STUN;
+
+		}
+		else if(!path.empty()){
+
+			//std::cout << "PATH_FREE" << std::endl;
+			return AIEvent::PATH_FREE;
+
+		}
+		else{return NONE;}
+
+	}
+	else if(actualState == AIState::STUNNED){
+
+		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+
+			return AIEvent::NOT_STUN;
+
+		}
+		else if(path.empty()){
+
+			return AIEvent::PATH_BLOCKED;
+
+		}
+		else{return NONE;}
+
+	}
+
+	return NONE;
 	
 }
 
