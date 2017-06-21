@@ -55,7 +55,7 @@ class Vec2 {
 			\brief Sobrecarga do operador de multiplicação entre de um Vec2 por um float.
 			\return Produto de Vec2 por escalar.
 			
-			O cálculo do produto é feito de forma na qual a magnetude do vetor é multiplicada pelo argumento sem que sua  angulação seja alterada.
+			O cálculo do produto é feito de forma na qual a magnetude do vetor é multiplicada pelo argumento sem que sua angulação seja alterada.
 			Observação: Nennhum dos Vec2 sobre qual essa operação opera é alterado!
 		*/
 		Vec2 operator*(float b)const;
