@@ -28,7 +28,7 @@
 
 StageState::StageState(void)
 		: State()
-		, tileSet(120, 120,"img/map/tileset_v2.png")
+		, tileSet(120, 120,"map/tileset_vf.png")
 		, tileMap("map/tileMap.txt", &tileSet)
 		, inputManager(InputManager::GetInstance())
 		, music("audio/stageState.ogg")
