@@ -168,7 +168,7 @@ class InputManager {
 		Vec2 MouseScroll(void) const;
 		/**
 			\brief Informa se o usuário solicitou a saída do programa.
-			\return Booleano  com a informação solicitada.
+			\return Booleano com a informação solicitada.
 
 			Retorna verdadeiro se o evento SDL_QUIT ocorreu no frame atual.
 			Caso contrário retorna falso.

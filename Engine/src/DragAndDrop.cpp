@@ -11,8 +11,8 @@ DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, bool redrag, bo
 void DragAndDrop::Update(GameObject &associated, float dt) {
 	InputManager &inputManager= InputManager::GetInstance();
 	if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON)){
-		Vec2 mousePos= inputManager.GetMousePos()*(1/Camera::GetZoom());
-		associated.box= mousePos+Camera::pos-Vec2(associated.box.w/2, associated.box.h/2);
+		Vec2 mousePos= Camera::ScreenToWorld(inputManager.GetMousePos() );
+		associated.box= mousePos-Vec2(associated.box.w/2, associated.box.h/2);
 	} 
 	else if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON)) {
 		if(redrag){

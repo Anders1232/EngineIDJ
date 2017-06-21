@@ -226,6 +226,10 @@ bool Game::IsFramerateLimited(void) const {
 	return capFramerate;
 }
 
+SDL_Window* Game::GetWindow(void) const {
+	return window;
+}
+
 void Game::SetWindowDimensions(Vec2 size){
 	SDL_SetWindowSize(window, size.x, size.y);
 	SetWindowCentered();

@@ -63,7 +63,7 @@ class Sprite {
 		*/
 		void SetClip(int x, int y, int w, int h);
 		/**
-			\brief Renderiza  a imagem.
+			\brief Renderiza a imagem.
 			\param world Região a partir do qual a imagem deve ser renderizada.
 			\param angle Ângulo de rotação da imagem.
 			\param isCoordOnWorld Verdadeiro se a região a ser renderizada deve ser convertida do mundo para tela. Falso se as coordenadas já estão convertidas (UI e BGs, por exemplo).
@@ -177,7 +177,6 @@ class Sprite {
 		void Scale(float scale);
 		Color colorMultiplier;/**< A cor a ser usada para multiplicar a sprite.*/
 		SDL_BlendMode blendMode;/**< O modo de mistura da sprite com as inferiores.*/
-		unsigned char alpha;/**< A transparência da textura.*/
 	private:
 		std::shared_ptr<SDL_Texture> texture;/**< Ponteiro para a textura manejada pelo sprite.*/
 		int width;/**< Largura da textura em pixels.*/

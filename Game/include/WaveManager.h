@@ -8,6 +8,7 @@
 #include "WaveData.h"
 #include "Error.h"
 #include <memory>
+
 using std::vector;
 
 /**

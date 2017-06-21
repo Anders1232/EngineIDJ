@@ -14,7 +14,7 @@ Sprite::Sprite(void): Sprite("", false, 0, 1) {}
 
 Sprite::Sprite(std::string file, bool highlighted, float frameTime, int frameCount)
 		: colorMultiplier(255, 255, 255), blendMode(ALPHA_BLEND)
-		, alpha(255), frameCount(frameCount)
+		, frameCount(frameCount)
 		, currentFrame(0), timeElapsed(0)
 		, frameTime(frameTime), scaleX(1.), scaleY(1.) {
 	if(highlighted){
@@ -80,7 +80,7 @@ void Sprite::Render(Rect world, float angle, bool isCoordOnWorld) const {
 		if(isOutOfBounds) return;
 	}
 
-	if( -1 == SDL_SetTextureAlphaMod( texture.get(), alpha ) ) {
+	if( -1 == SDL_SetTextureAlphaMod( texture.get(), colorMultiplier.a ) ) {
 		CHECK_SDL_ERROR;
 	}
 

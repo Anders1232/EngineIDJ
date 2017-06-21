@@ -1,5 +1,0 @@
-<map id="TitleState" name="TitleState">
-<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="495,72,548,99"/>
-<area shape="rect" id="node5" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="493,271,549,297"/>
-<area shape="rect" id="node12" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="236,187,289,213"/>
-</map>
