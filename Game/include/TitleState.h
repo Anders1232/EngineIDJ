@@ -25,11 +25,6 @@ class TitleState: public State {
 		UIimage overlay;
 		UIimage title;
 		UIcanvas optionsGroup;
-		// UIbutton testButton;
-		// UItext enabledText;
-		// UItext highlightedText;
-		// UItext disabledText;
-		// UItext selectedText;
 		UItext playText;
 		UItext editorText;
 		UItext configText;
