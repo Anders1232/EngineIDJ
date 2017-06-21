@@ -1,5 +1,4 @@
 #include "StageState.h"
-
 #include "Camera.h"
 #include "Collision.h"
 #include "EndStateData.h"
