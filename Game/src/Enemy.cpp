@@ -4,85 +4,126 @@
 #include "Error.h"
 #include "AIGoDown.h"
 #include "HitPoints.h"
-
+/*
 Enemy::Enemy(Vec2 position, int life)
 		: sp("img/enemy/teste-cor.png", true, 0.0, 1), dead(false) {
 	box = position;
 	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED));
 	
 	sp.SetScale(0.8);
-	sp.SetFrame(1); 
+	sp.SetFrame(1);
 
 }
-
+*/
 Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint)
-: sp(enemyData.spName, true, 0.0, 1), dead(false){
+	: sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE), dead(false){
 	box = position;
 	this->enemyIndex = enemyIndex; 
 	this->baseHP = baseHP; 
 	this->endPoint = endPoint;
 
-	//spName.Open(enemyData.spName);
-	//bodySpName.Open(enemyData.bodySpName);
-	//headSpName.Open(enemyData.headSpName);
-	//pantsSpName.Open(enemyData.pantsSpName);
+	std::string basePath= "img/"+enemyData.spFolder;
+	basePath= basePath+ "/";
 
-	sp.SetScaleX(enemyData.scaleX);
-	sp.SetScaleY(enemyData.scaleY);
-	//bodySpName.SetScaleX(enemyData.scaleX);
-	//headSpName.SetScaleX(enemyData.scaleX);
-	//pantsSpName.SetScaleX(enemyData.scaleX);
-	//bodySpName.SetScaleY(enemyData.scaleY);
-	//headSpName.SetScaleY(enemyData.scaleY);
-	//pantsSpName.SetScaleY(enemyData.scaleY);
+	sp[EnemyDirections::UP].emplace_back(basePath+"perna_tras.png", true, 0., 1);
+	sp[EnemyDirections::UP].emplace_back(basePath+"cabeca_tras.png", true, 0., 1);
+	sp[EnemyDirections::UP].emplace_back(basePath+"cabelo_tras.png", true, 0., 1);
+	sp[EnemyDirections::UP].emplace_back(basePath+"torso_tras.png", true, 0., 1);
 
-	sp.SetFrame(1);
-	//bodySpName.SetFrame(1);
-	//headSpName.SetFrame(1);
-	//pantsSpName.SetFrame(1);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"perna_dir.png", true, 0., 1);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"cabeca_dir.png", true, 0., 1);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"cabelo_dir.png", true, 0., 1);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"torso_dir.png", true, 0., 1);
+
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"perna_frente.png", true, 0., 1);
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"cabeca_frente.png", true, 0., 1);
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"cabelo_frente.png", true, 0., 1);
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"torso_frente.png", true, 0., 1);
+	
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"perna_esq.png", true, 0., 1);
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"cabeca_esq.png", true, 0., 1);
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"cabelo_esq.png", true, 0., 1);
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"torso_esq.png", true, 0., 1);
+	
+	for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
+		for(uint i2= 0; i < sp[i].size(); i2++){
+			sp[i][i2].SetScaleX(enemyData.scaleX);
+			sp[i][i2].SetScaleY(enemyData.scaleY);
+		}
+	}
+	
+	for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
+		for(uint i2= 0; i < sp[i].size(); i2++){
+			sp[i][i2].SetFrame(1);
+		}
+	}
 
 	//each type will have their own components. dando invalid read.
 	switch(enemyData.enemyType){
 		case EnemyType::HOSTILE:
 			std::cout << "Enemy type: HOSTILE "<< enemyData.enemyType << "\n";
-			sp.colorMultiplier.r = 85;
-			sp.colorMultiplier.g = 85;
-			sp.colorMultiplier.b = 85;
+			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
+				for(uint i2= 0; i < sp[i].size(); i2++){
+					sp[i][i2].colorMultiplier.r = 85;
+					sp[i][i2].colorMultiplier.g = 85;
+					sp[i][i2].colorMultiplier.b = 85;
+				}
+			}
 			components.emplace_back(new AIGoDown(ENEMY_HOSTILE_MOVE_SPEED));
 			break;
 		case EnemyType::NEUTRAL:
 			std::cout << "Enemy type: NEUTRAL "<< enemyData.enemyType << "\n";
-			sp.colorMultiplier.r = 255;
-			sp.colorMultiplier.g = 255;
-			sp.colorMultiplier.b = 255;
+			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
+				for(uint i2= 0; i < sp[i].size(); i2++){
+					sp[i][i2].colorMultiplier.r = 255;
+					sp[i][i2].colorMultiplier.g = 255;
+					sp[i][i2].colorMultiplier.b = 255;
+				}
+			}
 			components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED));
 			break;
 		case EnemyType::ENGINEER:
 			std::cout << "Enemy type: ENGINEER "<< enemyData.enemyType << "\n";
-			sp.colorMultiplier.r = 44;
-			sp.colorMultiplier.g = 44;
-			sp.colorMultiplier.b = 105;
+			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
+				for(uint i2= 0; i < sp[i].size(); i2++){
+					sp[i][i2].colorMultiplier.r = 44;
+					sp[i][i2].colorMultiplier.g = 44;
+					sp[i][i2].colorMultiplier.b = 105;
+				}
+			}
 			components.emplace_back(new AIGoDown(ENEMY_ENGINEER_MOVE_SPEED));
 			break;
 		case EnemyType::ARQUITET:
 			std::cout << "Enemy type: ARQUITET "<< enemyData.enemyType << "\n";
-			sp.colorMultiplier.r = 9;
-			sp.colorMultiplier.g = 30;
-			sp.colorMultiplier.b = 232;
-			components.emplace_back(new AIGoDown(ENEMY_ARQUITET_MOVE_SPEED));			
+			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
+				for(uint i2= 0; i < sp[i].size(); i2++){
+					sp[i][i2].colorMultiplier.r = 9;
+					sp[i][i2].colorMultiplier.g = 30;
+					sp[i][i2].colorMultiplier.b = 232;
+				}
+			}
+			components.emplace_back(new AIGoDown(ENEMY_ARQUITET_MOVE_SPEED));
 			break;
 		case EnemyType::ART:
 			std::cout << "Enemy type: ART "<< enemyData.enemyType << "\n";
-			sp.colorMultiplier.r = 220;
-			sp.colorMultiplier.g = 90;
-			sp.colorMultiplier.b = 15;				
+			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
+				for(uint i2= 0; i < sp[i].size(); i2++){
+					sp[i][i2].colorMultiplier.r = 220;
+					sp[i][i2].colorMultiplier.g = 90;
+					sp[i][i2].colorMultiplier.b = 15;
+				}
+			}
 			components.emplace_back(new AIGoDown(ENEMY_ART_MOVE_SPEED));
 			break;
 		case EnemyType::QUIMIC:
 			std::cout << "Enemy type: QUIMIC "<< enemyData.enemyType << "\n";
-			sp.colorMultiplier.r = 100;
-			sp.colorMultiplier.g = 250;
-			sp.colorMultiplier.b = 100;
+			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
+				for(uint i2= 0; i < sp[i].size(); i2++){
+					sp[i][i2].colorMultiplier.r = 100;
+					sp[i][i2].colorMultiplier.g = 250;
+					sp[i][i2].colorMultiplier.b = 100;
+				}
+			}
 			components.emplace_back(new AIGoDown(ENEMY_QUIMIC_MOVE_SPEED));
 			break;
 		default:
@@ -117,7 +158,12 @@ void Enemy::Update(float dt) {
 
 void Enemy::Render(void) {
 	REPORT_DEBUG("\t Box:: x("<<box.x<<"), y(" <<box.y<< "), w("<<box.w<<"), h("<<box.h<<")");
-	sp.Render(box);
+	for(uint i=0; i< sp[direction].size(); i++){
+		sp[direction][i].Render(box);
+	}
+	for(uint i= 0; i < sp[direction].size(); i++){
+		sp[direction][i].Render(box);
+	}
 	hitpoints->Render(*this);
 }
 
