@@ -6,10 +6,10 @@ EndState::EndState(EndStateData stateData)
 		: bg( (stateData.playerVictory) ? "img/win.jpg" : "img/lose.jpg")
 		, music( (stateData.playerVictory) ? "audio/endStateWin.ogg" : "audio/endStateLose.ogg")
 		, instruction("font/Call me maybe.ttf",
-					  END_STATE_FONT_SIZE,
-					  BLENDED,
-					  {255, 255, 255, 255},
-					  true) {
+					END_STATE_FONT_SIZE,
+					BLENDED,
+					{255, 255, 255, 255},
+					true) {
 	music.Play(0);
 	instruction.SetText("Press Esc to go to menu or Space to play again!");
 	instruction.SetTimeShown(0.6);
