@@ -403,11 +403,6 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 	std::list<int> path;//caminho final a ser retornado
 	double weight;//Auxiliar para peso associado a cada tile
 	std::pair<double,int> current;//Auxiliar para tile atual que está sendo processado
-	//Verifica se o tile de destino é livre
-	if(!Traversable(destTile)){
-		std::cout <<"\tTile de destino não acessível" <<std::endl;
-		return path;
-	}
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<int ,std::pair<int,double> > > paths;
 	std::vector<std::pair<double,int> > processList;

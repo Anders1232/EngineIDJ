@@ -43,6 +43,7 @@ StageState::StageState(void)
 	tileMap = new TileMap(std::string("map/tileMap.txt"), &tileSet);
 	REPORT_I_WAS_HERE;
 	spawnGroups = tileMap->GetTileGroups(SPAWN_POINT);
+	endGroups = tileMap->GetTileGroups(END_POINT);
 	REPORT_I_WAS_HERE;
 	music.Play(10);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
@@ -85,8 +86,10 @@ void StageState::Update(float dt) {
 	spawnTimer.Update(dt);
 	if(TIME_BETWEEN_SPAWNS < spawnTimer.Get()) {
 		int selectedSpawnGroup = rand() % spawnGroups->size();
+		int selectedEndGroup = rand() % spawnGroups->size();
 		int selectedSpawnPosition = rand() % ( (*spawnGroups)[selectedSpawnGroup] ).size();
-		SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition] );
+		int selectedEndPosition = rand() % ( (*endGroups)[selectedEndGroup] ).size();
+		SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition],(*endGroups)[selectedEndGroup][selectedEndPosition] );
 		spawnTimer.Restart();
 	}
 
@@ -205,12 +208,13 @@ void StageState::Pause(void) {}
 
 void StageState::Resume(void) {}
 
-void StageState::SpawnEnemy(int tileMapPosition) {
+void StageState::SpawnEnemy(int tileMapPosition,int endTileMap){
 	Vec2 tileSize = tileMap->GetTileSize();
 	Vec2 spawnPosition;
 	spawnPosition.x = (tileMapPosition % tileMap->GetWidth() ) * tileSize.x;
 	spawnPosition.y = (tileMapPosition / tileMap->GetWidth() ) * tileSize.y;
-	Enemy *e = new Enemy(spawnPosition,EnemyType::NEUTRAL, 1.0);
-	e->AddComponent(new AIArt(ENEMY_MOVE_SPEED,2216,tileMap,*e));
+	//int enemyType = rand() % 5 + 2;
+	Enemy *e = new Enemy(spawnPosition,EnemyType::ART, 1.0);
+	e->AddComponent(new AIArt(ENEMY_MOVE_SPEED,endTileMap,tileMap,*e));
 	objectArray.push_back(unique_ptr<GameObject>(e));
 }

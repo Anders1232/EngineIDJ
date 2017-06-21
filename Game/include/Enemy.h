@@ -17,8 +17,9 @@ enum EnemyType{
 	NEUTRAL=1,
 	ENGINEER=2,
 	ARQUITET=3,
-	ART=4,
-	QUIMIC=5,
+	MEDIC=4,
+	ART=5,
+	QUIMIC=6,
 	ENEMY_TYPE_SIZE=6
 };
 

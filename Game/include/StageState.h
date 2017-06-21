@@ -33,8 +33,9 @@ class StageState: public State {
 		InputManager &inputManager;
 		Music music;
 		vector<vector<int>> *spawnGroups;
+		vector<vector<int>> *endGroups;
 		Timer spawnTimer;
-		void SpawnEnemy(int tileMapPosition);
+		void SpawnEnemy(int tileMapPosition,int endTileMap);
 };
 
 #include "EndState.h"
