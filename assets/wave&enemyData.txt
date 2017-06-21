@@ -1,22 +1,22 @@
 --ENEMIES--
     Quimico_maroto
         QUIMIC
-        img/enemy/teste-cor.png
+        enemy
         1.0
         1.0
     Arte_na_praia
         ART
-        img/enemy/teste-cor.png
+        enemy
         1.0
         1.0
     Arquiteto_calouro
         ARQUITET
-        img/enemy/teste-cor.png
+        enemy
         1.0
         1.0
     Engenheiro
         ENGINEER
-        img/enemy/teste-cor.png
+        enemy
         1.0
         1.0
 --WAVES--

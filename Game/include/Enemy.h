@@ -39,7 +39,7 @@ enum EnemyDirections{
 	DOWN,
 	LEFT,
 	ENEMY_DIRECTIONS_SIZE
-}
+};
 
 
 /**
@@ -101,7 +101,7 @@ class Enemy : public GameObject
 		void RequestDelete(void);
 		/**
 			\brief Notifica evento de colisão.
-			\todo Verificar viabilidade de tratar colisão em componentes.
+			\spritetodo Verificar viabilidade de tratar colisão em componentes.
 			
 			No momento não faz nada.
 		*/
@@ -125,8 +125,9 @@ class Enemy : public GameObject
 		std::vector<std::vector<Sprite>> sp;/**< Sprite do inimigo.*/
 
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
+		EnemyDirections direction;
 		
-		int enemyIndex; 
+		int enemyIndex;
 		HitPoints *hitpoints;
 		uint baseHP, endPoint;
 };
