@@ -33,6 +33,14 @@ enum EnemyType{
 	ENEMY_TYPE_SIZE=6
 };
 
+enum EnemyDirections{
+	UP=0,
+	RIGHT,
+	DOWN,
+	LEFT,
+	ENEMY_DIRECTIONS_SIZE
+}
+
 
 /**
 	\brief Classe que modela inimigos
@@ -114,10 +122,7 @@ class Enemy : public GameObject
 		void NotifyDeath();
 	private:
 		EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
-		Sprite sp;/**< Sprite do inimigo.*/
-		Sprite bodySpName;
-		Sprite headSpName;
-		Sprite pantsSpName;
+		std::vector<std::vector<Sprite>> sp;/**< Sprite do inimigo.*/
 
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
 		

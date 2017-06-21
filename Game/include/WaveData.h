@@ -9,17 +9,17 @@
 struct EnemyData{
 		//todo: ver como colocar cores e transparência aqui
 	public:
-		EnemyData(std::string name, int enemyType, float scaleX, float scaleY, std::string spName):
+		EnemyData(std::string name, int enemyType, float scaleX, float scaleY, std::string spFolder):
 			name(name),
 			enemyType(enemyType),
 			scaleX(scaleX),
 			scaleY(scaleY),
-			spName(spName){}
+			spFolder(spFolder){}
 		std::string name;
 		int enemyType;
 		float scaleX;
 		float scaleY;
-		std::string spName;
+		std::string spFolder;
 //		std::string headSpName;
 //		std::string pantsSpName;
 };

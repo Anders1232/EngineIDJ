@@ -24,7 +24,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 
 	//spName.Open(enemyData.spName);
 	//bodySpName.Open(enemyData.bodySpName);
-	//headSpName.Open(enemyData.headSpName);
+	//headSpName.Open(enemyData.headSpName);spName
 	//pantsSpName.Open(enemyData.pantsSpName);
 
 	sp.SetScaleX(enemyData.scaleX);
