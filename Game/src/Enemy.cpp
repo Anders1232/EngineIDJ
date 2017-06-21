@@ -45,21 +45,39 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	switch(enemyData.enemyType){
 		case EnemyType::HOSTILE:
 			std::cout << "Enemy type: HOSTILE "<< enemyData.enemyType << "\n";
+			sp.colorMultiplier.r = 85;
+			sp.colorMultiplier.g = 85;
+			sp.colorMultiplier.b = 85;
 			break;
 		case EnemyType::NEUTRAL:
 			std::cout << "Enemy type: NEUTRAL "<< enemyData.enemyType << "\n";
+			sp.colorMultiplier.r = 255;
+			sp.colorMultiplier.g = 255;
+			sp.colorMultiplier.b = 255;
 			break;
 		case EnemyType::ENGINEER:
 			std::cout << "Enemy type: ENGINEER "<< enemyData.enemyType << "\n";
+			sp.colorMultiplier.r = 44;
+			sp.colorMultiplier.g = 44;
+			sp.colorMultiplier.b = 105;
 			break;
 		case EnemyType::ARQUITET:
 			std::cout << "Enemy type: ARQUITET "<< enemyData.enemyType << "\n";
+			sp.colorMultiplier.r = 9;
+			sp.colorMultiplier.g = 30;
+			sp.colorMultiplier.b = 232;			
 			break;
 		case EnemyType::ART:
 			std::cout << "Enemy type: ART "<< enemyData.enemyType << "\n";
+			sp.colorMultiplier.r = 220;
+			sp.colorMultiplier.g = 90;
+			sp.colorMultiplier.b = 15;				
 			break;
 		case EnemyType::QUIMIC:
 			std::cout << "Enemy type: QUIMIC "<< enemyData.enemyType << "\n";
+			sp.colorMultiplier.r = 100;
+			sp.colorMultiplier.g = 250;
+			sp.colorMultiplier.b = 100;
 			break;
 		default:
 			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";
