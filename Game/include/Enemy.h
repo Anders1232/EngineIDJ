@@ -35,10 +35,10 @@ enum EnemyType{
 
 enum EnemyDirections{
 	UP=0,
-	RIGHT,
-	DOWN,
-	LEFT,
-	ENEMY_DIRECTIONS_SIZE
+	RIGHT=1,
+	DOWN=2,
+	LEFT=3,
+	ENEMY_DIRECTIONS_SIZE=4
 };
 
 

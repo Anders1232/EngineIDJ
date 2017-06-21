@@ -6,7 +6,9 @@ State::State(void) : popRequested(false), quitRequested(false) {
 	Camera::pos = Vec2(0,0);
 }
 
-State::~State(void) {}
+State::~State(void) {
+	objectArray.clear();
+}
 
 void State::AddObject(GameObject *object) {
 	objectArray.push_back(std::unique_ptr<GameObject>(object));

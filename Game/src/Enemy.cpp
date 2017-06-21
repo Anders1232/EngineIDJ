@@ -143,10 +143,12 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 
 
 Enemy::~Enemy(){
+	TEMP_REPORT_I_WAS_HERE;
 	for(uint i = 0; i < components.size(); i++) {
 		delete components[i];
 	}
 	components.clear();
+	sp.clear();
 }
 
 void Enemy::Update(float dt) {
