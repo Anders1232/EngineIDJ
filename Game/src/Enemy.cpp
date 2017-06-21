@@ -48,42 +48,47 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			sp.colorMultiplier.r = 85;
 			sp.colorMultiplier.g = 85;
 			sp.colorMultiplier.b = 85;
+			components.emplace_back(new AIGoDown(ENEMY_HOSTILE_MOVE_SPEED));
 			break;
 		case EnemyType::NEUTRAL:
 			std::cout << "Enemy type: NEUTRAL "<< enemyData.enemyType << "\n";
 			sp.colorMultiplier.r = 255;
 			sp.colorMultiplier.g = 255;
 			sp.colorMultiplier.b = 255;
+			components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED));
 			break;
 		case EnemyType::ENGINEER:
 			std::cout << "Enemy type: ENGINEER "<< enemyData.enemyType << "\n";
 			sp.colorMultiplier.r = 44;
 			sp.colorMultiplier.g = 44;
 			sp.colorMultiplier.b = 105;
+			components.emplace_back(new AIGoDown(ENEMY_ENGINEER_MOVE_SPEED));
 			break;
 		case EnemyType::ARQUITET:
 			std::cout << "Enemy type: ARQUITET "<< enemyData.enemyType << "\n";
 			sp.colorMultiplier.r = 9;
 			sp.colorMultiplier.g = 30;
-			sp.colorMultiplier.b = 232;			
+			sp.colorMultiplier.b = 232;
+			components.emplace_back(new AIGoDown(ENEMY_ARQUITET_MOVE_SPEED));			
 			break;
 		case EnemyType::ART:
 			std::cout << "Enemy type: ART "<< enemyData.enemyType << "\n";
 			sp.colorMultiplier.r = 220;
 			sp.colorMultiplier.g = 90;
 			sp.colorMultiplier.b = 15;				
+			components.emplace_back(new AIGoDown(ENEMY_ART_MOVE_SPEED));
 			break;
 		case EnemyType::QUIMIC:
 			std::cout << "Enemy type: QUIMIC "<< enemyData.enemyType << "\n";
 			sp.colorMultiplier.r = 100;
 			sp.colorMultiplier.g = 250;
 			sp.colorMultiplier.b = 100;
+			components.emplace_back(new AIGoDown(ENEMY_QUIMIC_MOVE_SPEED));
 			break;
 		default:
 			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";
 			break;
 	}
-	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED));
 	hitpoints = new HitPoints(baseHP);
 	components.push_back(hitpoints);
 	//components.emplace_back(new PathFinding(endPoint)); //arg endPoint
