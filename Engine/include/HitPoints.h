@@ -12,7 +12,7 @@ class HitPoints : public Component {
 		void Update(GameObject &associated, float dt);
 		void Damage(int damage);
 		bool Is(ComponentType) const;
-
+		int GetHp();
 	private:
 		int hp;
 		Sprite healthBar;

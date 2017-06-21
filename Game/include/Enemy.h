@@ -115,7 +115,7 @@ class Enemy : public GameObject
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
 		
 		int enemyIndex; 
-		HitPoints *hp;
+		HitPoints *hitpoints;
 		uint baseHP, endPoint;
 };
 

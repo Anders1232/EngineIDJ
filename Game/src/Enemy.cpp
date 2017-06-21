@@ -65,14 +65,11 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";
 			break;
 	}
-	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED)); //arg endPoint
+	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED));
+	hitpoints = new HitPoints(baseHP);
+	components.push_back(hitpoints);
 	//components.emplace_back(new PathFinding(endPoint)); //arg endPoint
-	hp = new HitPoints(baseHP);
 
-	components.push_back(hp);
-
-	//*hp = GetComponent(COMPONENT_Type::IT_POINTS);
-	//hp->Damage(); 
 }
 
 
@@ -89,6 +86,10 @@ void Enemy::Update(float dt) {
 		components[i]->Update(*this, dt);
 	}
 	
+
+	if(hitpoints->GetHp() < 0){
+		dead = true;
+	}
 }
 
 void Enemy::Render(void) {
@@ -122,4 +123,5 @@ Rect Enemy::GetWorldRenderedRect(void) const {
 
 void Enemy::NotifyDeath(){
 	dead = true;
+
 }
