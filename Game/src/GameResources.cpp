@@ -127,6 +127,9 @@ EnemyType GameResources::GetEnemyTypeFromString(std::string str){
 	else if("QUIMIC" == str){
 		return EnemyType::QUIMIC;
 	}
+	else if("MEDIC" == str){
+		return EnemyType::MEDIC;
+	}
 	else{
 		Error("\tTipo de inimigo não identificado " << str);
 	}
