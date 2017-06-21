@@ -15,6 +15,7 @@
 #include "Tileset.h"
 #include "Timer.h"
 #include "WaveManager.h"
+
 using std::vector;
 
 class StageState: public State {
@@ -25,6 +26,7 @@ class StageState: public State {
 		void Render(void) const;
 		void Pause(void);
 		void Resume(void);
+		void ShowLightning(float dt);
 	private:
 		Sprite bg;
 		TileSet tileSet;
@@ -32,9 +34,13 @@ class StageState: public State {
 		InputManager &inputManager;
 		Music music;
 		vector<vector<int>> *spawnGroups;
+		bool isLightning;
+		Timer lightningTimer;
+		Color lightningColor;
 		WaveManager waveManager;
 		GameObject nullGameObject;
 		vector<int> waves;//vetor de waves a ser lido no arquivo
+		void SpawnEnemy(int tileMapPosition);
 };
 
 #include "EndState.h"

@@ -11,5 +11,5 @@ var searchData=
   ['clearmusic',['ClearMusic',['../classResources.html#a37aa5ada5adf925b8862f65d207244d1',1,'Resources']]],
   ['clearresources',['ClearResources',['../classResources.html#a6a704f9988d9189d2d028ab5dcc64496',1,'Resources']]],
   ['clearsound',['ClearSound',['../classResources.html#a07885930484a8dd953c2e144ac8be6c5',1,'Resources']]],
-  ['color',['Color',['../structColor.html#a01fc8b90de599a12365e87b9a0719264',1,'Color']]]
+  ['color',['Color',['../structColor.html#a1f9035eaa8f9eb07c55359e60e895b73',1,'Color']]]
 ];
