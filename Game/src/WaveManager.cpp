@@ -108,7 +108,7 @@ void WaveManager::Update(GameObject &associated, float dt){
 					REPORT_DEBUG("\t baseHP= " << enemyToSpawn.baseHP);
 					REPORT_DEBUG("\t endPoint= " << enemyToSpawn.endPoint);
 					int spawnPosition = rand()% ( (*spawnGroups).at(i) ).size();
-					SpawnEnemy( (*spawnGroups).at(i).at(spawnPosition), enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, enemyToSpawn.endPoint );
+					SpawnEnemy( (*spawnGroups).at(i).at(spawnPosition), enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, enemyToSpawn.endPoint, indexOfTheEnemyToSpawn );
 				}
 				REPORT_I_WAS_HERE;
 				spawnTimer.Restart();
@@ -125,16 +125,15 @@ void WaveManager::Update(GameObject &associated, float dt){
 	}
 }
 
-void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint endPoint ){
-	printf("waveIndex: %d\n", waveIndex);
-	EnemyData currentWaveEnemyData = wavesAndEnemysData->second[waveIndex];
+void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint endPoint, uint indexOfTheEnemyToSpawn ){
+	//printf("waveIndex: %d\n", waveIndex);
+	EnemyData currentWaveEnemyData = wavesAndEnemysData->second[indexOfTheEnemyToSpawn];
 	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
 
 	Vec2 tileSize= tileMap.GetTileSize();
 	Vec2 spawnPosition;
 	spawnPosition.x = (tileMapPosition%tileMap.GetWidth() ) * tileSize.x;
 	spawnPosition.y = (tileMapPosition/tileMap.GetWidth() ) * tileSize.y;
-	//Enemy* enemy = new Enemy(spawnPosition, 1.);
 	Enemy* enemy = new Enemy(spawnPosition, enemyIndex, currentWaveEnemyData, baseHP, endPoint );
 
 	Game::GetInstance().GetCurrentState().AddObject(enemy);

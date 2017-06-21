@@ -1,21 +1,21 @@
 --ENEMIES--
-    Marcelo_ladeira
+    Quimico_maroto
         QUIMIC
         img/enemy/teste-cor.png
         1.0
         1.0
-    Ladeira_Marcelo
+    Arte_na_praia
         ART
         img/enemy/teste-cor.png
         1.0
         1.0
-    Madeira_ladeira
-        QUIMIC
+    Arquiteto_calouro
+        ARQUITET
         img/enemy/teste-cor.png
         1.0
         1.0
-    Ladeira_Madeira
-        ART
+    Engenheiro
+        ENGINEER
         img/enemy/teste-cor.png
         1.0
         1.0
@@ -28,11 +28,11 @@ Wave1
             0
             
             1
-            5
+            3
             120
             1
 
-            1
+            2
             2
             1000
             1
