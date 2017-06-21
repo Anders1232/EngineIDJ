@@ -89,6 +89,7 @@ void AIArt::Update(float dt){
 		tempDestination = Vec2(tilemap->GetTileSize().x * (path.front() % tilemap->GetWidth()),tilemap->GetTileSize().y*(path.front() / tilemap->GetWidth()));
 		float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
 		float weight = tileWeightMap.at(tilemap->AtLayer(path.front(),WALKABLE_LAYER));
+		vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
 		
 		if((vecSpeed.MemberMult(dt)).Magnitude() >= lastDistance){
 			associated.box.x = (tempDestination.x - (associated.box.w/2));
