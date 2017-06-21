@@ -3,6 +3,7 @@
 
 #include "Component.h"
 #include "Sprite.h"
+#include "Error.h"
 
 class HitPoints : public Component {
 	public:

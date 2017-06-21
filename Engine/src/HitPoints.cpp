@@ -2,7 +2,6 @@
 
 HitPoints::HitPoints(uint hp) : healthBar("img/effect/health_bar.png"), healthColor("img/effect/health_color.png"){
 	this->hp = (int)hp;
-
 }
 HitPoints::~HitPoints(){
 
