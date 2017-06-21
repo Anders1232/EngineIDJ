@@ -9,6 +9,8 @@
 #include "Timer.h"
 #include "Error.h"
 #include "WaveData.h"
+#include "HitPoints.h"
+//#include "componentType.h"
 
 #define BASE_HIT_POINTS 100
 #define DIFICULTY_CONSTANT 12
@@ -113,7 +115,7 @@ class Enemy : public GameObject
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
 		
 		int enemyIndex; 
-		//uint quant;
+		HitPoints *hp;
 		uint baseHP, endPoint;
 };
 

@@ -12,6 +12,7 @@ Enemy::Enemy(Vec2 position, int life)
 	
 	sp.SetScale(0.8);
 	sp.SetFrame(1); 
+
 }
 
 Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint)
@@ -25,7 +26,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	//bodySpName.Open(enemyData.bodySpName);
 	//headSpName.Open(enemyData.headSpName);
 	//pantsSpName.Open(enemyData.pantsSpName);
-	
+
 	sp.SetScaleX(enemyData.scaleX);
 	sp.SetScaleY(enemyData.scaleY);
 	//bodySpName.SetScaleX(enemyData.scaleX);
@@ -64,10 +65,14 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";
 			break;
 	}
-
 	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED)); //arg endPoint
 	//components.emplace_back(new PathFinding(endPoint)); //arg endPoint
-	//components.push_back(new HitPoints(baseHP)); 
+	hp = new HitPoints(baseHP);
+
+	components.push_back(hp);
+
+	//*hp = GetComponent(COMPONENT_Type::IT_POINTS);
+	//hp->Damage(); 
 }
 
 
@@ -83,8 +88,7 @@ void Enemy::Update(float dt) {
 	for(int i = 0; i < forLimit; i++){
 		components[i]->Update(*this, dt);
 	}
-	//HitPoints *hp= GetComponent(COMPONENt_Type::IT_POINTS);
-	//hp->Damage();
+	
 }
 
 void Enemy::Render(void) {
@@ -98,7 +102,15 @@ bool Enemy::IsDead(void) {
 
 void Enemy::RequestDelete(void) {}
 
-void Enemy::NotifyCollision(GameObject &object) {}
+void Enemy::NotifyCollision(GameObject &object) {
+/*
+	if (other.Is("Bullet")){
+		if( ( (Bullet&)other).GetTargetsPlayer()==false){
+			hp->Damage(DMG); 
+		}
+	}
+*/	
+}
 
 bool Enemy::Is(string type) {
 	return type == "Enemy";

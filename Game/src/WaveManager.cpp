@@ -126,6 +126,7 @@ void WaveManager::Update(GameObject &associated, float dt){
 }
 
 void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint endPoint ){
+	printf("waveIndex: %d\n", waveIndex);
 	EnemyData currentWaveEnemyData = wavesAndEnemysData->second[waveIndex];
 	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
 
