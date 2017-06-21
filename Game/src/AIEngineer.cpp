@@ -51,6 +51,8 @@ AIEngineer::AIEvent AIEngineer::ComputeEvents(){
 		else{return NONE;}
 
 	}
+
+
 	else if(actualState == AIState::WALKING_SLOWLY){
 
 		if(false){// Aqui verifica-se a colisão com o elemento estonteante
@@ -78,7 +80,7 @@ AIEngineer::AIEvent AIEngineer::ComputeEvents(){
 			return AIEvent::STUN;
 
 		}
-		else if(!path.empty()){
+		else if(path.back() == destTile){
 
 			//std::cout << "PATH_FREE" << std::endl;
 			return AIEvent::PATH_FREE;
@@ -158,14 +160,9 @@ void AIEngineer::Update(float dt){
 	}
 	else if(actualState == AIState::BUILDING_BARRIER){
 
-		if(path.front() != destTile){
-			path = tilemap->AStar(tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
-			if(path.empty()){
+		path = tilemap->AStar(tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
+		//Executa aqui código para o inimigo construir barreiras para se defender de bombas
 
-				//Executa aqui código para o inimigo construir barreiras para se defender de bombas
-
-			}
-		}
 	}
 	else if(actualState == AIState::STUNNED){
 

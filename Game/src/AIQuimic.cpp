@@ -76,7 +76,7 @@ AIQuimic::AIEvent AIQuimic::ComputeEvents(){
 			return AIEvent::STUN;
 
 		}
-		else if(!path.empty()){
+		else if(path.back() == destTile){
 
 			//std::cout << "PATH_FREE" << std::endl;
 			return AIEvent::PATH_FREE;
@@ -156,14 +156,9 @@ void AIQuimic::Update(float dt){
 	}
 	else if(actualState == AIState::SENDING_BOMB){
 
-		if(path.front() != destTile){
-			path = tilemap->AStar(tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
-			if(path.empty()){
+		path = tilemap->AStar(tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
+		//Executa aqui código para o inimigo jogar bombas no obstaculo mais próximo
 
-				//Executa aqui código para o inimigo jogar bombas no obstaculo mais próximo
-
-			}
-		}
 	}
 	else if(actualState == AIState::STUNNED){
 

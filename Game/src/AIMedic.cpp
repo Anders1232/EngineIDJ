@@ -76,7 +76,7 @@ AIMedic::AIEvent AIMedic::ComputeEvents(){
 			return AIEvent::STUN;
 
 		}
-		else if(!path.empty()){
+		else if(path.back() == destTile){
 
 			//std::cout << "PATH_FREE" << std::endl;
 			return AIEvent::PATH_FREE;
@@ -158,9 +158,8 @@ void AIMedic::Update(float dt){
 	}
 	else if(actualState == AIState::WAITING){
 
-		if(path.front() != destTile){
-			path = tilemap->AStar(tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
-		}
+		path = tilemap->AStar(tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
+		
 	}
 	else if(actualState == AIState::STUNNED){
 
@@ -170,7 +169,7 @@ void AIMedic::Update(float dt){
 	else{
 
 		//Aqui executa animações de efeito de fumaça
-		
+
 	}
 
 }

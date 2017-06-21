@@ -29,7 +29,7 @@
 #define STATE_RENDER_X 0
 #define STATE_RENDER_Y 0
 #define FACE_LINEAR_SIZE 30
-#define TIME_BETWEEN_SPAWNS (3.)
+#define TIME_BETWEEN_SPAWNS (8.)
 #define STAGE_STATE_DELTA_VOLUME (1) //11*11 = 121 ~128
 #define CAM_START_X 300
 #define CAM_START_Y 300
@@ -101,10 +101,10 @@ void StageState::Update(float dt) {
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
 
-	if(InputManager::GetInstance().KeyPress('t')) {
+	/*if(InputManager::GetInstance().KeyPress('t')) {
 		popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(false)));
-	}
+	}*/
 
 	if(InputManager::GetInstance().KeyPress('q')) {
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
@@ -216,11 +216,11 @@ void StageState::SpawnEnemy(int tileMapPosition,int endTileMap){
 	Vec2 spawnPosition;
 	spawnPosition.x = (tileMapPosition % tileMap->GetWidth() ) * tileSize.x;
 	spawnPosition.y = (tileMapPosition / tileMap->GetWidth() ) * tileSize.y;
-	//int enemyType = rand() % 5 + 2;
+	
 	int randomEndGroup=rand()%(*endGroups).size();
 	int destinyPos= (*endGroups)[randomEndGroup][ (rand()%((*endGroups)[randomEndGroup]).size() )];
 	
-	Enemy *e = new Enemy(spawnPosition,EnemyType::ART, 1.0);
-	e->AddComponent(new AIArt(ENEMY_MOVE_SPEED,destinyPos,tileMap,*e));
+	Enemy *e = new Enemy(spawnPosition,EnemyType::ENGINEER, 1.0);
+	e->AddComponent(new AIEngineer(ENEMY_MOVE_SPEED,8089,tileMap,*e));
 	objectArray.push_back(unique_ptr<GameObject>(e));
 }
