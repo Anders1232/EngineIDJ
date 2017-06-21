@@ -22,15 +22,24 @@
 #define CAM_START_X 300
 #define CAM_START_Y 300
 #define CAM_START_ZOOM -1.75
+#define MAX_TIME_LIGHTINING_RISE 0.1
+#define MAX_TIME_LIGHTINING 0.3
+#define MAX_TIME_LIGHTINING_FADE 2
 
 StageState::StageState(void)
-			: State(),
-			bg("img/ocean.jpg"),
-			tileSet(120, 120,"img/map/tileset_v2.png"),
-			tileMap("map/tileMap.txt", &tileSet),
-			inputManager(InputManager::GetInstance()),
-			music("audio/stageState.ogg"),
-			waveManager(tileMap, "assets/wave&enemyData.txt") {
+		: State()
+		, bg("img/ocean.jpg")
+		, tileSet(120, 120,"img/map/tileset_v2.png")
+		, tileMap("map/tileMap.txt", &tileSet)
+		, inputManager(InputManager::GetInstance())
+		, music("audio/stageState.ogg")
+		, isLightning(false)
+		, lightningTimer()
+		, lightningColor(255, 255, 255, 0)
+		, waveManager(tileMap, "assets/wave&enemyData.txt") {
+		
+	REPORT_I_WAS_HERE;
+	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
 	
 	REPORT_I_WAS_HERE;
 	spawnGroups = tileMap.GetSpawnPositions();
@@ -131,6 +140,18 @@ void StageState::Update(float dt) {
 	if(InputManager::GetInstance().IsKeyDown('.')){
 		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
 	}
+
+	if(isLightning){
+		ShowLightning(dt);
+	}
+	else{
+		isLightning = false;
+		lightningTimer.Update(dt);
+		if(lightningTimer.Get() > rand() % 80 + 20){
+			isLightning = true;
+			lightningTimer.Restart();
+		}
+	}
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }
 
@@ -150,8 +171,43 @@ void StageState::Render(void) const {
 	tileMap.Render(Vec2(0,0), false, highlighted ? Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos()) : Vec2(-1, -1));
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
+
+	if(isLightning){
+		SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), lightningColor.r, lightningColor.g, lightningColor.b, lightningColor.a);
+		SDL_SetRenderDrawBlendMode(Game::GetInstance().GetRenderer(), SDL_BLENDMODE_BLEND);
+		SDL_RenderFillRect(Game::GetInstance().GetRenderer(), NULL);
+	}
 }
 
 void StageState::Pause(void) {}
 
 void StageState::Resume(void) {}
+
+void StageState::SpawnEnemy(int tileMapPosition) {
+	Vec2 tileSize = tileMap.GetTileSize();
+	Vec2 spawnPosition;
+	spawnPosition.x = (tileMapPosition % tileMap.GetWidth() ) * tileSize.x;
+	spawnPosition.y = (tileMapPosition / tileMap.GetWidth() ) * tileSize.y;
+	objectArray.push_back(unique_ptr<GameObject>( new Enemy(spawnPosition, 1.0) ));
+}
+
+void StageState::ShowLightning(float dt){
+	isLightning = true;
+	lightningTimer.Update(dt);
+
+	if(lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE){
+		lightningColor.a += 256 * dt / MAX_TIME_LIGHTINING_RISE;
+	}
+	else if(lightningTimer.Get() >= MAX_TIME_LIGHTINING_RISE && lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING){
+		lightningColor.a = 255;
+	}
+	else if(lightningTimer.Get() >= MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING  && lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE){
+		float fullTime = (MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE) - (MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING);
+		lightningColor.a -= 256* ((dt / fullTime) + 1);
+	}
+	else{
+		lightningColor.a = 0;
+		isLightning = false;
+		lightningTimer.Restart();
+	}
+}

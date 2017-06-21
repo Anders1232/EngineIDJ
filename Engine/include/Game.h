@@ -154,6 +154,13 @@ class Game {
 		*/
 		bool IsFramerateLimited(void) const;
 		/**
+			\brief Obtém referência do SDL_Window
+			\return Referncia para SDL_Window
+
+			Retorna a referência do SDL_Window do Game
+		*/
+		SDL_Window* GetWindow(void) const;
+		/**
 			\brief Define as dimensões da janela corrente
 			\param size Vec2(x, y) que representa os novos tamanhos da janela.
 

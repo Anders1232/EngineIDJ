@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['a',['a',['../structColor.html#a39bb1f3f9a514ac1a581ca27fddebebc',1,'Color']]],
   ['actionmanager',['ActionManager',['../classActionManager.html',1,'ActionManager'],['../classActionManager.html#a7d0c405d568795fba0c51f411e77b821',1,'ActionManager::ActionManager()']]],
   ['actionmanager_2ecpp',['ActionManager.cpp',['../ActionManager_8cpp.html',1,'']]],
   ['actionmanager_2eh',['ActionManager.h',['../ActionManager_8h.html',1,'']]],
@@ -10,7 +11,6 @@ var searchData=
   ['aigodown',['AIGoDown',['../classAIGoDown.html',1,'AIGoDown'],['../classAIGoDown.html#a90facabcd1e46257246a23f3611d9aef',1,'AIGoDown::AIGoDown()']]],
   ['aigodown_2ecpp',['AIGoDown.cpp',['../AIGoDown_8cpp.html',1,'']]],
   ['aigodown_2eh',['AIGoDown.h',['../AIGoDown_8h.html',1,'']]],
-  ['alpha',['alpha',['../classSprite.html#ab3e19ec07718672961d355c5e25ef3ee',1,'Sprite']]],
   ['alpha_5fblend',['ALPHA_BLEND',['../Sprite_8h.html#a53c3481913568ddca94dffc38c36a1fb',1,'Sprite.h']]],
   ['animation',['Animation',['../classAnimation.html',1,'Animation'],['../classAnimation.html#a48d3ca5ecd4b4ca7f2f6fe10cf1f91d4',1,'Animation::Animation()']]],
   ['animation_2ecpp',['Animation.cpp',['../Animation_8cpp.html',1,'']]],
