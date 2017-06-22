@@ -103,17 +103,21 @@ void TitleState::Resume(void) {
 void TitleState::UpdateUI(float dt) {
 	Vec2 mousePos = INPUT_MANAGER.GetMousePos();
 
-	UItextButton* btnVec[] = {&playText, &editorText, &configText, &exitText, nullptr};
+	UItextButton* btnTxtVec[] = {&playText, &editorText, &configText, &exitText, nullptr};
 
-	for(int i = 0; nullptr != btnVec[i]; i++) {
-		if(btnVec[i]->GetUIbuttonState() != UIbutton::State::DISABLED) {
-			if(mousePos.IsInRect(btnVec[i]->GetBoundingBox())) {
-				btnVec[i]->SetUIbuttonState(UIbutton::State::HIGHLIGHTED);
+	for(int i = 0; nullptr != btnTxtVec[i]; i++) {
+		if(btnTxtVec[i]->GetUIbuttonState() != UIbutton::State::DISABLED) {
+			if(mousePos.IsInRect(btnTxtVec[i]->GetBoundingBox())) {
+				if(INPUT_MANAGER.IsMouseDown(LEFT_MOUSE_BUTTON)) {
+					btnTxtVec[i]->SetUIbuttonState(UIbutton::State::SELECTED);
+				} else {
+					btnTxtVec[i]->SetUIbuttonState(UIbutton::State::HIGHLIGHTED);
+				}
 				if(INPUT_MANAGER.MouseRelease(LEFT_MOUSE_BUTTON)) {
-					btnVec[i]->Click();
+					btnTxtVec[i]->Click();
 				}
 			} else {
-				btnVec[i]->SetUIbuttonState(UIbutton::State::ENABLED);
+				btnTxtVec[i]->SetUIbuttonState(UIbutton::State::ENABLED);
 			}
 		}	
 	}

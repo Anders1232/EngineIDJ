@@ -12,7 +12,7 @@
 
 class UIimageButton : public UIimage, public UIbutton {
   public:
-    UIimageButton(UIbutton::State initialState = UIbutton::State::ENABLED, UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
+    UIimageButton(UIbutton::State initialState = UIbutton::State::ENABLED, UIelement::BehaviorType behavior = UIelement::BehaviorType::FIT);
     virtual ~UIimageButton();
     void SetUIbuttonState(UIbutton::State newState);
     void SetStateSprite(UIbutton::State state, Sprite* sprite);

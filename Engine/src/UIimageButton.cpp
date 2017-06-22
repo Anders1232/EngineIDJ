@@ -11,6 +11,7 @@ UIimageButton::UIimageButton(UIbutton::State initialState, UIelement::BehaviorTy
          , selectedSprite(nullptr) {}
 
 UIimageButton::~UIimageButton() {
+    sp = nullptr;
     if(nullptr != disabledSprite) {
         delete disabledSprite;
     }
