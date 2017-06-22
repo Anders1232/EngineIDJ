@@ -9,11 +9,11 @@
 #include <string>
 
 class UIhorizontalGroup : public UIcanvas {
-  public:
-    UIhorizontalGroup(UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
-    virtual void Update(float dt, Rect parentCanvas);
-    bool Is(std::string UItype) const;
-    std::vector<UIelement*> groupedElements;
+	public:
+		UIhorizontalGroup(UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
+		virtual void Update(float dt, Rect parentCanvas);
+		bool Is(std::string UItype) const;
+		std::vector<UIelement*> groupedElements;
 };
 
 #endif // UIHORIZONTALGROUP_H

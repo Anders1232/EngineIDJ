@@ -9,25 +9,25 @@
 #include <string>
 
 class UIgridGroup : public UIcanvas {
-  public:
-    enum ConstraintType {
-      FIXED_N_ROWS,
-      FIXED_N_COLS
-    };
-    enum BehaviorOnLess {
-      CENTER,
-      STRETCH,
-      NORMAL
-    };
-    UIgridGroup(UIgridGroup::ConstraintType constraintType, int number, UIgridGroup::BehaviorOnLess behaviorOnLess = UIgridGroup::BehaviorOnLess::NORMAL, UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
-    virtual void Update(float dt, Rect parentCanvas);
-    void SetConstraint(UIgridGroup::ConstraintType newConstraint, int value);
-    bool Is(std::string UItype) const;
-    std::vector<UIelement*> groupedElements;
-  private:
-    UIgridGroup::ConstraintType constraint;
-    int number;
-    UIgridGroup::BehaviorOnLess behaviorOnLess;
+	public:
+		enum ConstraintType {
+			FIXED_N_ROWS,
+			FIXED_N_COLS
+		};
+		enum BehaviorOnLess {
+			CENTER,
+			STRETCH,
+			NORMAL
+		};
+		UIgridGroup(UIgridGroup::ConstraintType constraintType, int number, UIgridGroup::BehaviorOnLess behaviorOnLess = UIgridGroup::BehaviorOnLess::NORMAL, UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
+		virtual void Update(float dt, Rect parentCanvas);
+		void SetConstraint(UIgridGroup::ConstraintType newConstraint, int value);
+		bool Is(std::string UItype) const;
+		std::vector<UIelement*> groupedElements;
+	private:
+		UIgridGroup::ConstraintType constraint;
+		int number;
+		UIgridGroup::BehaviorOnLess behaviorOnLess;
 };
 
 #endif // UIGRIDGROUP_H
