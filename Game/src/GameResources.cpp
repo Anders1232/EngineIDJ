@@ -76,15 +76,15 @@ void GameResources::ReadWaveData(std::string file){
 		int enemyTypeIndex;
 		
 		ASSERT2(1 == fscanf(filePtr, "\t\t%s\n", readEnemyType), "\tFile format invalid! Expecting a string");
-
-		char spriteFileName[ENEMY_MAX_SPRITE_NAME_LENGHT+1];
-		spriteFileName[ENEMY_MAX_SPRITE_NAME_LENGHT]= '\0';
+		enemyTypeIndex= GetEnemyTypeFromString(readEnemyType);
+		char spritePath[ENEMY_MAX_SPRITE_NAME_LENGHT+1];
+		spritePath[ENEMY_MAX_SPRITE_NAME_LENGHT]= '\0';
 		//para dicionar mais sprites necessita-se duplicar essas linhas
-		ASSERT2( (1 == fscanf(filePtr, "\t\t%s\n", spriteFileName) ), "\tFile format invalid! Expecting a string with sprite file." );
+		ASSERT2( (1 == fscanf(filePtr, "\t\t%s\n", spritePath) ), "\tFile format invalid! Expecting a string with sprite file." );
 		float scaleX, scaleY;
 		ASSERT2(1 == fscanf(filePtr, "\t\t%f\n", &scaleX), "\tScaleX File format invalid! Expecting a float.");
 		ASSERT2(1 == fscanf(filePtr, "\t\t%f\n", &scaleY), "\tScaleY File format invalid! Expecting a float.");
-		newEntry->second.emplace_back(enemyName, enemyTypeIndex, scaleX, scaleY, spriteFileName);//vê se esse uso consegue instanciar a struct, caso contrário criar construtor
+		newEntry->second.emplace_back(enemyName, enemyTypeIndex, scaleX, scaleY, spritePath);//vê se esse uso consegue instanciar a struct, caso contrário criar construtor
 	}
 	char waveName[WAVE_NAME_MAX_LENGHT+1];
 	waveName[WAVE_NAME_MAX_LENGHT]= '\0';
@@ -155,6 +155,30 @@ EnemyType GameResources::GetEnemyTypeFromString(std::string str){
 		Error("\tTipo de inimigo não identificado " << str);
 	}
 }
+
+void GameResources::Clear(void){
+	auto i= weightDataMap.begin();
+	while(i != weightDataMap.end()) {
+		if((*i).second.unique()) {
+			i= weightDataMap.erase(i);
+		}
+		else {
+			i++;
+		}
+	}
+	
+	auto j= waveDataMap.begin();
+	while(j != waveDataMap.end()) {
+		if((*j).second.unique()) {
+			j= waveDataMap.erase(j);
+		}
+		else {
+			j++;
+		}
+	}
+
+}
+
 //void GameResources::SaveWeightData(std::array<std::map<int, int> *data)
 
 //void GameResources::SaveWaveData(voidstd::pair<std::vector<WaveData>, std::vector<EnemyData> > *data);

@@ -10,7 +10,7 @@ var searchData=
   ['wavedata_2eh',['WaveData.h',['../WaveData_8h.html',1,'']]],
   ['wavedatamap',['waveDataMap',['../classGameResources.html#a450f1229702f5786f88d491641448177',1,'GameResources']]],
   ['waveindex',['waveIndex',['../classWaveManager.html#aa7a730d790a379589b8366b8652d67ef',1,'WaveManager']]],
-  ['wavemanager',['WaveManager',['../classWaveManager.html',1,'WaveManager'],['../classStageState.html#a1d71967fc11fcd13f5678f69b7b05088',1,'StageState::waveManager()'],['../classWaveManager.html#abeaaac097df73bdd816db74c00bc203e',1,'WaveManager::WaveManager()']]],
+  ['wavemanager',['WaveManager',['../classWaveManager.html',1,'WaveManager'],['../classStageState.html#a7d5afbe51d732ebe0e21bf6eff394a0f',1,'StageState::waveManager()'],['../classWaveManager.html#abeaaac097df73bdd816db74c00bc203e',1,'WaveManager::WaveManager()']]],
   ['wavemanager_2ecpp',['WaveManager.cpp',['../WaveManager_8cpp.html',1,'']]],
   ['wavemanager_2eh',['WaveManager.h',['../WaveManager_8h.html',1,'']]],
   ['wavename',['waveName',['../structWaveData.html#a763662257fce043d8f04dbbe300431c4',1,'WaveData']]],

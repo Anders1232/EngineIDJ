@@ -3,6 +3,11 @@
 #include "Camera.h"
 
 GameObject::~GameObject(){
+	REPORT_I_WAS_HERE;
+	for(uint i = 0; i < components.size(); i++) {
+		delete components[i];
+	}
+	components.clear();
 }
 
 GameObject::GameObject(void): rotation(0.), dead(false){
@@ -52,4 +57,14 @@ void GameObject::RemoveComponent(ComponentType type){
 		}
 	}
 }
+
+Component& GameObject::GetComponent(ComponentType type){
+	for(unsigned int i = 0;i < components.size();i++){
+		if(components[i]->Is(type)){
+			return *(components[i]);
+		}
+	}
+	Error("Component not found!");
+}
+
 

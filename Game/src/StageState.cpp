@@ -1,5 +1,4 @@
 #include "StageState.h"
-
 #include "Camera.h"
 #include "Collision.h"
 #include "EndStateData.h"
@@ -7,6 +6,7 @@
 #include "Error.h"
 #include "Tower.h"
 #include "Game.h"
+#include "GameResources.h"
 
 #define INCLUDE_SDL 
 #define INCLUDE_SDL_IMAGE 
@@ -35,24 +35,25 @@ StageState::StageState(void)
 		, music("audio/stageState.ogg")
 		, isLightning(false)
 		, lightningTimer()
-		, lightningColor(255, 255, 255, 0)
-		, waveManager(tileMap, "assets/wave&enemyData.txt") {
+		, lightningColor(255, 255, 255, 0){
 		
 	REPORT_I_WAS_HERE;
 	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
 	
 	REPORT_I_WAS_HERE;
-	spawnGroups = tileMap.GetSpawnPositions();
 	REPORT_I_WAS_HERE;
 	music.Play(10);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
 	Camera::ForceLogZoom(CAM_START_ZOOM);
+	GameObject* waveManagerGO= new GameObject();
+	waveManager= new WaveManager(tileMap, "assets/wave&enemyData.txt");
+	waveManagerGO->AddComponent(waveManager);
+	AddObject(waveManagerGO);
 }
 
 StageState::~StageState(void) {
 	objectArray.clear();
-	//delete tileMap;
-	delete spawnGroups;
+	GameResources::Clear();
 }
 
 void StageState::Update(float dt) {
@@ -82,23 +83,27 @@ void StageState::Update(float dt) {
 	Camera::Update(dt);
 	REPORT_I_WAS_HERE;
 
-	waveManager.Update(nullGameObject,dt);
+	//Game Over Conditions
+	if(waveManager->GetLifesLeft() == 0){
+		popRequested = true;
+		Game::GetInstance().Push(new EndState(EndStateData(false)));
+	}else if(waveManager->Victory()){
+		popRequested = true;
+		Game::GetInstance().Push(new EndState(EndStateData(true)));
+	}
 
 	if(InputManager::GetInstance().KeyPress('r')) {
 		popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
-
 	if(InputManager::GetInstance().KeyPress('t')) {
 		popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(false)));
 	}
-
 	if(InputManager::GetInstance().KeyPress('q')) {
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 		std::cout << WHERE << "O mouse está no tile " << tileMap.GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap.GetHeight()*tileMap.GetHeight() << " tiles." << END_LINE;
 	}
-
 	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
 		REPORT_I_WAS_HERE;
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
@@ -115,6 +120,7 @@ void StageState::Update(float dt) {
 	if(InputManager::GetInstance().KeyPress('e')) {
 		printf("Tower criado\n");
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
+
 		Tower *newTower= new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE));
 		AddObject(newTower);
 		tileMap.InsertGO(newTower);
@@ -140,7 +146,6 @@ void StageState::Update(float dt) {
 	if(InputManager::GetInstance().IsKeyDown('.')){
 		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
 	}
-
 	if(isLightning){
 		ShowLightning(dt);
 	}
@@ -160,7 +165,6 @@ void StageState::Render(void) const {
 	REPORT_I_WAS_HERE;
 	bg.Render(Rect(STATE_RENDER_X, STATE_RENDER_Y, 0, 0), 0, false);
 	REPORT_I_WAS_HERE;
-
 	bool highlighted = true;
 	for(unsigned int cont=0; cont < objectArray.size(); cont++) {
 		if(InputManager::GetInstance().GetMousePos().IsInRect(objectArray.at(cont)->GetWorldRenderedRect())){
@@ -171,7 +175,6 @@ void StageState::Render(void) const {
 	tileMap.Render(Vec2(0,0), false, highlighted ? Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos()) : Vec2(-1, -1));
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
-
 	if(isLightning){
 		SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), lightningColor.r, lightningColor.g, lightningColor.b, lightningColor.a);
 		SDL_SetRenderDrawBlendMode(Game::GetInstance().GetRenderer(), SDL_BLENDMODE_BLEND);
@@ -183,25 +186,16 @@ void StageState::Pause(void) {}
 
 void StageState::Resume(void) {}
 
-void StageState::SpawnEnemy(int tileMapPosition) {
-	Vec2 tileSize = tileMap.GetTileSize();
-	Vec2 spawnPosition;
-	spawnPosition.x = (tileMapPosition % tileMap.GetWidth() ) * tileSize.x;
-	spawnPosition.y = (tileMapPosition / tileMap.GetWidth() ) * tileSize.y;
-	objectArray.push_back(unique_ptr<GameObject>( new Enemy(spawnPosition, 1.0) ));
-}
-
 void StageState::ShowLightning(float dt){
 	isLightning = true;
 	lightningTimer.Update(dt);
-
 	if(lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE){
 		lightningColor.a += 256 * dt / MAX_TIME_LIGHTINING_RISE;
 	}
 	else if(lightningTimer.Get() >= MAX_TIME_LIGHTINING_RISE && lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING){
 		lightningColor.a = 255;
 	}
-	else if(lightningTimer.Get() >= MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING  && lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE){
+	else if(lightningTimer.Get() >= MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING && lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE){
 		float fullTime = (MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE) - (MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING);
 		lightningColor.a -= 256* ((dt / fullTime) + 1);
 	}

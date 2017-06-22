@@ -3,16 +3,17 @@
 
 #include "Component.h"
 #include "Sprite.h"
+#include "Error.h"
 
-typedef unsigned int uint;
 class HitPoints : public Component {
 	public:
 		HitPoints(uint baseHp);
 		~HitPoints();
-		
 		void Update(GameObject &associated, float dt);
+		void Damage(int damage);
 		bool Is(ComponentType) const;
-
+		int GetHp();
+		void Render(GameObject &associated);
 	private:
 		int hp;
 		Sprite healthBar;
