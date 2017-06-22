@@ -36,6 +36,7 @@ enum EnemyType{
 	QUIMIC=5,
 	ENEMY_TYPE_SIZE=6
 };
+
 /**
 	\brief Enum que diz a orientaçao do inimigo
 	
@@ -82,7 +83,6 @@ class Enemy : public GameObject
 			Destrói todas a suas componentes.
 		*/
 		~Enemy();
-	
 		/**
 			\brief Atualiza estado
 			
@@ -131,14 +131,12 @@ class Enemy : public GameObject
 			\brief Notificado por HitPoints se morreu.
 			
 			Ao hp ser menor ou igual a zero, HitPoints chama esse metodo.
-		*/		
+		*/
 		void NotifyDeath();
 	private:
 		EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
 		std::vector<std::vector<Sprite>> sp;/**< Sprite do inimigo.*/
-
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
-		
 		int enemyIndex;/**<Identificador do inimigo */
 		HitPoints *hitpoints;/**< Ponteiro para a componente HitPoints. Usada para chamada com argumentos. */
 		uint baseHP, endPoint; /**< Respectivamentes a vida base do inimigo e seu ponto de destino. */

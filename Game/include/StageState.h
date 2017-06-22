@@ -36,8 +36,7 @@ class StageState: public State {
 		bool isLightning;
 		Timer lightningTimer;
 		Color lightningColor;
-		WaveManager waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. */
-		GameObject nullGameObject;/**< Necessario para chamar WaveManager que e´ uma Componente e exige um GameObject de argumento. */
+		WaveManager *waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. */
 		vector<int> waves;//vetor de waves a ser lido no arquivo
 };
 

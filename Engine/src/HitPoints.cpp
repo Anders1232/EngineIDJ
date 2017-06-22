@@ -3,14 +3,12 @@
 HitPoints::HitPoints(uint hp) : healthBar("img/effect/health_bar.png"), healthColor("img/effect/health_color.png"){
 	this->hp = (int)hp;
 }
-HitPoints::~HitPoints(){
 
+HitPoints::~HitPoints(){
 }
 
 
 void HitPoints::Update(GameObject &associated, float dt){
-	
-
 }
 
 void HitPoints::Render(GameObject &associated){

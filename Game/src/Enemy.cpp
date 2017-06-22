@@ -141,7 +141,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 
 
 Enemy::~Enemy(){
-	TEMP_REPORT_I_WAS_HERE;
+	REPORT_I_WAS_HERE;
 	for(uint i = 0; i < components.size(); i++) {
 		delete components[i];
 	}
@@ -154,8 +154,6 @@ void Enemy::Update(float dt) {
 	for(int i = 0; i < forLimit; i++){
 		components[i]->Update(*this, dt);
 	}
-	
-
 	if(hitpoints->GetHp() < 0){
 		dead = true;
 	}
@@ -198,5 +196,4 @@ Rect Enemy::GetWorldRenderedRect(void) const {
 
 void Enemy::NotifyDeath(){
 	dead = true;
-
 }
