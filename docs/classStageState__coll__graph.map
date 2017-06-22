@@ -1,15 +1,13 @@
 <map id="StageState" name="StageState">
-<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="1164,187,1217,213"/>
-<area shape="rect" id="node7" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="1143,112,1238,139"/>
-<area shape="rect" id="node19" href="$classWaveManager.html" title="Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves..." alt="" coords="1491,616,1597,643"/>
-<area shape="rect" id="node22" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1157,912,1225,939"/>
-<area shape="rect" id="node27" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="1140,1207,1241,1233"/>
-<area shape="rect" id="node5" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="1515,236,1573,263"/>
-<area shape="rect" id="node8" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="611,60,661,87"/>
-<area shape="rect" id="node11" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="491,477,547,504"/>
-<area shape="rect" id="node26" href="$classTimer.html" title="Temporizador. " alt="" coords="1163,288,1218,315"/>
-<area shape="rect" id="node28" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="493,417,545,444"/>
-<area shape="rect" id="node18" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="787,873,850,900"/>
-<area shape="rect" id="node16" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="236,369,289,396"/>
-<area shape="rect" id="node20" href="$classComponent.html" title="Modela os componentes. " alt="" coords="1146,591,1235,617"/>
+<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="1160,197,1213,224"/>
+<area shape="rect" id="node16" href="$classWaveManager.html" title="Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves..." alt="" coords="1487,656,1593,683"/>
+<area shape="rect" id="node19" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1153,567,1221,593"/>
+<area shape="rect" id="node24" href="$classInputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="1136,863,1237,889"/>
+<area shape="rect" id="node5" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="1511,147,1569,173"/>
+<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="487,193,543,220"/>
+<area shape="rect" id="node15" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="783,348,846,375"/>
+<area shape="rect" id="node23" href="$classTimer.html" title="Temporizador. " alt="" coords="1159,916,1214,943"/>
+<area shape="rect" id="node25" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="606,1031,658,1057"/>
+<area shape="rect" id="node13" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="233,51,287,77"/>
+<area shape="rect" id="node17" href="$classComponent.html" title="Modela os componentes. " alt="" coords="1142,681,1231,708"/>
 </map>

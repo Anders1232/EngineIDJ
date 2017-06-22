@@ -2,7 +2,7 @@ var searchData=
 [
   ['scale',['Scale',['../classSprite.html#aa8b31cd4deebedbbdf8ca3923a3064c6',1,'Sprite']]],
   ['scalex',['ScaleX',['../classSprite.html#a42b3a6ed82560c5b97085cc127984cf4',1,'Sprite::ScaleX(float scale)'],['../classSprite.html#af76ca5d25866a3107bcec1d2e59f8bcb',1,'Sprite::scaleX()'],['../structEnemyData.html#a447a70a22f5667bc3ecab7e0f5c7bc9b',1,'EnemyData::scaleX()']]],
-  ['scaley',['ScaleY',['../classSprite.html#ad4a9b4df6061cf7391403a4d03286ff0',1,'Sprite::ScaleY(float scale)'],['../classSprite.html#ac4085b0144253c09bc94151a53079104',1,'Sprite::scaleY()'],['../structEnemyData.html#ab136e582c7c3e146e74b5b88ac692b74',1,'EnemyData::scaleY()']]],
+  ['scaley',['scaleY',['../classSprite.html#ac4085b0144253c09bc94151a53079104',1,'Sprite::scaleY()'],['../structEnemyData.html#ab136e582c7c3e146e74b5b88ac692b74',1,'EnemyData::scaleY()'],['../classSprite.html#ad4a9b4df6061cf7391403a4d03286ff0',1,'Sprite::ScaleY()']]],
   ['screentoworld',['ScreenToWorld',['../classCamera.html#ae9052ebbd6df7d3f72d535c6eb359aa6',1,'Camera::ScreenToWorld(Vec2 screen)'],['../classCamera.html#aea71faffba129d596f80d3ccc7a3e647',1,'Camera::ScreenToWorld(Rect screen)']]],
   ['sdl_5fassert',['SDL_ASSERT',['../Error_8h.html#a5e03114cdb9780c937e89ed7cb527ae1',1,'Error.h']]],
   ['sdl_5finclude_2eh',['SDL_include.h',['../SDL__include_8h.html',1,'']]],

@@ -8,6 +8,5 @@ var searchData=
   ['notifydeath',['NotifyDeath',['../classEnemy.html#ade8832ce7d24ed5d87e71ec3e6ea43c8',1,'Enemy']]],
   ['notifyenemygotkilled',['NotifyEnemyGotKilled',['../classWaveManager.html#a565c7b86ea66365e8fbc552c5918ce82',1,'WaveManager']]],
   ['notifyenemygottohisdestiny',['NotifyEnemyGotToHisDestiny',['../classWaveManager.html#aa19e180ce6afba1fad0b92ab25a3dba5',1,'WaveManager']]],
-  ['nullgameobject',['nullGameObject',['../classStageState.html#ac699412f052e7954008dd7e7feb52e36',1,'StageState']]],
   ['numberofenemies',['numberOfEnemies',['../structEnemySpawnData.html#ab3ec9a12baad5ddbf06b1bba52768e0d',1,'EnemySpawnData']]]
 ];

@@ -7,7 +7,7 @@ var searchData=
   ['dificulty_5fconstant',['DIFICULTY_CONSTANT',['../Enemy_8h.html#a3cfe21310e1359350de0b98319b19a43',1,'Enemy.h']]],
   ['direction',['direction',['../classEnemy.html#af803ef382f21e8b0bc5246150de53cfd',1,'Enemy']]],
   ['displaycollisioninfo',['displayCollisionInfo',['../classTileMap.html#a513f0605dd5fbd29705099aee423e600',1,'TileMap']]],
-  ['distanceto',['DistanceTo',['../classVec2.html#aaf7c998a9f97f4a79e3900289ac566e0',1,'Vec2']]],
+  ['distanceto',['DistanceTo',['../classVec2.html#a521ee085dda3e0116d086d9a043d7c2e',1,'Vec2']]],
   ['dot',['Dot',['../classCollision.html#a8e858eea6ac033ac5e2a31946618c5c4',1,'Collision']]],
   ['down',['DOWN',['../Enemy_8h.html#afe40ed1e5294188d5a3b983708134ac5a9b0b4a95b99523966e0e34ffdadac9da',1,'Enemy.h']]],
   ['down_5farrow_5fkey',['DOWN_ARROW_KEY',['../InputManager_8h.html#af2292687de6b9256a2664a7dacf9ae4a',1,'InputManager.h']]],
