@@ -9,60 +9,60 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 80)">
 <title>Component</title>
 <polygon fill="white" stroke="none" points="-4,4 -4,-80 337.5,-80 337.5,4 -4,4"/>
-<!-- Node0 -->
-<g id="node1" class="node"><title>Node0</title>
+<!-- Node1 -->
+<g id="node1" class="node"><title>Node1</title>
 <polygon fill="#bfbfbf" stroke="black" points="130,-56.5 130,-75.5 197,-75.5 197,-56.5 130,-56.5"/>
 <text text-anchor="middle" x="163.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">Component</text>
 </g>
-<!-- Node1 -->
-<g id="node2" class="node"><title>Node1</title>
+<!-- Node2 -->
+<g id="node2" class="node"><title>Node2</title>
 <g id="a_node2"><a xlink:href="classAIGoDown.html" target="_top" xlink:title="Componete IA que se move para baixo. ">
 <polygon fill="white" stroke="black" points="0,-0.5 0,-19.5 65,-19.5 65,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="32.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">AIGoDown</text>
 </a>
 </g>
 </g>
-<!-- Node0&#45;&gt;Node1 -->
-<g id="edge1" class="edge"><title>Node0&#45;&gt;Node1</title>
+<!-- Node1&#45;&gt;Node2 -->
+<g id="edge1" class="edge"><title>Node1&#45;&gt;Node2</title>
 <path fill="none" stroke="midnightblue" d="M133.183,-52.503C108.624,-42.3795 74.682,-28.388 53.1602,-19.5164"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="132.163,-55.8683 142.743,-56.4435 134.831,-49.3966 132.163,-55.8683"/>
 </g>
-<!-- Node2 -->
-<g id="node3" class="node"><title>Node2</title>
+<!-- Node3 -->
+<g id="node3" class="node"><title>Node3</title>
 <g id="a_node3"><a xlink:href="classDragAndDrop.html" target="_top" xlink:title="Classe responsável por arrastar e posicionar Objetos. ">
 <polygon fill="white" stroke="black" points="83.5,-0.5 83.5,-19.5 159.5,-19.5 159.5,-0.5 83.5,-0.5"/>
 <text text-anchor="middle" x="121.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">DragAndDrop</text>
 </a>
 </g>
 </g>
-<!-- Node0&#45;&gt;Node2 -->
-<g id="edge2" class="edge"><title>Node0&#45;&gt;Node2</title>
+<!-- Node1&#45;&gt;Node3 -->
+<g id="edge2" class="edge"><title>Node1&#45;&gt;Node3</title>
 <path fill="none" stroke="midnightblue" d="M150.39,-48.144C143.072,-38.7357 134.259,-27.4046 128.306,-19.7511"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="147.662,-50.3383 156.565,-56.083 153.188,-46.0406 147.662,-50.3383"/>
 </g>
-<!-- Node3 -->
-<g id="node4" class="node"><title>Node3</title>
+<!-- Node4 -->
+<g id="node4" class="node"><title>Node4</title>
 <g id="a_node4"><a xlink:href="classHitPoints.html" target="_top" xlink:title="HitPoints">
 <polygon fill="white" stroke="black" points="178,-0.5 178,-19.5 235,-19.5 235,-0.5 178,-0.5"/>
 <text text-anchor="middle" x="206.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">HitPoints</text>
 </a>
 </g>
 </g>
-<!-- Node0&#45;&gt;Node3 -->
-<g id="edge3" class="edge"><title>Node0&#45;&gt;Node3</title>
+<!-- Node1&#45;&gt;Node4 -->
+<g id="edge3" class="edge"><title>Node1&#45;&gt;Node4</title>
 <path fill="none" stroke="midnightblue" d="M176.922,-48.144C184.414,-38.7357 193.437,-27.4046 199.532,-19.7511"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="174.092,-46.0799 170.601,-56.083 179.568,-50.4404 174.092,-46.0799"/>
 </g>
-<!-- Node4 -->
-<g id="node5" class="node"><title>Node4</title>
+<!-- Node5 -->
+<g id="node5" class="node"><title>Node5</title>
 <g id="a_node5"><a xlink:href="classWaveManager.html" target="_top" xlink:title="Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves...">
 <polygon fill="white" stroke="black" points="253.5,-0.5 253.5,-19.5 333.5,-19.5 333.5,-0.5 253.5,-0.5"/>
 <text text-anchor="middle" x="293.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">WaveManager</text>
 </a>
 </g>
 </g>
-<!-- Node0&#45;&gt;Node4 -->
-<g id="edge4" class="edge"><title>Node0&#45;&gt;Node4</title>
+<!-- Node1&#45;&gt;Node5 -->
+<g id="edge4" class="edge"><title>Node1&#45;&gt;Node5</title>
 <path fill="none" stroke="midnightblue" d="M193.585,-52.503C217.957,-42.3795 251.64,-28.388 272.997,-19.5164"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="191.991,-49.3752 184.099,-56.4435 194.677,-55.8397 191.991,-49.3752"/>
 </g>
