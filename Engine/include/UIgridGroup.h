@@ -13,8 +13,13 @@ class UIgridGroup : public UIcanvas {
     enum ConstraintType {
       FIXED_N_ROWS,
       FIXED_N_COLS
-    }
-    UIgridGroup(UIgridGroup::ConstraintType constraintType, int number, UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
+    };
+    enum BehaviorOnLess {
+      CENTER,
+      STRETCH,
+      NORMAL
+    };
+    UIgridGroup(UIgridGroup::ConstraintType constraintType, int number, UIgridGroup::BehaviorOnLess behaviorOnLess = UIgridGroup::BehaviorOnLess::NORMAL, UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
     virtual void Update(float dt, Rect parentCanvas);
     void SetConstraint(UIgridGroup::ConstraintType newConstraint, int value);
     bool Is(std::string UItype) const;
@@ -22,6 +27,7 @@ class UIgridGroup : public UIcanvas {
   private:
     UIgridGroup::ConstraintType constraint;
     int number;
+    UIgridGroup::BehaviorOnLess behaviorOnLess;
 };
 
 #endif // UIGRIDGROUP_H
