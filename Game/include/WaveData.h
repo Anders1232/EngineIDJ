@@ -20,8 +20,6 @@ struct EnemyData{
 		float scaleX;
 		float scaleY;
 		std::string spFolder;
-//		std::string headSpName;
-//		std::string pantsSpName;
 };
 
 struct EnemySpawnData{

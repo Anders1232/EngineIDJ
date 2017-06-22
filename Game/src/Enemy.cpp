@@ -4,17 +4,7 @@
 #include "Error.h"
 #include "AIGoDown.h"
 #include "HitPoints.h"
-/*
-Enemy::Enemy(Vec2 position, int life)
-		: sp("img/enemy/teste-cor.png", true, 0.0, 1), dead(false) {
-	box = position;
-	components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED));
-	
-	sp.SetScale(0.8);
-	sp.SetFrame(1);
 
-}
-*/
 Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint)
 	: sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE), dead(false), direction(EnemyDirections::DOWN){
 	box = position;

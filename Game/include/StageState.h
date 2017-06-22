@@ -28,15 +28,15 @@ class StageState: public State {
 		void Resume(void);
 		void ShowLightning(float dt);
 	private:
-		Sprite bg;/**< Referencia para a Sprite de fundo de tela. */
+		Sprite bg;/**< Sprite de fundo de tela. */
 		TileSet tileSet;
-		TileMap tileMap;/**< Referencia para o mapa de tiles do jogo. */
+		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;
 		Music music;
 		bool isLightning;
 		Timer lightningTimer;
 		Color lightningColor;
-		WaveManager *waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. */
+		WaveManager *waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
 		vector<int> waves;//vetor de waves a ser lido no arquivo
 };
 

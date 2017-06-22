@@ -23,20 +23,18 @@ class WaveManager : public Component {
 			\param tileMap Usada para inicializar spawnGroup, um vetor de grupos, e cada grupo, um vetor de spawn points. Um vetor de vetor!
 			\param waveFile Nome do arquivo aonde será feita a leitura dos dados contendo todas as informações de wave e inimigos do jogo.
 		*/
-
 		WaveManager(TileMap& tileMap, string waveFile);
 		/**
 			\brief Destrutor.
 			Destrói o ponteiro de spawnGroups.
 		*/
-
 		~WaveManager();
 		/**
 			\brief Atualiza estado.
 			Atualiza o estado da wave atual.
 			\param associated. So recebe este argumento por ser um componente. Mas como wave nao faz parte de um GameObject, ele recebe o parametro EmptyGameObject em que nao é usada.
 			\param dt tempo dt, é usado para fazer o spawn de tempos em tempos dos inimigos.
-		*/		
+		*/
 		void Update(GameObject &associated, float dt);
 		/** 
 			\brief Tipo
@@ -52,45 +50,45 @@ class WaveManager : public Component {
 		/** 
 			\brief Verifica Fim de wave.
 			Verifica se a flag de fim de wave foi acionada. Retorna endWave.
-		*/		
+		*/
 		bool EndWave();
 		/** 
 			\brief Inimigo Chegou ao Destino.
 			Recebe uma notificação da componente HitPoints, se o inimigo foi destruido por chegar ao destino e decrementa o contador de vidas.
-		*/				
+		*/
 		void NotifyEnemyGotToHisDestiny();
-		/** 
+		/**
 			\brief Inimigo Destruido.
 			Recebe uma notificação se o inimigo foi destruido e decrementa o contador de inimigos restantes.
-		*/						
+		*/
 		void NotifyEnemyGotKilled();
 		/** 
 			\brief Pegar vidas Restantes.
 			\return playerLifes: vidas restantes.
 			Retorna as vidas restantes da wave atual.
-		*/						
+		*/
 		int GetLifesLeft();
 		/** 
 			\brief Pegar inimigos Restantes.
 			\return enemiesLeft: Inimigos restantes.
 			Retorna os inimigos restantes da wave atual.
-		*/		
+		*/
 		int GetEnemiesLeft();
 		/** 
 			\brief Condiçao de Vitoria.
 			\return victory: verdadeiro se as waves acabaram.
 			Retorna true se a condiçao de vitoria foi satisfeita.
-		*/				
+		*/
 		bool Victory();
 	private:
-		/** 
+		/**
 			\brief Criar um novo inimigo no mapa.
 			\param tileMapPosition: Posição do tileMap. Usado para calcular a posição exata de spawn do inimigo.
 			\param enemyId: identificador de inimigo no waveData.
 			\param baseHP: HP base do inimigo para a wave atual.
 			\param endPoint: posição de destino para aonde o inimigo vai. Lido de WaveData.
 			
-		*/		
+		*/
 		void SpawnEnemy(int tileMapPosition, int enemyId,uint baseHP, uint endPoint, uint indexOfTheEnemyToSpawn);
 		vector<vector<int>> *spawnGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
 		static int waveCount; /**<Contador de waves restantes. Também usado para nivelar as waves.*/

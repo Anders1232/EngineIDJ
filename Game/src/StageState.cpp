@@ -53,7 +53,6 @@ StageState::StageState(void)
 
 StageState::~StageState(void) {
 	objectArray.clear();
-	//delete tileMap;
 	GameResources::Clear();
 }
 
