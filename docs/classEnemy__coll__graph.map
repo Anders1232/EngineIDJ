@@ -1,6 +1,8 @@
 <map id="Enemy" name="Enemy">
-<area shape="rect" id="node2" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="488,93,583,120"/>
-<area shape="rect" id="node3" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="237,48,288,75"/>
-<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="507,429,563,456"/>
-<area shape="rect" id="node13" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="236,599,289,625"/>
+<area shape="rect" id="node2" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="787,108,881,135"/>
+<area shape="rect" id="node3" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="539,56,590,83"/>
+<area shape="rect" id="node13" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="537,592,593,619"/>
+<area shape="rect" id="node11" href="$classHitPoints.html" title="HitPoints" alt="" coords="796,509,872,536"/>
+<area shape="rect" id="node12" href="$classComponent.html" title="Modela os componentes. " alt="" coords="520,529,609,556"/>
+<area shape="rect" id="node17" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="233,739,287,765"/>
 </map>

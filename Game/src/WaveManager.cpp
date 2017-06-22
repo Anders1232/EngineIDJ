@@ -11,6 +11,7 @@
 
 int WaveManager::waveCount = 0;
 
+
 WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 	endWave=false;
 	enemiesLeft = 0;
@@ -20,6 +21,7 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 	enemyIndex = 0;
 	waveIndex=0;
 	totalWaves = wavesAndEnemysData->first.size();
+	victory = false;
 	StartWave();
 
 }
@@ -47,6 +49,7 @@ void WaveManager::StartWave(){
 	enemyIndex = 0;
 	endWave = false;
 	++waveCount;
+
 }
 
 
@@ -60,6 +63,7 @@ void WaveManager::Update(GameObject &associated, float dt){
 	if(EndWave()){
 		if(totalWaves==waveCount){ //Check Game over Condition
 			//Ao invés de não fazer nada deve-ser informar o fim de jogo
+			victory = true;
 			return;
 		}else{
 			REPORT_I_WAS_HERE;
@@ -71,6 +75,7 @@ void WaveManager::Update(GameObject &associated, float dt){
 			spawnTimer.Update(dt);
 			if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){ // spawn cooldown
 				//spawn 1 enemy at each existing spawn group
+
 				for (uint i = 0; i < currentWave.spawnPointsData.size(); i++){
 					uint enemiesCounter= enemyIndex;
 					uint indexOfTheEnemyToSpawn=0;
@@ -106,10 +111,11 @@ void WaveManager::Update(GameObject &associated, float dt){
 					REPORT_DEBUG("\t baseHP= " << enemyToSpawn.baseHP);
 					REPORT_DEBUG("\t endPoint= " << enemyToSpawn.endPoint);
 					int spawnPosition = rand()% ( (*spawnGroups).at(i) ).size();
-					SpawnEnemy( (*spawnGroups).at(i).at(spawnPosition), enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, enemyToSpawn.endPoint );
+					SpawnEnemy( (*spawnGroups).at(i).at(spawnPosition), enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, enemyToSpawn.endPoint, indexOfTheEnemyToSpawn );
 				}
 				REPORT_I_WAS_HERE;
 				spawnTimer.Restart();
+
 				enemyIndex++;
 			}
 			REPORT_I_WAS_HERE;
@@ -122,15 +128,18 @@ void WaveManager::Update(GameObject &associated, float dt){
 	}
 }
 
-void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint endPoint ){
-	EnemyData currentWaveEnemyData = wavesAndEnemysData->second[waveIndex];
-	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
+void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint endPoint, uint indexOfTheEnemyToSpawn ){
+	//printf("waveIndex: %d\n", waveIndex);
+	EnemyData &currentWaveEnemyData = wavesAndEnemysData->second[indexOfTheEnemyToSpawn];
+	WaveData &currentWave = wavesAndEnemysData->first[waveIndex];
+	REPORT_DEBUG2(1, "\t currentWaveEnemyData.scale= ("<<currentWaveEnemyData.scaleX<<","<<currentWaveEnemyData.scaleY<<")" );
 
 	Vec2 tileSize= tileMap.GetTileSize();
 	Vec2 spawnPosition;
 	spawnPosition.x = (tileMapPosition%tileMap.GetWidth() ) * tileSize.x;
 	spawnPosition.y = (tileMapPosition/tileMap.GetWidth() ) * tileSize.y;
-	Enemy* enemy = new Enemy(spawnPosition, 1.);
+	Enemy* enemy = new Enemy(spawnPosition, enemyIndex, currentWaveEnemyData, baseHP, endPoint );
+
 	Game::GetInstance().GetCurrentState().AddObject(enemy);
 }
 
@@ -155,4 +164,7 @@ int WaveManager::GetLifesLeft(){
 int WaveManager::GetEnemiesLeft(){
 	return enemiesLeft;
 }
+bool WaveManager::Victory(){
+	return victory;
 
+}

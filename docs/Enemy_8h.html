@@ -100,16 +100,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <code>#include &quot;<a class="el" href="Timer_8h.html">Timer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Error_8h.html">Error.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="WaveData_8h.html">WaveData.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="HitPoints_8h.html">HitPoints.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Gráfico de dependência de inclusões para Enemy.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Enemy_8h__incl.svg" width="999" height="486"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Enemy_8h__incl.svg" width="934" height="486"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com este arquivo:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Enemy_8h__dep__incl.svg" width="723" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Enemy_8h__dep__incl.svg" width="644" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -127,6 +128,16 @@ Definições e Macros</h2></td></tr>
 <tr class="separator:a3cfe21310e1359350de0b98319b19a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1fc3c040531dd8cbbe7675e1db12fd3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enemy_8h.html#ad1fc3c040531dd8cbbe7675e1db12fd3">ENEMY_MOVE_SPEED</a>&#160;&#160;&#160;(120.)</td></tr>
 <tr class="separator:ad1fc3c040531dd8cbbe7675e1db12fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef0ac017334833e090c009891c1fb75c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enemy_8h.html#aef0ac017334833e090c009891c1fb75c">ENEMY_HOSTILE_MOVE_SPEED</a>&#160;&#160;&#160;(80.)</td></tr>
+<tr class="separator:aef0ac017334833e090c009891c1fb75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e0db91920208aff7e7608ef7d78a179"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enemy_8h.html#a0e0db91920208aff7e7608ef7d78a179">ENEMY_QUIMIC_MOVE_SPEED</a>&#160;&#160;&#160;(110.)</td></tr>
+<tr class="separator:a0e0db91920208aff7e7608ef7d78a179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c3c441a6beee5e34de58c97577ce36a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enemy_8h.html#a8c3c441a6beee5e34de58c97577ce36a">ENEMY_ENGINEER_MOVE_SPEED</a>&#160;&#160;&#160;(110.)</td></tr>
+<tr class="separator:a8c3c441a6beee5e34de58c97577ce36a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a3e05eb407fd0046c3aa7922a86bf2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enemy_8h.html#ae7a3e05eb407fd0046c3aa7922a86bf2">ENEMY_ARQUITET_MOVE_SPEED</a>&#160;&#160;&#160;(150.)</td></tr>
+<tr class="separator:ae7a3e05eb407fd0046c3aa7922a86bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a278281feb72149404945ee41ef6ff4fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enemy_8h.html#a278281feb72149404945ee41ef6ff4fa">ENEMY_ART_MOVE_SPEED</a>&#160;&#160;&#160;(100.)</td></tr>
+<tr class="separator:a278281feb72149404945ee41ef6ff4fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerações</h2></td></tr>
@@ -141,7 +152,19 @@ Enumerações</h2></td></tr>
 <a class="el" href="Enemy_8h.html#ac3e413a86119db4b031458c7259e268ea52cb0d4e9f1f7b966b59d26e46483514">ENEMY_TYPE_SIZE</a> =6
 <br />
  }</td></tr>
+<tr class="memdesc:ac3e413a86119db4b031458c7259e268e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum que informa o tipo do inimigo.  <a href="Enemy_8h.html#ac3e413a86119db4b031458c7259e268e">Mais...</a><br /></td></tr>
 <tr class="separator:ac3e413a86119db4b031458c7259e268e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe40ed1e5294188d5a3b983708134ac5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Enemy_8h.html#afe40ed1e5294188d5a3b983708134ac5">EnemyDirections</a> { <br />
+&#160;&#160;<a class="el" href="Enemy_8h.html#afe40ed1e5294188d5a3b983708134ac5aba595d8bca8bc5e67c37c0a9d89becfa">UP</a> =0, 
+<a class="el" href="Enemy_8h.html#afe40ed1e5294188d5a3b983708134ac5aec8379af7490bb9eaaf579cf17876f38">RIGHT</a> =1, 
+<a class="el" href="Enemy_8h.html#afe40ed1e5294188d5a3b983708134ac5a9b0b4a95b99523966e0e34ffdadac9da">DOWN</a> =2, 
+<a class="el" href="Enemy_8h.html#afe40ed1e5294188d5a3b983708134ac5adb45120aafd37a973140edee24708065">LEFT</a> =3, 
+<br />
+&#160;&#160;<a class="el" href="Enemy_8h.html#afe40ed1e5294188d5a3b983708134ac5a7eb9964fa5b45c0ac626e7a13dfe5ad7">ENEMY_DIRECTIONS_SIZE</a> =4
+<br />
+ }</td></tr>
+<tr class="memdesc:afe40ed1e5294188d5a3b983708134ac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum que diz a orientaçao do inimigo.  <a href="Enemy_8h.html#afe40ed1e5294188d5a3b983708134ac5">Mais...</a><br /></td></tr>
+<tr class="separator:afe40ed1e5294188d5a3b983708134ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Definições e macros</h2>
 <a class="anchor" id="ada0d607190454d90a3a5c59916a05af4"></a>
@@ -168,6 +191,54 @@ Enumerações</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae7a3e05eb407fd0046c3aa7922a86bf2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ENEMY_ARQUITET_MOVE_SPEED&#160;&#160;&#160;(150.)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a278281feb72149404945ee41ef6ff4fa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ENEMY_ART_MOVE_SPEED&#160;&#160;&#160;(100.)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8c3c441a6beee5e34de58c97577ce36a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ENEMY_ENGINEER_MOVE_SPEED&#160;&#160;&#160;(110.)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aef0ac017334833e090c009891c1fb75c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ENEMY_HOSTILE_MOVE_SPEED&#160;&#160;&#160;(80.)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ad1fc3c040531dd8cbbe7675e1db12fd3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -180,7 +251,46 @@ Enumerações</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a0e0db91920208aff7e7608ef7d78a179"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ENEMY_QUIMIC_MOVE_SPEED&#160;&#160;&#160;(110.)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Enumerações</h2>
+<a class="anchor" id="afe40ed1e5294188d5a3b983708134ac5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="Enemy_8h.html#afe40ed1e5294188d5a3b983708134ac5">EnemyDirections</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enum que diz a orientaçao do inimigo. </p>
+<p>Refere-se a algum dos 4 lados que o inimigo pode estar de frente. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores enumerados</th></tr><tr><td class="fieldname"><a class="anchor" id="afe40ed1e5294188d5a3b983708134ac5aba595d8bca8bc5e67c37c0a9d89becfa"></a>UP&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="afe40ed1e5294188d5a3b983708134ac5aec8379af7490bb9eaaf579cf17876f38"></a>RIGHT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="afe40ed1e5294188d5a3b983708134ac5a9b0b4a95b99523966e0e34ffdadac9da"></a>DOWN&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="afe40ed1e5294188d5a3b983708134ac5adb45120aafd37a973140edee24708065"></a>LEFT&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="afe40ed1e5294188d5a3b983708134ac5a7eb9964fa5b45c0ac626e7a13dfe5ad7"></a>ENEMY_DIRECTIONS_SIZE&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
 <a class="anchor" id="ac3e413a86119db4b031458c7259e268e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -190,6 +300,9 @@ Enumerações</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enum que informa o tipo do inimigo. </p>
+<p>Cada inimigo e´ composto por um tipo, e cada tipo tem suas propriedades diferentes. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Valores enumerados</th></tr><tr><td class="fieldname"><a class="anchor" id="ac3e413a86119db4b031458c7259e268ea5e344b55f70ed8001ac9e7bb5d226851"></a>HOSTILE&#160;</td><td class="fielddoc">
 </td></tr>
@@ -212,7 +325,7 @@ Enumerações</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 20 de Junho de 2017 22:05:42 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Quinta, 22 de Junho de 2017 16:31:43 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

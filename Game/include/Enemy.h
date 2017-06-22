@@ -9,11 +9,24 @@
 #include "Timer.h"
 #include "Error.h"
 #include "WaveData.h"
+#include "HitPoints.h"
+//#include "componentType.h"
 
 #define BASE_HIT_POINTS 100
 #define DIFICULTY_CONSTANT 12
-#define ENEMY_MOVE_SPEED (120.)
 
+#define ENEMY_MOVE_SPEED (120.)
+#define ENEMY_HOSTILE_MOVE_SPEED (80.)
+#define ENEMY_QUIMIC_MOVE_SPEED (110.)
+#define ENEMY_ENGINEER_MOVE_SPEED (110.)
+#define ENEMY_ARQUITET_MOVE_SPEED (150.)
+#define ENEMY_ART_MOVE_SPEED (100.)
+
+/**
+	\brief Enum que informa o tipo do inimigo
+	
+	Cada inimigo e´ composto por um tipo, e cada tipo tem suas propriedades diferentes.
+*/
 enum EnemyType{
 	HOSTILE=0,
 	NEUTRAL=1,
@@ -22,6 +35,19 @@ enum EnemyType{
 	ART=4,
 	QUIMIC=5,
 	ENEMY_TYPE_SIZE=6
+};
+
+/**
+	\brief Enum que diz a orientaçao do inimigo
+	
+	Refere-se a algum dos 4 lados que o inimigo pode estar de frente.
+*/
+enum EnemyDirections{
+	UP=0,
+	RIGHT=1,
+	DOWN=2,
+	LEFT=3,
+	ENEMY_DIRECTIONS_SIZE=4
 };
 
 
@@ -57,7 +83,6 @@ class Enemy : public GameObject
 			Destrói todas a suas componentes.
 		*/
 		~Enemy();
-	
 		/**
 			\brief Atualiza estado
 			
@@ -102,19 +127,20 @@ class Enemy : public GameObject
 			Utilizado para verificar onde o mouse está.
 		*/
 		Rect GetWorldRenderedRect(void) const;
-	
+		/**
+			\brief Notificado por HitPoints se morreu.
+			
+			Ao hp ser menor ou igual a zero, HitPoints chama esse metodo.
+		*/
+		void NotifyDeath();
 	private:
 		EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
-		Sprite sp;/**< Sprite do inimigo.*/
-		Sprite bodySpName;
-		Sprite headSpName;
-		Sprite pantsSpName;
-		Sprite spName;
-
+		std::vector<std::vector<Sprite>> sp;/**< Sprite do inimigo.*/
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
-		
-		int enemyIndex; 
-		uint quant, baseHP, endPoint;
+		int enemyIndex;/**<Identificador do inimigo */
+		HitPoints *hitpoints;/**< Ponteiro para a componente HitPoints. Usada para chamada com argumentos. */
+		uint baseHP, endPoint; /**< Respectivamentes a vida base do inimigo e seu ponto de destino. */
+		EnemyDirections direction; /**< Direçao para aonde a sprite do inimigo esta voltada. Norte, Sul, Leste ou Oeste */
 };
 
 #endif // ENEMY_H

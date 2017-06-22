@@ -118,10 +118,13 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a6de86477e37962bcd4738b09c1c706aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameObject.html#a6de86477e37962bcd4738b09c1c706aa">AddComponent</a> (<a class="el" href="classComponent.html">Component</a> *component)</td></tr>
 <tr class="memdesc:a6de86477e37962bcd4738b09c1c706aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona componente a um gameobjet.  <a href="#a6de86477e37962bcd4738b09c1c706aa">Mais...</a><br /></td></tr>
 <tr class="separator:a6de86477e37962bcd4738b09c1c706aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a501c733cc2fd6e0ac03a381d5ff5ce5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classComponent.html">Component</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameObject.html#a501c733cc2fd6e0ac03a381d5ff5ce5c">GetComponent</a> (<a class="el" href="ComponentType_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0">ComponentType</a> type)</td></tr>
+<tr class="memdesc:a501c733cc2fd6e0ac03a381d5ff5ce5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém componente.  <a href="#a501c733cc2fd6e0ac03a381d5ff5ce5c">Mais...</a><br /></td></tr>
+<tr class="separator:a501c733cc2fd6e0ac03a381d5ff5ce5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae165e3efb132b4a8ea2d666ae261bb31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameObject.html#ae165e3efb132b4a8ea2d666ae261bb31">RemoveComponent</a> (<a class="el" href="ComponentType_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0">ComponentType</a> type)</td></tr>
 <tr class="memdesc:ae165e3efb132b4a8ea2d666ae261bb31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove componente a um gameobjet.  <a href="#ae165e3efb132b4a8ea2d666ae261bb31">Mais...</a><br /></td></tr>
 <tr class="separator:ae165e3efb132b4a8ea2d666ae261bb31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b086987a48c14ebe80939bd66d5f1c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameObject.html#a3b086987a48c14ebe80939bd66d5f1c8">~GameObject</a> (void)</td></tr>
+<tr class="memitem:a3b086987a48c14ebe80939bd66d5f1c8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameObject.html#a3b086987a48c14ebe80939bd66d5f1c8">~GameObject</a> (void)</td></tr>
 <tr class="memdesc:a3b086987a48c14ebe80939bd66d5f1c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor.  <a href="#a3b086987a48c14ebe80939bd66d5f1c8">Mais...</a><br /></td></tr>
 <tr class="separator:a3b086987a48c14ebe80939bd66d5f1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab26a16410c9065c8fb97cb005e8f16ab"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameObject.html#ab26a16410c9065c8fb97cb005e8f16ab">Update</a> (float dt)</td></tr>
@@ -186,6 +189,9 @@ Atributos Protegidos</h2></td></tr>
 <a class="anchor" id="a3b086987a48c14ebe80939bd66d5f1c8"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">GameObject::~GameObject </td>
@@ -195,6 +201,11 @@ Atributos Protegidos</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Destrutor. </p>
@@ -224,6 +235,32 @@ Atributos Protegidos</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a501c733cc2fd6e0ac03a381d5ff5ce5c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classComponent.html">Component</a> &amp; GameObject::GetComponent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ComponentType_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0">ComponentType</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtém componente. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>tipo do componente a ser buscado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Futuras Atividades:</a></b></dt><dd>Verificar viabilidade de lançar exceção ao invés de fechar o jogo.</dd></dl>
+<p>Se não existir um componente do tipo informado <a class="el" href="Error_8h.html#a787bf097960f03921a9b9e0195d27831">Error()</a> será chamado </p>
 
 </div>
 </div>
@@ -364,10 +401,11 @@ Atributos Protegidos</h2></td></tr>
 <p>Remove componente a um gameobjet. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">type</td><td>tipo do componente a ser adicionado. </td></tr>
+    <tr><td class="paramname">type</td><td>Tipo do componente a ser removido.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Se a não existir um componente desse tipo no <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> nada será feito. </p>
 
 </div>
 </div>
@@ -506,6 +544,7 @@ Atributos Protegidos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Booleano informado se o <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> deve ser destruído. Faz-se necessário para que a mecânia de RequestDelete e IsDead funcione num <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a>. </p>
 
 </div>
 </div>
@@ -529,7 +568,7 @@ Atributos Protegidos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 20 de Junho de 2017 22:05:42 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Quinta, 22 de Junho de 2017 16:31:44 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -29,17 +29,14 @@ class StageState: public State {
 		void ShowLightning(float dt);
 	private:
 		TileSet tileSet;
-		TileMap tileMap;
+		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;
 		Music music;
-		vector<vector<int>> *spawnGroups;
 		bool isLightning;
 		Timer lightningTimer;
 		Color lightningColor;
-		WaveManager waveManager;
-		GameObject nullGameObject;
+		WaveManager *waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
 		vector<int> waves;//vetor de waves a ser lido no arquivo
-		void SpawnEnemy(int tileMapPosition);
 };
 
 #include "EndState.h"
