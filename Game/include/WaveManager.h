@@ -14,7 +14,7 @@ using std::vector;
 	\brief Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves. Também gerencia o spawn dos inimigos na wave atual.
 	Mantem a contagem de vidas restantes e inimigos restantes que sao usadas para condição de fim de jogo.
 
-	A waveManager é um componente. Ela gerencia as waves usando como base os inimigos restantes e vidas restantes.  
+	A waveManager é um componente. Ela gerencia as waves usando como base os inimigos restantes e vidas restantes.
 */
 class WaveManager : public Component {
 	public:
