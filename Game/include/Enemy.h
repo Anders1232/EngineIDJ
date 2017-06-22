@@ -109,7 +109,7 @@ class Enemy : public GameObject
 		void RequestDelete(void);
 		/**
 			\brief Notifica evento de colisão.
-			\spritetodo Verificar viabilidade de tratar colisão em componentes.
+			\todo Verificar viabilidade de tratar colisão em componentes.
 			
 			No momento não faz nada.
 		*/
