@@ -137,8 +137,6 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	}
 	hitpoints = new HitPoints(baseHP);
 	components.push_back(hitpoints);
-	//components.emplace_back(new PathFinding(endPoint)); //arg endPoint
-
 }
 
 
@@ -148,7 +146,6 @@ Enemy::~Enemy(){
 		delete components[i];
 	}
 	components.clear();
-	delete hitpoints;
 	sp.clear();
 }
 
