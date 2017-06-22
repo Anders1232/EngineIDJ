@@ -21,6 +21,7 @@ class TitleState: public State {
 		void Exit(void);
 	private:
 		void UpdateUI(float dt);
+		void RenderUI() const;
 		UIcanvas canvas;
 		UIimage bg;
 		UIimage lua;

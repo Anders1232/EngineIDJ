@@ -71,13 +71,13 @@ class UItext : public UIelement {
 
 			Atualiza o textTime.
 		*/
-		void Update(float dt, Rect parentCanvas);
+		virtual void Update(float dt, Rect parentCanvas);
 		/**
 			\brief Renderiza Texto.
 
 			Renderiza o texto na posição informada. Checa se o texto deve piscar e trata esta piscagem com o tempo textTime.
 		*/
-		void Render(bool debugRender = false) const;
+		virtual void Render(bool debugRender = false) const;
 		/**
 			\brief Altera o texto.
 
@@ -141,10 +141,5 @@ class UItext : public UIelement {
 		float strobeFrequency;/**< Tempo de um ciclo da piscagem. Seu valor é TEXT_FREQUENCY por padrão.*/
 		float timeShown;/**< Tempo em que o texto é mostrado na piscagem. Seu valor é MIN_TIME_SHOWN por padrão.*/
 };
-
-
-#include "Resources.h"
-#include "Game.h"
-#include "Error.h"
 
 #endif // UITEXT_H

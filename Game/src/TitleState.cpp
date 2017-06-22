@@ -5,6 +5,11 @@
 #include "InputManager.h"
 #include "StageState.h"
 
+#define DISABLED_COLOR		{ 70, 70, 70,100} // Dark Gray
+#define ENABLED_COLOR		{164,133,166,255} // Purple
+#define HIGHLIGHTED_COLOR	{227,196,230,255} // Purple-ish white
+#define SELECTED_COLOR		{227,196,230,255} // Purple-ish white
+
 TitleState::TitleState()
 		: State()
 		, canvas({1024,600}, UIelement::BehaviorType::FIT)
@@ -25,36 +30,38 @@ TitleState::TitleState()
 	lua.SetSpriteScale(0.75);
 	lua.SetAnchors( {(float)(0.5 - (lua.GetSpriteWidth()/2.+30.)/winSize.x), (float)(60./winSize.y)},
 					{(float)(0.5 + (lua.GetSpriteWidth()/2.-30.)/winSize.x), (float)(60. + lua.GetSpriteHeight())/winSize.y } );
+	
 	nuvemB.SetSpriteScale(0.7);
 	nuvemB.SetAnchors( {(float)(1. - (nuvemB.GetSpriteWidth()+110.)/winSize.x), (float)(70./winSize.y)},
 					   {(float)(1. - 110./winSize.x), (float)(70.+nuvemB.GetSpriteHeight())/winSize.y } );
+	
 	icc.SetAnchors( {0., (float)(80./winSize.y)},
 					{1., 1.});
+	
 	overlay.SetSpriteColorMultiplier({255,255,255,135});
+	
 	title.SetSpriteScale(0.7);
 	title.SetAnchors( {(float)(0.5 - (title.GetSpriteWidth()/2.)/winSize.x), (float)(60./winSize.y)},
 					  {(float)(0.5 + (title.GetSpriteWidth()/2.)/winSize.x), (float)(60. + title.GetSpriteHeight())/winSize.y } );
+	
 	optionsGroup.SetAnchors( {0.3, 0.45},
 						  {0.7, 0.9} );
-	playText.ConfigColors( { 70, 70, 70,100},
-						   {164,133,166,255},
-						   {227,196,230,255} );
+	
+	playText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, SELECTED_COLOR);
 	playText.SetClickCallback( this, [] (void* caller) {
 									Game::GetInstance().Push(new StageState());
 								} );
-	editorText.ConfigColors( { 70, 70, 70,100},
-						  	 {164,133,166,255},
-						  	 {227,196,230,255} );
-	configText.ConfigColors( { 70, 70, 70,100},
-						  	 {164,133,166,255},
-						  	 {227,196,230,255} );
-	exitText.ConfigColors( { 70, 70, 70,100},
-						   {164,133,166,255},
-						   {227,196,230,255} );
+	
+	editorText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, SELECTED_COLOR);
+	
+	configText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, SELECTED_COLOR);
+	
+	exitText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, SELECTED_COLOR);
 	exitText.SetClickCallback( this, [] (void* caller) {
 									TitleState* titleState = static_cast<TitleState*>(caller);
 									titleState->Exit();
 								} );
+	
 	optionsGroup.groupedElements.push_back(&playText);
 	optionsGroup.groupedElements.push_back(&editorText);
 	optionsGroup.groupedElements.push_back(&configText);
@@ -70,7 +77,10 @@ void TitleState::Update(float dt) {
 }
 
 void TitleState::Render(void) const {
-	// UI
+	RenderUI();
+}
+
+void TitleState::RenderUI(void) const {
 	bg.Render();
 	lua.Render();
 	nuvemB.Render();

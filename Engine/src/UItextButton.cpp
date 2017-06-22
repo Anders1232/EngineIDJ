@@ -14,18 +14,19 @@ UItextButton::UItextButton( string fontFile,
         , UIbutton(startingState)
         , disabledColor(color)
         , enabledColor(color)
-        , highlightedColor(color) {}
+        , highlightedColor(color)
+        , selectedColor(color) {}
 
-void UItextButton::ConfigColors(SDL_Color disabled, SDL_Color enabled, SDL_Color highlighted) {
+void UItextButton::ConfigColors(SDL_Color disabled, SDL_Color enabled, SDL_Color highlighted, SDL_Color selected) {
     disabledColor = disabled;
     enabledColor = enabled;
     highlightedColor = highlighted;
+    selectedColor = selected;
     SetColor(GetStateColor(actualState));
 }
 
 void UItextButton::SetUIbuttonState(UIbutton::State newState) {
-    UIbutton::SetUIbuttonState(newState);
-    switch(actualState) {
+    switch(newState) {
         case UIbutton::State::DISABLED : {
             SetColor(disabledColor);
             break;
@@ -39,10 +40,11 @@ void UItextButton::SetUIbuttonState(UIbutton::State newState) {
             break;
         }
         case UIbutton::State::SELECTED : {
-            SetColor(highlightedColor);
+            SetColor(selectedColor);
             break;
         }
     }
+    UIbutton::SetUIbuttonState(newState);
 }
 
 void UItextButton::SetStateColor(UIbutton::State state, SDL_Color color) {
@@ -60,7 +62,7 @@ void UItextButton::SetStateColor(UIbutton::State state, SDL_Color color) {
             break;
         }
         case UIbutton::State::SELECTED : {
-            highlightedColor = color;
+            selectedColor = color;
             break;
         }
     }
@@ -84,20 +86,12 @@ SDL_Color UItextButton::GetStateColor(UIbutton::State state) const {
             break;
         }
         case UIbutton::State::SELECTED : {
-            return highlightedColor;
+            return selectedColor;
             break;
         }
     }
     Error("Não deveria chegar até aqui");
     return {255,255,255,255};
-}
-
-void UItextButton::Update(float dt, Rect parentCanvas) {
-    UItext::Update(dt, parentCanvas);
-}
-
-void UItextButton::Render(bool debugRender) const {
-    UItext::Render(debugRender);
 }
 
 bool UItextButton::Is(std::string UItype) const {

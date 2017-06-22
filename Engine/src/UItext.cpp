@@ -1,5 +1,9 @@
 #include "UItext.h"
 
+#include "Resources.h"
+#include "Game.h"
+#include "Error.h"
+
 UItext::UItext( string fontFile,
 				int fontSize,
 				TextStyle style,

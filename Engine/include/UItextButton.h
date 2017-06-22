@@ -20,17 +20,16 @@ class UItextButton : public UItext, public UIbutton {
 			UIelement::BehaviorType behavior = UIelement::BehaviorType::FIT,
 			bool isStrobing = false
 		);
-    void ConfigColors(SDL_Color disabled, SDL_Color enabled, SDL_Color highlighted);
+    void ConfigColors(SDL_Color disabled, SDL_Color enabled, SDL_Color highlighted, SDL_Color selected);
     void SetUIbuttonState(UIbutton::State newState);
     void SetStateColor(UIbutton::State state, SDL_Color color);
-    SDL_Color GetStateColor(UIbutton::State state) const ;
-    void Update(float dt, Rect parentCanvas);
-    void Render(bool debugRender = false) const ;
-    bool Is(std::string UItype) const ;
+    SDL_Color GetStateColor(UIbutton::State state) const;
+    bool Is(std::string UItype) const;
   private:
     SDL_Color disabledColor;
     SDL_Color enabledColor;
     SDL_Color highlightedColor;
+    SDL_Color selectedColor;
 };
 
 #endif // UITEXTBUTTON_H

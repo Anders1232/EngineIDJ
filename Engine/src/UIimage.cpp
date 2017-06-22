@@ -1,15 +1,29 @@
 #include "UIimage.h"
 
+#include "Error.h"
+
 UIimage::UIimage(std::string file, UIelement::BehaviorType behavior)
          : UIelement(behavior) {
-    sp = Sprite(file);
-    kernelSize = Vec2(sp.GetWidth(), sp.GetHeight());
+    sp = new Sprite(file);
+    kernelSize = Vec2(sp->GetWidth(), sp->GetHeight());
+}
+
+UIimage::UIimage(UIelement::BehaviorType behavior) : UIelement(behavior), sp(nullptr) {}
+
+UIimage::~UIimage() {
+    if(nullptr != sp) {
+        delete sp;
+    }
 }
 
 void UIimage::Render(bool debugRender) const {
     UIelement::Render(debugRender);
 
-    sp.Render(box, 0, false);
+    if(nullptr != sp) {
+        sp->Render(box, 0, false);
+    } else {
+        Error("Alguma classe filha de UIimage não foi corretamente inicializada.")
+    }
 }
 
 float UIimage::GetSpriteWidth(void) {
@@ -25,13 +39,13 @@ Vec2 UIimage::GetSpriteDimensions(void) {
 }
 
 void UIimage::SetSpriteScale(float scale) {
-    sp.SetScale(scale);
-    kernelSize = Vec2(sp.GetWidth(), sp.GetHeight());
+    sp->SetScale(scale);
+    kernelSize = Vec2(sp->GetWidth(), sp->GetHeight());
 }
 
 void UIimage::SetSpriteColorMultiplier(Color color, SDL_BlendMode blendMode) {
-    sp.colorMultiplier = color;
-    sp.blendMode = blendMode;
+    sp->colorMultiplier = color;
+    sp->blendMode = blendMode;
 }
 
 bool UIimage::Is(std::string UItype) const {
