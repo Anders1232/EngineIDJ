@@ -15,13 +15,13 @@ UItextButton::UItextButton( string fontFile,
         , disabledColor(color)
         , enabledColor(color)
         , highlightedColor(color)
-        , selectedColor(color) {}
+        , pressedColor(color) {}
 
-void UItextButton::ConfigColors(SDL_Color disabled, SDL_Color enabled, SDL_Color highlighted, SDL_Color selected) {
+void UItextButton::ConfigColors(SDL_Color disabled, SDL_Color enabled, SDL_Color highlighted, SDL_Color pressed) {
     disabledColor = disabled;
     enabledColor = enabled;
     highlightedColor = highlighted;
-    selectedColor = selected;
+    pressedColor = pressed;
     SetColor(GetStateColor(actualState));
 }
 
@@ -39,8 +39,8 @@ void UItextButton::SetUIbuttonState(UIbutton::State newState) {
             SetColor(highlightedColor);
             break;
         }
-        case UIbutton::State::SELECTED : {
-            SetColor(selectedColor);
+        case UIbutton::State::PRESSED : {
+            SetColor(pressedColor);
             break;
         }
     }
@@ -61,8 +61,8 @@ void UItextButton::SetStateColor(UIbutton::State state, SDL_Color color) {
             highlightedColor = color;
             break;
         }
-        case UIbutton::State::SELECTED : {
-            selectedColor = color;
+        case UIbutton::State::PRESSED : {
+            pressedColor = color;
             break;
         }
     }
@@ -85,8 +85,8 @@ SDL_Color UItextButton::GetStateColor(UIbutton::State state) const {
             return highlightedColor;
             break;
         }
-        case UIbutton::State::SELECTED : {
-            return selectedColor;
+        case UIbutton::State::PRESSED : {
+            return pressedColor;
             break;
         }
     }

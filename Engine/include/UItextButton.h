@@ -20,7 +20,7 @@ class UItextButton : public UItext, public UIbutton {
 			UIelement::BehaviorType behavior = UIelement::BehaviorType::FIT,
 			bool isStrobing = false
 		);
-    void ConfigColors(SDL_Color disabled, SDL_Color enabled, SDL_Color highlighted, SDL_Color selected);
+    void ConfigColors(SDL_Color disabled, SDL_Color enabled, SDL_Color highlighted, SDL_Color pressed);
     void SetUIbuttonState(UIbutton::State newState);
     void SetStateColor(UIbutton::State state, SDL_Color color);
     SDL_Color GetStateColor(UIbutton::State state) const;
@@ -29,7 +29,7 @@ class UItextButton : public UItext, public UIbutton {
     SDL_Color disabledColor;
     SDL_Color enabledColor;
     SDL_Color highlightedColor;
-    SDL_Color selectedColor;
+    SDL_Color pressedColor;
 };
 
 #endif // UITEXTBUTTON_H

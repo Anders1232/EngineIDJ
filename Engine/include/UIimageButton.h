@@ -29,7 +29,7 @@ class UIimageButton : public UIimage, public UIbutton {
     Sprite* disabledSprite;
     Sprite* enabledSprite;
     Sprite* highlightedSprite;
-    Sprite* selectedSprite;
+    Sprite* pressedSprite;
 };
 
 #endif // UIIMAGEBUTTON_H

@@ -8,7 +8,7 @@
 #define DISABLED_COLOR		{ 70, 70, 70,100} // Dark Gray
 #define ENABLED_COLOR		{164,133,166,255} // Purple
 #define HIGHLIGHTED_COLOR	{227,196,230,255} // Purple-ish white
-#define SELECTED_COLOR		{227,196,230,255} // Purple-ish white
+#define PRESSED_COLOR		{227,196,230,255} // Purple-ish white
 
 TitleState::TitleState()
 		: State()
@@ -47,16 +47,16 @@ TitleState::TitleState()
 	optionsGroup.SetAnchors( {0.3, 0.45},
 						  {0.7, 0.9} );
 	
-	playText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, SELECTED_COLOR);
+	playText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
 	playText.SetClickCallback( this, [] (void* caller) {
 									Game::GetInstance().Push(new StageState());
 								} );
 	
-	editorText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, SELECTED_COLOR);
+	editorText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
 	
-	configText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, SELECTED_COLOR);
+	configText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
 	
-	exitText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, SELECTED_COLOR);
+	exitText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
 	exitText.SetClickCallback( this, [] (void* caller) {
 									TitleState* titleState = static_cast<TitleState*>(caller);
 									titleState->Exit();
@@ -109,7 +109,7 @@ void TitleState::UpdateUI(float dt) {
 		if(btnTxtVec[i]->GetUIbuttonState() != UIbutton::State::DISABLED) {
 			if(mousePos.IsInRect(btnTxtVec[i]->GetBoundingBox())) {
 				if(INPUT_MANAGER.IsMouseDown(LEFT_MOUSE_BUTTON)) {
-					btnTxtVec[i]->SetUIbuttonState(UIbutton::State::SELECTED);
+					btnTxtVec[i]->SetUIbuttonState(UIbutton::State::PRESSED);
 				} else {
 					btnTxtVec[i]->SetUIbuttonState(UIbutton::State::HIGHLIGHTED);
 				}

@@ -5,7 +5,7 @@ UIbutton::UIbutton(UIbutton::State initialState)
         , disabledCallback(nullptr)
         , enabledCallback(nullptr)
         , highlightedCallback(nullptr)
-        , selectedCallback(nullptr)
+        , pressedCallback(nullptr)
         , clickedCallback(nullptr) {}
 
 void UIbutton::SetCallback(UIbutton::State stateToSet, void* caller, ButtonCallback callback) {
@@ -25,9 +25,9 @@ void UIbutton::SetCallback(UIbutton::State stateToSet, void* caller, ButtonCallb
             highlightedCaller = caller;
             break;
         }
-        case UIbutton::State::SELECTED: {
-            selectedCallback = callback;
-            selectedCaller = caller;
+        case UIbutton::State::PRESSED: {
+            pressedCallback = callback;
+            pressedCaller = caller;
             break;
         }
     }
@@ -59,9 +59,9 @@ void UIbutton::SetUIbuttonState(UIbutton::State newState) {
             }
             break;
         }
-        case UIbutton::State::SELECTED: {
-            if(nullptr != selectedCallback) {
-                selectedCallback(selectedCaller);
+        case UIbutton::State::PRESSED: {
+            if(nullptr != pressedCallback) {
+                pressedCallback(pressedCaller);
             }
             break;
         }

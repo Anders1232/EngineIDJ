@@ -8,7 +8,7 @@ UIimageButton::UIimageButton(UIbutton::State initialState, UIelement::BehaviorTy
          , disabledSprite(nullptr)
          , enabledSprite(nullptr)
          , highlightedSprite(nullptr)
-         , selectedSprite(nullptr) {}
+         , pressedSprite(nullptr) {}
 
 UIimageButton::~UIimageButton() {
     sp = nullptr;
@@ -21,8 +21,8 @@ UIimageButton::~UIimageButton() {
     if(nullptr != highlightedSprite) {
         delete highlightedSprite;
     }
-    if(nullptr != selectedSprite) {
-        delete selectedSprite;
+    if(nullptr != pressedSprite) {
+        delete pressedSprite;
     }
 }
 
@@ -40,8 +40,8 @@ void UIimageButton::SetUIbuttonState(UIbutton::State newState) {
             sp = highlightedSprite;
             break;
         }
-        case UIbutton::State::SELECTED : {
-            sp = selectedSprite;
+        case UIbutton::State::PRESSED : {
+            sp = pressedSprite;
             break;
         }
     }
@@ -66,9 +66,9 @@ void UIimageButton::SetStateSprite(UIbutton::State state, Sprite* sprite) {
             highlightedSprite = sprite;
             break;
         }
-        case UIbutton::State::SELECTED : {
-            delete selectedSprite;
-            selectedSprite = sprite;
+        case UIbutton::State::PRESSED : {
+            delete pressedSprite;
+            pressedSprite = sprite;
             break;
         }
     }
@@ -92,8 +92,8 @@ const Sprite& UIimageButton::GetStateSprite(UIbutton::State state) const {
             return *highlightedSprite;
             break;
         }
-        case UIbutton::State::SELECTED : {
-            return *selectedSprite;
+        case UIbutton::State::PRESSED : {
+            return *pressedSprite;
             break;
         }
     }
@@ -127,8 +127,8 @@ void UIimageButton::SetStateSpriteScale(UIbutton::State state, float scale) {
             highlightedSprite->SetScale(scale);
             break;
         }
-        case UIbutton::State::SELECTED : {
-            selectedSprite->SetScale(scale);
+        case UIbutton::State::PRESSED : {
+            pressedSprite->SetScale(scale);
             break;
         }
     }
@@ -154,9 +154,9 @@ void UIimageButton::SetStateSpriteColorMultiplier(UIbutton::State state, Color c
             highlightedSprite->blendMode = blendMode;
             break;
         }
-        case UIbutton::State::SELECTED : {
-            selectedSprite->colorMultiplier = color;
-            selectedSprite->blendMode = blendMode;
+        case UIbutton::State::PRESSED : {
+            pressedSprite->colorMultiplier = color;
+            pressedSprite->blendMode = blendMode;
             break;
         }
     }
