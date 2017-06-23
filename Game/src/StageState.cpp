@@ -30,7 +30,7 @@ StageState::StageState(void)
 		: State()
 		, tileSet(120, 120,"map/tileset_vf.png")
 		, tileMap("map/tileMap.txt", &tileSet)
-		, inputManager(InputManager::GetInstance())
+		, inputManager(INPUT_MANAGER)
 		, music("audio/stageState.ogg")
 		, isLightning(false)
 		, lightningTimer()
@@ -91,21 +91,21 @@ void StageState::Update(float dt) {
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
 
-	if(InputManager::GetInstance().KeyPress('r')) {
+	if(INPUT_MANAGER.KeyPress('r')) {
 		popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
-	if(InputManager::GetInstance().KeyPress('t')) {
+	if(INPUT_MANAGER.KeyPress('t')) {
 		popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(false)));
 	}
-	if(InputManager::GetInstance().KeyPress('q')) {
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
+	if(INPUT_MANAGER.KeyPress('q')) {
+		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos());
 		std::cout << WHERE << "O mouse está no tile " << tileMap.GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap.GetHeight()*tileMap.GetHeight() << " tiles." << END_LINE;
 	}
-	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)){
+	if(INPUT_MANAGER.MousePress(RIGHT_MOUSE_BUTTON)){
 		REPORT_I_WAS_HERE;
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
+		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos());
 		int position = tileMap.GetTileMousePos(mousePos, false, COLLISION_LAYER);
 		GameObject *go= tileMap.GetGO(position);
 		if(nullptr == go){
@@ -116,33 +116,32 @@ void StageState::Update(float dt) {
 			REPORT_I_WAS_HERE;
 		}
 	}
-	if(InputManager::GetInstance().KeyPress('e')) {
-		REPORT_I_WAS_HERE;
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
-
+	if(INPUT_MANAGER.KeyPress('e')) {
+		printf("Tower criado\n");
+		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
 		Tower *newTower= new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE));
 		AddObject(newTower);
 		tileMap.InsertGO(newTower);
 	}
-	if(InputManager::GetInstance().KeyPress('=')) {
+	if(INPUT_MANAGER.KeyPress('=')) {
 		Game &game = Game::GetInstance();
 		game.SetMaxFramerate(game.GetMaxFramerate()+5);
 	}
-	if(InputManager::GetInstance().KeyPress('-')) {
+	if(INPUT_MANAGER.KeyPress('-')) {
 		Game &game = Game::GetInstance();
 		game.SetMaxFramerate( ( (int64_t)game.GetMaxFramerate() )-5);
 	}
-	tileMap.ShowCollisionInfo(InputManager::GetInstance().IsKeyDown('g'));
-	if(InputManager::GetInstance().IsKeyDown('[')){
+	tileMap.ShowCollisionInfo(INPUT_MANAGER.IsKeyDown('g'));
+	if(INPUT_MANAGER.IsKeyDown('[')){
 		Resources::ChangeMusicVolume(-STAGE_STATE_DELTA_VOLUME);
 	}
-	if(InputManager::GetInstance().IsKeyDown(']')){
+	if(INPUT_MANAGER.IsKeyDown(']')){
 		Resources::ChangeMusicVolume(STAGE_STATE_DELTA_VOLUME);
 	}
-	if(InputManager::GetInstance().IsKeyDown(',')){
+	if(INPUT_MANAGER.IsKeyDown(',')){
 		Resources::ChangeSoundVolume(-STAGE_STATE_DELTA_VOLUME);
 	}
-	if(InputManager::GetInstance().IsKeyDown('.')){
+	if(INPUT_MANAGER.IsKeyDown('.')){
 		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
 	}
 	if(isLightning){
@@ -165,12 +164,12 @@ void StageState::Render(void) const {
 	REPORT_I_WAS_HERE;
 	bool highlighted = true;
 	for(unsigned int cont=0; cont < objectArray.size(); cont++) {
-		if(InputManager::GetInstance().GetMousePos().IsInRect(objectArray.at(cont)->GetWorldRenderedRect())){
+		if(INPUT_MANAGER.GetMousePos().IsInRect(objectArray.at(cont)->GetWorldRenderedRect())){
 			highlighted = false;
 			break;
 		}
 	}
-	tileMap.Render(Vec2(0,0), false, highlighted ? Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos()) : Vec2(-1, -1));
+	tileMap.Render(Vec2(0,0), false, highlighted ? Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos()) : Vec2(-1, -1));
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
 	if(isLightning){
@@ -182,7 +181,10 @@ void StageState::Render(void) const {
 
 void StageState::Pause(void) {}
 
-void StageState::Resume(void) {}
+void StageState::Resume(void) {
+	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
+	Camera::ForceLogZoom(CAM_START_ZOOM);
+}
 
 void StageState::ShowLightning(float dt){
 	isLightning = true;

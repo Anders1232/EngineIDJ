@@ -177,12 +177,11 @@ float Game::GetDeltaTime(void) const {
 }
 
 void Game::UpdateStack(void) {
+	bool popped = false;
 	if(stateStack.top()->PopRequested()) {
 		stateStack.pop();
 		Resources::ClearResources();
-		if(!stateStack.empty()) {
-			stateStack.top()->Resume();
-		}
+		popped = true;
 	}
 
 	if(nullptr != storedState) {
@@ -191,6 +190,10 @@ void Game::UpdateStack(void) {
 		}
 		stateStack.push(std::unique_ptr<State>(storedState));
 		storedState = nullptr;
+	}
+
+	if(!stateStack.empty() && popped) {
+		stateStack.top()->Resume();
 	}
 }
 
