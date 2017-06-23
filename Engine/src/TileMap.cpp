@@ -196,6 +196,16 @@ void TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 			obj->RequestDelete();
 		}
 	}
+	else{
+		REPORT_DEBUG("\tInserting the gameObject at position " << position);
+		gameObjectMatrix[position] = obj;
+		
+		int line = position / GetWidth();
+		int column = position % GetWidth();
+		obj->box.x = column*tileSet->GetTileWidth();
+		obj->box.y = line*tileSet->GetTileHeight();
+		//TODO: aqui ajudar a box para ficar exatamente no tileMap
+	}
 }
 
 void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
