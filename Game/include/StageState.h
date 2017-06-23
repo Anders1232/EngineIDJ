@@ -40,6 +40,8 @@ class StageState: public State {
 		std::vector<std::unique_ptr<GameObject>> obstacleArray;
 		void AddObstacle(GameObject *obstacle);
 		void RenderObstacleArray(void) const;
+		int frameRateCounter;
+		Timer frameRateTimer;
 };
 
 #include "EndState.h"

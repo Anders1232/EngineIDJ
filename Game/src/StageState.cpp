@@ -40,7 +40,8 @@ StageState::StageState(void)
 		, music("audio/stageState.ogg")
 		, isLightning(false)
 		, lightningTimer()
-		, lightningColor(255, 255, 255, 0){
+		, lightningColor(255, 255, 255, 0),
+		frameRateCounter(0){
 		
 	REPORT_I_WAS_HERE;
 	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
@@ -226,6 +227,15 @@ void StageState::Update(float dt) {
 		}
 	}
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
+	
+	//depois isolar essa lógica num componente.
+	frameRateTimer.Update(dt);
+	frameRateCounter++;
+	if(1. <= frameRateTimer.Get()){
+		std::cout<<WHERE<<"\t Frame Rate: " << (float)frameRateCounter/frameRateTimer.Get()<< END_LINE;
+		frameRateCounter=0;
+		frameRateTimer.Restart();
+	}
 }
 
 void StageState::Render(void) const {
