@@ -90,8 +90,7 @@ void GameResources::ReadWaveData(std::string file){
 	waveName[WAVE_NAME_MAX_LENGHT]= '\0';
 	vector<WaveData> &waveVec= newEntry->first;
 	while(1== fscanf(filePtr, " %s\n", waveName) ){
-		REPORT_DEBUG2(1, "\t waveName= " << waveName);
-		//TEMP_REPORT_I_WAS_HERE;
+		REPORT_DEBUG("\t waveName= " << waveName);
 		waveVec.emplace_back();
 
 		waveVec[waveVec.size()-1].waveName = waveName;

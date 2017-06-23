@@ -21,6 +21,7 @@
 
 #define MIXER_CHUCK_SIZE 1024
 #define INITIAL_FRAMERATE 60
+#define CLEAR_COLOR 0,0,0,255
 
 /**
 	\brief Classe que modela o todo-poderoso Jogo

@@ -34,7 +34,7 @@ void WaveManager::StartWave(){
 	enemiesLeft=0;
 	maxNumberOfEnemiesInSpawnPoint=0;
 	int numberOfEnemiesInSpawnPoint;
-	printf("Wave Start\n");
+	REPORT_I_WAS_HERE;
 	for (uint i = 0; i < wavesAndEnemysData->first[waveIndex].spawnPointsData.size(); i++){
 		numberOfEnemiesInSpawnPoint=0;
 		for (uint j = 0; j < wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData.size(); j++){
@@ -129,10 +129,8 @@ void WaveManager::Update(GameObject &associated, float dt){
 }
 
 void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint endPoint, uint indexOfTheEnemyToSpawn ){
-	//printf("waveIndex: %d\n", waveIndex);
 	EnemyData &currentWaveEnemyData = wavesAndEnemysData->second[indexOfTheEnemyToSpawn];
-	WaveData &currentWave = wavesAndEnemysData->first[waveIndex];
-	REPORT_DEBUG2(1, "\t currentWaveEnemyData.scale= ("<<currentWaveEnemyData.scaleX<<","<<currentWaveEnemyData.scaleY<<")" );
+	REPORT_DEBUG("\t currentWaveEnemyData.scale= ("<<currentWaveEnemyData.scaleX<<","<<currentWaveEnemyData.scaleY<<")" );
 
 	Vec2 tileSize= tileMap.GetTileSize();
 	Vec2 spawnPosition;

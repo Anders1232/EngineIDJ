@@ -54,7 +54,7 @@ Game::Game(std::string title,int width, int height)
 		Error(SDL_GetError());
 	}
 
-	renderer = SDL_CreateRenderer(window, -1, 0);
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if(nullptr == renderer) {
 		Error(SDL_GetError());
 	}
@@ -149,6 +149,10 @@ void Game::Run(void) {
 		CalculateDeltaTime();
 		inputManager.Update();
 		stateStack.top()->Update(GetDeltaTime());
+		if(-1 == SDL_SetRenderDrawColor(renderer, CLEAR_COLOR)) {
+			Error(SDL_GetError());
+		}
+		SDL_RenderClear(renderer);
 		stateStack.top()->Render();
 		SDL_RenderPresent(renderer);
 		UpdateStack();

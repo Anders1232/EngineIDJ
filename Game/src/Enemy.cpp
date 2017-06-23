@@ -56,7 +56,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	//each type will have their own components. dando invalid read.
 	switch(enemyData.enemyType){
 		case EnemyType::HOSTILE:
-			std::cout << "Enemy type: HOSTILE "<< enemyData.enemyType << "\n";
+			REPORT_DEBUG("Enemy type: HOSTILE "<< enemyData.enemyType);
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 85;
@@ -67,7 +67,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			components.emplace_back(new AIGoDown(ENEMY_HOSTILE_MOVE_SPEED));
 			break;
 		case EnemyType::NEUTRAL:
-			std::cout << "Enemy type: NEUTRAL "<< enemyData.enemyType << "\n";
+			REPORT_DEBUG("Enemy type: NEUTRAL "<< enemyData.enemyType);
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 255;
@@ -78,7 +78,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED));
 			break;
 		case EnemyType::ENGINEER:
-			std::cout << "Enemy type: ENGINEER "<< enemyData.enemyType << "\n";
+			REPORT_DEBUG("Enemy type: ENGINEER "<< enemyData.enemyType);
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 44;
@@ -89,7 +89,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			components.emplace_back(new AIGoDown(ENEMY_ENGINEER_MOVE_SPEED));
 			break;
 		case EnemyType::ARQUITET:
-			std::cout << "Enemy type: ARQUITET "<< enemyData.enemyType << "\n";
+			REPORT_DEBUG("Enemy type: ARQUITET "<< enemyData.enemyType);
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 255;
@@ -100,7 +100,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			components.emplace_back(new AIGoDown(ENEMY_ARQUITET_MOVE_SPEED));
 			break;
 		case EnemyType::ART:
-			std::cout << "Enemy type: ART "<< enemyData.enemyType << "\n";
+			REPORT_DEBUG("Enemy type: ART "<< enemyData.enemyType);
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 220;
@@ -111,7 +111,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			components.emplace_back(new AIGoDown(ENEMY_ART_MOVE_SPEED));
 			break;
 		case EnemyType::QUIMIC:
-			std::cout << "Enemy type: QUIMIC "<< enemyData.enemyType << "\n";
+			REPORT_DEBUG("Enemy type: QUIMIC "<< enemyData.enemyType);
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 100;

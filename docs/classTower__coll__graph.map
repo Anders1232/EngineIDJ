@@ -1,6 +1,6 @@
 <map id="Tower" name="Tower">
-<area shape="rect" id="node2" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="488,93,583,120"/>
-<area shape="rect" id="node3" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="237,48,288,75"/>
-<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="507,416,563,443"/>
-<area shape="rect" id="node12" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="236,568,289,595"/>
+<area shape="rect" id="node2" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="143,304,238,331"/>
+<area shape="rect" id="node4" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="73,155,124,181"/>
+<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="684,304,740,331"/>
+<area shape="rect" id="node12" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="1129,155,1182,181"/>
 </map>

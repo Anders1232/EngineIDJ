@@ -28,8 +28,7 @@
 
 StageState::StageState(void)
 		: State()
-		, bg("img/ocean.jpg")
-		, tileSet(120, 120,"img/map/tileset_v2.png")
+		, tileSet(120, 120,"map/tileset_vf.png")
 		, tileMap("map/tileMap.txt", &tileSet)
 		, inputManager(InputManager::GetInstance())
 		, music("audio/stageState.ogg")
@@ -114,11 +113,11 @@ void StageState::Update(float dt) {
 		}
 		else{
 			go->AddComponent(new DragAndDrop(tileMap,mousePos));
-			printf("adicionou drag'n drop\n");
+			REPORT_I_WAS_HERE;
 		}
 	}
 	if(InputManager::GetInstance().KeyPress('e')) {
-		printf("Tower criado\n");
+		REPORT_I_WAS_HERE;
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
 
 		Tower *newTower= new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE));
@@ -163,7 +162,6 @@ void StageState::Update(float dt) {
 void StageState::Render(void) const {
 	//renderizar o bg
 	REPORT_I_WAS_HERE;
-	bg.Render(Rect(STATE_RENDER_X, STATE_RENDER_Y, 0, 0), 0, false);
 	REPORT_I_WAS_HERE;
 	bool highlighted = true;
 	for(unsigned int cont=0; cont < objectArray.size(); cont++) {

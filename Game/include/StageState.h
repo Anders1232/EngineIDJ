@@ -28,7 +28,6 @@ class StageState: public State {
 		void Resume(void);
 		void ShowLightning(float dt);
 	private:
-		Sprite bg;/**< Sprite de fundo de tela. */
 		TileSet tileSet;
 		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;

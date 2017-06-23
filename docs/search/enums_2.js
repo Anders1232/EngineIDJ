@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['textstyle',['TextStyle',['../Text_8h.html#ad5957a553b7d89d4921c39cc3ad6bc45',1,'Text.h']]],
-  ['towertype',['TowerType',['../classTower.html#a2a6d5a7ae2af5e4481abcb2d3b535174',1,'Tower']]]
+  ['enemydirections',['EnemyDirections',['../Enemy_8h.html#afe40ed1e5294188d5a3b983708134ac5',1,'Enemy.h']]],
+  ['enemytype',['EnemyType',['../Enemy_8h.html#ac3e413a86119db4b031458c7259e268e',1,'Enemy.h']]]
 ];

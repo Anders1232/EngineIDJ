@@ -8,8 +8,8 @@
 #include "Tileset.h"
 #include "Vec2.h"
 
-#define TILE_VAZIO -1
-#define SPAWN_POINT (14)
+#define TILE_VAZIO (-1)
+#define SPAWN_POINT (75)
 #define COLLISION_LAYER (1)
 
 using std::string;

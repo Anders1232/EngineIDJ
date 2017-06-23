@@ -6,8 +6,6 @@
 
 #include <cmath>
 
-#define INPUT_MANAGER InputManager::GetInstance()
-
 GameObject* Camera::focus = nullptr;
 Vec2 Camera::pos = Vec2(0,0);
 float Camera::minSpeed = CAMERA_DEFAULT_MIN_SPEED;

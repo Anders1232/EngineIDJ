@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['wavedata',['WaveData',['../structWaveData.html',1,'']]],
-  ['wavemanager',['WaveManager',['../classWaveManager.html',1,'']]]
+  ['vec2',['Vec2',['../classVec2.html',1,'']]]
 ];
