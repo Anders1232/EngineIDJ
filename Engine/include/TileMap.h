@@ -109,7 +109,7 @@ class TileMap{
 			Utiliza a posição do mouse no momento(que deve ser a mesma do centro do GameObject) para identificar onde o GameObject deve ser colocado no tileMap de GameObjects. Então obj é colocado nessa posição, sua posição é alterada para se encaixar exatamente com o início da posição.
 			Atualiza-se o tileMao de colisão para adicionar a informação que tem um GameObject na posição respectiva.
 		*/
-		void InsertGO(GameObject* obj);
+		void InsertGO(GameObject* obj, bool checkCollision = true);
 		/**
 			\brief Insere GameObjct no tileMap ou o posiciona na posição passada caso não seja possivel
 			\param obj GameObject a ser inserido no tileMap de GameObjects.

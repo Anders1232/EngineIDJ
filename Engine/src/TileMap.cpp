@@ -166,7 +166,7 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 	
 	return y*mapWidth+x;
 }
-void TileMap::InsertGO(GameObject* obj) {
+void TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 	int position = GetTileMousePos(mousePos, false, 0);
 	REPORT_DEBUG("\t position = " << position << "\t of " << mapHeight*mapWidth << " tiles.");
