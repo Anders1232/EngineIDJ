@@ -11,5 +11,8 @@ var searchData=
   ['_7estate',['~State',['../classState.html#a42d951e307f5b6d1966e15f417cc4101',1,'State']]],
   ['_7etext',['~Text',['../classText.html#a2d49e5c280e205125b149f7777ae30c7',1,'Text']]],
   ['_7etower',['~Tower',['../classTower.html#a96972da33c287758c036c944eccdc5fe',1,'Tower']]],
+  ['_7euiimage',['~UIimage',['../classUIimage.html#ad7377cb2c9bbf0c694552bf6e0d60aba',1,'UIimage']]],
+  ['_7euiimagebutton',['~UIimageButton',['../classUIimageButton.html#a7eab8a7ca4fe36c1b4794ddfb87367dc',1,'UIimageButton']]],
+  ['_7euitext',['~UItext',['../classUItext.html#adef9857d23d241a557f5e90289ddc6ab',1,'UItext']]],
   ['_7ewavemanager',['~WaveManager',['../classWaveManager.html#abead530485a53219fd0fd27146cdb33f',1,'WaveManager']]]
 ];

@@ -17,10 +17,15 @@
 <area shape="rect" id="node25" href="$State_8cpp.html" title="Engine/src/State.cpp" alt="" coords="2752,80,2896,107"/>
 <area shape="rect" id="node26" href="$TileMap_8cpp.html" title="Engine/src/TileMap.cpp" alt="" coords="2921,80,3079,107"/>
 <area shape="rect" id="node27" href="$Tileset_8cpp.html" title="Engine/src/Tileset.cpp" alt="" coords="3104,80,3256,107"/>
-<area shape="rect" id="node28" href="$Vec2_8cpp.html" title="Engine/src/Vec2.cpp" alt="" coords="3281,80,3423,107"/>
-<area shape="rect" id="node29" href="$WaveData_8h.html" title="Game/include/WaveData.h" alt="" coords="505,80,684,107"/>
-<area shape="rect" id="node30" href="$WaveManager_8h.html" title="Game/include/WaveManager.h" alt="" coords="759,155,961,181"/>
-<area shape="rect" id="node32" href="$Tower_8cpp.html" title="Game/src/Tower.cpp" alt="" coords="3448,80,3592,107"/>
+<area shape="rect" id="node28" href="$UIelement_8cpp.html" title="Engine/src/UIelement.cpp" alt="" coords="3280,80,3453,107"/>
+<area shape="rect" id="node29" href="$UIimage_8cpp.html" title="Engine/src/UIimage.cpp" alt="" coords="3477,80,3640,107"/>
+<area shape="rect" id="node30" href="$UIimageButton_8cpp.html" title="Engine/src/UIimageButton.cpp" alt="" coords="3664,80,3864,107"/>
+<area shape="rect" id="node31" href="$UItext_8cpp.html" title="Engine/src/UItext.cpp" alt="" coords="3888,80,4037,107"/>
+<area shape="rect" id="node32" href="$UItextButton_8cpp.html" title="Engine/src/UItextButton.cpp" alt="" coords="4061,80,4248,107"/>
+<area shape="rect" id="node33" href="$Vec2_8cpp.html" title="Engine/src/Vec2.cpp" alt="" coords="4273,80,4415,107"/>
+<area shape="rect" id="node34" href="$WaveData_8h.html" title="Game/include/WaveData.h" alt="" coords="505,80,684,107"/>
+<area shape="rect" id="node35" href="$WaveManager_8h.html" title="Game/include/WaveManager.h" alt="" coords="759,155,961,181"/>
+<area shape="rect" id="node37" href="$Tower_8cpp.html" title="Game/src/Tower.cpp" alt="" coords="4440,80,4584,107"/>
 <area shape="rect" id="node3" href="$HitPoints_8cpp.html" title="Engine/src/HitPoints.cpp" alt="" coords="37,155,203,181"/>
 <area shape="rect" id="node5" href="$GameResources_8h.html" title="Game/include/GameResources.h" alt="" coords="397,229,611,256"/>
 <area shape="rect" id="node11" href="$Music_8cpp.html" title="Engine/src/Music.cpp" alt="" coords="1037,155,1185,181"/>
@@ -29,5 +34,5 @@
 <area shape="rect" id="node15" href="$EndState_8cpp.html" title="Game/src/EndState.cpp" alt="" coords="1213,229,1376,256"/>
 <area shape="rect" id="node14" href="$TitleState_8cpp.html" title="Game/src/TitleState.cpp" alt="" coords="917,304,1081,331"/>
 <area shape="rect" id="node17" href="$Text_8cpp.html" title="Engine/src/Text.cpp" alt="" coords="1404,155,1543,181"/>
-<area shape="rect" id="node31" href="$WaveData_8cpp.html" title="Game/src/WaveData.cpp" alt="" coords="513,155,684,181"/>
+<area shape="rect" id="node36" href="$WaveData_8cpp.html" title="Game/src/WaveData.cpp" alt="" coords="513,155,684,181"/>
 </map>

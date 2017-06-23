@@ -4,6 +4,7 @@ var searchData=
   ['actionmanager',['ActionManager',['../classActionManager.html',1,'ActionManager'],['../classActionManager.html#a7d0c405d568795fba0c51f411e77b821',1,'ActionManager::ActionManager()']]],
   ['actionmanager_2ecpp',['ActionManager.cpp',['../ActionManager_8cpp.html',1,'']]],
   ['actionmanager_2eh',['ActionManager.h',['../ActionManager_8h.html',1,'']]],
+  ['actualstate',['actualState',['../classUIbutton.html#afbdcb66621422f88ab9c5a51c65971cd',1,'UIbutton']]],
   ['addcomponent',['AddComponent',['../classGameObject.html#a6de86477e37962bcd4738b09c1c706aa',1,'GameObject']]],
   ['additive',['ADDITIVE',['../Sprite_8h.html#ad3bbb60a29cd7b3b6276b54595604209',1,'Sprite.h']]],
   ['addobject',['AddObject',['../classState.html#a431d5f711e028c788a9fdccaf99ff74e',1,'State']]],
@@ -12,6 +13,7 @@ var searchData=
   ['aigodown_2ecpp',['AIGoDown.cpp',['../AIGoDown_8cpp.html',1,'']]],
   ['aigodown_2eh',['AIGoDown.h',['../AIGoDown_8h.html',1,'']]],
   ['alpha_5fblend',['ALPHA_BLEND',['../Sprite_8h.html#a53c3481913568ddca94dffc38c36a1fb',1,'Sprite.h']]],
+  ['anchors',['anchors',['../classUIelement.html#ab524954d4ad042be7f2ce159bfd1199b',1,'UIelement']]],
   ['animation',['Animation',['../classAnimation.html',1,'Animation'],['../classAnimation.html#a48d3ca5ecd4b4ca7f2f6fe10cf1f91d4',1,'Animation::Animation()']]],
   ['animation_2ecpp',['Animation.cpp',['../Animation_8cpp.html',1,'']]],
   ['animation_2eh',['Animation.h',['../Animation_8h.html',1,'']]],
@@ -21,6 +23,6 @@ var searchData=
   ['assert',['ASSERT',['../Error_8h.html#a092bd7bb2cb7fd9f483b6995cee61bc0',1,'Error.h']]],
   ['assert2',['ASSERT2',['../Error_8h.html#a28d79607639d01447db6950b24a81d77',1,'Error.h']]],
   ['associatedinitialpos',['associatedInitialPos',['../classDragAndDrop.html#a8c14587e18912fc4efce09648c33114a',1,'DragAndDrop']]],
-  ['at',['At',['../classTileMap.html#a3b8dec192ee9ccca2b4476821235cc0a',1,'TileMap']]],
-  ['atlayer',['AtLayer',['../classTileMap.html#a8540f1f0249118c02cced90e0175c461',1,'TileMap']]]
+  ['at',['At',['../classTileMap.html#ada2b7d43fd59957db4c61a61cebc2745',1,'TileMap']]],
+  ['atlayer',['AtLayer',['../classTileMap.html#acd5cdd6819589f18e44af62887ba77a1',1,'TileMap']]]
 ];

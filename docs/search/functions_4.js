@@ -6,5 +6,6 @@ var searchData=
   ['enemy',['Enemy',['../classEnemy.html#a647281cc33d151d321aac6301ca44c39',1,'Enemy::Enemy(Vec2 position, int life)'],['../classEnemy.html#a1efbdb39464746f3f4f78e9680011ca6',1,'Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint)']]],
   ['enemydata',['EnemyData',['../structEnemyData.html#ab00c7e7903224895a27bb01f0bf1f20f',1,'EnemyData']]],
   ['enemyspawndata',['EnemySpawnData',['../structEnemySpawnData.html#a35615c166fa07eb12329fb6b6bea9b4c',1,'EnemySpawnData']]],
-  ['escapeaction',['EscapeAction',['../classActionManager.html#a38448cfc2312f0028f8d95cf0915c78d',1,'ActionManager']]]
+  ['escapeaction',['EscapeAction',['../classActionManager.html#a38448cfc2312f0028f8d95cf0915c78d',1,'ActionManager']]],
+  ['exit',['Exit',['../classTitleState.html#a8bcfae8ce02f52acc8a33c55c9954327',1,'TitleState']]]
 ];
