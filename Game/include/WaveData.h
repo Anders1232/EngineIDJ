@@ -5,26 +5,26 @@
 #include <vector>
 #include "Error.h"
 
+
 struct EnemyData{
 		//todo: ver como colocar cores e transparência aqui
 	public:
-		EnemyData(std::string name, int enemyType, float scaleX, float scaleY, std::string spName):
+		EnemyData(std::string name, int enemyType, float scaleX, float scaleY, std::string spFolder):
 			name(name),
 			enemyType(enemyType),
 			scaleX(scaleX),
 			scaleY(scaleY),
-			spName(spName){}
+			spFolder(spFolder){}
 		std::string name;
 		int enemyType;
 		float scaleX;
 		float scaleY;
-		std::string spName;
-//		std::string headSpName;
-//		std::string pantsSpName;
+		std::string spFolder;
 };
 
 struct EnemySpawnData{
 	public:
+
 		EnemySpawnData(int index, int numberOfEnemies, int baseHP, uint endPoint):
 			enemyIndex(index),
 			numberOfEnemies(numberOfEnemies),

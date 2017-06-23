@@ -3,6 +3,7 @@ var searchData=
   ['mag',['Mag',['../classCollision.html#a0c594c1d2a6733d602c39c1d11e410ad',1,'Collision']]],
   ['magnitude',['Magnitude',['../classVec2.html#af904886a3658709196f6b171b517f593',1,'Vec2']]],
   ['main',['main',['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main.cpp']]],
+  ['manhattandistance',['ManhattanDistance',['../classManhattanDistance.html#ab65010f7898e6d03e681cfc2cad6bd10',1,'ManhattanDistance']]],
   ['membermult',['MemberMult',['../classVec2.html#a0af80a4efc933b61b2885a815a15a77f',1,'Vec2']]],
   ['mousepress',['MousePress',['../classInputManager.html#ad07e913718fc94601dfccb5c3a6fb0ae',1,'InputManager']]],
   ['mouserelease',['MouseRelease',['../classInputManager.html#a0056b265c8790bf862f6bff283349985',1,'InputManager']]],

@@ -11,5 +11,10 @@ var searchData=
   ['clearmusic',['ClearMusic',['../classResources.html#a37aa5ada5adf925b8862f65d207244d1',1,'Resources']]],
   ['clearresources',['ClearResources',['../classResources.html#a6a704f9988d9189d2d028ab5dcc64496',1,'Resources']]],
   ['clearsound',['ClearSound',['../classResources.html#a07885930484a8dd953c2e144ac8be6c5',1,'Resources']]],
-  ['color',['Color',['../structColor.html#a01fc8b90de599a12365e87b9a0719264',1,'Color']]]
+  ['click',['Click',['../classUIbutton.html#a147fdd93cf1285f1d8e722d054125ad5',1,'UIbutton']]],
+  ['color',['Color',['../structColor.html#a1f9035eaa8f9eb07c55359e60e895b73',1,'Color']]],
+  ['computeboundingbox',['ComputeBoundingbox',['../classUIelement.html#a5362b3a62ff23c73e59ed35c5da2dfce',1,'UIelement']]],
+  ['computebox',['ComputeBox',['../classUIelement.html#a0a3ab3b575ca538c1b3380251c11c9d7',1,'UIelement']]],
+  ['computeevents',['ComputeEvents',['../classAIArt.html#a40cadec03222d7f187c20eba7c23a5f2',1,'AIArt::ComputeEvents()'],['../classAIEngineer.html#a09e7dbb239f4693359bc4e576776af34',1,'AIEngineer::ComputeEvents()'],['../classAIMedic.html#a9512bf5a7f5cb174fd505ff2afb38a7e',1,'AIMedic::ComputeEvents()'],['../classAIQuimic.html#a42ca5d689875bf6f87e63ef7677bb345',1,'AIQuimic::ComputeEvents()']]],
+  ['configcolors',['ConfigColors',['../classUItextButton.html#ad06b434f3904906c67b5f50882ba013e',1,'UItextButton']]]
 ];

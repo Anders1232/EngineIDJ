@@ -21,6 +21,7 @@
 
 #define MIXER_CHUCK_SIZE 1024
 #define INITIAL_FRAMERATE 60
+#define CLEAR_COLOR 0,0,0,255
 
 /**
 	\brief Classe que modela o todo-poderoso Jogo
@@ -153,6 +154,67 @@ class Game {
 			Retorna se o controle de framerate está limitando o framerate a um máximo ou não.
 		*/
 		bool IsFramerateLimited(void) const;
+		/**
+			\brief Obtém referência do SDL_Window
+			\return Referncia para SDL_Window
+
+			Retorna a referência do SDL_Window do Game
+		*/
+		SDL_Window* GetWindow(void) const;
+		/**
+			\brief Define as dimensões da janela corrente
+			\param size Vec2(x, y) que representa os novos tamanhos da janela.
+
+			Altera as dimensões da janela de acordo com o tamanho (width, height) recebido.
+		*/
+		void SetWindowDimensions(Vec2 size);
+		/**
+			\brief Define a janela como tela cheia
+			\param isFullScreen Flag que determina se a janela deve ser fullscreen ou windowed.
+
+			Define a janela como tela cheia (true) ou windowed (false) dependendo da flag recebida.
+		*/
+		void SetWindowFullscreen(bool isFullScreen);
+		/**
+			\brief Define se a janela deve ser maximizada
+
+			Define se a janela deve ter seu tamanho máximo sem torná-la tela cheia.
+		*/
+		void SetWindowMaximized(void);
+		/**
+			\brief Define se a janela deve ter bordas
+			\param isBorderless
+
+			Define se a janela deve ter bordas(false) ou não (true) de acordo com a flag recebida.
+		*/
+		void SetWindowBorderless(bool isBorderless);
+		/**
+			\brief Reposiciona a janela
+
+			Posiciona a janela no centro da tela.
+		*/
+		void SetWindowCentered(void);
+		/**
+			\brief Informa se a janela está em tela cheia.
+			\return Veja a descrição
+
+			Retorna true se a janela estiver no modo tela cheia ou false se a janela não estiver em tela cheia.
+		*/
+		bool GetWindowFullscreen(void) const;
+		/**
+			\brief Informa se a janela está em seu tamanho máximo.
+			\return Veja a descrição
+
+			Retorna true se a janela maximizada ou false se não estiver maximizada.
+		*/
+		bool GetWindowMaximized(void) const;
+		/**
+			\brief Informa se a janela tem bordas.
+			\return Veja a descrição
+
+			Retorna true se a janela estiver sem bordas ou false se estiver com bordas.
+		*/
+		bool GetWindowBorderless(void) const;
 	private:
 		/**
 			\brief Calcula o tempo transcorrido desde a última chamada a essa função

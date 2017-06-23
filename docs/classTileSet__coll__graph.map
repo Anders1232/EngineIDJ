@@ -1,4 +1,4 @@
 <map id="TileSet" name="TileSet">
-<area shape="rect" id="node2" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="353,273,409,300"/>
-<area shape="rect" id="node9" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="5,124,59,151"/>
+<area shape="rect" id="node2" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="237,288,292,315"/>
+<area shape="rect" id="node8" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="525,139,579,165"/>
 </map>

@@ -1,14 +1,17 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
+#include "ComponentType.h"
 #include "GameObject.h"
 #include "ComponentType.h"
+
 
 /**
 	\brief Tipos de Componentes
 
 	Enumeração com os tipos de componentes possíveis, usado no método Is que todo componente deve implementar.
 */
+
 
 #ifndef GAME_OBJECT
 class GameObject;

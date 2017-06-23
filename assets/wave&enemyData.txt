@@ -1,0 +1,56 @@
+--ENEMIES--
+    Quimico_maroto
+        QUIMIC
+        enemy
+        1.0
+        1.0
+    Arte_na_praia
+        ART
+        enemy
+        1.0
+        1.0
+    Arquiteto_calouro
+        ARQUITET
+        enemy
+        1.0
+        1.0
+    Engenheiro
+        ENGINEER
+        enemy
+        1.0
+        1.0
+--WAVES--
+Wave1
+    SpawnPoint:0
+            0
+            5
+            100
+            0
+            
+            1
+            3
+            120
+            1
+
+            2
+            2
+            1000
+            1
+
+
+    SpawnPoint:1
+            0
+            10
+            120
+            0
+            
+            1
+            10
+            150
+            1
+
+            3
+            2
+            1000
+            1
+            

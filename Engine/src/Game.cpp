@@ -49,12 +49,12 @@ Game::Game(std::string title,int width, int height)
 		Error("Loading IMG_INIT_TIF failed: " << IMG_GetError());
 	}
 
-	window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, 0);
+	window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_RESIZABLE);
 	if(nullptr == window) {
 		Error(SDL_GetError());
 	}
 
-	renderer = SDL_CreateRenderer(window, -1, 0);
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if(nullptr == renderer) {
 		Error(SDL_GetError());
 	}
@@ -100,9 +100,9 @@ Game::~Game() {
 	TTF_Quit();
 	Mix_CloseAudio();
 	Mix_Quit();
-	IMG_Quit();
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
+	IMG_Quit();
 	SDL_Quit();
 }
 
@@ -149,6 +149,10 @@ void Game::Run(void) {
 		CalculateDeltaTime();
 		inputManager.Update();
 		stateStack.top()->Update(GetDeltaTime());
+		if(-1 == SDL_SetRenderDrawColor(renderer, CLEAR_COLOR)) {
+			Error(SDL_GetError());
+		}
+		SDL_RenderClear(renderer);
 		stateStack.top()->Render();
 		SDL_RenderPresent(renderer);
 		UpdateStack();
@@ -173,12 +177,11 @@ float Game::GetDeltaTime(void) const {
 }
 
 void Game::UpdateStack(void) {
+	bool popped = false;
 	if(stateStack.top()->PopRequested()) {
 		stateStack.pop();
 		Resources::ClearResources();
-		if(!stateStack.empty()) {
-			stateStack.top()->Resume();
-		}
+		popped = true;
 	}
 
 	if(nullptr != storedState) {
@@ -187,6 +190,10 @@ void Game::UpdateStack(void) {
 		}
 		stateStack.push(std::unique_ptr<State>(storedState));
 		storedState = nullptr;
+	}
+
+	if(!stateStack.empty() && popped) {
+		stateStack.top()->Resume();
 	}
 }
 
@@ -224,4 +231,44 @@ void Game::LimitFramerate(bool limit) {
 
 bool Game::IsFramerateLimited(void) const {
 	return capFramerate;
+}
+
+SDL_Window* Game::GetWindow(void) const {
+	return window;
+}
+
+void Game::SetWindowDimensions(Vec2 size){
+	SDL_SetWindowSize(window, size.x, size.y);
+	SetWindowCentered();
+}
+
+void Game::SetWindowFullscreen(bool isFullScreen){
+	SDL_SetWindowFullscreen(window, isFullScreen ? SDL_WINDOW_FULLSCREEN : 0);
+	SetWindowCentered();
+}
+
+void Game::SetWindowMaximized(void){
+	SDL_MaximizeWindow(window);
+	SetWindowCentered();
+}
+
+void Game::SetWindowBorderless(bool isBorderless){
+	SDL_SetWindowBordered(window, isBorderless ? SDL_FALSE : SDL_TRUE);
+	SetWindowCentered();
+}
+
+void Game::SetWindowCentered(void){
+	SDL_SetWindowPosition(window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+}
+
+bool Game::GetWindowFullscreen(void) const{
+	return SDL_GetWindowFlags(window) & SDL_WINDOW_FULLSCREEN;
+}
+
+bool Game::GetWindowMaximized(void) const{
+	return SDL_GetWindowFlags(window) & SDL_WINDOW_MAXIMIZED;
+}
+
+bool Game::GetWindowBorderless(void) const{
+	return SDL_GetWindowFlags(window) & SDL_WINDOW_BORDERLESS;
 }

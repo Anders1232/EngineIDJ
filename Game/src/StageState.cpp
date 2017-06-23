@@ -1,62 +1,66 @@
 #include "StageState.h"
-
 #include "Camera.h"
 #include "Collision.h"
 #include "EndStateData.h"
 #include "Enemy.h"
 #include "Error.h"
-#include "Face.h"
+#include "Tower.h"
 #include "Game.h"
 #include "AIArt.h"
 #include "AIEngineer.h"
 #include "AIMedic.h"
 #include "AIQuimic.h"
+#include "GameResources.h"
 
-#ifdef _WIN32
-	#include <SDL.h>
-	#include <SDL_image.h>
-#elif __APPLE__
-	#include "TargetConditionals.h"
-	//mac
-#elif __linux__
-	#include <SDL2/SDL.h>
-	#include <SDL2/SDL_image.h>
-#else
-	#error "Unknown compiler"
-#endif
+#define INCLUDE_SDL 
+#define INCLUDE_SDL_IMAGE 
+#include "SDL_include.h"
 
 // Esse valores calculam o offset em relação ao canto superior esquedo da imagem daquilo que será renderizado
 #define STATE_RENDER_X 0
 #define STATE_RENDER_Y 0
 #define FACE_LINEAR_SIZE 30
 #define TIME_BETWEEN_SPAWNS (8.)
+#define TOWER_LINEAR_SIZE 120
 #define STAGE_STATE_DELTA_VOLUME (1) //11*11 = 121 ~128
 #define CAM_START_X 300
 #define CAM_START_Y 300
-#define CAM_START_ZOOM 0.3
+#define CAM_START_ZOOM -1.75
+#define MAX_TIME_LIGHTINING_RISE 0.1
+#define MAX_TIME_LIGHTINING 0.3
+#define MAX_TIME_LIGHTINING_FADE 2
 
 StageState::StageState(void)
 		: State()
-		, bg("img/ocean.jpg")
-		, tileSet(120, 120,"img/map/tileset_v2.png")
-		, inputManager(InputManager::GetInstance())
+		, tileSet(120, 120,"map/tileset_vf.png")
+		, tileMap("map/tileMap.txt", &tileSet)
+		, inputManager(INPUT_MANAGER)
 		, music("audio/stageState.ogg")
-		, spawnTimer() {
+		, isLightning(false)
+		, lightningTimer()
+		, lightningColor(255, 255, 255, 0){
+		
 	REPORT_I_WAS_HERE;
-	tileMap = new TileMap(std::string("map/tileMap.txt"), &tileSet);
+	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
+	
 	REPORT_I_WAS_HERE;
+
 	spawnGroups = tileMap->GetTileGroups(SPAWN_POINT);
 	endGroups = tileMap->GetTileGroups(END_POINT);
+
 	REPORT_I_WAS_HERE;
 	music.Play(10);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
-	Camera::ForceZoom(CAM_START_ZOOM);
+	Camera::ForceLogZoom(CAM_START_ZOOM);
+	GameObject* waveManagerGO= new GameObject();
+	waveManager= new WaveManager(tileMap, "assets/wave&enemyData.txt");
+	waveManagerGO->AddComponent(waveManager);
+	AddObject(waveManagerGO);
 }
 
 StageState::~StageState(void) {
 	objectArray.clear();
-	delete tileMap;
-	delete spawnGroups;
+	GameResources::Clear();
 }
 
 void StageState::Update(float dt) {
@@ -68,9 +72,9 @@ void StageState::Update(float dt) {
 		quitRequested = true;
 	}
 	REPORT_I_WAS_HERE;
-	
 	UpdateArray(dt);
 	REPORT_I_WAS_HERE;
+
 	if(!objectArray.empty()){
 		for(unsigned int count1 = 0; count1 < objectArray.size()-1; count1++) {
 			for(unsigned int count2 = count1+1; count2 < objectArray.size(); count2++) {
@@ -83,9 +87,10 @@ void StageState::Update(float dt) {
 		}
 	}
 	REPORT_I_WAS_HERE;
-	
 	Camera::Update(dt);
 	REPORT_I_WAS_HERE;
+
+ /*remover. isso vai para wavemanager
 	spawnTimer.Update(dt);
 	if(TIME_BETWEEN_SPAWNS < spawnTimer.Get()) {
 		int selectedSpawnGroup = rand() % spawnGroups->size();
@@ -95,122 +100,153 @@ void StageState::Update(float dt) {
 		SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition],(*endGroups)[selectedEndGroup][selectedEndPosition] );
 		spawnTimer.Restart();
 	}
+   */
 
-	if(InputManager::GetInstance().KeyPress('r')) {
+	//Game Over Conditions
+	if(waveManager->GetLifesLeft() == 0){
+		popRequested = true;
+		Game::GetInstance().Push(new EndState(EndStateData(false)));
+	}else if(waveManager->Victory()){
 		popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
 
-	/*if(InputManager::GetInstance().KeyPress('t')) {
+
+	if(INPUT_MANAGER.KeyPress('r')) {
+		popRequested = true;
+		Game::GetInstance().Push(new EndState(EndStateData(true)));
+	}
+	if(INPUT_MANAGER.KeyPress('t')) {
 		popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(false)));
-	}*/
-
-	if(InputManager::GetInstance().KeyPress('q')) {
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
-		std::cout << WHERE << "O mouse está no tile " << tileMap->GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap->GetHeight()*tileMap->GetHeight() << " tiles." << std::endl;
 	}
+	if(INPUT_MANAGER.KeyPress('q')) {
+		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos());
+		std::cout << WHERE << "O mouse está no tile " << tileMap.GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap.GetHeight()*tileMap.GetHeight() << " tiles." << END_LINE;
 
-	if(InputManager::GetInstance().MousePress(RIGHT_MOUSE_BUTTON)) {
+	}
+	if(INPUT_MANAGER.MousePress(RIGHT_MOUSE_BUTTON)){
 		REPORT_I_WAS_HERE;
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
-		AddObject( new Face(mousePos.x, mousePos.y, Vec2(FACE_LINEAR_SIZE, FACE_LINEAR_SIZE), tileMap) );
+		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos());
+		int position = tileMap.GetTileMousePos(mousePos, false, COLLISION_LAYER);
+		GameObject *go= tileMap.GetGO(position);
+		if(nullptr == go){
+			std::cout<<WHERE<<"\t[WARNING] Expected GameObject" END_LINE;
+		}
+		else{
+			go->AddComponent(new DragAndDrop(tileMap,mousePos));
+			REPORT_I_WAS_HERE;
+		}
 	}
-
-	if(InputManager::GetInstance().KeyPress('n')) {
+	/* Isso vai para construtor de enemy
+	if(InputManager::GetInstance().KeyPress('u')) {
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
 		Enemy* e = new Enemy(mousePos, EnemyType::NEUTRAL,1.0);
 		e->AddComponent(new AIPrintPath(tileMap,*e));
 		AddObject(e);
 	}
-	if(InputManager::GetInstance().KeyPress('h')) {
+	if(InputManager::GetInstance().KeyPress('i')) {
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
 		Enemy* e = new Enemy(mousePos, EnemyType::HOSTILE,1.0);
 		e->AddComponent(new AIArt(ENEMY_MOVE_SPEED,2134,tileMap,*e));
 		AddObject(e);
 	}
-	if(InputManager::GetInstance().KeyPress('e')) {
+	if(InputManager::GetInstance().KeyPress('o')) {
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
 		Enemy* e = new Enemy(mousePos, EnemyType::ENGINEER,1.0);
 		e->AddComponent(new AIPrintPath(tileMap,*e));
 		AddObject(e);
 	}
-	if(InputManager::GetInstance().KeyPress('a')) {
+	if(InputManager::GetInstance().KeyPress('p')) {
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
 		Enemy* e = new Enemy(mousePos, EnemyType::ARQUITET,1.0);
 		e->AddComponent(new AIPrintPath(tileMap,*e));
 		AddObject(e);
 	}
-	if(InputManager::GetInstance().KeyPress('u')){
+	if(InputManager::GetInstance().KeyPress('j')){
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
 		Enemy* e = new Enemy(mousePos, EnemyType::ART,1.0);
 		e->AddComponent(new AIPrintPath(tileMap,*e));
 		AddObject(e);
 	}
-	if(InputManager::GetInstance().KeyPress('q')) {
+	if(InputManager::GetInstance().KeyPress('k')) {
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
 		Enemy* e = new Enemy(mousePos, EnemyType::QUIMIC,1.0);
 		e->AddComponent(new AIPrintPath(tileMap,*e));
 		AddObject(e);
 	}
+	*/
+	if(INPUT_MANAGER.KeyPress('e')) {
+		printf("Tower criado\n");
+		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
+		Tower *newTower= new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE));
+		AddObject(newTower);
+		tileMap.InsertGO(newTower);
 
-	if(InputManager::GetInstance().KeyPress('t')){
-		printf("Face criado\n");
-		AddObject(new Face(0, 0, Vec2(64, 64), tileMap));
 	}
-
-	if(InputManager::GetInstance().KeyPress('=')) {
+	if(INPUT_MANAGER.KeyPress('=')) {
 		Game &game = Game::GetInstance();
 		game.SetMaxFramerate(game.GetMaxFramerate()+5);
 	}
-
-	if(InputManager::GetInstance().KeyPress('-')) {
+	if(INPUT_MANAGER.KeyPress('-')) {
 		Game &game = Game::GetInstance();
 		game.SetMaxFramerate( ( (int64_t)game.GetMaxFramerate() )-5);
 	}
-
-	tileMap->ShowCollisionInfo(InputManager::GetInstance().IsKeyDown('g'));
-
-	if(InputManager::GetInstance().IsKeyDown('[')){
+	tileMap.ShowCollisionInfo(INPUT_MANAGER.IsKeyDown('g'));
+	if(INPUT_MANAGER.IsKeyDown('[')){
 		Resources::ChangeMusicVolume(-STAGE_STATE_DELTA_VOLUME);
 	}
-
-	if(InputManager::GetInstance().IsKeyDown(']')){
+	if(INPUT_MANAGER.IsKeyDown(']')){
 		Resources::ChangeMusicVolume(STAGE_STATE_DELTA_VOLUME);
 	}
-
-	if(InputManager::GetInstance().IsKeyDown(',')){
+	if(INPUT_MANAGER.IsKeyDown(',')){
 		Resources::ChangeSoundVolume(-STAGE_STATE_DELTA_VOLUME);
 	}
-
-	if(InputManager::GetInstance().IsKeyDown('.')){
+	if(INPUT_MANAGER.IsKeyDown('.')){
 		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
 	}
-
+	if(isLightning){
+		ShowLightning(dt);
+	}
+	else{
+		isLightning = false;
+		lightningTimer.Update(dt);
+		if(lightningTimer.Get() > rand() % 80 + 20){
+			isLightning = true;
+			lightningTimer.Restart();
+		}
+	}
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }
 
 void StageState::Render(void) const {
 	//renderizar o bg
 	REPORT_I_WAS_HERE;
-	bg.Render(Rect(STATE_RENDER_X, STATE_RENDER_Y, 0, 0), 0, false);
 	REPORT_I_WAS_HERE;
 	bool highlighted = true;
 	for(unsigned int cont=0; cont < objectArray.size(); cont++) {
-		if(InputManager::GetInstance().GetMousePos().IsInRect(objectArray.at(cont)->GetWorldRenderedRect())){
+		if(INPUT_MANAGER.GetMousePos().IsInRect(objectArray.at(cont)->GetWorldRenderedRect())){
 			highlighted = false;
 			break;
 		}
 	}
-	tileMap->Render(Vec2(0,0), false, highlighted ?  Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos()) : Vec2(-1, -1));
+	tileMap.Render(Vec2(0,0), false, highlighted ? Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos()) : Vec2(-1, -1));
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
+	if(isLightning){
+		SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), lightningColor.r, lightningColor.g, lightningColor.b, lightningColor.a);
+		SDL_SetRenderDrawBlendMode(Game::GetInstance().GetRenderer(), SDL_BLENDMODE_BLEND);
+		SDL_RenderFillRect(Game::GetInstance().GetRenderer(), NULL);
+	}
 }
 
 void StageState::Pause(void) {}
 
-void StageState::Resume(void) {}
-
+void StageState::Resume(void) {
+	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
+	Camera::ForceLogZoom(CAM_START_ZOOM);
+}
+/*Remover! isso foi pro wavemanager
 void StageState::SpawnEnemy(int tileMapPosition,int endTileMap){
 	Vec2 tileSize = tileMap->GetTileSize();
 	Vec2 spawnPosition;
@@ -223,4 +259,24 @@ void StageState::SpawnEnemy(int tileMapPosition,int endTileMap){
 	Enemy *e = new Enemy(spawnPosition,EnemyType::ENGINEER, 1.0);
 	e->AddComponent(new AIEngineer(ENEMY_MOVE_SPEED,8089,tileMap,*e));
 	objectArray.push_back(unique_ptr<GameObject>(e));
+}
+*/
+void StageState::ShowLightning(float dt){
+	isLightning = true;
+	lightningTimer.Update(dt);
+	if(lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE){
+		lightningColor.a += 256 * dt / MAX_TIME_LIGHTINING_RISE;
+	}
+	else if(lightningTimer.Get() >= MAX_TIME_LIGHTINING_RISE && lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING){
+		lightningColor.a = 255;
+	}
+	else if(lightningTimer.Get() >= MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING && lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE){
+		float fullTime = (MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE) - (MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING);
+		lightningColor.a -= 256* ((dt / fullTime) + 1);
+	}
+	else{
+		lightningColor.a = 0;
+		isLightning = false;
+		lightningTimer.Restart();
+	}
 }

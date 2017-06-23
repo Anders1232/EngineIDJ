@@ -1,0 +1,33 @@
+R, G, B - respectivamente:
+
+PELE:
+	verdes (ALTERA R e B):	
+			-saturado:	168, 218, 164
+			-mediano:	188, 218, 184
+			-cinza:		208, 218, 204
+			
+	azul (ALTERA R e G): 
+			-saturado:	163, 187, 255
+			-mediano:	183, 217, 255
+			-cinza:		203, 227, 255
+			
+	amarelo (ALTERA G e B): 
+			-saturado:	244, 210, 139
+			-mediano:	244, 216, 169
+			-cinza:		244, 226, 199
+
+CABELO:
+	verde:		170, 255, 112
+	magenta:	239, 0, 254
+	verde2:		188, 218, 184
+	castanho:	254, 155, 0
+	preto:		255, 255, 255
+			
+ROUPAS:
+	azul:		139, 171, 244
+	vermelho:	255, 0, 0		--> só para roupas!!!
+	roxo:		116, 34, 109
+	turquesa:	161, 255, 241
+	
+
+	

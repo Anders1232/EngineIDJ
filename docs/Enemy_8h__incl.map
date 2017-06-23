@@ -1,14 +1,19 @@
 <map id="Game/include/Enemy.h" name="Game/include/Enemy.h">
-<area shape="rect" id="node2" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="111,155,218,181"/>
-<area shape="rect" id="node8" href="$Rect_8h.html" title="Rect.h" alt="" coords="190,304,251,331"/>
-<area shape="rect" id="node11" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="380,229,447,256"/>
-<area shape="rect" id="node16" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="408,80,486,107"/>
-<area shape="rect" id="node18" href="$Timer_8h.html" title="Timer.h" alt="" coords="511,80,578,107"/>
-<area shape="rect" id="node19" href="$Wave_8h.html" title="Wave.h" alt="" coords="106,80,172,107"/>
-<area shape="rect" id="node3" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="235,453,342,480"/>
-<area shape="rect" id="node7" href="$Component_8h.html" title="Component.h" alt="" coords="21,229,121,256"/>
-<area shape="rect" id="node9" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="377,379,440,405"/>
-<area shape="rect" id="node12" href="$Color_8h.html" title="Color.h" alt="" coords="326,304,390,331"/>
-<area shape="rect" id="node13" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="414,304,526,331"/>
-<area shape="rect" id="node17" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="411,155,483,181"/>
+<area shape="rect" id="node2" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="188,155,295,181"/>
+<area shape="rect" id="node9" href="$Rect_8h.html" title="Rect.h" alt="" coords="5,304,67,331"/>
+<area shape="rect" id="node12" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="997,229,1064,256"/>
+<area shape="rect" id="node17" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="526,80,604,107"/>
+<area shape="rect" id="node26" href="$Timer_8h.html" title="Timer.h" alt="" coords="1296,80,1363,107"/>
+<area shape="rect" id="node27" href="$Error_8h.html" title="Error.h" alt="" coords="1096,229,1157,256"/>
+<area shape="rect" id="node30" href="$WaveData_8h.html" title="WaveData.h" alt="" coords="965,155,1059,181"/>
+<area shape="rect" id="node31" href="$HitPoints_8h.html" title="HitPoints.h" alt="" coords="1083,155,1169,181"/>
+<area shape="rect" id="node3" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="428,453,535,480"/>
+<area shape="rect" id="node7" href="$Component_8h.html" title="Component.h" alt="" coords="467,229,567,256"/>
+<area shape="rect" id="node8" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="373,304,501,331"/>
+<area shape="rect" id="node10" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="149,379,211,405"/>
+<area shape="rect" id="node13" href="$Color_8h.html" title="Color.h" alt="" coords="804,304,868,331"/>
+<area shape="rect" id="node14" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="892,304,1003,331"/>
+<area shape="rect" id="node23" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="868,155,940,181"/>
+<area shape="rect" id="node24" href="$AStarHeuristic_8h.html" title="AStarHeuristic.h" alt="" coords="121,229,239,256"/>
+<area shape="rect" id="node25" href="$Resources_8h.html" title="Resources.h" alt="" coords="592,229,688,256"/>
 </map>

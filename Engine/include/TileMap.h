@@ -14,8 +14,8 @@
 #include "AStarHeuristic.h"
 #include "Resources.h"
 
-#define TILE_VAZIO -1
-#define SPAWN_POINT (14)
+#define TILE_VAZIO (-1)
+#define SPAWN_POINT (75)
 #define COLLISION_LAYER (1)
 #define WALKABLE_LAYER (0)
 #define SMILE_TILE_SET (14)
@@ -119,6 +119,34 @@ class TileMap{
 			Atualiza-se o tileMao de colisão para adicionar a informação que tem um GameObject na posição respectiva.
 		*/
 		void InsertGO(GameObject* obj);
+		/**
+			\brief Insere GameObjct no tileMap ou o posiciona na posição passada caso não seja possivel
+			\param obj GameObject a ser inserido no tileMap de GameObjects.
+
+			Utiliza a posição do mouse no momento(que deve ser a mesma do centro do GameObject) para identificar onde o GameObject deve ser colocado no tileMap de GameObjects. Então obj é colocado nessa posição, sua posição é alterada para se encaixar exatamente com o início da posição.
+			Atualiza-se o tileMao de colisão para adicionar a informação que tem um GameObject na posição respectiva.
+		*/
+		void InsertGO(GameObject* obj,Vec2 initialPos);
+		/**
+			\brief Remove GameObjct no tileMap
+			\param position Posição que contém o Gameobject a ser retirado.
+
+			Atualiza-se o tileMap de colisão para adicionar a informação que tem um GameObject na posição respectiva.
+		*/
+		void RemoveGO(int position);
+		/**
+			\brief Remove GameObjct no tileMap
+
+			Variação do RemoveGO que internamente faz a busca o GameObject que está debaixo do mouse para remover.
+			Atualiza-se o tileMap de colisão para adicionar a informação que tem um GameObject na posição respectiva.
+		*/
+		void RemoveGO(void);
+		/**
+			\brief Obtém GameObject de uma determinada posição do tileMap
+
+			Faz-se checagem de limites para saber se a posição desejada existe.
+		*/
+		GameObject* GetGO(int index);
 		/**
 			\brief Ativa ou desativa a exibição na tela das informações do tileMap de colisão
 

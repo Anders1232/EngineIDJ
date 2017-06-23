@@ -27,7 +27,7 @@ class Resources {
 			\param file Nome do arquivo da imagem que se deseja abrir.
 			\return Imagem carregada em memória
 
-			Se a imagem em questão já  estiver em memória, um ponteiro para ela é enviado. Caso contrário ela é carregada, colocada no hash e então retornada.
+			Se a imagem em questão já estiver em memória, um ponteiro para ela é enviado. Caso contrário ela é carregada, colocada no hash e então retornada.
 			Ao se colocar a imagem no hash, criando o shared_ptr, um destrutor desse ponteiro é enviado como uma função lambda. Esse destrutor desaloca a imagem da memória.
 		*/
 		static std::shared_ptr<SDL_Texture> GetImage(string file);
@@ -36,7 +36,7 @@ class Resources {
 			\param file Nome do arquivo de música que se deseja abrir.
 			\return Música carregada em memória
 
-			Se a música em questão já  estiver em memória, um ponteiro para ela é enviado. Caso contrário ela é carregada, colocada no hash e então retornada.
+			Se a música em questão já estiver em memória, um ponteiro para ela é enviado. Caso contrário ela é carregada, colocada no hash e então retornada.
 			Ao se colocar a música no hash, criando o shared_ptr, um destrutor desse ponteiro é enviado como uma função lambda. Esse destrutor desaloca a música da memória.
 		*/
 		static std::shared_ptr<Mix_Music> GetMusic(string file);
@@ -45,7 +45,7 @@ class Resources {
 			\param file Nome do arquivo de áudio que se deseja abrir.
 			\return Áudio carregado em memória
 
-			Se o áudio em questão já  estiver em memória, um ponteiro para ele é enviado. Caso contrário ele é carregada, colocado no hash e então retornado.
+			Se o áudio em questão já estiver em memória, um ponteiro para ele é enviado. Caso contrário ele é carregada, colocado no hash e então retornado.
 			Ao se colocar o áudio no hash, criando o shared_ptr, um destrutor desse ponteiro é enviado como uma função lambda. Esse destrutor desaloca o áudio da memória.
 		*/
 		static std::shared_ptr<Mix_Chunk> GetSound(string file);
@@ -55,7 +55,7 @@ class Resources {
 			\param fontsize O tamanho requerido para a fonte.
 			\return Fonte carregada em memória
 
-			Se a fonte em questão já  estiver em memória no tamanho requerido, um ponteiro para ela é enviado. Caso contrário ela é carregada, colocada no hash e então retornada.
+			Se a fonte em questão já estiver em memória no tamanho requerido, um ponteiro para ela é enviado. Caso contrário ela é carregada, colocada no hash e então retornada.
 			Ao se colocar a fonte no hash, criando o shared_ptr, um destrutor desse ponteiro é enviado como uma função lambda. Esse destrutor desaloca a fonte da memória.
 		*/
 		static std::shared_ptr<TTF_Font> GetFont(string file, int fontSize);
