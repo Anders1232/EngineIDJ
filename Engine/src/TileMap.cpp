@@ -177,22 +177,24 @@ void TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 		return;
 	}
 	
-	if(-1 == AtLayer(position, COLLISION_LAYER)) {
-		REPORT_DEBUG("\tInserting the gameObject at position " << position);
-		gameObjectMatrix[position] = obj;
-		tileMatrix[position+(COLLISION_LAYER*mapWidth*mapHeight)] = PAREDE;
-		
-		int line = position / GetWidth();
-		int column = position % GetWidth();
-		obj->box.x = column*tileSet->GetTileWidth();
-		obj->box.y = line*tileSet->GetTileHeight();
-		//TODO: aqui ajudar a box para ficar exatamente no tileMap
-	} else if(0 > AtLayer(position, COLLISION_LAYER)) {
-		REPORT_DEBUG("\ttentado inserir objeto em posição inválida, pois nela está" << tileMatrix[position+(COLLISION_LAYER * mapWidth*mapHeight)]);
-		obj->RequestDelete();
-	} else {
-		REPORT_DEBUG("\ttentado inserir objeto em posição já ocupada!");
-		obj->RequestDelete();
+	if(checkCollision){
+		if(-1 == AtLayer(position, COLLISION_LAYER)) {
+			REPORT_DEBUG("\tInserting the gameObject at position " << position);
+			gameObjectMatrix[position] = obj;
+			tileMatrix[position+(COLLISION_LAYER*mapWidth*mapHeight)] = PAREDE;
+			
+			int line = position / GetWidth();
+			int column = position % GetWidth();
+			obj->box.x = column*tileSet->GetTileWidth();
+			obj->box.y = line*tileSet->GetTileHeight();
+			//TODO: aqui ajudar a box para ficar exatamente no tileMap
+		} else if(0 > AtLayer(position, COLLISION_LAYER)) {
+			REPORT_DEBUG("\ttentado inserir objeto em posição inválida, pois nela está" << tileMatrix[position+(COLLISION_LAYER * mapWidth*mapHeight)]);
+			obj->RequestDelete();
+		} else {
+			REPORT_DEBUG("\ttentado inserir objeto em posição já ocupada!");
+			obj->RequestDelete();
+		}
 	}
 }
 
@@ -263,7 +265,7 @@ int& TileMap::AtLayer(int index2D, int layer) const {
 	return (int&)tileMatrix.at(index2D + layer * mapWidth * mapHeight);
 }
 
-vector<vector<int>>* TileMap::GetTileGrups(int tileType) const {
+vector<vector<int>>* TileMap::GetTileGroups(int tileType) const {
 	vector<vector<int>> *tilePoints = new vector<vector<int>>();
 	vector<int> foundTilePoints;
 	uint countLimit = GetWidth()*GetHeight();
