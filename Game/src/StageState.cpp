@@ -48,6 +48,42 @@ StageState::StageState(void)
 	waveManager= new WaveManager(tileMap, "assets/wave&enemyData.txt");
 	waveManagerGO->AddComponent(waveManager);
 	AddObject(waveManagerGO);
+
+	/*
+	70 a 72 3 tipos de arvores
+	73 poste
+	76 banco
+	*/
+	vector<vector<int>>* tree1Tiles = tileMap.GetTileGroups(70);
+	for(uint i = 0; i < tree1Tiles->size(); i++){
+		for(uint j = 0; j < tree1Tiles[i].size(); j++){
+			Obstacle* tree1 = new Obstacle("");
+		}
+	}
+	vector<vector<int>>* tree2Tiles = tileMap.GetTileGroups(71);
+	for(uint i = 0; i < tree2Tiles->size(); i++){
+		for(uint j = 0; j < tree2Tiles[i].size(); j++){
+			Obstacle* tree2 = new Obstacle("");
+		}
+	}
+	vector<vector<int>>* tree3Tiles = tileMap.GetTileGroups(72);
+	for(uint i = 0; i < tree3Tiles->size(); i++){
+		for(uint j = 0; j < tree3Tiles[i].size(); j++){
+			Obstacle* tree3 = new Obstacle("");
+		}
+	}
+	vector<vector<int>>* poleTiles = tileMap.GetTileGroups(73);
+	for(uint i = 0; i < poleTiles->size(); i++){
+		for(uint j = 0; j < poleTiles[i].size(); j++){
+			Obstacle* pole = new Obstacle("");
+		}
+	}
+	vector<vector<int>>* benchTiles = tileMap.GetTileGroups(76);
+	for(uint i = 0; i < benchTiles->size(); i++){
+		for(uint j = 0; j < benchTiles[i].size(); j++){
+			Obstacle* bench = new Obstacle("");
+		}
+	}
 }
 
 StageState::~StageState(void) {
