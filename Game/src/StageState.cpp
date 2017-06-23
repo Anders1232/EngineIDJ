@@ -162,7 +162,6 @@ void StageState::Update(float dt) {
 void StageState::Render(void) const {
 	//renderizar o bg
 	REPORT_I_WAS_HERE;
-	REPORT_I_WAS_HERE;
 	bool highlighted = true;
 	for(unsigned int cont=0; cont < objectArray.size(); cont++) {
 		if(InputManager::GetInstance().GetMousePos().IsInRect(objectArray.at(cont)->GetWorldRenderedRect())){
