@@ -37,6 +37,9 @@ class StageState: public State {
 		Color lightningColor;
 		WaveManager *waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
 		vector<int> waves;//vetor de waves a ser lido no arquivo
+		std::vector<std::unique_ptr<GameObject>> obstacleArray;
+		void AddObstacle(GameObject *obstacle);
+		void RenderObstacleArray(void) const;
 };
 
 #include "EndState.h"

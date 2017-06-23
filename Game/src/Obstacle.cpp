@@ -1,7 +1,8 @@
 #include "Obstacle.h"
 
-Obstacle::Obstacle(std::string path, Vec2 position) : GameObject(), sp(path){
+Obstacle::Obstacle(std::string path, Vec2 position, int tilePosition) : GameObject(), sp(path){
     box = position;
+    tilePos = tilePosition;
 	// sp.ScaleX(tileSize.x/sp.GetWidth());
 	// sp.ScaleY(tileSize.y/sp.GetHeight());
     box.w = sp.GetWidth();

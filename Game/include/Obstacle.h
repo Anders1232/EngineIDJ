@@ -12,7 +12,7 @@
 
 class Obstacle : public GameObject{
     public:
-        Obstacle(std::string path, Vec2 position);
+        Obstacle(std::string path, Vec2 position, int tilePosition);
         void Update(float dt);
         void Render(void);
         void RequestDelete(void);

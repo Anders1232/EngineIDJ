@@ -63,55 +63,65 @@ StageState::StageState(void)
 	Vec2 obstaclePos;
 	int index;
 	vector<vector<int>>* tree1Tiles = tileMap.GetTileGroups(TREE_1_TILESET_INDEX);
+	vector<vector<int>>* tree2Tiles = tileMap.GetTileGroups(TREE_2_TILESET_INDEX);
+	vector<vector<int>>* tree3Tiles = tileMap.GetTileGroups(TREE_3_TILESET_INDEX);
+	vector<vector<int>>* poleTiles = tileMap.GetTileGroups(POLE_TILESET_INDEX);
+	vector<vector<int>>* benchTiles = tileMap.GetTileGroups(BENCH_TILESET_INDEX);
 	for(uint i = 0; i < tree1Tiles->size(); i++){
 		for(uint j = 0; j < tree1Tiles->at(i).size(); j++){
 			index = tree1Tiles->at(i)[j];
 			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
-			Obstacle* tree1 = new Obstacle("./img/obstacle/arvore1.png", obstaclePos);
+			Obstacle* tree1 = new Obstacle("./img/obstacle/arvore1.png", obstaclePos, index);
 			tileMap.InsertGO(tree1, false);
-			AddObject(tree1);
+			// AddObject(tree1);
+			AddObstacle(tree1);
 		}
 	}
-	// vector<vector<int>>* tree2Tiles = tileMap.GetTileGroups(TREE_2_TILESET_INDEX);
-	// for(uint i = 0; i < tree2Tiles->size(); i++){
-	// 	for(uint j = 0; j < tree2Tiles->at(i).size(); j++){
-	// 		index = tree2Tiles->at(i)[j];
-	// 		obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
-	// 		Obstacle* tree2 = new Obstacle("./img/obstacle/arvore2.png", obstaclePos);
-	// 		AddObject(tree2);
-	// 	}
-	// }
-	// vector<vector<int>>* tree3Tiles = tileMap.GetTileGroups(TREE_3_TILESET_INDEX);
-	// for(uint i = 0; i < tree3Tiles->size(); i++){
-	// 	for(uint j = 0; j < tree3Tiles->at(i).size(); j++){
-	// 		index = tree3Tiles->at(i)[j];
-	// 		obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
-	// 		Obstacle* tree3 = new Obstacle("./img/obstacle/arvore4.png", obstaclePos);
-	// 		AddObject(tree3);
-	// 	}
-	// }
-	// vector<vector<int>>* poleTiles = tileMap.GetTileGroups(POLE_TILESET_INDEX);
-	// for(uint i = 0; i < poleTiles->size(); i++){
-	// 	for(uint j = 0; j < poleTiles->at(i).size(); j++){
-	// 		index = poleTiles->at(i)[j];
-	// 		obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
-	// 		Obstacle* pole = new Obstacle("./img/obstacle/posteLuz.png", obstaclePos);
-	// 		AddObject(pole);
-	// 	}
-	// }
-	// vector<vector<int>>* benchTiles = tileMap.GetTileGroups(BENCH_TILESET_INDEX);
-	// for(uint i = 0; i < benchTiles->size(); i++){
-	// 	for(uint j = 0; j < benchTiles->at(i).size(); j++){
-	// 		index = benchTiles->at(i)[j];
-	// 		obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
-	// 		Obstacle* bench = new Obstacle("./img/obstacle/banco_h.png", obstaclePos);
-	// 		AddObject(bench);
-	// 	}
-	// }
+	for(uint i = 0; i < tree2Tiles->size(); i++){
+		for(uint j = 0; j < tree2Tiles->at(i).size(); j++){
+			index = tree2Tiles->at(i)[j];
+			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
+			Obstacle* tree2 = new Obstacle("./img/obstacle/arvore2.png", obstaclePos, index);
+			tileMap.InsertGO(tree2, false);
+			// AddObject(tree2);
+			AddObstacle(tree2);
+		}
+	}
+	for(uint i = 0; i < tree3Tiles->size(); i++){
+		for(uint j = 0; j < tree3Tiles->at(i).size(); j++){
+			index = tree3Tiles->at(i)[j];
+			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
+			Obstacle* tree3 = new Obstacle("./img/obstacle/arvore4.png", obstaclePos, index);
+			tileMap.InsertGO(tree3, false);
+			// AddObject(tree3);
+			AddObstacle(tree3);
+		}
+	}
+	for(uint i = 0; i < poleTiles->size(); i++){
+		for(uint j = 0; j < poleTiles->at(i).size(); j++){
+			index = poleTiles->at(i)[j];
+			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
+			Obstacle* pole = new Obstacle("./img/obstacle/posteLuz.png", obstaclePos, index);
+			tileMap.InsertGO(pole, false);
+			// AddObject(pole);
+			AddObstacle(pole);
+		}
+	}
+	for(uint i = 0; i < benchTiles->size(); i++){
+		for(uint j = 0; j < benchTiles->at(i).size(); j++){
+			index = benchTiles->at(i)[j];
+			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
+			Obstacle* bench = new Obstacle("./img/obstacle/banco_h.png", obstaclePos, index);
+			tileMap.InsertGO(bench, false);
+			// AddObject(bench);
+			AddObstacle(bench);
+		}
+	}
 }
 
 StageState::~StageState(void) {
 	objectArray.clear();
+	obstacleArray.clear();
 	GameResources::Clear();
 }
 
@@ -229,6 +239,7 @@ void StageState::Render(void) const {
 		}
 	}
 	tileMap.Render(Vec2(0,0), false, highlighted ? Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos()) : Vec2(-1, -1));
+	RenderObstacleArray();
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
 	if(isLightning){
@@ -262,5 +273,20 @@ void StageState::ShowLightning(float dt){
 		lightningColor.a = 0;
 		isLightning = false;
 		lightningTimer.Restart();
+	}
+}
+
+void StageState::AddObstacle(GameObject *obstacle) {
+	obstacleArray.push_back(std::unique_ptr<GameObject>(obstacle));
+}
+
+void StageState::RenderObstacleArray(void) const {
+	REPORT_I_WAS_HERE;
+#ifdef RENDER_FOWARD
+	for(unsigned int cont = 0; cont < obstacleArray.size(); cont++) {
+#else
+	for(int64_t cont = ((int64_t)obstacleArray.size()) -1; 0 <= cont ; cont--) {
+#endif
+		obstacleArray[cont]->Render();
 	}
 }
