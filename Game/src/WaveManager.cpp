@@ -17,17 +17,18 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 	enemiesLeft = 0;
 	playerLifes = 30;
 	spawnGroups= tileMap.GetTileGroups(SPAWN_POINT);
+	endGroups= tileMap.GetTileGroups(END_POINT);
 	wavesAndEnemysData = GameResources::GetWaveData("assets/wave&enemyData.txt");
 	enemyIndex = 0;
 	waveIndex=0;
 	totalWaves = wavesAndEnemysData->first.size();
 	victory = false;
 	StartWave();
-
 }
 
 WaveManager::~WaveManager(){
 	delete spawnGroups;
+	delete endGroups;
 }
 
 void WaveManager::StartWave(){
@@ -111,7 +112,13 @@ void WaveManager::Update(GameObject &associated, float dt){
 					REPORT_DEBUG("\t baseHP= " << enemyToSpawn.baseHP);
 					REPORT_DEBUG("\t endPoint= " << enemyToSpawn.endPoint);
 					int spawnPosition = rand()% ( (*spawnGroups).at(i) ).size();
-					SpawnEnemy( (*spawnGroups).at(i).at(spawnPosition), enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, enemyToSpawn.endPoint, indexOfTheEnemyToSpawn );
+					TEMP_REPORT_I_WAS_HERE;
+					int endPosition= rand()% ( ( (*endGroups).at(enemyToSpawn.endPoint) ).size());
+					TEMP_REPORT_I_WAS_HERE;
+					int endTilePosition= (*endGroups).at(enemyToSpawn.endPoint).at(endPosition);
+					TEMP_REPORT_I_WAS_HERE;
+					SpawnEnemy( (*spawnGroups).at(i).at(spawnPosition), enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, endTilePosition, indexOfTheEnemyToSpawn );
+					TEMP_REPORT_I_WAS_HERE;
 				}
 				REPORT_I_WAS_HERE;
 				spawnTimer.Restart();
