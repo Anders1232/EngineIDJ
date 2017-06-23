@@ -273,9 +273,9 @@ vector<vector<int>>* TileMap::GetTileGroups(int tileType) const {
 	REPORT_I_WAS_HERE;
 
 	for(uint i = 0; i < countLimit; i++) {
-		int positionToBeseach = base+i;
-		if(tileType == tileMatrix[positionToBeseach]) {
-			foundTilePoints.push_back(positionToBeseach%(GetWidth()*GetHeight()));
+		int positionToBeSearch = base+i;
+		if(tileType == tileMatrix[positionToBeSearch]) {
+			foundTilePoints.push_back(positionToBeSearch%(GetWidth()*GetHeight()));
 		}
 	}
 	REPORT_I_WAS_HERE;

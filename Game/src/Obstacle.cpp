@@ -1,7 +1,12 @@
 #include "Obstacle.h"
 
-Obstacle::Obstacle(std::string path) : GameObject(), sp(path){
-    
+Obstacle::Obstacle(std::string path, Vec2 position) : GameObject(), sp(path){
+    box.x = position.x;
+	box.y = position.y;
+	// sp.ScaleX(tileSize.x/sp.GetWidth());
+	// sp.ScaleY(tileSize.y/sp.GetHeight());
+    box.w = sp.GetWidth();
+	box.h = sp.GetHeight();
 }
 
 void Obstacle::Update(float dt ) {}
