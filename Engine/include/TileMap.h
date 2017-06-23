@@ -152,13 +152,13 @@ class TileMap{
 		*/
 		bool IsShowingCollisionInfo();
 		/**
-			\brief Obtém os spawnGroups com seus spawn points.
-			\todo Verificar utilidade de usar define para buscar o spawn groups se de deve utilizar argumentos mesmo.
+			\brief Obtém os groups de tiles.
+			\param tileType Tipo de tile do qual se quer obter posições
 			\todo Resolver bug na detecção de adjacências.
 
-			É responsabilidade do chamador desalocar o vector retornado.
+			Retorna grupos de tiles adjacentes do tipo informado.
 		*/
-		vector<vector<int>>* GetTileGrupos(int tiletype) const;
+		vector<vector<int>>* GetTileGrups(int tileType) const;
 		/**
 			\brief Obtém o tamanho de um tile
 

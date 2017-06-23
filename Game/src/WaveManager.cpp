@@ -16,7 +16,7 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 	endWave=false;
 	enemiesLeft = 0;
 	playerLifes = 30;
-	spawnGroups= tileMap.GetTileGrupos();
+	spawnGroups= tileMap.GetTileGrupos(SPAWN_POINT);
 	wavesAndEnemysData = GameResources::GetWaveData("assets/wave&enemyData.txt");
 	enemyIndex = 0;
 	waveIndex=0;

@@ -263,67 +263,67 @@ int& TileMap::AtLayer(int index2D, int layer) const {
 	return (int&)tileMatrix.at(index2D + layer * mapWidth * mapHeight);
 }
 
-vector<vector<int>>* TileMap::GetTileGrupos(int tiletype) const {
-	vector<vector<int>> *spawnPoints = new vector<vector<int>>();
-	vector<int> foundSpawnPoints;
+vector<vector<int>>* TileMap::GetTileGrups(int tileType) const {
+	vector<vector<int>> *tilePoints = new vector<vector<int>>();
+	vector<int> foundTilePoints;
 	uint countLimit = GetWidth()*GetHeight();
 	int base = countLimit*COLLISION_LAYER;
 	REPORT_I_WAS_HERE;
 
 	for(uint i = 0; i < countLimit; i++) {
 		int positionToBeseach = base+i;
-		if(tiletype == tileMatrix[positionToBeseach]) {
-			foundSpawnPoints.push_back(positionToBeseach%(GetWidth()*GetHeight()));
+		if(tileType == tileMatrix[positionToBeseach]) {
+			foundTilePoints.push_back(positionToBeseach%(GetWidth()*GetHeight()));
 		}
 	}
 	REPORT_I_WAS_HERE;
 	// Agora que tenho todos os spawn points vou agrupá-los de acordo com suas adjacências.
-	if(foundSpawnPoints.empty()) {
+	if(foundTilePoints.empty()) {
 		Error("Não foi encontrado spawn points!");
 	}
 
-	spawnPoints->emplace_back();
-	(*spawnPoints)[0].push_back(foundSpawnPoints[0]);
-	foundSpawnPoints.erase(foundSpawnPoints.begin());
-	while(!foundSpawnPoints.empty()) {
+	tilePoints->emplace_back();
+	(*tilePoints)[0].push_back(foundTilePoints[0]);
+	foundTilePoints.erase(foundTilePoints.begin());
+	while(!foundTilePoints.empty()) {
 		bool neighborFound = false;
-		for(unsigned int i = 0; i < spawnPoints->size(); i++) {
-			vector<int> &vec = (*spawnPoints)[i];
+		for(unsigned int i = 0; i < tilePoints->size(); i++) {
+			vector<int> &vec = (*tilePoints)[i];
 			if(
-					(std::find(vec.begin(), vec.end(), foundSpawnPoints[0]+1) != vec.end() )//posição à direita
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-1) != vec.end() )//posição à esquerda
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]+GetWidth()) != vec.end() )// posição em cima
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-GetWidth()) != vec.end() )//posição em baixo
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-GetWidth()-1) != vec.end() )//diagonal supeior esquerda
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-GetWidth()+1) != vec.end() )//diagonal supeior direita
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]+GetWidth()-1) != vec.end() )//diagonal inferior esquerda
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]+GetWidth()+1) != vec.end() )//diagonal inferior direita
+					(std::find(vec.begin(), vec.end(), foundTilePoints[0]+1) != vec.end() )//posição à direita
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]-1) != vec.end() )//posição à esquerda
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]+GetWidth()) != vec.end() )// posição em cima
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]-GetWidth()) != vec.end() )//posição em baixo
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]-GetWidth()-1) != vec.end() )//diagonal supeior esquerda
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]-GetWidth()+1) != vec.end() )//diagonal supeior direita
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]+GetWidth()-1) != vec.end() )//diagonal inferior esquerda
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]+GetWidth()+1) != vec.end() )//diagonal inferior direita
 			){
-				vec.push_back(foundSpawnPoints[0]);
-				foundSpawnPoints.erase(foundSpawnPoints.begin());
+				vec.push_back(foundTilePoints[0]);
+				foundTilePoints.erase(foundTilePoints.begin());
 				neighborFound = true;
 				break;
 			}
 		}
 		
 		if(!neighborFound) {
-			spawnPoints->emplace_back();
-			(*spawnPoints)[spawnPoints->size()-1].push_back(foundSpawnPoints[0]);
-			foundSpawnPoints.erase(foundSpawnPoints.begin());
+			tilePoints->emplace_back();
+			(*tilePoints)[tilePoints->size()-1].push_back(foundTilePoints[0]);
+			foundTilePoints.erase(foundTilePoints.begin());
 		}
 		REPORT_I_WAS_HERE;
 	}
 #if DEBUG
-	std::cout << WHERE << "\tNumero de spawn groups achados: " << (*spawnPoints).size() << END_LINE;
-	for(uint i = 0; i < (*spawnPoints).size(); i++) {
-		std::cout << WHERE << "\tSpawn groups " << i <<" tem tamanho " << (*spawnPoints)[i].size() << END_LINE;
+	std::cout << WHERE << "\tNumero de tile groups achados: " << (*tilePoints).size() << END_LINE;
+	for(uint i = 0; i < (*tilePoints).size(); i++) {
+		std::cout << WHERE << "\tTile groups " << i <<" tem tamanho " << (*tilePoints)[i].size() << END_LINE;
 		std::cout << WHERE << "\tTileWidth= " << GetWidth() << END_LINE;
-		for(uint i2 = 0; i2 < (*spawnPoints)[i].size(); i2++) {
-			std::cout << WHERE << "\tSpawn point: " << (*spawnPoints)[i][i2] << END_LINE;
+		for(uint i2 = 0; i2 < (*tilePoints)[i].size(); i2++) {
+			std::cout << WHERE << "\tSpawn point: " << (*tilePoints)[i][i2] << END_LINE;
 		}
 	}
 #endif
-	return spawnPoints;
+	return tilePoints;
 }
 
 Vec2 TileMap::GetTileSize(void) const{
