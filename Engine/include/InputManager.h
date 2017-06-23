@@ -9,6 +9,8 @@
 #include <unordered_map>
 #include <cstdint>
 
+#define INPUT_MANAGER InputManager::GetInstance()
+
 #define LEFT_ARROW_KEY SDLK_LEFT
 #define RIGHT_ARROW_KEY SDLK_RIGHT
 #define UP_ARROW_KEY SDLK_UP
@@ -74,10 +76,19 @@ class InputManager {
 			\param key Tecla do teclado cujo o estado é requierido
 			\return Booleano que informa se a tecla está pressionada ou não.
 
-			Primeiramente, converte-se o argumento a um válido no vetor através da função macro AJUST_KEY. Retorna verdadeiro se o keyState da tecla for verdadeiro.
+			Primeiramente, converte-se o argumento a um válido no vetor através da função macro AJUST_KEY. Retorna verdadeiro se o keyState da tecla for verdadeiro e isso ocorrer nesse frame.
 			Caso contrário retorna-se o valor falso.
 		*/
 		bool IsKeyDown(int key) const;
+		/**
+			\brief Informa se uma tecla do teclado NÃO está pressionada no momento
+			\param key Tecla do teclado cujo o estado é requierido
+			\return Booleano que informa se a tecla está pressionada ou não.
+
+			Primeiramente, converte-se o argumento a um válido no vetor através da função macro AJUST_KEY. Retorna verdadeiro se o keyState da tecla for falso.
+			Caso contrário retorna-se o valor falso.
+		*/
+		bool IsKeyUp(int key) const;
 		/**
 			\brief Informa se um botão do mouse foi pressionado no frame corrente
 			\param key Botão do mouse cujo o estado é requierido
@@ -108,6 +119,16 @@ class InputManager {
 			Recomenda-se o uso das macros LEFT_MOUSE_BUTTON, RIGHT_MOUSE_BUTTON e MIDDLE_MOUSE_BUTTON.
 		*/
 		bool IsMouseDown(int button) const;
+		/**
+			\brief Informa se um botão do mouse NÃO está pressionada no momento
+			\param key Botão do mouse cujo o estado é requierido
+			\return Booleano que informa se o botão está pressionado ou não.
+
+			Retorna verdadeiro se o mouseState do botão for falso.
+			Caso contrário retorna-se o valor falso.
+			Recomenda-se o uso das macros LEFT_MOUSE_BUTTON, RIGHT_MOUSE_BUTTON e MIDDLE_MOUSE_BUTTON.
+		*/
+		bool IsMouseUp(int button) const;
 		/**
 			\brief Informa se o scroll dp do mouse foi acionado no frame atual
 			\return Booleano que informa se o scroll está em uso ou não.
@@ -149,7 +170,7 @@ class InputManager {
 		Vec2 MouseScroll(void) const;
 		/**
 			\brief Informa se o usuário solicitou a saída do programa.
-			\return Booleano  com a informação solicitada.
+			\return Booleano com a informação solicitada.
 
 			Retorna verdadeiro se o evento SDL_QUIT ocorreu no frame atual.
 			Caso contrário retorna falso.
@@ -194,14 +215,24 @@ class InputManager {
 		*/
 		bool IsButtonDown(int button) const;
 		/**
+			\brief Informa se um botão do controle está NÃO pressionada no momento
+			\param button Botão do mouse cujo o estado é requierido
+			\return Booleano que informa se o botão está pressionado ou não.
+
+			Retorna verdadeiro se o controllerState do botão for falso.
+			Caso contrário retorna-se o valor falso.
+			
+		*/
+		bool IsButtonUp(int button) const;
+		/**
 			\brief Calcula o deslocamento do sticker esquerdo de um controle
-			\return Vetor bidimensional que informa se o botão está pressionado ou não.
+			\return Vetor bidimensional que informa a posição (x,y) do analógico esquerdo.
 			
 		*/
 		Vec2 GetControllerLeftStickState() const;
 		/**
 			\brief Calcula o deslocamento do sticker direito de um controle
-			\return Vetor bidimensional que informa se o botão está pressionado ou não.
+			\return Vetor bidimensional que informa a posição (x,y) do analógico direito.
 			
 		*/
 		Vec2 GetControllerRightStickState() const;

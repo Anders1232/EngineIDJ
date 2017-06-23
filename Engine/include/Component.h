@@ -1,14 +1,17 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
+#include "ComponentType.h"
 #include "GameObject.h"
 #include "ComponentType.h"
+
 
 /**
 	\brief Tipos de Componentes
 
 	Enumeração com os tipos de componentes possíveis, usado no método Is que todo componente deve implementar.
 */
+
 
 #ifndef GAME_OBJECT
 class GameObject;
@@ -29,7 +32,7 @@ class Component{
 		
 			Deve conter a lógica principal provida pelo componente, utilizando o gameObject que o contém sempre que necessário.
 		*/
-		virtual void Update(float dt)=0;
+		virtual void Update(GameObject &associated, float dt)=0;
 		/**
 			\brief Verifica o subtipo de componente.
 			\param type Tipo que deseja verificar se o componente é.

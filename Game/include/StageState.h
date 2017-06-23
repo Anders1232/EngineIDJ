@@ -5,6 +5,7 @@
 #include <memory>
 
 #include "ActionManager.h"
+#include "DragAndDrop.h"
 #include "GameObject.h"
 #include "InputManager.h"
 #include "Music.h"
@@ -15,6 +16,7 @@
 #include "Timer.h"
 #include "AIGoDown.h"
 #include "AIPrintPath.h"
+#include "WaveManager.h"
 
 using std::vector;
 
@@ -26,16 +28,24 @@ class StageState: public State {
 		void Render(void) const;
 		void Pause(void);
 		void Resume(void);
+		void ShowLightning(float dt);
 	private:
-		Sprite bg;
-		TileMap *tileMap;
 		TileSet tileSet;
+		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;
 		Music music;
+        //mudar pro wavemanager
 		vector<vector<int>> *spawnGroups;
 		vector<vector<int>> *endGroups;
 		Timer spawnTimer;
-		void SpawnEnemy(int tileMapPosition,int endTileMap);
+		//
+		//void SpawnEnemy(int tileMapPosition,int endTileMap);
+		
+		bool isLightning;
+		Timer lightningTimer;
+		Color lightningColor;
+		WaveManager *waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
+		vector<int> waves;//vetor de waves a ser lido no arquivo
 };
 
 #include "EndState.h"

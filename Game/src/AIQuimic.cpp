@@ -1,10 +1,10 @@
 #include "AIQuimic.h"
 
-AIQuimic::AIQuimic(float speed,int dest,TileMap* tilemap,GameObject &associated):speed(speed),destTile(dest),tilemap(tilemap),associated(associated){
+AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associated):speed(speed),destTile(dest),tileMap(tileMap){
 
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
-	path = tilemap->AStar(tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
+	path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
 	dfa[AIState::WALKING][AIEvent::PATH_BLOCKED] = AIState::SENDING_BOMB;
@@ -105,7 +105,7 @@ AIQuimic::AIEvent AIQuimic::ComputeEvents(){
 
 }
 
-void AIQuimic::Update(float dt){
+void AIQuimic::Update(GameObject &associated, float dt){
 
 	AIEvent actualTransition = ComputeEvents();
 	//std::cout << "Estado atual: " << actualState << std::endl;
@@ -114,15 +114,15 @@ void AIQuimic::Update(float dt){
 
 	if(actualState == AIState::WALKING){
 
-		tempDestination = Vec2(tilemap->GetTileSize().x * (path.front() % tilemap->GetWidth()),tilemap->GetTileSize().y*(path.front() / tilemap->GetWidth()));
+		tempDestination = Vec2(tileMap.GetTileSize().x * (path.front() % tileMap.GetWidth()),tileMap.GetTileSize().y*(path.front() / tileMap.GetWidth()));
 		float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
-		float weight = tileWeightMap.at(tilemap->AtLayer(path.front(),WALKABLE_LAYER));
+		float weight = tileWeightMap.at(tileMap.AtLayer(path.front(),WALKABLE_LAYER));
 		vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
 
 		if((vecSpeed.MemberMult(dt)).Magnitude() >= lastDistance){
 			associated.box.x = (tempDestination.x - (associated.box.w/2));
 			associated.box.y = (tempDestination.y - (associated.box.h/2));
-			tempDestination = Vec2(path.front() / tilemap->GetWidth(),path.front() % tilemap->GetWidth());
+			tempDestination = Vec2(path.front() / tileMap.GetWidth(),path.front() % tileMap.GetWidth());
 			path.pop_front();
 
 		}
@@ -135,15 +135,15 @@ void AIQuimic::Update(float dt){
 	}
 	else if(actualState == AIState::WALKING_SLOWLY){
 
-		tempDestination = Vec2(tilemap->GetTileSize().x * (path.front() % tilemap->GetWidth()),tilemap->GetTileSize().y*(path.front() / tilemap->GetWidth()));
+		tempDestination = Vec2(tileMap.GetTileSize().x * (path.front() % tileMap.GetWidth()),tileMap.GetTileSize().y*(path.front() / tileMap.GetWidth()));
 		float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
-		float weight = tileWeightMap.at(tilemap->AtLayer(path.front(),WALKABLE_LAYER));
+		float weight = tileWeightMap.at(tileMap.AtLayer(path.front(),WALKABLE_LAYER));
 		vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / (weight * 2));
 		
 		if((vecSpeed.MemberMult(dt)).Magnitude() >= lastDistance){
 			associated.box.x = (tempDestination.x - (associated.box.w/2));
 			associated.box.y = (tempDestination.y - (associated.box.h/2));
-			tempDestination = Vec2(path.front() / tilemap->GetWidth(),path.front() % tilemap->GetWidth());
+			tempDestination = Vec2(path.front() / tileMap.GetWidth(),path.front() % tileMap.GetWidth());
 			path.pop_front();
 
 		}
@@ -156,7 +156,7 @@ void AIQuimic::Update(float dt){
 	}
 	else if(actualState == AIState::SENDING_BOMB){
 
-		path = tilemap->AStar(tilemap->GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
+		path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
 		//Executa aqui código para o inimigo jogar bombas no obstaculo mais próximo
 
 	}

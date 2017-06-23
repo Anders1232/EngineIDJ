@@ -9,5 +9,7 @@ var searchData=
   ['timer_2ecpp',['Timer.cpp',['../Timer_8cpp.html',1,'']]],
   ['timer_2eh',['Timer.h',['../Timer_8h.html',1,'']]],
   ['titlestate_2ecpp',['TitleState.cpp',['../TitleState_8cpp.html',1,'']]],
-  ['titlestate_2eh',['TitleState.h',['../TitleState_8h.html',1,'']]]
+  ['titlestate_2eh',['TitleState.h',['../TitleState_8h.html',1,'']]],
+  ['tower_2ecpp',['Tower.cpp',['../Tower_8cpp.html',1,'']]],
+  ['tower_2eh',['Tower.h',['../Tower_8h.html',1,'']]]
 ];

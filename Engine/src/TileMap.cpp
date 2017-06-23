@@ -53,7 +53,7 @@ int& TileMap::At(int x, int y, int z) const {
 	try {
 		return ( (int&)tileMatrix.at(index) );
 	} catch(...) {
-		static const int  m1=-1;
+		static const int m1=-1;
 		return (int&)m1;
 	}
 }
@@ -139,7 +139,7 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 			if(position.x < (x+1)*tileWidth) {
 				break;
 			} else {
-				//x  está pra direita
+				//x está pra direita
 				xEsq = x;
 			}
 		} else {
@@ -155,7 +155,7 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 			if(position.y < (y+1)*tileHeight) {
 				break;
 			} else {
-				//y  está pra direita
+				//y está pra direita
 				yEsq = y;
 			}
 		} else {
@@ -166,7 +166,6 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 	
 	return y*mapWidth+x;
 }
-
 void TileMap::InsertGO(GameObject* obj) {
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 	int position = GetTileMousePos(mousePos, false, 0);
@@ -197,6 +196,61 @@ void TileMap::InsertGO(GameObject* obj) {
 	}
 }
 
+void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
+	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
+	int position = GetTileMousePos(mousePos, false, 0);
+	REPORT_DEBUG("\t position = " << position << "\t of " << mapHeight*mapWidth << " tiles.");
+	
+	if(0 > position) {
+		std::cout << WHERE << "[ERROR] Tried to put the gameObject on an invalid tileMap position." << END_LINE;
+		//obj->box = initialPos;
+		return;
+	}
+	
+	int initialTile = GetTileMousePos(initialPos, false, 0);
+	if(-1 == AtLayer(position, COLLISION_LAYER)) {
+		REPORT_DEBUG("\tInserting the gameObject at position " << position);
+		gameObjectMatrix[position] = obj;
+		tileMatrix[position+(COLLISION_LAYER*mapWidth*mapHeight)] = PAREDE;
+		
+		int line = position / GetWidth();
+		int column = position % GetWidth();
+		obj->box.x = column*tileSet->GetTileWidth();
+		obj->box.y = line*tileSet->GetTileHeight();
+		RemoveGO(initialTile);
+		//TODO: aqui ajudar a box para ficar exatamente no tileMap
+	} 
+	else {
+
+		int line = initialTile / GetWidth();
+		int column = initialTile % GetWidth();
+		obj->box.x = column*tileSet->GetTileWidth();
+		obj->box.y = line*tileSet->GetTileHeight();
+
+	}
+}
+
+void TileMap::RemoveGO(int position){
+	REPORT_I_WAS_HERE;
+	if(0 == AtLayer(position, COLLISION_LAYER)){
+		if(nullptr == gameObjectMatrix[position]){
+			REPORT_DEBUG("\t Trying to remove a gameObject where there is none");
+		}
+		REPORT_DEBUG("\tRemoving the gameObject at position " << position);
+		gameObjectMatrix[position] = nullptr;
+		tileMatrix[position + (COLLISION_LAYER * mapWidth * mapHeight)] = -1;
+	}
+	else{
+		REPORT_DEBUG("\ttentado remover objeto de posicao inválida" << std::endl);
+	}
+}
+
+void TileMap::RemoveGO(void){
+	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
+	int position = GetTileMousePos(mousePos, false, COLLISION_LAYER);
+	RemoveGO(position);
+}
+
 void TileMap::ShowCollisionInfo(bool show) {
 	displayCollisionInfo = show;
 }
@@ -225,7 +279,7 @@ vector<vector<int>>* TileMap::GetTileGroups(int tileType) const {
 	REPORT_I_WAS_HERE;
 	// Agora que tenho todos os spawn points vou agrupá-los de acordo com suas adjacências.
 	if(foundSpawnPoints.empty()) {
-		Error("Não foi encontrado spawn points!");
+		Error("Não foi encontrado tile points "<< tileType << "!");
 	}
 
 	spawnPoints->emplace_back();
@@ -259,7 +313,7 @@ vector<vector<int>>* TileMap::GetTileGroups(int tileType) const {
 		}
 		REPORT_I_WAS_HERE;
 	}
-#ifdef DEBUG
+#if DEBUG
 	std::cout << WHERE << "\tNumero de spawn groups achados: " << (*spawnPoints).size() << END_LINE;
 	for(uint i = 0; i < (*spawnPoints).size(); i++) {
 		std::cout << WHERE << "\tTileGroups groups " << i <<" tem tamanho " << (*spawnPoints)[i].size() << END_LINE;
@@ -284,14 +338,14 @@ bool TileMap::Traversable(int index) const{
 
 std::vector<int> TileMap::GetNeighbors(int tileIndex) const{
 
-//[i-1][j-1] -> soma-se -(width+1) da posicao atual
-//[i-1][j] -> soma-se -width da posicao atual
-//[i-1][j+1] -> soma-se (1 - width) da posicao atual
-//[i][j-1] -> soma-se (-1) da posicao atual
-//[i][j + 1] -> soma-se 1 da posicao atual
-//[i+1][j-1] -> soma-se width - 1 da posicao atual
-//[i+1][j] -> soma-se width da posicao atual
-//[i+1][j+1] -> soma-se (width+1) da posicao atual
+	//[i-1][j-1] -> soma-se -(width+1) da posicao atual
+	//[i-1][j] -> soma-se -width da posicao atual
+	//[i-1][j+1] -> soma-se (1 - width) da posicao atual
+	//[i][j-1] -> soma-se (-1) da posicao atual
+	//[i][j + 1] -> soma-se 1 da posicao atual
+	//[i+1][j-1] -> soma-se width - 1 da posicao atual
+	//[i+1][j] -> soma-se width da posicao atual
+	//[i+1][j+1] -> soma-se (width+1) da posicao atual
 
 	std::vector<int> neighbors;
 	//Se não está no limite lateral direito nem esquerdo
@@ -475,4 +529,8 @@ void TileMap::ShowPath(std::list<int>path){
 		tileMatrix[*it + (WALKABLE_LAYER*mapWidth*mapHeight)] = SMILE_TILE_SET;
 
 	}
+}
+
+GameObject* TileMap::GetGO(int index){
+	return gameObjectMatrix.at(index);
 }

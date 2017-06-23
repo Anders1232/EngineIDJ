@@ -1,0 +1,6 @@
+<map id="UItext" name="UItext">
+<area shape="rect" id="node2" href="$classUIelement.html" title="UIelement" alt="" coords="423,144,505,171"/>
+<area shape="rect" id="node3" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="157,192,209,219"/>
+<area shape="rect" id="node5" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="157,91,208,117"/>
+<area shape="rect" id="node13" href="$classTimer.html" title="Temporizador. " alt="" coords="281,240,335,267"/>
+</map>

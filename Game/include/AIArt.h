@@ -20,14 +20,14 @@ class AIArt : public Component
 			\param associado objeto associado a essa IA.
 			Instancia o componente.
 		*/
-		AIArt(float speed,int dest,TileMap* tilemap,GameObject &associated);
+		AIArt(float speed,int dest,TileMap &tileMap,GameObject &associated);
 		/**
 			\brief Atualiza estado.
 			\param dt Intervalo de tempo desde a última chamada.
 			
 			Instancia o componente.
 		*/
-		void Update(float dt);
+		void Update(GameObject &associated, float dt);
 		/**
 			\brief Verifica se essa componente é do tipo informado.
 			
@@ -48,8 +48,7 @@ class AIArt : public Component
 		ManhattanDistance *heuristic;/**<Heuristica a ser utilizada pelo A* no calculo do caminho*/
 		std::map<int, double> tileWeightMap;
 		Vec2 tempDestination;
-		TileMap* tilemap;
-		GameObject &associated;
+		TileMap& tileMap;
 
 		AIState actualState;
 		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM]; 

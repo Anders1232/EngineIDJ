@@ -40,3 +40,12 @@ JOGO*
 dep/*
 */dep
 
+
+.idea/*
+cmake-build-debug/
+
+#arquivos da IDE Clion
+.idea/EngineIDJ.iml
+.idea/modules.xml
+.idea/workspace.xml
+

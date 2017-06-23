@@ -5,12 +5,15 @@
 #include "Vec2.h"
 #include "ActionManager.h"
 
-#define CAMERA_DEFAULT_MIN_ZOOM (0.075)
-#define CAMERA_DEFAULT_MAX_ZOOM (1.0)
+#define CAMERA_DEFAULT_MIN_LOG_ZOOM (-4.0)
+#define CAMERA_DEFAULT_MAX_LOG_ZOOM (0.0)
 #define CAMERA_DEFAULT_ZOOMABLE (true)
-#define CAMERA_DEFAULT_ZOOM_SPEED (5.0/200.)
+#define CAMERA_DEFAULT_LOG_ZOOM_SPEED (0.125)
 #define CAMERA_DEFAULT_MIN_SPEED (200.)
-#define CAMERA_DEFAULT_MAX_SPEED (1000.)
+#define CAMERA_DEFAULT_MAX_SPEED (2000.)
+#define CAMERA_DEFAULT_MOVE_SPEED (100.)
+#define CAMERA_LOG_ZOOM_BASE 2
+
 /**
 	\brief Classe que modela a câmera
 	
@@ -20,6 +23,10 @@
 		- Zoom atual
 		- Velocidade de zoom
 		- Zoom mínimo e máximo
+
+	O zoom é armazenado internamente de forma logarítmica para permitir um comportamento linear nas suas velocidades de zoom e movimentação da câmera,
+	que dependem diretamente do nível atual de zoom. A base do zoom é representado em CAMERA_LOG_ZOOM_BASE e indica que, um zoom de 2, representa
+	multiplicar as sprites por CAMERA_LOG_ZOOM_BASE^(2). Já um zoom de -2 representa CAMERA_LOG_ZOOM_BASE^(-2).
 */
 class Camera {
 	public:
@@ -63,9 +70,16 @@ class Camera {
 			\brief Força um valor para o zoom.
 			\param newZoom novo valor para o Zoom
 			
-			O valor informado se torna o zoom corrente. O novo valor do zoom pode extrapolar os limites existentes. Esse valor, mesmo que fora dos limites, será atribuído ao currentZoom.,
+			O valor informado se torna o zoom corrente. O novo valor do zoom pode extrapolar os limites existentes. Esse valor, mesmo que fora dos limites, será convertido para a escala logarítmica e atribuído ao currentLogZoom.
 		*/
-		static void ForceZoom(float newZoom);
+		static void ForceLinearZoom(float newZoom);
+		/**
+			\brief Força um valor para o zoom.
+			\param newZoom novo valor para o Zoom
+			
+			O valor informado se torna o zoom corrente. O novo valor do zoom pode extrapolar os limites existentes. Esse valor, mesmo que fora dos limites, será atribuído ao currentLogZoom.
+		*/
+		static void ForceLogZoom(float newZoom);
 		/**
 			\brief Trava ou destrava o zoom.
 			\param newZoom novo valor para o Zoom
@@ -77,9 +91,10 @@ class Camera {
 			\brief Altera o zoom corrente.
 			\param deltaZoom Variação no zoom.
 
-			O zoom corrente é alterado linearmente em deltaZoom*zoomSpeed. Só tem efeito se o valor de zoomFixed for falso.
-			Se o novo valor para o zoom extrapolar o limite superior, o valor do limite superior será atribuído ao currentZoom.
-			Se o novo valor para o zoom extrapolar o limite inferior, o valor do limite inferior será atribuído ao currentZoom.
+			O zoom corrente é alterado logaritmicamente em deltaZoom*logZoomSpeed. Só tem efeito se o valor de zoomFixed for falso.
+			Se o novo valor para o zoom extrapolar o limite superior, o valor do limite superior será usado.
+			Se o novo valor para o zoom extrapolar o limite inferior, o valor do limite inferior será usado.
+			Também ajusta a posição da câmera para que o ponto onde o mouse estava continue no mesmo lugar.
 		*/
 		static void Zoom(float deltaZoom);
 		/**
@@ -87,9 +102,9 @@ class Camera {
 			\param minZoom Novo limite inferior.
 			\param maxZoom Novo limite superior.
 
-			Se o valor de minZoom ou maxZoom for zero, o valor default será atribuído no lugar.
+			Se o valor de minZoom ou maxZoom não forem fornecidos, o valor default será atribuído no lugar.
 		*/
-		static void SetZoomLimits(float minZoom=0, float maxZoom=0);// set to 0 is to set to default
+		static void SetZoomLimits(float minZoom=CAMERA_DEFAULT_MIN_LOG_ZOOM, float maxZoom=CAMERA_DEFAULT_MAX_LOG_ZOOM);// No args to set to default
 		/**
 			\brief Informa o valor do zoom corrente.
 
@@ -97,15 +112,23 @@ class Camera {
 			Se for maior que 1.0 significa que as imagens devem ser ampliadas.
 			Se for menor que 1.0 significa que as imagens devem ser reduzidas.
 		*/
-		static float GetZoom(void);
+		static float GetLinearZoom(void);
+		/**
+			\brief Informa o valor do zoom corrente na escala logarítmica.
+
+			Se o valor for 0.0 significa que nenhum zoom está sendo aplicado.
+			Se for maior que 0.0 significa que as imagens devem ser ampliadas.
+			Se for menor que 0.0 significa que as imagens devem ser reduzidas.
+		*/
+		static float GetLogZoom(void);
 		/**
 			\brief Estabelece os limites superior e inferior da velocidade da câmera.
 			\param minSpeed Novo limite inferior.
 			\param maxSpeed Novo limite superior.
 
-			Se o valor de minSpeed ou maxSpeed for zero, o valor default será atribuído no lugar.
+			Se o valor de minSpeed ou maxSpeed não forem fornecidos, o valor default será atribuído no lugar.
 		*/
-		static void SetSpeedLimits(float minSpeed=0, float maxSpeed=0);
+		static void SetSpeedLimits(float minSpeed=CAMERA_DEFAULT_MIN_SPEED, float maxSpeed=CAMERA_DEFAULT_MAX_SPEED);
 		/**
 			\brief Retorna a velocidade mínima da câmera.
 
@@ -170,11 +193,11 @@ class Camera {
 		 */
 		Camera();
 		static GameObject* focus;/**< Gameobject que ficará centralizado na câmera. Caso seja nullptr a câmera se moverá pelas setinhas/WASD.*/
-		static float currentZoom;/**< Armazena o valor do zoom atual, informando em quantas vezes os objetos devem ser ampliados. Ele deve estar estre o minZoom e o maxZoom, a não ser que o método ForceZoom seja usado. Os métodos Zoom e ForceZoom alteram seu valor.*/
-		static float minZoom;/**< Armazena o valor mínimo que o zoom pode ter. Esse limite é ignorado pelo método ForceZoom. É alterado pelo SetZoomLimits.*/
-		static float maxZoom;/**< Armazena o valor mínimo que o zoom pode ter. Esse limite é ignorado pelo método ForceZoom. É alterado pelo SetZoomLimits.*/
+		static float currentLogZoom;/**< Armazena o valor do zoom atual, informando em quantas vezes os objetos devem ser ampliados. Ele deve estar estre o minZoom e o maxZoom, a não ser que o método ForceZoom seja usado. Os métodos Zoom e ForceZoom alteram seu valor.*/
+		static float minLogZoom;/**< Armazena o valor mínimo que o zoom pode ter. Esse limite é ignorado pelo método ForceZoom. É alterado pelo SetZoomLimits.*/
+		static float maxLogZoom;/**< Armazena o valor mínimo que o zoom pode ter. Esse limite é ignorado pelo método ForceZoom. É alterado pelo SetZoomLimits.*/
 		static bool zoomFixed;/**< Se for verdadeiro, o zoom não será alterado pelo método Zoom. Caso contrário o método Zoom pode mudar o valor corrente do zoom. É alterado pelo método SetZoomable.*/
-		static float zoomSpeed;/**< Armazena a velocidade com a qual o zoom deve ocorrer. O argumento do método Zoom é multiplicado por esse valor para depois ser somado ao currentZoom.*/
+		static float logZoomSpeed;/**< Armazena a velocidade com a qual o zoom deve ocorrer. O argumento do método Zoom é multiplicado por esse valor para depois ser somado ao currentZoom.*/
 		static float minSpeed;/**< Armazena o valor mínimo da velocidade da câmera.*/
 		static float maxSpeed;/**< Armazena o valor máximo da velocidade da câmera.*/
 		static float currentSpeed;/**< Armazena a velocidade atual de movimento da câmera quando não está focalizada em nenhum objeto.*/
