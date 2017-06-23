@@ -6,6 +6,7 @@ UIimage::UIimage(std::string file, UIelement::BehaviorType behavior)
 				 : UIelement(behavior) {
 		sp = new Sprite(file);
 		kernelSize = Vec2(sp->GetWidth(), sp->GetHeight());
+		angle = 0;
 }
 
 UIimage::UIimage(UIelement::BehaviorType behavior) : UIelement(behavior), sp(nullptr) {}
@@ -20,7 +21,7 @@ void UIimage::Render(bool debugRender) const {
 		UIelement::Render(debugRender);
 
 		if(nullptr != sp) {
-				sp->Render(box, 0, false);
+				sp->Render(box, angle, false);
 		} else {
 				Error("Alguma classe filha de UIimage não foi corretamente inicializada.")
 		}

@@ -1,5 +1,7 @@
 #include "UIbutton.h"
 
+#include "InputManager.h"
+
 UIbutton::UIbutton(UIbutton::State initialState)
 				: actualState(initialState)
 				, disabledCallback(nullptr)
@@ -7,6 +9,23 @@ UIbutton::UIbutton(UIbutton::State initialState)
 				, highlightedCallback(nullptr)
 				, pressedCallback(nullptr)
 				, clickedCallback(nullptr) {}
+
+void UIbutton::Update(float dt, bool mouseIsInside) {
+	if(actualState != UIbutton::State::DISABLED) {
+		if(mouseIsInside) {
+			if(INPUT_MANAGER.IsMouseDown(LEFT_MOUSE_BUTTON)) {
+				SetUIbuttonState(UIbutton::State::PRESSED);
+			} else {
+				SetUIbuttonState(UIbutton::State::HIGHLIGHTED);
+			}
+			if(INPUT_MANAGER.MouseRelease(LEFT_MOUSE_BUTTON)) {
+				Click();
+			}
+		} else {
+			SetUIbuttonState(UIbutton::State::ENABLED);
+		}
+	}
+}
 
 void UIbutton::SetCallback(UIbutton::State stateToSet, void* caller, ButtonCallback callback) {
 		switch(actualState) {

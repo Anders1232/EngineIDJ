@@ -88,6 +88,7 @@ class UIbutton {
 				Essa classe NÃO deve ser diretamente instanciada. Somente as classes que herdam dela.
 		*/
 		UIbutton(UIbutton::State initialState = UIbutton::State::ENABLED);
+		void Update(float dt, bool mouseIsInside);
 		UIbutton::State actualState; /**< Armazena o estado atual do botão. */
 		ButtonCallback disabledCallback; /**< Armazena um ponteiro para função a ser chamada quando o botão for desativado. */
 		ButtonCallback enabledCallback; /**< Armazena um ponteiro para função a ser chamada quando o botão for ativado. */

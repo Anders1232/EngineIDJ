@@ -1,5 +1,6 @@
 #include "UItextButton.h"
 
+#include "InputManager.h"
 #include "Error.h"
 
 UItextButton::UItextButton( string fontFile,
@@ -16,6 +17,12 @@ UItextButton::UItextButton( string fontFile,
 				, enabledColor(color)
 				, highlightedColor(color)
 				, pressedColor(color) {}
+
+void UItextButton::Update(float dt, Rect parentCanvas) {
+	UItext::Update(dt, parentCanvas);
+	UIbutton::Update(dt, INPUT_MANAGER.GetMousePos().IsInRect(boundingBox));
+	UItext::Update(dt, parentCanvas);	
+}
 
 void UItextButton::ConfigColors(SDL_Color disabled, SDL_Color enabled, SDL_Color highlighted, SDL_Color pressed) {
 		disabledColor = disabled;

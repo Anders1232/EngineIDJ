@@ -101,30 +101,8 @@ void TitleState::Resume(void) {
 }
 
 void TitleState::UpdateUI(float dt) {
-	Vec2 mousePos = INPUT_MANAGER.GetMousePos();
-
-	UItextButton* btnTxtVec[] = {&playText, &editorText, &configText, &exitText, nullptr};
-
-	for(int i = 0; nullptr != btnTxtVec[i]; i++) {
-		if(btnTxtVec[i]->GetUIbuttonState() != UIbutton::State::DISABLED) {
-			if(mousePos.IsInRect(btnTxtVec[i]->GetBoundingBox())) {
-				if(INPUT_MANAGER.IsMouseDown(LEFT_MOUSE_BUTTON)) {
-					btnTxtVec[i]->SetUIbuttonState(UIbutton::State::PRESSED);
-				} else {
-					btnTxtVec[i]->SetUIbuttonState(UIbutton::State::HIGHLIGHTED);
-				}
-				if(INPUT_MANAGER.MouseRelease(LEFT_MOUSE_BUTTON)) {
-					btnTxtVec[i]->Click();
-				}
-			} else {
-				btnTxtVec[i]->SetUIbuttonState(UIbutton::State::ENABLED);
-			}
-		}	
-	}
-
-	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
-	Rect titleCanvas(0., 0., winSize.x, winSize.y);
-	canvas.Update(dt, titleCanvas);
+	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
+	canvas.Update(dt, winSize);
 	bg.Update(dt, canvas);
 	lua.Update(dt, canvas);
 	nuvemB.Update(dt, canvas);

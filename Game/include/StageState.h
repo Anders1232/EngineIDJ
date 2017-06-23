@@ -15,6 +15,8 @@
 #include "Tileset.h"
 #include "Timer.h"
 #include "WaveManager.h"
+#include "UIcanvas.h"
+#include "UIimageButton.h"
 
 using std::vector;
 
@@ -28,6 +30,9 @@ class StageState: public State {
 		void Resume(void);
 		void ShowLightning(float dt);
 	private:
+		void UpdateUI(float dt);
+		void RenderUI(void) const;
+		void ToggleMenu(void);
 		TileSet tileSet;
 		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;
@@ -37,6 +42,12 @@ class StageState: public State {
 		Color lightningColor;
 		WaveManager *waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
 		vector<int> waves;//vetor de waves a ser lido no arquivo
+
+		bool menuIsShowing;
+		
+		UIcanvas HUDcanvas;
+		UIimageButton openMenuBtn;
+		UIimage menuBg;
 };
 
 #include "EndState.h"

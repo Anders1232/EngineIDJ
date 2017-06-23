@@ -17,6 +17,8 @@ class UIelement {
 		void SetAnchors(Vec2 min, Vec2 max);
 		void SetOffsets(Vec2 min, Vec2 max);
 		void SetBehavior(BehaviorType type);
+		Rect GetAnchors(void) const;
+		Rect GetOffsets(void) const;
 		virtual void Update(float dt, Rect parentCanvas);
 		virtual void Render(bool debugRender = false) const;
 		virtual bool Is(std::string UItype) const;

@@ -24,6 +24,14 @@ void UIelement::SetAnchors(Vec2 min, Vec2 max) {
 		anchors = Rect(min.x, min.y, max.x, max.y);
 }
 
+Rect UIelement::GetAnchors(void) const {
+	return anchors;
+}
+
+Rect UIelement::GetOffsets(void) const {
+	return offsets;
+}
+
 void UIelement::SetOffsets(Vec2 min, Vec2 max) {
 		offsets = Rect(min.x, min.y, max.x, max.y);
 }
