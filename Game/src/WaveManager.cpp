@@ -130,7 +130,6 @@ void WaveManager::Update(GameObject &associated, float dt){
 
 void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint endPoint, uint indexOfTheEnemyToSpawn ){
 	EnemyData &currentWaveEnemyData = wavesAndEnemysData->second[indexOfTheEnemyToSpawn];
-	WaveData &currentWave = wavesAndEnemysData->first[waveIndex];
 	REPORT_DEBUG("\t currentWaveEnemyData.scale= ("<<currentWaveEnemyData.scaleX<<","<<currentWaveEnemyData.scaleY<<")" );
 
 	Vec2 tileSize= tileMap.GetTileSize();
