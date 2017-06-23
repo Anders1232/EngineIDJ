@@ -263,7 +263,7 @@ int& TileMap::AtLayer(int index2D, int layer) const {
 	return (int&)tileMatrix.at(index2D + layer * mapWidth * mapHeight);
 }
 
-vector<vector<int>>* TileMap::GetSpawnPositions(void) const {
+vector<vector<int>>* TileMap::GetTileGrupos(int tiletype) const {
 	vector<vector<int>> *spawnPoints = new vector<vector<int>>();
 	vector<int> foundSpawnPoints;
 	uint countLimit = GetWidth()*GetHeight();
@@ -272,7 +272,7 @@ vector<vector<int>>* TileMap::GetSpawnPositions(void) const {
 
 	for(uint i = 0; i < countLimit; i++) {
 		int positionToBeseach = base+i;
-		if(SPAWN_POINT == tileMatrix[positionToBeseach]) {
+		if(tiletype == tileMatrix[positionToBeseach]) {
 			foundSpawnPoints.push_back(positionToBeseach%(GetWidth()*GetHeight()));
 		}
 	}
