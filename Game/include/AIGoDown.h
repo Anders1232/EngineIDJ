@@ -17,7 +17,7 @@ class AIGoDown : public Component
 			
 			Instancia o componente.
 		*/
-		AIGoDown(float speed,GameObject &associated);
+		AIGoDown(float speed);
 		/**
 			\brief Atualiza estado.
 			\param associated GameObject que contém esse componente.
@@ -25,7 +25,7 @@ class AIGoDown : public Component
 			
 			Instancia o componente.
 		*/
-		void Update(float dt);
+		void Update(GameObject &associated, float dt);
 		/**
 			\brief Verifica se essa componente é do tipo informado.
 			
@@ -34,7 +34,6 @@ class AIGoDown : public Component
 		bool Is(ComponentType type) const;
 	private:
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
-		GameObject &associated;
 };
 
 #endif // AIGODOWN_H

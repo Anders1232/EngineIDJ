@@ -32,15 +32,7 @@ class GameResources{
 			Arquivo não existente ou em formato inválido faz com que Error() seja chamada, gerando uma interrupção do programa.
 		*/
 		static std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > GetWaveData(std::string file);
-<<<<<<< HEAD
-		/**
-			\brief Obtém string a partir de EnemyType
-
-		*/
-		static std::string GetStringFromEnemyType(EnemyType type);
-=======
 		static void Clear(void);
->>>>>>> a3fd237d23ea080d695000cc63486c2d1c2fdfed
 //		static void SaveWeightData(std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE > &data);
 //		static void SaveWaveData(std::pair<std::vector<WaveData>, std::vector<EnemyData> > &data);
 	private:
@@ -70,14 +62,8 @@ class GameResources{
 			Arquivo não existente ou em formato inválido faz com que Error() seja chamada, gerando uma interrupção do programa.
 		*/
 		static void ReadWeightData(std::string file);
-<<<<<<< HEAD
 		static std::unordered_map<std::string, std::shared_ptr<std::array<std::map<int, double>, EnemyType::ENEMY_TYPE_SIZE> > > weightDataMap;/**<Mapa de WeightData indexada pelo nome do arquivo.*/
 		static std::unordered_map<std::string, std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > > waveDataMap;/**<Mapa de WaveData indexado pelo nome do arquivo.*/
-=======
-		static std::unordered_map<string, std::shared_ptr<std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE > > > weightDataMap;/**<Mapa de WeightData indexada pelo nome do arquivo.*/
-		static std::unordered_map<string, std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > > waveDataMap;/**<Mapa de WaveData indexado pelo nome do arquivo.*/
-
->>>>>>> a3fd237d23ea080d695000cc63486c2d1c2fdfed
 };
 
 #endif // GAMERESOURCES_H

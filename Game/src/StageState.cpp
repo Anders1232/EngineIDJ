@@ -45,8 +45,8 @@ StageState::StageState(void)
 	
 	REPORT_I_WAS_HERE;
 
-	spawnGroups = tileMap->GetTileGroups(SPAWN_POINT);
-	endGroups = tileMap->GetTileGroups(END_POINT);
+	spawnGroups = tileMap.GetTileGroups(SPAWN_POINT);
+	endGroups = tileMap.GetTileGroups(END_POINT);
 
 	REPORT_I_WAS_HERE;
 	music.Play(10);

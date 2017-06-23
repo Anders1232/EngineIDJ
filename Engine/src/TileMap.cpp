@@ -279,7 +279,7 @@ vector<vector<int>>* TileMap::GetTileGroups(int tileType) const {
 	REPORT_I_WAS_HERE;
 	// Agora que tenho todos os spawn points vou agrupá-los de acordo com suas adjacências.
 	if(foundSpawnPoints.empty()) {
-		Error("Não foi encontrado spawn points!");
+		Error("Não foi encontrado tile points "<< tileType << "!");
 	}
 
 	spawnPoints->emplace_back();

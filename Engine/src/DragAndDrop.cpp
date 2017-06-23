@@ -4,16 +4,11 @@
 #include "Error.h"
 #include "InputManager.h"
 
-<<<<<<< HEAD
-DragAndDrop::DragAndDrop(TileMap *map,GameObject &associated,bool dragging, bool dragOnActionHold)
-	: isDragging(dragging), dragOnHold(dragOnActionHold), tileMap(map),associated(associated) {
-=======
 DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, bool redrag, bool dragOnActionHold)
 		: dragOnHold(dragOnActionHold),associatedInitialPos(associatedInitialPos), tileMap(map), redrag(redrag) {
->>>>>>> a3fd237d23ea080d695000cc63486c2d1c2fdfed
 }
 
-void DragAndDrop::Update(float dt) {
+void DragAndDrop::Update(GameObject &associated, float dt) {
 	InputManager &inputManager= InputManager::GetInstance();
 	if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON)){
 		Vec2 mousePos= Camera::ScreenToWorld(inputManager.GetMousePos() );

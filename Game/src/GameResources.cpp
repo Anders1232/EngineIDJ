@@ -12,15 +12,8 @@
 #define ENEMY_MAX_SPRITE_NAME_LENGHT (100)
 #define WAVE_NAME_MAX_LENGHT (100)
 
-<<<<<<< HEAD
 std::unordered_map<std::string, std::shared_ptr<std::array<std::map<int, double>, EnemyType::ENEMY_TYPE_SIZE> > > GameResources::weightDataMap;
 std::unordered_map<std::string, std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > > GameResources::waveDataMap;
-=======
-
-
-std::unordered_map<string, std::shared_ptr<std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE> > > GameResources::weightDataMap;
-std::unordered_map<string, std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > > GameResources::waveDataMap;
->>>>>>> a3fd237d23ea080d695000cc63486c2d1c2fdfed
 
 std::shared_ptr<std::array<std::map<int, double>, EnemyType::ENEMY_TYPE_SIZE> > GameResources::GetWeightData(std::string file){
 	if(weightDataMap.end() == weightDataMap.find(file)) {
@@ -164,31 +157,6 @@ EnemyType GameResources::GetEnemyTypeFromString(std::string str){
 		Error("\tTipo de inimigo não identificado " << str);
 	}
 }
-<<<<<<< HEAD
-std::string GameResources::GetStringFromEnemyType(EnemyType type){
-	if(EnemyType::HOSTILE == type){
-		return "HOSTILE";
-	}
-	else if(EnemyType::NEUTRAL == type){
-		return "NEUTRAL";
-	}
-	else if(EnemyType::ENGINEER == type){
-		return "ENGINEER";
-	}
-	else if(EnemyType::ARQUITET == type){
-		return "ARQUITET";
-	}
-	else if(EnemyType::ART == type){
-		return "ART";
-	}
-	else if(EnemyType::QUIMIC == type){
-		return "QUIMIC";
-	}
-	else{
-		Error("\tTipo de inimigo não identificado ");
-	}
-}
-=======
 
 void GameResources::Clear(void){
 	auto i= weightDataMap.begin();
@@ -213,7 +181,6 @@ void GameResources::Clear(void){
 
 }
 
->>>>>>> a3fd237d23ea080d695000cc63486c2d1c2fdfed
 //void GameResources::SaveWeightData(std::array<std::map<int, int> *data)
 
 //void GameResources::SaveWaveData(voidstd::pair<std::vector<WaveData>, std::vector<EnemyData> > *data);

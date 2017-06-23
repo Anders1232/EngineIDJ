@@ -142,7 +142,7 @@ Enemy::~Enemy(){
 void Enemy::Update(float dt) {
 	int forLimit = components.size();
 	for(int i = 0; i < forLimit; i++){
-		components[i]->Update(dt);
+		components[i]->Update(*this, dt);
 	}
 	if(hitpoints->GetHp() < 0){
 		dead = true;
@@ -188,6 +188,3 @@ EnemyType Enemy::GetType(void) const{
 	return type;
 }
 
-void Enemy::NotifyDeath(){
-	dead = true;
-}

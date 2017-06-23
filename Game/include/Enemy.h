@@ -133,19 +133,6 @@ class Enemy : public GameObject
 			
 		*/
 		EnemyType GetType(void) const;
-	
-	private:
-
-		enum EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
-		Sprite sp;/**< Sprite do inimigo.*/
-		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
-		int life;
-		/**
-			\brief Notificado por HitPoints se morreu.
-			
-			Ao hp ser menor ou igual a zero, HitPoints chama esse metodo.
-		*/
-		void NotifyDeath();
 	private:
 		EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
 		std::vector<std::vector<Sprite>> sp;/**< Sprite do inimigo.*/
