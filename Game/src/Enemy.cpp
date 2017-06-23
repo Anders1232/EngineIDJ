@@ -1,11 +1,15 @@
 #include "Enemy.h"
-
+#include "AIEngineer.h"
+#include "AIMedic.h"
+#include "AIArt.h"
+#include "AIQuimic.h"
+#include "AIGoTo.h"
 #include "Camera.h"
 #include "Error.h"
 #include "AIGoDown.h"
 #include "HitPoints.h"
 
-Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint)
+Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint, TileMap & tileMap)
 	: sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE), dead(false), direction(EnemyDirections::DOWN){
 	box = position;
 	this->enemyIndex = enemyIndex; 
@@ -86,7 +90,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 					sp[i][i2].colorMultiplier.b = 105;
 				}
 			}
-			components.emplace_back(new AIGoDown(ENEMY_ENGINEER_MOVE_SPEED));
+			components.emplace_back(new AIEngineer(ENEMY_ENGINEER_MOVE_SPEED, endPoint, tileMap , *this));
 			break;
 		case EnemyType::ARQUITET:
 			REPORT_DEBUG("Enemy type: ARQUITET "<< enemyData.enemyType);
@@ -108,7 +112,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 					sp[i][i2].colorMultiplier.b = 15;
 				}
 			}
-			components.emplace_back(new AIGoDown(ENEMY_ART_MOVE_SPEED));
+			components.emplace_back(new AIArt(ENEMY_ART_MOVE_SPEED, endPoint, tileMap, *this));
 			break;
 		case EnemyType::QUIMIC:
 			REPORT_DEBUG("Enemy type: QUIMIC "<< enemyData.enemyType);
@@ -119,7 +123,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 					sp[i][i2].colorMultiplier.b = 100;
 				}
 			}
-			components.emplace_back(new AIGoDown(ENEMY_QUIMIC_MOVE_SPEED));
+			components.emplace_back(new AIQuimic(ENEMY_QUIMIC_MOVE_SPEED, endPoint, tileMap, *this));
 			break;
 		default:
 			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";

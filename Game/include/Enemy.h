@@ -77,7 +77,7 @@ class Enemy : public GameObject
 			
 			No momento a position informa o extremo superior esquedo a partir do qual o gameObject será instanciado.
 		*/
-		Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint);
+		Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint, TileMap &tileMap);
 		/**
 			\brief Destrutor
 			
