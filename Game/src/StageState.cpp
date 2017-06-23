@@ -113,11 +113,11 @@ void StageState::Update(float dt) {
 		}
 		else{
 			go->AddComponent(new DragAndDrop(tileMap,mousePos));
-			printf("adicionou drag'n drop\n");
+			REPORT_I_WAS_HERE;
 		}
 	}
 	if(InputManager::GetInstance().KeyPress('e')) {
-		printf("Tower criado\n");
+		REPORT_I_WAS_HERE;
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
 
 		Tower *newTower= new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE));
