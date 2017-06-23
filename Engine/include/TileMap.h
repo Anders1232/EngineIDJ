@@ -158,7 +158,7 @@ class TileMap{
 
 			Retorna grupos de tiles adjacentes do tipo informado.
 		*/
-		vector<vector<int>>* GetTileGrups(int tileType) const;
+		vector<vector<int>>* GetTileGroups(int tileType) const;
 		/**
 			\brief Obtém o tamanho de um tile
 
