@@ -52,6 +52,9 @@ void Camera::Update(float dt) {
 	if(INPUT_MANAGER.IsMouseScrolling()){
 		Camera::Zoom( (float)INPUT_MANAGER.MouseScroll().y );
 	}
+	if(INPUT_MANAGER.KeyPress('k')) {
+		REPORT_DEBUG2(true," CameraPos("<<pos.x<<","<<pos.y<<") with log zoom of "<<currentLogZoom);
+	}
 }
 
 void Camera::ForceLinearZoom(float newZoom) {
