@@ -19,7 +19,7 @@
 #define COLLISION_LAYER (1)
 #define WALKABLE_LAYER (0)
 #define SMILE_TILE_SET (14)
-#define END_POINT (17)
+#define END_POINT (76)
 
 using std::string;
 using std::vector;
