@@ -90,18 +90,6 @@ void StageState::Update(float dt) {
 	Camera::Update(dt);
 	REPORT_I_WAS_HERE;
 
- /*remover. isso vai para wavemanager
-	spawnTimer.Update(dt);
-	if(TIME_BETWEEN_SPAWNS < spawnTimer.Get()) {
-		int selectedSpawnGroup = rand() % spawnGroups->size();
-		int selectedEndGroup = rand() % spawnGroups->size();
-		int selectedSpawnPosition = rand() % ( (*spawnGroups)[selectedSpawnGroup] ).size();
-		int selectedEndPosition = rand() % ( (*endGroups)[selectedEndGroup] ).size();
-		SpawnEnemy( (*spawnGroups)[selectedSpawnGroup][selectedSpawnPosition],(*endGroups)[selectedEndGroup][selectedEndPosition] );
-		spawnTimer.Restart();
-	}
-   */
-
 	//Game Over Conditions
 	if(waveManager->GetLifesLeft() == 0){
 		popRequested = true;
@@ -138,44 +126,7 @@ void StageState::Update(float dt) {
 			REPORT_I_WAS_HERE;
 		}
 	}
-	/* Isso vai para construtor de enemy
-	if(InputManager::GetInstance().KeyPress('u')) {
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
-		Enemy* e = new Enemy(mousePos, EnemyType::NEUTRAL,1.0);
-		e->AddComponent(new AIPrintPath(tileMap,*e));
-		AddObject(e);
-	}
-	if(InputManager::GetInstance().KeyPress('i')) {
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
-		Enemy* e = new Enemy(mousePos, EnemyType::HOSTILE,1.0);
-		e->AddComponent(new AIArt(ENEMY_MOVE_SPEED,2134,tileMap,*e));
-		AddObject(e);
-	}
-	if(InputManager::GetInstance().KeyPress('o')) {
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
-		Enemy* e = new Enemy(mousePos, EnemyType::ENGINEER,1.0);
-		e->AddComponent(new AIPrintPath(tileMap,*e));
-		AddObject(e);
-	}
-	if(InputManager::GetInstance().KeyPress('p')) {
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
-		Enemy* e = new Enemy(mousePos, EnemyType::ARQUITET,1.0);
-		e->AddComponent(new AIPrintPath(tileMap,*e));
-		AddObject(e);
-	}
-	if(InputManager::GetInstance().KeyPress('j')){
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
-		Enemy* e = new Enemy(mousePos, EnemyType::ART,1.0);
-		e->AddComponent(new AIPrintPath(tileMap,*e));
-		AddObject(e);
-	}
-	if(InputManager::GetInstance().KeyPress('k')) {
-		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos())-Vec2(FACE_LINEAR_SIZE/2, FACE_LINEAR_SIZE/2);//metade to tamanho da Face passado abaixo
-		Enemy* e = new Enemy(mousePos, EnemyType::QUIMIC,1.0);
-		e->AddComponent(new AIPrintPath(tileMap,*e));
-		AddObject(e);
-	}
-	*/
+
 	if(INPUT_MANAGER.KeyPress('e')) {
 		printf("Tower criado\n");
 		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
@@ -246,21 +197,7 @@ void StageState::Resume(void) {
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
 	Camera::ForceLogZoom(CAM_START_ZOOM);
 }
-/*Remover! isso foi pro wavemanager
-void StageState::SpawnEnemy(int tileMapPosition,int endTileMap){
-	Vec2 tileSize = tileMap->GetTileSize();
-	Vec2 spawnPosition;
-	spawnPosition.x = (tileMapPosition % tileMap->GetWidth() ) * tileSize.x;
-	spawnPosition.y = (tileMapPosition / tileMap->GetWidth() ) * tileSize.y;
-	
-	int randomEndGroup=rand()%(*endGroups).size();
-	int destinyPos= (*endGroups)[randomEndGroup][ (rand()%((*endGroups)[randomEndGroup]).size() )];
-	
-	Enemy *e = new Enemy(spawnPosition,EnemyType::ART, 1.0);
-	e->AddComponent(new AIArt(ENEMY_MOVE_SPEED,8089,tileMap,*e));
-	objectArray.push_back(unique_ptr<GameObject>(e));
-}
-*/
+
 void StageState::ShowLightning(float dt){
 	isLightning = true;
 	lightningTimer.Update(dt);

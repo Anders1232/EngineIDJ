@@ -61,6 +61,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	switch(enemyData.enemyType){
 		case EnemyType::HOSTILE:
 			REPORT_DEBUG("Enemy type: HOSTILE "<< enemyData.enemyType);
+			type = EnemyType::HOSTILE;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 85;
@@ -72,6 +73,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			break;
 		case EnemyType::NEUTRAL:
 			REPORT_DEBUG("Enemy type: NEUTRAL "<< enemyData.enemyType);
+			type = EnemyType::NEUTRAL;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 255;
@@ -83,6 +85,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			break;
 		case EnemyType::ENGINEER:
 			REPORT_DEBUG("Enemy type: ENGINEER "<< enemyData.enemyType);
+			type = EnemyType::ENGINEER;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 44;
@@ -94,6 +97,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			break;
 		case EnemyType::ARQUITET:
 			REPORT_DEBUG("Enemy type: ARQUITET "<< enemyData.enemyType);
+			type = EnemyType::ARQUITET;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 255;
@@ -105,6 +109,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			break;
 		case EnemyType::ART:
 			REPORT_DEBUG("Enemy type: ART "<< enemyData.enemyType);
+			type = EnemyType::ART;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 220;
@@ -116,6 +121,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			break;
 		case EnemyType::QUIMIC:
 			REPORT_DEBUG("Enemy type: QUIMIC "<< enemyData.enemyType);
+			type = EnemyType::QUIMIC;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 100;

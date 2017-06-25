@@ -3,7 +3,11 @@
 AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associated):speed(speed),destTile(dest),tileMap(tileMap){
 
 	heuristic = new ManhattanDistance();
-	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
+
+	std::cout << ((Enemy&)associated).GetType() << std::endl;
+
+	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt")).at(((Enemy&)associated).GetType());
+	std::cout << tileWeightMap.empty() << std::endl;
 	path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
@@ -114,23 +118,25 @@ void AIQuimic::Update(GameObject &associated, float dt){
 
 	if(actualState == AIState::WALKING){
 
-		tempDestination = Vec2(tileMap.GetTileSize().x * (path.front() % tileMap.GetWidth()),tileMap.GetTileSize().y*(path.front() / tileMap.GetWidth()));
-		float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
-		float weight = tileWeightMap.at(tileMap.AtLayer(path.front(),WALKABLE_LAYER));
-		vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
+		if(!path.empty()){
+			tempDestination = Vec2(tileMap.GetTileSize().x * (path.front() % tileMap.GetWidth()),tileMap.GetTileSize().y*(path.front() / tileMap.GetWidth()));
+			float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
+			float weight = tileWeightMap.at(tileMap.AtLayer(path.front(),WALKABLE_LAYER));
+			vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
 
-		if((vecSpeed.MemberMult(dt)).Magnitude() >= lastDistance){
-			associated.box.x = (tempDestination.x - (associated.box.w/2));
-			associated.box.y = (tempDestination.y - (associated.box.h/2));
-			tempDestination = Vec2(path.front() / tileMap.GetWidth(),path.front() % tileMap.GetWidth());
-			path.pop_front();
+			if((vecSpeed.MemberMult(dt)).Magnitude() >= lastDistance){
+				associated.box.x = (tempDestination.x - (associated.box.w/2));
+				associated.box.y = (tempDestination.y - (associated.box.h/2));
+				tempDestination = Vec2(path.front() / tileMap.GetWidth(),path.front() % tileMap.GetWidth());
+				path.pop_front();
 
-		}
-		else{
-		
-			associated.box.x = (associated.box.Center().x + (vecSpeed.MemberMult(dt)).x - associated.box.w/2);
-			associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
+			}
+			else{
+			
+				associated.box.x = (associated.box.Center().x + (vecSpeed.MemberMult(dt)).x - associated.box.w/2);
+				associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
 
+			}
 		}
 	}
 	else if(actualState == AIState::WALKING_SLOWLY){

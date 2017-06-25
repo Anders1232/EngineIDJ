@@ -89,24 +89,25 @@ void AIEngineer::Update(GameObject &associated, float dt){
 	actualState = dfa[actualState][actualTransition];
 
 	if(actualState == AIState::WALKING){
+		if(!path.empty()){
+			tempDestination = Vec2(tilemap.GetTileSize().x * (path.front() % tilemap.GetWidth()),tilemap.GetTileSize().y*(path.front() / tilemap.GetWidth()));
+			float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
+			float weight = tileWeightMap.at(tilemap.AtLayer(path.front(),WALKABLE_LAYER));
+			vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
 
-		tempDestination = Vec2(tilemap.GetTileSize().x * (path.front() % tilemap.GetWidth()),tilemap.GetTileSize().y*(path.front() / tilemap.GetWidth()));
-		float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
-		float weight = tileWeightMap.at(tilemap.AtLayer(path.front(),WALKABLE_LAYER));
-		vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
+			if((vecSpeed.MemberMult(dt)).Magnitude() >= lastDistance){
+				associated.box.x = (tempDestination.x - (associated.box.w/2));
+				associated.box.y = (tempDestination.y - (associated.box.h/2));
+				tempDestination = Vec2(path.front() / tilemap.GetWidth(),path.front() % tilemap.GetWidth());
+				path.pop_front();
 
-		if((vecSpeed.MemberMult(dt)).Magnitude() >= lastDistance){
-			associated.box.x = (tempDestination.x - (associated.box.w/2));
-			associated.box.y = (tempDestination.y - (associated.box.h/2));
-			tempDestination = Vec2(path.front() / tilemap.GetWidth(),path.front() % tilemap.GetWidth());
-			path.pop_front();
+			}
+			else{
+			
+				associated.box.x = (associated.box.Center().x + (vecSpeed.MemberMult(dt)).x - associated.box.w/2);
+				associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
 
-		}
-		else{
-		
-			associated.box.x = (associated.box.Center().x + (vecSpeed.MemberMult(dt)).x - associated.box.w/2);
-			associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
-
+			}
 		}
 	}
 	else if(actualState == AIState::WALKING_SLOWLY){
