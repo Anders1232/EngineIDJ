@@ -55,69 +55,7 @@ StageState::StageState(void)
 	waveManager= new WaveManager(tileMap, "assets/wave&enemyData.txt");
 	waveManagerGO->AddComponent(waveManager);
 	AddObject(waveManagerGO);
-
-	/*
-	70 a 72 3 tipos de arvores
-	73 poste
-	76 banco
-	*/
-	Vec2 obstaclePos;
-	int index;
-	vector<vector<int>>* tree1Tiles = tileMap.GetTileGroups(TREE_1_TILESET_INDEX);
-	vector<vector<int>>* tree2Tiles = tileMap.GetTileGroups(TREE_2_TILESET_INDEX);
-	vector<vector<int>>* tree3Tiles = tileMap.GetTileGroups(TREE_3_TILESET_INDEX);
-	vector<vector<int>>* poleTiles = tileMap.GetTileGroups(POLE_TILESET_INDEX);
-	vector<vector<int>>* benchTiles = tileMap.GetTileGroups(BENCH_TILESET_INDEX);
-	for(uint i = 0; i < tree1Tiles->size(); i++){
-		for(uint j = 0; j < tree1Tiles->at(i).size(); j++){
-			index = tree1Tiles->at(i)[j];
-			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
-			Obstacle* tree1 = new Obstacle("./img/obstacle/arvore1.png", obstaclePos, index);
-			tileMap.InsertGO(tree1, false);
-			// AddObject(tree1);
-			AddObstacle(tree1);
-		}
-	}
-	for(uint i = 0; i < tree2Tiles->size(); i++){
-		for(uint j = 0; j < tree2Tiles->at(i).size(); j++){
-			index = tree2Tiles->at(i)[j];
-			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
-			Obstacle* tree2 = new Obstacle("./img/obstacle/arvore2.png", obstaclePos, index);
-			tileMap.InsertGO(tree2, false);
-			// AddObject(tree2);
-			AddObstacle(tree2);
-		}
-	}
-	for(uint i = 0; i < tree3Tiles->size(); i++){
-		for(uint j = 0; j < tree3Tiles->at(i).size(); j++){
-			index = tree3Tiles->at(i)[j];
-			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
-			Obstacle* tree3 = new Obstacle("./img/obstacle/arvore4.png", obstaclePos, index);
-			tileMap.InsertGO(tree3, false);
-			// AddObject(tree3);
-			AddObstacle(tree3);
-		}
-	}
-	for(uint i = 0; i < poleTiles->size(); i++){
-		for(uint j = 0; j < poleTiles->at(i).size(); j++){
-			index = poleTiles->at(i)[j];
-			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
-			Obstacle* pole = new Obstacle("./img/obstacle/posteLuz.png", obstaclePos, index);
-			tileMap.InsertGO(pole, false);
-			// AddObject(pole);
-			AddObstacle(pole);
-		}
-	}
-	for(uint i = 0; i < benchTiles->size(); i++){
-		for(uint j = 0; j < benchTiles->at(i).size(); j++){
-			index = benchTiles->at(i)[j];
-			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
-			Obstacle* bench = new Obstacle("./img/obstacle/banco_h.png", obstaclePos, index);
-			tileMap.InsertGO(bench, false);
-			// AddObject(bench);
-			AddObstacle(bench);
-		}
-	}
+	InitializeObtacles();
 }
 
 StageState::~StageState(void) {
@@ -232,7 +170,7 @@ void StageState::Update(float dt) {
 	frameRateTimer.Update(dt);
 	frameRateCounter++;
 	if(1. <= frameRateTimer.Get()){
-		std::cout<<WHERE<<"\t Frame Rate: " << (float)frameRateCounter/frameRateTimer.Get()<< END_LINE;
+		std::cout<<WHERE<<"\t Frame Rate: " << (float)frameRateCounter/frameRateTimer.Get()<<"/"<<Game::GetInstance().GetMaxFramerate()<< END_LINE;
 		frameRateCounter=0;
 		frameRateTimer.Restart();
 	}
@@ -299,4 +237,74 @@ void StageState::RenderObstacleArray(void) const {
 #endif
 		obstacleArray[cont]->Render();
 	}
+}
+
+void StageState::InitializeObtacles(void){
+	/*
+	70 a 72 3 tipos de arvores
+	73 poste
+	76 banco
+	*/
+	Vec2 obstaclePos;
+	int index;
+	vector<vector<int>>* tree1Tiles = tileMap.GetTileGroups(TREE_1_TILESET_INDEX);
+	vector<vector<int>>* tree2Tiles = tileMap.GetTileGroups(TREE_2_TILESET_INDEX);
+	vector<vector<int>>* tree3Tiles = tileMap.GetTileGroups(TREE_3_TILESET_INDEX);
+	vector<vector<int>>* poleTiles = tileMap.GetTileGroups(POLE_TILESET_INDEX);
+	vector<vector<int>>* benchTiles = tileMap.GetTileGroups(BENCH_TILESET_INDEX);
+	for(uint i = 0; i < tree1Tiles->size(); i++){
+		for(uint j = 0; j < tree1Tiles->at(i).size(); j++){
+			index = tree1Tiles->at(i)[j];
+			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
+			Obstacle* tree1 = new Obstacle("./img/obstacle/arvore1.png", obstaclePos, index);
+			tileMap.InsertGO(tree1, false);
+			// AddObject(tree1);
+			AddObstacle(tree1);
+		}
+	}
+	delete tree1Tiles;
+	for(uint i = 0; i < tree2Tiles->size(); i++){
+		for(uint j = 0; j < tree2Tiles->at(i).size(); j++){
+			index = tree2Tiles->at(i)[j];
+			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
+			Obstacle* tree2 = new Obstacle("./img/obstacle/arvore2.png", obstaclePos, index);
+			tileMap.InsertGO(tree2, false);
+			// AddObject(tree2);
+			AddObstacle(tree2);
+		}
+	}
+	delete tree2Tiles;
+	for(uint i = 0; i < tree3Tiles->size(); i++){
+		for(uint j = 0; j < tree3Tiles->at(i).size(); j++){
+			index = tree3Tiles->at(i)[j];
+			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
+			Obstacle* tree3 = new Obstacle("./img/obstacle/arvore4.png", obstaclePos, index);
+			tileMap.InsertGO(tree3, false);
+			// AddObject(tree3);
+			AddObstacle(tree3);
+		}
+	}
+	delete tree3Tiles;
+	for(uint i = 0; i < poleTiles->size(); i++){
+		for(uint j = 0; j < poleTiles->at(i).size(); j++){
+			index = poleTiles->at(i)[j];
+			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
+			Obstacle* pole = new Obstacle("./img/obstacle/posteLuz.png", obstaclePos, index);
+			tileMap.InsertGO(pole, false);
+			// AddObject(pole);
+			AddObstacle(pole);
+		}
+	}
+	delete poleTiles;
+	for(uint i = 0; i < benchTiles->size(); i++){
+		for(uint j = 0; j < benchTiles->at(i).size(); j++){
+			index = benchTiles->at(i)[j];
+			obstaclePos = Vec2(index % tileMap.GetWidth(), index / tileMap.GetWidth());
+			Obstacle* bench = new Obstacle("./img/obstacle/banco_h.png", obstaclePos, index);
+			tileMap.InsertGO(bench, false);
+			// AddObject(bench);
+			AddObstacle(bench);
+		}
+	}
+	delete benchTiles;
 }
