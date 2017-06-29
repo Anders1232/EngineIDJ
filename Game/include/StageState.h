@@ -38,7 +38,7 @@ class StageState: public State {
 
 		WaveManager *waveManager;/**< Referencia para a WaveManager, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
 
-		void InitializeObtacles(void);
+		void InitializeObstacles(void);
 		std::vector<std::unique_ptr<GameObject>> obstacleArray;
 		void AddObstacle(GameObject *obstacle);
 		void RenderObstacleArray(void) const;

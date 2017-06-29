@@ -234,12 +234,10 @@ void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
 	} 
 	else {
-
 		int line = initialTile / GetWidth();
 		int column = initialTile % GetWidth();
 		obj->box.x = column*tileSet->GetTileWidth();
 		obj->box.y = line*tileSet->GetTileHeight();
-
 	}
 }
 

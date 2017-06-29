@@ -55,7 +55,7 @@ StageState::StageState(void)
 	waveManager= new WaveManager(tileMap, "assets/wave&enemyData.txt");
 	waveManagerGO->AddComponent(waveManager);
 	AddObject(waveManagerGO);
-	InitializeObtacles();
+	InitializeObstacles();
 }
 
 StageState::~StageState(void) {
@@ -239,7 +239,7 @@ void StageState::RenderObstacleArray(void) const {
 	}
 }
 
-void StageState::InitializeObtacles(void){
+void StageState::InitializeObstacles(void){
 	/*
 	70 a 72 3 tipos de arvores
 	73 poste
