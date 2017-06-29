@@ -38,7 +38,9 @@ StageState::StageState(void)
 		, lightningColor(255, 255, 255, 0)
 		, HUDcanvas()
 		, openMenuBtn()
-		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT) {
+		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
+		, towersBtnGroup(UIgridGroup::ConstraintType::FIXED_N_COLS, 2, UIgridGroup::BehaviorOnLess::NORMAL)
+		, towerBtn1() {
 	REPORT_I_WAS_HERE;
 	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
 	
@@ -71,6 +73,17 @@ StageState::StageState(void)
 					   {1., 0.5});
 	menuBg.SetOffsets( {(float)-(menuBg.GetSpriteWidth()+15.), (float)(-menuBg.GetSpriteHeight()/2.)},
 					   {-15., (float)(menuBg.GetSpriteHeight()/2.)});
+	
+	towersBtnGroup.SetAnchors( {0., 0.5},
+							   {1., 1.} );
+	towersBtnGroup.SetOffsets( {32., 0.},
+							   {-27., -30.} );
+
+	towerBtn1.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
+	towerBtn1.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
+	towerBtn1.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+
+	towersBtnGroup.groupedElements.push_back(&towerBtn1);
 }
 
 StageState::~StageState(void) {
@@ -191,6 +204,8 @@ void StageState::UpdateUI(float dt) {
 	openMenuBtn.Update(dt, HUDcanvas);
 	if(menuIsShowing) {
 		menuBg.Update(dt, HUDcanvas);
+		towersBtnGroup.Update(dt, menuBg);
+		towerBtn1.Update(dt, towersBtnGroup);
 	}
 }
 
@@ -221,6 +236,8 @@ void StageState::RenderUI(void) const {
 	openMenuBtn.Render();
 	if(menuIsShowing) {
 		menuBg.Render();
+		// towersBtnGroup.Render();
+		towerBtn1.Render();
 	}
 }
 

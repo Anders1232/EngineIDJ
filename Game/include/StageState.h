@@ -17,6 +17,7 @@
 #include "WaveManager.h"
 #include "UIcanvas.h"
 #include "UIimageButton.h"
+#include "UIgridGroup.h"
 
 using std::vector;
 
@@ -48,6 +49,8 @@ class StageState: public State {
 		UIcanvas HUDcanvas;
 		UIimageButton openMenuBtn;
 		UIimage menuBg;
+		UIgridGroup towersBtnGroup;
+		UIimageButton towerBtn1;
 };
 
 #include "EndState.h"

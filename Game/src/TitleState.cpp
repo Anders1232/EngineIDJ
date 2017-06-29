@@ -12,7 +12,7 @@
 
 TitleState::TitleState()
 		: State()
-		, canvas({1024,600}, UIelement::BehaviorType::FIT)
+		, canvas({1024,600}, UIelement::BehaviorType::STRETCH)
 		, bg("img/UI/main-menu/bg.png", UIelement::BehaviorType::STRETCH)
 		, lua("img/UI/main-menu/lua.png", UIelement::BehaviorType::FIT)
 		/*, nuvemA("img/UI/main-menu/nuvemA.png", UIelement::BehaviorType::FILL)*/
