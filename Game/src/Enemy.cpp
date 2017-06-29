@@ -56,7 +56,6 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			sp[i][i2].SetFrame(1);
 		}
 	}
-
 	//each type will have their own components. dando invalid read.
 	switch(enemyData.enemyType){
 		case EnemyType::HOSTILE:
