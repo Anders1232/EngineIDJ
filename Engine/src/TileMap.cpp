@@ -197,11 +197,12 @@ void TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 		}
 	}
 	else{
-		REPORT_DEBUG("\tInserting the gameObject at position " << obj->tilePos);
-		gameObjectMatrix[obj->tilePos] = obj;
+		int tilePos= GetTileMousePos(obj->box.Center(), false, 0);
+		REPORT_DEBUG("\tInserting the gameObject at position " << tilePos);
+		gameObjectMatrix[tilePos] = obj;
 		
-		int line = obj->tilePos / GetWidth();
-		int column = obj->tilePos % GetWidth();
+		int line = tilePos / GetWidth();
+		int column = tilePos % GetWidth();
 		obj->box.x = column*tileSet->GetTileWidth();
 		obj->box.y = line*tileSet->GetTileHeight();
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
