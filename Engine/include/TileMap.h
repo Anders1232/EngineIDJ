@@ -189,7 +189,7 @@ class TileMap{
 
 			Retorna uma lista com a sequencia dos indices dos tiles que formam o caminho
 		*/
-		std::list<int> AStar(unsigned int originTile,unsigned int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap);
+		std::list<int> AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap);
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.

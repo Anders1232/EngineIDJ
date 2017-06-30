@@ -453,7 +453,12 @@ struct TileMap::LessThanByHeuristic{
 
 };
 
-std::list<int> TileMap::AStar(unsigned int originTile,unsigned int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap){
+std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap){
+
+	std::cout << originTile << std::endl;
+	std::cout << destTile << std::endl;
+	std::cout << weightMap.empty() << std::endl;
+
 	std::list<int> path;//caminho final a ser retornado
 	double weight;//Auxiliar para peso associado a cada tile
 	std::pair<double,int> current;//Auxiliar para tile atual que está sendo processado
@@ -520,6 +525,8 @@ std::list<int> TileMap::AStar(unsigned int originTile,unsigned int destTile,ASta
 			}
 		}
 	}
+	//std::cout << "Chegou aqui" << std::endl;
+	std::cout << "Terminou A*:" << path.size() << std::endl;
 	return(path);
 }
 void TileMap::ShowPath(std::list<int>path){

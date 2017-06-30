@@ -6,6 +6,7 @@ AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associat
 
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt")).at(((Enemy&)associated).GetType());
 	path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
+	std::cout << "aquiEstou" << std::endl;
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
 	dfa[AIState::WALKING][AIEvent::PATH_BLOCKED] = AIState::SENDING_BOMB;
 	dfa[AIState::WALKING][AIEvent::SMOKE] = AIState::WALKING_SLOWLY;
