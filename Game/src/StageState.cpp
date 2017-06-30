@@ -224,8 +224,8 @@ void StageState::ShowLightning(float dt){
 	}
 }
 
-void StageState::AddObstacle(GameObject *obstacle) {
-	obstacleArray.push_back(std::unique_ptr<GameObject>(obstacle));
+void StageState::AddObstacle(Obstacle *obstacle) {
+	obstacleArray.push_back(std::unique_ptr<Obstacle>(obstacle));
 }
 
 void StageState::RenderObstacleArray(void) const {
@@ -257,27 +257,52 @@ void StageState::InitializeObstacles(void){
 	vector<vector<int>>* poleTiles = tileMap.GetTileGroups(POLE_TILESET_INDEX);
 	vector<vector<int>>* benchTiles = tileMap.GetTileGroups(BENCH_TILESET_INDEX);
 	for(uint count = 0; count < treeTiles.size(); count++){
-		for(uint i = 0; i < treeTiles[count]->size(); i++){
-			for(uint j = 0; j < treeTiles[count]->at(i).size(); j++){
-				auto baixo= std::find(treeTiles[count]->at(i).begin(), treeTiles[count]->at(i).end(),treeTiles[count]->at(i)[j]+tileMap.GetWidth());
-				if(baixo != treeTiles[count]->at(i).end){
-					//tem um tile em baixo
-					if(treeTiles->at(i)[j+1]==treeTiles->at(i)[j]+1){
-						if(*(baixo+1) == (*baixo)+1){
-							//é um quadrado
-						}
-						else{
-							//é uma coluna
+		vector<vector<int>> &treeGroup= *(treeTiles[count]);
+		for(uint i = 0; i < treeGroup.size(); i++){
+			vector<int> &treeTilesVector= treeGroup[i];
+			for(uint j = 0; j < treeTilesVector.size(); j++){
+				Obstacle* tree;
+				index = treeTilesVector[j];
+				if(treeTilesVector.size() <= (j+1) ){
+					//checar as alternativas gerará um seg fault
+					tree = new Obstacle("./img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+				}
+				else{
+					auto baixo= std::find(treeTilesVector.begin(), treeTilesVector.end(),treeTilesVector[j]+tileMap.GetWidth());
+					if(baixo != treeTilesVector.end()){
+						//tem um tile em baixo
+						if(treeTilesVector[j+1] == (index+1) ){
+							//tem uma linha e uma coluna a partir do tile sendo processado
+							bool isSqare=false;
+							if( (baixo+1) != treeTilesVector.end())
+							{
+								if(*(baixo+1) == (*baixo)+1){
+									//é um quadrado
+									isSqare = true;
+									tree = new Obstacle("./img/obstacle/arvore4.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+									treeTilesVector.erase(baixo+1);
+									treeTilesVector.erase(baixo);
+									treeTilesVector.erase(treeTilesVector.begin()+(j+1) );
+								}
+							}
+							if(!isSqare){
+								//é uma coluna
+								tree = new Obstacle("./img/obstacle/arvore3.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+								treeTilesVector.erase(baixo);
+							}
 						}
 					}
+					else if(treeTilesVector[j+1] == treeTilesVector[j]+1){
+						//é uma linha
+						tree = new Obstacle("./img/obstacle/arvore2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+						treeTilesVector.erase(treeTilesVector.begin()+(j+1) );
+					}
+					else{
+						//é apenas um tile
+						tree = new Obstacle("./img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+					}
 				}
-				else if(treeTiles->at(i)[j+1]==treeTiles->at(i)[j]+1){
-					//é uma linha
-				}
-				index = treeTiles[count]->at(i)[j];
-				Obstacle* tree = new Obstacle("./img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 				tileMap.InsertGO(tree, false);
-				// AddObject(tree1);
 				AddObstacle(tree);
 			}
 		}
