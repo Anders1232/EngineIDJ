@@ -436,13 +436,13 @@ struct TileMap::LessThanByHeuristic{
 	public:
 
 		LessThanByHeuristic(int dest,AStarHeuristic* heuristic,int mapWidth):
-		destTile(dest),heuristic(heuristic),tileMapWidth(tileMapWidth){}
+		destTile(dest),heuristic(heuristic),tileMapWidth(mapWidth){}
 
 		bool operator()(const std::pair<double,int> lhs,const std::pair<double,int> rhs) const{
 			return lhs.first + (*heuristic)(Vec2(lhs.second / tileMapWidth,lhs.second % tileMapWidth),
-				                          Vec2(destTile / tileMapWidth,destTile % tileMapWidth)) < 
-			       rhs.first + (*heuristic)(Vec2(rhs.second / tileMapWidth,rhs.second % tileMapWidth),
-				                          Vec2(destTile / tileMapWidth,destTile % tileMapWidth));
+										Vec2(destTile / tileMapWidth,destTile % tileMapWidth)) < 
+					rhs.first + (*heuristic)(Vec2(rhs.second / tileMapWidth,rhs.second % tileMapWidth),
+										Vec2(destTile / tileMapWidth,destTile % tileMapWidth));
 		}
 
 	private:
