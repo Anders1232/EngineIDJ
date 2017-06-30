@@ -250,22 +250,42 @@ void StageState::InitializeObstacles(void){
 	Vec2 tileSize= tileMap.GetTileSize();
 	int tileWidth= tileSize.x;
 	int tileHeight= tileSize.y;
-	vector<vector<int>>* tree1Tiles = tileMap.GetTileGroups(TREE_1_TILESET_INDEX);
-	vector<vector<int>>* tree2Tiles = tileMap.GetTileGroups(TREE_2_TILESET_INDEX);
-	vector<vector<int>>* tree3Tiles = tileMap.GetTileGroups(TREE_3_TILESET_INDEX);
+	std::array<vector<vector<int>>*, 3> treeTiles;
+	treeTiles[0] = tileMap.GetTileGroups(TREE_1_TILESET_INDEX);
+	treeTiles[1] = tileMap.GetTileGroups(TREE_2_TILESET_INDEX);
+	treeTiles[2] = tileMap.GetTileGroups(TREE_3_TILESET_INDEX);
 	vector<vector<int>>* poleTiles = tileMap.GetTileGroups(POLE_TILESET_INDEX);
 	vector<vector<int>>* benchTiles = tileMap.GetTileGroups(BENCH_TILESET_INDEX);
-	for(uint i = 0; i < tree1Tiles->size(); i++){
-		for(uint j = 0; j < tree1Tiles->at(i).size(); j++){
-			index = tree1Tiles->at(i)[j];
-			Obstacle* tree1 = new Obstacle("./img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
-			tileMap.InsertGO(tree1, false);
-			// AddObject(tree1);
-			AddObstacle(tree1);
+	for(uint count = 0; count < treeTiles.size(); count++){
+		for(uint i = 0; i < treeTiles[count]->size(); i++){
+			for(uint j = 0; j < treeTiles[count]->at(i).size(); j++){
+				auto baixo= std::find(treeTiles[count]->at(i).begin(), treeTiles[count]->at(i).end(),treeTiles[count]->at(i)[j]+tileMap.GetWidth());
+				if(baixo != treeTiles[count]->at(i).end){
+					//tem um tile em baixo
+					if(treeTiles->at(i)[j+1]==treeTiles->at(i)[j]+1){
+						if(*(baixo+1) == (*baixo)+1){
+							//é um quadrado
+						}
+						else{
+							//é uma coluna
+						}
+					}
+				}
+				else if(treeTiles->at(i)[j+1]==treeTiles->at(i)[j]+1){
+					//é uma linha
+				}
+				index = treeTiles[count]->at(i)[j];
+				Obstacle* tree = new Obstacle("./img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+				tileMap.InsertGO(tree, false);
+				// AddObject(tree1);
+				AddObstacle(tree);
+			}
 		}
 	}
-	delete tree1Tiles;
-	for(uint i = 0; i < tree2Tiles->size(); i++){
+	delete treeTiles[0];
+	delete treeTiles[1];
+	delete treeTiles[2];
+/*	for(uint i = 0; i < tree2Tiles->size(); i++){
 		for(uint j = 0; j < tree2Tiles->at(i).size(); j++){
 			index = tree2Tiles->at(i)[j];
 			Obstacle* tree2 = new Obstacle("./img/obstacle/arvore2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
@@ -285,7 +305,7 @@ void StageState::InitializeObstacles(void){
 		}
 	}
 	delete tree3Tiles;
-	for(uint i = 0; i < poleTiles->size(); i++){
+*/	for(uint i = 0; i < poleTiles->size(); i++){
 		for(uint j = 0; j < poleTiles->at(i).size(); j++){
 			index = poleTiles->at(i)[j];
 			Obstacle* pole = new Obstacle("./img/obstacle/posteLuz.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
