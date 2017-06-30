@@ -23,3 +23,8 @@ Rect Obstacle::GetWorldRenderedRect(void) const {
 bool Obstacle::Is(string type) {
 	return "Obstacle" == type;
 }
+
+void Obstacle::SpriteScaleY(float scaleY){
+	sp.ScaleY(scaleY);
+}
+

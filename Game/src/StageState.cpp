@@ -337,6 +337,9 @@ void StageState::InitializeObstacles(void){
 			tileMap.InsertGO(pole, false);
 			// AddObject(pole);
 			AddObstacle(pole);
+			pole->SpriteScaleY(2.);
+			pole->box.y= pole->box.y - 1*tileMap.GetTileSize().y;
+			pole->box.h= 2*tileMap.GetTileSize().y;
 		}
 	}
 	delete poleTiles;

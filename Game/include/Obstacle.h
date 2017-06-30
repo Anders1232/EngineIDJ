@@ -20,6 +20,7 @@ class Obstacle : public GameObject{
 		void NotifyCollision(GameObject &object);
 		Rect GetWorldRenderedRect(void) const;
 		bool Is(string type);
+		void SpriteScaleY(float scaleY);
 	private:
 		Sprite sp;
 };
