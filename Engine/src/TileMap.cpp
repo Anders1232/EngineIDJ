@@ -436,13 +436,13 @@ struct TileMap::LessThanByHeuristic{
 	public:
 
 		LessThanByHeuristic(int dest,AStarHeuristic* heuristic,int mapWidth):
-		destTile(dest),heuristic(heuristic),tileMapWidth(tileMapWidth){}
+		destTile(dest),heuristic(heuristic),tileMapWidth(mapWidth){}
 
 		bool operator()(const std::pair<double,int> lhs,const std::pair<double,int> rhs) const{
 			return lhs.first + (*heuristic)(Vec2(lhs.second / tileMapWidth,lhs.second % tileMapWidth),
-				                          Vec2(destTile / tileMapWidth,destTile % tileMapWidth)) < 
-			       rhs.first + (*heuristic)(Vec2(rhs.second / tileMapWidth,rhs.second % tileMapWidth),
-				                          Vec2(destTile / tileMapWidth,destTile % tileMapWidth));
+										Vec2(destTile / tileMapWidth,destTile % tileMapWidth)) < 
+					rhs.first + (*heuristic)(Vec2(rhs.second / tileMapWidth,rhs.second % tileMapWidth),
+										Vec2(destTile / tileMapWidth,destTile % tileMapWidth));
 		}
 
 	private:
@@ -455,9 +455,7 @@ struct TileMap::LessThanByHeuristic{
 
 std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap){
 
-	std::cout << originTile << std::endl;
-	std::cout << destTile << std::endl;
-	std::cout << weightMap.empty() << std::endl;
+	std::cout << "Tile de destino: " << destTile << std::endl;
 
 	std::list<int> path;//caminho final a ser retornado
 	double weight;//Auxiliar para peso associado a cada tile
@@ -515,7 +513,25 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 	//Deducao do caminho
 	std::list<std::pair<int ,std::pair<int,double> > >::iterator it;
 	int actual_node;
-	actual_node = current.second;
+	if(current.second == destTile){
+		actual_node = current.second;
+	}
+	//Caso o destino não esteja possível procura o caminho com destino mais proximo do destino o qual se quer
+	else{
+
+		double closerNode = std::numeric_limits<double>::max();
+		for(it = paths.begin(); it != paths.end(); ++ it){
+
+			double auxCloser = (*heuristic)(Vec2(it->first / mapWidth,it->first % mapWidth),Vec2(destTile / mapWidth,destTile % mapWidth));
+			if(auxCloser < closerNode){
+
+				actual_node = it->first;
+				closerNode = auxCloser;
+
+			}
+		}
+
+	}
 	while(actual_node != originTile){
 		for(it = paths.begin(); it != paths.end(); ++ it){
 			if(it->first == actual_node){
@@ -525,8 +541,6 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 			}
 		}
 	}
-	//std::cout << "Chegou aqui" << std::endl;
-	std::cout << "Terminou A*:" << path.size() << std::endl;
 	return(path);
 }
 void TileMap::ShowPath(std::list<int>path){

@@ -68,7 +68,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 					sp[i][i2].colorMultiplier.b = 85;
 				}
 			}
-			components.emplace_back(new AIGoDown(ENEMY_HOSTILE_MOVE_SPEED));
+			components.emplace_back(new AIGoTo(ENEMY_ENGINEER_MOVE_SPEED, endPoint, tileMap , *this));
 			break;
 		case EnemyType::NEUTRAL:
 			REPORT_DEBUG("Enemy type: NEUTRAL "<< enemyData.enemyType);
@@ -80,7 +80,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 					sp[i][i2].colorMultiplier.b = 255;
 				}
 			}
-			components.emplace_back(new AIGoDown(ENEMY_MOVE_SPEED));
+			components.emplace_back(new AIGoTo(ENEMY_ENGINEER_MOVE_SPEED, endPoint, tileMap , *this));
 			break;
 		case EnemyType::ENGINEER:
 			REPORT_DEBUG("Enemy type: ENGINEER "<< enemyData.enemyType);
@@ -104,7 +104,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 					sp[i][i2].colorMultiplier.b = 255;
 				}
 			}
-			components.emplace_back(new AIGoDown(ENEMY_ARQUITET_MOVE_SPEED));
+			components.emplace_back(new AIEngineer(ENEMY_ENGINEER_MOVE_SPEED, endPoint, tileMap , *this));
 			break;
 		case EnemyType::ART:
 			REPORT_DEBUG("Enemy type: ART "<< enemyData.enemyType);

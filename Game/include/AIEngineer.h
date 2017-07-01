@@ -48,7 +48,7 @@ class AIEngineer : public Component
 		ManhattanDistance *heuristic;/**<Heuristica a ser utilizada pelo A* no calculo do caminho*/
 		std::map<int, double> tileWeightMap;
 		Vec2 tempDestination;
-		TileMap& tilemap;
+		TileMap& tileMap;
 
 		AIState actualState;
 		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM]; 

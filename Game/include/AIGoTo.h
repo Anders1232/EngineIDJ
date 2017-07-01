@@ -4,6 +4,7 @@
 #include "Component.h"
 #include "TileMap.h"
 #include "GameResources.h"
+#include "ManhattanDistance.h"
 #include <list>
 
 /**
@@ -18,7 +19,7 @@ class AIGoTo : public Component
 			\param dest tile de destino.
 			Instancia o componente.
 		*/
-		AIGoTo(float speed,int dest,GameObject &associated);
+		AIGoTo(float speed,int dest,TileMap& tilemap,GameObject &associated);
 		/**
 			\brief Atualiza estado.
 			\param associated GameObject que contém esse componente.
@@ -26,7 +27,7 @@ class AIGoTo : public Component
 			
 			Instancia o componente.
 		*/
-		void Update(float dt);
+		void Update(GameObject &associated, float dt);
 		/**
 			\brief Verifica se essa componente é do tipo informado.
 			
@@ -34,10 +35,17 @@ class AIGoTo : public Component
 		*/
 		bool Is(ComponentType type) const;
 	private:
+		
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
-		int dest;/**< indice do tile de destino*/
+		Vec2 vecSpeed;
+		int destTile;/**< indice do tile de destino*/
 		std::list<int> path;/**< Caminho a ser executado pela IA*/
+		ManhattanDistance *heuristic;/**<Heuristica a ser utilizada pelo A* no calculo do caminho*/
+		std::map<int, double> tileWeightMap;
 		GameObject &associated;
+		Vec2 tempDestination;
+		TileMap& tileMap;
+
 };
 
 #endif 

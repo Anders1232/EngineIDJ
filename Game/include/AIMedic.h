@@ -20,7 +20,7 @@ class AIMedic : public Component
 			\param associado objeto associado a essa IA.
 			Instancia o componente.
 		*/
-		AIMedic(float speed,int dest,TileMap* tilemap,GameObject &associated);
+		AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated);
 		/**
 			\brief Atualiza estado.
 			\param dt Intervalo de tempo desde a última chamada.
@@ -48,7 +48,7 @@ class AIMedic : public Component
 		ManhattanDistance *heuristic;/**<Heuristica a ser utilizada pelo A* no calculo do caminho*/
 		std::map<int, double> tileWeightMap;
 		Vec2 tempDestination;
-		TileMap* tilemap;
+		TileMap& tileMap;
 		GameObject &associated;
 
 		AIState actualState;
