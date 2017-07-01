@@ -34,12 +34,6 @@ class StageState: public State {
 		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;
 		Music music;
-        //mudar pro wavemanager
-		vector<vector<int>> *spawnGroups;
-		vector<vector<int>> *endGroups;
-		Timer spawnTimer;
-		//
-		//void SpawnEnemy(int tileMapPosition,int endTileMap);
 		
 		bool isLightning;
 		Timer lightningTimer;
