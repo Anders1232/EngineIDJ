@@ -44,11 +44,6 @@ StageState::StageState(void)
 	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
 	
 	REPORT_I_WAS_HERE;
-
-	spawnGroups = tileMap.GetTileGroups(SPAWN_POINT);
-	endGroups = tileMap.GetTileGroups(END_POINT);
-
-	REPORT_I_WAS_HERE;
 	music.Play(10);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
 	Camera::ForceLogZoom(CAM_START_ZOOM);

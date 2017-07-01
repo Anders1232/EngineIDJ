@@ -1,6 +1,6 @@
 --ENEMIES--
     Quimico_maroto
-        QUIMIC
+        ART
         enemy
         1.0
         1.0
@@ -54,3 +54,29 @@ Wave1
             1000
             1
             
+            2
+            2
+            1000
+            4
+
+    SpawnPoint:2
+            3
+            3
+            1000
+            0
+
+            2
+            10
+            120
+            1
+            
+            1
+            30
+            150
+            2
+
+            0
+            2
+            1000
+            3
+

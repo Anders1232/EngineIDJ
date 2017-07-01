@@ -313,11 +313,11 @@ vector<vector<int>>* TileMap::GetTileGroups(int tileType) const {
 		}
 		REPORT_I_WAS_HERE;
 	}
-#if DEBUG
+#ifdef DEBUG
+	std::cout << WHERE << "\tTileWidth= " << GetWidth() << END_LINE;
 	std::cout << WHERE << "\tNumero de spawn groups achados: " << (*spawnPoints).size() << END_LINE;
 	for(uint i = 0; i < (*spawnPoints).size(); i++) {
 		std::cout << WHERE << "\tTileGroups groups " << i <<" tem tamanho " << (*spawnPoints)[i].size() << END_LINE;
-		std::cout << WHERE << "\tTileWidth= " << GetWidth() << END_LINE;
 		for(uint i2 = 0; i2 < (*spawnPoints)[i].size(); i2++) {
 			std::cout << WHERE << "\tTile point: " << (*spawnPoints)[i][i2] << END_LINE;
 		}
