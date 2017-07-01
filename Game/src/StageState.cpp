@@ -59,6 +59,7 @@ StageState::StageState(void)
 }
 
 StageState::~StageState(void) {
+	TEMP_REPORT_I_WAS_HERE;
 	objectArray.clear();
 	obstacleArray.clear();
 	GameResources::Clear();
@@ -310,32 +311,11 @@ void StageState::InitializeObstacles(void){
 	delete treeTiles[0];
 	delete treeTiles[1];
 	delete treeTiles[2];
-/*	for(uint i = 0; i < tree2Tiles->size(); i++){
-		for(uint j = 0; j < tree2Tiles->at(i).size(); j++){
-			index = tree2Tiles->at(i)[j];
-			Obstacle* tree2 = new Obstacle("./img/obstacle/arvore2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
-			tileMap.InsertGO(tree2, false);
-			// AddObject(tree2);
-			AddObstacle(tree2);
-		}
-	}
-	delete tree2Tiles;
-	for(uint i = 0; i < tree3Tiles->size(); i++){
-		for(uint j = 0; j < tree3Tiles->at(i).size(); j++){
-			index = tree3Tiles->at(i)[j];
-			Obstacle* tree3 = new Obstacle("./img/obstacle/arvore4.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
-			tileMap.InsertGO(tree3, false);
-			// AddObject(tree3);
-			AddObstacle(tree3);
-		}
-	}
-	delete tree3Tiles;
-*/	for(uint i = 0; i < poleTiles->size(); i++){
+	for(uint i = 0; i < poleTiles->size(); i++){
 		for(uint j = 0; j < poleTiles->at(i).size(); j++){
 			index = poleTiles->at(i)[j];
 			Obstacle* pole = new Obstacle("./img/obstacle/posteLuz.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 			tileMap.InsertGO(pole, false);
-			// AddObject(pole);
 			AddObstacle(pole);
 			pole->SpriteScaleY(2.);
 			pole->box.y= pole->box.y - 1*tileMap.GetTileSize().y;
@@ -348,7 +328,6 @@ void StageState::InitializeObstacles(void){
 			index = benchTiles->at(i)[j];
 			Obstacle* bench = new Obstacle("./img/obstacle/banco_h.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 			tileMap.InsertGO(bench, false);
-			// AddObject(bench);
 			AddObstacle(bench);
 		}
 	}

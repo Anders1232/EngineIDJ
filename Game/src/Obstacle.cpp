@@ -8,6 +8,8 @@ Obstacle::Obstacle(std::string path, Vec2 position) : GameObject(), sp(path){
 	box.h = sp.GetHeight();
 }
 
+Obstacle::~Obstacle(){}
+
 void Obstacle::Update(float dt ) {}
 
 void Obstacle::Render(void) {
