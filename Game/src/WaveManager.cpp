@@ -116,6 +116,7 @@ void WaveManager::Update(GameObject &associated, float dt){
 					int endPosition= rand()% ( ( (*endGroups).at(enemyToSpawn.endPoint) ).size());
 					TEMP_REPORT_I_WAS_HERE;
 					int endTilePosition= (*endGroups).at(enemyToSpawn.endPoint).at(endPosition);
+
 					TEMP_REPORT_I_WAS_HERE;
 					SpawnEnemy( (*spawnGroups).at(i).at(spawnPosition), enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, endTilePosition, indexOfTheEnemyToSpawn );
 					TEMP_REPORT_I_WAS_HERE;

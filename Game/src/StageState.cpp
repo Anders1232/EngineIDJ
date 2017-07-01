@@ -63,7 +63,7 @@ StageState::~StageState(void) {
 	GameResources::Clear();
 }
 
-void StageState::Update(float dt) {
+void StageState::Update(float dt){
 	REPORT_I_WAS_HERE;
 	if(ActionManager::EscapeAction()) {
 		popRequested = true;
