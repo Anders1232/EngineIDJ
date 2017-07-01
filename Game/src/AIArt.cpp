@@ -7,7 +7,7 @@ AIArt::AIArt(float speed,int dest,TileMap &tileMap,GameObject &associated):speed
 
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
-	path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.x,associated.box.y), false, 0),destTile,heuristic,tileWeightMap);
+	path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
 	vecSpeed = Vec2(0.0,0.0);
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
@@ -120,8 +120,10 @@ void AIArt::Update(GameObject &associated, float dt){
 	}
 	else if(actualState == AIState::WAITING){
 
-		if(path.front() != destTile){
-			path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
+		if(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
+			std::cout << "Entrou" << "art"<< destTile << " " << tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) <<  std::endl;
+			path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+
 		}
 	}
 	else{

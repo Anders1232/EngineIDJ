@@ -4,7 +4,7 @@ AIMedic::AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated):s
 
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
-	path = tileMap.AStar(tilemap.GetTileMousePos(Vec2(associated.box.x,associated.box.y), false, 0),destTile,heuristic,tileWeightMap);
+	path = tileMap.AStar(tilemap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
 	vecSpeed = Vec2(0.0,0.0);
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
@@ -186,7 +186,16 @@ void AIMedic::Update(float dt){
 	}
 	else if(actualState == AIState::WAITING){
 
-		path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
+		if(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
+			std::cout << "Entrou" << "Medic" << destTile << " " << tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) <<  std::endl;
+			path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+
+		}
+		else{
+
+			//Aqui o inimigo chegou ao destino.O que fazer?
+
+		}
 		
 	}
 	else if(actualState == AIState::STUNNED){

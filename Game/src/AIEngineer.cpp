@@ -5,7 +5,7 @@
 AIEngineer::AIEngineer(float speed,int dest,TileMap& tilemap, GameObject &associated):speed(speed),destTile(dest),tileMap(tilemap){
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
-	path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.x,associated.box.y), false, 0),destTile,heuristic,tileWeightMap);
+	path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
 	vecSpeed = Vec2(0.0,0.0);
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
@@ -84,8 +84,6 @@ AIEngineer::AIEvent AIEngineer::ComputeEvents(){
 void AIEngineer::Update(GameObject &associated, float dt){
 
 	AIEvent actualTransition = ComputeEvents();
-	//std::cout << "Estado atual: " << actualState << std::endl;
-	//std::cout << "Transição atual : " << actualTransition << std::endl;
 	actualState = dfa[actualState][actualTransition];
 
 	if(actualState == AIState::WALKING){
@@ -159,8 +157,17 @@ void AIEngineer::Update(GameObject &associated, float dt){
 	}
 	else if(actualState == AIState::BUILDING_BARRIER){
 
-		path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y), false, 0),destTile,heuristic,tileWeightMap);
-		//Executa aqui código para o inimigo construir barreiras para se defender de bombas
+		if(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
+			//Executa aqui código para o inimigo construir barreiras para se defender de bombas
+			std::cout << "Entrou" << "Enginner " << destTile << " " << tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) <<  std::endl;
+			path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+		}
+		else{
+
+			//Aqui o inimigo chegou ao destino.O que fazer?
+
+		}
+			
 
 	}
 	else if(actualState == AIState::STUNNED){
@@ -172,7 +179,7 @@ void AIEngineer::Update(GameObject &associated, float dt){
 
 		//Aqui executa animações de efeito de fumaça
 		
-	}
+		}
 
 }
 
