@@ -61,8 +61,11 @@ StageState::StageState(void)
 StageState::~StageState(void) {
 	TEMP_REPORT_I_WAS_HERE;
 	objectArray.clear();
+	TEMP_REPORT_I_WAS_HERE;
 	obstacleArray.clear();
+	TEMP_REPORT_I_WAS_HERE;
 	GameResources::Clear();
+	TEMP_REPORT_I_WAS_HERE;
 }
 
 void StageState::Update(float dt) {
@@ -293,7 +296,7 @@ void StageState::InitializeObstacles(void){
 							}
 						}
 					}
-					else if(treeTilesVector[j+1] == treeTilesVector[j]+1){
+					else if(treeTilesVector[j+1] == index+1){
 						//é uma linha
 						tree = new Obstacle("./img/obstacle/arvore2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 						treeTilesVector.erase(treeTilesVector.begin()+(j+1) );
@@ -303,8 +306,12 @@ void StageState::InitializeObstacles(void){
 						tree = new Obstacle("./img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 					}
 				}
-				tileMap.InsertGO(tree, false);
-				AddObstacle(tree);
+//				ASSERT2(tree != nullptr, "Aha!");
+				if(nullptr != tree){
+					tileMap.InsertGO(tree, false);
+					AddObstacle(tree);
+					tree= nullptr;
+				}
 			}
 		}
 	}
