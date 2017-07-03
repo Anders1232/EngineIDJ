@@ -8,6 +8,9 @@ AIArt::AIArt(float speed, int dest, TileMap &tileMap, GameObject &associated, Wa
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
 	path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+	path.reverse();
+	REPORT_DEBUG2(1, "desTile= "<<destTile<<"\t última posição do A*: "<<path.front());
+	path.reverse();
 	vecSpeed = Vec2(0.0,0.0);
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
