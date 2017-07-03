@@ -191,11 +191,7 @@ void AIMedic::Update(float dt){
 			path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
 
 		}
-		else{
-
-			//Aqui o inimigo chegou ao destino.O que fazer?
-
-		}
+		else{associated.RequestDelete();}
 		
 	}
 	else if(actualState == AIState::STUNNED){

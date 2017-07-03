@@ -190,11 +190,7 @@ void AIQuimic::Update(GameObject &associated, float dt){
 			path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
 
 		}
-		else{
-
-			//Aqui o inimigo chegou no destino.Oque fazer?
-
-		}
+		else{associated.RequestDelete();}
 
 	}
 	else if(actualState == AIState::STUNNED){

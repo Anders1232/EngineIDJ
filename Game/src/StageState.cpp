@@ -66,9 +66,17 @@ void StageState::Update(float dt){
 	if(inputManager.QuitRequested()) {
 		quitRequested = true;
 	}
-	REPORT_I_WAS_HERE;
-	UpdateArray(dt);
-	REPORT_I_WAS_HERE;
+	
+	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
+		objectArray.at(cont)->Update(dt);
+		if(objectArray.at(cont)->IsDead()){
+			if(objectArray.at(cont)->Is("Enemy")){
+				waveManager->NotifyEnemyGotToHisDestiny();
+			}
+			objectArray.erase(objectArray.begin()+cont);
+			cont--;
+		}
+	}
 
 	if(!objectArray.empty()){
 		for(unsigned int count1 = 0; count1 < objectArray.size()-1; count1++) {
