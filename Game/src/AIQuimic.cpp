@@ -1,7 +1,6 @@
 #include "AIQuimic.h"
 
-AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associated):speed(speed),destTile(dest),tileMap(tileMap),associated(associated){
-
+AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associated,WaveManager& wManager):speed(speed),destTile(dest),tileMap(tileMap),associated(associated),waveManager(wManager){
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt")).at(((Enemy&)associated).GetType());
 	path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x, associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
@@ -79,7 +78,6 @@ AIQuimic::AIEvent AIQuimic::ComputeEvents(){
 		}
 		else if(path.back() == destTile){
 
-			//std::cout << "PATH_FREE" << std::endl;
 			return AIEvent::PATH_FREE;
 
 		}
@@ -189,7 +187,12 @@ void AIQuimic::Update(float dt){
 			
 
 		}
-		else{associated.RequestDelete();}
+		else{
+			
+			associated.RequestDelete();
+			waveManager.NotifyEnemyGotToHisDestiny();
+
+		}
 
 	}
 	else if(actualState == AIState::STUNNED){

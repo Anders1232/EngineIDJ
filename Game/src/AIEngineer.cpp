@@ -2,7 +2,7 @@
 
 //enum AIState{WALKING,WALKING_SLOWLY,BUILDING_BARRIER,STUNNED,STATE_NUM};
 //enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,SMOKE,NOT_SMOKE,STUN,NOT_STUN,EVENT_NUM}; 
-AIEngineer::AIEngineer(float speed,int dest,TileMap& tilemap, GameObject &associated):speed(speed),destTile(dest),tileMap(tilemap),associated(associated){
+AIEngineer::AIEngineer(float speed,int dest,TileMap& tilemap, GameObject &associated,WaveManager& wManager):speed(speed),destTile(dest),tileMap(tilemap),associated(associated),waveManager(wManager){
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
 	path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
@@ -159,9 +159,14 @@ void AIEngineer::Update(float dt){
 
 		if(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
 			//Executa aqui código para o inimigo construir barreiras para se defender de bombas
-			std::cout<<WHERE<< "\tParou. Destino desejado: "<< destTile << "\tPosição atual: " << tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0)<<END_LINE;
+		
 		}
-		else{associated.RequestDelete();}
+		else{
+
+			associated.RequestDelete();
+			waveManager.NotifyEnemyGotToHisDestiny();
+
+		}
 			
 	}
 	else if(actualState == AIState::STUNNED){

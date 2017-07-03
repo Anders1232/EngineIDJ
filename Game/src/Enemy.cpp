@@ -92,7 +92,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 					sp[i][i2].colorMultiplier.b = 105;
 				}
 			}
-			components.emplace_back(new AIEngineer(ENEMY_ENGINEER_MOVE_SPEED, endPoint, tileMap , *this));
+			components.emplace_back(new AIEngineer(ENEMY_ENGINEER_MOVE_SPEED, endPoint, tileMap , *this, wManager));
 			break;
 		case EnemyType::ARQUITET:
 			REPORT_DEBUG("Enemy type: ARQUITET "<< enemyData.enemyType);
@@ -104,7 +104,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 					sp[i][i2].colorMultiplier.b = 255;
 				}
 			}
-			components.emplace_back(new AIEngineer(ENEMY_ENGINEER_MOVE_SPEED, endPoint, tileMap , *this));
+			components.emplace_back(new AIEngineer(ENEMY_ENGINEER_MOVE_SPEED, endPoint, tileMap , *this, wManager));
 			break;
 		case EnemyType::ART:
 			REPORT_DEBUG("Enemy type: ART "<< enemyData.enemyType);
@@ -130,7 +130,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 					sp[i][i2].colorMultiplier.b = 100;
 				}
 			}
-			components.emplace_back(new AIQuimic(ENEMY_QUIMIC_MOVE_SPEED, endPoint, tileMap, *this));
+			components.emplace_back(new AIQuimic(ENEMY_QUIMIC_MOVE_SPEED, endPoint, tileMap, *this, wManager));
 			break;
 		default:
 			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";

@@ -20,7 +20,7 @@ class AIEngineer : public Component
 			\param associado objeto associado a essa IA.
 			Instancia o componente.
 		*/
-		AIEngineer(float speed, int dest, TileMap& tilemap, GameObject &associated);
+		AIEngineer(float speed, int dest, TileMap& tilemap, GameObject &associated,WaveManager& wManager);
 		/**
 			\brief Atualiza estado.
 			\param dt Intervalo de tempo desde a última chamada.
@@ -51,7 +51,7 @@ class AIEngineer : public Component
 		Vec2 tempDestination;
 		TileMap& tileMap;
 		GameObject &associated;
-
+		WaveManager& waveManager;
 		AIState actualState;
 		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM]; 
 };
