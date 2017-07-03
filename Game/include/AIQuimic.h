@@ -34,6 +34,7 @@ class AIQuimic : public Component
 			Método herdade do componente com o objetivo de identificar que tipo de componente é.
 		*/
 		bool Is(ComponentType type) const;
+		void MapChanged(void);
 	private:
 
 		enum AIState{WALKING,WALKING_SLOWLY,SENDING_BOMB,STUNNED,STATE_NUM};

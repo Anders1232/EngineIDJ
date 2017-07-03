@@ -187,7 +187,6 @@ void AIQuimic::Update(float dt){
 
 			//Executa aqui código para o inimigo jogar bombas no obstaculo mais próximo
 			std::cout<<WHERE<< "\tParou. Destino desejado: "<< destTile << "\tPosição atual: " << tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0)<<END_LINE;
-//			path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
 
 		}
 		else{associated.RequestDelete();}
@@ -204,6 +203,10 @@ void AIQuimic::Update(float dt){
 		
 	}
 
+}
+
+void AIQuimic::MapChanged(void){
+	path= tileMap.AStar(tileMap.GetCoordTilePos(associated.box.Center(), false, 0), destTile, heuristic, tileWeightMap);
 }
 
 bool AIQuimic::Is(ComponentType type) const{
