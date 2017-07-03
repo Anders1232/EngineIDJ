@@ -140,7 +140,6 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	components.push_back(hitpoints);
 }
 
-
 Enemy::~Enemy(){
 	REPORT_I_WAS_HERE;
 	for(uint i = 0; i < components.size(); i++) {
@@ -152,9 +151,11 @@ Enemy::~Enemy(){
 
 void Enemy::Update(float dt) {
 	int forLimit = components.size();
+	Vec2 positionBefore= box;
 	for(int i = 0; i < forLimit; i++){
 		components[i]->Update(dt);
 	}
+	UpdateEnemyDirection(positionBefore);
 	if(hitpoints->GetHp() < 0){
 		dead = true;
 	}
@@ -163,9 +164,6 @@ void Enemy::Update(float dt) {
 void Enemy::Render(void) {
 	REPORT_DEBUG("\t Box:: x("<<box.x<<"), y(" <<box.y<< "), w("<<box.w<<"), h("<<box.h<<")");
 	for(uint i=0; i< sp[direction].size(); i++){
-		sp[direction][i].Render(box);
-	}
-	for(uint i= 0; i < sp[direction].size(); i++){
 		sp[direction][i].Render(box);
 	}
 	hitpoints->Render();
@@ -199,5 +197,25 @@ Rect Enemy::GetWorldRenderedRect(void) const {
 
 EnemyType Enemy::GetType(void) const{
 	return type;
+}
+
+void Enemy::UpdateEnemyDirection(Vec2 lastPosition){
+	int inclination= ( (int)( (lastPosition-(Vec2)box).Inclination()*CONVERSAO_GRAUS_RADIANOS) )%360;
+	if(0 > inclination){
+		inclination+=360;
+	}
+	REPORT_DEBUG("\t inclinação= "<<inclination);
+	if(45 <= inclination && 135 > inclination){
+		direction= EnemyDirections::UP;
+	}
+	if(135 <= inclination && 225 > inclination){
+		direction= EnemyDirections::RIGHT;
+	}
+	if(225 <= inclination && 315 > inclination){
+		direction= EnemyDirections::DOWN;
+	}
+	else{
+		direction= EnemyDirections::LEFT;
+	}
 }
 
