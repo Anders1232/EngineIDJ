@@ -6,7 +6,7 @@
 #include "TileMap.h"
 
 DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, GameObject &associated ,bool redrag, bool dragOnActionHold)
-		: dragOnHold(dragOnActionHold),associatedInitialPos(associatedInitialPos),associated(associated), tileMap(map),redrag(redrag) {
+		: dragOnHold(dragOnActionHold),associatedInitialPos(associatedInitialPos), tileMap(map),redrag(redrag),associated(associated) {
 }
 
 void DragAndDrop::Update(float dt) {

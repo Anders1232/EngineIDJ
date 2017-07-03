@@ -17,7 +17,7 @@ class AIGoDown : public Component
 			
 			Instancia o componente.
 		*/
-		AIGoDown(float speed);
+		AIGoDown(float speed, GameObject &associated);
 		/**
 			\brief Atualiza estado.
 			\param dt Intervalo de tempo desde a última chamada.

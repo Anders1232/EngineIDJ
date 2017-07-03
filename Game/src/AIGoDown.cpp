@@ -1,6 +1,6 @@
 #include "AIGoDown.h"
 
-AIGoDown::AIGoDown(float speed):speed(speed),associated(associated){
+AIGoDown::AIGoDown(float speed, GameObject &associated):speed(speed),associated(associated){
 }
 
 void AIGoDown::Update(float dt){
