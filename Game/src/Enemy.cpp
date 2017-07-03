@@ -9,7 +9,7 @@
 #include "AIGoDown.h"
 #include "HitPoints.h"
 
-Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint, TileMap & tileMap)
+Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint, TileMap & tileMap, WaveManager &wManager)
 	: sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE), dead(false), direction(EnemyDirections::DOWN){
 	box = position;
 	this->enemyIndex = enemyIndex; 
@@ -116,7 +116,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 					sp[i][i2].colorMultiplier.b = 15;
 				}
 			}
-			components.emplace_back(new AIArt(ENEMY_ART_MOVE_SPEED, endPoint, tileMap, *this));
+			components.emplace_back(new AIArt(ENEMY_ART_MOVE_SPEED, endPoint, tileMap, *this, wManager));
 			break;
 		case EnemyType::QUIMIC:
 			REPORT_DEBUG("Enemy type: QUIMIC "<< enemyData.enemyType);
