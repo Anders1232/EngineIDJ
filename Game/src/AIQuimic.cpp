@@ -186,8 +186,8 @@ void AIQuimic::Update(float dt){
 		if(tileMap.GetCoordTilePos(Vec2(associated.box.x,associated.box.y), false, 0) != destTile){
 
 			//Executa aqui código para o inimigo jogar bombas no obstaculo mais próximo
-			std::cout << "Entrou " << "Quimic " << destTile << " " << tileMap.GetCoordTilePos(Vec2(associated.box.x,associated.box.y), false, 0) <<  std::endl;
-			path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+			std::cout<<WHERE<< "\tParou. Destino desejado: "<< destTile << "\tPosição atual: " << tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0)<<END_LINE;
+//			path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
 
 		}
 		else{associated.RequestDelete();}
