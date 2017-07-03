@@ -183,12 +183,11 @@ void AIQuimic::Update(float dt){
 
 		if(tileMap.GetCoordTilePos(Vec2(associated.box.x,associated.box.y), false, 0) != destTile){
 
-			//Executa aqui código para o inimigo jogar bombas no obstaculo mais próximo
+			GameObject& target = tileMap.CloserObject(associated,std::string("Tower"));
 			
-
 		}
 		else{
-			
+
 			associated.RequestDelete();
 			waveManager.NotifyEnemyGotToHisDestiny();
 

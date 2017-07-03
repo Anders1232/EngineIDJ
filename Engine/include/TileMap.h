@@ -189,6 +189,7 @@ class TileMap{
 			Retorna uma lista com a sequencia dos indices dos tiles que formam o caminho
 		*/
 		std::list<int> AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap);
+		GameObject& CloserObject(GameObject& origin,std::string objectDestType);
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
@@ -236,8 +237,6 @@ class TileMap{
 			\return vetor com o indice dos tiles dos vizinhos.
 		*/
 		std::vector<int> GetNeighbors(int tile) const;
-
-		GameObject& CloserObject(GameObject& origin,std::string objectDestType);
 };
 
 #endif // TILEMAP_H
