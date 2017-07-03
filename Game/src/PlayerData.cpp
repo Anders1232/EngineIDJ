@@ -1,6 +1,7 @@
 #include "PlayerData.h"
 
 PlayerData::PlayerData():name("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Player Board",UIelement::BehaviorType::FIT ,false){
+	points = 0;
 	gold = 0;
 	kills = 0;
 	lifes = TOTAL_LIFES;
@@ -30,4 +31,7 @@ void PlayerData::NotifyKillsUpdate(){
 }
 void PlayerData::NotifyLifesUpdate(){
 	--lifes;
+}
+void PlayerData::PointsChange(int amount){
+	points += amount;
 }

@@ -18,11 +18,13 @@ class PlayerData: public Component{
 		void NotifyGoldUpdate(int amount);
 		void NotifyKillsUpdate();
 		void NotifyLifesUpdate();
+		void PointsChange(int amount);
 	private:
 		UItext name;
 		int gold;
 		uint kills;
 		int lifes;
+		int points;
 		//WaveManager waveManager;	
 
 };
