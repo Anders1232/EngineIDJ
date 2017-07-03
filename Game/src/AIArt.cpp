@@ -3,11 +3,14 @@
 //enum AIState{WALKING,WAITING,STUNNED,STATE_NUM};
 //enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,STUN,NOT_STUN,EVENT_NUM}; 
 
-AIArt::AIArt(float speed,int dest,TileMap &tileMap,GameObject &associated):speed(speed),destTile(dest),tileMap(tileMap){
+AIArt::AIArt(float speed, int dest, TileMap &tileMap, GameObject &associated, WaveManager &wManager):speed(speed),destTile(dest),tileMap(tileMap),associated(associated), waveManager(wManager){
 
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
-	path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+	path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+	path.reverse();
+	REPORT_DEBUG2(1, "desTile= "<<destTile<<"\t última posição do A*: "<<path.front());
+	path.reverse();
 	vecSpeed = Vec2(0.0,0.0);
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
@@ -78,7 +81,7 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 	
 }
 
-void AIArt::Update(GameObject &associated, float dt){
+void AIArt::Update(float dt){
 
 	AIEvent actualTransition = ComputeEvents();
 	actualState = dfa[actualState][actualTransition];
@@ -120,9 +123,8 @@ void AIArt::Update(GameObject &associated, float dt){
 	}
 	else if(actualState == AIState::WAITING){
 
-		if(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
-			std::cout << "Entrou" << "art"<< destTile << " " << tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) <<  std::endl;
-			path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+		if(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
+			std::cout<<WHERE<< "\tParou. Destino desejado: "<< destTile << "\tPosição atual: " << tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0)<<END_LINE;
 
 		}
 		else{associated.RequestDelete(); std::cout <<"morreu"<< std::endl;}
@@ -133,6 +135,10 @@ void AIArt::Update(GameObject &associated, float dt){
 
 	}
 
+}
+
+void AIArt::MapChanged(void){
+	path= tileMap.AStar(tileMap.GetCoordTilePos(associated.box.Center(), false, 0), destTile, heuristic, tileWeightMap);
 }
 
 bool AIArt::Is(ComponentType type) const{

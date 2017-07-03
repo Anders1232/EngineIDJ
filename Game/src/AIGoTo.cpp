@@ -1,15 +1,15 @@
 #include "AIGoTo.h"
 
-AIGoTo::AIGoTo(float speed,int dest,TileMap& tilemap,GameObject &associated):speed(speed),destTile(dest),tileMap(tilemap),associated(associated){
+AIGoTo::AIGoTo(float speed,int dest,TileMap& tilemap,GameObject &associated):speed(speed),destTile(dest),associated(associated),tileMap(tilemap){
 
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
-	path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.x,associated.box.y), false, 0),destTile,heuristic,tileWeightMap);
+	path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.x,associated.box.y), false, 0),destTile,heuristic,tileWeightMap);
 	vecSpeed = Vec2(0.0,0.0);
 
 }
 
-void AIGoTo::Update(GameObject &associated, float dt){
+void AIGoTo::Update(float dt){
 
 
 	if(!path.empty()){

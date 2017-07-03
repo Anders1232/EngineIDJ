@@ -27,13 +27,14 @@ class AIQuimic : public Component
 			
 			Instancia o componente.
 		*/
-		void Update(GameObject &associated, float dt);
+		void Update(float dt);
 		/**
 			\brief Verifica se essa componente é do tipo informado.
 			
 			Método herdade do componente com o objetivo de identificar que tipo de componente é.
 		*/
 		bool Is(ComponentType type) const;
+		void MapChanged(void);
 	private:
 
 		enum AIState{WALKING,WALKING_SLOWLY,SENDING_BOMB,STUNNED,STATE_NUM};
@@ -49,6 +50,7 @@ class AIQuimic : public Component
 		std::map<int, double> tileWeightMap;
 		Vec2 tempDestination;
 		TileMap& tileMap;
+		GameObject &associated;
 
 		AIState actualState;
 		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM]; 

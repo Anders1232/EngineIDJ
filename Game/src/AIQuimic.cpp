@@ -1,10 +1,10 @@
 #include "AIQuimic.h"
 
-AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associated):speed(speed),destTile(dest),tileMap(tileMap){
+AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associated):speed(speed),destTile(dest),tileMap(tileMap),associated(associated){
 
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt")).at(((Enemy&)associated).GetType());
-	path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x, associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+	path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x, associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
 	vecSpeed = Vec2(0.0,0.0);
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
@@ -106,7 +106,7 @@ AIQuimic::AIEvent AIQuimic::ComputeEvents(){
 
 }
 
-void AIQuimic::Update(GameObject &associated, float dt){
+void AIQuimic::Update(float dt){
 
 	AIEvent actualTransition = ComputeEvents();
 	actualState = dfa[actualState][actualTransition];
@@ -183,11 +183,10 @@ void AIQuimic::Update(GameObject &associated, float dt){
 	}
 	else if(actualState == AIState::SENDING_BOMB){
 
-		if(tileMap.GetTileMousePos(Vec2(associated.box.x,associated.box.y), false, 0) != destTile){
+		if(tileMap.GetCoordTilePos(Vec2(associated.box.x,associated.box.y), false, 0) != destTile){
 
 			//Executa aqui código para o inimigo jogar bombas no obstaculo mais próximo
-			std::cout << "Entrou " << "Quimic " << destTile << " " << tileMap.GetTileMousePos(Vec2(associated.box.x,associated.box.y), false, 0) <<  std::endl;
-			path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+			std::cout<<WHERE<< "\tParou. Destino desejado: "<< destTile << "\tPosição atual: " << tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0)<<END_LINE;
 
 		}
 		else{associated.RequestDelete();}
@@ -204,6 +203,10 @@ void AIQuimic::Update(GameObject &associated, float dt){
 		
 	}
 
+}
+
+void AIQuimic::MapChanged(void){
+	path= tileMap.AStar(tileMap.GetCoordTilePos(associated.box.Center(), false, 0), destTile, heuristic, tileWeightMap);
 }
 
 bool AIQuimic::Is(ComponentType type) const{

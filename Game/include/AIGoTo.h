@@ -27,7 +27,7 @@ class AIGoTo : public Component
 			
 			Instancia o componente.
 		*/
-		void Update(GameObject &associated, float dt);
+		void Update(float dt);
 		/**
 			\brief Verifica se essa componente é do tipo informado.
 			

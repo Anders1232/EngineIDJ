@@ -116,19 +116,19 @@ void StageState::Update(float dt){
 	}
 	if(INPUT_MANAGER.KeyPress('q')) {
 		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos());
-		std::cout << WHERE << "O mouse está no tile " << tileMap.GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap.GetHeight()*tileMap.GetHeight() << " tiles." << END_LINE;
+		std::cout << WHERE << "O mouse está no tile " << tileMap.GetCoordTilePos(mousePos, true, 0) << ", cada layer tem " << tileMap.GetHeight()*tileMap.GetHeight() << " tiles." << END_LINE;
 
 	}
 	if(INPUT_MANAGER.MousePress(RIGHT_MOUSE_BUTTON)){
 		REPORT_I_WAS_HERE;
 		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos());
-		int position = tileMap.GetTileMousePos(mousePos, false, COLLISION_LAYER);
+		int position = tileMap.GetCoordTilePos(mousePos, false, COLLISION_LAYER);
 		GameObject *go= tileMap.GetGO(position);
 		if(nullptr == go){
 			std::cout<<WHERE<<"\t[WARNING] Expected GameObject" END_LINE;
 		}
 		else{
-			go->AddComponent(new DragAndDrop(tileMap,mousePos));
+			go->AddComponent(new DragAndDrop(tileMap,mousePos,*go));
 			REPORT_I_WAS_HERE;
 		}
 	}

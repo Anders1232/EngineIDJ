@@ -1,12 +1,12 @@
 #include "AIGoDown.h"
-AIGoDown::AIGoDown(float speed, int dest, TileMap &tileMap, GameObject &associated, WaveManager &wManager):speed(speed),destTile(dest),tileMap(tileMap), waveManager(wManager){
+
+AIGoDown::AIGoDown(float speed, int dest, TileMap &tileMap, WaveManager &wManager, GameObject &associated):speed(speed),destTile(dest),tileMap(tileMap), waveManager(wManager), associated(associated){
 
 }
-//AIGoDown::AIGoDown(float speed):speed(speed){
-//}
 
-void AIGoDown::Update(GameObject &associated, float dt){
+//void AIGoDown::Update(GameObject &associated, float dt){
 
+void AIGoDown::Update(float dt){
 	associated.box.y+= speed*dt;
 	/*
 	if(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){

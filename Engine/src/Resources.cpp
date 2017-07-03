@@ -6,8 +6,8 @@ std::unordered_map<string, std::shared_ptr<SDL_Texture>> Resources::imageTable;
 std::unordered_map<string, std::shared_ptr<Mix_Music>> Resources::musicTable;
 std::unordered_map<string, std::shared_ptr<Mix_Chunk>> Resources::soundTable;
 std::unordered_map<string, std::shared_ptr<TTF_Font>> Resources::fontTable;
-int Resources::musicVolume= 64;
-int Resources::soundVolume= 64;
+int Resources::musicVolume= 32;
+int Resources::soundVolume= 32;
 
 #define VOLUME_BOUND_ADJUST(x){\
 		if(128<x){\

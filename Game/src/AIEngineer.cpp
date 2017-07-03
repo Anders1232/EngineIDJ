@@ -2,10 +2,10 @@
 
 //enum AIState{WALKING,WALKING_SLOWLY,BUILDING_BARRIER,STUNNED,STATE_NUM};
 //enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,SMOKE,NOT_SMOKE,STUN,NOT_STUN,EVENT_NUM}; 
-AIEngineer::AIEngineer(float speed,int dest,TileMap& tilemap, GameObject &associated):speed(speed),destTile(dest),tileMap(tilemap){
+AIEngineer::AIEngineer(float speed,int dest,TileMap& tilemap, GameObject &associated):speed(speed),destTile(dest),tileMap(tilemap),associated(associated){
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
-	path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+	path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
 	vecSpeed = Vec2(0.0,0.0);
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
@@ -81,7 +81,7 @@ AIEngineer::AIEvent AIEngineer::ComputeEvents(){
 
 }
 
-void AIEngineer::Update(GameObject &associated, float dt){
+void AIEngineer::Update(float dt){
 
 	AIEvent actualTransition = ComputeEvents();
 	actualState = dfa[actualState][actualTransition];
@@ -157,10 +157,9 @@ void AIEngineer::Update(GameObject &associated, float dt){
 	}
 	else if(actualState == AIState::BUILDING_BARRIER){
 
-		if(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
+		if(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
 			//Executa aqui código para o inimigo construir barreiras para se defender de bombas
-			std::cout << "Entrou" << "Enginner " << destTile << " " << tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) <<  std::endl;
-			path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+			std::cout<<WHERE<< "\tParou. Destino desejado: "<< destTile << "\tPosição atual: " << tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0)<<END_LINE;
 		}
 		else{associated.RequestDelete();}
 			
@@ -176,6 +175,10 @@ void AIEngineer::Update(GameObject &associated, float dt){
 		
 		}
 
+}
+
+void AIEngineer::MapChanged(void){
+	path= tileMap.AStar(tileMap.GetCoordTilePos(associated.box.Center(), false, 0), destTile, heuristic, tileWeightMap);
 }
 
 bool AIEngineer::Is(ComponentType type) const{

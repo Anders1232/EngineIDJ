@@ -136,7 +136,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";
 			break;
 	}
-	hitpoints = new HitPoints(baseHP);
+	hitpoints = new HitPoints(baseHP,*this);
 	components.push_back(hitpoints);
 }
 
@@ -153,7 +153,7 @@ Enemy::~Enemy(){
 void Enemy::Update(float dt) {
 	int forLimit = components.size();
 	for(int i = 0; i < forLimit; i++){
-		components[i]->Update(*this, dt);
+		components[i]->Update(dt);
 	}
 	if(hitpoints->GetHp() < 0){
 		dead = true;
@@ -168,7 +168,7 @@ void Enemy::Render(void) {
 	for(uint i= 0; i < sp[direction].size(); i++){
 		sp[direction][i].Render(box);
 	}
-	hitpoints->Render(*this);
+	hitpoints->Render();
 }
 
 bool Enemy::IsDead(void) {
