@@ -1,6 +1,6 @@
 #include "AIMedic.h"
 
-AIMedic::AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated):speed(speed),destTile(dest),tileMap(tilemap),associated(associated),waveManager(wManager){
+AIMedic::AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated,WaveManager &wManager):speed(speed),destTile(dest),tileMap(tilemap),associated(associated),waveManager(wManager){
 
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];

@@ -20,7 +20,7 @@ class AIMedic : public Component
 			\param associado objeto associado a essa IA.
 			Instancia o componente.
 		*/
-		AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated);
+		AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated,WaveManager &wManager);
 		/**
 			\brief Atualiza estado.
 			\param dt Intervalo de tempo desde a última chamada.
