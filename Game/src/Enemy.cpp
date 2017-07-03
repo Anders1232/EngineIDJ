@@ -173,7 +173,9 @@ bool Enemy::IsDead(void) {
 	return dead;
 }
 
-void Enemy::RequestDelete(void) {}
+void Enemy::RequestDelete(void) {
+	dead = true;
+}
 
 void Enemy::NotifyCollision(GameObject &object) {
 /*

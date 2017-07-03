@@ -67,11 +67,14 @@ void StageState::Update(float dt){
 		quitRequested = true;
 	}
 	
-	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
+	for(uint cont = 0; cont < objectArray.size(); cont++) {
 		objectArray.at(cont)->Update(dt);
 		if(objectArray.at(cont)->IsDead()){
 			if(objectArray.at(cont)->Is("Enemy")){
+				objectArray.at(cont)->RequestDelete();//muda dead=true
+				waveManager->NotifyEnemyGotKilled();
 				waveManager->NotifyEnemyGotToHisDestiny();
+
 			}
 			objectArray.erase(objectArray.begin()+cont);
 			cont--;
@@ -79,8 +82,8 @@ void StageState::Update(float dt){
 	}
 
 	if(!objectArray.empty()){
-		for(unsigned int count1 = 0; count1 < objectArray.size()-1; count1++) {
-			for(unsigned int count2 = count1+1; count2 < objectArray.size(); count2++) {
+		for(uint count1 = 0; count1 < objectArray.size()-1; count1++) {
+			for(uint count2 = count1+1; count2 < objectArray.size(); count2++) {
 				if(Collision::IsColliding(objectArray[count1]->box, objectArray[count2]->box, objectArray[count1]->rotation, objectArray[count2]->rotation) ) {
 					objectArray[count1]->NotifyCollision(*objectArray[count2]);
 					objectArray[count2]->NotifyCollision(*objectArray[count1]);
