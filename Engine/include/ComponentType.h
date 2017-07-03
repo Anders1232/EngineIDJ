@@ -13,6 +13,7 @@ enum ComponentType{
 	AI_GO_DOWN,
 	WAVE_MANAGER,
 	SIZE,
+	PLAYER_DATA,
 	COMPONENT_TYPE_SIZE
 };
 

@@ -45,8 +45,10 @@ StageState::StageState(void)
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
 	Camera::ForceLogZoom(CAM_START_ZOOM);
 	GameObject* waveManagerGO= new GameObject();
-	waveManager= new WaveManager(tileMap, "assets/wave&enemyData.txt");
+	waveManager = new WaveManager(tileMap, "assets/wave&enemyData.txt");
+	playerBoard = new PlayerData(); 
 	waveManagerGO->AddComponent(waveManager);
+	waveManagerGO->AddComponent(playerBoard);
 	AddObject(waveManagerGO);
 }
 
@@ -63,9 +65,7 @@ void StageState::Update(float dt) {
 	if(inputManager.QuitRequested()) {
 		quitRequested = true;
 	}
-	REPORT_I_WAS_HERE;
 	UpdateArray(dt);
-	REPORT_I_WAS_HERE;
 
 	if(!objectArray.empty()){
 		for(unsigned int count1 = 0; count1 < objectArray.size()-1; count1++) {
@@ -73,14 +73,11 @@ void StageState::Update(float dt) {
 				if(Collision::IsColliding(objectArray[count1]->box, objectArray[count2]->box, objectArray[count1]->rotation, objectArray[count2]->rotation) ) {
 					objectArray[count1]->NotifyCollision(*objectArray[count2]);
 					objectArray[count2]->NotifyCollision(*objectArray[count1]);
-					REPORT_I_WAS_HERE;
 				}
 			}
 		}
 	}
-	REPORT_I_WAS_HERE;
 	Camera::Update(dt);
-	REPORT_I_WAS_HERE;
 
 	//Game Over Conditions
 	if(waveManager->GetLifesLeft() == 0){

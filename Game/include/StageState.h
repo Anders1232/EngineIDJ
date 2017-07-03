@@ -15,6 +15,8 @@
 #include "Tileset.h"
 #include "Timer.h"
 #include "WaveManager.h"
+#include "PlayerData.h"
+
 
 using std::vector;
 
@@ -36,6 +38,7 @@ class StageState: public State {
 		Timer lightningTimer;
 		Color lightningColor;
 		WaveManager *waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
+		PlayerData *playerBoard;
 		vector<int> waves;//vetor de waves a ser lido no arquivo
 };
 

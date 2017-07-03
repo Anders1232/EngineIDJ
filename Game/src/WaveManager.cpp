@@ -80,26 +80,17 @@ void WaveManager::Update(GameObject &associated, float dt){
 					uint enemiesCounter= enemyIndex;
 					uint indexOfTheEnemyToSpawn=0;
 					bool breaked= false;
-					REPORT_I_WAS_HERE;
 					while(enemiesCounter >= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn).numberOfEnemies){
-						REPORT_I_WAS_HERE;
 						if(indexOfTheEnemyToSpawn>= currentWave.spawnPointsData.at(i).enemySpawnData.size()){
-							REPORT_I_WAS_HERE;
 							breaked= true;
-							REPORT_I_WAS_HERE;
 							break;
 						}
-						REPORT_I_WAS_HERE;
 						enemiesCounter-= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn).numberOfEnemies;
 						indexOfTheEnemyToSpawn++;
-						REPORT_I_WAS_HERE;
 						if(indexOfTheEnemyToSpawn>= currentWave.spawnPointsData.at(i).enemySpawnData.size()){
-							REPORT_I_WAS_HERE;
 							breaked= true;
-							REPORT_I_WAS_HERE;
 							break;
 						}
-						REPORT_I_WAS_HERE;
 					}
 					if(breaked){
 						continue;
