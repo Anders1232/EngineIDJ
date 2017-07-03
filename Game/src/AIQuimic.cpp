@@ -1,6 +1,6 @@
 #include "AIQuimic.h"
 
-AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associated):speed(speed),destTile(dest),tileMap(tileMap){
+AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associated):speed(speed),destTile(dest),tileMap(tileMap),associated(associated){
 
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt")).at(((Enemy&)associated).GetType());
@@ -106,7 +106,7 @@ AIQuimic::AIEvent AIQuimic::ComputeEvents(){
 
 }
 
-void AIQuimic::Update(GameObject &associated, float dt){
+void AIQuimic::Update(float dt){
 
 	AIEvent actualTransition = ComputeEvents();
 	actualState = dfa[actualState][actualTransition];

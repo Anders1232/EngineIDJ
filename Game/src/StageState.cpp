@@ -125,7 +125,7 @@ void StageState::Update(float dt){
 			std::cout<<WHERE<<"\t[WARNING] Expected GameObject" END_LINE;
 		}
 		else{
-			go->AddComponent(new DragAndDrop(tileMap,mousePos));
+			go->AddComponent(new DragAndDrop(tileMap,mousePos,*go));
 			REPORT_I_WAS_HERE;
 		}
 	}

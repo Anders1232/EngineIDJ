@@ -60,7 +60,7 @@ bool WaveManager::EndWave(){
 	return endWave;
 }
  
-void WaveManager::Update(GameObject &associated, float dt){
+void WaveManager::Update(float dt){
 	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
 
 	if(EndWave()){

@@ -9,7 +9,7 @@ AIGoTo::AIGoTo(float speed,int dest,TileMap& tilemap,GameObject &associated):spe
 
 }
 
-void AIGoTo::Update(GameObject &associated, float dt){
+void AIGoTo::Update(float dt){
 
 
 	if(!path.empty()){

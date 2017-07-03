@@ -1,9 +1,9 @@
 #include "AIGoDown.h"
 
-AIGoDown::AIGoDown(float speed):speed(speed){
+AIGoDown::AIGoDown(float speed):speed(speed),associated(associated){
 }
 
-void AIGoDown::Update(GameObject &associated, float dt){
+void AIGoDown::Update(float dt){
 	associated.box.y+= speed*dt;
 }
 

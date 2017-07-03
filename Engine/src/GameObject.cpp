@@ -16,7 +16,7 @@ GameObject::~GameObject(){
 
 void GameObject::Update(float dt){
 	for(uint i=0; i < components.size(); i++){
-		components[i]->Update(*this, dt);
+		components[i]->Update(dt);
 	}
 }
 
