@@ -551,6 +551,26 @@ void TileMap::ShowPath(std::list<int>path){
 	}
 }
 
+GameObject& TileMap::CloserObject(GameObject& origin,std::string objectDestType){
+
+	GameObject* closerObj;
+	double closerObjDistance = std::numeric_limits<double>::max();
+	for(unsigned int i = 0; i < gameObjectMatrix.size(); i ++){
+
+		if(gameObjectMatrix[i]->Is(objectDestType)){
+
+			double distance = origin.box.Center().VecDistance(gameObjectMatrix[i]->box.Center()).Magnitude();
+			if(distance < closerObjDistance){
+
+				closerObjDistance = distance;
+				closerObj = gameObjectMatrix[i];
+
+			}
+		}
+	}
+	return(*closerObj);
+}
+
 GameObject* TileMap::GetGO(int index){
 	return gameObjectMatrix.at(index);
 }

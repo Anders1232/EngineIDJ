@@ -236,6 +236,8 @@ class TileMap{
 			\return vetor com o indice dos tiles dos vizinhos.
 		*/
 		std::vector<int> GetNeighbors(int tile) const;
+
+		GameObject& CloserObject(GameObject& origin,std::string objectDestType);
 };
 
 #endif // TILEMAP_H

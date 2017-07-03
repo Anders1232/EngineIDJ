@@ -67,19 +67,7 @@ void StageState::Update(float dt){
 		quitRequested = true;
 	}
 	
-	for(uint cont = 0; cont < objectArray.size(); cont++) {
-		objectArray.at(cont)->Update(dt);
-		if(objectArray.at(cont)->IsDead()){
-			if(objectArray.at(cont)->Is("Enemy")){
-				objectArray.at(cont)->RequestDelete();//muda dead=true
-				waveManager->NotifyEnemyGotKilled();
-				waveManager->NotifyEnemyGotToHisDestiny();
-
-			}
-			objectArray.erase(objectArray.begin()+cont);
-			cont--;
-		}
-	}
+	UpdateArray(dt);
 
 	if(!objectArray.empty()){
 		for(uint count1 = 0; count1 < objectArray.size()-1; count1++) {

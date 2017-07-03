@@ -35,6 +35,7 @@ class AIQuimic : public Component
 		*/
 		bool Is(ComponentType type) const;
 		void MapChanged(void);
+
 	private:
 
 		enum AIState{WALKING,WALKING_SLOWLY,SENDING_BOMB,STUNNED,STATE_NUM};
