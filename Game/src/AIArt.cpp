@@ -124,14 +124,10 @@ void AIArt::Update(float dt){
 	else if(actualState == AIState::WAITING){
 
 		if(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
-			std::cout << "Entrou" << "art"<< destTile << " " << tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) <<  std::endl;
-			path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+			std::cout<<WHERE<< "\tParou. Destino desejado: "<< destTile << "\tPosição atual: " << tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0)<<END_LINE;
 
 		}
-		else{
-			waveManager.NotifyEnemyGotToHisDestiny();
-			associated.RequestDelete(); std::cout <<"morreu"<< std::endl;
-		}
+		else{associated.RequestDelete(); std::cout <<"morreu"<< std::endl;}
 	}
 	else{
 
@@ -139,6 +135,10 @@ void AIArt::Update(float dt){
 
 	}
 
+}
+
+void AIArt::MapChanged(void){
+	path= tileMap.AStar(tileMap.GetCoordTilePos(associated.box.Center(), false, 0), destTile, heuristic, tileWeightMap);
 }
 
 bool AIArt::Is(ComponentType type) const{

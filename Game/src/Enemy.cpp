@@ -117,6 +117,8 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 				}
 			}
 			components.emplace_back(new AIArt(ENEMY_ART_MOVE_SPEED, endPoint, tileMap, *this, wManager));
+			//components.emplace_back(new AIGoDown(500, endPoint, tileMap, *this, wManager));
+			
 			break;
 		case EnemyType::QUIMIC:
 			REPORT_DEBUG("Enemy type: QUIMIC "<< enemyData.enemyType);

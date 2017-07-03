@@ -2,7 +2,10 @@
 #define AIGODOWN_H
 
 #include "Component.h"
-
+#include "TileMap.h"
+#include "GameResources.h"
+#include "ManhattanDistance.h"
+#include "WaveManager.h"
 /**
 	\brief Componete IA que se move para baixo
 	
@@ -17,7 +20,9 @@ class AIGoDown : public Component
 			
 			Instancia o componente.
 		*/
-		AIGoDown(float speed, GameObject &associated);
+
+		AIGoDown(float speed, int dest, TileMap &tileMap, WaveManager &wManager, GameObject &associated);
+		//AIGoDown(float speed, GameObject &associated);
 		/**
 			\brief Atualiza estado.
 			\param dt Intervalo de tempo desde a última chamada.
@@ -33,6 +38,10 @@ class AIGoDown : public Component
 		bool Is(ComponentType type) const;
 	private:
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
+
+		int destTile;
+		TileMap& tileMap;
+		WaveManager &waveManager;
 		GameObject &associated;
 };
 

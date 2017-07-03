@@ -159,8 +159,7 @@ void AIEngineer::Update(float dt){
 
 		if(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
 			//Executa aqui código para o inimigo construir barreiras para se defender de bombas
-			std::cout << "Entrou" << "Enginner " << destTile << " " << tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) <<  std::endl;
-			path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+			std::cout<<WHERE<< "\tParou. Destino desejado: "<< destTile << "\tPosição atual: " << tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0)<<END_LINE;
 		}
 		else{associated.RequestDelete();}
 			
@@ -176,6 +175,10 @@ void AIEngineer::Update(float dt){
 		
 		}
 
+}
+
+void AIEngineer::MapChanged(void){
+	path= tileMap.AStar(tileMap.GetCoordTilePos(associated.box.Center(), false, 0), destTile, heuristic, tileWeightMap);
 }
 
 bool AIEngineer::Is(ComponentType type) const{
