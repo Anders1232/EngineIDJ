@@ -332,7 +332,8 @@ Vec2 TileMap::GetTileSize(void) const{
 
 bool TileMap::Traversable(int index) const{ 
 
-	return(TILE_VAZIO == AtLayer(index,COLLISION_LAYER));
+	int tile = AtLayer(index,COLLISION_LAYER);
+	return(TILE_VAZIO == tile || END_POINT == tile || SPAWN_POINT == tile);
 
 }
 
@@ -477,10 +478,14 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 		//Seleciona o nó com menor custo fazendo assim uma busca guiada(A*)
 		std::sort(processList.begin(), processList.end(), compareFunc);
 		current = processList[0];
+
+		if(current.second == destTile){break;}
+
 		itp = processList.begin();
 		processList.erase(itp);// remove da lista
 		//Obtém todos os vizinhos de "current"
 		std::vector<int> neighbors = GetNeighbors(current.second);
+		//Se chegou ao destino sai do loop
 		// percorre os vértices "v" adjacentes de "current"
 		for(unsigned int j = 0 ; j < neighbors.size();j ++){
 			//Se o vértice já foi visitado ou não é atingível passa-se para o proximo
@@ -505,16 +510,13 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 		visited.at(current.second) = true;
 	}
 	//Deducao do caminho
-	std::vector<int> endNeighbors = GetNeighbors(current.second);
-	std::vector<int>::iterator itn;
 	std::list<std::pair<int ,std::pair<int,double> > >::iterator it;
-	itn = find(endNeighbors.begin(),endNeighbors.end(),destTile);
-	int actual_node = current.second;
-	if(itn != endNeighbors.end() /*&& Traversable(destTile)*/){
-		path.push_front(destTile);
-		std::cout <<"Entrou nessa caralha";
+	int actual_node;
+	if(current.second == destTile){
+		actual_node = current.second;
 	}
-	else{//Caso o destino não esteja possível procura o caminho com destino mais proximo do destino o qual se quer
+	//Caso o destino não esteja possível procura o caminho com destino mais proximo do destino o qual se quer
+	else{
 
 		double closerNode = std::numeric_limits<double>::max();
 		for(it = paths.begin(); it != paths.end(); ++ it){
@@ -544,7 +546,7 @@ void TileMap::ShowPath(std::list<int>path){
 
 	for(std::list<int>::iterator it = path.begin(); it != path.end(); ++ it){
 
-		tileMatrix[*it + (WALKABLE_LAYER*mapWidth*mapHeight)] = SMILE_TILE_SET;
+		tileMatrix[*it + (WALKABLE_LAYER*mapWidth*mapHeight)] = END_POINT;
 
 	}
 }

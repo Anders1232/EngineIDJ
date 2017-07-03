@@ -18,7 +18,6 @@
 #define SPAWN_POINT (75)
 #define COLLISION_LAYER (1)
 #define WALKABLE_LAYER (0)
-#define SMILE_TILE_SET (14)
 #define END_POINT (74)
 
 using std::string;
