@@ -3,7 +3,7 @@
 //enum AIState{WALKING,WAITING,STUNNED,STATE_NUM};
 //enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,STUN,NOT_STUN,EVENT_NUM}; 
 
-AIArt::AIArt(float speed, int dest, TileMap &tileMap, GameObject &associated, WaveManager &wManager):speed(speed),destTile(dest),tileMap(tileMap), waveManager(wManager){
+AIArt::AIArt(float speed,int dest,TileMap &tileMap,GameObject &associated):speed(speed),destTile(dest),tileMap(tileMap){
 
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
@@ -125,10 +125,7 @@ void AIArt::Update(GameObject &associated, float dt){
 			path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
 
 		}
-		else{
-			waveManager.NotifyEnemyGotToHisDestiny();
-			associated.RequestDelete(); std::cout <<"morreu"<< std::endl;
-		}
+		else{associated.RequestDelete(); std::cout <<"morreu"<< std::endl;}
 	}
 	else{
 

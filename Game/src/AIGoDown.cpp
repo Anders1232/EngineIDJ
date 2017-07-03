@@ -8,10 +8,13 @@ AIGoDown::AIGoDown(float speed, int dest, TileMap &tileMap, GameObject &associat
 void AIGoDown::Update(GameObject &associated, float dt){
 
 	associated.box.y+= speed*dt;
+	/*
 	if(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
+		printf("nao chegou\n");
+	}else{
 		printf("chegou!\n");
 	}
-
+	*/
 }
 
 bool AIGoDown::Is(ComponentType type) const{
