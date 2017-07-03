@@ -5,6 +5,7 @@
 #include "TileMap.h"
 #include "GameResources.h"
 #include "ManhattanDistance.h"
+#include "WaveManager.h"
 #include <list>
 
 /**
@@ -20,7 +21,7 @@ class AIArt : public Component
 			\param associado objeto associado a essa IA.
 			Instancia o componente.
 		*/
-		AIArt(float speed,int dest,TileMap &tileMap,GameObject &associated);
+		AIArt(float speed,int dest,TileMap &tileMap,GameObject &associated, WaveManager &wManager);
 		/**
 			\brief Atualiza estado.
 			\param dt Intervalo de tempo desde a última chamada.
@@ -50,6 +51,7 @@ class AIArt : public Component
 		Vec2 tempDestination;
 		TileMap& tileMap;
 		GameObject &associated;
+		WaveManager &waveManager;
 
 		AIState actualState;
 		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM]; 

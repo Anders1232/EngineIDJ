@@ -10,6 +10,7 @@
 #include "Error.h"
 #include "WaveData.h"
 #include "HitPoints.h"
+#include "WaveManager.h"
 //#include "componentType.h"
 
 #define BASE_HIT_POINTS 100
@@ -77,7 +78,7 @@ class Enemy : public GameObject
 			
 			No momento a position informa o extremo superior esquedo a partir do qual o gameObject será instanciado.
 		*/
-		Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint, TileMap &tileMap);
+		Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint, TileMap &tileMap, WaveManager &wManager);
 		/**
 			\brief Destrutor
 			

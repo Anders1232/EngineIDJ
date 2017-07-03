@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "Error.h"
 #include "InputManager.h"
+#include "TileMap.h"
 
 DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, GameObject &associated ,bool redrag, bool dragOnActionHold)
 		: dragOnHold(dragOnActionHold),associatedInitialPos(associatedInitialPos),associated(associated), tileMap(map),redrag(redrag) {
