@@ -1,6 +1,6 @@
 #include "AIMedic.h"
 
-AIMedic::AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated):speed(speed),destTile(dest),tileMap(tilemap),associated(associated){
+AIMedic::AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated):speed(speed),destTile(dest),tileMap(tilemap),associated(associated),waveManager(wManager){
 
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
@@ -186,11 +186,12 @@ void AIMedic::Update(float dt){
 	}
 	else if(actualState == AIState::WAITING){
 
-		if(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
-			std::cout<<WHERE<< "\tParou. Destino desejado: "<< destTile << "\tPosição atual: " << tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0)<<END_LINE;
+		if(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) == destTile){
+			
+			associated.RequestDelete();
+			waveManager.NotifyEnemyGotToHisDestiny();
 
 		}
-		else{associated.RequestDelete();}
 		
 	}
 	else if(actualState == AIState::STUNNED){

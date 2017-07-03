@@ -51,6 +51,7 @@ class AIMedic : public Component
 		Vec2 tempDestination;
 		TileMap& tileMap;
 		GameObject &associated;
+		WaveManager &waveManager;
 
 		AIState actualState;
 		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM]; 
