@@ -4,7 +4,7 @@ AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associat
 
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt")).at(((Enemy&)associated).GetType());
-	path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x, associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+	path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x, associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
 	vecSpeed = Vec2(0.0,0.0);
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
@@ -183,11 +183,11 @@ void AIQuimic::Update(GameObject &associated, float dt){
 	}
 	else if(actualState == AIState::SENDING_BOMB){
 
-		if(tileMap.GetTileMousePos(Vec2(associated.box.x,associated.box.y), false, 0) != destTile){
+		if(tileMap.GetCoordTilePos(Vec2(associated.box.x,associated.box.y), false, 0) != destTile){
 
 			//Executa aqui código para o inimigo jogar bombas no obstaculo mais próximo
-			std::cout << "Entrou " << "Quimic " << destTile << " " << tileMap.GetTileMousePos(Vec2(associated.box.x,associated.box.y), false, 0) <<  std::endl;
-			path = tileMap.AStar(tileMap.GetTileMousePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+			std::cout << "Entrou " << "Quimic " << destTile << " " << tileMap.GetCoordTilePos(Vec2(associated.box.x,associated.box.y), false, 0) <<  std::endl;
+			path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
 
 		}
 		else{associated.RequestDelete();}

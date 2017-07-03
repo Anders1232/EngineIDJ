@@ -105,7 +105,7 @@ int TileMap::GetDepth(void) const {
 	return mapDepth;
 }
 
-int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer) const {
+int TileMap::GetCoordTilePos(Vec2 const &mousePos, bool affecteedByZoom, int layer) const {
 	Vec2 position = mousePos;
 	int x, xDir = mapWidth-1, xEsq = 0;
 	Vec2 tileSize = CalculateParallaxScrolling( Vec2(tileSet->GetTileWidth(), tileSet->GetTileHeight()), Vec2(0, 0), layer);
@@ -168,7 +168,7 @@ int TileMap::GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 }
 void TileMap::InsertGO(GameObject* obj) {
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
-	int position = GetTileMousePos(mousePos, false, 0);
+	int position = GetCoordTilePos(mousePos, false, 0);
 	REPORT_DEBUG("\t position = " << position << "\t of " << mapHeight*mapWidth << " tiles.");
 	
 	if(0 > position) {
@@ -198,7 +198,7 @@ void TileMap::InsertGO(GameObject* obj) {
 
 void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
-	int position = GetTileMousePos(mousePos, false, 0);
+	int position = GetCoordTilePos(mousePos, false, 0);
 	REPORT_DEBUG("\t position = " << position << "\t of " << mapHeight*mapWidth << " tiles.");
 	
 	if(0 > position) {
@@ -207,7 +207,7 @@ void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 		return;
 	}
 	
-	int initialTile = GetTileMousePos(initialPos, false, 0);
+	int initialTile = GetCoordTilePos(initialPos, false, 0);
 	if(-1 == AtLayer(position, COLLISION_LAYER)) {
 		REPORT_DEBUG("\tInserting the gameObject at position " << position);
 		gameObjectMatrix[position] = obj;
@@ -247,7 +247,7 @@ void TileMap::RemoveGO(int position){
 
 void TileMap::RemoveGO(void){
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
-	int position = GetTileMousePos(mousePos, false, COLLISION_LAYER);
+	int position = GetCoordTilePos(mousePos, false, COLLISION_LAYER);
 	RemoveGO(position);
 }
 

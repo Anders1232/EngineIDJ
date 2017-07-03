@@ -110,7 +110,7 @@ class TileMap{
 			O valor retornado será negativo e inválido se alguma coordenada do mouse tiver fora dos limites do tileMap.
 			Internamente usa-se busca binária para achar o tile correspondente.
 		*/
-		int GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const;
+		int GetCoordTilePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const;
 		/**
 			\brief Insere GameObjct no tileMap
 			\param obj GameObject a ser inserido no tileMap de GameObjects.

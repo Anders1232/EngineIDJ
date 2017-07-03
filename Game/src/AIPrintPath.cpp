@@ -11,11 +11,11 @@ void AIPrintPath::Update(float dt){
 	if(InputManager::GetInstance().MousePress(LEFT_MOUSE_BUTTON)) {
 
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
-		dest = tilemap->GetTileMousePos(mousePos, false, 0);
+		dest = tilemap->GetCoordTilePos(mousePos, false, 0);
 		if(associated.Is("Enemy")){
 
 			Vec2 pos = Vec2(((Enemy&)associated).box.x,((Enemy&)associated).box.y);
-			int position = tilemap->GetTileMousePos(pos, false, 0);
+			int position = tilemap->GetCoordTilePos(pos, false, 0);
 			std::map<int, double> weightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
 			/*std::cout << position << " " << dest << std::endl;
 			std::cout << weightMap.empty() << std::endl;*/
