@@ -79,42 +79,30 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 }
 
 void AIArt::Update(float dt){
-
 	AIEvent actualTransition = ComputeEvents();
 	actualState = dfa[actualState][actualTransition];
-
 	if(actualState == AIState::WALKING){
-
 		if(!path.empty()){
-
 			tempDestination = Vec2(tileMap.GetTileSize().x * (path.front() % tileMap.GetWidth()),tileMap.GetTileSize().y*(path.front() / tileMap.GetWidth()));
 			float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
-
 			if((vecSpeed.MemberMult(dt)).Magnitude() >= lastDistance){
-
-				associated.box.x = (tempDestination.x - (associated.box.w/2));
-				associated.box.y = (tempDestination.y - (associated.box.h/2));
+				Vec2 movement= tempDestination-Vec2(associated.box.w/2, associated.box.h/2);
+				associated.box.x = movement.x;
+				associated.box.y = movement.y;
 				path.pop_front();
-
 				if(!path.empty()){
-
 					tempDestination = Vec2(tileMap.GetTileSize().x * (path.front() % tileMap.GetWidth()),tileMap.GetTileSize().y*(path.front() / tileMap.GetWidth()));
 					float weight = tileWeightMap.at(tileMap.AtLayer(path.front(),WALKABLE_LAYER));
 					vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
 				}
-
 			}
 			else if(vecSpeed.Magnitude() == 0.0){
-
 				float weight = tileWeightMap.at(tileMap.AtLayer(path.front(),WALKABLE_LAYER));
 				vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
-
 			}
 			else{
-			
 				associated.box.x = (associated.box.Center().x + (vecSpeed.MemberMult(dt)).x - associated.box.w/2);
 				associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
-
 			}
 		}
 	}

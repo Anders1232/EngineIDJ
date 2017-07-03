@@ -135,6 +135,7 @@ class Enemy : public GameObject
 		*/
 		EnemyType GetType(void) const;
 	private:
+		void UpdateEnemyDirection(Vec2 lastPosition);
 		EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
 		std::vector<std::vector<Sprite>> sp;/**< Sprite do inimigo.*/
 		bool dead;/**< Armazena se a instância atual deve ser destruída.*/
