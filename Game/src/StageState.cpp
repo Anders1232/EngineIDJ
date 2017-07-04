@@ -167,7 +167,7 @@ void StageState::Update(float dt){
 	frameRateTimer.Update(dt);
 	frameRateCounter++;
 	if(1. <= frameRateTimer.Get()){
-		std::cout<<WHERE<<"\t Frame Rate: " << (float)frameRateCounter/frameRateTimer.Get()<< END_LINE;
+		std::cout<<WHERE<<"\t Frame Rate: " << (float)frameRateCounter/frameRateTimer.Get()<<"/"<<Game::GetInstance().GetMaxFramerate()<< END_LINE;
 		frameRateCounter=0;
 		frameRateTimer.Restart();
 	}
