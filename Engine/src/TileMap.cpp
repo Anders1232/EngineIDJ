@@ -414,7 +414,7 @@ std::list<int> *TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuri
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<int ,std::pair<int,double> > > paths;
 	//Define functor a ser usado no ordenamento do vetor de tiles
-	mypqType processHeap(LessThanByHeuristic(destTile,heuristic,mapWidth));
+	mypqType processHeap(LessThanByHeuristic(destTile,heuristic,mapWidth,true));
 	//inicia o vetor de distâncias e de visited
 	std::vector<double> dist(tileMatrix.size(),std::numeric_limits<double>::max());
 	std::vector<bool> visited(tileMatrix.size(),false);
