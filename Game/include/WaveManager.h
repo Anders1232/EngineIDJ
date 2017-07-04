@@ -7,6 +7,7 @@
 #include "Component.h"
 #include "WaveData.h"
 #include "Error.h"
+#include "Sound.h"
 #include <memory>
 using std::vector;
 
@@ -105,6 +106,8 @@ class WaveManager : public Component {
 
 		int maxNumberOfEnemiesInSpawnPoint; /**<Numero maximo de um tipo de inimigo dentro de uma SpawnGroup. */
 		bool victory;/**< Verdadeiro se o jogador passou por todas as waves com vidas restantes. */
+		Sound waveStartSound;
+		Timer betweenWavesTimer;
 
 };
 
