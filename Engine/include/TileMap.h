@@ -109,7 +109,7 @@ class TileMap{
 			Utiliza a posição do mouse no momento(que deve ser a mesma do centro do GameObject) para identificar onde o GameObject deve ser colocado no tileMap de GameObjects. Então obj é colocado nessa posição, sua posição é alterada para se encaixar exatamente com o início da posição.
 			Atualiza-se o tileMao de colisão para adicionar a informação que tem um GameObject na posição respectiva.
 		*/
-		void InsertGO(GameObject* obj);
+		void InsertGO(GameObject* obj, bool checkCollision = true);
 		/**
 			\brief Insere GameObjct no tileMap ou o posiciona na posição passada caso não seja possivel
 			\param obj GameObject a ser inserido no tileMap de GameObjects.
@@ -152,13 +152,13 @@ class TileMap{
 		*/
 		bool IsShowingCollisionInfo();
 		/**
-			\brief Obtém os spawnGroups com seus spawn points.
-			\todo Verificar utilidade de usar define para buscar o spawn groups se de deve utilizar argumentos mesmo.
+			\brief Obtém os groups de tiles.
+			\param tileType Tipo de tile do qual se quer obter posições
 			\todo Resolver bug na detecção de adjacências.
 
-			É responsabilidade do chamador desalocar o vector retornado.
+			Retorna grupos de tiles adjacentes do tipo informado.
 		*/
-		vector<vector<int>>* GetSpawnPositions(void) const;
+		vector<vector<int>>* GetTileGroups(int tileType) const;
 		/**
 			\brief Obtém o tamanho de um tile
 

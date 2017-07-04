@@ -7,6 +7,7 @@
 #include "Tower.h"
 #include "Game.h"
 #include "GameResources.h"
+#include "Obstacle.h"
 
 #define INCLUDE_SDL 
 #define INCLUDE_SDL_IMAGE 
@@ -25,6 +26,11 @@
 #define MAX_TIME_LIGHTINING_RISE 0.1
 #define MAX_TIME_LIGHTINING 0.3
 #define MAX_TIME_LIGHTINING_FADE 2
+#define TREE_1_TILESET_INDEX 70
+#define TREE_2_TILESET_INDEX 71
+#define TREE_3_TILESET_INDEX 72
+#define POLE_TILESET_INDEX 73
+#define BENCH_TILESET_INDEX 76
 
 StageState::StageState(void)
 		: State()
@@ -34,7 +40,8 @@ StageState::StageState(void)
 		, music("audio/stageState.ogg")
 		, isLightning(false)
 		, lightningTimer()
-		, lightningColor(255, 255, 255, 0){
+		, lightningColor(255, 255, 255, 0),
+		frameRateCounter(0){
 		
 	REPORT_I_WAS_HERE;
 	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
@@ -48,11 +55,17 @@ StageState::StageState(void)
 	waveManager= new WaveManager(tileMap, "assets/wave&enemyData.txt");
 	waveManagerGO->AddComponent(waveManager);
 	AddObject(waveManagerGO);
+	InitializeObstacles();
 }
 
 StageState::~StageState(void) {
+	TEMP_REPORT_I_WAS_HERE;
 	objectArray.clear();
+	TEMP_REPORT_I_WAS_HERE;
+	obstacleArray.clear();
+	TEMP_REPORT_I_WAS_HERE;
 	GameResources::Clear();
+	TEMP_REPORT_I_WAS_HERE;
 }
 
 void StageState::Update(float dt) {
@@ -156,11 +169,19 @@ void StageState::Update(float dt) {
 		}
 	}
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
+	
+	//depois isolar essa lógica num componente.
+	frameRateTimer.Update(dt);
+	frameRateCounter++;
+	if(1. <= frameRateTimer.Get()){
+		std::cout<<WHERE<<"\t Frame Rate: " << (float)frameRateCounter/frameRateTimer.Get()<<"/"<<Game::GetInstance().GetMaxFramerate()<< END_LINE;
+		frameRateCounter=0;
+		frameRateTimer.Restart();
+	}
 }
 
 void StageState::Render(void) const {
 	//renderizar o bg
-	REPORT_I_WAS_HERE;
 	REPORT_I_WAS_HERE;
 	bool highlighted = true;
 	for(unsigned int cont=0; cont < objectArray.size(); cont++) {
@@ -170,6 +191,7 @@ void StageState::Render(void) const {
 		}
 	}
 	tileMap.Render(Vec2(0,0), false, highlighted ? Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos()) : Vec2(-1, -1));
+	RenderObstacleArray();
 	REPORT_I_WAS_HERE;
 	State::RenderArray();
 	if(isLightning){
@@ -204,4 +226,121 @@ void StageState::ShowLightning(float dt){
 		isLightning = false;
 		lightningTimer.Restart();
 	}
+}
+
+void StageState::AddObstacle(Obstacle *obstacle) {
+	obstacleArray.push_back(std::unique_ptr<Obstacle>(obstacle));
+}
+
+void StageState::RenderObstacleArray(void) const {
+	REPORT_I_WAS_HERE;
+#ifdef RENDER_FOWARD
+	for(unsigned int cont = 0; cont < obstacleArray.size(); cont++) {
+#else
+	for(int64_t cont = ((int64_t)obstacleArray.size()) -1; 0 <= cont ; cont--) {
+#endif
+		obstacleArray[cont]->Render();
+	}
+}
+
+void StageState::InitializeObstacles(void){
+	/*
+	70 a 72 3 tipos de arvores
+	73 poste
+	76 banco
+	*/
+	int index;
+	int mapWidth= tileMap.GetWidth();
+	Vec2 tileSize= tileMap.GetTileSize();
+	int tileWidth= tileSize.x;
+	int tileHeight= tileSize.y;
+	std::array<vector<vector<int>>*, 3> treeTiles;
+	treeTiles[0] = tileMap.GetTileGroups(TREE_1_TILESET_INDEX);
+	treeTiles[1] = tileMap.GetTileGroups(TREE_2_TILESET_INDEX);
+	treeTiles[2] = tileMap.GetTileGroups(TREE_3_TILESET_INDEX);
+	vector<vector<int>>* poleTiles = tileMap.GetTileGroups(POLE_TILESET_INDEX);
+	vector<vector<int>>* benchTiles = tileMap.GetTileGroups(BENCH_TILESET_INDEX);
+	for(uint count = 0; count < treeTiles.size(); count++){
+		vector<vector<int>> &treeGroup= *(treeTiles[count]);
+		for(uint i = 0; i < treeGroup.size(); i++){
+			vector<int> &treeTilesVector= treeGroup[i];
+			for(uint j = 0; j < treeTilesVector.size(); j++){
+				Obstacle* tree= nullptr;
+				index = treeTilesVector[j];
+				if(treeTilesVector.size() <= (j+1) ){
+					//checar as alternativas gerará um seg fault
+					tree = new Obstacle("./img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+				}
+				else{
+					auto baixo= std::find(treeTilesVector.begin(), treeTilesVector.end(),treeTilesVector[j]+tileMap.GetWidth());
+					if(baixo != treeTilesVector.end()){
+						//tem um tile em baixo
+						if(treeTilesVector[j+1] == (index+1) ){
+							//tem uma linha e uma coluna a partir do tile sendo processado
+							bool isSqare=false;
+							if( (baixo+1) != treeTilesVector.end())
+							{
+								if(*(baixo+1) == (*baixo)+1){
+									//é um quadrado
+									isSqare = true;
+									tree = new Obstacle("./img/obstacle/arvore4.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+									treeTilesVector.erase(baixo+1);
+									treeTilesVector.erase(baixo);
+									treeTilesVector.erase(treeTilesVector.begin()+(j+1) );
+								}
+							}
+							if(!isSqare){
+								//é uma coluna
+								tree = new Obstacle("./img/obstacle/arvore3.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+								treeTilesVector.erase(baixo);
+							}
+						}
+					}
+					if(nullptr == tree){
+						if(treeTilesVector[j+1] == index+1){
+							//é uma linha
+							tree = new Obstacle("./img/obstacle/arvore2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+							treeTilesVector.erase(treeTilesVector.begin()+(j+1) );
+						}
+						else{
+							//é apenas um tile
+							tree = new Obstacle("./img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+						}
+					}
+				}
+				if(nullptr != tree){
+					tileMap.InsertGO(tree, false);
+					AddObstacle(tree);
+				}
+				else{
+					REPORT_DEBUG2(1, "\t[WARNING] Couldn't place a tree on tileMap!");
+				}
+			}
+		}
+	}
+	delete treeTiles[0];
+	delete treeTiles[1];
+	delete treeTiles[2];
+	for(uint i = 0; i < poleTiles->size(); i++){
+		for(uint j = 0; j < poleTiles->at(i).size(); j++){
+			index = poleTiles->at(i)[j];
+			Obstacle* pole = new Obstacle("./img/obstacle/posteLuz.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+			tileMap.InsertGO(pole, false);
+			AddObstacle(pole);
+			pole->SpriteScaleY(2.2);
+			pole->box.y= pole->box.y - 1.2*tileMap.GetTileSize().y;
+			pole->box.h= 2.2*tileMap.GetTileSize().y;
+			pole->box.x-= pole->box.w/4;
+		}
+	}
+	delete poleTiles;
+	for(uint i = 0; i < benchTiles->size(); i++){
+		for(uint j = 0; j < benchTiles->at(i).size(); j++){
+			index = benchTiles->at(i)[j];
+			Obstacle* bench = new Obstacle("./img/obstacle/banco_h.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+			tileMap.InsertGO(bench, false);
+			AddObstacle(bench);
+		}
+	}
+	delete benchTiles;
 }
