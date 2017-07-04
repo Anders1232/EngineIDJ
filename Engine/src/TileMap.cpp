@@ -428,28 +428,25 @@ std::list<int> *TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuri
 	std::pair<double,int> current;//Auxiliar para tile atual que está sendo processado
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<int ,std::pair<int,double> > > paths;
-	std::vector<std::pair<double,int> > processList;
+	//Define functor a ser usado no ordenamento do vetor de tiles
+	LessThanByHeuristic compareFunc = LessThanByHeuristic(destTile,heuristic,mapWidth);
+	std::priority_queue<std::pair<double,int> , std::vector<std::pair<double,int> >,compareFunc> processHeap;
 	//inicia o vetor de distâncias e de visited
 	std::vector<double> dist(tileMatrix.size(),std::numeric_limits<double>::max());
 	std::vector<bool> visited(tileMatrix.size(),false);
 	//a distância de orig para orig é 0
 	dist[originTile] = 0.0;
 	//Inicializa listas de processamento e de caminhos
-	processList.emplace(processList.begin(),std::make_pair(dist.at(originTile),originTile));
+	processHeap.emplace(std::make_pair(dist.at(originTile),originTile));
 	paths.push_back(std::make_pair(originTile,std::make_pair(originTile,dist.at(originTile))));
-	std::vector<std::pair<double,int> >::iterator itp;
-	//Define functor a ser usado no ordenamento do vetor de tiles
-	LessThanByHeuristic compareFunc = LessThanByHeuristic(destTile,heuristic,mapWidth);
 	//Loop de processamento do Djkistra
-	while(!processList.empty()){
+	while(!processHeap.empty()){
 		//Seleciona o nó com menor custo fazendo assim uma busca guiada(A*)
-		std::sort(processList.begin(), processList.end(), compareFunc);
-		current = processList[0];
+		current = processHeap.top();
 		if(current.second == destTile){
 			break;
 		}
-		itp = processList.begin();
-		processList.erase(itp);// remove da lista
+		processHeap.pop();//remove topo da heap
 		//Obtém todos os vizinhos de "current"
 		std::vector<int> *neighbors = GetNeighbors(current.second);
 		//Se chegou ao destino sai do loop
@@ -475,7 +472,7 @@ std::list<int> *TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuri
 				//atualiza a distância do vizinho e insere nas listas
 				dist.at(neighbors->at(j)) = dist.at(current.second) + weight;
 				paths.push_back(std::make_pair(neighbors->at(j),std::make_pair(current.second,weight)));
-				processList.emplace_back(std::make_pair(weight,neighbors->at(j)));
+				processHeap.emplace(std::make_pair(weight,neighbors->at(j)));
 			}
 		}
 		visited.at(current.second) = true;
@@ -516,7 +513,7 @@ void TileMap::ShowPath(std::shared_ptr<std::vector<int> > path){
 	}
 }
 
-GameObject& TileMap::CloserObject(GameObject& origin,std::string objectDestType){
+GameObject* TileMap::CloserObject(GameObject& origin,std::string objectDestType){
 	GameObject* closerObj = nullptr;
 	double closerObjDistance = std::numeric_limits<double>::max();
 	for(unsigned int i = 0; i < gameObjectMatrix.size(); i ++){
@@ -530,7 +527,7 @@ GameObject& TileMap::CloserObject(GameObject& origin,std::string objectDestType)
 			}
 		}
 	}
-	return(*closerObj);
+	return(closerObj);
 }
 
 GameObject* TileMap::GetGO(int index){

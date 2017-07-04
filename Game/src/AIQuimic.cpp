@@ -138,16 +138,13 @@ void AIQuimic::Update(float dt){
 			if(bulletsCoolDown.Get() > QUIMIC_MAX_BULLET_COOLDOWN){
 
 				bulletsCoolDown.Restart();
-				/*GameObject& target = tileMap.CloserObject(associated,std::string("Tower"));
-				Vec2 distance = associated.box.Center().VecDistance(target.box.Center());
-				float angle = std::atan2(distance.y,distance.x);
-				Bullet* bullet = new Bullet(associated.box.Center().x,associated.box.Center().y,angle,BULLET_VEL,BULLET_REACH,std::string("img/minionbullet2.png"),std::string("Tower"),3,0.1);
-				Game::GetInstance().GetCurrentState().AddObject(bullet);*/
-
-				//Requisita novo caminho
-				Vec2 originCoord= associated.box.Center();
-				path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
-				pathIndex= 0;
+				GameObject* target = tileMap.CloserObject(associated,std::string("Tower"));
+				if(target != nullptr){
+					Vec2 distance = associated.box.Center().VecDistance(target->box.Center());
+					float angle = std::atan2(distance.y,distance.x);
+					Bullet* bullet = new Bullet(associated.box.Center().x,associated.box.Center().y,angle,BULLET_VEL,BULLET_REACH,std::string("img/minionbullet2.png"),std::string("Tower"),3,0.1);
+					Game::GetInstance().GetCurrentState().AddObject(bullet);
+				}
 			}
 			
 		}

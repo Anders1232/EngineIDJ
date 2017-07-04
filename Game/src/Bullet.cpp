@@ -19,7 +19,7 @@ void Bullet::Update(float dt){
 	sp.Update(dt);
 }
 void Bullet::Render(void){
-	sp.Render(Rect(box.x,box.y,sp.GetWidth(),sp.GetHeight()),rotation);
+	sp.Render(Rect(box.x,box.y,sp.GetWidth(),sp.GetHeight()),rotation,false);
 }
 bool Bullet::IsDead(void){
 	return (distanceLeft<=0);

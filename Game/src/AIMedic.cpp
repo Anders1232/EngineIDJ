@@ -147,14 +147,6 @@ void AIMedic::Update(float dt){
 			associated.RequestDelete();
 			waveManager.NotifyEnemyGotToHisDestiny();
 		}
-		else{
-
-			//Requisita novo caminho
-			Vec2 originCoord= associated.box.Center();
-			path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
-			pathIndex= 0;
-
-		}
 	}
 	else if(actualState == AIState::STUNNED){
 		//Aqui executa animações do efeito estonteante
