@@ -162,10 +162,11 @@ void AIQuimic::Update(float dt){
 }
 
 void AIQuimic::NotifyTileMapChanged(void){
-	Vec2 originCoord= associated.box.Center();
+//Retirado recálculo das rotas por deixar o jogo muito lento
+/*	Vec2 originCoord= associated.box.Center();
 	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 	pathIndex= 0;
-	TEMP_REPORT_I_WAS_HERE;
+*/
 }
 
 bool AIQuimic::Is(ComponentType type) const{
