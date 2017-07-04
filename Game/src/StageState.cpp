@@ -53,6 +53,7 @@ StageState::StageState(void)
 }
 
 StageState::~StageState(void) {
+	std::cout<<WHERE<<"\tGameResources path hit rate: " << GameResources::GetPathHitRate()<<END_LINE;
 	objectArray.clear();
 	tileMap.RemoveObserver(this);
 	GameResources::Clear();

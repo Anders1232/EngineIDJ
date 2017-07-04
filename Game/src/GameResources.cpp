@@ -17,6 +17,8 @@ std::unordered_map<std::string, std::shared_ptr<std::pair<std::vector<WaveData>,
 std::unordered_map<std::string, std::pair<uint, std::shared_ptr<std::vector<int> > > > GameResources::pathMap;
 uint GameResources::lastMapUpdate=0;
 TileMap* GameResources::tileMap= nullptr;
+uint GameResources::pathMapHits= 0;
+uint GameResources::pathMapCalls= 0;
 
 std::shared_ptr<std::array<std::map<int, double>, EnemyType::ENEMY_TYPE_SIZE> > GameResources::GetWeightData(std::string file){
 	if(weightDataMap.end() == weightDataMap.find(file)) {
@@ -233,11 +235,13 @@ std::string GameResources::GetEnemyTypeStringFromType(EnemyType type){
 
 
 std::shared_ptr<std::vector<int> > GameResources::GetPath(EnemyType type, AStarHeuristic *heuristic, int origin, int dest, std::string weightDataFile){
+	pathMapCalls++;
 	std::string index= std::to_string(origin);
 	index += GetEnemyTypeStringFromType(type);
 	index += std::to_string(dest);
 	try{
 		if(pathMap.at(index).first == lastMapUpdate){
+			pathMapHits++;
 			return pathMap[index].second;
 		}
 	}
@@ -252,6 +256,10 @@ std::shared_ptr<std::vector<int> > GameResources::GetPath(EnemyType type, AStarH
 	std::pair<uint, std::shared_ptr<std::vector<int> > > newEntry= std::make_pair(lastMapUpdate, newPath);
 	pathMap[index]= newEntry;
 	return newPath;
+}
+
+float GameResources::GetPathHitRate(void){
+	return (float)pathMapHits/(float)pathMapCalls;
 }
 
 

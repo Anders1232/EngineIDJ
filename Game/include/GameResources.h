@@ -39,6 +39,7 @@ class GameResources{
 		static void SetTileMap(TileMap*);
 		static void NotifyTileMapChanged(void);
 		static std::shared_ptr<std::vector<int> > GetPath(EnemyType type, AStarHeuristic *heuristic, int origin, int dest, std::string weightDataFile);
+		static float GetPathHitRate(void);
 	private:
 		/**
 			\brief Construtor que não deve ser implementado
@@ -72,6 +73,8 @@ class GameResources{
 		static std::unordered_map<std::string, std::pair<uint, std::shared_ptr<std::vector<int> > > >pathMap;
 		static TileMap *tileMap;
 		static uint lastMapUpdate;
+		static uint pathMapHits;
+		static uint pathMapCalls;
 };
 
 #endif // GAMERESOURCES_H
