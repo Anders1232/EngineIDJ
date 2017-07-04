@@ -186,6 +186,7 @@ void TileMap::InsertGO(GameObject* obj) {
 		obj->box.x = column*tileSet->GetTileWidth();
 		obj->box.y = line*tileSet->GetTileHeight();
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
+		ReportChanges();
 	} else if(0 > AtLayer(position, COLLISION_LAYER)) {
 		REPORT_DEBUG("\ttentado inserir objeto em posição inválida, pois nela está" << tileMatrix[position+(COLLISION_LAYER * mapWidth*mapHeight)]);
 		obj->RequestDelete();
@@ -238,6 +239,7 @@ void TileMap::RemoveGO(int position){
 	else{
 		REPORT_DEBUG("\ttentado remover objeto de posicao inválida" << std::endl);
 	}
+	ReportChanges();
 }
 
 void TileMap::RemoveGO(void){
