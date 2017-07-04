@@ -64,8 +64,7 @@ AIQuimic::AIEvent AIQuimic::ComputeEvents(){
 		if(false){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::STUN;
 		}
-		else if((*path)[path->size()-1] == destTile){
-			//std::cout << "PATH_FREE" << std::endl;
+		else if(!path->empty()){
 			return AIEvent::PATH_FREE;
 		}
 		else{return NONE;}
@@ -139,11 +138,11 @@ void AIQuimic::Update(float dt){
 			if(bulletsCoolDown.Get() > QUIMIC_MAX_BULLET_COOLDOWN){
 
 				bulletsCoolDown.Restart();
-				GameObject& target = tileMap.CloserObject(associated,std::string("Tower"));
+				/*GameObject& target = tileMap.CloserObject(associated,std::string("Tower"));
 				Vec2 distance = associated.box.Center().VecDistance(target.box.Center());
 				float angle = std::atan2(distance.y,distance.x);
 				Bullet* bullet = new Bullet(associated.box.Center().x,associated.box.Center().y,angle,BULLET_VEL,BULLET_REACH,std::string("img/minionbullet2.png"),std::string("Tower"),3,0.1);
-				Game::GetInstance().GetCurrentState().AddObject(bullet);
+				Game::GetInstance().GetCurrentState().AddObject(bullet);*/
 
 				//Requisita novo caminho
 				Vec2 originCoord= associated.box.Center();

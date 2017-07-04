@@ -45,7 +45,7 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 		if(false){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::STUN;
 		}
-		else if(pathIndex != path->size()){
+		else if(!path->empty()){
 			//std::cout << "PATH_FREE" << std::endl;
 			return AIEvent::PATH_FREE;
 		}

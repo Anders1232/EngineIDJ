@@ -64,7 +64,7 @@ AIMedic::AIEvent AIMedic::ComputeEvents(){
 		if(false){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::STUN;
 		}
-		else if((*path)[path->size()-1] == destTile){
+		else if(!path->empty()){
 			//std::cout << "PATH_FREE" << std::endl;
 			return AIEvent::PATH_FREE;
 		}
