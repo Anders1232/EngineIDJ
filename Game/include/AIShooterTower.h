@@ -31,7 +31,6 @@ class AIShooterTower : public Component
 			Método herdade do componente com o objetivo de identificar que tipo de componente é.
 		*/
 		bool Is(std::string type) const;
-
 	private:
 		Timer bulletsCoolDown;
 		TileMap& tileMap;

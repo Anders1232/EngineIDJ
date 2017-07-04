@@ -1,7 +1,6 @@
 #include "AIGoDown.h"
 
 AIGoDown::AIGoDown(float speed, int dest, TileMap &tileMap, WaveManager &wManager, GameObject &associated):speed(speed),destTile(dest),tileMap(tileMap), waveManager(wManager), associated(associated){
-
 }
 
 //void AIGoDown::Update(GameObject &associated, float dt){

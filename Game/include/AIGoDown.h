@@ -20,7 +20,6 @@ class AIGoDown : public Component
 			
 			Instancia o componente.
 		*/
-
 		AIGoDown(float speed, int dest, TileMap &tileMap, WaveManager &wManager, GameObject &associated);
 		//AIGoDown(float speed, GameObject &associated);
 		/**
@@ -38,7 +37,6 @@ class AIGoDown : public Component
 		bool Is(ComponentType type) const;
 	private:
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
-
 		int destTile;
 		TileMap& tileMap;
 		WaveManager &waveManager;
