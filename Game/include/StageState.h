@@ -41,6 +41,8 @@ class StageState: public State, public TileMapObserver {
 		Color lightningColor;
 		WaveManager *waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
 		vector<int> waves;//vetor de waves a ser lido no arquivo
+		int frameRateCounter;
+		Timer frameRateTimer;
 };
 
 #include "EndState.h"
