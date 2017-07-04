@@ -436,27 +436,28 @@ std::list<int> *TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuri
 		//Se chegou ao destino sai do loop
 		// percorre os vértices "v" adjacentes de "current"
 		for(unsigned int j = 0 ; j < neighbors->size();j ++){
+			int neighborInAnalisis= neighbors->at(j);
 			//Se o vértice já foi visitado ou não é atingível passa-se para o proximo
-			if (visited.at(neighbors->at(j)) || !Traversable(neighbors->at(j))){
+			if (visited.at(neighborInAnalisis) || !Traversable(neighborInAnalisis)){
 				continue;
 			}
 			try{
-				weight = weightMap.at(AtLayer(neighbors->at(j),WALKABLE_LAYER));
+				weight = weightMap.at(AtLayer(neighborInAnalisis,WALKABLE_LAYER));
 			}
 			catch(const std::out_of_range& oor){
 				continue;
 			}
 			//Verifica se o custo do caminho a partir de current é menor que o registrado no vizinho
-			if(dist.at(neighbors->at(j)) > dist.at(current.second) + weight){
+			if(dist.at(neighborInAnalisis) > dist.at(current.second) + weight){
 				//Caso o vizinho já tenha sido processado em alguma iteração
-				if(dist.at(neighbors->at(j)) != std::numeric_limits<double>::max()){
+				if(dist.at(neighborInAnalisis) != std::numeric_limits<double>::max()){
 					//Remove o custo e o caminho associado ao vizinho das listas visto que novos serão inseridos
-					paths.remove(std::make_pair(neighbors->at(j),std::make_pair(current.second,weight)));
+					paths.remove(std::make_pair(neighborInAnalisis,std::make_pair(current.second,weight)));
 				}
 				//atualiza a distância do vizinho e insere nas listas
-				dist.at(neighbors->at(j)) = dist.at(current.second) + weight;
-				paths.push_back(std::make_pair(neighbors->at(j),std::make_pair(current.second,weight)));
-				processHeap.emplace(std::make_pair(weight,neighbors->at(j)));
+				dist.at(neighborInAnalisis) = dist.at(current.second) + weight;
+				paths.push_back(std::make_pair(neighborInAnalisis,std::make_pair(current.second,weight)));
+				processHeap.emplace(std::make_pair(weight,neighborInAnalisis));
 			}
 		}
 		visited.at(current.second) = true;
@@ -501,12 +502,13 @@ GameObject* TileMap::CloserObject(GameObject& origin,std::string objectDestType)
 	GameObject* closerObj = nullptr;
 	double closerObjDistance = std::numeric_limits<double>::max();
 	for(unsigned int i = 0; i < gameObjectMatrix.size(); i ++){
-		if(nullptr != gameObjectMatrix[i]){
-			if(gameObjectMatrix[i]->Is(objectDestType)){
-				double distance = origin.box.Center().VecDistance(gameObjectMatrix[i]->box.Center()).Magnitude();
+		GameObject *gameObjectInAnalisis= gameObjectMatrix[i];
+		if(nullptr != gameObjectInAnalisis){
+			if(gameObjectInAnalisis->Is(objectDestType)){
+				double distance = origin.box.Center().VecDistance(gameObjectInAnalisis->box.Center()).Magnitude();
 				if(distance < closerObjDistance){
 					closerObjDistance = distance;
-					closerObj = gameObjectMatrix[i];
+					closerObj = gameObjectInAnalisis;
 				}
 			}
 		}
