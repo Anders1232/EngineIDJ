@@ -238,7 +238,7 @@ class TileMap{
 			\return vetor com o indice dos tiles dos vizinhos.
 		*/
 		std::vector<int>* GetNeighbors(int tile) const;
-		void ReportChanges(void);
+		void ReportChanges(int tileChanged);
 		vector<TileMapObserver*> observers;
 
 		class LessThanByHeuristic{

@@ -202,7 +202,7 @@ void GameResources::SetTileMap(TileMap *map){
 	tileMap= map;
 }
 
-void GameResources::NotifyTileMapChanged(void){
+void GameResources::NotifyTileMapChanged(int tilePosition){
 	lastMapUpdate= Game::GetInstance().GetTicks();
 }
 

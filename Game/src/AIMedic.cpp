@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "AIMedic.h"
 
 AIMedic::AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated,WaveManager &wManager):speed(speed),destTile(dest), pathIndex(0),tileMap(tilemap),associated(associated),waveManager(wManager){
@@ -156,12 +157,12 @@ void AIMedic::Update(float dt){
 	}
 }
 
-void AIMedic::NotifyTileMapChanged(void){
-//Retirado recálculo das rotas por deixar o jogo muito lento
-/*	Vec2 originCoord= associated.box.Center();
-	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
-	pathIndex= 0;
-*/
+void AIMedic::NotifyTileMapChanged(int tilePosition){
+	if(path->end() != std::find( (path->begin())+pathIndex, path->end(), tilePosition)){
+		Vec2 originCoord= associated.box.Center();
+		path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+		pathIndex= 0;
+	}
 }
 
 bool AIMedic::Is(ComponentType type) const{
