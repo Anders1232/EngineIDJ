@@ -16,6 +16,7 @@
 #include "Timer.h"
 #include "WaveManager.h"
 #include "Obstacle.h"
+#include "Sound.h"
 
 using std::vector;
 
@@ -43,6 +44,7 @@ class StageState: public State {
 		std::vector<std::unique_ptr<Obstacle>> obstacleArray;
 		void AddObstacle(Obstacle *obstacle);
 		void RenderObstacleArray(void) const;
+		Sound nightSound;
 
 		int frameRateCounter;
 		Timer frameRateTimer;

@@ -41,6 +41,7 @@ StageState::StageState(void)
 		, isLightning(false)
 		, lightningTimer()
 		, lightningColor(255, 255, 255, 0),
+		nightSound("audio/Ambiente/Barulho_noite.wav"),
 		frameRateCounter(0){
 		
 	REPORT_I_WAS_HERE;
@@ -56,6 +57,7 @@ StageState::StageState(void)
 	waveManagerGO->AddComponent(waveManager);
 	AddObject(waveManagerGO);
 	InitializeObstacles();
+	nightSound.Play(-1);
 }
 
 StageState::~StageState(void) {
@@ -66,6 +68,7 @@ StageState::~StageState(void) {
 	TEMP_REPORT_I_WAS_HERE;
 	GameResources::Clear();
 	TEMP_REPORT_I_WAS_HERE;
+	nightSound.Stop();
 }
 
 void StageState::Update(float dt) {
