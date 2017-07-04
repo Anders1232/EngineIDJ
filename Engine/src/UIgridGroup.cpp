@@ -6,6 +6,7 @@ UIgridGroup::UIgridGroup(UIgridGroup::ConstraintType constraintType, int number,
 		, number(number)
 		, behaviorOnLess(behaviorOnLess) {
 	number = (number > 1.) ? number : 1.;
+	padding = Vec2(0., 0.);
 }
 
 void UIgridGroup::SetConstraint(UIgridGroup::ConstraintType newConstraint, int value) {
@@ -15,28 +16,29 @@ void UIgridGroup::SetConstraint(UIgridGroup::ConstraintType newConstraint, int v
 
 void UIgridGroup::Update(float dt, Rect parentCanvas) {
 	UIcanvas::Update(dt, parentCanvas);
-	if(groupedElements.size() > 0) {
-		int numRows = (ConstraintType::FIXED_N_ROWS == constraint) ? number : std::ceil((float)groupedElements.size()/number);
-		int numCols = (ConstraintType::FIXED_N_COLS == constraint) ? number : std::ceil((float)groupedElements.size()/number);
-		float deltaX = 1./numCols;
-		float deltaY = 1./numRows;
+	const unsigned int n = groupedElements.size();
+	if(n > 0) {
+		Vec2 pad = Vec2( padding.x/box.x, padding.y/box.y );
+		int numRows = (ConstraintType::FIXED_N_ROWS == constraint) ? number : std::ceil((float)n/number);
+		int numCols = (ConstraintType::FIXED_N_COLS == constraint) ? number : std::ceil((float)n/number);
+		Vec2 delta = Vec2( ( 1. - pad.x*(numCols-1) ) / numCols, ( 1. - pad.y*(numRows-1) ) / numRows);
 		float y = 0;
 		unsigned int index = 0;
-		for(int j = 0; j < numRows; j++, y+=deltaY) {
+		for(int j = 0; j < numRows; j++, y+=delta.y+pad.y) {
 			float x = 0;
-			int rem = (groupedElements.size() - 1) - index;
+			int rem = (n - 1) - index;
 			if(rem < numCols) {
 				if(UIgridGroup::BehaviorOnLess::STRETCH == behaviorOnLess) {
-					deltaX = 1./rem;
+					delta.x = 1./rem;
 				} else if(UIgridGroup::BehaviorOnLess::CENTER == behaviorOnLess) {
-					x = (numCols-rem)*deltaX/2.;
+					x = (numCols-rem)*delta.x/2.;
 				}
 			}
-			for(int i = 0; i < numCols; i++, x+=deltaX) {
+			for(int i = 0; i < numCols; i++, x+=delta.x+pad.x) {
 				index = i+j*numCols;
-				if(index >= groupedElements.size()) return;
+				if(index >= n) return;
 				groupedElements[index]->SetAnchors( {x, y},
-													{x+deltaX, y+deltaY} );
+													{x+delta.x, y+delta.y} );
 			}
 		}
 	}

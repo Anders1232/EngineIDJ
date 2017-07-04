@@ -14,6 +14,7 @@ class UIelement {
 				FILL,
 				STRETCH
 		};
+		void SetCenter(Vec2 center);
 		void SetAnchors(Vec2 min, Vec2 max);
 		void SetOffsets(Vec2 min, Vec2 max);
 		void SetBehavior(BehaviorType type);
@@ -27,10 +28,11 @@ class UIelement {
 		Rect ComputeBox();
 		operator Rect() const;
 	protected:
-		UIelement(BehaviorType behavior = BehaviorType::STRETCH);
+		UIelement(BehaviorType behavior = BehaviorType::STRETCH, Vec2 center = Vec2(0.5, 0.5));
 		Rect boundingBox;
 		Rect box;
 		Vec2 kernelSize;
+		Vec2 center;
 	private:
 		Rect anchors; // Coordenadas W e H sao absolutas, e nao relativas como comumente usadas em Rects
 		Rect offsets; // Coordenadas W e H sao absolutas, e nao relativas como comumente usadas em Rects

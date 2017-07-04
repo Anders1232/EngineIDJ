@@ -9,8 +9,7 @@
 
 class UItextButton : public UItext, public UIbutton {
 	public:
-		UItextButton
-				(
+		UItextButton (
 			string fontFile,
 			int fontSize,
 			UItext::TextStyle style,

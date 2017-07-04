@@ -79,6 +79,7 @@ StageState::StageState(void)
 	towersBtnGroup.SetOffsets( {32., 0.},
 							   {-27., -30.} );
 
+	towerBtn1.SetCenter({0., 0.});
 	towerBtn1.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn1.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn1.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));

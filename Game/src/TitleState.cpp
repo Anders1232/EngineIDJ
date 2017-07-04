@@ -21,10 +21,10 @@ TitleState::TitleState()
 		, overlay("img/UI/main-menu/overlay.png", UIelement::BehaviorType::STRETCH)
 		, title("img/UI/main-menu/title.png", UIelement::BehaviorType::FIT)
 		, optionsGroup()
-		, playText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Play")
-		, editorText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Editor de Fases", UIbutton::State::DISABLED)
-		, configText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Configuracoes", UIbutton::State::DISABLED)
-		, exitText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Exit") {
+		, playBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Play")
+		, editorBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Editor de Fases", UIbutton::State::DISABLED)
+		, configBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Configuracoes", UIbutton::State::DISABLED)
+		, exitBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Exit") {
 	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
 
 	lua.SetSpriteScale(0.75);
@@ -47,25 +47,25 @@ TitleState::TitleState()
 	optionsGroup.SetAnchors( {0.3, 0.45},
 						  {0.7, 0.9} );
 	
-	playText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
-	playText.SetClickCallback( this, [] (void* caller) {
+	playBtn.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
+	playBtn.SetClickCallback( this, [] (void* caller) {
 									Game::GetInstance().Push(new StageState());
 								} );
 	
-	editorText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
+	editorBtn.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
 	
-	configText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
+	configBtn.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
 	
-	exitText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
-	exitText.SetClickCallback( this, [] (void* caller) {
+	exitBtn.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
+	exitBtn.SetClickCallback( this, [] (void* caller) {
 									TitleState* titleState = static_cast<TitleState*>(caller);
 									titleState->Exit();
 								} );
-	
-	optionsGroup.groupedElements.push_back(&playText);
-	optionsGroup.groupedElements.push_back(&editorText);
-	optionsGroup.groupedElements.push_back(&configText);
-	optionsGroup.groupedElements.push_back(&exitText);
+
+	optionsGroup.groupedElements.push_back(&playBtn);
+	optionsGroup.groupedElements.push_back(&editorBtn);
+	optionsGroup.groupedElements.push_back(&configBtn);
+	optionsGroup.groupedElements.push_back(&exitBtn);
 }
 
 void TitleState::Update(float dt) {
@@ -87,10 +87,11 @@ void TitleState::RenderUI(void) const {
 	icc.Render();
 	overlay.Render();
 	title.Render();
-	playText.Render();
-	editorText.Render();
-	configText.Render();
-	exitText.Render();
+	// optionsGroup.Render();
+	playBtn.Render();
+	editorBtn.Render();
+	configBtn.Render();
+	exitBtn.Render();
 }
 
 void TitleState::Pause(void) {}
@@ -110,10 +111,10 @@ void TitleState::UpdateUI(float dt) {
 	overlay.Update(dt, canvas);
 	title.Update(dt, canvas);
 	optionsGroup.Update(dt, canvas);
-	playText.Update(dt, optionsGroup);
-	editorText.Update(dt, optionsGroup);
-	configText.Update(dt, optionsGroup);
-	exitText.Update(dt, optionsGroup);
+	playBtn.Update(dt, optionsGroup);
+	editorBtn.Update(dt, optionsGroup);
+	configBtn.Update(dt, optionsGroup);
+	exitBtn.Update(dt, optionsGroup);
 }
 
 void TitleState::Exit() {
