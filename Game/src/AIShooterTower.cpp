@@ -1,9 +1,6 @@
 #include "AIShooterTower.h"
 
-AIShooterTower::AIShooterTower(GameObject& associated,TileMap& tileMap,std::string bullet): associated(associated),tileMap(tileMap),bulletSp(bullet){
-
-	bulletsCoolDown = Timer();
-
+AIShooterTower::AIShooterTower(GameObject& associated,TileMap& tileMap,std::string bullet): bulletsCoolDown(), tileMap(tileMap), associated(associated), bulletSp(bullet){
 }
 
 void AIShooterTower::Update(float dt){
