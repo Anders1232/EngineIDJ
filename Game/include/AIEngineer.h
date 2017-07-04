@@ -31,7 +31,7 @@ class AIEngineer : public Component
 		/**
 			\brief Verifica se essa componente é do tipo informado.
 			
-			Método herdade do componente com o objetivo de identificar que tipo de componente é.
+			Método herdade do componente com o oMapChangedbjetivo de identificar que tipo de componente é.
 		*/
 		bool Is(ComponentType type) const;
 		void MapChanged(void);
@@ -45,7 +45,8 @@ class AIEngineer : public Component
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
 		Vec2 vecSpeed;
 		int destTile;/**< indice do tile de destino*/
-		std::list<int> path;/**< Caminho a ser executado pela IA*/
+		std::shared_ptr<std::vector<int>> path;/**< Caminho a ser executado pela IA*/
+		uint pathIndex;
 		ManhattanDistance *heuristic;/**<Heuristica a ser utilizada pelo A* no calculo do caminho*/
 		std::map<int, double> tileWeightMap;
 		Vec2 tempDestination;

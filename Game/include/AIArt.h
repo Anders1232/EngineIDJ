@@ -11,7 +11,7 @@
 /**
 	\brief Componete IA que se move para ponto de destino
 */
-class AIArt : public Component
+class AIArt : public Component, public TileMapObserver
 {
 	public:
 		/**
@@ -35,7 +35,7 @@ class AIArt : public Component
 			Método herdade do componente com o objetivo de identificar que tipo de componente é.
 		*/
 		bool Is(ComponentType type) const;
-		void MapChanged(void);
+		void NotifyTileMapChanged(void);
 	private:
 
 		enum AIState{WALKING,WAITING,STUNNED,STATE_NUM};
@@ -46,7 +46,8 @@ class AIArt : public Component
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
 		Vec2 vecSpeed;
 		int destTile;/**< indice do tile de destino*/
-		std::list<int> path;/**< Caminho a ser executado pela IA*/
+		std::shared_ptr<std::vector<int>> path;/**< Caminho a ser executado pela IA*/
+		uint pathIndex;
 		ManhattanDistance *heuristic;/**<Heuristica a ser utilizada pelo A* no calculo do caminho*/
 		std::map<int, double> tileWeightMap;
 		Vec2 tempDestination;

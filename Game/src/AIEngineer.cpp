@@ -2,10 +2,11 @@
 
 //enum AIState{WALKING,WALKING_SLOWLY,BUILDING_BARRIER,STUNNED,STATE_NUM};
 //enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,SMOKE,NOT_SMOKE,STUN,NOT_STUN,EVENT_NUM}; 
-AIEngineer::AIEngineer(float speed,int dest,TileMap& tilemap, GameObject &associated,WaveManager& wManager):speed(speed),destTile(dest),tileMap(tilemap),associated(associated),waveManager(wManager){
+AIEngineer::AIEngineer(float speed,int dest,TileMap& tilemap, GameObject &associated,WaveManager& wManager):speed(speed),destTile(dest), pathIndex(0),tileMap(tilemap),associated(associated),waveManager(wManager){
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
-	path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+	Vec2 originCoord= associated.box.Center();
+	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 	vecSpeed = Vec2(0.0,0.0);
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
@@ -34,7 +35,7 @@ AIEngineer::AIEvent AIEngineer::ComputeEvents(){
 		if(false){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::STUN;
 		}
-		else if(path.empty()){
+		else if(pathIndex == path->size()){
 			return AIEvent::PATH_BLOCKED;
 		}
 		else if(false){// Aqui verifica-se a colisão com o elemento de fumaça
@@ -49,7 +50,7 @@ AIEngineer::AIEvent AIEngineer::ComputeEvents(){
 		else if(false){// Aqui verifica-se o fim da colisão com o elemento de fumaça
 			return AIEvent::NOT_SMOKE;
 		}
-		else if(path.empty()){
+		else if(pathIndex == path->size()){
 			return AIEvent::PATH_BLOCKED;
 		}
 		else{return NONE;}
@@ -58,7 +59,7 @@ AIEngineer::AIEvent AIEngineer::ComputeEvents(){
 		if(false){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::STUN;
 		}
-		else if(path.back() == destTile){
+		else if((*path)[path->size()-1] == destTile){
 			//std::cout << "PATH_FREE" << std::endl;
 			return AIEvent::PATH_FREE;
 		}
@@ -68,95 +69,66 @@ AIEngineer::AIEvent AIEngineer::ComputeEvents(){
 		if(false){// Aqui verifica-se o fim da colisão com o elemento estonteante
 			return AIEvent::NOT_STUN;
 		}
-		else if(path.empty()){
-
+		else if(pathIndex == path->size()){
 			return AIEvent::PATH_BLOCKED;
-
 		}
 		else{return NONE;}
-
 	}
-
 	return NONE;
-
 }
 
 void AIEngineer::Update(float dt){
-
 	AIEvent actualTransition = ComputeEvents();
 	actualState = dfa[actualState][actualTransition];
-
 	if(actualState == AIState::WALKING){
-		if(!path.empty()){
-
-			tempDestination = Vec2(tileMap.GetTileSize().x * (path.front() % tileMap.GetWidth()),tileMap.GetTileSize().y*(path.front() / tileMap.GetWidth()));
+		if(pathIndex != path->size()){
+			tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
 			float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
-			
 			if((vecSpeed.MemberMult(dt)).Magnitude() >= lastDistance){
-
 				associated.box.x = (tempDestination.x - (associated.box.w/2));
 				associated.box.y = (tempDestination.y - (associated.box.h/2));
-				path.pop_front();
-
-				if(!path.empty()){
-
-					tempDestination = Vec2(tileMap.GetTileSize().x * (path.front() % tileMap.GetWidth()),tileMap.GetTileSize().y*(path.front() / tileMap.GetWidth()));
-					float weight = tileWeightMap.at(tileMap.AtLayer(path.front(),WALKABLE_LAYER));
+				pathIndex++;
+				if(pathIndex != path->size()){
+					tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
+					float weight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER));
 					vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
 				}
-
 			}
 			else if(vecSpeed.Magnitude() == 0.0){
-
-				float weight = tileWeightMap.at(tileMap.AtLayer(path.front(),WALKABLE_LAYER));
+				float weight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER));
 				vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
-
 			}
 			else{
-			
 				associated.box.x = (associated.box.Center().x + (vecSpeed.MemberMult(dt)).x - associated.box.w/2);
 				associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
-
 			}
 		}
 	}
 	else if(actualState == AIState::WALKING_SLOWLY){
-
-		if(!path.empty()){
-
-			tempDestination = Vec2(tileMap.GetTileSize().x * (path.front() % tileMap.GetWidth()),tileMap.GetTileSize().y*(path.front() / tileMap.GetWidth()));
+		if(pathIndex != path->size()){
+			tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
 			float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
-			
 			if((vecSpeed.MemberMult(dt)).Magnitude() >= lastDistance){
-
 				associated.box.x = (tempDestination.x - (associated.box.w/2));
 				associated.box.y = (tempDestination.y - (associated.box.h/2));
-				path.pop_front();
-
-				if(!path.empty()){
-
-					tempDestination = Vec2(tileMap.GetTileSize().x * (path.front() % tileMap.GetWidth()),tileMap.GetTileSize().y*(path.front() / tileMap.GetWidth()));
-					float weight = tileWeightMap.at(tileMap.AtLayer(path.front(),WALKABLE_LAYER));
+				pathIndex++;
+				if(pathIndex != path->size()){
+					tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
+					float weight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER));
 					vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / (weight * 2));
 				}
-
 			}
 			else if(vecSpeed.Magnitude() == 0.0){
-
-				float weight = tileWeightMap.at(tileMap.AtLayer(path.front(),WALKABLE_LAYER));
+				float weight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER));
 				vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / (weight * 2));
-
 			}
 			else{
-			
 				associated.box.x = (associated.box.Center().x + (vecSpeed.MemberMult(dt)).x - associated.box.w/2);
 				associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
-
 			}
 		}
 	}
 	else if(actualState == AIState::BUILDING_BARRIER){
-
 		if(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
 			//Executa aqui código para o inimigo construir barreiras para se defender de bombas
 		
@@ -167,23 +139,18 @@ void AIEngineer::Update(float dt){
 			waveManager.NotifyEnemyGotToHisDestiny();
 
 		}
-			
 	}
 	else if(actualState == AIState::STUNNED){
-
 		//Aqui executa animações do efeito estonteante
-
 	}
 	else{
-
 		//Aqui executa animações de efeito de fumaça
-		
 		}
-
 }
 
 void AIEngineer::MapChanged(void){
-	path= tileMap.AStar(tileMap.GetCoordTilePos(associated.box.Center(), false, 0), destTile, heuristic, tileWeightMap);
+	Vec2 originCoord= associated.box.Center();
+	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 }
 
 bool AIEngineer::Is(ComponentType type) const{

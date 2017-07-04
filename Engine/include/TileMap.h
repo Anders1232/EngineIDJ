@@ -13,6 +13,7 @@
 #include "GameObject.h"
 #include "AStarHeuristic.h"
 #include "Resources.h"
+#include "TileMapObserver.h"
 
 #define TILE_VAZIO (-1)
 #define SPAWN_POINT (75)
@@ -22,7 +23,6 @@
 
 using std::string;
 using std::vector;
-
 /**
 	\brief Classe que modela o TileMap
 
@@ -178,7 +178,7 @@ class TileMap{
 
 		*/
 
-		void ShowPath(std::list<int>path);
+		void ShowPath(std::shared_ptr<std::vector<int>> path);
 		/**
 			\brief Calcula o caminho menos custoso entre dois pontos baseado em uma heuristica utilizando o algoritmo A*.
 			\param originTile Tile de origem
@@ -188,7 +188,9 @@ class TileMap{
 
 			Retorna uma lista com a sequencia dos indices dos tiles que formam o caminho
 		*/
-		std::list<int> AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap);
+		std::list<int>* AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap);
+		void ObserveMapChanges(TileMapObserver *);
+		void RemoveObserver(TileMapObserver *);
 		GameObject& CloserObject(GameObject& origin,std::string objectDestType);
 	protected:
 		/**
@@ -236,7 +238,9 @@ class TileMap{
 
 			\return vetor com o indice dos tiles dos vizinhos.
 		*/
-		std::vector<int> GetNeighbors(int tile) const;
+		std::vector<int>* GetNeighbors(int tile) const;
+		void ReportChanges(void);
+		vector<TileMapObserver*> observers;
 };
 
 #endif // TILEMAP_H

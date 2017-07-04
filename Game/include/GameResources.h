@@ -8,6 +8,7 @@
 #include <string>
 #include <unordered_map>
 #include <map>
+#include <cstdint>
 #include "WaveData.h"
 #include "Enemy.h"
 
@@ -35,6 +36,9 @@ class GameResources{
 		static void Clear(void);
 //		static void SaveWeightData(std::array<std::map<int, int>, EnemyType::ENEMY_TYPE_SIZE > &data);
 //		static void SaveWaveData(std::pair<std::vector<WaveData>, std::vector<EnemyData> > &data);
+		static void SetTileMap(TileMap*);
+		static void NotifyTileMapChanged(void);
+		static std::shared_ptr<std::vector<int> > GetPath(EnemyType type, AStarHeuristic *heuristic, int origin, int dest, std::string weightDataFile);
 	private:
 		/**
 			\brief Construtor que não deve ser implementado
@@ -48,6 +52,7 @@ class GameResources{
 			Método utilizado internamente para se obter o EnemyType a partir da string(geralmente lida a partir de arquivo).
 		*/
 		static EnemyType GetEnemyTypeFromString(std::string);
+		static std::string GetEnemyTypeStringFromType(EnemyType);
 		/**
 			\brief Lê WaveData.
 
@@ -64,6 +69,9 @@ class GameResources{
 		static void ReadWeightData(std::string file);
 		static std::unordered_map<std::string, std::shared_ptr<std::array<std::map<int, double>, EnemyType::ENEMY_TYPE_SIZE> > > weightDataMap;/**<Mapa de WeightData indexada pelo nome do arquivo.*/
 		static std::unordered_map<std::string, std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > > waveDataMap;/**<Mapa de WaveData indexado pelo nome do arquivo.*/
+		static std::unordered_map<std::string, std::pair<uint, std::shared_ptr<std::vector<int> > > >pathMap;
+		static TileMap *tileMap;
+		static uint lastMapUpdate;
 };
 
 #endif // GAMERESOURCES_H

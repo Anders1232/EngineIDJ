@@ -1,10 +1,10 @@
 #include <fstream>
 #include <string.h>
-#include "GameResources.h"
-#include "stdio.h"
-
-#include "Error.h"
+#include <stdio.h>
 #include <vector>
+#include "Game.h"
+#include "GameResources.h"
+#include "Error.h"
 
 #define ENEMY_TYPE_MAX_STRING_SIZE (50)
 #define WAVE_DATA_FILENAME_MAX_SIZE (50)
@@ -14,6 +14,9 @@
 
 std::unordered_map<std::string, std::shared_ptr<std::array<std::map<int, double>, EnemyType::ENEMY_TYPE_SIZE> > > GameResources::weightDataMap;
 std::unordered_map<std::string, std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > > GameResources::waveDataMap;
+std::unordered_map<std::string, std::pair<uint, std::shared_ptr<std::vector<int> > > > GameResources::pathMap;
+uint GameResources::lastMapUpdate=0;
+TileMap* GameResources::tileMap= nullptr;
 
 std::shared_ptr<std::array<std::map<int, double>, EnemyType::ENEMY_TYPE_SIZE> > GameResources::GetWeightData(std::string file){
 	if(weightDataMap.end() == weightDataMap.find(file)) {
@@ -184,3 +187,63 @@ void GameResources::Clear(void){
 //void GameResources::SaveWeightData(std::array<std::map<int, int> *data)
 
 //void GameResources::SaveWaveData(voidstd::pair<std::vector<WaveData>, std::vector<EnemyData> > *data);
+
+void GameResources::SetTileMap(TileMap *map){
+	tileMap= map;
+}
+
+void GameResources::NotifyTileMapChanged(void){
+	lastMapUpdate= Game::GetInstance().GetTicks();
+}
+
+std::string GameResources::GetEnemyTypeStringFromType(EnemyType type){
+	if(EnemyType::HOSTILE == type){
+		return "HOSTILE";
+	}
+	else if(EnemyType::NEUTRAL == type){
+		return "NEUTRAL";
+	}
+	else if(EnemyType::ENGINEER == type){
+		return "ENGINEER";
+	}
+	else if(EnemyType::ARQUITET == type){
+		return "ARQUITET";
+	}
+	else if(EnemyType::ART == type){
+		return "ART";
+	}
+	else if(EnemyType::QUIMIC == type){
+		return "QUIMIC";
+	}
+	else if(EnemyType::MEDIC == type){
+		return "MEDIC";
+	}
+	else{
+		Error("\tTipo de inimigo não identificado " << type);
+	}
+}
+
+
+std::shared_ptr<std::vector<int> > GameResources::GetPath(EnemyType type, AStarHeuristic *heuristic, int origin, int dest, std::string weightDataFile){
+	std::string index= std::to_string(origin);
+	index += GetEnemyTypeStringFromType(type);
+	index += std::to_string(dest);
+	try{
+		if(pathMap.at(index).first == lastMapUpdate){
+			return pathMap[index].second;
+		}
+	}
+	catch(...){
+		pathMap.erase(index);
+	}
+	std::map<int, double> weightMap= GetWeightData(weightDataFile)->operator [](type);
+	std::list<int>*pathList= tileMap->AStar(origin, dest, heuristic, weightMap);
+	std::vector<int> *pathVector= new std::vector<int>(pathList->begin(), pathList->end());
+	delete pathList;
+	std::shared_ptr<std::vector<int>> newPath(pathVector);
+	std::pair<uint, std::shared_ptr<std::vector<int> > > newEntry= std::make_pair(lastMapUpdate, newPath);
+	pathMap[index]= newEntry;
+	return newPath;
+}
+
+

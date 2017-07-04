@@ -3,11 +3,11 @@
 //enum AIState{WALKING,WAITING,STUNNED,STATE_NUM};
 //enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,STUN,NOT_STUN,EVENT_NUM}; 
 
-AIArt::AIArt(float speed, int dest, TileMap &tileMap, GameObject &associated, WaveManager &wManager):speed(speed),destTile(dest),tileMap(tileMap),associated(associated), waveManager(wManager){
-
+AIArt::AIArt(float speed, int dest, TileMap &tileMap, GameObject &associated, WaveManager &wManager):speed(speed),destTile(dest), pathIndex(0),tileMap(tileMap),associated(associated), waveManager(wManager){
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
-	path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+	Vec2 originCoord= associated.box.Center();
+	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 	vecSpeed = Vec2(0.0,0.0);
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
@@ -26,78 +26,57 @@ AIArt::AIArt(float speed, int dest, TileMap &tileMap, GameObject &associated, Wa
 }
 
 AIArt::AIEvent AIArt::ComputeEvents(){
-
 	if(actualState == AIState::WALKING){
-
 		if(false){// Aqui verifica-se a colisão com o elemento estonteante
-
 			return AIEvent::STUN;
-
 		}
-		else if(path.empty()){
-
+		else if(pathIndex == path->size()){
 			return AIEvent::PATH_BLOCKED;
-
 		}
 		else{return NONE;}
-
 	}
 	else if(actualState == AIState::WAITING){
-
 		if(false){// Aqui verifica-se a colisão com o elemento estonteante
-
 			return AIEvent::STUN;
-
 		}
-		else if(!path.empty()){
-
+		else if(pathIndex != path->size()){
 			//std::cout << "PATH_FREE" << std::endl;
 			return AIEvent::PATH_FREE;
-
 		}
 		else{return NONE;}
-
 	}
 	else if(actualState == AIState::STUNNED){
-
 		if(false){// Aqui verifica-se a colisão com o elemento estonteante
-
 			return AIEvent::NOT_STUN;
-
 		}
-		else if(path.empty()){
-
+		else if(pathIndex == path->size()){
 			return AIEvent::PATH_BLOCKED;
-
 		}
 		else{return NONE;}
-
 	}
-
 	return NONE;
-	
 }
 
 void AIArt::Update(float dt){
 	AIEvent actualTransition = ComputeEvents();
 	actualState = dfa[actualState][actualTransition];
 	if(actualState == AIState::WALKING){
-		if(!path.empty()){
-			tempDestination = Vec2(tileMap.GetTileSize().x * (path.front() % tileMap.GetWidth()),tileMap.GetTileSize().y*(path.front() / tileMap.GetWidth()));
+		if(pathIndex != path->size()){
+			tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
 			float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
 			if((vecSpeed.MemberMult(dt)).Magnitude() >= lastDistance){
 				Vec2 movement= tempDestination-Vec2(associated.box.w/2, associated.box.h/2);
 				associated.box.x = movement.x;
 				associated.box.y = movement.y;
-				path.pop_front();
-				if(!path.empty()){
-					tempDestination = Vec2(tileMap.GetTileSize().x * (path.front() % tileMap.GetWidth()),tileMap.GetTileSize().y*(path.front() / tileMap.GetWidth()));
-					float weight = tileWeightMap.at(tileMap.AtLayer(path.front(),WALKABLE_LAYER));
+				pathIndex++;
+				if(pathIndex != path->size()){
+					tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
+					float weight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER));
 					vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
 				}
 			}
 			else if(vecSpeed.Magnitude() == 0.0){
-				float weight = tileWeightMap.at(tileMap.AtLayer(path.front(),WALKABLE_LAYER));
+				float weight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER));
 				vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
 			}
 			else{
@@ -123,8 +102,9 @@ void AIArt::Update(float dt){
 
 }
 
-void AIArt::MapChanged(void){
-	path= tileMap.AStar(tileMap.GetCoordTilePos(associated.box.Center(), false, 0), destTile, heuristic, tileWeightMap);
+void AIArt::NotifyTileMapChanged(void){
+	Vec2 originCoord= associated.box.Center();
+	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 }
 
 bool AIArt::Is(ComponentType type) const{

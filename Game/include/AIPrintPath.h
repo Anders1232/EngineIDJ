@@ -19,7 +19,7 @@ class AIPrintPath : public Component
 			\param dest tile de destino.
 			Instancia o componente.
 		*/
-		AIPrintPath(TileMap* tilemap,GameObject &associated);
+		AIPrintPath(TileMap& tilemap,GameObject &associated);
 		/**
 			\brief Atualiza estado.
 			\param associated GameObject que contém esse componente.
@@ -35,8 +35,8 @@ class AIPrintPath : public Component
 		bool Is(ComponentType type) const;
 	private:
 		int dest;/**< indice do tile de destino*/
-		TileMap* tilemap;/**< indice do tile de destino*/
-		std::list<int> path;/**<Caminho a ser desenhado no tilemap*/
+		TileMap& tilemap;/**< indice do tile de destino*/
+		std::shared_ptr<std::vector<int>> path;/**< Caminho a ser executado pela IA*/
 		ManhattanDistance *heuristic;/**<Heuristica a ser utilizada pelo A* no calculo do caminho*/
 		GameObject &associated;
 };

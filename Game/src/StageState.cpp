@@ -39,10 +39,7 @@ StageState::StageState(void)
 		, isLightning(false)
 		, lightningTimer()
 		, lightningColor(255, 255, 255, 0){
-		
-	REPORT_I_WAS_HERE;
-	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
-	
+	GameResources::SetTileMap(&tileMap);
 	REPORT_I_WAS_HERE;
 	music.Play(10);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);

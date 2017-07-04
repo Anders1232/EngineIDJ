@@ -39,7 +39,8 @@ class AIGoTo : public Component
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
 		Vec2 vecSpeed;
 		int destTile;/**< indice do tile de destino*/
-		std::list<int> path;/**< Caminho a ser executado pela IA*/
+		std::shared_ptr<std::vector<int>> path;/**< Caminho a ser executado pela IA*/
+		uint pathIndex;
 		ManhattanDistance *heuristic;/**<Heuristica a ser utilizada pelo A* no calculo do caminho*/
 		std::map<int, double> tileWeightMap;
 		GameObject &associated;

@@ -166,17 +166,16 @@ int TileMap::GetCoordTilePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 	
 	return y*mapWidth+x;
 }
+
 void TileMap::InsertGO(GameObject* obj) {
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 	int position = GetCoordTilePos(mousePos, false, 0);
 	REPORT_DEBUG("\t position = " << position << "\t of " << mapHeight*mapWidth << " tiles.");
-	
 	if(0 > position) {
 		std::cout << WHERE << "[ERROR] Tried to put the gameObject on an invalid tileMap position." << END_LINE;
 		obj->RequestDelete();
 		return;
 	}
-	
 	if(-1 == AtLayer(position, COLLISION_LAYER)) {
 		REPORT_DEBUG("\tInserting the gameObject at position " << position);
 		gameObjectMatrix[position] = obj;
@@ -200,13 +199,11 @@ void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 	int position = GetCoordTilePos(mousePos, false, 0);
 	REPORT_DEBUG("\t position = " << position << "\t of " << mapHeight*mapWidth << " tiles.");
-	
 	if(0 > position) {
 		std::cout << WHERE << "[ERROR] Tried to put the gameObject on an invalid tileMap position." << END_LINE;
 		//obj->box = initialPos;
 		return;
 	}
-	
 	int initialTile = GetCoordTilePos(initialPos, false, 0);
 	if(-1 == AtLayer(position, COLLISION_LAYER)) {
 		REPORT_DEBUG("\tInserting the gameObject at position " << position);
@@ -221,12 +218,10 @@ void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
 	} 
 	else {
-
 		int line = initialTile / GetWidth();
 		int column = initialTile % GetWidth();
 		obj->box.x = column*tileSet->GetTileWidth();
 		obj->box.y = line*tileSet->GetTileHeight();
-
 	}
 }
 
@@ -337,7 +332,7 @@ bool TileMap::Traversable(int index) const{
 
 }
 
-std::vector<int> TileMap::GetNeighbors(int tileIndex) const{
+std::vector<int>* TileMap::GetNeighbors(int tileIndex) const{
 
 	//[i-1][j-1] -> soma-se -(width+1) da posicao atual
 	//[i-1][j] -> soma-se -width da posicao atual
@@ -348,115 +343,85 @@ std::vector<int> TileMap::GetNeighbors(int tileIndex) const{
 	//[i+1][j] -> soma-se width da posicao atual
 	//[i+1][j+1] -> soma-se (width+1) da posicao atual
 
-	std::vector<int> neighbors;
+	std::vector<int> *neighbors= new std::vector<int>();
 	//Se não está no limite lateral direito nem esquerdo
 	if(0 != (tileIndex % mapWidth) && (tileIndex % mapWidth != mapWidth - 1)){
 		//Se não está no limite superior
 		if(0 <=  tileIndex - mapWidth - 1){
-
-			neighbors.push_back(tileIndex - mapWidth - 1);
-			neighbors.push_back(tileIndex - mapWidth);
-			neighbors.push_back(tileIndex - mapWidth + 1);
-			neighbors.push_back(tileIndex - 1);
-
+			neighbors->push_back(tileIndex - mapWidth - 1);
+			neighbors->push_back(tileIndex - mapWidth);
+			neighbors->push_back(tileIndex - mapWidth + 1);
+			neighbors->push_back(tileIndex - 1);
 		}
 		else{
-
-			neighbors.push_back(tileIndex - 1);
-
+			neighbors->push_back(tileIndex - 1);
 		}
 		//Se não está no limite inferior
 		if(tileIndex + mapWidth + 1 < (int)tileMatrix.size()){
-
-			neighbors.push_back(tileIndex + 1);
-			neighbors.push_back(tileIndex + mapWidth-1);
-			neighbors.push_back(tileIndex + mapWidth);
-			neighbors.push_back(tileIndex + mapWidth + 1);
-
+			neighbors->push_back(tileIndex + 1);
+			neighbors->push_back(tileIndex + mapWidth-1);
+			neighbors->push_back(tileIndex + mapWidth);
+			neighbors->push_back(tileIndex + mapWidth + 1);
 		}
 		else{
-
-			neighbors.push_back(tileIndex + 1);
-
+			neighbors->push_back(tileIndex + 1);
 		}
 	}
 	//Se está no limite direito
 	else if(0 != (tileIndex % mapWidth)){
 		//Se não está no limite superior
 		if(0 <=  tileIndex - mapWidth){
-
-			neighbors.push_back(tileIndex - mapWidth - 1);
-			neighbors.push_back(tileIndex - mapWidth);
-			neighbors.push_back(tileIndex - 1);
-
+			neighbors->push_back(tileIndex - mapWidth - 1);
+			neighbors->push_back(tileIndex - mapWidth);
+			neighbors->push_back(tileIndex - 1);
 		}
 		else{
-
-			neighbors.push_back(tileIndex - 1);
-
+			neighbors->push_back(tileIndex - 1);
 		}
 		//Se não está no limite inferior
 		if(tileIndex + mapWidth < (int)tileMatrix.size()){
-
-			neighbors.push_back(tileIndex + mapWidth - 1);
-			neighbors.push_back(tileIndex + mapWidth);
-
+			neighbors->push_back(tileIndex + mapWidth - 1);
+			neighbors->push_back(tileIndex + mapWidth);
 		}
-
 	}
 	//Se esta no limite esquerdo
 	else if(tileIndex % mapWidth != mapWidth - 1){
 		//Se não está no limite superior
 		if(0 <=  tileIndex - mapWidth - 1){
-
-			neighbors.push_back(tileIndex - mapWidth);
-			neighbors.push_back(tileIndex - mapWidth + 1);
-			neighbors.push_back(tileIndex + 1);
-
+			neighbors->push_back(tileIndex - mapWidth);
+			neighbors->push_back(tileIndex - mapWidth + 1);
+			neighbors->push_back(tileIndex + 1);
 		}
 		else{
-			
-			neighbors.push_back(tileIndex + 1);
-
+			neighbors->push_back(tileIndex + 1);
 		}
 		//Se não está no limite inferior
 		if(tileIndex + mapWidth < (int)tileMatrix.size()){
-
-			neighbors.push_back(tileIndex + mapWidth);
-			neighbors.push_back(tileIndex + mapWidth + 1);
-
+			neighbors->push_back(tileIndex + mapWidth);
+			neighbors->push_back(tileIndex + mapWidth + 1);
 		}
 	}
-
 	return(neighbors);
-
 }
 
 struct TileMap::LessThanByHeuristic{
-
 	public:
-
 		LessThanByHeuristic(int dest,AStarHeuristic* heuristic,int mapWidth):
 		destTile(dest),heuristic(heuristic),tileMapWidth(mapWidth){}
-
 		bool operator()(const std::pair<double,int> lhs,const std::pair<double,int> rhs) const{
 			return lhs.first + (*heuristic)(Vec2(lhs.second / tileMapWidth,lhs.second % tileMapWidth),
 										Vec2(destTile / tileMapWidth,destTile % tileMapWidth)) < 
 					rhs.first + (*heuristic)(Vec2(rhs.second / tileMapWidth,rhs.second % tileMapWidth),
 										Vec2(destTile / tileMapWidth,destTile % tileMapWidth));
 		}
-
 	private:
-	
 		int destTile;
 		AStarHeuristic* heuristic;
 		int tileMapWidth;
-
 };
 
-std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap){
-
-	std::list<int> path;//caminho final a ser retornado
+std::list<int> *TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap){
+	std::list<int> *path= new std::list<int>();//caminho final a ser retornado
 	double weight;//Auxiliar para peso associado a cada tile
 	std::pair<double,int> current;//Auxiliar para tile atual que está sendo processado
 	//lista  de caminhos <destino,<anterior,custo>>);
@@ -478,36 +443,43 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 		//Seleciona o nó com menor custo fazendo assim uma busca guiada(A*)
 		std::sort(processList.begin(), processList.end(), compareFunc);
 		current = processList[0];
-
-		if(current.second == destTile){break;}
-
+		if(current.second == destTile){
+			break;
+		}
 		itp = processList.begin();
 		processList.erase(itp);// remove da lista
 		//Obtém todos os vizinhos de "current"
-		std::vector<int> neighbors = GetNeighbors(current.second);
+		std::vector<int> *neighbors = GetNeighbors(current.second);
 		//Se chegou ao destino sai do loop
 		// percorre os vértices "v" adjacentes de "current"
-		for(unsigned int j = 0 ; j < neighbors.size();j ++){
+		for(unsigned int j = 0 ; j < neighbors->size();j ++){
 			//Se o vértice já foi visitado ou não é atingível passa-se para o proximo
-			if (visited.at(neighbors.at(j)) || !Traversable(neighbors.at(j))) {continue;}
-			try{weight = weightMap.at(AtLayer(neighbors.at(j),WALKABLE_LAYER));}
-			catch(const std::out_of_range& oor){continue;}
+			if (visited.at(neighbors->at(j)) || !Traversable(neighbors->at(j))){
+				continue;
+			}
+			try{
+				weight = weightMap.at(AtLayer(neighbors->at(j),WALKABLE_LAYER));
+			}
+			catch(const std::out_of_range& oor){
+				continue;
+			}
 			//Verifica se o custo do caminho a partir de current é menor que o registrado no vizinho
-			if(dist.at(neighbors.at(j)) > dist.at(current.second) + weight){
+			if(dist.at(neighbors->at(j)) > dist.at(current.second) + weight){
 				//Caso o vizinho já tenha sido processado em alguma iteração
-				if(dist.at(neighbors.at(j)) != std::numeric_limits<double>::max()){
+				if(dist.at(neighbors->at(j)) != std::numeric_limits<double>::max()){
 					//Remove o custo e o caminho associado ao vizinho das listas visto que novos serão inseridos
-					std::vector<std::pair<double,int> >::iterator it = find (processList.begin(), processList.end(), std::make_pair(dist.at(neighbors.at(j)),neighbors.at(j)));
+					std::vector<std::pair<double,int> >::iterator it = find (processList.begin(), processList.end(), std::make_pair(dist.at(neighbors->at(j)),neighbors->at(j)));
 					processList.erase(it);
-					paths.remove(std::make_pair(neighbors.at(j),std::make_pair(current.second,weight)));
+					paths.remove(std::make_pair(neighbors->at(j),std::make_pair(current.second,weight)));
 				}
 				// atualiza a distância do vizinho e insere nas listas
-				dist.at(neighbors.at(j)) = dist.at(current.second) + weight;
-				paths.push_back(std::make_pair(neighbors.at(j),std::make_pair(current.second,weight)));
-				processList.push_back(std::make_pair(weight,neighbors.at(j)));
+				dist.at(neighbors->at(j)) = dist.at(current.second) + weight;
+				paths.push_back(std::make_pair(neighbors->at(j),std::make_pair(current.second,weight)));
+				processList.push_back(std::make_pair(weight,neighbors->at(j)));
 			}
 		}
 		visited.at(current.second) = true;
+		delete neighbors;
 	}
 	//Deducao do caminho
 	std::list<std::pair<int ,std::pair<int,double> > >::iterator it;
@@ -517,24 +489,19 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 	}
 	//Caso o destino não esteja possível procura o caminho com destino mais proximo do destino o qual se quer
 	else{
-
 		double closerNode = std::numeric_limits<double>::max();
 		for(it = paths.begin(); it != paths.end(); ++ it){
-
 			double auxCloser = (*heuristic)(Vec2(it->first / mapWidth,it->first % mapWidth),Vec2(destTile / mapWidth,destTile % mapWidth));
 			if(auxCloser < closerNode){
-
 				actual_node = it->first;
 				closerNode = auxCloser;
-
 			}
 		}
-
 	}
 	while(actual_node != originTile){
 		for(it = paths.begin(); it != paths.end(); ++ it){
 			if(it->first == actual_node){
-				path.push_front(actual_node);
+				path->push_front(actual_node);
 				actual_node = it->second.first;
 				break;
 			}
@@ -542,29 +509,22 @@ std::list<int> TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuris
 	}
 	return(path);
 }
-void TileMap::ShowPath(std::list<int>path){
 
-	for(std::list<int>::iterator it = path.begin(); it != path.end(); ++ it){
-
-		tileMatrix[*it + (WALKABLE_LAYER*mapWidth*mapHeight)] = END_POINT;
-
+void TileMap::ShowPath(std::shared_ptr<std::vector<int> > path){
+	for(uint i; i <path->size(); ++i){
+		tileMatrix[i + (WALKABLE_LAYER*mapWidth*mapHeight)] = END_POINT;
 	}
 }
 
 GameObject& TileMap::CloserObject(GameObject& origin,std::string objectDestType){
-
 	GameObject* closerObj;
 	double closerObjDistance = std::numeric_limits<double>::max();
 	for(unsigned int i = 0; i < gameObjectMatrix.size(); i ++){
-
 		if(gameObjectMatrix[i]->Is(objectDestType)){
-
 			double distance = origin.box.Center().VecDistance(gameObjectMatrix[i]->box.Center()).Magnitude();
 			if(distance < closerObjDistance){
-
 				closerObjDistance = distance;
 				closerObj = gameObjectMatrix[i];
-
 			}
 		}
 	}
@@ -574,3 +534,23 @@ GameObject& TileMap::CloserObject(GameObject& origin,std::string objectDestType)
 GameObject* TileMap::GetGO(int index){
 	return gameObjectMatrix.at(index);
 }
+
+void TileMap::ObserveMapChanges(TileMapObserver *obs){
+	observers.emplace_back(obs);
+}
+
+void TileMap::RemoveObserver(TileMapObserver *obs){
+	for(uint i=0; i < observers.size(); i++){
+		if(observers[i] == obs){
+			observers.erase(observers.begin()+i);
+			break;
+		}
+	}
+}
+
+void TileMap::ReportChanges(void){
+	for(uint i=0; i< observers.size(); i++){
+		observers[i]->NotifyTileMapChanged();
+	}
+}
+
