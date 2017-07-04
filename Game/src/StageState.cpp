@@ -221,7 +221,7 @@ void StageState::ShowLightning(float dt){
 	}
 }
 
-void StageState::NotifyTileMapChanged(void){
-	GameResources::NotifyTileMapChanged();
+void StageState::NotifyTileMapChanged(int tilePosition){
+	GameResources::NotifyTileMapChanged(tilePosition);
 }
 

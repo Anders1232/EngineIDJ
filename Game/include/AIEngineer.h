@@ -35,7 +35,7 @@ class AIEngineer : public Component, public TileMapObserver
 			Método herdade do componente com o oMapChangedbjetivo de identificar que tipo de componente é.
 		*/
 		bool Is(ComponentType type) const;
-		void NotifyTileMapChanged(void);
+		void NotifyTileMapChanged(int tilePosition);
 	private:
 
 		enum AIState{WALKING,WALKING_SLOWLY,BUILDING_BARRIER,STUNNED,STATE_NUM};
