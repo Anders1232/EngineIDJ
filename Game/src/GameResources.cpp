@@ -171,7 +171,6 @@ void GameResources::Clear(void){
 			i++;
 		}
 	}
-	
 	auto j= waveDataMap.begin();
 	while(j != waveDataMap.end()) {
 		if((*j).second.unique()) {
@@ -179,6 +178,15 @@ void GameResources::Clear(void){
 		}
 		else {
 			j++;
+		}
+	}
+	auto k= pathMap.begin();
+	while(k != pathMap.end()) {
+		if( (*k).second.second.unique() ) {
+			k= pathMap.erase(k);
+		}
+		else {
+			k++;
 		}
 	}
 
