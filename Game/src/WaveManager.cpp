@@ -78,7 +78,6 @@ void WaveManager::Update(float dt){
 			spawnTimer.Update(dt);
 			if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){ // spawn cooldown
 				//spawn 1 enemy at each existing spawn group
-
 				for (uint i = 0; i < currentWave.spawnPointsData.size(); i++){
 					uint enemiesCounter= enemyIndex;
 					uint indexOfTheEnemyToSpawn=0;
@@ -120,7 +119,6 @@ void WaveManager::Update(float dt){
 				}
 				REPORT_I_WAS_HERE;
 				spawnTimer.Restart();
-
 				enemyIndex++;
 			}
 			REPORT_I_WAS_HERE;
@@ -146,18 +144,15 @@ void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint
 	Game::GetInstance().GetCurrentState().AddObject(enemy);
 }
 
-
-
 bool WaveManager::Is(ComponentType type) const{
 	return type == WAVE_MANAGER;
 }
 
-
 void WaveManager::NotifyEnemyGotToHisDestiny(){
 	TEMP_REPORT_I_WAS_HERE;
 	--playerLifes;
-
 }
+
 void WaveManager::NotifyEnemyGotKilled(){
 	--enemiesLeft;
 }
@@ -165,10 +160,11 @@ void WaveManager::NotifyEnemyGotKilled(){
 int WaveManager::GetLifesLeft(){
 	return playerLifes;
 }
+
 int WaveManager::GetEnemiesLeft(){
 	return enemiesLeft;
 }
+
 bool WaveManager::Victory(){
 	return victory;
-
 }

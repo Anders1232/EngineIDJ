@@ -152,23 +152,16 @@ void AIQuimic::Update(float dt){
 			
 		}
 		else{
-
 			associated.RequestDelete();
 			waveManager.NotifyEnemyGotToHisDestiny();
-
 		}
 	}
 	else if(actualState == AIState::STUNNED){
-
 		//Aqui executa animações do efeito estonteante
-
 	}
 	else{
-
 		//Aqui executa animações de efeito de fumaça
-		
 	}
-
 }
 
 void AIQuimic::NotifyTileMapChanged(void){

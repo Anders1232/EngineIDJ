@@ -9,40 +9,28 @@ AIGoTo::AIGoTo(float speed,int dest,TileMap& tilemap,GameObject &associated):spe
 }
 
 void AIGoTo::Update(float dt){
-
-
 	if(pathIndex != path->size()){
-
 		tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
 		float lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
-			
 		if((vecSpeed.MemberMult(dt)).Magnitude() >= lastDistance){
-
 			associated.box.x = (tempDestination.x - (associated.box.w/2));
 			associated.box.y = (tempDestination.y - (associated.box.h/2));
 			pathIndex++;
-
 			if(pathIndex != path->size()){
-
 				tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
 				float weight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER));
 				vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / (weight * 2));
 			}
 		}
 		else if(vecSpeed.Magnitude() == 0.0){
-
 			float weight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER));
 			vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / (weight * 2));
-
 		}
 		else{
-		
 			associated.box.x = (associated.box.Center().x + (vecSpeed.MemberMult(dt)).x - associated.box.w/2);
 			associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
-
 		}
 	}
-
 }
 
 bool AIGoTo::Is(ComponentType type) const{

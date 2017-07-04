@@ -38,12 +38,9 @@ class AIArt : public Component, public TileMapObserver
 		bool Is(ComponentType type) const;
 		void NotifyTileMapChanged(void);
 	private:
-
 		enum AIState{WALKING,WAITING,STUNNED,STATE_NUM};
 		enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,STUN,NOT_STUN,EVENT_NUM}; 
-
 		AIEvent ComputeEvents();
-
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
 		Vec2 vecSpeed;
 		int destTile;/**< indice do tile de destino*/
@@ -55,7 +52,6 @@ class AIArt : public Component, public TileMapObserver
 		TileMap& tileMap;
 		GameObject &associated;
 		WaveManager &waveManager;
-
 		AIState actualState;
 		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM]; 
 };

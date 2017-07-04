@@ -23,7 +23,4 @@ class EndState: public State {
 		Text instruction;
 };
 
-#include "InputManager.h"
-#include "StageState.h"
-
 #endif // ENDSTATE_H
