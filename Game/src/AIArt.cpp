@@ -23,6 +23,12 @@ AIArt::AIArt(float speed, int dest, TileMap &tileMap, GameObject &associated, Wa
 	dfa[AIState::STUNNED][AIEvent::NONE] = AIState::STUNNED;
 
 	actualState = AIState::WALKING;
+	
+	tileMap.ObserveMapChanges(this);
+}
+
+AIArt::~AIArt(void){
+	tileMap.RemoveObserver(this);
 }
 
 AIArt::AIEvent AIArt::ComputeEvents(){
@@ -105,6 +111,7 @@ void AIArt::Update(float dt){
 void AIArt::NotifyTileMapChanged(void){
 	Vec2 originCoord= associated.box.Center();
 	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+	pathIndex= 0;
 }
 
 bool AIArt::Is(ComponentType type) const{

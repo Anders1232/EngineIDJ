@@ -22,6 +22,7 @@ class AIArt : public Component, public TileMapObserver
 			Instancia o componente.
 		*/
 		AIArt(float speed,int dest,TileMap &tileMap,GameObject &associated, WaveManager &wManager);
+		~AIArt(void);
 		/**
 			\brief Atualiza estado.
 			\param dt Intervalo de tempo desde a última chamada.

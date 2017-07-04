@@ -27,6 +27,12 @@ AIMedic::AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated,Wa
 	dfa[AIState::WALKING_SLOWLY][AIEvent::NONE] = AIState::WALKING_SLOWLY;
 
 	actualState = AIState::WALKING;
+	
+	tileMap.ObserveMapChanges(this);
+}
+
+AIMedic::~AIMedic(void){
+	tileMap.RemoveObserver(this);
 }
 
 AIMedic::AIEvent AIMedic::ComputeEvents(){
@@ -150,9 +156,10 @@ void AIMedic::Update(float dt){
 	}
 }
 
-void AIMedic::MapChanged(void){
+void AIMedic::NotifyTileMapChanged(void){
 	Vec2 originCoord= associated.box.Center();
 	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+	pathIndex= 0;
 }
 
 bool AIMedic::Is(ComponentType type) const{

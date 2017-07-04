@@ -15,7 +15,7 @@
 /**
 	\brief Componete IA que reproduz o comportamento do estudande de quimica
 */
-class AIQuimic : public Component
+class AIQuimic : public Component, public TileMapObserver
 {
 	public:
 		/**
@@ -26,6 +26,7 @@ class AIQuimic : public Component
 			Instancia o componente.
 		*/
 		AIQuimic(float speed,int dest,TileMap &tileMap,GameObject &associated,WaveManager& wManager);
+		~AIQuimic(void);
 		/**
 			\brief Atualiza estado.
 			\param dt Intervalo de tempo desde a última chamada.
@@ -39,7 +40,7 @@ class AIQuimic : public Component
 			Método herdade do componente com o objetivo de identificar que tipo de componente é.
 		*/
 		bool Is(ComponentType type) const;
-		void MapChanged(void);
+		void NotifyTileMapChanged(void);
 
 	private:
 

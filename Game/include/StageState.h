@@ -20,7 +20,7 @@
 
 using std::vector;
 
-class StageState: public State {
+class StageState: public State, public TileMapObserver {
 	public:
 		StageState(void);
 		~StageState(void);
@@ -29,6 +29,7 @@ class StageState: public State {
 		void Pause(void);
 		void Resume(void);
 		void ShowLightning(float dt);
+		void NotifyTileMapChanged(void);
 	private:
 		TileSet tileSet;
 		TileMap tileMap;/**< Mapa de tiles do jogo. */

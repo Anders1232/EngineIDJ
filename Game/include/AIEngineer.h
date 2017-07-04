@@ -10,7 +10,7 @@
 /**
 	\brief Componete IA que se move para ponto de destino
 */
-class AIEngineer : public Component
+class AIEngineer : public Component, public TileMapObserver
 {
 	public:
 		/**
@@ -21,6 +21,7 @@ class AIEngineer : public Component
 			Instancia o componente.
 		*/
 		AIEngineer(float speed, int dest, TileMap& tilemap, GameObject &associated,WaveManager& wManager);
+		~AIEngineer();
 		/**
 			\brief Atualiza estado.
 			\param dt Intervalo de tempo desde a última chamada.
@@ -34,7 +35,7 @@ class AIEngineer : public Component
 			Método herdade do componente com o oMapChangedbjetivo de identificar que tipo de componente é.
 		*/
 		bool Is(ComponentType type) const;
-		void MapChanged(void);
+		void NotifyTileMapChanged(void);
 	private:
 
 		enum AIState{WALKING,WALKING_SLOWLY,BUILDING_BARRIER,STUNNED,STATE_NUM};

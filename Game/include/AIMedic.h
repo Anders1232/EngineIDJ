@@ -10,7 +10,7 @@
 /**
 	\brief Componete IA que se move para ponto de destino
 */
-class AIMedic : public Component
+class AIMedic : public Component, public TileMapObserver
 {
 	public:
 		/**
@@ -21,6 +21,7 @@ class AIMedic : public Component
 			Instancia o componente.
 		*/
 		AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated,WaveManager &wManager);
+		~AIMedic(void);
 		/**
 			\brief Atualiza estado.
 			\param dt Intervalo de tempo desde a última chamada.
@@ -34,7 +35,7 @@ class AIMedic : public Component
 			Método herdade do componente com o objetivo de identificar que tipo de componente é.
 		*/
 		bool Is(ComponentType type) const;
-		void MapChanged(void);
+		void NotifyTileMapChanged(void);
 	private:
 
 		enum AIState{WALKING,WALKING_SLOWLY,WAITING,STUNNED,STATE_NUM};

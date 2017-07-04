@@ -48,10 +48,12 @@ StageState::StageState(void)
 	waveManager= new WaveManager(tileMap, "assets/wave&enemyData.txt");
 	waveManagerGO->AddComponent(waveManager);
 	AddObject(waveManagerGO);
+	tileMap.ObserveMapChanges(this);
 }
 
 StageState::~StageState(void) {
 	objectArray.clear();
+	tileMap.RemoveObserver(this);
 	GameResources::Clear();
 }
 
@@ -208,3 +210,8 @@ void StageState::ShowLightning(float dt){
 		lightningTimer.Restart();
 	}
 }
+
+void StageState::NotifyTileMapChanged(void){
+	GameResources::NotifyTileMapChanged();
+}
+
