@@ -477,7 +477,7 @@ std::list<int> *TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuri
 				// atualiza a distância do vizinho e insere nas listas
 				dist.at(neighbors->at(j)) = dist.at(current.second) + weight;
 				paths.push_back(std::make_pair(neighbors->at(j),std::make_pair(current.second,weight)));
-				processList.push_back(std::make_pair(weight,neighbors->at(j)));
+				processList.emplace_back(std::make_pair(weight,neighbors->at(j)));
 			}
 		}
 		visited.at(current.second) = true;
@@ -522,11 +522,13 @@ GameObject& TileMap::CloserObject(GameObject& origin,std::string objectDestType)
 	GameObject* closerObj = nullptr;
 	double closerObjDistance = std::numeric_limits<double>::max();
 	for(unsigned int i = 0; i < gameObjectMatrix.size(); i ++){
-		if(gameObjectMatrix[i]->Is(objectDestType)){
-			double distance = origin.box.Center().VecDistance(gameObjectMatrix[i]->box.Center()).Magnitude();
-			if(distance < closerObjDistance){
-				closerObjDistance = distance;
-				closerObj = gameObjectMatrix[i];
+		if(nullptr != gameObjectMatrix[i]){
+			if(gameObjectMatrix[i]->Is(objectDestType)){
+				double distance = origin.box.Center().VecDistance(gameObjectMatrix[i]->box.Center()).Magnitude();
+				if(distance < closerObjDistance){
+					closerObjDistance = distance;
+					closerObj = gameObjectMatrix[i];
+				}
 			}
 		}
 	}
