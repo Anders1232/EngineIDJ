@@ -13,7 +13,7 @@
 int WaveManager::waveCount = 0;
 
 
-WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap), waveStartSound("audio/Acoes/Inicio de Wave.wav"), betweenWavesTimer() {
+WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap), waveStartSound("audio/Acoes/Inicio de Wave.wav"), betweenWavesTimer(), waitingForTheNextWave(true) {
 	endWave=false;
 	enemiesLeft = 0;
 	playerLifes = 30;
@@ -32,7 +32,6 @@ WaveManager::~WaveManager(){
 }
 
 void WaveManager::StartWave(){
-	waveStartSound.Play(1);
 	enemiesLeft=0;
 	maxNumberOfEnemiesInSpawnPoint=0;
 	int numberOfEnemiesInSpawnPoint;
@@ -68,11 +67,19 @@ void WaveManager::Update(GameObject &associated, float dt){
 			victory = true;
 			return;
 		}else{
+			if(!waitingForTheNextWave){
+				waitingForTheNextWave= true;
+				betweenWavesTimer.Restart();
+				waveStartSound.Play(1);
+			}
+			else{
+				betweenWavesTimer.Update(dt);
+				if(TIME_BETWEEN_WAVES > betweenWavesTimer.Get()){
+					++waveIndex;
+					StartWave();
+				}
+			}
 			REPORT_I_WAS_HERE;
-			++waveIndex;
-//			if(0 == enemiesLeft)
-//			betweenWavesTimer.Restart();
-			StartWave();
 		}
 	}else{
 		if(enemyIndex <= maxNumberOfEnemiesInSpawnPoint){

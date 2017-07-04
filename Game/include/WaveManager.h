@@ -108,6 +108,7 @@ class WaveManager : public Component {
 		bool victory;/**< Verdadeiro se o jogador passou por todas as waves com vidas restantes. */
 		Sound waveStartSound;
 		Timer betweenWavesTimer;
+		bool waitingForTheNextWave;
 
 };
 
