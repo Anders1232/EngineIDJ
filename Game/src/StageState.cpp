@@ -265,7 +265,7 @@ void StageState::InitializeObstacles(void){
 		for(uint i = 0; i < treeGroup.size(); i++){
 			vector<int> &treeTilesVector= treeGroup[i];
 			for(uint j = 0; j < treeTilesVector.size(); j++){
-				Obstacle* tree;
+				Obstacle* tree= nullptr;
 				index = treeTilesVector[j];
 				if(treeTilesVector.size() <= (j+1) ){
 					//checar as alternativas gerará um seg fault
@@ -296,21 +296,24 @@ void StageState::InitializeObstacles(void){
 							}
 						}
 					}
-					else if(treeTilesVector[j+1] == index+1){
-						//é uma linha
-						tree = new Obstacle("./img/obstacle/arvore2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
-						treeTilesVector.erase(treeTilesVector.begin()+(j+1) );
-					}
-					else{
-						//é apenas um tile
-						tree = new Obstacle("./img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+					if(nullptr == tree){
+						if(treeTilesVector[j+1] == index+1){
+							//é uma linha
+							tree = new Obstacle("./img/obstacle/arvore2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+							treeTilesVector.erase(treeTilesVector.begin()+(j+1) );
+						}
+						else{
+							//é apenas um tile
+							tree = new Obstacle("./img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+						}
 					}
 				}
-//				ASSERT2(tree != nullptr, "Aha!");
 				if(nullptr != tree){
 					tileMap.InsertGO(tree, false);
 					AddObstacle(tree);
-					tree= nullptr;
+				}
+				else{
+					REPORT_DEBUG2(1, "\t[WARNING] Couldn't place a tree on tileMap!");
 				}
 			}
 		}
