@@ -4,21 +4,25 @@
         enemy
         1.0
         1.0
+        15
     Arte_na_praia
         ART
         enemy
         1.0
         1.0
+        10
     Arquiteto_calouro
         ARQUITET
         enemy
         1.0
         1.0
+        15
     Engenheiro
         ENGINEER
         enemy
         1.0
         1.0
+        10
 --WAVES--
 Wave1
     SpawnPoint:0

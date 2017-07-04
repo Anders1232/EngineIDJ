@@ -15,10 +15,11 @@ class PlayerData: public Component{
 		void Render() const;
 		void Update(GameObject &associated, float dt);
 		bool Is(ComponentType type) const;
-		void NotifyGoldUpdate(int amount);
-		void NotifyKillsUpdate();
-		void NotifyLifesUpdate();
-		void PointsChange(int amount);
+		void NotifyKillsUpdate(int wave, EnemyData enemyData);
+		void NotifyLifeLost(int wave, EnemyData enemyData);
+		void GoldUpdate(int amount);
+		void PointsUpdate(int amount);
+
 	private:
 		UItext name;
 		int gold;

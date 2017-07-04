@@ -84,7 +84,10 @@ void GameResources::ReadWaveData(std::string file){
 		float scaleX, scaleY;
 		ASSERT2(1 == fscanf(filePtr, "\t\t%f\n", &scaleX), "\tScaleX File format invalid! Expecting a float.");
 		ASSERT2(1 == fscanf(filePtr, "\t\t%f\n", &scaleY), "\tScaleY File format invalid! Expecting a float.");
-		newEntry->second.emplace_back(enemyName, enemyTypeIndex, scaleX, scaleY, spritePath);//vê se esse uso consegue instanciar a struct, caso contrário criar construtor
+		int gold;
+		ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &gold), "\tGold File format invalid! Expecting an int.");
+		newEntry->second.emplace_back(enemyName, enemyTypeIndex, scaleX, scaleY, spritePath, gold);//vê se esse uso consegue instanciar a struct, caso contrário criar construtor
+	
 	}
 	char waveName[WAVE_NAME_MAX_LENGHT+1];
 	waveName[WAVE_NAME_MAX_LENGHT]= '\0';

@@ -1,4 +1,7 @@
 #include "PlayerData.h"
+#include "WaveData.h"
+#include "Error.h"
+
 
 PlayerData::PlayerData():name("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Player Board",UIelement::BehaviorType::FIT ,false){
 	points = 0;
@@ -23,15 +26,22 @@ bool PlayerData::Is(ComponentType type) const{
 	return type == PLAYER_DATA;
 }
 
-void PlayerData::NotifyGoldUpdate(int amount){
-	this->gold += amount;
-}
-void PlayerData::NotifyKillsUpdate(){
+void PlayerData::NotifyKillsUpdate(int wave, EnemyData enemyData){
 	++kills;
+	PointsUpdate(enemyData.gold + (2 * wave) );
 }
-void PlayerData::NotifyLifesUpdate(){
+
+void PlayerData::NotifyLifeLost(int wave, EnemyData enemyData){
 	--lifes;
+	PointsUpdate( -1 * (enemyData.gold + (2 * wave)) );
 }
-void PlayerData::PointsChange(int amount){
+
+// decrementa para compra e incrementa pra ganho.
+void PlayerData::GoldUpdate(int amount){
+	this->gold += amount; 
+}
+
+// decrementa para perda de vida e incrementa pra kills.
+void PlayerData::PointsUpdate(int amount){
 	points += amount;
 }
