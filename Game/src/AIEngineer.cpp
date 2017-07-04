@@ -28,6 +28,12 @@ AIEngineer::AIEngineer(float speed,int dest,TileMap& tilemap, GameObject &associ
 	dfa[AIState::WALKING_SLOWLY][AIEvent::NONE] = AIState::WALKING_SLOWLY;
 
 	actualState = AIState::WALKING;
+	
+	tileMap.ObserveMapChanges(this);
+}
+
+AIEngineer::~AIEngineer(void){
+	tileMap.RemoveObserver(this);
 }
 
 AIEngineer::AIEvent AIEngineer::ComputeEvents(){
@@ -148,9 +154,10 @@ void AIEngineer::Update(float dt){
 		}
 }
 
-void AIEngineer::MapChanged(void){
+void AIEngineer::NotifyTileMapChanged(void){
 	Vec2 originCoord= associated.box.Center();
 	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+	pathIndex= 0;
 }
 
 bool AIEngineer::Is(ComponentType type) const{

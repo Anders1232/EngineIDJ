@@ -27,6 +27,12 @@ AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associat
 	dfa[AIState::WALKING_SLOWLY][AIEvent::NONE] = AIState::WALKING_SLOWLY;
 
 	actualState = AIState::WALKING;
+	
+	tileMap.ObserveMapChanges(this);
+}
+
+AIQuimic::~AIQuimic(void){
+	tileMap.RemoveObserver(this);
 }
 
 AIQuimic::AIEvent AIQuimic::ComputeEvents(){
@@ -142,6 +148,7 @@ void AIQuimic::Update(float dt){
 				//Requisita novo caminho
 				Vec2 originCoord= associated.box.Center();
 				path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+				pathIndex= 0;
 			}
 			
 		}
@@ -165,9 +172,10 @@ void AIQuimic::Update(float dt){
 
 }
 
-void AIQuimic::MapChanged(void){
+void AIQuimic::NotifyTileMapChanged(void){
 	Vec2 originCoord= associated.box.Center();
 	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+	pathIndex= 0;
 }
 
 bool AIQuimic::Is(ComponentType type) const{
