@@ -1,6 +1,6 @@
 --ENEMIES--
     Quimico_maroto
-        ART
+        QUIMIC
         enemy
         1.0
         1.0

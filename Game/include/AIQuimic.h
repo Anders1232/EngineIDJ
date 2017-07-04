@@ -5,7 +5,12 @@
 #include "TileMap.h"
 #include "GameResources.h"
 #include "ManhattanDistance.h"
+#include "Bullet.h"
+#include "Game.h"
+#include "Timer.h"
 #include <list>
+
+#define QUIMIC_MAX_BULLET_COOLDOWN 2.0
 
 /**
 	\brief Componete IA que reproduz o comportamento do estudande de quimica
@@ -53,6 +58,7 @@ class AIQuimic : public Component
 		TileMap& tileMap;
 		GameObject &associated;
 		WaveManager& waveManager;
+		Timer bulletsCoolDown;
 		AIState actualState;
 		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM]; 
 };

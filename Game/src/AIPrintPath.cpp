@@ -8,7 +8,7 @@ AIPrintPath::AIPrintPath(TileMap* tilemap,GameObject &associated):tilemap(tilema
 
 void AIPrintPath::Update(float dt){
 
-	if(InputManager::GetInstance().MousePress(LEFT_MOUSE_BUTTON)) {
+	if(InputManager::GetInstance().MousePress(LEFT_MOUSE_BUTTON)){
 
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 		dest = tilemap->GetCoordTilePos(mousePos, false, 0);

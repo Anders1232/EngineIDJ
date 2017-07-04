@@ -1,10 +1,12 @@
 #include "AIQuimic.h"
 
 AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associated,WaveManager& wManager):speed(speed),destTile(dest),tileMap(tileMap),associated(associated),waveManager(wManager){
+
 	heuristic = new ManhattanDistance();
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt")).at(((Enemy&)associated).GetType());
 	path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x, associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
 	vecSpeed = Vec2(0.0,0.0);
+	bulletsCoolDown = Timer();
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
 	dfa[AIState::WALKING][AIEvent::PATH_BLOCKED] = AIState::SENDING_BOMB;
@@ -108,6 +110,7 @@ void AIQuimic::Update(float dt){
 
 	AIEvent actualTransition = ComputeEvents();
 	actualState = dfa[actualState][actualTransition];
+	bulletsCoolDown.Update(dt);
 
 	if(actualState == AIState::WALKING){
 
@@ -183,7 +186,19 @@ void AIQuimic::Update(float dt){
 
 		if(tileMap.GetCoordTilePos(Vec2(associated.box.x,associated.box.y), false, 0) != destTile){
 
-			GameObject& target = tileMap.CloserObject(associated,std::string("Tower"));
+			if(bulletsCoolDown.Get() > QUIMIC_MAX_BULLET_COOLDOWN){
+
+				bulletsCoolDown.Restart();
+				GameObject& target = tileMap.CloserObject(associated,std::string("Tower"));
+				Vec2 distance = associated.box.Center().VecDistance(target.box.Center());
+				float angle = std::atan2(distance.y,distance.x);
+				Bullet* bullet = new Bullet(associated.box.Center().x,associated.box.Center().y,angle,BULLET_VEL,BULLET_REACH,std::string("img/minionbullet2.png"),std::string("Tower"),3,0.1);
+				Game::GetInstance().GetCurrentState().AddObject(bullet);
+
+				//Requisita novo caminho
+				path = tileMap.AStar(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x, associated.box.Center().y), false, 0),destTile,heuristic,tileWeightMap);
+
+			}
 			
 		}
 		else{
