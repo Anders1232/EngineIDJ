@@ -26,9 +26,11 @@
 #define CAM_START_X 300
 #define CAM_START_Y 300
 #define CAM_START_ZOOM -1.75
-#define MAX_TIME_LIGHTINING_RISE 0.1
-#define MAX_TIME_LIGHTINING 0.3
-#define MAX_TIME_LIGHTINING_FADE 2
+#define MAX_TIME_LIGHTINING_RISE 0.1 // s
+#define MAX_TIME_LIGHTINING 0.3 // s
+#define MAX_TIME_LIGHTINING_FADE 2 // s
+#define LIGHTINING_MIN_INTERVAL 30 // s
+#define LIGHTINING_MAX_INTERVAL 60 // s
 
 StageState::StageState(void)
 		: State(),
@@ -50,6 +52,8 @@ StageState::StageState(void)
 	waveManagerGO->AddComponent(waveManager);
 	AddObject(waveManagerGO);
 	tileMap.ObserveMapChanges(this);
+	lightningInterval = rand() % (LIGHTINING_MAX_INTERVAL - LIGHTINING_MIN_INTERVAL) + LIGHTINING_MIN_INTERVAL;
+	REPORT_DEBUG(" Proximo relampago sera em " << lightningInterval << " segundos.");
 }
 
 StageState::~StageState(void) {
@@ -157,9 +161,11 @@ void StageState::Update(float dt){
 	else{
 		isLightning = false;
 		lightningTimer.Update(dt);
-		if(lightningTimer.Get() > rand() % 80 + 20){
+		if(lightningTimer.Get() > lightningInterval){
 			isLightning = true;
 			lightningTimer.Restart();
+			lightningInterval = rand() % (LIGHTINING_MAX_INTERVAL - LIGHTINING_MIN_INTERVAL) + LIGHTINING_MIN_INTERVAL;
+			REPORT_DEBUG(" Proximo relampago sera em " << lightningInterval << " segundos.");
 		}
 	}
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
@@ -204,21 +210,23 @@ void StageState::Resume(void) {
 void StageState::ShowLightning(float dt){
 	isLightning = true;
 	lightningTimer.Update(dt);
+	float newAlpha;
 	if(lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE){
-		lightningColor.a += 256 * dt / MAX_TIME_LIGHTINING_RISE;
+		newAlpha = lightningColor.a + 256 * dt / MAX_TIME_LIGHTINING_RISE;
 	}
 	else if(lightningTimer.Get() >= MAX_TIME_LIGHTINING_RISE && lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING){
-		lightningColor.a = 255;
+		newAlpha = 255;
 	}
 	else if(lightningTimer.Get() >= MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING && lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE){
 		float fullTime = (MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE) - (MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING);
-		lightningColor.a -= 256* ((dt / fullTime) + 1);
+		newAlpha = lightningColor.a - 256* (dt / fullTime);
 	}
 	else{
-		lightningColor.a = 0;
+		newAlpha = 0;
 		isLightning = false;
 		lightningTimer.Restart();
 	}
+	lightningColor.a = newAlpha > 255 ? 255 : newAlpha < 0 ? 0 : newAlpha;
 }
 
 void StageState::NotifyTileMapChanged(int tilePosition){

@@ -12,7 +12,9 @@
 
 using std::endl;
 
-#define DEBUG 0
+#ifndef DEBUG
+	#define DEBUG 0
+#endif
 #define CONVERSAO_GRAUS_RADIANOS 57.324840764
 
 #define Error(msg)std::cerr<<"[ERROR] "<<WHERE<<"\t\t"<<msg<<END_LINE;exit(1);

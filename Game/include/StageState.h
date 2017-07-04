@@ -43,6 +43,7 @@ class StageState: public State, public TileMapObserver {
 		vector<int> waves;//vetor de waves a ser lido no arquivo
 		int frameRateCounter;
 		Timer frameRateTimer;
+		float lightningInterval;
 };
 
 #include "EndState.h"
