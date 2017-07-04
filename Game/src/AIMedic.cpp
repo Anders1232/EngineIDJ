@@ -93,20 +93,18 @@ void AIMedic::Update(float dt){
 	//std::cout << "Estado atual: " << actualState << std::endl;
 	//std::cout << "Transição atual : " << actualTransition << std::endl;
 	actualState = dfa[actualState][actualTransition];
-
 	if(actualState == AIState::WALKING){
 		if(pathIndex != path->size()){
 			tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
-			Vec2 movement= tempDestination-Vec2(associated.box.w/2, associated.box.h/2);
-			float lastDistance = movement.VecDistance(tempDestination).Magnitude();
 			float distance = associated.box.Center().VecDistance(tempDestination).Magnitude();
 			if((vecSpeed.MemberMult(dt)).Magnitude() >= distance || lastDistance < distance){
-				
+				Vec2 movement= tempDestination-Vec2(associated.box.w/2, associated.box.h/2);
 				associated.box.x = movement.x;
 				associated.box.y = movement.y;
 				pathIndex++;
 				if(pathIndex != path->size()){
 					tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
+					lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
 					float weight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER));
 					vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
 				}
@@ -118,8 +116,8 @@ void AIMedic::Update(float dt){
 			else{
 				associated.box.x = (associated.box.Center().x + (vecSpeed.MemberMult(dt)).x - associated.box.w/2);
 				associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
+				lastDistance = distance;
 			}
-		lastDistance = distance;
 		}
 	}
 	else if(actualState == AIState::WALKING_SLOWLY){

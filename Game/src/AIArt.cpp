@@ -1,4 +1,3 @@
-#include <algorithm>
 #include "AIArt.h"
 
 //enum AIState{WALKING,WAITING,STUNNED,STATE_NUM};
@@ -70,16 +69,15 @@ void AIArt::Update(float dt){
 	if(actualState == AIState::WALKING){
 		if(pathIndex != path->size()){
 			tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
-			Vec2 movement= tempDestination-Vec2(associated.box.w/2, associated.box.h/2);
-			float lastDistance = movement.VecDistance(tempDestination).Magnitude();
 			float distance = associated.box.Center().VecDistance(tempDestination).Magnitude();
 			if((vecSpeed.MemberMult(dt)).Magnitude() >= distance || lastDistance < distance){
-				
+				Vec2 movement= tempDestination-Vec2(associated.box.w/2, associated.box.h/2);
 				associated.box.x = movement.x;
 				associated.box.y = movement.y;
 				pathIndex++;
 				if(pathIndex != path->size()){
 					tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
+					lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
 					float weight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER));
 					vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / weight);
 				}
@@ -91,24 +89,29 @@ void AIArt::Update(float dt){
 			else{
 				associated.box.x = (associated.box.Center().x + (vecSpeed.MemberMult(dt)).x - associated.box.w/2);
 				associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
+				lastDistance = distance;
 			}
-		lastDistance = distance;
 		}
 	}
 	else if(actualState == AIState::WAITING){
+
 		if(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) == destTile){
 			
 			associated.RequestDelete();
 			waveManager.NotifyEnemyGotToHisDestiny();
+
 		}
 	}
 	else{
+
 		//Aqui executa animações do efeito estonteante
+
 	}
+
 }
 
 void AIArt::NotifyTileMapChanged(int tilePosition){
-	if(path->end() != std::find( (path->begin())+pathIndex, path->end(), tilePosition)){
+	if(path->end() != std::find(path->begin()+pathIndex, path->end(), tilePosition)){
 		Vec2 originCoord= associated.box.Center();
 		path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 		pathIndex= 0;

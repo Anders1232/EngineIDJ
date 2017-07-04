@@ -48,6 +48,7 @@ class AIQuimic : public Component, public TileMapObserver
 		AIEvent ComputeEvents();
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
 		Vec2 vecSpeed;
+		float lastDistance;
 		int destTile;/**< indice do tile de destino*/
 		std::shared_ptr<std::vector<int>> path;/**< Caminho a ser executado pela IA*/
 		uint pathIndex;
