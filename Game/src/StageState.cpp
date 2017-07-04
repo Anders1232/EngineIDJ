@@ -327,9 +327,10 @@ void StageState::InitializeObstacles(void){
 			Obstacle* pole = new Obstacle("./img/obstacle/posteLuz.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 			tileMap.InsertGO(pole, false);
 			AddObstacle(pole);
-			pole->SpriteScaleY(2.);
-			pole->box.y= pole->box.y - 1*tileMap.GetTileSize().y;
-			pole->box.h= 2*tileMap.GetTileSize().y;
+			pole->SpriteScaleY(2.2);
+			pole->box.y= pole->box.y - 1.2*tileMap.GetTileSize().y;
+			pole->box.h= 2.2*tileMap.GetTileSize().y;
+			pole->box.x-= pole->box.w/4;
 		}
 	}
 	delete poleTiles;
