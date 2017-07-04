@@ -470,11 +470,9 @@ std::list<int> *TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuri
 				//Caso o vizinho já tenha sido processado em alguma iteração
 				if(dist.at(neighbors->at(j)) != std::numeric_limits<double>::max()){
 					//Remove o custo e o caminho associado ao vizinho das listas visto que novos serão inseridos
-					std::vector<std::pair<double,int> >::iterator it = find (processList.begin(), processList.end(), std::make_pair(dist.at(neighbors->at(j)),neighbors->at(j)));
-					processList.erase(it);
 					paths.remove(std::make_pair(neighbors->at(j),std::make_pair(current.second,weight)));
 				}
-				// atualiza a distância do vizinho e insere nas listas
+				//atualiza a distância do vizinho e insere nas listas
 				dist.at(neighbors->at(j)) = dist.at(current.second) + weight;
 				paths.push_back(std::make_pair(neighbors->at(j),std::make_pair(current.second,weight)));
 				processList.emplace_back(std::make_pair(weight,neighbors->at(j)));

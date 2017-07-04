@@ -137,6 +137,10 @@ void AIEngineer::Update(float dt){
 	else if(actualState == AIState::BUILDING_BARRIER){
 		if(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
 			//Executa aqui código para o inimigo construir barreiras para se defender de bombas
+			//Requisita novo caminho
+			Vec2 originCoord= associated.box.Center();
+			path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+			pathIndex= 0;
 		
 		}
 		else{
