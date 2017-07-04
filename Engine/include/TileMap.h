@@ -238,23 +238,33 @@ class TileMap{
 			\return vetor com o indice dos tiles dos vizinhos.
 		*/
 		std::vector<int>* GetNeighbors(int tile) const;
-		void ReportChanges(void);
+		void ReportChanges(int tileChanged);
 		vector<TileMapObserver*> observers;
 
 		class LessThanByHeuristic{
 			public:
-				LessThanByHeuristic(int dest,AStarHeuristic* heuristic,int mapWidth):
-				destTile(dest),heuristic(heuristic),tileMapWidth(mapWidth){}
+				LessThanByHeuristic(int dest,AStarHeuristic* heuristic,int mapWidth,bool reverse):
+				destTile(dest),heuristic(heuristic),tileMapWidth(mapWidth),reverse(reverse){}
 				bool operator()(const std::pair<double,int> lhs,const std::pair<double,int> rhs) const{
-					return lhs.first + (*heuristic)(Vec2(lhs.second / tileMapWidth,lhs.second % tileMapWidth),
-												Vec2(destTile / tileMapWidth,destTile % tileMapWidth)) > 
-							rhs.first + (*heuristic)(Vec2(rhs.second / tileMapWidth,rhs.second % tileMapWidth),
-												Vec2(destTile / tileMapWidth,destTile % tileMapWidth));
+					if(reverse){
+						return lhs.first + (*heuristic)(Vec2(lhs.second / tileMapWidth,lhs.second % tileMapWidth),
+													Vec2(destTile / tileMapWidth,destTile % tileMapWidth)) > 
+								rhs.first + (*heuristic)(Vec2(rhs.second / tileMapWidth,rhs.second % tileMapWidth),
+													Vec2(destTile / tileMapWidth,destTile % tileMapWidth));
+					}
+					else{
+						return lhs.first + (*heuristic)(Vec2(lhs.second / tileMapWidth,lhs.second % tileMapWidth),
+													Vec2(destTile / tileMapWidth,destTile % tileMapWidth)) < 
+								rhs.first + (*heuristic)(Vec2(rhs.second / tileMapWidth,rhs.second % tileMapWidth),
+													Vec2(destTile / tileMapWidth,destTile % tileMapWidth));
+					}
 				}
+				
 			private:
 				int destTile;
 				AStarHeuristic* heuristic;
 				int tileMapWidth;
+				bool reverse;
 		};
 };
 

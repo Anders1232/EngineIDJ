@@ -29,7 +29,7 @@ class StageState: public State, public TileMapObserver {
 		void Pause(void);
 		void Resume(void);
 		void ShowLightning(float dt);
-		void NotifyTileMapChanged(void);
+		void NotifyTileMapChanged(int tilePosition);
 	private:
 		TileSet tileSet;
 		TileMap tileMap;/**< Mapa de tiles do jogo. */

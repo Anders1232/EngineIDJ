@@ -229,7 +229,7 @@ void StageState::ShowLightning(float dt){
 	lightningColor.a = newAlpha > 255 ? 255 : newAlpha < 0 ? 0 : newAlpha;
 }
 
-void StageState::NotifyTileMapChanged(void){
-	GameResources::NotifyTileMapChanged();
+void StageState::NotifyTileMapChanged(int tilePosition){
+	GameResources::NotifyTileMapChanged(tilePosition);
 }
 

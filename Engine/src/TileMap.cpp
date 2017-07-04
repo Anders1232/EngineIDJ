@@ -186,7 +186,7 @@ void TileMap::InsertGO(GameObject* obj) {
 		obj->box.x = column*tileSet->GetTileWidth();
 		obj->box.y = line*tileSet->GetTileHeight();
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
-		ReportChanges();
+		ReportChanges(position);
 	} else if(0 > AtLayer(position, COLLISION_LAYER)) {
 		REPORT_DEBUG("\ttentado inserir objeto em posição inválida, pois nela está" << tileMatrix[position+(COLLISION_LAYER * mapWidth*mapHeight)]);
 		obj->RequestDelete();
@@ -235,11 +235,11 @@ void TileMap::RemoveGO(int position){
 		REPORT_DEBUG("\tRemoving the gameObject at position " << position);
 		gameObjectMatrix[position] = nullptr;
 		tileMatrix[position + (COLLISION_LAYER * mapWidth * mapHeight)] = -1;
+		ReportChanges(position);
 	}
 	else{
 		REPORT_DEBUG("\ttentado remover objeto de posicao inválida" << std::endl);
 	}
-	ReportChanges();
 }
 
 void TileMap::RemoveGO(void){
@@ -414,7 +414,7 @@ std::list<int> *TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuri
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<int ,std::pair<int,double> > > paths;
 	//Define functor a ser usado no ordenamento do vetor de tiles
-	mypqType processHeap(LessThanByHeuristic(destTile,heuristic,mapWidth));
+	mypqType processHeap(LessThanByHeuristic(destTile,heuristic,mapWidth,true));
 	//inicia o vetor de distâncias e de visited
 	std::vector<double> dist(tileMatrix.size(),std::numeric_limits<double>::max());
 	std::vector<bool> visited(tileMatrix.size(),false);
@@ -534,9 +534,9 @@ void TileMap::RemoveObserver(TileMapObserver *obs){
 	Error("\tTileMap observer not found!");
 }
 
-void TileMap::ReportChanges(void){
+void TileMap::ReportChanges(int tileChanged){
 	for(uint i=0; i< observers.size(); i++){
-		observers[i]->NotifyTileMapChanged();
+		observers[i]->NotifyTileMapChanged(tileChanged);
 	}
 }
 

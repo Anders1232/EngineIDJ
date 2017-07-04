@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "AIQuimic.h"
 
 AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associated,WaveManager& wManager):speed(speed),destTile(dest), pathIndex(0),tileMap(tileMap),associated(associated),waveManager(wManager){
@@ -161,12 +162,12 @@ void AIQuimic::Update(float dt){
 	}
 }
 
-void AIQuimic::NotifyTileMapChanged(void){
-//Retirado recálculo das rotas por deixar o jogo muito lento
-/*	Vec2 originCoord= associated.box.Center();
-	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
-	pathIndex= 0;
-*/
+void AIQuimic::NotifyTileMapChanged(int tilePosition){
+	if(path->end() != std::find( (path->begin())+pathIndex, path->end(), tilePosition)){
+		Vec2 originCoord= associated.box.Center();
+		path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+		pathIndex= 0;
+	}
 }
 
 bool AIQuimic::Is(ComponentType type) const{

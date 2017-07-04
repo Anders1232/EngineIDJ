@@ -3,7 +3,7 @@
 
 class TileMapObserver{
 	public:
-		virtual void NotifyTileMapChanged(void)=0;
+		virtual void NotifyTileMapChanged(int tileChanged)=0;
 };
 
 #endif // TILEMAPOBSERVER_H

@@ -36,7 +36,7 @@ class AIArt : public Component, public TileMapObserver
 			Método herdade do componente com o objetivo de identificar que tipo de componente é.
 		*/
 		bool Is(ComponentType type) const;
-		void NotifyTileMapChanged(void);
+		void NotifyTileMapChanged(int tilePosition);
 	private:
 		enum AIState{WALKING,WAITING,STUNNED,STATE_NUM};
 		enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,STUN,NOT_STUN,EVENT_NUM}; 
