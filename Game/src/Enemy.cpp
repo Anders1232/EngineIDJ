@@ -132,6 +132,18 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			}
 			components.emplace_back(new AIQuimic(ENEMY_QUIMIC_MOVE_SPEED, endPoint, tileMap, *this, wManager));
 			break;
+		case EnemyType::MEDIC:
+			REPORT_DEBUG("Enemy type: MEDIC "<< enemyData.enemyType);
+			type = EnemyType::MEDIC;
+			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
+				for(uint i2= 0; i2 < sp[i].size(); i2++){
+					sp[i][i2].colorMultiplier.r = 100;
+					sp[i][i2].colorMultiplier.g = 250;
+					sp[i][i2].colorMultiplier.b = 100;
+				}
+			}
+			components.emplace_back(new AIMedic(ENEMY_QUIMIC_MOVE_SPEED, endPoint, tileMap, *this, wManager));
+			break;
 		default:
 			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";
 			break;

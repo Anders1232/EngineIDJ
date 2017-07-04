@@ -4,6 +4,11 @@
         enemy
         1.0
         1.0
+    Medico_maroto
+        MEDIC
+        enemy
+        1.0
+        1.0
     Arte_na_praia
         ART
         enemy
