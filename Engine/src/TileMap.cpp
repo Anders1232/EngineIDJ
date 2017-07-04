@@ -406,31 +406,15 @@ std::vector<int>* TileMap::GetNeighbors(int tileIndex) const{
 	return(neighbors);
 }
 
-struct TileMap::LessThanByHeuristic{
-	public:
-		LessThanByHeuristic(int dest,AStarHeuristic* heuristic,int mapWidth):
-		destTile(dest),heuristic(heuristic),tileMapWidth(mapWidth){}
-		bool operator()(const std::pair<double,int> lhs,const std::pair<double,int> rhs) const{
-			return lhs.first + (*heuristic)(Vec2(lhs.second / tileMapWidth,lhs.second % tileMapWidth),
-										Vec2(destTile / tileMapWidth,destTile % tileMapWidth)) < 
-					rhs.first + (*heuristic)(Vec2(rhs.second / tileMapWidth,rhs.second % tileMapWidth),
-										Vec2(destTile / tileMapWidth,destTile % tileMapWidth));
-		}
-	private:
-		int destTile;
-		AStarHeuristic* heuristic;
-		int tileMapWidth;
-};
-
 std::list<int> *TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap){
+	typedef std::priority_queue<std::pair<double,int>,std::vector<std::pair<double,int> >,LessThanByHeuristic> mypqType;
 	std::list<int> *path= new std::list<int>();//caminho final a ser retornado
 	double weight;//Auxiliar para peso associado a cada tile
 	std::pair<double,int> current;//Auxiliar para tile atual que está sendo processado
 	//lista  de caminhos <destino,<anterior,custo>>);
 	std::list<std::pair<int ,std::pair<int,double> > > paths;
 	//Define functor a ser usado no ordenamento do vetor de tiles
-	LessThanByHeuristic compareFunc = LessThanByHeuristic(destTile,heuristic,mapWidth);
-	std::priority_queue<std::pair<double,int> , std::vector<std::pair<double,int> >,compareFunc> processHeap;
+	mypqType processHeap(LessThanByHeuristic(destTile,heuristic,mapWidth));
 	//inicia o vetor de distâncias e de visited
 	std::vector<double> dist(tileMatrix.size(),std::numeric_limits<double>::max());
 	std::vector<bool> visited(tileMatrix.size(),false);

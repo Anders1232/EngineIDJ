@@ -226,7 +226,6 @@ class TileMap{
 		int mapDepth;/**< Número de camadas do TileMap.*/
 		std::vector<GameObject*> gameObjectMatrix;/**< TileMap linearizado de GameObjects*/	//bidimensional??
 		bool displayCollisionInfo;/**<Verdadeiro se as informações de colisão devem ser exibidas no TileMap::Render, falso caso contrário.*/
-		struct LessThanByHeuristic;/**<Estrutura que guarda a implementação do operador usado na ordenação de uma lista baseada na heuristica*/
 		/**
 			\Verifica se um determinado tile está livre na camada de colisão
 
@@ -241,6 +240,22 @@ class TileMap{
 		std::vector<int>* GetNeighbors(int tile) const;
 		void ReportChanges(void);
 		vector<TileMapObserver*> observers;
+
+		class LessThanByHeuristic{
+			public:
+				LessThanByHeuristic(int dest,AStarHeuristic* heuristic,int mapWidth):
+				destTile(dest),heuristic(heuristic),tileMapWidth(mapWidth){}
+				bool operator()(const std::pair<double,int> lhs,const std::pair<double,int> rhs) const{
+					return lhs.first + (*heuristic)(Vec2(lhs.second / tileMapWidth,lhs.second % tileMapWidth),
+												Vec2(destTile / tileMapWidth,destTile % tileMapWidth)) < 
+							rhs.first + (*heuristic)(Vec2(rhs.second / tileMapWidth,rhs.second % tileMapWidth),
+												Vec2(destTile / tileMapWidth,destTile % tileMapWidth));
+				}
+			private:
+				int destTile;
+				AStarHeuristic* heuristic;
+				int tileMapWidth;
+		};
 };
 
 #endif // TILEMAP_H
