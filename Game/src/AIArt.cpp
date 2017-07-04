@@ -70,9 +70,11 @@ void AIArt::Update(float dt){
 	if(actualState == AIState::WALKING){
 		if(pathIndex != path->size()){
 			tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
+			Vec2 movement= tempDestination-Vec2(associated.box.w/2, associated.box.h/2);
+			float lastDistance = movement.VecDistance(tempDestination).Magnitude();
 			float distance = associated.box.Center().VecDistance(tempDestination).Magnitude();
 			if((vecSpeed.MemberMult(dt)).Magnitude() >= distance || lastDistance < distance){
-				Vec2 movement= tempDestination-Vec2(associated.box.w/2, associated.box.h/2);
+				
 				associated.box.x = movement.x;
 				associated.box.y = movement.y;
 				pathIndex++;
