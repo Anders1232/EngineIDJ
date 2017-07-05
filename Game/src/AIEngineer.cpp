@@ -10,7 +10,7 @@ AIEngineer::AIEngineer(float speed,int dest,TileMap& tilemap, GameObject &associ
 	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 	vecSpeed = Vec2(0.0,0.0);
 	lastDistance = std::numeric_limits<float>::max();
-	
+
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
 	dfa[AIState::WALKING][AIEvent::PATH_BLOCKED] = AIState::BUILDING_BARRIER;
 	dfa[AIState::WALKING][AIEvent::SMOKE] = AIState::WALKING_SLOWLY;
@@ -164,6 +164,7 @@ void AIEngineer::NotifyTileMapChanged(int tilePosition){
 		Vec2 originCoord= associated.box.Center();
 		path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 		pathIndex= 0;
+		lastDistance = std::numeric_limits<float>::max();
 	}
 }
 

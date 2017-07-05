@@ -116,6 +116,7 @@ void AIArt::NotifyTileMapChanged(int tilePosition){
 		Vec2 originCoord= associated.box.Center();
 		path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 		pathIndex= 0;
+		lastDistance = std::numeric_limits<float>::max();
 	}
 }
 
