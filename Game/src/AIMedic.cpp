@@ -6,8 +6,8 @@ AIMedic::AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated,Wa
 	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
 	Vec2 originCoord= associated.box.Center();
 	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tilemap.GetCoordTilePos(originCoord, false, 0), dest, "map/WeightData.txt");
-	
 	vecSpeed = Vec2(0.0,0.0);
+	lastDistance = std::numeric_limits<float>::max();
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
 	dfa[AIState::WALKING][AIEvent::PATH_BLOCKED] = AIState::WAITING;
