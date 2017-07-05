@@ -24,7 +24,6 @@ struct EnemyData{
 
 struct EnemySpawnData{
 	public:
-
 		EnemySpawnData(int index, int numberOfEnemies, int baseHP, uint endPoint):
 			enemyIndex(index),
 			numberOfEnemies(numberOfEnemies),

@@ -5,19 +5,20 @@
 #include "Sprite.h"
 #include "Error.h"
 
-class HitPoints : public Component {
+class HitPoints : public Component{
 	public:
-		HitPoints(uint baseHp);
+		HitPoints(uint baseHp,GameObject &associated);
 		~HitPoints();
-		void Update(GameObject &associated, float dt);
+		void Update(float dt);
 		void Damage(int damage);
 		bool Is(ComponentType) const;
 		int GetHp();
-		void Render(GameObject &associated);
+		void Render();
 	private:
 		int hp;
 		Sprite healthBar;
 		Sprite healthColor;
+		GameObject &associated;
 };
 
 #endif

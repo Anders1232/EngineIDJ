@@ -5,7 +5,7 @@
 #include "Game.h"
 #include "Resources.h"
 
-// Alterar esses valores altera a parte da textura que será renderizada
+//Alterar esses valores altera a parte da textura que será renderizada
 #define SPRITE_OPEN_X (0)
 #define SPRITE_OPEN_Y (0)
 #define HIGHLIGHT 30

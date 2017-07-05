@@ -32,10 +32,9 @@ class WaveManager : public Component {
 		/**
 			\brief Atualiza estado.
 			Atualiza o estado da wave atual.
-			\param associated. So recebe este argumento por ser um componente. Mas como wave nao faz parte de um GameObject, ele recebe o parametro EmptyGameObject em que nao é usada.
 			\param dt tempo dt, é usado para fazer o spawn de tempos em tempos dos inimigos.
 		*/
-		void Update(GameObject &associated, float dt);
+		void Update(float dt);
 		/** 
 			\brief Tipo
 			Retorna o tipo da componente se é igual a WAVE_MANAGER. true ou false.
@@ -91,6 +90,7 @@ class WaveManager : public Component {
 		*/
 		void SpawnEnemy(int tileMapPosition, int enemyId,uint baseHP, uint endPoint, uint indexOfTheEnemyToSpawn);
 		vector<vector<int>> *spawnGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
+		vector<vector<int>> *endGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
 		static int waveCount; /**<Contador de waves restantes. Também usado para nivelar as waves.*/
 		Timer spawnTimer; /**<Contador para o cooldown de respawn. **/
 		

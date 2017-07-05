@@ -37,7 +37,7 @@ void Tower::Damage(int damage) {
 
 void Tower::Update(float dt ) {
 	for(uint count = 0; count < components.size(); count++) {
-		components[count]->Update(*this, dt);
+		components[count]->Update(dt);
 	}
 }
 

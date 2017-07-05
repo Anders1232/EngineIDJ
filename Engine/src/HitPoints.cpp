@@ -1,6 +1,6 @@
 #include "HitPoints.h"
 
-HitPoints::HitPoints(uint hp) : healthBar("img/effect/health_bar.png"), healthColor("img/effect/health_color.png"){
+HitPoints::HitPoints(uint hp,GameObject &associated) : healthBar("img/effect/health_bar.png"), healthColor("img/effect/health_color.png"),associated(associated){
 	this->hp = (int)hp;
 }
 
@@ -8,10 +8,10 @@ HitPoints::~HitPoints(){
 }
 
 
-void HitPoints::Update(GameObject &associated, float dt){
+void HitPoints::Update(float dt){
 }
 
-void HitPoints::Render(GameObject &associated){
+void HitPoints::Render(){
 	healthBar.Render(associated.box);
 	healthColor.Render(associated.box);
 }
