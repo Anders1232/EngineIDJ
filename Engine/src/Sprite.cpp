@@ -16,7 +16,8 @@ Sprite::Sprite(std::string file, bool highlighted, float frameTime, int frameCou
 		: colorMultiplier(255, 255, 255), blendMode(ALPHA_BLEND)
 		, frameCount(frameCount)
 		, currentFrame(0), timeElapsed(0)
-		, frameTime(frameTime), scaleX(1.), scaleY(1.) {
+		, frameTime(frameTime), clipRect()
+		, scaleX(1.), scaleY(1.) {
 	if(highlighted){
 		colorMultiplier = Color(225, 225, 225);
 	}
