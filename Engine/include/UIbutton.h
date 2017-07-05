@@ -81,13 +81,14 @@ class UIbutton {
 			\return True caso a string seja o nome dessa classe ou de qualquer uma que ela herde.
 		*/
 		virtual bool Is(std::string UItype) const;
+		bool interactOnBoundingBox;
 	protected:
 		/**
 			\brief Construtor protegido para não permitir que seja diretamente instanciado.
 
 			Essa classe NÃO deve ser diretamente instanciada. Somente as classes que herdam dela.
 		*/
-		UIbutton(UIbutton::State initialState = UIbutton::State::ENABLED);
+		UIbutton(UIbutton::State initialState = UIbutton::State::ENABLED, bool interactOnBoundingBox = true);
 		void Update(float dt, bool mouseIsInside);
 		UIbutton::State actualState; /**< Armazena o estado atual do botão. */
 		ButtonCallback disabledCallback; /**< Armazena um ponteiro para função a ser chamada quando o botão for desativado. */

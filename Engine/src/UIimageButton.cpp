@@ -4,7 +4,7 @@
 
 UIimageButton::UIimageButton(UIbutton::State initialState, UIelement::BehaviorType behavior)
 				: UIimage(behavior)
-				, UIbutton(initialState)
+				, UIbutton(initialState, false)
 				, disabledSprite(nullptr)
 				, enabledSprite(nullptr)
 				, highlightedSprite(nullptr)
@@ -28,9 +28,7 @@ UIimageButton::~UIimageButton() {
 
 void UIimageButton::Update(float dt, Rect parentCanvas) {
 	UIimage::Update(dt, parentCanvas);
-	UIbutton::Update(dt, INPUT_MANAGER.GetMousePos().IsInRect(boundingBox));
-	UIimage::Update(dt, parentCanvas);
-	
+	UIbutton::Update(dt, INPUT_MANAGER.GetMousePos().IsInRect( interactOnBoundingBox ? boundingBox : box));
 }
 
 void UIimageButton::SetUIbuttonState(UIbutton::State newState) {

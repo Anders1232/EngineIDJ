@@ -2,8 +2,9 @@
 
 #include "InputManager.h"
 
-UIbutton::UIbutton(UIbutton::State initialState)
-				: actualState(initialState)
+UIbutton::UIbutton(UIbutton::State initialState, bool interactOnBoundingBox)
+				: interactOnBoundingBox(interactOnBoundingBox)
+				, actualState(initialState)
 				, disabledCallback(nullptr)
 				, enabledCallback(nullptr)
 				, highlightedCallback(nullptr)

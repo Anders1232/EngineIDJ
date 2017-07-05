@@ -49,10 +49,13 @@ class StageState: public State {
 		bool menuIsShowing;
 		
 		UIcanvas HUDcanvas;
-		UIimageButton openMenuBtn;
 		UIimage menuBg;
+		UIimageButton openMenuBtn;
 		UIgridGroup towersBtnGroup;
 		UIimageButton towerBtn1;
+		UIimageButton towerBtn2;
+		UIimageButton towerBtn3;
+		UIimageButton towerBtn4;
 };
 
 #include "EndState.h"
