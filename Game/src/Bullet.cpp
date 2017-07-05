@@ -3,7 +3,7 @@
 #include "Error.h"
 
 Bullet::Bullet(float x,float y,float angle,float speed,float maxDistance,std::string sprite,std::string targetType,float frameTime,int frameCount)
-: sp(sprite, frameTime, frameCount),targetType(targetType){
+: sp(sprite,false,frameTime, frameCount),targetType(targetType){
 	box.x= x;
 	box.y= y;
 	box.w= sp.GetWidth();
