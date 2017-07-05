@@ -29,8 +29,6 @@ UIimageButton::~UIimageButton() {
 void UIimageButton::Update(float dt, Rect parentCanvas) {
 	UIimage::Update(dt, parentCanvas);
 	UIbutton::Update(dt, INPUT_MANAGER.GetMousePos().IsInRect(boundingBox));
-	UIimage::Update(dt, parentCanvas);
-	
 }
 
 void UIimageButton::SetUIbuttonState(UIbutton::State newState) {

@@ -47,8 +47,8 @@ class StageState: public State {
 		bool menuIsShowing;
 		
 		UIcanvas HUDcanvas;
-		UIimageButton openMenuBtn;
 		UIimage menuBg;
+		UIimageButton openMenuBtn;
 		UIgridGroup towersBtnGroup;
 		UIimageButton towerBtn1;
 };
