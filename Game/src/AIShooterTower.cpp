@@ -7,7 +7,7 @@ void AIShooterTower::Update(float dt){
 	bulletsCoolDown.Update(dt);
 	if(bulletsCoolDown.Get() > TOWER_MAX_BULLET_COOLDOWN){
 		bulletsCoolDown.Restart();
-		GameObject* target = tileMap.CloserObject(associated,std::string("Enemy"));
+		GameObject* target = tileMap.FindNearestGO(associated.box.Center(),std::string("Enemy"));
 		if(target != nullptr){
 			Vec2 distance = associated.box.Center().VecDistance(target->box.Center());
 			float angle = std::atan2(distance.y,distance.x);

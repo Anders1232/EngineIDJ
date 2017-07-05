@@ -15,11 +15,13 @@
 #include "AStarHeuristic.h"
 #include "Resources.h"
 #include "TileMapObserver.h"
+#include "NearestGOFinder.h"
 #define TILE_VAZIO (-1)
 #define SPAWN_POINT (75)
 #define COLLISION_LAYER (1)
 #define WALKABLE_LAYER (0)
 #define END_POINT (74)
+
 
 using std::string;
 using std::vector;
@@ -28,7 +30,7 @@ using std::vector;
 
 	Gerencia um tileMap,internamente possui um tileSet que é usado para renderizar o mapa. Internamente possui três mapas: um para o tileSet, outro para colisão e um terceiro de GameObjects.
 */
-class TileMap{
+class TileMap: public NearestGOFinder{
 	public:
 		/**
 			\brief Construtor.
@@ -191,7 +193,7 @@ class TileMap{
 		std::list<int>* AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap);
 		void ObserveMapChanges(TileMapObserver *);
 		void RemoveObserver(TileMapObserver *);
-		GameObject* CloserObject(GameObject& origin,std::string objectDestType);
+		GameObject* FindNearestGO(Vec2 origin,std::string objectDestType);
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.

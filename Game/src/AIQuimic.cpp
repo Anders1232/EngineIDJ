@@ -144,7 +144,7 @@ void AIQuimic::Update(float dt){
 			if(bulletsCoolDown.Get() > QUIMIC_MAX_BULLET_COOLDOWN){
 
 				bulletsCoolDown.Restart();
-				GameObject* target = tileMap.CloserObject(associated,std::string("Tower"));
+				GameObject* target = tileMap.FindNearestGO(associated.box.Center(),std::string("Tower"));
 				if(target != nullptr){
 					/*Vec2 distance = associated.box.Center().VecDistance(target->box.Center());
 					float angle = std::atan2(distance.y,distance.x);

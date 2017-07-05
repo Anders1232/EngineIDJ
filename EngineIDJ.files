@@ -433,3 +433,4 @@ Game/src/TitleState.cpp
 Game/src/Tower.cpp
 Game/src/WaveData.cpp
 Game/src/WaveManager.cpp
+Engine/include/NearestGOFinder.h
