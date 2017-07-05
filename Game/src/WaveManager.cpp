@@ -6,6 +6,7 @@
 #include "Enemy.h"
 #include "GameResources.h"
 #include "Error.h"
+#include "PlayerData.h"
 
 #define TIME_BETWEEN_SPAWN (0.8)
 
@@ -141,7 +142,7 @@ bool WaveManager::Is(ComponentType type) const{
 
 void WaveManager::NotifyEnemyGotToHisDestiny(){
 	--playerLifes;
-
+	PlayerData::GetInstance().DecrementLife();
 }
 void WaveManager::NotifyEnemyGotKilled(){
 	--enemiesLeft;

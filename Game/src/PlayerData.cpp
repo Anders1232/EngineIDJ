@@ -80,3 +80,13 @@ void PlayerData::GoldUpdate(int amount){
 void PlayerData::PointsUpdate(int amount){
 	points += amount;
 }
+
+PlayerData& PlayerData::GetInstance(void){
+	static PlayerData playerData;
+	return playerData;
+}
+
+
+void PlayerData::DecrementLife(){
+	lifes--;
+}

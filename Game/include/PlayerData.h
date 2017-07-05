@@ -21,7 +21,8 @@ class PlayerData: public Component{
 		void NotifyLifeLost(int wave, EnemyData enemyData);
 		void GoldUpdate(int amount);
 		void PointsUpdate(int amount);
-
+		static PlayerData& GetInstance(void);
+		void DecrementLife();
 	private:
 		UIcanvas HUDcanvas;
 		UIverticalGroup playerTable;

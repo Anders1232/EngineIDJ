@@ -27,11 +27,11 @@
 Wave1            //wave n
     SpawnPoint:0 //spawnpoint
             0 	 //enemyId
-            5 	 //numberOfEnemies ++
+            5 	 //numberOfEnemies
             100  //baseHP
             0    //endpoint
             
-            1    //enemyId++
+            1    //enemyId
             5    //numberOfEnemies
             120  //baseHP
             1    //endpoint
