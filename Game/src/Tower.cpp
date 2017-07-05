@@ -53,7 +53,7 @@ void Tower::RequestDelete(void) {
 	hitpoints = 0;
 }
 
-void Tower::NotifyCollision(GameObject &other) {}
+void Tower::NotifyCollision(GameObject &object) {}
 
 Rect Tower::GetWorldRenderedRect() const {
 	return Camera::WorldToScreen(box);

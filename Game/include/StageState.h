@@ -17,6 +17,7 @@
 #include "AIGoDown.h"
 #include "AIPrintPath.h"
 #include "WaveManager.h"
+#include "Obstacle.h"
 
 using std::vector;
 
@@ -39,11 +40,17 @@ class StageState: public State, public TileMapObserver {
 		bool isLightning;
 		Timer lightningTimer;
 		Color lightningColor;
-		WaveManager *waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
+		float lightningInterval;
+
+		WaveManager *waveManager;/**< Referencia para a WaveManager, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
 		vector<int> waves;//vetor de waves a ser lido no arquivo
+		void InitializeObstacles(void);
+		std::vector<std::unique_ptr<Obstacle>> obstacleArray;
+		void AddObstacle(Obstacle *obstacle);
+		void RenderObstacleArray(void) const;
+
 		int frameRateCounter;
 		Timer frameRateTimer;
-		float lightningInterval;
 };
 
 #include "EndState.h"

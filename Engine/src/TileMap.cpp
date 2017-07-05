@@ -166,8 +166,7 @@ int TileMap::GetCoordTilePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 	
 	return y*mapWidth+x;
 }
-
-void TileMap::InsertGO(GameObject* obj) {
+void TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 	int position = GetCoordTilePos(mousePos, false, 0);
 	REPORT_DEBUG("\t position = " << position << "\t of " << mapHeight*mapWidth << " tiles.");
@@ -176,23 +175,36 @@ void TileMap::InsertGO(GameObject* obj) {
 		obj->RequestDelete();
 		return;
 	}
-	if(-1 == AtLayer(position, COLLISION_LAYER)) {
-		REPORT_DEBUG("\tInserting the gameObject at position " << position);
-		gameObjectMatrix[position] = obj;
-		tileMatrix[position+(COLLISION_LAYER*mapWidth*mapHeight)] = PAREDE;
+	if(checkCollision){
+		if(-1 == AtLayer(position, COLLISION_LAYER)) {
+			REPORT_DEBUG("\tInserting the gameObject at position " << position);
+			gameObjectMatrix[position] = obj;
+			tileMatrix[position+(COLLISION_LAYER*mapWidth*mapHeight)] = PAREDE;
+			
+			int line = position / GetWidth();
+			int column = position % GetWidth();
+			obj->box.x = column*tileSet->GetTileWidth();
+			obj->box.y = line*tileSet->GetTileHeight();
+			//TODO: aqui ajudar a box para ficar exatamente no tileMap
+			ReportChanges(position);
+		} else if(0 > AtLayer(position, COLLISION_LAYER)) {
+			REPORT_DEBUG("\ttentado inserir objeto em posição inválida, pois nela está" << tileMatrix[position+(COLLISION_LAYER * mapWidth*mapHeight)]);
+			obj->RequestDelete();
+		} else {
+			REPORT_DEBUG("\ttentado inserir objeto em posição já ocupada!");
+			obj->RequestDelete();
+		}
+	}
+	else{
+		int tilePos= GetCoordTilePos(obj->box.Center(), false, 0);
+		REPORT_DEBUG("\tInserting the gameObject at position " << tilePos);
+		gameObjectMatrix[tilePos] = obj;
 		
-		int line = position / GetWidth();
-		int column = position % GetWidth();
+		int line = tilePos / GetWidth();
+		int column = tilePos % GetWidth();
 		obj->box.x = column*tileSet->GetTileWidth();
 		obj->box.y = line*tileSet->GetTileHeight();
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
-		ReportChanges(position);
-	} else if(0 > AtLayer(position, COLLISION_LAYER)) {
-		REPORT_DEBUG("\ttentado inserir objeto em posição inválida, pois nela está" << tileMatrix[position+(COLLISION_LAYER * mapWidth*mapHeight)]);
-		obj->RequestDelete();
-	} else {
-		REPORT_DEBUG("\ttentado inserir objeto em posição já ocupada!");
-		obj->RequestDelete();
 	}
 }
 
@@ -261,66 +273,66 @@ int& TileMap::AtLayer(int index2D, int layer) const {
 }
 
 vector<vector<int>>* TileMap::GetTileGroups(int tileType) const {
-	vector<vector<int>> *spawnPoints = new vector<vector<int>>();
-	vector<int> foundSpawnPoints;
+	vector<vector<int>> *tilePoints = new vector<vector<int>>();
+	vector<int> foundTilePoints;
 	uint countLimit = GetWidth()*GetHeight();
 	int base = countLimit*COLLISION_LAYER;
 	REPORT_I_WAS_HERE;
 
 	for(uint i = 0; i < countLimit; i++) {
-		int positionToBeseach = base+i;
-		if(tileType == tileMatrix[positionToBeseach]) {
-			foundSpawnPoints.push_back(positionToBeseach%(GetWidth()*GetHeight()));
+		int positionToBeSearch = base+i;
+		if(tileType == tileMatrix[positionToBeSearch]) {
+			foundTilePoints.push_back(positionToBeSearch%(GetWidth()*GetHeight()));
 		}
 	}
 	REPORT_I_WAS_HERE;
 	// Agora que tenho todos os spawn points vou agrupá-los de acordo com suas adjacências.
-	if(foundSpawnPoints.empty()) {
-		Error("Não foi encontrado tile points "<< tileType << "!");
+	if(foundTilePoints.empty()) {
+		Error("Não foi encontrado spawn points!");
 	}
 
-	spawnPoints->emplace_back();
-	(*spawnPoints)[0].push_back(foundSpawnPoints[0]);
-	foundSpawnPoints.erase(foundSpawnPoints.begin());
-	while(!foundSpawnPoints.empty()) {
+	tilePoints->emplace_back();
+	(*tilePoints)[0].push_back(foundTilePoints[0]);
+	foundTilePoints.erase(foundTilePoints.begin());
+	while(!foundTilePoints.empty()) {
 		bool neighborFound = false;
-		for(unsigned int i = 0; i < spawnPoints->size(); i++) {
-			vector<int> &vec = (*spawnPoints)[i];
+		for(unsigned int i = 0; i < tilePoints->size(); i++) {
+			vector<int> &vec = (*tilePoints)[i];
 			if(
-					(std::find(vec.begin(), vec.end(), foundSpawnPoints[0]+1) != vec.end() )//posição à direita
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-1) != vec.end() )//posição à esquerda
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]+GetWidth()) != vec.end() )// posição em cima
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-GetWidth()) != vec.end() )//posição em baixo
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-GetWidth()-1) != vec.end() )//diagonal supeior esquerda
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]-GetWidth()+1) != vec.end() )//diagonal supeior direita
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]+GetWidth()-1) != vec.end() )//diagonal inferior esquerda
-					|| (std::find(vec.begin(), vec.end(), foundSpawnPoints[0]+GetWidth()+1) != vec.end() )//diagonal inferior direita
+					(std::find(vec.begin(), vec.end(), foundTilePoints[0]+1) != vec.end() )//posição à direita
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]-1) != vec.end() )//posição à esquerda
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]+GetWidth()) != vec.end() )// posição em cima
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]-GetWidth()) != vec.end() )//posição em baixo
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]-GetWidth()-1) != vec.end() )//diagonal supeior esquerda
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]-GetWidth()+1) != vec.end() )//diagonal supeior direita
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]+GetWidth()-1) != vec.end() )//diagonal inferior esquerda
+					|| (std::find(vec.begin(), vec.end(), foundTilePoints[0]+GetWidth()+1) != vec.end() )//diagonal inferior direita
 			){
-				vec.push_back(foundSpawnPoints[0]);
-				foundSpawnPoints.erase(foundSpawnPoints.begin());
+				vec.push_back(foundTilePoints[0]);
+				foundTilePoints.erase(foundTilePoints.begin());
 				neighborFound = true;
 				break;
 			}
 		}
 		
 		if(!neighborFound) {
-			spawnPoints->emplace_back();
-			(*spawnPoints)[spawnPoints->size()-1].push_back(foundSpawnPoints[0]);
-			foundSpawnPoints.erase(foundSpawnPoints.begin());
+			tilePoints->emplace_back();
+			(*tilePoints)[tilePoints->size()-1].push_back(foundTilePoints[0]);
+			foundTilePoints.erase(foundTilePoints.begin());
 		}
 		REPORT_I_WAS_HERE;
 	}
-#ifdef DEBUG
-	std::cout << WHERE << "\tTileWidth= " << GetWidth() << END_LINE;
-	std::cout << WHERE << "\tNumero de spawn groups achados: " << (*spawnPoints).size() << END_LINE;
-	for(uint i = 0; i < (*spawnPoints).size(); i++) {
-		std::cout << WHERE << "\tTileGroups groups " << i <<" tem tamanho " << (*spawnPoints)[i].size() << END_LINE;
-		for(uint i2 = 0; i2 < (*spawnPoints)[i].size(); i2++) {
-			std::cout << WHERE << "\tTile point: " << (*spawnPoints)[i][i2] << END_LINE;
+#if DEBUG
+	std::cout << WHERE << "\tNumero de tile groups achados: " << (*tilePoints).size() << END_LINE;
+	for(uint i = 0; i < (*tilePoints).size(); i++) {
+		std::cout << WHERE << "\tTile groups " << i <<" tem tamanho " << (*tilePoints)[i].size() << END_LINE;
+		std::cout << WHERE << "\tTileWidth= " << GetWidth() << END_LINE;
+		for(uint i2 = 0; i2 < (*tilePoints)[i].size(); i2++) {
+			std::cout << WHERE << "\tSpawn point: " << (*tilePoints)[i][i2] << END_LINE;
 		}
 	}
 #endif
-	return spawnPoints;
+	return tilePoints;
 }
 
 Vec2 TileMap::GetTileSize(void) const{
