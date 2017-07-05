@@ -24,8 +24,14 @@ class PlayerData: public Component{
 
 	private:
 		UIcanvas HUDcanvas;
-		UItext boardName;
 		UIverticalGroup playerTable;
+		UItext boardName;
+		UItext playerPoints;
+		UItext playerGold;
+		UItext playerKills;
+		UItext playerLifes;
+
+
 		int gold;
 		uint kills;
 		int lifes;
