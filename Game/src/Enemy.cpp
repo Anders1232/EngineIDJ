@@ -148,7 +148,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";
 			break;
 	}
-	hitpoints = new HitPoints(baseHP,*this);
+	hitpoints = new HitPoints(baseHP,*this, enemyData.scaleX);
 	components.push_back(hitpoints);
 }
 

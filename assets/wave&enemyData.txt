@@ -2,28 +2,28 @@
     Quimico_maroto
         QUIMIC
         enemy
-        1.0
-        1.0
+        0.5
+        0.5
     Medico_maroto
         MEDIC
         enemy
-        1.0
-        1.0
+        0.5
+        0.5
     Arte_na_praia
         ART
         enemy
-        1.0
-        1.0
+        0.5
+        0.5
     Arquiteto_calouro
         ARQUITET
         enemy
-        1.0
-        1.0
+        0.5
+        0.5
     Engenheiro
         ENGINEER
         enemy
-        1.0
-        1.0
+        0.5
+        0.5
 --WAVES--
 Wave1
     SpawnPoint:0
