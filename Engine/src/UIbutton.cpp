@@ -22,7 +22,7 @@ void UIbutton::Update(float dt, bool mouseIsInside) {
 			if(INPUT_MANAGER.MouseRelease(LEFT_MOUSE_BUTTON)) {
 			Click();
 			}
-		} else {
+		} else if (UIbutton::State::ENABLED != actualState) {
 			SetUIbuttonState(UIbutton::State::ENABLED);
 		}
 	}
@@ -59,8 +59,6 @@ void UIbutton::SetClickCallback(void* caller, ButtonCallback callback) {
 }
 
 void UIbutton::SetUIbuttonState(UIbutton::State newState) {
-	if(newState == actualState) return;
-
 	actualState = newState;
 	switch(actualState) {
 		case UIbutton::State::DISABLED: {
