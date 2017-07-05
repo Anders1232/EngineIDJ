@@ -7,6 +7,7 @@
 #include "UItext.h"
 #include "UItextButton.h"
 #include "UIcanvas.h"
+#include "UIverticalGroup.h"
 
 #define TOTAL_LIFES 30;
 class PlayerData: public Component{
@@ -23,8 +24,8 @@ class PlayerData: public Component{
 
 	private:
 		UIcanvas HUDcanvas;
-		UItext board;
-
+		UItext boardName;
+		UIverticalGroup playerTable;
 		int gold;
 		uint kills;
 		int lifes;
