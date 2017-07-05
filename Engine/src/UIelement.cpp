@@ -57,11 +57,15 @@ void UIelement::Update(float dt, Rect parentCanvas) {
 
 void UIelement::Render(bool debugRender) const {
 	if (debugRender) {
-		SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 0, 0, 255); // Bounding Vermelho
+		SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 0, 0, 255); // Anchors Vermelho
+		SDL_Rect anch = Rect( boundingBox.x - offsets.x, boundingBox.y - offsets.y, boundingBox.w - offsets.w + offsets.x, boundingBox.h - offsets.h + offsets.y );
+		SDL_RenderDrawRect(Game::GetInstance().GetRenderer(), &anch);
+
+		SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 255, 0, 255); // Bounding Amarelo
 		SDL_Rect bounding = boundingBox;
 		SDL_RenderDrawRect(Game::GetInstance().GetRenderer(), &bounding);
 
-		SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 255, 0, 255); // Box Amarelo
+		SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 0, 255, 0, 255); // Box Verde
 		SDL_Rect renderBox = box;
 		SDL_RenderDrawRect(Game::GetInstance().GetRenderer(), &renderBox);
 	}
@@ -73,10 +77,10 @@ Rect UIelement::GetBoundingBox(void) const {
 
 Rect UIelement::ComputeBoundingbox(Rect parentCanvas) {
 	Rect boundingBox;
-	boundingBox.x = parentCanvas.w*anchors.x+offsets.x;
-	boundingBox.y = parentCanvas.h*anchors.y+offsets.y;
-	boundingBox.w = parentCanvas.w*anchors.w+offsets.w - boundingBox.x;
-	boundingBox.h = parentCanvas.h*anchors.h+offsets.h - boundingBox.y;
+	boundingBox.x = parentCanvas.w*anchors.x + offsets.x;
+	boundingBox.y = parentCanvas.h*anchors.y + offsets.y;
+	boundingBox.w = parentCanvas.w*anchors.w + offsets.w - boundingBox.x;
+	boundingBox.h = parentCanvas.h*anchors.h + offsets.h - boundingBox.y;
 	return boundingBox;
 }
 

@@ -43,7 +43,8 @@ StageState::StageState(void)
 		, towerBtn1()
 		, towerBtn2()
 		, towerBtn3()
-		, towerBtn4() {
+		, towerBtn4()
+		, towerInfo() {
 	REPORT_I_WAS_HERE;
 	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
 	
@@ -79,6 +80,11 @@ StageState::StageState(void)
 												it->ToggleMenu();
 											} );
 	
+	towerInfo.SetAnchors( {0.165, 0.05},
+						  {0.86, 0.425});
+	towerInfo.SetOffsets( {5., 5.},
+						  {-5., -5.});
+
 	towersBtnGroup.SetAnchors( {0., 0.5},
 							   {1., 1.} );
 	towersBtnGroup.SetOffsets( {32., 0.},
@@ -224,6 +230,7 @@ void StageState::UpdateUI(float dt) {
 	HUDcanvas.Update(dt, winSize);
 	menuBg.Update(dt, HUDcanvas);
 	openMenuBtn.Update(dt, menuBg);
+	towerInfo.Update(dt, menuBg);
 	towersBtnGroup.Update(dt, menuBg);
 	towerBtn1.Update(dt, towersBtnGroup);
 	towerBtn2.Update(dt, towersBtnGroup);
@@ -262,6 +269,7 @@ void StageState::RenderUI(void) const {
 
 	if(menuIsShowing) {
 		menuBg.Render();
+		towerInfo.Render(true);
 		// towersBtnGroup.Render();
 		towerBtn1.Render(true);
 		towerBtn2.Render(true);
