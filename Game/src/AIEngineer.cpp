@@ -36,6 +36,7 @@ AIEngineer::AIEngineer(float speed,int dest,TileMap& tilemap, GameObject &associ
 
 AIEngineer::~AIEngineer(void){
 	tileMap.RemoveObserver(this);
+	delete heuristic;
 }
 
 AIEngineer::AIEvent AIEngineer::ComputeEvents(){

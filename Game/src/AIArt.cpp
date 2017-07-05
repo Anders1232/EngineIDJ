@@ -30,6 +30,7 @@ AIArt::AIArt(float speed, int dest, TileMap &tileMap, GameObject &associated, Wa
 
 AIArt::~AIArt(void){
 	tileMap.RemoveObserver(this);
+	delete heuristic;
 }
 
 AIArt::AIEvent AIArt::ComputeEvents(){

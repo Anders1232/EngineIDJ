@@ -34,6 +34,7 @@ AIMedic::AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated,Wa
 
 AIMedic::~AIMedic(void){
 	tileMap.RemoveObserver(this);
+	delete heuristic;
 }
 
 AIMedic::AIEvent AIMedic::ComputeEvents(){

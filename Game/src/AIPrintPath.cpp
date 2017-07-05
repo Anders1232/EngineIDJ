@@ -4,6 +4,10 @@ AIPrintPath::AIPrintPath(TileMap &tilemap, GameObject &associated):tilemap(tilem
 	heuristic = new ManhattanDistance();
 }
 
+AIPrintPath::~AIPrintPath(void){
+	delete heuristic;
+}
+
 void AIPrintPath::Update(float dt){
 	if(InputManager::GetInstance().MousePress(LEFT_MOUSE_BUTTON)) {
 		Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());

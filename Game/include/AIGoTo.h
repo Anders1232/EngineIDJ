@@ -20,6 +20,7 @@ class AIGoTo : public Component
 			Instancia o componente.
 		*/
 		AIGoTo(float speed,int dest,TileMap& tilemap,GameObject &associated);
+		~AIGoTo(void);
 		/**
 			\brief Atualiza estado.
 			\param associated GameObject que contém esse componente.

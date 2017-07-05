@@ -8,6 +8,10 @@ AIGoTo::AIGoTo(float speed,int dest,TileMap& tilemap,GameObject &associated):spe
 	vecSpeed = Vec2(0.0,0.0);
 }
 
+AIGoTo::~AIGoTo(void){
+	delete heuristic;
+}
+
 void AIGoTo::Update(float dt){
 	if(pathIndex != path->size()){
 		tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));

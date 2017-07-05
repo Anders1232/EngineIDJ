@@ -35,6 +35,7 @@ AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associat
 
 AIQuimic::~AIQuimic(void){
 	tileMap.RemoveObserver(this);
+	delete heuristic;
 }
 
 AIQuimic::AIEvent AIQuimic::ComputeEvents(){

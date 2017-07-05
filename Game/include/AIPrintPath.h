@@ -20,6 +20,7 @@ class AIPrintPath : public Component
 			Instancia o componente.
 		*/
 		AIPrintPath(TileMap& tilemap,GameObject &associated);
+		~AIPrintPath(void);
 		/**
 			\brief Atualiza estado.
 			\param associated GameObject que contém esse componente.

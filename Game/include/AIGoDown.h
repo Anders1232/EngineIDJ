@@ -21,6 +21,7 @@ class AIGoDown : public Component
 			Instancia o componente.
 		*/
 		AIGoDown(float speed, int dest, TileMap &tileMap, WaveManager &wManager, GameObject &associated);
+//		AIGoDown::~AI AIGoDown(void);
 		//AIGoDown(float speed, GameObject &associated);
 		/**
 			\brief Atualiza estado.
