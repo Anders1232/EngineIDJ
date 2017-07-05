@@ -3,6 +3,8 @@
 #include "Error.h"
 #include "Game.h"
 
+#define LIFE_LOST -11
+
 PlayerData::PlayerData(): HUDcanvas(), 
 						playerTable(),
 						boardName("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Player Board", UIelement::BehaviorType::FIT ,false),
@@ -23,6 +25,7 @@ PlayerData::PlayerData(): HUDcanvas(),
 	playerTable.groupedElements.emplace_back(&playerGold);
 	playerTable.groupedElements.emplace_back(&playerKills);
 	playerTable.groupedElements.emplace_back(&playerLifes);
+
 
 }
 
