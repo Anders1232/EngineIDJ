@@ -143,11 +143,11 @@ void AIQuimic::Update(float dt){
 		if(tileMap.GetCoordTilePos(Vec2(associated.box.x,associated.box.y), false, 0) != destTile){
 			if(bulletsCoolDown.Get() > QUIMIC_MAX_BULLET_COOLDOWN){
 				bulletsCoolDown.Restart();
-				GameObject* target = tileMap.CloserObstacle(associated,std::string("Tower"));
+				GameObject* target = tileMap.FindNearestGO(associated.box.Center(),std::string("Tower"));
 				if(target != nullptr){
 					Vec2 distance = associated.box.Center().VecDistance(target->box.Center());
 					float angle = std::atan2(distance.y,distance.x);
-					Bullet* bullet = new Bullet(associated.box.Center().x,associated.box.Center().y,angle,BULLET_VEL,BULLET_REACH,std::string("img/minionbullet2.png"),std::string("Tower"),3,0.1);
+					Bullet* bullet = new Bullet(associated.box.Center().x,associated.box.Center().y,angle,BULLET_VEL,BULLET_REACH,std::string("img/minionbullet2.png"),std::string("Tower"),0.1,3);
 					Game::GetInstance().GetCurrentState().AddObject(bullet);
 				}
 			}

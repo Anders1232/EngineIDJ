@@ -31,7 +31,7 @@ Bullet::~Bullet(){
 void Bullet::NotifyCollision(GameObject &other){
 	if(other.Is(targetType)){
 		distanceLeft= 0;
-		Game::GetInstance().GetCurrentState().AddObject(new Animation(box.Center().x,box.Center().x,rotation,"img/explosion.png",4,0.1,true));
+		Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/explosion.png",5,0.1,true));
 	}
 }
 
