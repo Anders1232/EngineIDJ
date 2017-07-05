@@ -8,6 +8,7 @@
 #include "UItextButton.h"
 #include "UIcanvas.h"
 #include "UIverticalGroup.h"
+#define PLAYER_DATA PlayerData::GetInstance()
 
 #define TOTAL_LIFES 30;
 class PlayerData: public Component{

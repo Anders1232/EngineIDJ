@@ -43,13 +43,14 @@ class StageState: public State, public TileMapObserver {
 		TileSet tileSet;
 		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;
+		PlayerData &playerData;/**< Armazena os dados do jogador e os exibe em tela. */
+
 		Music music;
 		
 		bool isLightning;
 		Timer lightningTimer;
 		Color lightningColor;
 		WaveManager *waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
-		PlayerData *playerBoard;/**< Armazena os dados do jogador e os exibe em tela. */
 		vector<int> waves;//vetor de waves a ser lido no arquivo
 
 		bool menuIsShowing;

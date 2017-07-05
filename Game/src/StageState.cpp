@@ -44,6 +44,7 @@ StageState::StageState(void)
 		, tileSet(120, 120,"map/tileset_vf.png")
 		, tileMap("map/tileMap.txt", &tileSet)
 		, inputManager(INPUT_MANAGER)
+		, playerData(PLAYER_DATA)
 		, music("audio/stageState.ogg")
 		, isLightning(false)
 		, lightningTimer()
@@ -57,7 +58,7 @@ StageState::StageState(void)
 		, towerBtn3()
 		, towerBtn4()
 		, towerInfoGroup()
-		, frameRateCounter(0) {
+		, frameRateCounter(0){
 
 
 	GameResources::SetTileMap(&tileMap);
@@ -68,9 +69,7 @@ StageState::StageState(void)
 
 	GameObject* StageComponents = new GameObject();
 	waveManager = new WaveManager(tileMap, "assets/wave&enemyData.txt");
-	playerBoard = new PlayerData(); 
 	StageComponents->AddComponent(waveManager);
-	StageComponents->AddComponent(playerBoard);
 	AddObject(StageComponents);
 	tileMap.ObserveMapChanges(this);
 	lightningInterval = rand() % (LIGHTINING_MAX_INTERVAL - LIGHTINING_MIN_INTERVAL) + LIGHTINING_MIN_INTERVAL;
@@ -273,6 +272,7 @@ void StageState::UpdateUI(float dt) {
 	towerBtn2.Update(dt, towersBtnGroup);
 	towerBtn3.Update(dt, towersBtnGroup);
 	towerBtn4.Update(dt, towersBtnGroup);
+	playerData.Update(dt);
 }
 
 
@@ -314,7 +314,7 @@ void StageState::RenderUI(void) const {
 		towerBtn4.Render(true);
 	}
 
-	playerBoard->Render();
+	playerData.Render();
 	openMenuBtn.Render();
 	menuIsShowing = this->menuIsShowing;
 }
