@@ -223,6 +223,8 @@ void StageState::Update(float dt) {
 void StageState::UpdateUI(float dt) {
 	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
 
+	openMenuBtn.angle = 180*menuIsShowing;
+
 	HUDcanvas.Update(dt, winSize);
 	menuBg.Update(dt, HUDcanvas);
 	openMenuBtn.Update(dt, menuBg);
@@ -257,7 +259,10 @@ void StageState::Render(void) const {
 }
 
 void StageState::RenderUI(void) const {
-	static bool menuIsShowing = false;
+	// Se tivesse como ser estatico para a funcao mas uma para cada instancia, melhor ainda...
+	// Mas como StageState nao teram instancias multiplas simultaneas, serve...
+	static bool menuIsShowing = this->menuIsShowing;
+
 	if(menuIsShowing) {
 		menuBg.Render();
 		// towersBtnGroup.Render();
@@ -266,7 +271,9 @@ void StageState::RenderUI(void) const {
 		towerBtn3.Render(true);
 		towerBtn4.Render(true);
 	}
+
 	openMenuBtn.Render();
+
 	menuIsShowing = this->menuIsShowing;
 }
 
@@ -298,10 +305,8 @@ void StageState::ShowLightning(float dt){
 }
 
 void StageState::ToggleMenu(void) {
-	openMenuBtn.angle = 180*menuIsShowing;
-
 	menuIsShowing = !menuIsShowing;
-	
+
 	Rect menuBgOffsets = menuBg.GetOffsets();
 	Vec2 menuBgDim = menuBg.GetSpriteDimensions();
 	if(menuIsShowing) {
@@ -311,4 +316,6 @@ void StageState::ToggleMenu(void) {
 		menuBg.SetOffsets( {menuBgOffsets.x+menuBgDim.x, menuBgOffsets.y},
 						   {menuBgOffsets.w+menuBgDim.x, menuBgOffsets.h});
 	}
+
+	// openMenuBtn.angle = 180*menuIsShowing;
 }

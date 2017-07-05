@@ -20,7 +20,7 @@ UItextButton::UItextButton( string fontFile,
 
 void UItextButton::Update(float dt, Rect parentCanvas) {
 	UItext::Update(dt, parentCanvas);
-	UIbutton::Update(dt, INPUT_MANAGER.GetMousePos().IsInRect(boundingBox));
+	UIbutton::Update(dt, INPUT_MANAGER.GetMousePos().IsInRect(interactOnBoundingBox ? boundingBox : box));
 	UItext::Update(dt, parentCanvas);	
 }
 
