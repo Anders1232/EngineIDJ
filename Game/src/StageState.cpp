@@ -62,16 +62,16 @@ StageState::StageState(void)
 
 	menuBg.SetAnchors( {1., 0.5},
 					   {1., 0.5});
-	menuBg.SetOffsets( {0., (float)(-menuBg.GetSpriteHeight()/2.)},
-					   {(float)menuBg.GetSpriteWidth(), (float)(menuBg.GetSpriteHeight()/2.)});
+	menuBg.SetOffsets( {-10., (float)(-menuBg.GetSpriteHeight()/2.)},
+					   {(float)menuBg.GetSpriteWidth()-(float)10., (float)(menuBg.GetSpriteHeight()/2.)});
 
 	openMenuBtn.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/openmenu.png"));
 	openMenuBtn.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/openmenu.png"));
 	openMenuBtn.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/openmenu-clicked.png"));
 	openMenuBtn.SetAnchors( {0., 0.},
 							{0., 0.} );
-	openMenuBtn.SetOffsets( {(float)-(openMenuBtn.GetStateSpriteWidth(UIbutton::State::ENABLED)+10.), 0.},
-							{-10., openMenuBtn.GetStateSpriteHeight(UIbutton::State::ENABLED)} );
+	openMenuBtn.SetOffsets( {(float)-(openMenuBtn.GetStateSpriteWidth(UIbutton::State::ENABLED)), (float)10.},
+							{0., openMenuBtn.GetStateSpriteHeight(UIbutton::State::ENABLED)+(float)10.} );
 	openMenuBtn.SetClickCallback(this, [] (void* ptr) {
 												StageState* it = static_cast<StageState*>(ptr);
 												it->ToggleMenu();
@@ -221,8 +221,6 @@ void StageState::Update(float dt) {
 }
 
 void StageState::UpdateUI(float dt) {
-	openMenuBtn.angle = 180*menuIsShowing;
-
 	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
 
 	HUDcanvas.Update(dt, winSize);
@@ -259,6 +257,7 @@ void StageState::Render(void) const {
 }
 
 void StageState::RenderUI(void) const {
+	static bool menuIsShowing = false;
 	if(menuIsShowing) {
 		menuBg.Render();
 		// towersBtnGroup.Render();
@@ -268,6 +267,7 @@ void StageState::RenderUI(void) const {
 		towerBtn4.Render(true);
 	}
 	openMenuBtn.Render();
+	menuIsShowing = this->menuIsShowing;
 }
 
 void StageState::Pause(void) {}
@@ -298,13 +298,17 @@ void StageState::ShowLightning(float dt){
 }
 
 void StageState::ToggleMenu(void) {
+	openMenuBtn.angle = 180*menuIsShowing;
+
 	menuIsShowing = !menuIsShowing;
+	
+	Rect menuBgOffsets = menuBg.GetOffsets();
 	Vec2 menuBgDim = menuBg.GetSpriteDimensions();
 	if(menuIsShowing) {
-		menuBg.SetOffsets( {-menuBgDim.x-(float)10., (float)(-menuBgDim.y/2.)},
-						   {(float)-10., (float)(menuBgDim.y/2.)});
+		menuBg.SetOffsets( {menuBgOffsets.x-menuBgDim.x, menuBgOffsets.y},
+						   {menuBgOffsets.w-menuBgDim.x, menuBgOffsets.h});
 	} else {
-		menuBg.SetOffsets( {(float)0., (float)(-menuBgDim.y/2.)},
-						   {menuBgDim.x, (float)(menuBgDim.y/2.)});
+		menuBg.SetOffsets( {menuBgOffsets.x+menuBgDim.x, menuBgOffsets.y},
+						   {menuBgOffsets.w+menuBgDim.x, menuBgOffsets.h});
 	}
 }
