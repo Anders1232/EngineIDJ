@@ -8,7 +8,7 @@ Bullet::Bullet(float x,float y,float angle,float speed,float maxDistance,std::st
 	box.y= y;
 	box.w= sp.GetWidth();
 	box.h= sp.GetHeight();
-	rotation= angle;
+	rotation= angle*CONVERSAO_GRAUS_RADIANOS;
 	this->speed= Vec2::FromPolarCoord(speed, angle);
 	distanceLeft= maxDistance;
 }
@@ -19,7 +19,7 @@ void Bullet::Update(float dt){
 	sp.Update(dt);
 }
 void Bullet::Render(void){
-	sp.Render(Rect(box.x,box.y,sp.GetWidth(),sp.GetHeight()),rotation,true);
+	sp.Render(Rect(box.x,box.y,sp.GetWidth(),sp.GetHeight()),rotation,false);
 }
 bool Bullet::IsDead(void){
 	return (distanceLeft<=0);
