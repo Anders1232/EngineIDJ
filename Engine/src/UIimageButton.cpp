@@ -32,6 +32,7 @@ void UIimageButton::Update(float dt, Rect parentCanvas) {
 }
 
 void UIimageButton::SetUIbuttonState(UIbutton::State newState) {
+	if(newState == actualState) return;
 	switch(newState) {
 		case UIbutton::State::DISABLED : {
 			if(nullptr != disabledSprite) {

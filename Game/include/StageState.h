@@ -18,9 +18,15 @@
 #include "UIcanvas.h"
 #include "UIimageButton.h"
 #include "UIgridGroup.h"
+#include "UItext.h"
 #include "UIverticalGroup.h"
 
 using std::vector;
+
+#define TOWERNAME_DEFAULT_TEXT " "
+#define TOWERCOST_DEFAULT_TEXT " "
+#define TOWERDAMAGE_DEFAULT_TEXT " "
+#define TOWERDAMGETYPE_DEFAULT_TEXT " "
 
 class StageState: public State {
 	public:
@@ -35,6 +41,11 @@ class StageState: public State {
 		void UpdateUI(float dt);
 		void RenderUI(void) const;
 		void ToggleMenu(void);
+		void SetTowerInfoData(string name = TOWERNAME_DEFAULT_TEXT,
+							  string cost = TOWERCOST_DEFAULT_TEXT,
+							  string damage = TOWERDAMAGE_DEFAULT_TEXT,
+							  string damageType = TOWERDAMGETYPE_DEFAULT_TEXT
+		);
 		TileSet tileSet;
 		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;
@@ -50,12 +61,16 @@ class StageState: public State {
 		UIcanvas HUDcanvas;
 		UIimage menuBg;
 		UIimageButton openMenuBtn;
+		UIverticalGroup towerInfoGroup;
+		UItext towerName;
+		UItext towerCost;
+		UItext towerDamage;
+		UItext towerDamageType;
 		UIgridGroup towersBtnGroup;
 		UIimageButton towerBtn1;
 		UIimageButton towerBtn2;
 		UIimageButton towerBtn3;
 		UIimageButton towerBtn4;
-		UIverticalGroup towerInfoGroup;
 };
 
 #include "EndState.h"

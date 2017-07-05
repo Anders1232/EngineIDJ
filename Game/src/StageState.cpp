@@ -27,6 +27,8 @@
 #define MAX_TIME_LIGHTINING 0.3
 #define MAX_TIME_LIGHTINING_FADE 2
 
+#define TOWER_INFO_TXT_COLOR {199,159,224,255} // Purple-ish white
+
 StageState::StageState(void)
 		: State()
 		, tileSet(120, 120,"map/tileset_vf.png")
@@ -39,12 +41,16 @@ StageState::StageState(void)
 		, HUDcanvas()
 		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
 		, openMenuBtn()
+		, towerInfoGroup()
+		, towerName("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERNAME_DEFAULT_TEXT)
+		, towerCost("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERCOST_DEFAULT_TEXT)
+		, towerDamage("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERDAMAGE_DEFAULT_TEXT)
+		, towerDamageType("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERDAMGETYPE_DEFAULT_TEXT)
 		, towersBtnGroup(UIgridGroup::ConstraintType::FIXED_N_COLS, 2, UIgridGroup::BehaviorOnLess::NORMAL)
 		, towerBtn1()
 		, towerBtn2()
 		, towerBtn3()
-		, towerBtn4()
-		, towerInfoGroup() {
+		, towerBtn4() {
 	REPORT_I_WAS_HERE;
 	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
 	
@@ -83,7 +89,12 @@ StageState::StageState(void)
 	towerInfoGroup.SetOffsets( {5., 5.},
 						  {-5., -5.});
 
-	towersBtnGroup.SetAnchors( {0., 0.5},
+	towerInfoGroup.groupedElements.push_back(&towerName);
+	towerInfoGroup.groupedElements.push_back(&towerCost);
+	towerInfoGroup.groupedElements.push_back(&towerDamage);
+	towerInfoGroup.groupedElements.push_back(&towerDamageType);
+	
+	towersBtnGroup.SetAnchors( {0., 0.485},
 							   {1., 1.} );
 	towersBtnGroup.SetOffsets( {32., 0.},
 							   {-27., -30.} );
@@ -93,21 +104,53 @@ StageState::StageState(void)
 	towerBtn1.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn1.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn1.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+	towerBtn1.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
+																		StageState* it = static_cast<StageState*>(ptr);
+																		it->SetTowerInfoData("Normal", "$1", "10", "Tiro Unico");
+																	} );
+	towerBtn1.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
+																		StageState* it = static_cast<StageState*>(ptr);
+																		it->SetTowerInfoData();
+																	} );
 
 	towerBtn2.SetCenter({0.5, 0.});
 	towerBtn2.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn2.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn2.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+	towerBtn2.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
+																		StageState* it = static_cast<StageState*>(ptr);
+																		it->SetTowerInfoData("Tentaculo", "$10", "0", "Stun");
+																	} );
+	towerBtn2.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
+																		StageState* it = static_cast<StageState*>(ptr);
+																		it->SetTowerInfoData();
+																	} );
 
 	towerBtn3.SetCenter({0.5, 0.});
 	towerBtn3.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn3.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn3.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+	towerBtn3.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
+																		StageState* it = static_cast<StageState*>(ptr);
+																		it->SetTowerInfoData("Eletrico", "$100", "1/s", "Veneno");
+																	} );
+	towerBtn3.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
+																		StageState* it = static_cast<StageState*>(ptr);
+																		it->SetTowerInfoData();
+																	} );
 
 	towerBtn4.SetCenter({0.5, 0.});
 	towerBtn4.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn4.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn4.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+	towerBtn4.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
+																		StageState* it = static_cast<StageState*>(ptr);
+																		it->SetTowerInfoData("Nuke", "$9999", "+Inf", "Area");
+																	} );
+	towerBtn4.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
+																		StageState* it = static_cast<StageState*>(ptr);
+																		it->SetTowerInfoData();
+																	} );
 
 	towersBtnGroup.groupedElements.push_back(&towerBtn1);
 	towersBtnGroup.groupedElements.push_back(&towerBtn2);
@@ -234,8 +277,12 @@ void StageState::UpdateUI(float dt) {
 	HUDcanvas.Update(dt, winSize);
 	menuBg.Update(dt, HUDcanvas);
 	openMenuBtn.Update(dt, menuBg);
-	
+
 	towerInfoGroup.Update(dt, menuBg);
+	towerName.Update(dt, towerInfoGroup);
+	towerCost.Update(dt, towerInfoGroup);
+	towerDamage.Update(dt, towerInfoGroup);
+	towerDamageType.Update(dt, towerInfoGroup);
 
 	towersBtnGroup.Update(dt, menuBg);
 	towerBtn1.Update(dt, towersBtnGroup);
@@ -275,11 +322,15 @@ void StageState::RenderUI(void) const {
 	if(menuIsShowing) {
 		menuBg.Render();
 		// towerInfoGroup.Render(true);
+		towerName.Render();
+		towerCost.Render();
+		towerDamage.Render();
+		towerDamageType.Render();
 		// towersBtnGroup.Render(true);
-		towerBtn1.Render(true);
-		towerBtn2.Render(true);
-		towerBtn3.Render(true);
-		towerBtn4.Render(true);
+		towerBtn1.Render();
+		towerBtn2.Render();
+		towerBtn3.Render();
+		towerBtn4.Render();
 	}
 
 	openMenuBtn.Render();
@@ -328,4 +379,11 @@ void StageState::ToggleMenu(void) {
 	}
 
 	// openMenuBtn.angle = 180*menuIsShowing;
+}
+
+void StageState::SetTowerInfoData(string name, string cost, string damage, string damageType) {
+	towerName.SetText(name);
+	towerCost.SetText(cost);
+	towerDamage.SetText(damage);
+	towerDamageType.SetText(damageType);
 }
