@@ -9,7 +9,7 @@ UIimage::UIimage(std::string file, UIelement::BehaviorType behavior)
 	angle = 0;
 }
 
-UIimage::UIimage(UIelement::BehaviorType behavior) : UIelement(behavior), sp(nullptr) {}
+UIimage::UIimage(UIelement::BehaviorType behavior) : UIelement(behavior), angle(0), sp(nullptr) {}
 
 UIimage::~UIimage() {
 	if(nullptr != sp) {

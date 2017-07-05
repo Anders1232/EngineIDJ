@@ -55,7 +55,7 @@ class StageState: public State {
 		UIimageButton towerBtn2;
 		UIimageButton towerBtn3;
 		UIimageButton towerBtn4;
-		UIverticalGroup towerInfo;
+		UIverticalGroup towerInfoGroup;
 };
 
 #include "EndState.h"
