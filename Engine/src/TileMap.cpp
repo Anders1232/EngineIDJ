@@ -1,16 +1,16 @@
 #include "TileMap.h"
- 
+
 #include <algorithm>
 #include <cstdio>
 #include <exception>
 #include <iostream>
- 
+
 #include "Camera.h"
 #include "Error.h"
 #include "InputManager.h"
- 
+
 #define PAREDE 0
- 
+
 TileMap::TileMap(string file, TileSet *tileSet)
 		: tileSet(tileSet)
 		, gameObjectMatrix()
@@ -21,7 +21,7 @@ TileMap::TileMap(string file, TileSet *tileSet)
 		gameObjectMatrix[count] = nullptr;
 	}
 }
- 
+
 void TileMap::Load(string file, std::vector<int> &target, bool setOfficialSize) {
 	FILE *arq = fopen(file.c_str(), "r");
 	ASSERT(NULL != arq);
@@ -32,7 +32,7 @@ void TileMap::Load(string file, std::vector<int> &target, bool setOfficialSize) 
 		mapHeight = mHeight;
 		mapDepth = mDepth;
 	}
- 
+
 	int numbersToRead = mWidth*mHeight*mDepth;
 	target.resize(numbersToRead);// Assim ele não desperdiça memória nem muda de tamanho no for abaixo
 	int aux;
@@ -47,12 +47,13 @@ void TileMap::SetTileSet(TileSet *tileSet) {
 	ASSERT(this->tileSet->GetTileWidth() <= tileSet->GetTileWidth());
 	this->tileSet = tileSet;
 }
- 
+
 int& TileMap::At(int x, int y, int z) const {
 	int index = z*mapWidth*mapHeight + y*mapWidth + x;
 	try {
 		return ( (int&)tileMatrix.at(index) );
-	} catch(...) {
+	}
+	catch(...) {
 		static const int m1=-1;
 		return (int&)m1;
 	}
@@ -76,7 +77,8 @@ void TileMap::RenderLayer(int layer, Vec2 pos, bool parallax, Vec2 mouse) const 
 				if (parallax) {
 					Vec2 tilePos(x*tileSet->GetTileWidth(), y*tileSet->GetTileHeight());
 					destination = CalculateParallaxScrolling(tilePos, pos, layer);
-				} else {
+				}
+				else {
 					destination = pos + Vec2(x*tileSet->GetTileWidth(), y*tileSet->GetTileHeight());
 				}
 				Rect tile(destination.x, destination.y, tileSet->GetTileWidth(), tileSet->GetTileHeight());
@@ -85,26 +87,26 @@ void TileMap::RenderLayer(int layer, Vec2 pos, bool parallax, Vec2 mouse) const 
 		}
 	}
 }
- 
+
 Vec2 TileMap::CalculateParallaxScrolling(Vec2 num, Vec2 pos, int layer) const {
 	return num-(pos+Camera::pos)*(layer+1);
 	return num-(pos+Camera::pos)*((layer+1)/(double)mapDepth);
 	return num*(1.0+(double)layer/(double)mapDepth);
 	return num*(1.0-(double)layer/(double)mapDepth);
 }
- 
+
 int TileMap::GetWidth(void) const {
 	return mapWidth;
 }
- 
+
 int TileMap::GetHeight(void) const {
 	return mapHeight;
 }
- 
+
 int TileMap::GetDepth(void) const {
 	return mapDepth;
 }
- 
+
 int TileMap::GetCoordTilePos(Vec2 const &mousePos, bool affecteedByZoom, int layer) const {
 	Vec2 position = mousePos;
 	int x, xDir = mapWidth-1, xEsq = 0;
@@ -112,42 +114,38 @@ int TileMap::GetCoordTilePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 	tileSize = tileSize - CalculateParallaxScrolling( Vec2(0,0), Vec2(0,0), layer);
 	int tileWidth = tileSize.x;
 	int tileHeight = tileSize.y;
-   
 	if(position.x < 0){
 		std::cerr << WHERE << "Devo lançar exceção aqui?(-1)" << endl;
 		return -1;
 	}
-   
 	if(position.y < 0){
 		std::cerr << WHERE << "Devo lançar exceção aqui?(-2)" << endl;
 		return -2;
 	}
-   
 	if(position.x >= (GetWidth()-1)* tileWidth ){
 		std::cerr << WHERE << "Devo lançar exceção aqui?(-3)" << endl;
 		return -3;
 	}
-   
 	if(position.y >= (GetHeight()-1)* tileHeight ){
 		std::cerr << WHERE << "Devo lançar exceção aqui?(-4)" << endl;
 		return -4;
 	}
-   
 	while(1){//uma simplesBusca binária
 		x = (xEsq+xDir)/2;
 		if(x*tileWidth <= position.x){
 			if(position.x < (x+1)*tileWidth) {
 				break;
-			} else {
+			}
+			else {
 				//x está pra direita
 				xEsq = x;
 			}
-		} else {
+		}
+		else {
 			//x está pra esquerda
 			xDir = x;
 		}
 	}
-   
 	int y, yDir = mapHeight-1, yEsq = 0;
 	while(1){//uma simplesBusca binária
 		y = (yEsq+yDir)/2;
@@ -158,14 +156,15 @@ int TileMap::GetCoordTilePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 				//y está pra direita
 				yEsq = y;
 			}
-		} else {
+		}
+		else {
 			//y está pra esquerda
 			yDir = y;
 		}
 	}
-   
 	return y*mapWidth+x;
 }
+
 void TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 	int position = GetCoordTilePos(mousePos, false, 0);
@@ -180,17 +179,18 @@ void TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 			REPORT_DEBUG("\tInserting the gameObject at position " << position);
 			gameObjectMatrix[position] = obj;
 			tileMatrix[position+(COLLISION_LAYER*mapWidth*mapHeight)] = PAREDE;
-		   
 			int line = position / GetWidth();
 			int column = position % GetWidth();
 			obj->box.x = column*tileSet->GetTileWidth();
 			obj->box.y = line*tileSet->GetTileHeight();
 			//TODO: aqui ajudar a box para ficar exatamente no tileMap
 			ReportChanges(position);
-		} else if(0 > AtLayer(position, COLLISION_LAYER)) {
+		}
+		else if(0 > AtLayer(position, COLLISION_LAYER)) {
 			REPORT_DEBUG("\ttentado inserir objeto em posição inválida, pois nela está" << tileMatrix[position+(COLLISION_LAYER * mapWidth*mapHeight)]);
 			obj->RequestDelete();
-		} else {
+		}
+		else {
 			REPORT_DEBUG("\ttentado inserir objeto em posição já ocupada!");
 			obj->RequestDelete();
 		}
@@ -199,7 +199,6 @@ void TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 		int tilePos= GetCoordTilePos(obj->box.Center(), false, 0);
 		REPORT_DEBUG("\tInserting the gameObject at position " << tilePos);
 		gameObjectMatrix[tilePos] = obj;
-	   
 		int line = tilePos / GetWidth();
 		int column = tilePos % GetWidth();
 		obj->box.x = column*tileSet->GetTileWidth();
@@ -207,7 +206,7 @@ void TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
 	}
 }
- 
+
 void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 	int position = GetCoordTilePos(mousePos, false, 0);
@@ -222,7 +221,6 @@ void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 		REPORT_DEBUG("\tInserting the gameObject at position " << position);
 		gameObjectMatrix[position] = obj;
 		tileMatrix[position+(COLLISION_LAYER*mapWidth*mapHeight)] = PAREDE;
-	   
 		int line = position / GetWidth();
 		int column = position % GetWidth();
 		obj->box.x = column*tileSet->GetTileWidth();
@@ -237,7 +235,7 @@ void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 		obj->box.y = line*tileSet->GetTileHeight();
 	}
 }
- 
+
 void TileMap::RemoveGO(int position){
 	REPORT_I_WAS_HERE;
 	if(0 == AtLayer(position, COLLISION_LAYER)){
@@ -253,32 +251,32 @@ void TileMap::RemoveGO(int position){
 		REPORT_DEBUG("\ttentado remover objeto de posicao inválida" << std::endl);
 	}
 }
- 
+
 void TileMap::RemoveGO(void){
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 	int position = GetCoordTilePos(mousePos, false, COLLISION_LAYER);
 	RemoveGO(position);
 }
- 
+
 void TileMap::ShowCollisionInfo(bool show) {
 	displayCollisionInfo = show;
 }
- 
+
 bool TileMap::IsShowingCollisionInfo() {
 	return displayCollisionInfo;
 }
- 
+
 int& TileMap::AtLayer(int index2D, int layer) const {
 	return (int&)tileMatrix.at(index2D + layer * mapWidth * mapHeight);
 }
- 
+
 vector<vector<int>>* TileMap::GetTileGroups(int tileType) const {
 	vector<vector<int>> *tilePoints = new vector<vector<int>>();
 	vector<int> foundTilePoints;
 	uint countLimit = GetWidth()*GetHeight();
 	int base = countLimit*COLLISION_LAYER;
 	REPORT_I_WAS_HERE;
- 
+
 	for(uint i = 0; i < countLimit; i++) {
 		int positionToBeSearch = base+i;
 		if(tileType == tileMatrix[positionToBeSearch]) {
@@ -290,7 +288,7 @@ vector<vector<int>>* TileMap::GetTileGroups(int tileType) const {
 	if(foundTilePoints.empty()) {
 		Error("Não foi encontrado spawn points!");
 	}
- 
+
 	tilePoints->emplace_back();
 	(*tilePoints)[0].push_back(foundTilePoints[0]);
 	foundTilePoints.erase(foundTilePoints.begin());
@@ -314,7 +312,6 @@ vector<vector<int>>* TileMap::GetTileGroups(int tileType) const {
 				break;
 			}
 		}
-	   
 		if(!neighborFound) {
 			tilePoints->emplace_back();
 			(*tilePoints)[tilePoints->size()-1].push_back(foundTilePoints[0]);
@@ -334,20 +331,17 @@ vector<vector<int>>* TileMap::GetTileGroups(int tileType) const {
 #endif
 	return tilePoints;
 }
- 
+
 Vec2 TileMap::GetTileSize(void) const{
 	return Vec2(tileSet->GetTileWidth(), tileSet->GetTileHeight());
 }
- 
+
 bool TileMap::Traversable(int index) const{
- 
 	int tile = AtLayer(index,COLLISION_LAYER);
 	return(TILE_VAZIO == tile || END_POINT == tile || SPAWN_POINT == tile);
- 
 }
- 
+
 std::vector<int>* TileMap::GetNeighbors(int tileIndex) const{
- 
 	//[i-1][j-1] -> soma-se -(width+1) da posicao atual
 	//[i-1][j] -> soma-se -width da posicao atual
 	//[i-1][j+1] -> soma-se (1 - width) da posicao atual
@@ -356,7 +350,7 @@ std::vector<int>* TileMap::GetNeighbors(int tileIndex) const{
 	//[i+1][j-1] -> soma-se width - 1 da posicao atual
 	//[i+1][j] -> soma-se width da posicao atual
 	//[i+1][j+1] -> soma-se (width+1) da posicao atual
- 
+
 	std::vector<int> *neighbors= new std::vector<int>();
 	//Se não está no limite lateral direito nem esquerdo
 	if(0 != (tileIndex % mapWidth) && (tileIndex % mapWidth != mapWidth - 1)){
@@ -417,7 +411,7 @@ std::vector<int>* TileMap::GetNeighbors(int tileIndex) const{
 	}
 	return(neighbors);
 }
- 
+
 std::list<int> *TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap){
 	typedef std::priority_queue<std::pair<double,int>,std::vector<std::pair<double,int> >,LessThanByHeuristic> mypqType;
 	std::list<int> *path= new std::list<int>();//caminho final a ser retornado
@@ -503,13 +497,13 @@ std::list<int> *TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuri
 	}
 	return(path);
 }
- 
+
 void TileMap::ShowPath(std::shared_ptr<std::vector<int> > path){
 	for(uint i; i <path->size(); ++i){
 		tileMatrix[i + (WALKABLE_LAYER*mapWidth*mapHeight)] = END_POINT;
 	}
 }
- 
+
 GameObject* TileMap::CloserObject(GameObject& origin,std::string objectDestType){
 	GameObject* closerObj = nullptr;
 	double closerObjDistance = std::numeric_limits<double>::max();
@@ -527,15 +521,15 @@ GameObject* TileMap::CloserObject(GameObject& origin,std::string objectDestType)
 	}
 	return(closerObj);
 }
- 
+
 GameObject* TileMap::GetGO(int index){
 	return gameObjectMatrix.at(index);
 }
- 
+
 void TileMap::ObserveMapChanges(TileMapObserver *obs){
 	observers.emplace_back(obs);
 }
- 
+
 void TileMap::RemoveObserver(TileMapObserver *obs){
 	for(uint i=0; i < observers.size(); i++){
 		if(observers[i] == obs){
@@ -545,7 +539,7 @@ void TileMap::RemoveObserver(TileMapObserver *obs){
 	}
 	Error("\tTileMap observer not found!");
 }
- 
+
 void TileMap::ReportChanges(int tileChanged){
 	for(uint i=0; i< observers.size(); i++){
 		observers[i]->NotifyTileMapChanged(tileChanged);
