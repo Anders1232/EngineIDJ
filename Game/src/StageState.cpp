@@ -216,21 +216,12 @@ void StageState::Update(float dt) {
 
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
 }
-
 void StageState::UpdateUI(float dt) {
 	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
-	// ==========================
+
 	openMenuBtn.angle = 180*menuIsShowing;
 
 	HUDcanvas.Update(dt, winSize);
-	openMenuBtn.Update(dt, HUDcanvas);
-	if(menuIsShowing) {
-		menuBg.Update(dt, HUDcanvas);
-		towersBtnGroup.Update(dt, menuBg);
-		towerBtn1.Update(dt, towersBtnGroup);
-	}
-
-	
 	menuBg.Update(dt, HUDcanvas);
 	openMenuBtn.Update(dt, menuBg);
 	towersBtnGroup.Update(dt, menuBg);
@@ -238,8 +229,8 @@ void StageState::UpdateUI(float dt) {
 	towerBtn2.Update(dt, towersBtnGroup);
 	towerBtn3.Update(dt, towersBtnGroup);
 	towerBtn4.Update(dt, towersBtnGroup);
-	//=============================
 }
+
 
 void StageState::Render(void) const {
 	//renderizar o bg
