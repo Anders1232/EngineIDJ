@@ -7,11 +7,11 @@
 
 PlayerData::PlayerData(): HUDcanvas(), 
 						playerTable(),
-						boardName("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Player Board", UIelement::BehaviorType::FIT ,false),
-						playerPoints("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Points: 0", UIelement::BehaviorType::FIT ,false),
-						playerGold("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Gold: 0", UIelement::BehaviorType::FIT ,false),
-						playerKills("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Kills: 0", UIelement::BehaviorType::FIT ,false),
-						playerLifes("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255},"Lifes: 30", UIelement::BehaviorType::FIT ,false){
+						boardName("font/SHPinscher-Regular.otf", 45, UItext::TextStyle::BLENDED, {255,255,255,255}, "Player Board", UIelement::BehaviorType::FIT ,false),
+						playerPoints("font/SHPinscher-Regular.otf", 45, UItext::TextStyle::BLENDED, {255,255,255,255}, "Points: 0", UIelement::BehaviorType::FIT ,false),
+						playerGold("font/SHPinscher-Regular.otf", 45, UItext::TextStyle::BLENDED, {255,255,255,255}, "Gold: 0", UIelement::BehaviorType::FIT ,false),
+						playerKills("font/SHPinscher-Regular.otf", 45, UItext::TextStyle::BLENDED, {255,255,255,255}, "Kills: 0", UIelement::BehaviorType::FIT ,false),
+						playerLifes("font/SHPinscher-Regular.otf", 45, UItext::TextStyle::BLENDED, {255,255,255,255},"Lifes: 30", UIelement::BehaviorType::FIT ,false){
 
 	points = 0;
 	gold = 0;
@@ -90,5 +90,10 @@ PlayerData& PlayerData::GetInstance(void){
 void PlayerData::DecrementLife(){
 	--lifes;
 	playerLifes.SetText("Lifes: " + std::to_string(lifes));
+	std::cout << "Lifes: " + std::to_string(lifes)<< "\n";
 	PointsUpdate(LIFE_LOST);
+}
+
+int PlayerData::GetLifes(){
+	return lifes;
 }

@@ -62,12 +62,6 @@ class WaveManager : public Component {
 		*/
 		void NotifyEnemyGotKilled();
 		/** 
-			\brief Pegar vidas Restantes.
-			\return playerLifes: vidas restantes.
-			Retorna as vidas restantes da wave atual.
-		*/
-		int GetLifesLeft();
-		/** 
 			\brief Pegar inimigos Restantes.
 			\return enemiesLeft: Inimigos restantes.
 			Retorna os inimigos restantes da wave atual.
@@ -95,7 +89,6 @@ class WaveManager : public Component {
 		Timer spawnTimer; /**<Contador para o cooldown de respawn. **/
 		
 		int enemiesLeft;/**<Contador de inimigos restantes da wave atual.*/
-		int playerLifes;/**<Contador de inimigos restantes da wave atual.*/
 
 		TileMap &tileMap;/**<Endereço de TileMap. Usado para conseguir spwanGroups */
 		bool endWave; /**<Flag de fim da wave atual. true se a level acabou.*/

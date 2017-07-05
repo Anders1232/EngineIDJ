@@ -56,11 +56,12 @@ StageState::StageState(void)
 		, towerBtn2()
 		, towerBtn3()
 		, towerBtn4()
-		, towerInfo()
+		, towerInfoGroup()
 		, frameRateCounter(0) {
 
 
 	GameResources::SetTileMap(&tileMap);
+
 	music.Play(10);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
 	Camera::ForceLogZoom(CAM_START_ZOOM);
@@ -95,9 +96,9 @@ StageState::StageState(void)
 												it->ToggleMenu();
 											} );
 	
-	towerInfo.SetAnchors( {0.165, 0.05},
+	towerInfoGroup.SetAnchors( {0.165, 0.05},
 						  {0.86, 0.425});
-	towerInfo.SetOffsets( {5., 5.},
+	towerInfoGroup.SetOffsets( {5., 5.},
 						  {-5., -5.});
 
 	towersBtnGroup.SetAnchors( {0., 0.5},
@@ -165,7 +166,7 @@ void StageState::Update(float dt){
 	Camera::Update(dt);
 
 	//Game Over Conditions
-	if(waveManager->GetLifesLeft() == 0){
+	if(PlayerData::GetInstance().GetLifes() <= 0){
 		popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(false)));
 	}else if(waveManager->Victory()){
@@ -264,7 +265,9 @@ void StageState::UpdateUI(float dt) {
 	HUDcanvas.Update(dt, winSize);
 	menuBg.Update(dt, HUDcanvas);
 	openMenuBtn.Update(dt, menuBg);
-	towerInfo.Update(dt, menuBg);
+	
+	towerInfoGroup.Update(dt, menuBg);
+
 	towersBtnGroup.Update(dt, menuBg);
 	towerBtn1.Update(dt, towersBtnGroup);
 	towerBtn2.Update(dt, towersBtnGroup);
@@ -303,8 +306,8 @@ void StageState::RenderUI(void) const {
 
 	if(menuIsShowing) {
 		menuBg.Render();
-		towerInfo.Render(true);
-		// towersBtnGroup.Render();
+		// towerInfoGroup.Render(true);
+		// towersBtnGroup.Render(true);
 		towerBtn1.Render(true);
 		towerBtn2.Render(true);
 		towerBtn3.Render(true);

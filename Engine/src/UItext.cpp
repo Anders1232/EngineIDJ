@@ -24,6 +24,7 @@ UItext::UItext( string fontFile,
 UItext::~UItext() {
 	if(nullptr != texture) {
 		SDL_DestroyTexture(texture);
+		texture=nullptr;
 	}
 }
 

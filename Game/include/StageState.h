@@ -62,7 +62,8 @@ class StageState: public State, public TileMapObserver {
 		UIimageButton towerBtn2;
 		UIimageButton towerBtn3;
 		UIimageButton towerBtn4;
-		UIverticalGroup towerInfo;
+
+		UIverticalGroup towerInfoGroup;
 		float lightningInterval;
 
 		void InitializeObstacles(void);

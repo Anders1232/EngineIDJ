@@ -16,7 +16,6 @@ int WaveManager::waveCount = 0;
 WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 	endWave=false;
 	enemiesLeft = 0;
-	playerLifes = 30;
 	REPORT_DEBUG2(1, "Buscando spawn points.");
 	spawnGroups= tileMap.GetTileGroups(SPAWN_POINT);
 	REPORT_DEBUG2(1, "Buscando end points.");
@@ -109,15 +108,11 @@ void WaveManager::Update(float dt){
 					int endTilePosition= (*endGroups).at(enemyToSpawn.endPoint).at(endPosition);
 					SpawnEnemy( (*spawnGroups).at(i).at(spawnPosition), enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, endTilePosition, indexOfTheEnemyToSpawn );
 				}
-				REPORT_I_WAS_HERE;
 				spawnTimer.Restart();
 				enemyIndex++;
 			}
-			REPORT_I_WAS_HERE;
 		}
-		REPORT_I_WAS_HERE;
 	}
-	REPORT_I_WAS_HERE;
 	if (0 >= enemiesLeft){
 		endWave = true;
 	}
@@ -141,16 +136,11 @@ bool WaveManager::Is(ComponentType type) const{
 }
 
 void WaveManager::NotifyEnemyGotToHisDestiny(){
-	--playerLifes;
 	PlayerData::GetInstance().DecrementLife();
 }
 
 void WaveManager::NotifyEnemyGotKilled(){
 	--enemiesLeft;
-}
-
-int WaveManager::GetLifesLeft(){
-	return playerLifes;
 }
 
 int WaveManager::GetEnemiesLeft(){

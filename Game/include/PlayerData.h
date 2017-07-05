@@ -23,6 +23,12 @@ class PlayerData: public Component{
 		void PointsUpdate(int amount);
 		static PlayerData& GetInstance(void);
 		void DecrementLife();
+		/** 
+			\brief Pegar vidas Restantes.
+			\return playerLifes: vidas restantes.
+			Retorna as vidas restantes da wave atual.
+		*/
+		int GetLifes();
 	private:
 		UIcanvas HUDcanvas;
 		UIverticalGroup playerTable;
@@ -32,10 +38,9 @@ class PlayerData: public Component{
 		UItext playerKills;
 		UItext playerLifes;
 
-
 		int gold;
 		uint kills;
-		int lifes;
+		int lifes;/**<Contador de vidas do jogador. Representa uma tolerancia de quantos inimigos ainda podem passar.*/
 		int points;
 
 };
