@@ -8,7 +8,7 @@ Bullet::Bullet(float x,float y,float angle,float speed,float maxDistance,std::st
 	box.y= y;
 	box.w= sp.GetWidth();
 	box.h= sp.GetHeight();
-	rotation= angle*CONVERSAO_GRAUS_RADIANOS;
+	rotation= angle;
 	this->speed= Vec2::FromPolarCoord(speed, angle);
 	distanceLeft= maxDistance;
 }
@@ -32,7 +32,7 @@ void Bullet::NotifyCollision(GameObject &other){
 	if(other.Is(targetType)){
 		distanceLeft= 0;
 		std::cout << "Explodeeeeeeeee" << std::endl;
-		Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.x,rotation * CONVERSAO_GRAUS_RADIANOS,"img/explosion.png",4,0.1,true));
+		Game::GetInstance().GetCurrentState().AddObject(new Animation(box.Center().x,box.Center().x,rotation,"img/explosion.png",4,0.1,true));
 	}
 }
 
