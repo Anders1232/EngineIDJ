@@ -191,8 +191,8 @@ void Enemy::RequestDelete(void) {
 
 void Enemy::NotifyCollision(GameObject &object) {
 /*
-	if (other.Is("Bullet")){
-		if( ( (Bullet&)other).GetTargetsPlayer()==false){
+	if (object.Is("Bullet")){
+		if( ( (Bullet&)object).GetTargetsPlayer()==false){
 			hp->Damage(DMG); 
 		}
 	}

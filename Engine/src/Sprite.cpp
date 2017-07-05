@@ -23,6 +23,7 @@ Sprite::Sprite(std::string file, bool highlighted, float frameTime, int frameCou
 	REPORT_I_WAS_HERE;
 	if(file.empty()) {
 		texture = nullptr;
+		REPORT_I_WAS_HERE;
 	} else {
 		Open(file);
 	}
