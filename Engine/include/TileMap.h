@@ -270,10 +270,10 @@ class TileMap{
 		template<typename T>
 		class AStarPryorityQueue : public std::priority_queue<T, std::vector<T>>{	
   			public:
-      			bool find(const T& value) {
-        			auto it = std::find(this->c.begin(), this->c.end(), value);
-        			if (it != this->c.end()){return true;}
-       				else {return false;}
+		  			bool find(const T& value) {
+							auto it = std::find(this->c.begin(), this->c.end(), value);
+							if (it != this->c.end()){return true;}
+		   				else {return false;}
  				}
 		};
 
