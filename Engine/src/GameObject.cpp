@@ -1,6 +1,7 @@
 #include "GameObject.h"
 #include "Error.h"
 #include "Camera.h"
+#include "Component.h"
 
 GameObject::~GameObject(){
 	REPORT_I_WAS_HERE;
@@ -21,6 +22,13 @@ void GameObject::Update(float dt){
 
 void GameObject::Render(void){
 	REPORT_DEBUG("\t GameObject::Render called!");
+	
+	for(uint i=0; i < components.size(); i++){
+		//if(components[i].Is(PLAYER_DATA)){
+		//	components[i]->Render();
+		//}
+	}
+
 }
 
 bool GameObject::IsDead(void){

@@ -9,8 +9,7 @@
 
 class UItextButton : public UItext, public UIbutton {
 	public:
-		UItextButton
-				(
+		UItextButton (
 			string fontFile,
 			int fontSize,
 			UItext::TextStyle style,
@@ -20,6 +19,7 @@ class UItextButton : public UItext, public UIbutton {
 			UIelement::BehaviorType behavior = UIelement::BehaviorType::FIT,
 			bool isStrobing = false
 		);
+		void Update(float dt, Rect parentCanvas);
 		void ConfigColors(SDL_Color disabled, SDL_Color enabled, SDL_Color highlighted, SDL_Color pressed);
 		void SetUIbuttonState(UIbutton::State newState);
 		void SetStateColor(UIbutton::State state, SDL_Color color);

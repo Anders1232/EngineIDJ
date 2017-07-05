@@ -3,51 +3,52 @@
 #include "Error.h"
 
 UIimage::UIimage(std::string file, UIelement::BehaviorType behavior)
-				 : UIelement(behavior) {
-		sp = new Sprite(file);
-		kernelSize = Vec2(sp->GetWidth(), sp->GetHeight());
+		 : UIelement(behavior) {
+	sp = new Sprite(file);
+	kernelSize = Vec2(sp->GetWidth(), sp->GetHeight());
+	angle = 0;
 }
 
 UIimage::UIimage(UIelement::BehaviorType behavior) : UIelement(behavior), sp(nullptr) {}
 
 UIimage::~UIimage() {
-		if(nullptr != sp) {
-				delete sp;
-		}
+	if(nullptr != sp) {
+		delete sp;
+	}
 }
 
 void UIimage::Render(bool debugRender) const {
-		UIelement::Render(debugRender);
+	UIelement::Render(debugRender);
 
-		if(nullptr != sp) {
-				sp->Render(box, 0, false);
-		} else {
-				Error("Alguma classe filha de UIimage não foi corretamente inicializada.")
-		}
+	if(nullptr != sp) {
+		sp->Render(box, angle, false);
+	} else {
+		Error("Alguma classe filha de UIimage não foi corretamente inicializada.")
+	}
 }
 
 float UIimage::GetSpriteWidth(void) {
-		return kernelSize.x;
+	return kernelSize.x;
 }
 
 float UIimage::GetSpriteHeight(void) {
-		return kernelSize.y;
+	return kernelSize.y;
 }
 
 Vec2 UIimage::GetSpriteDimensions(void) {
-		return kernelSize;
+	return kernelSize;
 }
 
 void UIimage::SetSpriteScale(float scale) {
-		sp->SetScale(scale);
-		kernelSize = Vec2(sp->GetWidth(), sp->GetHeight());
+	sp->SetScale(scale);
+	kernelSize = Vec2(sp->GetWidth(), sp->GetHeight());
 }
 
 void UIimage::SetSpriteColorMultiplier(Color color, SDL_BlendMode blendMode) {
-		sp->colorMultiplier = color;
-		sp->blendMode = blendMode;
+	sp->colorMultiplier = color;
+	sp->blendMode = blendMode;
 }
 
 bool UIimage::Is(std::string UItype) const {
-		return "UIimage" == UItype || UIelement::Is(UItype);
+	return "UIimage" == UItype || UIelement::Is(UItype);
 }

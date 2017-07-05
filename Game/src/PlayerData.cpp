@@ -1,25 +1,31 @@
 #include "PlayerData.h"
 #include "WaveData.h"
 #include "Error.h"
+#include "Game.h"
 
-
-PlayerData::PlayerData():name("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Player Board",UIelement::BehaviorType::FIT ,false){
+PlayerData::PlayerData(): HUDcanvas(), board("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Player Board",UIelement::BehaviorType::FIT ,false){
 	points = 0;
 	gold = 0;
 	kills = 0;
 	lifes = TOTAL_LIFES;
-	//name.box.x=0;
-	//name.box.y=0;
+	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
+
+	board.SetAnchors({0.0,0.0},{0.0,0.0} );
+	board.SetOffsets( { 0.0, -160.0}, { 240., 200.} );
 }
+
 PlayerData::~PlayerData(){
 
 }
 
 void PlayerData::Render() const{
-	name.Render();
+	board.Render(true);
 }
 void PlayerData::Update(GameObject &associated, float dt){
-
+	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
+	
+	HUDcanvas.Update(dt, winSize);
+	board.Update(dt,HUDcanvas);
 }
 
 bool PlayerData::Is(ComponentType type) const{

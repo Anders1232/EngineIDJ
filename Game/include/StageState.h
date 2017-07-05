@@ -16,7 +16,9 @@
 #include "Timer.h"
 #include "WaveManager.h"
 #include "PlayerData.h"
-
+#include "UIcanvas.h"
+#include "UIimageButton.h"
+#include "UIgridGroup.h"
 
 using std::vector;
 
@@ -30,6 +32,9 @@ class StageState: public State {
 		void Resume(void);
 		void ShowLightning(float dt);
 	private:
+		void UpdateUI(float dt);
+		void RenderUI(void) const;
+		void ToggleMenu(void);
 		TileSet tileSet;
 		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;
@@ -38,8 +43,16 @@ class StageState: public State {
 		Timer lightningTimer;
 		Color lightningColor;
 		WaveManager *waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
-		PlayerData *playerBoard;
+		PlayerData *playerBoard;/**< Armazena os dados do jogador e os exibe em tela. */
 		vector<int> waves;//vetor de waves a ser lido no arquivo
+
+		bool menuIsShowing;
+		
+		UIcanvas HUDcanvas;
+		UIimageButton openMenuBtn;
+		UIimage menuBg;
+		UIgridGroup towersBtnGroup;
+		UIimageButton towerBtn1;
 };
 
 #include "EndState.h"

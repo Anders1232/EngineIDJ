@@ -7,6 +7,7 @@
 #include "Tower.h"
 #include "Game.h"
 #include "GameResources.h"
+#include "Vec2.h"
 
 #define INCLUDE_SDL 
 #define INCLUDE_SDL_IMAGE 
@@ -34,8 +35,12 @@ StageState::StageState(void)
 		, music("audio/stageState.ogg")
 		, isLightning(false)
 		, lightningTimer()
-		, lightningColor(255, 255, 255, 0){
-		
+		, lightningColor(255, 255, 255, 0)
+		, HUDcanvas()
+		, openMenuBtn()
+		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
+		, towersBtnGroup(UIgridGroup::ConstraintType::FIXED_N_COLS, 2, UIgridGroup::BehaviorOnLess::NORMAL)
+		, towerBtn1() {
 	REPORT_I_WAS_HERE;
 	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
 	
@@ -44,12 +49,44 @@ StageState::StageState(void)
 	music.Play(10);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
 	Camera::ForceLogZoom(CAM_START_ZOOM);
-	GameObject* waveManagerGO= new GameObject();
+	GameObject* StageComponents = new GameObject();
 	waveManager = new WaveManager(tileMap, "assets/wave&enemyData.txt");
 	playerBoard = new PlayerData(); 
-	waveManagerGO->AddComponent(waveManager);
-	waveManagerGO->AddComponent(playerBoard);
-	AddObject(waveManagerGO);
+	StageComponents->AddComponent(waveManager);
+	StageComponents->AddComponent(playerBoard);
+	AddObject(StageComponents);
+
+	// UI
+	menuIsShowing = false;
+	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
+
+	openMenuBtn.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/openmenu.png"));
+	openMenuBtn.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/openmenu.png"));
+	openMenuBtn.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/openmenu-clicked.png"));
+	openMenuBtn.SetAnchors( {1., 0.5},
+							{1., 0.5} );
+	openMenuBtn.SetOffsets( {(float)-(openMenuBtn.GetStateSpriteWidth(UIbutton::State::ENABLED)+15.), (float)((-winSize.y/2.)+25.)},
+							{-15., (float)((-winSize.y/2.)+openMenuBtn.GetStateSpriteHeight(UIbutton::State::ENABLED)+25.)} );
+	openMenuBtn.SetClickCallback(this, [] (void* ptr) {
+													StageState* it = static_cast<StageState*>(ptr);
+													it->ToggleMenu();
+												} );
+	menuBg.SetAnchors( {1., 0.5},
+					   {1., 0.5});
+	menuBg.SetOffsets( {(float)-(menuBg.GetSpriteWidth()+15.), (float)(-menuBg.GetSpriteHeight()/2.)},
+					   {-15., (float)(menuBg.GetSpriteHeight()/2.)});
+	
+	towersBtnGroup.SetAnchors( {0., 0.5},
+							   {1., 1.} );
+	towersBtnGroup.SetOffsets( {32., 0.},
+							   {-27., -30.} );
+
+	towerBtn1.SetCenter({0., 0.});
+	towerBtn1.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
+	towerBtn1.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
+	towerBtn1.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+
+	towersBtnGroup.groupedElements.push_back(&towerBtn1);
 }
 
 StageState::~StageState(void) {
@@ -152,7 +189,24 @@ void StageState::Update(float dt) {
 			lightningTimer.Restart();
 		}
 	}
+
+	UpdateUI(dt);
+
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
+}
+
+void StageState::UpdateUI(float dt) {
+	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
+
+	HUDcanvas.Update(dt, winSize);
+	openMenuBtn.Update(dt, HUDcanvas);
+	if(menuIsShowing) {
+		menuBg.Update(dt, HUDcanvas);
+		towersBtnGroup.Update(dt, menuBg);
+		towerBtn1.Update(dt, towersBtnGroup);
+	}
+
+	
 }
 
 void StageState::Render(void) const {
@@ -174,6 +228,19 @@ void StageState::Render(void) const {
 		SDL_SetRenderDrawBlendMode(Game::GetInstance().GetRenderer(), SDL_BLENDMODE_BLEND);
 		SDL_RenderFillRect(Game::GetInstance().GetRenderer(), NULL);
 	}
+
+	RenderUI();
+}
+
+void StageState::RenderUI(void) const {
+	openMenuBtn.Render();
+	if(menuIsShowing) {
+		menuBg.Render();
+		// towersBtnGroup.Render();
+		towerBtn1.Render();
+	}
+
+	playerBoard->Render();
 }
 
 void StageState::Pause(void) {}
@@ -201,4 +268,16 @@ void StageState::ShowLightning(float dt){
 		isLightning = false;
 		lightningTimer.Restart();
 	}
+}
+
+void StageState::ToggleMenu(void) {
+	menuIsShowing = !menuIsShowing;
+	if(menuIsShowing) {
+		openMenuBtn.SetOffsets( {openMenuBtn.GetOffsets().x - menuBg.GetSpriteWidth(), openMenuBtn.GetOffsets().y},
+								{openMenuBtn.GetOffsets().w - menuBg.GetSpriteWidth(), openMenuBtn.GetOffsets().h} );
+	} else {
+		openMenuBtn.SetOffsets( {openMenuBtn.GetOffsets().x + menuBg.GetSpriteWidth(), openMenuBtn.GetOffsets().y},
+								{openMenuBtn.GetOffsets().w + menuBg.GetSpriteWidth(), openMenuBtn.GetOffsets().h} );
+	}
+	openMenuBtn.angle = 180 - openMenuBtn.angle;
 }

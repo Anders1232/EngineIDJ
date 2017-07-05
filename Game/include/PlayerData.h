@@ -2,10 +2,11 @@
 #ifndef PLAYER_DATA_H
 #define PLAYER_DATA_H
 
+#include "GameObject.h"
 #include "WaveManager.h"
 #include "UItext.h"
 #include "UItextButton.h"
-
+#include "UIcanvas.h"
 
 #define TOTAL_LIFES 30;
 class PlayerData: public Component{
@@ -21,7 +22,9 @@ class PlayerData: public Component{
 		void PointsUpdate(int amount);
 
 	private:
-		UItext name;
+		UIcanvas HUDcanvas;
+		UItext board;
+
 		int gold;
 		uint kills;
 		int lifes;

@@ -4,6 +4,7 @@
 #include "UIelement.h"
 #include "UIcanvas.h"
 #include "Rect.h"
+#include "Vec2.h"
 
 #include <vector>
 #include <string>
@@ -24,6 +25,7 @@ class UIgridGroup : public UIcanvas {
 		void SetConstraint(UIgridGroup::ConstraintType newConstraint, int value);
 		bool Is(std::string UItype) const;
 		std::vector<UIelement*> groupedElements;
+		Vec2 padding;
 	private:
 		UIgridGroup::ConstraintType constraint;
 		int number;
