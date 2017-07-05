@@ -40,7 +40,10 @@ StageState::StageState(void)
 		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
 		, openMenuBtn()
 		, towersBtnGroup(UIgridGroup::ConstraintType::FIXED_N_COLS, 2, UIgridGroup::BehaviorOnLess::NORMAL)
-		, towerBtn1() {
+		, towerBtn1()
+		, towerBtn2()
+		, towerBtn3()
+		, towerBtn4() {
 	REPORT_I_WAS_HERE;
 	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
 	
@@ -78,13 +81,32 @@ StageState::StageState(void)
 							   {1., 1.} );
 	towersBtnGroup.SetOffsets( {32., 0.},
 							   {-27., -30.} );
+	towersBtnGroup.padding = Vec2(10., 10.);
 
-	towerBtn1.SetCenter({0., 0.});
+	towerBtn1.SetCenter({0.5, 0.});
 	towerBtn1.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn1.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn1.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
 
+	towerBtn2.SetCenter({0.5, 0.});
+	towerBtn2.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
+	towerBtn2.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
+	towerBtn2.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+
+	towerBtn3.SetCenter({0.5, 0.});
+	towerBtn3.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
+	towerBtn3.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
+	towerBtn3.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+
+	towerBtn4.SetCenter({0.5, 0.});
+	towerBtn4.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
+	towerBtn4.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
+	towerBtn4.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+
 	towersBtnGroup.groupedElements.push_back(&towerBtn1);
+	towersBtnGroup.groupedElements.push_back(&towerBtn2);
+	towersBtnGroup.groupedElements.push_back(&towerBtn3);
+	towersBtnGroup.groupedElements.push_back(&towerBtn4);
 }
 
 StageState::~StageState(void) {
@@ -208,6 +230,9 @@ void StageState::UpdateUI(float dt) {
 	openMenuBtn.Update(dt, menuBg);
 	towersBtnGroup.Update(dt, menuBg);
 	towerBtn1.Update(dt, towersBtnGroup);
+	towerBtn2.Update(dt, towersBtnGroup);
+	towerBtn3.Update(dt, towersBtnGroup);
+	towerBtn4.Update(dt, towersBtnGroup);
 }
 
 void StageState::Render(void) const {
@@ -237,7 +262,10 @@ void StageState::RenderUI(void) const {
 	if(menuIsShowing) {
 		menuBg.Render();
 		// towersBtnGroup.Render();
-		towerBtn1.Render();
+		towerBtn1.Render(true);
+		towerBtn2.Render(true);
+		towerBtn3.Render(true);
+		towerBtn4.Render(true);
 	}
 	openMenuBtn.Render();
 }
