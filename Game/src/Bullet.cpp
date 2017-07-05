@@ -3,12 +3,12 @@
 #include "Error.h"
 
 Bullet::Bullet(float x,float y,float angle,float speed,float maxDistance,std::string sprite,std::string targetType,float frameTime,int frameCount)
-: sp(sprite, frameTime, frameCount),targetType(targetType){
-	box.x= Camera::pos.x + x -sp.GetWidth()/2;
-	box.y= Camera::pos.y + y -sp.GetHeight()/2;
+: sp(sprite,false,frameTime, frameCount),targetType(targetType){
+	box.x= x;
+	box.y= y;
 	box.w= sp.GetWidth();
 	box.h= sp.GetHeight();
-	rotation= angle*CONVERSAO_GRAUS_RADIANOS;
+	rotation= angle;
 	this->speed= Vec2::FromPolarCoord(speed, angle);
 	distanceLeft= maxDistance;
 }
@@ -29,7 +29,10 @@ Bullet::~Bullet(){
 }
 
 void Bullet::NotifyCollision(GameObject &other){
-	if(other.Is(targetType)){distanceLeft= 0;}
+	if(other.Is(targetType)){
+		distanceLeft= 0;
+		Game::GetInstance().GetCurrentState().AddObject(new Animation(box.Center().x,box.Center().x,rotation,"img/explosion.png",4,0.1,true));
+	}
 }
 
 bool Bullet::Is(string type){

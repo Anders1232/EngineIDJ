@@ -33,7 +33,7 @@ class Animation: public GameObject {
 			string sprite,
 			int frameCount,
 			float frameTime,
-			bool ends
+			bool ends = true
 		);
 		/**
 			\brief Atualiza estado.

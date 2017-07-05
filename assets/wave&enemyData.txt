@@ -31,13 +31,22 @@ Wave1
             5
             100
             0
-            
+
+            4
+            5
+            10000
+            5
 
     SpawnPoint:1
             0
             5
             120
             0
+
+            4
+            5
+            10000
+            5
 
     SpawnPoint:2
             3
@@ -60,6 +69,11 @@ Wave1
             1000
             3
 
+            4
+            5
+            10000
+            5
+
 Wave1
     SpawnPoint:0
             0
@@ -71,7 +85,6 @@ Wave1
             5
             100
             4
-            
 
     SpawnPoint:1
             0

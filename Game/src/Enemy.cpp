@@ -83,42 +83,40 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			components.emplace_back(new AIGoTo(ENEMY_ENGINEER_MOVE_SPEED, endPoint, tileMap , *this));
 			break;
 		case EnemyType::ENGINEER:
-			REPORT_DEBUG("Enemy type: ENGINEER "<< enemyData.enemyType);
-			type = EnemyType::ENGINEER;
+			REPORT_DEBUG("Enemy type: QUIMIC "<< enemyData.enemyType);
+			type = EnemyType::QUIMIC;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
-					sp[i][i2].colorMultiplier.r = 44;
-					sp[i][i2].colorMultiplier.g = 44;
-					sp[i][i2].colorMultiplier.b = 105;
+					sp[i][i2].colorMultiplier.r = 100;
+					sp[i][i2].colorMultiplier.g = 250;
+					sp[i][i2].colorMultiplier.b = 100;
 				}
 			}
-			components.emplace_back(new AIEngineer(ENEMY_ENGINEER_MOVE_SPEED, endPoint, tileMap , *this, wManager));
+			components.emplace_back(new AIQuimic(ENEMY_QUIMIC_MOVE_SPEED, endPoint, tileMap, *this, wManager));
 			break;
 		case EnemyType::ARQUITET:
-			REPORT_DEBUG("Enemy type: ARQUITET "<< enemyData.enemyType);
-			type = EnemyType::ARQUITET;
+			REPORT_DEBUG("Enemy type: QUIMIC "<< enemyData.enemyType);
+			type = EnemyType::QUIMIC;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
-					sp[i][i2].colorMultiplier.r = 255;
-					sp[i][i2].colorMultiplier.g = 51;
-					sp[i][i2].colorMultiplier.b = 255;
+					sp[i][i2].colorMultiplier.r = 100;
+					sp[i][i2].colorMultiplier.g = 250;
+					sp[i][i2].colorMultiplier.b = 100;
 				}
 			}
-			components.emplace_back(new AIEngineer(ENEMY_ENGINEER_MOVE_SPEED, endPoint, tileMap , *this, wManager));
+			components.emplace_back(new AIQuimic(ENEMY_QUIMIC_MOVE_SPEED, endPoint, tileMap, *this, wManager));
 			break;
 		case EnemyType::ART:
-			REPORT_DEBUG("Enemy type: ART "<< enemyData.enemyType);
-			type = EnemyType::ART;
+			REPORT_DEBUG("Enemy type: QUIMIC "<< enemyData.enemyType);
+			type = EnemyType::QUIMIC;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
-					sp[i][i2].colorMultiplier.r = 220;
-					sp[i][i2].colorMultiplier.g = 90;
-					sp[i][i2].colorMultiplier.b = 15;
+					sp[i][i2].colorMultiplier.r = 100;
+					sp[i][i2].colorMultiplier.g = 250;
+					sp[i][i2].colorMultiplier.b = 100;
 				}
 			}
-			components.emplace_back(new AIArt(ENEMY_ART_MOVE_SPEED, endPoint, tileMap, *this, wManager));
-			//components.emplace_back(new AIGoDown(500, endPoint, tileMap, *this, wManager));
-			
+			components.emplace_back(new AIQuimic(ENEMY_QUIMIC_MOVE_SPEED, endPoint, tileMap, *this, wManager));		
 			break;
 		case EnemyType::QUIMIC:
 			REPORT_DEBUG("Enemy type: QUIMIC "<< enemyData.enemyType);
@@ -133,16 +131,16 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			components.emplace_back(new AIQuimic(ENEMY_QUIMIC_MOVE_SPEED, endPoint, tileMap, *this, wManager));
 			break;
 		case EnemyType::MEDIC:
-			REPORT_DEBUG("Enemy type: MEDIC "<< enemyData.enemyType);
-			type = EnemyType::MEDIC;
+			REPORT_DEBUG("Enemy type: QUIMIC "<< enemyData.enemyType);
+			type = EnemyType::QUIMIC;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
-					sp[i][i2].colorMultiplier.r = 190;
+					sp[i][i2].colorMultiplier.r = 100;
 					sp[i][i2].colorMultiplier.g = 250;
-					sp[i][i2].colorMultiplier.b = 10;
+					sp[i][i2].colorMultiplier.b = 100;
 				}
 			}
-			components.emplace_back(new AIMedic(ENEMY_QUIMIC_MOVE_SPEED, endPoint, tileMap, *this, wManager));
+			components.emplace_back(new AIQuimic(ENEMY_QUIMIC_MOVE_SPEED, endPoint, tileMap, *this, wManager));
 			break;
 		default:
 			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";

@@ -7,6 +7,7 @@ class AStarHeuristic{
 //	virtual AStarHeuristic(){};
 	public:
 		virtual int operator()(Vec2 originTile, Vec2 desTile) = 0;
+		virtual ~AStarHeuristic() {};
 };
 
 #endif

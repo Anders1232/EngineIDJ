@@ -504,7 +504,7 @@ void TileMap::ShowPath(std::shared_ptr<std::vector<int> > path){
 	}
 }
 
-GameObject* TileMap::CloserObject(GameObject& origin,std::string objectDestType){
+GameObject* TileMap::CloserObstacle(GameObject& origin,std::string objectDestType){
 	GameObject* closerObj = nullptr;
 	double closerObjDistance = std::numeric_limits<double>::max();
 	for(unsigned int i = 0; i < gameObjectMatrix.size(); i ++){

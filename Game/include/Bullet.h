@@ -3,6 +3,8 @@
 
 #include "GameObject.h"
 #include "Sprite.h"
+#include "Game.h"
+#include "Animation.h"
 #include "Vec2.h"
 #include <string>
 
