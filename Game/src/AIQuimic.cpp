@@ -145,10 +145,10 @@ void AIQuimic::Update(float dt){
 				bulletsCoolDown.Restart();
 				GameObject* target = tileMap.CloserObject(associated,std::string("Tower"));
 				if(target != nullptr){
-					Vec2 distance = associated.box.Center().VecDistance(target->box.Center());
+					/*Vec2 distance = associated.box.Center().VecDistance(target->box.Center());
 					float angle = std::atan2(distance.y,distance.x);
 					Bullet* bullet = new Bullet(associated.box.Center().x,associated.box.Center().y,angle,BULLET_VEL,BULLET_REACH,std::string("img/minionbullet2.png"),std::string("Tower"),3,0.1);
-					Game::GetInstance().GetCurrentState().AddObject(bullet);
+					Game::GetInstance().GetCurrentState().AddObject(bullet);*/
 				}
 			}
 			
