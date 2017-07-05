@@ -191,7 +191,7 @@ class TileMap{
 		std::list<int>* AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap);
 		void ObserveMapChanges(TileMapObserver *);
 		void RemoveObserver(TileMapObserver *);
-		GameObject* CloserObject(GameObject& origin,std::string objectDestType);
+		GameObject* CloserObstacle(GameObject& origin,std::string objectDestType);
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
