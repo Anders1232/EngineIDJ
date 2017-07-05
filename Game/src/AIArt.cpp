@@ -9,6 +9,7 @@ AIArt::AIArt(float speed, int dest, TileMap &tileMap, GameObject &associated, Wa
 	Vec2 originCoord= associated.box.Center();
 	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 	vecSpeed = Vec2(0.0,0.0);
+	lastDistance = std::numeric_limits<float>::max();
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
 	dfa[AIState::WALKING][AIEvent::PATH_BLOCKED] = AIState::WAITING;
