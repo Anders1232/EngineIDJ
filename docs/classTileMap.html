@@ -3,15 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.13"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
 <title>Projeto IDJ - Towers Of Madness: Referência da Classe TileMap</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -20,7 +21,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
+  <td style="padding-left: 0.5em;">
    <div id="projectname">Projeto IDJ - Towers Of Madness
    </div>
    <div id="projectbrief">TowerDefenseLovecraftnianoZombicida</div>
@@ -30,25 +31,48 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.8.13 -->
+<!-- Gerado por Doxygen 1.8.7 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-$(function() {
-  initMenu('',true,false,'search.php','Busca');
-  $(document).ready(function() { init_search(); });
-});
-</script>
-<div id="main-nav"></div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
+      <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definições e Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -60,6 +84,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Componentes</a> &#124;
 <a href="#pub-methods">Métodos Públicos</a> &#124;
 <a href="#pro-methods">Métodos Protegidos</a> &#124;
 <a href="#pro-attribs">Atributos Protegidos</a> &#124;
@@ -76,39 +101,44 @@ $(function() {
 <div class="dynheader">
 Diagrama de colaboração para TileMap:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classTileMap__coll__graph.svg" width="778" height="544"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTileMap__coll__graph.svg" width="778" height="547"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTileMap_1_1LessThanByHeuristic.html">LessThanByHeuristic</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
 <tr class="memitem:acf6fe3a182047153ec9c25fadc55056c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#acf6fe3a182047153ec9c25fadc55056c">TileMap</a> (string file, <a class="el" href="classTileSet.html">TileSet</a> *<a class="el" href="classTileMap.html#a24b2ea7aecfd795f1e13dfa9b0b3cb76">tileSet</a>)</td></tr>
 <tr class="memdesc:acf6fe3a182047153ec9c25fadc55056c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor.  <a href="#acf6fe3a182047153ec9c25fadc55056c">Mais...</a><br /></td></tr>
 <tr class="separator:acf6fe3a182047153ec9c25fadc55056c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada2b7d43fd59957db4c61a61cebc2745"><td class="memItemLeft" align="right" valign="top">int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#ada2b7d43fd59957db4c61a61cebc2745">At</a> (int x, int y, int z=0) const</td></tr>
-<tr class="memdesc:ada2b7d43fd59957db4c61a61cebc2745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o índice do tileMap na posição informada.  <a href="#ada2b7d43fd59957db4c61a61cebc2745">Mais...</a><br /></td></tr>
-<tr class="separator:ada2b7d43fd59957db4c61a61cebc2745"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd5cdd6819589f18e44af62887ba77a1"><td class="memItemLeft" align="right" valign="top">int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#acd5cdd6819589f18e44af62887ba77a1">AtLayer</a> (int index2D, int layer) const</td></tr>
-<tr class="memdesc:acd5cdd6819589f18e44af62887ba77a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o índice do tileMap na posição informada.  <a href="#acd5cdd6819589f18e44af62887ba77a1">Mais...</a><br /></td></tr>
-<tr class="separator:acd5cdd6819589f18e44af62887ba77a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55d2dc089cb266df799a9721f95efe28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a55d2dc089cb266df799a9721f95efe28">Render</a> (<a class="el" href="classVec2.html">Vec2</a> pos=<a class="el" href="classVec2.html">Vec2</a>(0, 0), bool parallax=false, <a class="el" href="classVec2.html">Vec2</a> mouse=<a class="el" href="classVec2.html">Vec2</a>(-1, -1)) const</td></tr>
-<tr class="memdesc:a55d2dc089cb266df799a9721f95efe28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza o <a class="el" href="classTileMap.html" title="Classe que modela o TileMap. ">TileMap</a> a partir da posição dada.  <a href="#a55d2dc089cb266df799a9721f95efe28">Mais...</a><br /></td></tr>
-<tr class="separator:a55d2dc089cb266df799a9721f95efe28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a1b81c91aa57a3e0bc6c77041c092e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a8a1b81c91aa57a3e0bc6c77041c092e2">RenderLayer</a> (int layer, <a class="el" href="classVec2.html">Vec2</a> pos=<a class="el" href="classVec2.html">Vec2</a>(0, 0), bool parallax=false, <a class="el" href="classVec2.html">Vec2</a> mouse=<a class="el" href="classVec2.html">Vec2</a>(-1, -1)) const</td></tr>
-<tr class="memdesc:a8a1b81c91aa57a3e0bc6c77041c092e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza a layer informada.  <a href="#a8a1b81c91aa57a3e0bc6c77041c092e2">Mais...</a><br /></td></tr>
-<tr class="separator:a8a1b81c91aa57a3e0bc6c77041c092e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab21df8d033b1e526e9488740e28c6606"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#ab21df8d033b1e526e9488740e28c6606">GetWidth</a> (void) const</td></tr>
-<tr class="memdesc:ab21df8d033b1e526e9488740e28c6606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa a largura do tileMap.  <a href="#ab21df8d033b1e526e9488740e28c6606">Mais...</a><br /></td></tr>
-<tr class="separator:ab21df8d033b1e526e9488740e28c6606"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a22481fdf5310a7199e8289bd3c4571"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a1a22481fdf5310a7199e8289bd3c4571">GetHeight</a> (void) const</td></tr>
-<tr class="memdesc:a1a22481fdf5310a7199e8289bd3c4571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa a altura do tileMap.  <a href="#a1a22481fdf5310a7199e8289bd3c4571">Mais...</a><br /></td></tr>
-<tr class="separator:a1a22481fdf5310a7199e8289bd3c4571"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a879d8cf4317f264a536979c2e5294401"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a879d8cf4317f264a536979c2e5294401">GetDepth</a> (void) const</td></tr>
-<tr class="memdesc:a879d8cf4317f264a536979c2e5294401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa o número de layers do tileMap.  <a href="#a879d8cf4317f264a536979c2e5294401">Mais...</a><br /></td></tr>
-<tr class="separator:a879d8cf4317f264a536979c2e5294401"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab59e06379a26482d8103917c1c2393f5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#ab59e06379a26482d8103917c1c2393f5">GetTileMousePos</a> (<a class="el" href="classVec2.html">Vec2</a> const &amp;mousePos, bool affecteedByZoom, int layer) const</td></tr>
-<tr class="memdesc:ab59e06379a26482d8103917c1c2393f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobre qual tile o mouse está.  <a href="#ab59e06379a26482d8103917c1c2393f5">Mais...</a><br /></td></tr>
-<tr class="separator:ab59e06379a26482d8103917c1c2393f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b8dec192ee9ccca2b4476821235cc0a"><td class="memItemLeft" align="right" valign="top">int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a3b8dec192ee9ccca2b4476821235cc0a">At</a> (int x, int y, int z=0) const </td></tr>
+<tr class="memdesc:a3b8dec192ee9ccca2b4476821235cc0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o índice do tileMap na posição informada.  <a href="#a3b8dec192ee9ccca2b4476821235cc0a">Mais...</a><br /></td></tr>
+<tr class="separator:a3b8dec192ee9ccca2b4476821235cc0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8540f1f0249118c02cced90e0175c461"><td class="memItemLeft" align="right" valign="top">int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a8540f1f0249118c02cced90e0175c461">AtLayer</a> (int index2D, int layer) const </td></tr>
+<tr class="memdesc:a8540f1f0249118c02cced90e0175c461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o índice do tileMap na posição informada.  <a href="#a8540f1f0249118c02cced90e0175c461">Mais...</a><br /></td></tr>
+<tr class="separator:a8540f1f0249118c02cced90e0175c461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43569e73246f2b5253c537a12051ac90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a43569e73246f2b5253c537a12051ac90">Render</a> (<a class="el" href="classVec2.html">Vec2</a> pos=<a class="el" href="classVec2.html">Vec2</a>(0, 0), bool parallax=false, <a class="el" href="classVec2.html">Vec2</a> mouse=<a class="el" href="classVec2.html">Vec2</a>(-1,-1)) const </td></tr>
+<tr class="memdesc:a43569e73246f2b5253c537a12051ac90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza o <a class="el" href="classTileMap.html" title="Classe que modela o TileMap. ">TileMap</a> a partir da posição dada.  <a href="#a43569e73246f2b5253c537a12051ac90">Mais...</a><br /></td></tr>
+<tr class="separator:a43569e73246f2b5253c537a12051ac90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa87fcf8c31e0730c3a969a7e9abf838a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#aa87fcf8c31e0730c3a969a7e9abf838a">RenderLayer</a> (int layer, <a class="el" href="classVec2.html">Vec2</a> pos=<a class="el" href="classVec2.html">Vec2</a>(0, 0), bool parallax=false, <a class="el" href="classVec2.html">Vec2</a> mouse=<a class="el" href="classVec2.html">Vec2</a>(-1,-1)) const </td></tr>
+<tr class="memdesc:aa87fcf8c31e0730c3a969a7e9abf838a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza a layer informada.  <a href="#aa87fcf8c31e0730c3a969a7e9abf838a">Mais...</a><br /></td></tr>
+<tr class="separator:aa87fcf8c31e0730c3a969a7e9abf838a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a072dbe1dbd793712baefe154c3058ab2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a072dbe1dbd793712baefe154c3058ab2">GetWidth</a> (void) const </td></tr>
+<tr class="memdesc:a072dbe1dbd793712baefe154c3058ab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa a largura do tileMap.  <a href="#a072dbe1dbd793712baefe154c3058ab2">Mais...</a><br /></td></tr>
+<tr class="separator:a072dbe1dbd793712baefe154c3058ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fe48260088655aa252b4d40e60f1390"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a9fe48260088655aa252b4d40e60f1390">GetHeight</a> (void) const </td></tr>
+<tr class="memdesc:a9fe48260088655aa252b4d40e60f1390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa a altura do tileMap.  <a href="#a9fe48260088655aa252b4d40e60f1390">Mais...</a><br /></td></tr>
+<tr class="separator:a9fe48260088655aa252b4d40e60f1390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb8c6a4101e449c33d963041345d918e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#aeb8c6a4101e449c33d963041345d918e">GetDepth</a> (void) const </td></tr>
+<tr class="memdesc:aeb8c6a4101e449c33d963041345d918e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa o número de layers do tileMap.  <a href="#aeb8c6a4101e449c33d963041345d918e">Mais...</a><br /></td></tr>
+<tr class="separator:aeb8c6a4101e449c33d963041345d918e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6c280210ec11a0aa9b5f5c2ba317817"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#af6c280210ec11a0aa9b5f5c2ba317817">GetTileMousePos</a> (<a class="el" href="classVec2.html">Vec2</a> const &amp;mousePos, bool affecteedByZoom, int layer) const </td></tr>
+<tr class="memdesc:af6c280210ec11a0aa9b5f5c2ba317817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobre qual tile o mouse está.  <a href="#af6c280210ec11a0aa9b5f5c2ba317817">Mais...</a><br /></td></tr>
+<tr class="separator:af6c280210ec11a0aa9b5f5c2ba317817"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9370c61beefad2f657c022a0a2462336"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a9370c61beefad2f657c022a0a2462336">InsertGO</a> (<a class="el" href="classGameObject.html">GameObject</a> *obj)</td></tr>
 <tr class="memdesc:a9370c61beefad2f657c022a0a2462336"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere GameObjct no tileMap.  <a href="#a9370c61beefad2f657c022a0a2462336">Mais...</a><br /></td></tr>
 <tr class="separator:a9370c61beefad2f657c022a0a2462336"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,12 +160,18 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a9cdb06bdaca86adf9fc179ed5cf7b148"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a9cdb06bdaca86adf9fc179ed5cf7b148">IsShowingCollisionInfo</a> ()</td></tr>
 <tr class="memdesc:a9cdb06bdaca86adf9fc179ed5cf7b148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa estado a exibição do tilemap de colisão.  <a href="#a9cdb06bdaca86adf9fc179ed5cf7b148">Mais...</a><br /></td></tr>
 <tr class="separator:a9cdb06bdaca86adf9fc179ed5cf7b148"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83791a2b841d617d9483c1658a581541"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; int &gt; &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a83791a2b841d617d9483c1658a581541">GetSpawnPositions</a> (void) const</td></tr>
-<tr class="memdesc:a83791a2b841d617d9483c1658a581541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém os spawnGroups com seus spawn points.  <a href="#a83791a2b841d617d9483c1658a581541">Mais...</a><br /></td></tr>
-<tr class="separator:a83791a2b841d617d9483c1658a581541"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57cd7e2a960dc3a8a9830d60151105f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVec2.html">Vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a57cd7e2a960dc3a8a9830d60151105f2">GetTileSize</a> (void) const</td></tr>
-<tr class="memdesc:a57cd7e2a960dc3a8a9830d60151105f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o tamanho de um tile.  <a href="#a57cd7e2a960dc3a8a9830d60151105f2">Mais...</a><br /></td></tr>
-<tr class="separator:a57cd7e2a960dc3a8a9830d60151105f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dea9f02c778fb30a875485db321a66d"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; int &gt; &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a3dea9f02c778fb30a875485db321a66d">GetTileGroups</a> (int tileType) const </td></tr>
+<tr class="memdesc:a3dea9f02c778fb30a875485db321a66d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém os spawnGroups com seus spawn points.  <a href="#a3dea9f02c778fb30a875485db321a66d">Mais...</a><br /></td></tr>
+<tr class="separator:a3dea9f02c778fb30a875485db321a66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49950ed4657eda13b22967758c964965"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVec2.html">Vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a49950ed4657eda13b22967758c964965">GetTileSize</a> (void) const </td></tr>
+<tr class="memdesc:a49950ed4657eda13b22967758c964965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o tamanho de um tile.  <a href="#a49950ed4657eda13b22967758c964965">Mais...</a><br /></td></tr>
+<tr class="separator:a49950ed4657eda13b22967758c964965"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98331e1ab3a2ee9663753a0ae161d94f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a98331e1ab3a2ee9663753a0ae161d94f">ShowPath</a> (std::list&lt; int &gt;path)</td></tr>
+<tr class="memdesc:a98331e1ab3a2ee9663753a0ae161d94f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera o tilemap mostrando o caminho contido em list.  <a href="#a98331e1ab3a2ee9663753a0ae161d94f">Mais...</a><br /></td></tr>
+<tr class="separator:a98331e1ab3a2ee9663753a0ae161d94f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef777a01975221fe5b49e1daf984f4da"><td class="memItemLeft" align="right" valign="top">std::list&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#aef777a01975221fe5b49e1daf984f4da">AStar</a> (int originTile, int destTile, <a class="el" href="classAStarHeuristic.html">AStarHeuristic</a> *heuristic, std::map&lt; int, double &gt; weightMap)</td></tr>
+<tr class="memdesc:aef777a01975221fe5b49e1daf984f4da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o caminho menos custoso entre dois pontos baseado em uma heuristica utilizando o algoritmo A*.  <a href="#aef777a01975221fe5b49e1daf984f4da">Mais...</a><br /></td></tr>
+<tr class="separator:aef777a01975221fe5b49e1daf984f4da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Métodos Protegidos</h2></td></tr>
@@ -145,9 +181,14 @@ Métodos Protegidos</h2></td></tr>
 <tr class="memitem:aeaeb5ed2cc7e621ab2fe9f5ee26b2b69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#aeaeb5ed2cc7e621ab2fe9f5ee26b2b69">SetTileSet</a> (<a class="el" href="classTileSet.html">TileSet</a> *<a class="el" href="classTileMap.html#a24b2ea7aecfd795f1e13dfa9b0b3cb76">tileSet</a>)</td></tr>
 <tr class="memdesc:aeaeb5ed2cc7e621ab2fe9f5ee26b2b69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera o tileSet usado pelo tileMap.  <a href="#aeaeb5ed2cc7e621ab2fe9f5ee26b2b69">Mais...</a><br /></td></tr>
 <tr class="separator:aeaeb5ed2cc7e621ab2fe9f5ee26b2b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a842b1a3f5a41cef21ddb1d4853d09c69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVec2.html">Vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a842b1a3f5a41cef21ddb1d4853d09c69">CalculateParallaxScrolling</a> (<a class="el" href="classVec2.html">Vec2</a> num, <a class="el" href="classVec2.html">Vec2</a> pos, int layer) const</td></tr>
-<tr class="memdesc:a842b1a3f5a41cef21ddb1d4853d09c69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a paralaxe.  <a href="#a842b1a3f5a41cef21ddb1d4853d09c69">Mais...</a><br /></td></tr>
-<tr class="separator:a842b1a3f5a41cef21ddb1d4853d09c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a442af6700e8477097e14378bbf2551a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVec2.html">Vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a442af6700e8477097e14378bbf2551a2">CalculateParallaxScrolling</a> (<a class="el" href="classVec2.html">Vec2</a> num, <a class="el" href="classVec2.html">Vec2</a> pos, int layer) const </td></tr>
+<tr class="memdesc:a442af6700e8477097e14378bbf2551a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a paralaxe.  <a href="#a442af6700e8477097e14378bbf2551a2">Mais...</a><br /></td></tr>
+<tr class="separator:a442af6700e8477097e14378bbf2551a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eb20b2b2dada428c1c8bb0246170ff3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#a2eb20b2b2dada428c1c8bb0246170ff3">Traversable</a> (int index) const </td></tr>
+<tr class="separator:a2eb20b2b2dada428c1c8bb0246170ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab020cfbba8315eef4efcb34d5b1e3b7f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html#ab020cfbba8315eef4efcb34d5b1e3b7f">GetNeighbors</a> (int tile) const </td></tr>
+<tr class="memdesc:ab020cfbba8315eef4efcb34d5b1e3b7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém todos os vizinhos de um determinado tile.  <a href="#ab020cfbba8315eef4efcb34d5b1e3b7f">Mais...</a><br /></td></tr>
+<tr class="separator:ab020cfbba8315eef4efcb34d5b1e3b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Atributos Protegidos</h2></td></tr>
@@ -170,9 +211,7 @@ Atributos Protegidos</h2></td></tr>
 <div class="textblock"><p>Classe que modela o <a class="el" href="classTileMap.html" title="Classe que modela o TileMap. ">TileMap</a>. </p>
 <p>Gerencia um tileMap,internamente possui um tileSet que é usado para renderizar o mapa. Internamente possui três mapas: um para o tileSet, outro para colisão e um terceiro de GameObjects. </p>
 </div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
-<a id="acf6fe3a182047153ec9c25fadc55056c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf6fe3a182047153ec9c25fadc55056c">&#9670;&nbsp;</a></span>TileMap()</h2>
-
+<a class="anchor" id="acf6fe3a182047153ec9c25fadc55056c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -210,9 +249,57 @@ Atributos Protegidos</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Métodos</h2>
-<a id="ada2b7d43fd59957db4c61a61cebc2745"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada2b7d43fd59957db4c61a61cebc2745">&#9670;&nbsp;</a></span>At()</h2>
+<a class="anchor" id="aef777a01975221fe5b49e1daf984f4da"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt; int &gt; TileMap::AStar </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>originTile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>destTile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classAStarHeuristic.html">AStarHeuristic</a> *&#160;</td>
+          <td class="paramname"><em>heuristic</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; int, double &gt;&#160;</td>
+          <td class="paramname"><em>weightMap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
+<p>Calcula o caminho menos custoso entre dois pontos baseado em uma heuristica utilizando o algoritmo A*. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">originTile</td><td>Tile de origem </td></tr>
+    <tr><td class="paramname">destTile</td><td>Tile de destino </td></tr>
+    <tr><td class="paramname">heuristic</td><td>Heuristica a ser usada </td></tr>
+    <tr><td class="paramname">weightMap</td><td>Dicionário com os pesos relacionados a cada tipo de tile do mapa</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Retorna uma lista com a sequencia dos indices dos tiles que formam o caminho </p>
+
+</div>
+</div>
+<a class="anchor" id="a3b8dec192ee9ccca2b4476821235cc0a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -256,9 +343,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="acd5cdd6819589f18e44af62887ba77a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd5cdd6819589f18e44af62887ba77a1">&#9670;&nbsp;</a></span>AtLayer()</h2>
-
+<a class="anchor" id="a8540f1f0249118c02cced90e0175c461"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -295,9 +380,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a842b1a3f5a41cef21ddb1d4853d09c69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a842b1a3f5a41cef21ddb1d4853d09c69">&#9670;&nbsp;</a></span>CalculateParallaxScrolling()</h2>
-
+<a class="anchor" id="a442af6700e8477097e14378bbf2551a2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -349,9 +432,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a879d8cf4317f264a536979c2e5294401"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a879d8cf4317f264a536979c2e5294401">&#9670;&nbsp;</a></span>GetDepth()</h2>
-
+<a class="anchor" id="aeb8c6a4101e449c33d963041345d918e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -370,9 +451,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a4694be5ef653fd6c67c9c045918c3c77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4694be5ef653fd6c67c9c045918c3c77">&#9670;&nbsp;</a></span>GetGO()</h2>
-
+<a class="anchor" id="a4694be5ef653fd6c67c9c045918c3c77"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -391,9 +470,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a1a22481fdf5310a7199e8289bd3c4571"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a22481fdf5310a7199e8289bd3c4571">&#9670;&nbsp;</a></span>GetHeight()</h2>
-
+<a class="anchor" id="a9fe48260088655aa252b4d40e60f1390"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -412,17 +489,42 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a83791a2b841d617d9483c1658a581541"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83791a2b841d617d9483c1658a581541">&#9670;&nbsp;</a></span>GetSpawnPositions()</h2>
+<a class="anchor" id="ab020cfbba8315eef4efcb34d5b1e3b7f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; int &gt; TileMap::GetNeighbors </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tile</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
+<p>Obtém todos os vizinhos de um determinado tile. </p>
+<dl class="section return"><dt>Retorna</dt><dd>vetor com o indice dos tiles dos vizinhos. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3dea9f02c778fb30a875485db321a66d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; vector&lt; int &gt; &gt; * TileMap::GetSpawnPositions </td>
+          <td class="memname">vector&lt; vector&lt; int &gt; &gt; * TileMap::GetTileGroups </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tileType</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -436,9 +538,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="ab59e06379a26482d8103917c1c2393f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab59e06379a26482d8103917c1c2393f5">&#9670;&nbsp;</a></span>GetTileMousePos()</h2>
-
+<a class="anchor" id="af6c280210ec11a0aa9b5f5c2ba317817"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -478,13 +578,11 @@ Atributos Protegidos</h2></td></tr>
   </dd>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Futuras Atividades:</a></b></dt><dd>Verificar se deve lançar exceção ao invés de retornar um valor negativo.</dd></dl>
-<p>Retorna o número de layers(profundidade) do tileMap.Retorna o índice da posição do tileMap relativo à posição do mouse, esse valor pode ser enviado ao método <a class="el" href="classTileMap.html#ada2b7d43fd59957db4c61a61cebc2745" title="Obtém o índice do tileMap na posição informada. ">TileMap::At</a> para saber o conteúdo da posição. O valor retornado será negativo e inválido se alguma coordenada do mouse tiver fora dos limites do tileMap. Internamente usa-se busca binária para achar o tile correspondente. </p>
+<p>Retorna o número de layers(profundidade) do tileMap.Retorna o índice da posição do tileMap relativo à posição do mouse, esse valor pode ser enviado ao método <a class="el" href="classTileMap.html#a3b8dec192ee9ccca2b4476821235cc0a" title="Obtém o índice do tileMap na posição informada. ">TileMap::At</a> para saber o conteúdo da posição. O valor retornado será negativo e inválido se alguma coordenada do mouse tiver fora dos limites do tileMap. Internamente usa-se busca binária para achar o tile correspondente. </p>
 
 </div>
 </div>
-<a id="a57cd7e2a960dc3a8a9830d60151105f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57cd7e2a960dc3a8a9830d60151105f2">&#9670;&nbsp;</a></span>GetTileSize()</h2>
-
+<a class="anchor" id="a49950ed4657eda13b22967758c964965"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -503,9 +601,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="ab21df8d033b1e526e9488740e28c6606"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab21df8d033b1e526e9488740e28c6606">&#9670;&nbsp;</a></span>GetWidth()</h2>
-
+<a class="anchor" id="a072dbe1dbd793712baefe154c3058ab2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -524,9 +620,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a9370c61beefad2f657c022a0a2462336"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9370c61beefad2f657c022a0a2462336">&#9670;&nbsp;</a></span>InsertGO() <span class="overload">[1/2]</span></h2>
-
+<a class="anchor" id="a9370c61beefad2f657c022a0a2462336"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -551,9 +645,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a916d38c429fe9d66b92c2687656c0e3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a916d38c429fe9d66b92c2687656c0e3c">&#9670;&nbsp;</a></span>InsertGO() <span class="overload">[2/2]</span></h2>
-
+<a class="anchor" id="a916d38c429fe9d66b92c2687656c0e3c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -588,9 +680,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a9cdb06bdaca86adf9fc179ed5cf7b148"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cdb06bdaca86adf9fc179ed5cf7b148">&#9670;&nbsp;</a></span>IsShowingCollisionInfo()</h2>
-
+<a class="anchor" id="a9cdb06bdaca86adf9fc179ed5cf7b148"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -608,9 +698,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a57d5a9e280c52b74e8e1f0c3a2c876b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57d5a9e280c52b74e8e1f0c3a2c876b7">&#9670;&nbsp;</a></span>Load()</h2>
-
+<a class="anchor" id="a57d5a9e280c52b74e8e1f0c3a2c876b7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -660,9 +748,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a911e2833ea395e1c5b67d3fadbc84b9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a911e2833ea395e1c5b67d3fadbc84b9d">&#9670;&nbsp;</a></span>RemoveGO() <span class="overload">[1/2]</span></h2>
-
+<a class="anchor" id="a911e2833ea395e1c5b67d3fadbc84b9d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -687,9 +773,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="aafae8f5c077ee78cd8d9fc471ba6c82b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafae8f5c077ee78cd8d9fc471ba6c82b">&#9670;&nbsp;</a></span>RemoveGO() <span class="overload">[2/2]</span></h2>
-
+<a class="anchor" id="aafae8f5c077ee78cd8d9fc471ba6c82b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -708,9 +792,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a55d2dc089cb266df799a9721f95efe28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55d2dc089cb266df799a9721f95efe28">&#9670;&nbsp;</a></span>Render()</h2>
-
+<a class="anchor" id="a43569e73246f2b5253c537a12051ac90"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -753,9 +835,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a8a1b81c91aa57a3e0bc6c77041c092e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a1b81c91aa57a3e0bc6c77041c092e2">&#9670;&nbsp;</a></span>RenderLayer()</h2>
-
+<a class="anchor" id="aa87fcf8c31e0730c3a969a7e9abf838a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -804,9 +884,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="aeaeb5ed2cc7e621ab2fe9f5ee26b2b69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaeb5ed2cc7e621ab2fe9f5ee26b2b69">&#9670;&nbsp;</a></span>SetTileSet()</h2>
-
+<a class="anchor" id="aeaeb5ed2cc7e621ab2fe9f5ee26b2b69"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -833,9 +911,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a31b1607f50b08cf2c49c71a8478ec07d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31b1607f50b08cf2c49c71a8478ec07d">&#9670;&nbsp;</a></span>ShowCollisionInfo()</h2>
-
+<a class="anchor" id="a31b1607f50b08cf2c49c71a8478ec07d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -854,10 +930,52 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Atributos</h2>
-<a id="a513f0605dd5fbd29705099aee423e600"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a513f0605dd5fbd29705099aee423e600">&#9670;&nbsp;</a></span>displayCollisionInfo</h2>
+<a class="anchor" id="a98331e1ab3a2ee9663753a0ae161d94f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TileMap::ShowPath </td>
+          <td>(</td>
+          <td class="paramtype">std::list&lt; int &gt;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
+<p>Altera o tilemap mostrando o caminho contido em list. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2eb20b2b2dada428c1c8bb0246170ff3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TileMap::Traversable </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Estrutura que guarda a implementação do operador usado na ordenação de uma lista baseada na heuristica  se um determinado tile está livre na camada de colisão</p>
+<dl class="section return"><dt>Retorna</dt><dd>true se o tile está livre na camada de colisão </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="a513f0605dd5fbd29705099aee423e600"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -874,13 +992,11 @@ Atributos Protegidos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verdadeiro se as informações de colisão devem ser exibidas no <a class="el" href="classTileMap.html#a55d2dc089cb266df799a9721f95efe28" title="Renderiza o TileMap a partir da posição dada. ">TileMap::Render</a>, falso caso contrário. </p>
+<p>Verdadeiro se as informações de colisão devem ser exibidas no <a class="el" href="classTileMap.html#a43569e73246f2b5253c537a12051ac90" title="Renderiza o TileMap a partir da posição dada. ">TileMap::Render</a>, falso caso contrário. </p>
 
 </div>
 </div>
-<a id="a52b6a4fcc0c13eb4224850f592f10eba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52b6a4fcc0c13eb4224850f592f10eba">&#9670;&nbsp;</a></span>gameObjectMatrix</h2>
-
+<a class="anchor" id="a52b6a4fcc0c13eb4224850f592f10eba"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -901,9 +1017,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a9f9975834cc5f1acad95d72828858862"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f9975834cc5f1acad95d72828858862">&#9670;&nbsp;</a></span>mapDepth</h2>
-
+<a class="anchor" id="a9f9975834cc5f1acad95d72828858862"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -924,9 +1038,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a8fec89ca278b51de7f3e38831d9fb161"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fec89ca278b51de7f3e38831d9fb161">&#9670;&nbsp;</a></span>mapHeight</h2>
-
+<a class="anchor" id="a8fec89ca278b51de7f3e38831d9fb161"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -947,9 +1059,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="ae2361e840eacaebbbbc91541ded00655"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2361e840eacaebbbbc91541ded00655">&#9670;&nbsp;</a></span>mapWidth</h2>
-
+<a class="anchor" id="ae2361e840eacaebbbbc91541ded00655"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -970,9 +1080,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="ac1d3ce0587c4e615682b71fd96295e0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1d3ce0587c4e615682b71fd96295e0e">&#9670;&nbsp;</a></span>tileMatrix</h2>
-
+<a class="anchor" id="ac1d3ce0587c4e615682b71fd96295e0e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -993,9 +1101,7 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a24b2ea7aecfd795f1e13dfa9b0b3cb76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24b2ea7aecfd795f1e13dfa9b0b3cb76">&#9670;&nbsp;</a></span>tileSet</h2>
-
+<a class="anchor" id="a24b2ea7aecfd795f1e13dfa9b0b3cb76"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1023,9 +1129,9 @@ Atributos Protegidos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quinta, 22 de Junho de 2017 21:05:12 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 23 de Junho de 2017 00:02:58 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
+</a> 1.8.7
 </small></address>
 </body>
 </html>

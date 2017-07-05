@@ -15,7 +15,7 @@ class PlayerData: public Component{
 		PlayerData();
 		~PlayerData();
 		void Render() const;
-		void Update(GameObject &associated, float dt);
+		void Update(float dt);
 		bool Is(ComponentType type) const;
 		void NotifyKillsUpdate(int wave, EnemyData enemyData);
 		void NotifyLifeLost(int wave, EnemyData enemyData);
@@ -37,7 +37,6 @@ class PlayerData: public Component{
 		uint kills;
 		int lifes;
 		int points;
-		//WaveManager waveManager;	
 
 };
 

@@ -5,7 +5,7 @@
 #include "Game.h"
 #include "Resources.h"
 
-// Alterar esses valores altera a parte da textura que será renderizada
+//Alterar esses valores altera a parte da textura que será renderizada
 #define SPRITE_OPEN_X (0)
 #define SPRITE_OPEN_Y (0)
 #define HIGHLIGHT 30
@@ -24,6 +24,7 @@ Sprite::Sprite(std::string file, bool highlighted, float frameTime, int frameCou
 	REPORT_I_WAS_HERE;
 	if(file.empty()) {
 		texture = nullptr;
+		REPORT_I_WAS_HERE;
 	} else {
 		Open(file);
 	}

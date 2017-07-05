@@ -16,18 +16,12 @@ PlayerData::PlayerData(): HUDcanvas(),
 	kills = 0;
 	lifes = TOTAL_LIFES;
 	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
-	printf("oi\n");
 	playerTable.SetAnchors({0.0,0.0},{0.0,0.0} );
 	playerTable.SetOffsets( { 0.0, -160.0}, { 240., 200.} );
-	printf("oi\n");
 	playerTable.groupedElements.emplace_back(&boardName);
-	printf("oi\n");
 	playerTable.groupedElements.emplace_back(&playerPoints);
-	printf("oi\n");
 	playerTable.groupedElements.emplace_back(&playerGold);
-	printf("oi\n");
 	playerTable.groupedElements.emplace_back(&playerKills);
-	printf("oi\n");
 	playerTable.groupedElements.emplace_back(&playerLifes);
 
 }
@@ -44,7 +38,7 @@ void PlayerData::Render() const{
 	playerKills.Render();
 	playerLifes.Render();
 }
-void PlayerData::Update(GameObject &associated, float dt){
+void PlayerData::Update(float dt){
 	Rect winSize(0.0, 0.0, Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
 	
 	HUDcanvas.Update(dt, winSize);
@@ -74,11 +68,14 @@ void PlayerData::NotifyLifeLost(int wave, EnemyData enemyData){
 // decrementa para compra e incrementa pra ganho.
 void PlayerData::GoldUpdate(int amount){
 	this->gold += amount; 
+	playerGold.SetText("Gold: " + std::to_string(gold));
+	PointsUpdate(gold);
 }
 
 // decrementa para perda de vida e incrementa pra kills.
 void PlayerData::PointsUpdate(int amount){
 	points += amount;
+	playerPoints.SetText("Points: " + std::to_string(points));
 }
 
 PlayerData& PlayerData::GetInstance(void){
@@ -88,5 +85,7 @@ PlayerData& PlayerData::GetInstance(void){
 
 
 void PlayerData::DecrementLife(){
-	lifes--;
+	--lifes;
+	playerLifes.SetText("Lifes: " + std::to_string(lifes));
+	PointsUpdate(LIFE_LOST);
 }

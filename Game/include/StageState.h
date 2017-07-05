@@ -14,16 +14,19 @@
 #include "TileMap.h"
 #include "Tileset.h"
 #include "Timer.h"
+#include "AIGoDown.h"
+#include "AIPrintPath.h"
 #include "WaveManager.h"
 #include "PlayerData.h"
 #include "UIcanvas.h"
 #include "UIimageButton.h"
 #include "UIgridGroup.h"
 #include "UIverticalGroup.h"
+#include "Obstacle.h"
 
 using std::vector;
 
-class StageState: public State {
+class StageState: public State, public TileMapObserver {
 	public:
 		StageState(void);
 		~StageState(void);
@@ -32,6 +35,7 @@ class StageState: public State {
 		void Pause(void);
 		void Resume(void);
 		void ShowLightning(float dt);
+		void NotifyTileMapChanged(int tilePosition);
 	private:
 		void UpdateUI(float dt);
 		void RenderUI(void) const;
@@ -40,6 +44,7 @@ class StageState: public State {
 		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;
 		Music music;
+		
 		bool isLightning;
 		Timer lightningTimer;
 		Color lightningColor;
@@ -58,6 +63,15 @@ class StageState: public State {
 		UIimageButton towerBtn3;
 		UIimageButton towerBtn4;
 		UIverticalGroup towerInfo;
+		float lightningInterval;
+
+		void InitializeObstacles(void);
+		std::vector<std::unique_ptr<Obstacle>> obstacleArray;
+		void AddObstacle(Obstacle *obstacle);
+		void RenderObstacleArray(void) const;
+
+		int frameRateCounter;
+		Timer frameRateTimer;
 };
 
 #include "EndState.h"

@@ -1,8 +1,8 @@
 <map id="Engine/include/UIimage.h" name="Engine/include/UIimage.h">
-<area shape="rect" id="node2" href="$UIimageButton_8h.html" title="Engine/include/UIimageButton.h" alt="" coords="5,80,215,107"/>
-<area shape="rect" id="node4" href="$UIimage_8cpp.html" title="Engine/src/UIimage.cpp" alt="" coords="239,80,402,107"/>
-<area shape="rect" id="node5" href="$TitleState_8h.html" title="Game/include/TitleState.h" alt="" coords="426,80,599,107"/>
-<area shape="rect" id="node3" href="$UIimageButton_8cpp.html" title="Engine/src/UIimageButton.cpp" alt="" coords="10,155,210,181"/>
-<area shape="rect" id="node6" href="$main_8cpp.html" title="Game/src/main.cpp" alt="" coords="357,155,493,181"/>
-<area shape="rect" id="node7" href="$TitleState_8cpp.html" title="Game/src/TitleState.cpp" alt="" coords="517,155,681,181"/>
+<area shape="rect" id="node2" href="$UIimageButton_8h.html" title="Engine/include/UIimageButton.h" alt="" coords="5,80,213,107"/>
+<area shape="rect" id="node4" href="$UIimage_8cpp.html" title="Engine/src/UIimage.cpp" alt="" coords="239,80,401,107"/>
+<area shape="rect" id="node5" href="$TitleState_8h.html" title="Game/include/TitleState.h" alt="" coords="425,80,599,107"/>
+<area shape="rect" id="node3" href="$UIimageButton_8cpp.html" title="Engine/src/UIimageButton.cpp" alt="" coords="9,155,208,181"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title="Game/src/main.cpp" alt="" coords="356,155,491,181"/>
+<area shape="rect" id="node7" href="$TitleState_8cpp.html" title="Game/src/TitleState.cpp" alt="" coords="517,155,680,181"/>
 </map>

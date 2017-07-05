@@ -215,6 +215,12 @@ class Game {
 			Retorna true se a janela estiver sem bordas ou false se estiver com bordas.
 		*/
 		bool GetWindowBorderless(void) const;
+		/**
+			\brief Obtém timeStamp atual.
+
+			Retorna o timestamp atual. 
+		*/
+		unsigned int GetTicks(void);
 	private:
 		/**
 			\brief Calcula o tempo transcorrido desde a última chamada a essa função

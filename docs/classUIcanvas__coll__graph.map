@@ -1,5 +1,5 @@
 <map id="UIcanvas" name="UIcanvas">
-<area shape="rect" id="node2" href="$classUIelement.html" title="UIelement" alt="" coords="81,272,163,299"/>
-<area shape="rect" id="node3" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="5,139,57,165"/>
-<area shape="rect" id="node5" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="91,139,142,165"/>
+<area shape="rect" id="node2" href="$classUIelement.html" title="UIelement" alt="" coords="80,272,161,299"/>
+<area shape="rect" id="node3" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="5,139,56,165"/>
+<area shape="rect" id="node5" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="91,139,141,165"/>
 </map>
