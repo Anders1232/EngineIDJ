@@ -6,7 +6,7 @@
 #include "HitPoints.h"
 
 Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint)
-	: sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE), dead(false), direction(EnemyDirections::DOWN){
+	: sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE), dead(false), direction(EnemyDirections::DOWN), walkingSound("audio/Ambiente/andando2.wav"){
 	box = position;
 	this->enemyIndex = enemyIndex; 
 	this->baseHP = baseHP; 
@@ -127,11 +127,14 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	}
 	hitpoints = new HitPoints(baseHP);
 	components.push_back(hitpoints);
+	
+	walkingSound.Play(-1);
 }
 
 
 Enemy::~Enemy(){
 	REPORT_I_WAS_HERE;
+	walkingSound.Stop();
 	for(uint i = 0; i < components.size(); i++) {
 		delete components[i];
 	}
