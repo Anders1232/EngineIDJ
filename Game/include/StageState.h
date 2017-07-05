@@ -18,6 +18,7 @@
 #include "UIcanvas.h"
 #include "UIimageButton.h"
 #include "UIgridGroup.h"
+#include "UIverticalGroup.h"
 
 using std::vector;
 
@@ -54,6 +55,7 @@ class StageState: public State {
 		UIimageButton towerBtn2;
 		UIimageButton towerBtn3;
 		UIimageButton towerBtn4;
+		UIverticalGroup towerInfo;
 };
 
 #include "EndState.h"
