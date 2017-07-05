@@ -24,7 +24,6 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap), w
 	totalWaves = wavesAndEnemysData->first.size();
 	victory = false;
 	StartWave();
-
 }
 
 WaveManager::~WaveManager(){
@@ -50,7 +49,6 @@ void WaveManager::StartWave(){
 	enemyIndex = 0;
 	endWave = false;
 	++waveCount;
-
 }
 
 
