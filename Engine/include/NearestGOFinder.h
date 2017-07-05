@@ -1,12 +1,13 @@
 #ifndef GAMEOBJECTFINDER_H
 #define GAMEOBJECTFINDER_H
 
+#include <limits>
 #include "Vec2.h"
 #include "GameObject.h"
 
 class NearestGOFinder{
 	public:
-		virtual GameObject* FindNearestGO(Vec2 origin, std::string type) = 0;
+		virtual GameObject* FindNearestGO(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max()) = 0;
 		virtual ~NearestGOFinder(){};
 };
 

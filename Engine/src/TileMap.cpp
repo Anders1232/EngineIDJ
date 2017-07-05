@@ -504,8 +504,7 @@ void TileMap::ShowPath(std::shared_ptr<std::vector<int> > path){
 	}
 }
 
-
-GameObject* TileMap::FindNearestGO(Vec2 origin, std::string objectDestType){
+GameObject* TileMap::FindNearestGO(Vec2 origin, std::string objectDestType, float range){
 	GameObject* closerObj = nullptr;
 	double closerObjDistance = std::numeric_limits<double>::max();
 	for(unsigned int i = 0; i < gameObjectMatrix.size(); i ++){
@@ -513,7 +512,7 @@ GameObject* TileMap::FindNearestGO(Vec2 origin, std::string objectDestType){
 		if(nullptr != gameObjectInAnalisis){
 			if(gameObjectInAnalisis->Is(objectDestType)){
 				double distance = origin.VecDistance(gameObjectInAnalisis->box.Center()).Magnitude();
-				if(distance < closerObjDistance){
+				if(distance < closerObjDistance && distance <= range){
 					closerObjDistance = distance;
 					closerObj = gameObjectInAnalisis;
 				}
