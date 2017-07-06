@@ -84,7 +84,6 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			break;
 		case EnemyType::ENGINEER:
 			REPORT_DEBUG("Enemy type: ENGINEER "<< enemyData.enemyType);
-			std::cout << ENGINEER <<std::endl;
 			type = EnemyType::ENGINEER;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){

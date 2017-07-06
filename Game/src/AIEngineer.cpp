@@ -10,7 +10,7 @@ AIEngineer::AIEngineer(float speed,int dest,TileMap& tilemap, GameObject &associ
 	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 	vecSpeed = Vec2(0.0,0.0);
 	lastDistance = std::numeric_limits<float>::max();
-	std::cout << "CRIOU" <<std::endl;
+
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
 	dfa[AIState::WALKING][AIEvent::PATH_BLOCKED] = AIState::BUILDING_BARRIER;
 	dfa[AIState::WALKING][AIEvent::SMOKE] = AIState::WALKING_SLOWLY;
@@ -97,7 +97,6 @@ void AIEngineer::Update(float dt){
 				Vec2 movement= tempDestination-Vec2(associated.box.w/2, associated.box.h/2);
 				associated.box.x = movement.x;
 				associated.box.y = movement.y;
-				std::cout << pathIndex <<std::endl;
 				pathIndex++;
 				if(pathIndex != path->size()){
 					tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
