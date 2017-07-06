@@ -28,7 +28,6 @@ bool Bullet::IsDead(void){
 }
 
 Bullet::~Bullet(){
-	TEMP_REPORT_I_WAS_HERE;
 }
 
 void Bullet::NotifyCollision(GameObject &other){

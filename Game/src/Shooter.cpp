@@ -35,7 +35,6 @@ void Shooter::Update(float dt){
 	if(active){
 		timerBetweetShoots.Update(dt);
 		if(timerBetweetShoots.Get() > betweetShootsTime){
-			TEMP_REPORT_I_WAS_HERE;
 			timerBetweetShoots.Restart();
 			if(nullptr == target || TargetPolicy::ALWAYS_NEAREST == policy){
 				target= finder.FindNearestGO(associated.box.Center(), targetType, range);
