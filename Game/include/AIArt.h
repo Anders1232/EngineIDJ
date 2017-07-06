@@ -43,6 +43,7 @@ class AIArt : public Component, public TileMapObserver
 		enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,STUN,NOT_STUN,EVENT_NUM}; 
 		AIEvent ComputeEvents();
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
+		float actualTileweight;
 		Vec2 vecSpeed;
 		float lastDistance;
 		int destTile;/**< indice do tile de destino*/
