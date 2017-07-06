@@ -35,6 +35,7 @@ class StageState: public State {
 		InputManager &inputManager;
 		Music music;
 		bool isLightning;
+		bool isThundering;
 		Timer lightningTimer;
 		Color lightningColor;
 
@@ -45,6 +46,7 @@ class StageState: public State {
 		void AddObstacle(Obstacle *obstacle);
 		void RenderObstacleArray(void) const;
 		Sound nightSound;
+		Sound thunderSound;
 
 		int frameRateCounter;
 		Timer frameRateTimer;

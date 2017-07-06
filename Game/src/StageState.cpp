@@ -39,10 +39,12 @@ StageState::StageState(void)
 		, inputManager(INPUT_MANAGER)
 		, music("audio/stageState.ogg")
 		, isLightning(false)
+		, isThundering(false)
 		, lightningTimer()
-		, lightningColor(255, 255, 255, 0),
-		nightSound("audio/Ambiente/Barulho_noite.wav"),
-		frameRateCounter(0){
+		, lightningColor(255, 255, 255, 0)
+		, nightSound("audio/Ambiente/Barulho_noite.wav")
+		, thunderSound("audio/Ambiente/Trovao.wav")
+		, frameRateCounter(0){
 		
 	REPORT_I_WAS_HERE;
 	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
@@ -162,9 +164,14 @@ void StageState::Update(float dt) {
 	}
 	if(isLightning){
 		ShowLightning(dt);
+		if(!isThundering){
+			thunderSound.Play(1);
+			isThundering = true;
+		}
 	}
 	else{
 		isLightning = false;
+		isThundering = false;
 		lightningTimer.Update(dt);
 		if(lightningTimer.Get() > rand() % 80 + 20){
 			isLightning = true;
