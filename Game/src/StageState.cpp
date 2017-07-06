@@ -49,7 +49,13 @@ StageState::StageState(void)
 		, towerBtn1()
 		, towerBtn2()
 		, towerBtn3()
-		, towerBtn4() {
+		, towerBtn4()
+		, gameInfo()
+		, health()
+		, healthIcon("img/UI/HUD/vida00.png", UIelement::BehaviorType::FIT)
+		, healthbarBg("img/UI/HUD/hudvida.png")
+		, healthbarBar("img/UI/HUD/hudvida.png")
+		, wave() {
 	REPORT_I_WAS_HERE;
 	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
 	
@@ -63,7 +69,11 @@ StageState::StageState(void)
 	waveManagerGO->AddComponent(waveManager);
 	AddObject(waveManagerGO);
 
-	// UI
+	SetupUI();
+}
+
+void StageState::SetupUI() {
+	// Side Menu
 	menuIsShowing = false;
 
 	menuBg.SetAnchors( {1., 0.5},
@@ -171,6 +181,19 @@ StageState::StageState(void)
 	towersBtnGroup.groupedElements.push_back(&towerBtn2);
 	towersBtnGroup.groupedElements.push_back(&towerBtn3);
 	towersBtnGroup.groupedElements.push_back(&towerBtn4);
+
+	// Game Info
+	gameInfo.SetAnchors( {0., 0.},
+						 {0.3, 0.175});
+	gameInfo.SetOffsets( {30., 0.1},
+						 {110., 0.});
+
+	gameInfo.groupedElements.push_back(&health);
+	gameInfo.groupedElements.push_back(&wave);
+
+	healthIcon.SetCenter( {0., 0.5} );
+	healthIcon.SetOffsets( {0., 6.},
+						   {0., -6.});
 }
 
 StageState::~StageState(void) {
@@ -280,7 +303,9 @@ void StageState::UpdateUI(float dt) {
 	openMenuBtn.angle = 180*menuIsShowing;
 
 	HUDcanvas.Update(dt, winSize);
+
 	menuBg.Update(dt, HUDcanvas);
+
 	openMenuBtn.Update(dt, menuBg);
 
 	towerInfoGroup.Update(dt, menuBg);
@@ -294,6 +319,14 @@ void StageState::UpdateUI(float dt) {
 	towerBtn2.Update(dt, towersBtnGroup);
 	towerBtn3.Update(dt, towersBtnGroup);
 	towerBtn4.Update(dt, towersBtnGroup);
+
+
+	gameInfo.Update(dt, HUDcanvas);
+
+	health.Update(dt, gameInfo);
+	healthIcon.Update(dt, health);
+
+	wave.Update(dt, gameInfo);
 }
 
 void StageState::Render(void) const {
@@ -337,8 +370,14 @@ void StageState::RenderUI(void) const {
 		towerBtn3.Render();
 		towerBtn4.Render();
 	}
-
 	openMenuBtn.Render();
+
+	gameInfo.Render(true);
+
+	health.Render(true);
+	healthIcon.Render();
+
+	// wave.Render(true);
 
 	menuIsShowing = this->menuIsShowing;
 }

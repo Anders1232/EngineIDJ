@@ -39,6 +39,7 @@ class StageState: public State {
 		void Resume(void);
 		void ShowLightning(float dt);
 	private:
+		void SetupUI(void);
 		void UpdateUI(float dt);
 		void RenderUI(void) const;
 		void ToggleMenu(void);
@@ -61,18 +62,28 @@ class StageState: public State {
 		bool menuIsShowing;
 		
 		UIcanvas HUDcanvas;
+
 		UIimage menuBg;
 		UIimageButton openMenuBtn;
+
 		UIverticalGroup towerInfoGroup;
 		UItext towerName;
 		UItext towerCost;
 		UItext towerDamage;
 		UItext towerDamageType;
+
 		UIgridGroup towersBtnGroup;
 		UIimageButton towerBtn1;
 		UIimageButton towerBtn2;
 		UIimageButton towerBtn3;
 		UIimageButton towerBtn4;
+
+		UIverticalGroup gameInfo;
+		UIcanvas health;
+		UIimage healthIcon;
+		UIimage healthbarBg;
+		UIimage healthbarBar;
+		UIcanvas wave;
 };
 
 #include "EndState.h"
