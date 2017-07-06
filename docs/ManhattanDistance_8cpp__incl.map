@@ -1,6 +1,6 @@
 <map id="Engine/src/ManhattanDistance.cpp" name="Engine/src/ManhattanDistance.cpp">
 <area shape="rect" id="node2" href="$ManhattanDistance_8h.html" title="ManhattanDistance.h" alt="" coords="45,80,192,107"/>
-<area shape="rect" id="node3" href="$AStarHeuristic_8h.html" title="AStarHeuristic.h" alt="" coords="59,155,177,181"/>
-<area shape="rect" id="node4" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="87,229,149,256"/>
+<area shape="rect" id="node3" href="$AStarHeuristic_8h.html" title="AStarHeuristic.h" alt="" coords="59,155,178,181"/>
+<area shape="rect" id="node4" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="87,229,150,256"/>
 <area shape="rect" id="node5" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="65,304,172,331"/>
 </map>

@@ -7,6 +7,7 @@
 #include "Game.h"
 #include "StageState.h"
 
+
 typedef unsigned int uint;
 
 Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize,int hp)

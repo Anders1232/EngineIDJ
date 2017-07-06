@@ -2,7 +2,8 @@ var searchData=
 [
   ['sending_5fbomb',['SENDING_BOMB',['../classAIQuimic.html#a41d959766a62d70a1b1be7638bf34bebad99bdd35396648cb1a59b6ab9a490445',1,'AIQuimic']]],
   ['shared',['SHARED',['../classUItext.html#a83f3bc2ac105b34ee5a93981daa2825ca1d43f46ee8b3d6355e21659558528739',1,'UItext::SHARED()'],['../Text_8h.html#ad5957a553b7d89d4921c39cc3ad6bc45a9c46e16a4ab019339596acadeefc8c53',1,'SHARED():&#160;Text.h']]],
-  ['size',['SIZE',['../ComponentType_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0a4aa71180778b711338785695df5d7c52',1,'ComponentType.h']]],
+  ['shoot_5funtil_5fout_5fof_5frange',['SHOOT_UNTIL_OUT_OF_RANGE',['../classShooter.html#a8eccaa331660a29ecfd152d9bfc1689dac02d843422a4a0fc313d1074711b0bdc',1,'Shooter']]],
+  ['shooter',['SHOOTER',['../ComponentType_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0ae3e8724f8e781d50df826709e00ba915',1,'ComponentType.h']]],
   ['smoke',['SMOKE',['../classAIEngineer.html#a42993e9cd857a8544512b75ce847244ca25d14a717c3232aa6e80695521c2c9b3',1,'AIEngineer::SMOKE()'],['../classAIMedic.html#a4fb99fde39ac9787436a705921341cbea44faddad1080e855d2db13b907ca3484',1,'AIMedic::SMOKE()'],['../classAIQuimic.html#ae2dc7bd95be489ab4b5c4acf00939161a83b19ef5e4ce64b3e036327c3ae53c46',1,'AIQuimic::SMOKE()']]],
   ['sociology',['SOCIOLOGY',['../classTower.html#a2a6d5a7ae2af5e4481abcb2d3b535174a7aed30226b0e67c35e6387a9701d0180',1,'Tower']]],
   ['solid',['SOLID',['../classUItext.html#a83f3bc2ac105b34ee5a93981daa2825ca08bbf61c81d8595e2ac7a4caaa9138a6',1,'UItext::SOLID()'],['../Text_8h.html#ad5957a553b7d89d4921c39cc3ad6bc45a1b45f84e1f6603b52e5ef442836df9af',1,'SOLID():&#160;Text.h']]],

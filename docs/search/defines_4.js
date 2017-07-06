@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['element_5facess',['ELEMENT_ACESS',['../Error_8h.html#a6d8c56e124633e4711b56cd083bcd571',1,'Error.h']]],
   ['enabled_5fcolor',['ENABLED_COLOR',['../TitleState_8cpp.html#a3b0592e63bd2fe81fd435ec928a6d9fa',1,'TitleState.cpp']]],
   ['end_5fline',['END_LINE',['../Error_8h.html#a6fd2b788cc016acd19820ddb30e78c1f',1,'Error.h']]],
   ['end_5fpoint',['END_POINT',['../TileMap_8h.html#a77dbd277a6165072dfd333ba484bb14e',1,'TileMap.h']]],
@@ -8,6 +9,7 @@ var searchData=
   ['endstatedata_5fh',['ENDSTATEDATA_H',['../EndStateData_8cpp.html#a9edd4bf921815da65de27af8a8ad6ff4',1,'EndStateData.cpp']]],
   ['enemy_5farquitet_5fmove_5fspeed',['ENEMY_ARQUITET_MOVE_SPEED',['../Enemy_8h.html#ae7a3e05eb407fd0046c3aa7922a86bf2',1,'Enemy.h']]],
   ['enemy_5fart_5fmove_5fspeed',['ENEMY_ART_MOVE_SPEED',['../Enemy_8h.html#a278281feb72149404945ee41ef6ff4fa',1,'Enemy.h']]],
+  ['enemy_5fbullet_5fdamage',['ENEMY_BULLET_DAMAGE',['../Enemy_8h.html#afc5ba32f0ee74c419d247622ad55583d',1,'Enemy.h']]],
   ['enemy_5fengineer_5fmove_5fspeed',['ENEMY_ENGINEER_MOVE_SPEED',['../Enemy_8h.html#a8c3c441a6beee5e34de58c97577ce36a',1,'Enemy.h']]],
   ['enemy_5fhostile_5fmove_5fspeed',['ENEMY_HOSTILE_MOVE_SPEED',['../Enemy_8h.html#aef0ac017334833e090c009891c1fb75c',1,'Enemy.h']]],
   ['enemy_5fmax_5fname_5flenght',['ENEMY_MAX_NAME_LENGHT',['../GameResources_8cpp.html#a7d7daa95ffbbfd903316a4925c80e34b',1,'GameResources.cpp']]],

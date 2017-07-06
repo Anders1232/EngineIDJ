@@ -10,6 +10,7 @@
 #include "Error.h"
 #include "WaveData.h"
 #include "HitPoints.h"
+#include "Sound.h"
 #include "WaveManager.h"
 //#include "componentType.h"
 
@@ -147,6 +148,7 @@ class Enemy : public GameObject
 		uint baseHP, endPoint; /**< Respectivamentes a vida base do inimigo e seu ponto de destino. */
 		EnemyDirections direction; /**< Direçao para aonde a sprite do inimigo esta voltada. Norte, Sul, Leste ou Oeste */
 		Event lastEvent;
+		Sound walkingSound;
 };
 
 #endif // ENEMY_H

@@ -1,0 +1,7 @@
+<map id="GameResources" name="GameResources">
+<area shape="rect" id="node5" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1135,448,1203,474"/>
+<area shape="rect" id="node6" href="$classNearestGOFinder.html" title="NearestGOFinder" alt="" coords="744,12,868,38"/>
+<area shape="rect" id="node8" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="775,448,837,474"/>
+<area shape="rect" id="node9" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="487,350,543,377"/>
+<area shape="rect" id="node16" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="233,378,287,405"/>
+</map>

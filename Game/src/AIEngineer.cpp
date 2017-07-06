@@ -158,9 +158,6 @@ void AIEngineer::Update(float dt){
 	else if(actualState == AIState::STUNNED){
 		//Aqui executa animações do efeito estonteante
 	}
-	else{
-		//Aqui executa animações de efeito de fumaça
-		}
 }
 
 void AIEngineer::NotifyTileMapChanged(int tilePosition){

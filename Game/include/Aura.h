@@ -10,7 +10,7 @@ class Aura: public Component
 {
 	public:
 		Aura(GameObject& associated, Enemy::Event auraType, float auraRange, float timeBetweetNotifications, NearestGOFinder &finder);
-		~Aura(void);
+		~Aura(void){};
 		void Update(float dt);
 		void Render(void);
 		bool Is(ComponentType type);

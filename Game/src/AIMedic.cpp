@@ -92,8 +92,6 @@ void AIMedic::Update(float dt){
 	//enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,SMOKE,NOT_SMOKE,STUN,NOT_STUN,EVENT_NUM}; 
 
 	AIEvent actualTransition = ComputeEvents();
-	//std::cout << "Estado atual: " << actualState << std::endl;
-	//std::cout << "Transição atual : " << actualTransition << std::endl;
 	actualState = dfa[actualState][actualTransition];
 	if(actualState == AIState::WALKING){
 		if(pathIndex != path->size()){
@@ -157,9 +155,6 @@ void AIMedic::Update(float dt){
 	}
 	else if(actualState == AIState::STUNNED){
 		//Aqui executa animações do efeito estonteante
-	}
-	else{
-		//Aqui executa animações de efeito de fumaça
 	}
 }
 

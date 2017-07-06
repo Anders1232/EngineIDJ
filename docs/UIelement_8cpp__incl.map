@@ -4,13 +4,13 @@
 <area shape="rect" id="node22" href="$Error_8h.html" title="Error.h" alt="" coords="1057,80,1119,107"/>
 <area shape="rect" id="node3" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="743,229,809,256"/>
 <area shape="rect" id="node8" href="$Rect_8h.html" title="Rect.h" alt="" coords="1003,304,1064,331"/>
-<area shape="rect" id="node9" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="874,379,936,405"/>
+<area shape="rect" id="node9" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="874,379,937,405"/>
 <area shape="rect" id="node4" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="651,453,757,480"/>
 <area shape="rect" id="node7" href="$Color_8h.html" title="Color.h" alt="" coords="813,304,877,331"/>
-<area shape="rect" id="node11" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="627,304,737,331"/>
+<area shape="rect" id="node11" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="627,304,739,331"/>
 <area shape="rect" id="node16" href="$State_8h.html" title="State.h" alt="" coords="420,155,484,181"/>
 <area shape="rect" id="node18" href="$Resources_8h.html" title="Resources.h" alt="" coords="361,229,457,256"/>
 <area shape="rect" id="node19" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="231,229,337,256"/>
-<area shape="rect" id="node20" href="$Component_8h.html" title="Component.h" alt="" coords="177,304,276,331"/>
-<area shape="rect" id="node21" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="111,379,240,405"/>
+<area shape="rect" id="node20" href="$Component_8h.html" title="Component.h" alt="" coords="177,304,277,331"/>
+<area shape="rect" id="node21" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="111,379,241,405"/>
 </map>

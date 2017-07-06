@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['face_2ecpp',['Face.cpp',['../Face_8cpp.html',1,'']]],
   ['face_5flinear_5fsize',['FACE_LINEAR_SIZE',['../StageState_8cpp.html#a2b3bf4a4b5ae1e21ee8d8134377a2d0e',1,'StageState.cpp']]],
   ['fill',['FILL',['../classUIelement.html#a69875a0080da836b091c60c569163569adbe8311e2e5c03c3bcd81b628b673825',1,'UIelement']]],
+  ['find',['find',['../classTileMap_1_1AStarPryorityQueue.html#a611bad91c5f80a36e47f42f06dad9521',1,'TileMap::AStarPryorityQueue']]],
+  ['finder',['finder',['../classShooter.html#ab7c0240891d194b287d75a5ca6854e21',1,'Shooter']]],
+  ['findnearestgo',['FindNearestGO',['../classNearestGOFinder.html#a679211e9b5043e9865dd53ac3951644b',1,'NearestGOFinder::FindNearestGO()'],['../classTileMap.html#aefd43b39f8331af151d54c1745b72e3c',1,'TileMap::FindNearestGO()'],['../classStageState.html#ad3e82ac7bd5b7e7ce56dcea547f6d64e',1,'StageState::FindNearestGO()']]],
   ['fit',['FIT',['../classUIelement.html#a69875a0080da836b091c60c569163569ae2b5561ac0795a250037ab157a97effc',1,'UIelement']]],
   ['fixed_5fn_5fcols',['FIXED_N_COLS',['../classUIgridGroup.html#a0ede9a1b5afe23d29bd4a0b7677f22e6a8fafe177a9ff4a4b11201befe727324b',1,'UIgridGroup']]],
   ['fixed_5fn_5frows',['FIXED_N_ROWS',['../classUIgridGroup.html#a0ede9a1b5afe23d29bd4a0b7677f22e6adaa20c3e649ec0ad0ddfbf8df9d45573',1,'UIgridGroup']]],
@@ -18,6 +20,8 @@ var searchData=
   ['forcesoundvolume',['ForceSoundVolume',['../classResources.html#a361dba49cfa4f8bca3da33a5e2aa5086',1,'Resources']]],
   ['framecount',['frameCount',['../classSprite.html#a8dc8d5c9530bad6113d37fe5e53e4668',1,'Sprite']]],
   ['frameduration',['frameDuration',['../classGame.html#a58b6a6566386b3e42c9ab72dc2188b4b',1,'Game']]],
+  ['frameratecounter',['frameRateCounter',['../classStageState.html#a25c7425434e4b6cabee5892f6a80e9f2',1,'StageState']]],
+  ['frameratetimer',['frameRateTimer',['../classStageState.html#ada0a256961ac6b0ea37e48bb2acab400',1,'StageState']]],
   ['framestart',['frameStart',['../classGame.html#af21b5344d8b7796d5f425bdbe37a6c82',1,'Game']]],
   ['frametime',['frameTime',['../classSprite.html#a5d41b63da1b5ee4a734ce060ab876878',1,'Sprite']]],
   ['frompolarcoord',['FromPolarCoord',['../classVec2.html#ac794548df48539be24dd1e8ebebf8038',1,'Vec2']]]
