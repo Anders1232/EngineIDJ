@@ -137,7 +137,7 @@ void StageState::Update(float dt){
 	if(INPUT_MANAGER.KeyPress('e')) {
 		printf("Tower criado\n");
 		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
-		Tower *newTower= new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE));
+		Tower *newTower= new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE),TOWER_BASE_HP);
 		AddObject(newTower);
 		tileMap.InsertGO(newTower);
 

@@ -9,15 +9,14 @@
 
 typedef unsigned int uint;
 
-Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize)
+Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize,int hp)
 		: sp(type == TowerType::MEDICINE ? "img/tower/torre_fumaca.png" :
 			type == TowerType::SOCIOLOGY ? "img/tower/torre_fumaca.png" :
 			type == TowerType::ENGINEERING ? "img/tower/torre_fumaca.png" :
 			type == TowerType::ARTS ? "img/tower/torre_fumaca.png" :
 			type == TowerType::COMPUTATION ? "img/tower/torre_fumaca.png":
 			"",
-			true)
-		, hitpoints(TOWER_BASE_HP,*this) {
+			true){
 	box.x = pos.x;
 	box.y = pos.y;
 	sp.ScaleX(tileSize.x/sp.GetWidth());
@@ -27,6 +26,9 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize)
 	box.h = sp.GetHeight();
 	StageState& stageState= (StageState&)Game::GetInstance().GetCurrentState();
 	AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 20, 200, "img/minionbullet1.png"));
+
+	hitpoints = new HitPoints(hp,*this);
+	components.push_back(hitpoints);
 }
 
 Tower::~Tower() {
@@ -37,7 +39,7 @@ Tower::~Tower() {
 }
 
 void Tower::Damage(int damage) {
-	hitpoints.Damage(damage);
+	hitpoints->Damage(damage);
 }
 
 void Tower::Update(float dt ) {
@@ -51,11 +53,11 @@ void Tower::Render(void) {
 }
 
 bool Tower::IsDead(void) {
-	 return 0 >= hitpoints.GetHp();
+	 return 0 >= hitpoints->GetHp();
 }
 
 void Tower::RequestDelete(void) {
-	hitpoints.RequestDelete();
+	hitpoints->RequestDelete();
 }
 
 Rect Tower::GetWorldRenderedRect() const {
@@ -70,7 +72,7 @@ void Tower::NotifyCollision(GameObject &object){
 
 	if(object.Is("Bullet")){
 		if(((Bullet&)object).getTargetType() == "Tower"){
-			hitpoints.Damage(TOWER_BULLET_DAMAGE);
+			hitpoints->Damage(TOWER_BULLET_DAMAGE);
 		}
 	}
 }

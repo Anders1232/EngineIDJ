@@ -29,7 +29,7 @@ class Tower : public GameObject{
 			COMPUTATION
 		} TowerType;
 		
-		Tower(TowerType, Vec2 pos, Vec2 tileSize);
+		Tower(TowerType type, Vec2 pos, Vec2 tileSize,int hp);
 		void Damage(int damage);
 		void Update(float dt );
 		void Render(void);
@@ -41,7 +41,7 @@ class Tower : public GameObject{
 		~Tower();
 	private:
 		Sprite sp;
-		HitPoints hitpoints;
+		HitPoints *hitpoints;
 		bool isDraging;
 };
 

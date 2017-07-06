@@ -190,13 +190,12 @@ void Enemy::RequestDelete(void) {
 }
 
 void Enemy::NotifyCollision(GameObject &object) {
-/*
-	if (object.Is("Bullet")){
-		if( ( (Bullet&)object).GetTargetsPlayer()==false){
-			hp->Damage(DMG); 
+
+	if(object.Is("Bullet")){
+		if(((Bullet&)object).getTargetType() == "Enemy"){
+			hitpoints->Damage(ENEMY_BULLET_DAMAGE);
 		}
 	}
-*/	
 }
 
 bool Enemy::Is(string type) {
