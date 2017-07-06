@@ -17,7 +17,7 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize)
 			type == TowerType::COMPUTATION ? "img/tower/torre_fumaca.png":
 			"",
 			true)
-		, hitpoints(TOWER_BASE_HP) {
+		, hitpoints(TOWER_BASE_HP,*this) {
 	box.x = pos.x;
 	box.y = pos.y;
 	sp.ScaleX(tileSize.x/sp.GetWidth());
@@ -37,7 +37,7 @@ Tower::~Tower() {
 }
 
 void Tower::Damage(int damage) {
-	hitpoints = hitpoints - damage;
+	hitpoints.Damage(damage);
 }
 
 void Tower::Update(float dt ) {
@@ -51,14 +51,12 @@ void Tower::Render(void) {
 }
 
 bool Tower::IsDead(void) {
-	 return 0 >= hitpoints;
+	 return 0 >= hitpoints.GetHp();
 }
 
 void Tower::RequestDelete(void) {
-	hitpoints = 0;
+	hitpoints.RequestDelete();
 }
-
-void Tower::NotifyCollision(GameObject &object) {}
 
 Rect Tower::GetWorldRenderedRect() const {
 	return Camera::WorldToScreen(box);
@@ -66,4 +64,13 @@ Rect Tower::GetWorldRenderedRect() const {
 
 bool Tower::Is(string type) {
 	return "Tower" == type;
+}
+
+void Tower::NotifyCollision(GameObject &object){
+
+	if(object.Is("Bullet")){
+		if(((Bullet&)object).getTargetType() == "Tower"){
+			hitpoints.Damage(TOWER_BULLET_DAMAGE);
+		}
+	}
 }

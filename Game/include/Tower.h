@@ -3,12 +3,15 @@
 #include "Rect.h"
 #include "TileMap.h"
 #include "Vec2.h"
+#include "HitPoints.h"
+#include "Bullet.h"
 
 #ifndef TOWER_H
 #define TOWER_H
 
 #define TOWER_BASE_HP (500)
 #define TOTAL_TOWER_TYPES 5
+#define TOWER_BULLET_DAMAGE 10
 
 
 class Tower : public GameObject{
@@ -38,7 +41,7 @@ class Tower : public GameObject{
 		~Tower();
 	private:
 		Sprite sp;
-		int hitpoints;
+		HitPoints hitpoints;
 		bool isDraging;
 };
 

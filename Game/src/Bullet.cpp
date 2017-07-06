@@ -42,3 +42,9 @@ void Bullet::NotifyCollision(GameObject &other){
 bool Bullet::Is(string type){
 	return type=="Bullet";
 }
+
+std::string Bullet::getTargetType(){
+
+	return targetType;
+
+}

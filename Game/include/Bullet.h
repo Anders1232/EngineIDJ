@@ -21,6 +21,7 @@ class Bullet: public GameObject
 		bool IsDead(void);
 		void NotifyCollision(GameObject &other);
 		bool Is(string type);
+		std::string getTargetType();
 	private:
 		Sprite sp;
 		Vec2 speed;

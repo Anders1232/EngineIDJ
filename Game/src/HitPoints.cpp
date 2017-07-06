@@ -28,4 +28,9 @@ int HitPoints::GetHp(){
 void HitPoints::Damage(int damage){
 	hp -= damage;
 }
+void HitPoints::RequestDelete(void){
+
+	hp = 0;
+
+}
 
