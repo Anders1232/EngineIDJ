@@ -6,6 +6,10 @@
 #include "Error.h"
 #include "Tower.h"
 #include "Game.h"
+#include "AIArt.h"
+#include "AIEngineer.h"
+#include "AIMedic.h"
+#include "AIQuimic.h"
 #include "GameResources.h"
 #include "Obstacle.h"
 
@@ -17,15 +21,17 @@
 #define STATE_RENDER_X 0
 #define STATE_RENDER_Y 0
 #define FACE_LINEAR_SIZE 30
+#define TIME_BETWEEN_SPAWNS (8.)
 #define TOWER_LINEAR_SIZE 120
-#define TIME_BETWEEN_SPAWNS (3.)
 #define STAGE_STATE_DELTA_VOLUME (1) //11*11 = 121 ~128
 #define CAM_START_X 300
 #define CAM_START_Y 300
 #define CAM_START_ZOOM -1.75
-#define MAX_TIME_LIGHTINING_RISE 0.1
-#define MAX_TIME_LIGHTINING 0.3
-#define MAX_TIME_LIGHTINING_FADE 2
+#define MAX_TIME_LIGHTINING_RISE 0.1 // s
+#define MAX_TIME_LIGHTINING 0.3 // s
+#define MAX_TIME_LIGHTINING_FADE 2 // s
+#define LIGHTINING_MIN_INTERVAL 30 // s
+#define LIGHTINING_MAX_INTERVAL 60 // s
 #define TREE_1_TILESET_INDEX 70
 #define TREE_2_TILESET_INDEX 71
 #define TREE_3_TILESET_INDEX 72
@@ -33,23 +39,21 @@
 #define BENCH_TILESET_INDEX 76
 
 StageState::StageState(void)
-		: State()
-		, tileSet(120, 120,"map/tileset_vf.png")
-		, tileMap("map/tileMap.txt", &tileSet)
-		, inputManager(INPUT_MANAGER)
-		, music("audio/stageState.ogg")
-		, isLightning(false)
-		, isThundering(false)
-		, lightningTimer()
-		, lightningColor(255, 255, 255, 0)
-		, nightSound("audio/Ambiente/Barulho_noite.wav")
-		, thunderSound("audio/Ambiente/Trovao.wav")
-		, frameRateCounter(0){
-		
-	REPORT_I_WAS_HERE;
-	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
-	
-	REPORT_I_WAS_HERE;
+		: State(),
+		tileSet(120, 120,"map/tileset_vf.png"),
+		tileMap("map/tileMap.txt", &tileSet),
+		inputManager(INPUT_MANAGER),
+		music("audio/stageState.ogg"),
+		isLightning(false),
+		isThundering(false),
+		lightningTimer(),
+		lightningColor(255, 255, 255, 0),
+		nightSound("audio/Ambiente/Barulho_noite.wav"),
+		thunderSound("audio/Ambiente/Trovao.wav"),
+		frameRateCounter(0){
+
+	GameResources::SetTileMap(&tileMap);
+
 	REPORT_I_WAS_HERE;
 	music.Play(10);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
@@ -58,22 +62,24 @@ StageState::StageState(void)
 	waveManager= new WaveManager(tileMap, "assets/wave&enemyData.txt");
 	waveManagerGO->AddComponent(waveManager);
 	AddObject(waveManagerGO);
+	tileMap.ObserveMapChanges(this);
+	lightningInterval = rand() % (LIGHTINING_MAX_INTERVAL - LIGHTINING_MIN_INTERVAL) + LIGHTINING_MIN_INTERVAL;
+	REPORT_DEBUG(" Proximo relampago sera em " << lightningInterval << " segundos.");
 	InitializeObstacles();
 	nightSound.Play(-1);
 }
 
 StageState::~StageState(void) {
-	TEMP_REPORT_I_WAS_HERE;
+	std::cout<<WHERE<<"\tGameResources path hit rate: " << GameResources::GetPathHitRate()<<END_LINE;
 	objectArray.clear();
-	TEMP_REPORT_I_WAS_HERE;
 	obstacleArray.clear();
-	TEMP_REPORT_I_WAS_HERE;
+	tileMap.RemoveObserver(this);
 	GameResources::Clear();
 	TEMP_REPORT_I_WAS_HERE;
 	nightSound.Stop();
 }
 
-void StageState::Update(float dt) {
+void StageState::Update(float dt){
 	REPORT_I_WAS_HERE;
 	if(ActionManager::EscapeAction()) {
 		popRequested = true;
@@ -81,13 +87,12 @@ void StageState::Update(float dt) {
 	if(inputManager.QuitRequested()) {
 		quitRequested = true;
 	}
-	REPORT_I_WAS_HERE;
+	
 	UpdateArray(dt);
-	REPORT_I_WAS_HERE;
 
 	if(!objectArray.empty()){
-		for(unsigned int count1 = 0; count1 < objectArray.size()-1; count1++) {
-			for(unsigned int count2 = count1+1; count2 < objectArray.size(); count2++) {
+		for(uint count1 = 0; count1 < objectArray.size()-1; count1++) {
+			for(uint count2 = count1+1; count2 < objectArray.size(); count2++) {
 				if(Collision::IsColliding(objectArray[count1]->box, objectArray[count2]->box, objectArray[count1]->rotation, objectArray[count2]->rotation) ) {
 					objectArray[count1]->NotifyCollision(*objectArray[count2]);
 					objectArray[count2]->NotifyCollision(*objectArray[count1]);
@@ -109,6 +114,7 @@ void StageState::Update(float dt) {
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
 
+
 	if(INPUT_MANAGER.KeyPress('r')) {
 		popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
@@ -119,27 +125,30 @@ void StageState::Update(float dt) {
 	}
 	if(INPUT_MANAGER.KeyPress('q')) {
 		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos());
-		std::cout << WHERE << "O mouse está no tile " << tileMap.GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap.GetHeight()*tileMap.GetHeight() << " tiles." << END_LINE;
+		std::cout << WHERE << "O mouse está no tile " << tileMap.GetCoordTilePos(mousePos, true, 0) << ", cada layer tem " << tileMap.GetHeight()*tileMap.GetHeight() << " tiles." << END_LINE;
+
 	}
 	if(INPUT_MANAGER.MousePress(RIGHT_MOUSE_BUTTON)){
 		REPORT_I_WAS_HERE;
 		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos());
-		int position = tileMap.GetTileMousePos(mousePos, false, COLLISION_LAYER);
+		int position = tileMap.GetCoordTilePos(mousePos, false, COLLISION_LAYER);
 		GameObject *go= tileMap.GetGO(position);
 		if(nullptr == go){
 			std::cout<<WHERE<<"\t[WARNING] Expected GameObject" END_LINE;
 		}
 		else{
-			go->AddComponent(new DragAndDrop(tileMap,mousePos));
+			go->AddComponent(new DragAndDrop(tileMap,mousePos,*go));
 			REPORT_I_WAS_HERE;
 		}
 	}
+
 	if(INPUT_MANAGER.KeyPress('e')) {
 		printf("Tower criado\n");
 		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
 		Tower *newTower= new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE));
 		AddObject(newTower);
 		tileMap.InsertGO(newTower);
+
 	}
 	if(INPUT_MANAGER.KeyPress('=')) {
 		Game &game = Game::GetInstance();
@@ -163,23 +172,24 @@ void StageState::Update(float dt) {
 		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
 	}
 	if(isLightning){
-		ShowLightning(dt);
 		if(!isThundering){
 			thunderSound.Play(1);
 			isThundering = true;
 		}
+		ShowLightning(dt);
 	}
 	else{
 		isLightning = false;
 		isThundering = false;
 		lightningTimer.Update(dt);
-		if(lightningTimer.Get() > rand() % 80 + 20){
+		if(lightningTimer.Get() > lightningInterval){
 			isLightning = true;
 			lightningTimer.Restart();
+			lightningInterval = rand() % (LIGHTINING_MAX_INTERVAL - LIGHTINING_MIN_INTERVAL) + LIGHTINING_MIN_INTERVAL;
+			REPORT_DEBUG(" Proximo relampago sera em " << lightningInterval << " segundos.");
 		}
 	}
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
-	
 	//depois isolar essa lógica num componente.
 	frameRateTimer.Update(dt);
 	frameRateCounter++;
@@ -221,21 +231,27 @@ void StageState::Resume(void) {
 void StageState::ShowLightning(float dt){
 	isLightning = true;
 	lightningTimer.Update(dt);
+	float newAlpha;
 	if(lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE){
-		lightningColor.a += 256 * dt / MAX_TIME_LIGHTINING_RISE;
+		newAlpha = lightningColor.a + 256 * dt / MAX_TIME_LIGHTINING_RISE;
 	}
 	else if(lightningTimer.Get() >= MAX_TIME_LIGHTINING_RISE && lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING){
-		lightningColor.a = 255;
+		newAlpha = 255;
 	}
 	else if(lightningTimer.Get() >= MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING && lightningTimer.Get() < MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE){
 		float fullTime = (MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING+MAX_TIME_LIGHTINING_FADE) - (MAX_TIME_LIGHTINING_RISE+MAX_TIME_LIGHTINING);
-		lightningColor.a -= 256* ((dt / fullTime) + 1);
+		newAlpha = lightningColor.a - 256* (dt / fullTime);
 	}
 	else{
-		lightningColor.a = 0;
+		newAlpha = 0;
 		isLightning = false;
 		lightningTimer.Restart();
 	}
+	lightningColor.a = newAlpha > 255 ? 255 : newAlpha < 0 ? 0 : newAlpha;
+}
+
+void StageState::NotifyTileMapChanged(int tilePosition){
+	GameResources::NotifyTileMapChanged(tilePosition);
 }
 
 void StageState::AddObstacle(Obstacle *obstacle) {
@@ -354,3 +370,4 @@ void StageState::InitializeObstacles(void){
 	}
 	delete benchTiles;
 }
+

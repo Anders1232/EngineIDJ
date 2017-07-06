@@ -1,0 +1,5 @@
+<map id="AIGoTo" name="AIGoTo">
+<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="5,229,93,256"/>
+<area shape="rect" id="node3" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="206,229,300,256"/>
+<area shape="rect" id="node4" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="265,139,316,165"/>
+</map>

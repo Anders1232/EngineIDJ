@@ -14,13 +14,15 @@
 #include "TileMap.h"
 #include "Tileset.h"
 #include "Timer.h"
+#include "AIGoDown.h"
+#include "AIPrintPath.h"
 #include "WaveManager.h"
 #include "Obstacle.h"
 #include "Sound.h"
 
 using std::vector;
 
-class StageState: public State {
+class StageState: public State, public TileMapObserver {
 	public:
 		StageState(void);
 		~StageState(void);
@@ -29,18 +31,21 @@ class StageState: public State {
 		void Pause(void);
 		void Resume(void);
 		void ShowLightning(float dt);
+		void NotifyTileMapChanged(int tilePosition);
 	private:
 		TileSet tileSet;
 		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;
 		Music music;
+		
 		bool isLightning;
 		bool isThundering;
 		Timer lightningTimer;
 		Color lightningColor;
+		float lightningInterval;
 
 		WaveManager *waveManager;/**< Referencia para a WaveManager, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
-
+		vector<int> waves;//vetor de waves a ser lido no arquivo
 		void InitializeObstacles(void);
 		std::vector<std::unique_ptr<Obstacle>> obstacleArray;
 		void AddObstacle(Obstacle *obstacle);

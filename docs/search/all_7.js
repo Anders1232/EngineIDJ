@@ -4,6 +4,7 @@ var searchData=
   ['healthbar',['healthBar',['../classHitPoints.html#ab160ffd80f317f608e3fcc56760b535b',1,'HitPoints']]],
   ['healthcolor',['healthColor',['../classHitPoints.html#a0dd7173baa10eb3bf0e67298d817a873',1,'HitPoints']]],
   ['height',['height',['../classSprite.html#a1f07c8f2080c193759aec0e13503d7ab',1,'Sprite']]],
+  ['heuristic',['heuristic',['../structTileMap_1_1LessThanByHeuristic.html#aa32e74ee90be1a27ea8379b7e4ca5b8d',1,'TileMap::LessThanByHeuristic::heuristic()'],['../classAIArt.html#a94b8c558fcc7a18da521cccc5503f161',1,'AIArt::heuristic()'],['../classAIEngineer.html#aa270ab8c381aded2dcf9a8adebf4eea3',1,'AIEngineer::heuristic()'],['../classAIMedic.html#a90ce69be6bbfb601a11bbaedb1425d97',1,'AIMedic::heuristic()'],['../classAIPrintPath.html#a061cea06d6f0d13049c863698a6d2958',1,'AIPrintPath::heuristic()'],['../classAIQuimic.html#a0406939aaa4e08570a7b0e059133ab5e',1,'AIQuimic::heuristic()']]],
   ['highlight',['HIGHLIGHT',['../Sprite_8cpp.html#ab814d2aa388b74d504673d0068cab196',1,'HIGHLIGHT():&#160;Sprite.cpp'],['../Tileset_8cpp.html#ab814d2aa388b74d504673d0068cab196',1,'HIGHLIGHT():&#160;Tileset.cpp']]],
   ['highlighted',['HIGHLIGHTED',['../classUIbutton.html#a71ae76c484581a7ef587a33e7a03c708a97b9e0cf3f629cc6062e94834b43e830',1,'UIbutton']]],
   ['highlighted_5fcolor',['HIGHLIGHTED_COLOR',['../TitleState_8cpp.html#ad4c2eede2832ee273c6e9c8d2a34f319',1,'TitleState.cpp']]],

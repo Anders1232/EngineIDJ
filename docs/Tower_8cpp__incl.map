@@ -1,18 +1,20 @@
 <map id="Game/src/Tower.cpp" name="Game/src/Tower.cpp">
-<area shape="rect" id="node2" href="$Tower_8h.html" title="Tower.h" alt="" coords="529,80,598,107"/>
-<area shape="rect" id="node20" href="$Camera_8h.html" title="Camera.h" alt="" coords="191,229,269,256"/>
-<area shape="rect" id="node22" href="$DragAndDrop_8h.html" title="DragAndDrop.h" alt="" coords="677,80,789,107"/>
-<area shape="rect" id="node23" href="$Error_8h.html" title="Error.h" alt="" coords="982,80,1043,107"/>
-<area shape="rect" id="node3" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="647,304,754,331"/>
-<area shape="rect" id="node10" href="$Rect_8h.html" title="Rect.h" alt="" coords="483,379,545,405"/>
-<area shape="rect" id="node11" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="301,453,364,480"/>
-<area shape="rect" id="node13" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="527,304,594,331"/>
-<area shape="rect" id="node18" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="693,155,772,181"/>
-<area shape="rect" id="node4" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="469,528,575,555"/>
-<area shape="rect" id="node8" href="$Component_8h.html" title="Component.h" alt="" coords="893,379,993,405"/>
-<area shape="rect" id="node9" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="821,453,951,480"/>
-<area shape="rect" id="node14" href="$Color_8h.html" title="Color.h" alt="" coords="395,379,459,405"/>
-<area shape="rect" id="node15" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="107,379,219,405"/>
-<area shape="rect" id="node19" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="658,229,730,256"/>
-<area shape="rect" id="node21" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="99,304,219,331"/>
+<area shape="rect" id="node2" href="$Tower_8h.html" title="Tower.h" alt="" coords="317,80,387,107"/>
+<area shape="rect" id="node27" href="$Camera_8h.html" title="Camera.h" alt="" coords="969,229,1047,256"/>
+<area shape="rect" id="node29" href="$DragAndDrop_8h.html" title="DragAndDrop.h" alt="" coords="1044,80,1155,107"/>
+<area shape="rect" id="node30" href="$Error_8h.html" title="Error.h" alt="" coords="1180,80,1241,107"/>
+<area shape="rect" id="node3" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="872,304,979,331"/>
+<area shape="rect" id="node10" href="$Rect_8h.html" title="Rect.h" alt="" coords="283,379,344,405"/>
+<area shape="rect" id="node11" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="126,453,188,480"/>
+<area shape="rect" id="node13" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="348,304,415,331"/>
+<area shape="rect" id="node18" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="522,155,600,181"/>
+<area shape="rect" id="node4" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="389,528,496,555"/>
+<area shape="rect" id="node8" href="$Component_8h.html" title="Component.h" alt="" coords="1014,379,1113,405"/>
+<area shape="rect" id="node9" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="981,453,1109,480"/>
+<area shape="rect" id="node14" href="$Color_8h.html" title="Color.h" alt="" coords="195,379,259,405"/>
+<area shape="rect" id="node15" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="613,379,724,405"/>
+<area shape="rect" id="node24" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="483,229,555,256"/>
+<area shape="rect" id="node25" href="$AStarHeuristic_8h.html" title="AStarHeuristic.h" alt="" coords="94,304,212,331"/>
+<area shape="rect" id="node26" href="$Resources_8h.html" title="Resources.h" alt="" coords="439,304,535,331"/>
+<area shape="rect" id="node28" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="609,304,729,331"/>
 </map>
