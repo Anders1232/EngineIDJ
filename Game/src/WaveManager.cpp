@@ -52,7 +52,6 @@ void WaveManager::StartWave(){
 	endWave = false;
 	++waveCount;
 	printf("Wave %d Start!", waveCount);
-    waveCounterStarted = false;
 
 }
 
@@ -125,6 +124,8 @@ void WaveManager::Update(float dt){
             endWave = true;
             waveTimer.Restart();
             //bounty level complete
+            float income = (waveCount* 5)+100;
+            PlayerData::GetInstance().GoldUpdate((int)income);
         }
 	}
 
