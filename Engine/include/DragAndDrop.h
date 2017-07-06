@@ -21,14 +21,13 @@ class DragAndDrop : public Component{
 		
 			Instancia o DragAndDrop, informando se o objeto está sendo arrastado.
 		*/
-		DragAndDrop(TileMap &map, Vec2 associatedInitialPos, bool redrag= true, bool forceDrag = false, bool dragOnActionHold= true);
+		DragAndDrop(TileMap &map, Vec2 associatedInitialPos, GameObject &associated, bool redrag = true, bool forceDrag = false, bool dragOnActionHold = true);
 		/**
 			\brief Atualiza o estado do objeto em arrasto.
-			\param associated GameObject que possui esse componente.
 			
 			Nesse método a lógica do drag and drop é implementada. Se o botão do drag estiver sendo segurado o objeto é arrastado mantendo seu centro onde o mouse está. Quando o botão relativo ao drag and drop é liberado chama-se o tileMap para iserir o GameObject no tile onde o mouse está.
 		*/
-		void Update(GameObject &associated, float dt);
+		void Update(float dt);
 		/**
 			\brief Informa que o tipo deste Compomente é DragAndDrop.
 			\param CompomentType A ser comparado se é igual ao Tipo desta classe.
@@ -42,6 +41,7 @@ class DragAndDrop : public Component{
 		TileMap &tileMap;/**< TileMap no qual o GameObject será inserido após o drag.*/
 		bool redrag;/**<Informa se é um drag inicial ou um redrag*/
 		bool forceDrag;
+		GameObject &associated;
 };
 
 #endif // DRAGANDDROP_H

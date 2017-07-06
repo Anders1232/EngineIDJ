@@ -37,7 +37,7 @@ void Tower::Damage(int damage) {
 
 void Tower::Update(float dt ) {
 	for(uint count = 0; count < components.size(); count++) {
-		components[count]->Update(*this, dt);
+		components[count]->Update(dt);
 	}
 }
 
@@ -53,7 +53,7 @@ void Tower::RequestDelete(void) {
 	hitpoints = 0;
 }
 
-void Tower::NotifyCollision(GameObject &other) {}
+void Tower::NotifyCollision(GameObject &object) {}
 
 Rect Tower::GetWorldRenderedRect() const {
 	return Camera::WorldToScreen(box);

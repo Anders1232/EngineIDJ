@@ -1,8 +1,8 @@
 <map id="Engine/include/Music.h" name="Engine/include/Music.h">
-<area shape="rect" id="node2" href="$Music_8cpp.html" title="Engine/src/Music.cpp" alt="" coords="5,80,153,107"/>
-<area shape="rect" id="node3" href="$EndState_8h.html" title="Game/include/EndState.h" alt="" coords="229,80,399,107"/>
-<area shape="rect" id="node4" href="$StageState_8h.html" title="Game/include/StageState.h" alt="" coords="161,155,344,181"/>
-<area shape="rect" id="node7" href="$EndState_8cpp.html" title="Game/src/EndState.cpp" alt="" coords="369,155,531,181"/>
-<area shape="rect" id="node5" href="$StageState_8cpp.html" title="Game/src/StageState.cpp" alt="" coords="70,229,243,256"/>
-<area shape="rect" id="node6" href="$TitleState_8cpp.html" title="Game/src/TitleState.cpp" alt="" coords="268,229,432,256"/>
+<area shape="rect" id="node2" href="$Music_8cpp.html" title="Engine/src/Music.cpp" alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node3" href="$EndState_8h.html" title="Game/include/EndState.h" alt="" coords="228,80,399,107"/>
+<area shape="rect" id="node4" href="$StageState_8h.html" title="Game/include/StageState.h" alt="" coords="161,155,343,181"/>
+<area shape="rect" id="node7" href="$EndState_8cpp.html" title="Game/src/EndState.cpp" alt="" coords="368,155,531,181"/>
+<area shape="rect" id="node5" href="$StageState_8cpp.html" title="Game/src/StageState.cpp" alt="" coords="69,229,243,256"/>
+<area shape="rect" id="node6" href="$TitleState_8cpp.html" title="Game/src/TitleState.cpp" alt="" coords="267,229,431,256"/>
 </map>

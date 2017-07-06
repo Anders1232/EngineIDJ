@@ -3,12 +3,13 @@
 #include "Camera.h"
 #include "Error.h"
 #include "InputManager.h"
+#include "TileMap.h"
 
-DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, bool redrag, bool forceDrag, bool dragOnActionHold)
-		: dragOnHold(dragOnActionHold),associatedInitialPos(associatedInitialPos), tileMap(map), redrag(redrag), forceDrag(forceDrag) {
+DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, GameObject &associated, bool redrag, bool forceDrag, bool dragOnActionHold)
+		: dragOnHold(dragOnActionHold),associatedInitialPos(associatedInitialPos), tileMap(map), redrag(redrag), forceDrag(forceDrag), associated(associated) {
 }
 
-void DragAndDrop::Update(GameObject &associated, float dt) {
+void DragAndDrop::Update(float dt) {
 	InputManager &inputManager= InputManager::GetInstance();
 	if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON)) {
 		if(redrag) {

@@ -109,7 +109,7 @@ class Vec2 {
 			
 			Faz com que o vetor tenha a mesma direção-sentido porém a magnetude é unitária.
 		*/
-		void Normalize(void);
+		Vec2 Normalize(void);
 		/**
 			\brief Rotaciona o Vec2.
 			\param angle Ângulo de rotação.
@@ -125,6 +125,13 @@ class Vec2 {
 			Retorna a distância entre os dois Vec2. Essa distância é sempre positiva.
 		*/
 		float DistanceTo(Vec2 const &b) const;
+		/**
+			\brief Calcula o vetor distância entre dois Vec2.
+			\param b Vec2 com o qual quer se medir a distância.
+			
+			Retorna o vetor distância entre os dois Vec2.
+		*/
+		Vec2 VecDistance(Vec2 destino);
 		/**
 			\brief Informa a angulação do vetor.
 			

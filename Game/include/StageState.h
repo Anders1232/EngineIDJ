@@ -1,35 +1,38 @@
 #ifndef STAGE_STATE_H
 #define STAGE_STATE_H
 
-#include <vector>
 #include <memory>
+#include <vector>
 
 #include "ActionManager.h"
+#include "AIGoDown.h"
+#include "AIPrintPath.h"
 #include "DragAndDrop.h"
 #include "GameObject.h"
 #include "InputManager.h"
 #include "Music.h"
+#include "Obstacle.h"
 #include "Sprite.h"
 #include "State.h"
 #include "TileMap.h"
 #include "Tileset.h"
 #include "Timer.h"
 #include "Tower.h"
-#include "WaveManager.h"
 #include "UIcanvas.h"
-#include "UIimageButton.h"
 #include "UIgridGroup.h"
+#include "UIimageButton.h"
 #include "UItext.h"
 #include "UIverticalGroup.h"
-
-using std::vector;
+#include "WaveManager.h"
 
 #define TOWERNAME_DEFAULT_TEXT " "
 #define TOWERCOST_DEFAULT_TEXT " "
 #define TOWERDAMAGE_DEFAULT_TEXT " "
 #define TOWERDAMGETYPE_DEFAULT_TEXT " "
 
-class StageState: public State {
+using std::vector;
+
+class StageState: public State, public TileMapObserver {
 	public:
 		StageState(void);
 		~StageState(void);
@@ -40,6 +43,7 @@ class StageState: public State {
 		void ShowLightning(float dt);
 		void SetUILife(float lifePercent);
 		void SetUIWaveProgress(float waveProgressPercent);
+		void NotifyTileMapChanged(int tilePosition);
 	private:
 		void SetupUI(void);
 		void UpdateUI(float dt);
@@ -55,11 +59,23 @@ class StageState: public State {
 		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;
 		Music music;
+		
 		bool isLightning;
 		Timer lightningTimer;
 		Color lightningColor;
-		WaveManager *waveManager;/**< Referencia para a WaveManeger, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
+		float lightningInterval;
+
+		WaveManager *waveManager;/**< Referencia para a WaveManager, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
 		vector<int> waves;//vetor de waves a ser lido no arquivo
+		
+		void InitializeObstacles(void);
+		std::vector<std::unique_ptr<Obstacle>> obstacleArray;
+		void AddObstacle(Obstacle *obstacle);
+		void RenderObstacleArray(void) const;
+
+		int frameRateCounter;
+		Timer frameRateTimer;
+
 
 		bool menuIsShowing;
 		

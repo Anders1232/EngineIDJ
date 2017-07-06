@@ -3,18 +3,26 @@
 
 #include <string>
 #include <vector>
-
-#include "GameObject.h"
+#include <list>
+#include <queue>
+#include <limits>
+#include <map>
+#include <functional>
+#include <algorithm>
 #include "Tileset.h"
 #include "Vec2.h"
-
+#include "GameObject.h"
+#include "AStarHeuristic.h"
+#include "Resources.h"
+#include "TileMapObserver.h"
 #define TILE_VAZIO (-1)
 #define SPAWN_POINT (75)
 #define COLLISION_LAYER (1)
+#define WALKABLE_LAYER (0)
+#define END_POINT (74)
 
 using std::string;
 using std::vector;
-
 /**
 	\brief Classe que modela o TileMap
 
@@ -101,7 +109,7 @@ class TileMap{
 			O valor retornado será negativo e inválido se alguma coordenada do mouse tiver fora dos limites do tileMap.
 			Internamente usa-se busca binária para achar o tile correspondente.
 		*/
-		int GetTileMousePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const;
+		int GetCoordTilePos(Vec2 const &mousePos, bool affecteedByZoom, int layer)const;
 		/**
 			\brief Insere GameObjct no tileMap
 			\param obj GameObject a ser inserido no tileMap de GameObjects.
@@ -109,7 +117,7 @@ class TileMap{
 			Utiliza a posição do mouse no momento(que deve ser a mesma do centro do GameObject) para identificar onde o GameObject deve ser colocado no tileMap de GameObjects. Então obj é colocado nessa posição, sua posição é alterada para se encaixar exatamente com o início da posição.
 			Atualiza-se o tileMao de colisão para adicionar a informação que tem um GameObject na posição respectiva.
 		*/
-		void InsertGO(GameObject* obj);
+		void InsertGO(GameObject* obj, bool checkCollision = true);
 		/**
 			\brief Insere GameObjct no tileMap ou o posiciona na posição passada caso não seja possivel
 			\param obj GameObject a ser inserido no tileMap de GameObjects.
@@ -152,19 +160,38 @@ class TileMap{
 		*/
 		bool IsShowingCollisionInfo();
 		/**
-			\brief Obtém os spawnGroups com seus spawn points.
-			\todo Verificar utilidade de usar define para buscar o spawn groups se de deve utilizar argumentos mesmo.
+			\brief Obtém os groups de tiles.
+			\param tileType Tipo de tile do qual se quer obter posições
 			\todo Resolver bug na detecção de adjacências.
 
-			É responsabilidade do chamador desalocar o vector retornado.
+			Retorna grupos de tiles adjacentes do tipo informado.
 		*/
-		vector<vector<int>>* GetSpawnPositions(void) const;
+		vector<vector<int>>* GetTileGroups(int tileType) const;
 		/**
 			\brief Obtém o tamanho de um tile
 
 			O tamanho retornado não leva em consideração zoom, mas leva em consideração escala.
 		*/
 		Vec2 GetTileSize(void) const;
+		/**
+			\brief Altera o tilemap mostrando o caminho contido em list
+
+		*/
+
+		void ShowPath(std::shared_ptr<std::vector<int>> path);
+		/**
+			\brief Calcula o caminho menos custoso entre dois pontos baseado em uma heuristica utilizando o algoritmo A*.
+			\param originTile Tile de origem
+			\param destTile Tile de destino
+			\param heuristic Heuristica a ser usada
+			\param weightMap Dicionário com os pesos relacionados a cada tipo de tile do mapa
+
+			Retorna uma lista com a sequencia dos indices dos tiles que formam o caminho
+		*/
+		std::list<int>* AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap);
+		void ObserveMapChanges(TileMapObserver *);
+		void RemoveObserver(TileMapObserver *);
+		GameObject* CloserObject(GameObject& origin,std::string objectDestType);
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
@@ -199,6 +226,57 @@ class TileMap{
 		int mapDepth;/**< Número de camadas do TileMap.*/
 		std::vector<GameObject*> gameObjectMatrix;/**< TileMap linearizado de GameObjects*/	//bidimensional??
 		bool displayCollisionInfo;/**<Verdadeiro se as informações de colisão devem ser exibidas no TileMap::Render, falso caso contrário.*/
+		/**
+			\Verifica se um determinado tile está livre na camada de colisão
+
+			\return true se o tile está livre na camada de colisão
+		*/
+		bool Traversable(int index) const;
+		/**
+			\brief Obtém todos os vizinhos de um determinado tile
+
+			\return vetor com o indice dos tiles dos vizinhos.
+		*/
+		std::vector<int>* GetNeighbors(int tile) const;
+		void ReportChanges(int tileChanged);
+		vector<TileMapObserver*> observers;
+
+		class LessThanByHeuristic{
+			public:
+				LessThanByHeuristic(int dest,AStarHeuristic* heuristic,int mapWidth,bool reverse):
+				destTile(dest),heuristic(heuristic),tileMapWidth(mapWidth),reverse(reverse){}
+				bool operator()(const std::pair<double,int> lhs,const std::pair<double,int> rhs) const{
+					if(reverse){
+						return lhs.first + (*heuristic)(Vec2(lhs.second / tileMapWidth,lhs.second % tileMapWidth),
+													Vec2(destTile / tileMapWidth,destTile % tileMapWidth)) > 
+								rhs.first + (*heuristic)(Vec2(rhs.second / tileMapWidth,rhs.second % tileMapWidth),
+													Vec2(destTile / tileMapWidth,destTile % tileMapWidth));
+					}
+					else{
+						return lhs.first + (*heuristic)(Vec2(lhs.second / tileMapWidth,lhs.second % tileMapWidth),
+													Vec2(destTile / tileMapWidth,destTile % tileMapWidth)) < 
+								rhs.first + (*heuristic)(Vec2(rhs.second / tileMapWidth,rhs.second % tileMapWidth),
+													Vec2(destTile / tileMapWidth,destTile % tileMapWidth));
+					}
+				}
+				
+			private:
+				int destTile;
+				AStarHeuristic* heuristic;
+				int tileMapWidth;
+				bool reverse;
+		};
+
+		template<typename T>
+		class AStarPryorityQueue : public std::priority_queue<T, std::vector<T>>{	
+  			public:
+		  			bool find(const T& value) {
+							auto it = std::find(this->c.begin(), this->c.end(), value);
+							if (it != this->c.end()){return true;}
+		   				else {return false;}
+ 				}
+		};
+
 };
 
 #endif // TILEMAP_H

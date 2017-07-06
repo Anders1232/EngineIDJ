@@ -272,3 +272,7 @@ bool Game::GetWindowMaximized(void) const{
 bool Game::GetWindowBorderless(void) const{
 	return SDL_GetWindowFlags(window) & SDL_WINDOW_BORDERLESS;
 }
+
+unsigned int Game::GetTicks(void){
+	return frameStart;
+}

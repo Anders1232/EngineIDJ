@@ -34,15 +34,51 @@ float Vec2::Magnitude(void)const {
 	return sqrt(x*x+ y*y);
 }
 
-void Vec2::Normalize(void) {
+Vec2 Vec2::Normalize(void) {
 	float norm= Magnitude();
 	x=x/norm;
 	y=y/norm;
-//	return Vec2(x/norm, y/norm);
+	return Vec2(x/norm, y/norm);
 }
 
 float Vec2::DistanceTo(Vec2 const &b) const {
 	return ((*this)-b).Magnitude();
+}
+
+Vec2 Vec2::VecDistance(Vec2 destino){
+
+	float dx,dy;
+	//Calcula x
+	if(x >= 0.0 && destino.x >= 0.0){dx = destino.x - x;}
+	else if(destino.x > x){
+
+		if(destino.x >= 0.0 && x <= 0.0){dx = destino.x - x;}
+		else{dx = std::abs(destino.x - x);}//(c0 < ZERO_DOUBLE && c1 < ZERO_DOUBLE)
+	
+	}
+	else{//(c0 > c1)
+
+		if(x >= 0.0 && destino.x <= 0.0){dx = -(x - destino.x);}
+		else{dx = x - destino.x;}//(c0 < ZERO_DOUBLE && c1 < ZERO_DOUBLE)
+
+	}
+	//Calcula y
+	if(y >= 0.0 && destino.y >= 0.0){dy = destino.y - y;}
+	else if(destino.y > y){
+
+		if(destino.y >= 0.0 && y <= 0.0){dy = destino.y - y;}
+		else{dy = std::abs(destino.y - y);}//(c0 < ZERO_DOUBLE && c1 < ZERO_DOUBLE)
+	
+	}
+	else{//(c0 > c1)
+
+		if(y >= 0.0 && destino.y <= 0.0){dy = -(y - destino.y);}
+		else{dy = y - destino.y;}//(c0 < ZERO_DOUBLE && c1 < ZERO_DOUBLE)
+
+	}
+
+	return(Vec2(dx,dy));
+
 }
 
 float Vec2::Inclination(void) const {

@@ -11,7 +11,8 @@ var searchData=
   ['blendmode',['blendMode',['../classSprite.html#a9081ab1c8e4ca96a21d97a937550da8c',1,'Sprite']]],
   ['boundingbox',['boundingBox',['../classUIelement.html#a65213df59c71221e73da5fbd3d51eb30',1,'UIelement']]],
   ['box',['box',['../classGameObject.html#ac8df90f2a6d41693cd7938e392ff6d0b',1,'GameObject::box()'],['../classText.html#a1a2dd837322b9adcd3a2a98f68e633c9',1,'Text::box()'],['../classUIelement.html#afcc87a0cd49149618dcee4401f920cf5',1,'UIelement::box()']]],
-  ['buttoncallback',['ButtonCallback',['../classUIbutton.html#a62d4c46e053a2b1e0257ac3b0d9d337a',1,'UIbutton']]],
-  ['buttonpress',['ButtonPress',['../classInputManager.html#aafbc79dc459c3bba0e4a4054421632d3',1,'InputManager']]],
-  ['buttonrelease',['ButtonRelease',['../classInputManager.html#a313d0716dad6a7f322f86e8b2e986d42',1,'InputManager']]]
+  ['building_5fbarrier',['BUILDING_BARRIER',['../classAIEngineer.html#ac40faaae43a055e0fe2a18080d672991afa8bf2e23a0f8da54120d14fbb17f173',1,'AIEngineer']]],
+  ['buttoncallback',['ButtonCallback',['../classUIbutton.html#a93c415ca75e76dec9343543deebce057',1,'UIbutton']]],
+  ['buttonpress',['ButtonPress',['../classInputManager.html#ae8b8073e49e45f61bbb8d510fbfc000d',1,'InputManager']]],
+  ['buttonrelease',['ButtonRelease',['../classInputManager.html#a22d3ac45eccb62626b196c3d79a4d387',1,'InputManager']]]
 ];

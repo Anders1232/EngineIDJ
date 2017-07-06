@@ -1,9 +1,9 @@
 <map id="UIimageButton" name="UIimageButton">
-<area shape="rect" id="node2" href="$classUIimage.html" title="UIimage" alt="" coords="575,468,645,495"/>
-<area shape="rect" id="node3" href="$classUIelement.html" title="UIelement" alt="" coords="129,304,211,331"/>
-<area shape="rect" id="node4" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="5,155,57,181"/>
-<area shape="rect" id="node6" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="91,155,142,181"/>
-<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="645,304,701,331"/>
-<area shape="rect" id="node13" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="770,155,823,181"/>
-<area shape="rect" id="node15" href="$classUIbutton.html" title="Classe virtual que modela o comportamento de um botão na interface gráfica. " alt="" coords="862,468,934,495"/>
+<area shape="rect" id="node2" href="$classUIimage.html" title="UIimage" alt="" coords="574,469,644,496"/>
+<area shape="rect" id="node3" href="$classUIelement.html" title="UIelement" alt="" coords="128,304,209,331"/>
+<area shape="rect" id="node4" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="5,155,56,181"/>
+<area shape="rect" id="node6" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="91,155,141,181"/>
+<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="644,304,699,331"/>
+<area shape="rect" id="node13" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="769,155,823,181"/>
+<area shape="rect" id="node15" href="$classUIbutton.html" title="Classe virtual que modela o comportamento de um botão na interface gráfica. " alt="" coords="860,469,932,496"/>
 </map>
