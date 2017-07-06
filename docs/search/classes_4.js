@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['game',['Game',['../classGame.html',1,'']]],
-  ['gameobject',['GameObject',['../classGameObject.html',1,'']]],
-  ['gameresources',['GameResources',['../classGameResources.html',1,'']]]
+  ['endstate',['EndState',['../classEndState.html',1,'']]],
+  ['endstatedata',['EndStateData',['../classEndStateData.html',1,'']]],
+  ['enemy',['Enemy',['../classEnemy.html',1,'']]],
+  ['enemydata',['EnemyData',['../structEnemyData.html',1,'']]],
+  ['enemyspawndata',['EnemySpawnData',['../structEnemySpawnData.html',1,'']]]
 ];

@@ -45,10 +45,13 @@ StageState::StageState(void)
 		, tileSet(120, 120,"map/tileset_vf.png")
 		, tileMap("map/tileMap.txt", &tileSet)
 		, inputManager(INPUT_MANAGER)
-		, music("audio/stageState.ogg")
+        , music("audio/trilha_sonora/loop_1.ogg")
 		, isLightning(false)
+		, isThundering(false)
 		, lightningTimer()
 		, lightningColor(255, 255, 255, 0)
+		, nightSound("audio/Ambiente/Barulho_noite.wav")
+		, thunderSound("audio/Ambiente/Trovao.wav")
 		, frameRateCounter(0)
 		, HUDcanvas()
 		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
@@ -71,6 +74,7 @@ StageState::StageState(void)
 		, waveIcon("img/UI/HUD/inimigo00.png", UIelement::BehaviorType::FILL)
 		, wavebarBg("img/UI/HUD/hudvida.png")
 		, wavebarBar("img/UI/HUD/hudvida.png") {
+
 	GameResources::SetTileMap(&tileMap);
 	REPORT_I_WAS_HERE;
 	music.Play(10);
@@ -85,6 +89,7 @@ StageState::StageState(void)
 	lightningInterval = rand() % (LIGHTINING_MAX_INTERVAL - LIGHTINING_MIN_INTERVAL) + LIGHTINING_MIN_INTERVAL;
 	REPORT_DEBUG(" Proximo relampago sera em " << lightningInterval << " segundos.");
 	InitializeObstacles();
+	nightSound.Play(-1);
 
 	SetupUI();
 }
@@ -242,6 +247,7 @@ void StageState::SetupUI() {
 	wavebarBar.SetOffsets( {(float)2., 0.},
 						   {(float)-2., 0.} );
 	wavebarBar.SetSpriteColorMultiplier({154, 148, 104, 255});
+
 }
 
 StageState::~StageState(void) {
@@ -250,6 +256,8 @@ StageState::~StageState(void) {
 	obstacleArray.clear();
 	tileMap.RemoveObserver(this);
 	GameResources::Clear();
+	TEMP_REPORT_I_WAS_HERE;
+	nightSound.Stop();
 }
 
 void StageState::Update(float dt){
@@ -340,10 +348,15 @@ void StageState::Update(float dt){
 		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
 	}
 	if(isLightning){
+		if(!isThundering){
+			thunderSound.Play(1);
+			isThundering = true;
+		}
 		ShowLightning(dt);
 	}
 	else{
 		isLightning = false;
+		isThundering = false;
 		lightningTimer.Update(dt);
 		if(lightningTimer.Get() > lightningInterval){
 			isLightning = true;

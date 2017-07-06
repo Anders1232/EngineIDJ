@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.7"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
 <title>Projeto IDJ - Towers Of Madness: Referência do Arquivo Game/src/StageState.cpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -31,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.8.7 -->
+<!-- Gerado por Doxygen 1.8.8 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </script>
@@ -92,23 +92,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="StageState_8h.html">StageState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="AIArt_8h.html">AIArt.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="AIEngineer_8h.html">AIEngineer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="AIMedic_8h.html">AIMedic.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="AIQuimic_8h.html">AIQuimic.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Camera_8h.html">Camera.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Collision_8h.html">Collision.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="EndStateData_8h.html">EndStateData.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Enemy_8h.html">Enemy.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Error_8h.html">Error.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Tower_8h.html">Tower.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Game_8h.html">Game.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="AIArt_8h.html">AIArt.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="AIEngineer_8h.html">AIEngineer.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="AIMedic_8h.html">AIMedic.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="AIQuimic_8h.html">AIQuimic.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="GameResources_8h.html">GameResources.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Obstacle_8h.html">Obstacle.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Vec2_8h.html">Vec2.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="SDL__include_8h.html">SDL_include.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Gráfico de dependência de inclusões para StageState.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="StageState_8cpp__incl.svg" width="3406" height="784"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="StageState_8cpp__incl.svg" width="4286" height="859"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -142,8 +143,36 @@ Definições e Macros</h2></td></tr>
 <tr class="separator:a6cd38758a40bb76ae2cf9d5eedc46672"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dc2fcc508e5031c49437abc405df1cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a5dc2fcc508e5031c49437abc405df1cd">MAX_TIME_LIGHTINING_FADE</a>&#160;&#160;&#160;2</td></tr>
 <tr class="separator:a5dc2fcc508e5031c49437abc405df1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71be6ceeda354649f58518f25dcaec60"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a71be6ceeda354649f58518f25dcaec60">LIGHTINING_MIN_INTERVAL</a>&#160;&#160;&#160;30</td></tr>
+<tr class="separator:a71be6ceeda354649f58518f25dcaec60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45f806a152f5f09011bff8847347fef2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a45f806a152f5f09011bff8847347fef2">LIGHTINING_MAX_INTERVAL</a>&#160;&#160;&#160;60</td></tr>
+<tr class="separator:a45f806a152f5f09011bff8847347fef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a031612298f568ef059ba175bf04db794"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a031612298f568ef059ba175bf04db794">TREE_1_TILESET_INDEX</a>&#160;&#160;&#160;70</td></tr>
+<tr class="separator:a031612298f568ef059ba175bf04db794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98364d31079b2b362ef04337802da761"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a98364d31079b2b362ef04337802da761">TREE_2_TILESET_INDEX</a>&#160;&#160;&#160;71</td></tr>
+<tr class="separator:a98364d31079b2b362ef04337802da761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9459ae27c7bf59500ea3bb9a64891f39"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a9459ae27c7bf59500ea3bb9a64891f39">TREE_3_TILESET_INDEX</a>&#160;&#160;&#160;72</td></tr>
+<tr class="separator:a9459ae27c7bf59500ea3bb9a64891f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b4d1ee75e3abd1c33effdb29860783e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a6b4d1ee75e3abd1c33effdb29860783e">POLE_TILESET_INDEX</a>&#160;&#160;&#160;73</td></tr>
+<tr class="separator:a6b4d1ee75e3abd1c33effdb29860783e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fa6e4aeea35602375dfc98b1a696c80"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a6fa6e4aeea35602375dfc98b1a696c80">BENCH_TILESET_INDEX</a>&#160;&#160;&#160;76</td></tr>
+<tr class="separator:a6fa6e4aeea35602375dfc98b1a696c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d478c8dcf47c227c569e5ca8fdfe13b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a8d478c8dcf47c227c569e5ca8fdfe13b">TOWER_INFO_TXT_COLOR</a>&#160;&#160;&#160;{199,159,224,255}</td></tr>
+<tr class="separator:a8d478c8dcf47c227c569e5ca8fdfe13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Definições e macros</h2>
+<a class="anchor" id="a6fa6e4aeea35602375dfc98b1a696c80"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BENCH_TILESET_INDEX&#160;&#160;&#160;76</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a58f35e25c13bb24aa54a987cd1ce803d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -216,6 +245,30 @@ Definições e Macros</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a45f806a152f5f09011bff8847347fef2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIGHTINING_MAX_INTERVAL&#160;&#160;&#160;60</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a71be6ceeda354649f58518f25dcaec60"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIGHTINING_MIN_INTERVAL&#160;&#160;&#160;30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a6cd38758a40bb76ae2cf9d5eedc46672"></a>
 <div class="memitem">
 <div class="memproto">
@@ -246,6 +299,18 @@ Definições e Macros</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define MAX_TIME_LIGHTINING_RISE&#160;&#160;&#160;0.1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6b4d1ee75e3abd1c33effdb29860783e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POLE_TILESET_INDEX&#160;&#160;&#160;73</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -300,6 +365,18 @@ Definições e Macros</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a8d478c8dcf47c227c569e5ca8fdfe13b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TOWER_INFO_TXT_COLOR&#160;&#160;&#160;{199,159,224,255}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="aa36454fb50ff803104734eece82589ca"></a>
 <div class="memitem">
 <div class="memproto">
@@ -312,12 +389,48 @@ Definições e Macros</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a031612298f568ef059ba175bf04db794"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TREE_1_TILESET_INDEX&#160;&#160;&#160;70</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a98364d31079b2b362ef04337802da761"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TREE_2_TILESET_INDEX&#160;&#160;&#160;71</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9459ae27c7bf59500ea3bb9a64891f39"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TREE_3_TILESET_INDEX&#160;&#160;&#160;72</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 23 de Junho de 2017 00:02:58 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Quinta, 6 de Julho de 2017 18:50:47 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.7
+</a> 1.8.8
 </small></address>
 </body>
 </html>

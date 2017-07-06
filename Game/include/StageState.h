@@ -25,6 +25,7 @@
 #include "UIverticalGroup.h"
 #include "WaveManager.h"
 #include "Obstacle.h"
+#include "Sound.h"
 #include "NearestGOFinder.h"
 
 #define TOWERNAME_DEFAULT_TEXT " "
@@ -64,6 +65,7 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		Music music;
 		
 		bool isLightning;
+		bool isThundering;
 		Timer lightningTimer;
 		Color lightningColor;
 		float lightningInterval;
@@ -75,6 +77,8 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		std::vector<std::unique_ptr<Obstacle>> obstacleArray;
 		void AddObstacle(Obstacle *obstacle);
 		void RenderObstacleArray(void) const;
+		Sound nightSound;
+		Sound thunderSound;
 
 		int frameRateCounter;
 		Timer frameRateTimer;

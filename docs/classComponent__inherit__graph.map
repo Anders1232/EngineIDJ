@@ -1,12 +1,13 @@
 <map id="Component" name="Component">
-<area shape="rect" id="node2" href="$classAIArt.html" title="Componete IA que se move para ponto de destino. " alt="" coords="171,5,223,32"/>
-<area shape="rect" id="node3" href="$classAIEngineer.html" title="Componete IA que se move para ponto de destino. " alt="" coords="154,56,241,83"/>
-<area shape="rect" id="node4" href="$classAIGoDown.html" title="Componete IA que se move para baixo. " alt="" coords="154,107,241,133"/>
-<area shape="rect" id="node5" href="$classAIGoTo.html" title="Componete IA que se move para ponto de destino. " alt="" coords="164,157,231,184"/>
-<area shape="rect" id="node6" href="$classAIMedic.html" title="Componete IA que se move para ponto de destino. " alt="" coords="162,208,233,235"/>
-<area shape="rect" id="node7" href="$classAIPrintPath.html" title="Componete IA que se move para ponto de destino. " alt="" coords="153,259,242,285"/>
-<area shape="rect" id="node8" href="$classAIQuimic.html" title="Componete IA que reproduz o comportamento do estudande de quimica. " alt="" coords="159,309,235,336"/>
-<area shape="rect" id="node9" href="$classDragAndDrop.html" title="Classe responsável por arrastar e posicionar Objetos. " alt="" coords="147,360,248,387"/>
-<area shape="rect" id="node10" href="$classHitPoints.html" title="HitPoints" alt="" coords="159,411,235,437"/>
-<area shape="rect" id="node11" href="$classWaveManager.html" title="Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves..." alt="" coords="144,461,251,488"/>
+<area shape="rect" id="node2" href="$classAIArt.html" title="Componete IA que se move para ponto de destino. " alt="" coords="170,5,222,32"/>
+<area shape="rect" id="node3" href="$classAIEngineer.html" title="Componete IA que se move para ponto de destino. " alt="" coords="153,56,239,83"/>
+<area shape="rect" id="node4" href="$classAIGoDown.html" title="Componete IA que se move para baixo. " alt="" coords="153,107,239,133"/>
+<area shape="rect" id="node5" href="$classAIGoTo.html" title="Componete IA que se move para ponto de destino. " alt="" coords="163,157,229,184"/>
+<area shape="rect" id="node6" href="$classAIMedic.html" title="Componete IA que se move para ponto de destino. " alt="" coords="161,208,231,235"/>
+<area shape="rect" id="node7" href="$classAIPrintPath.html" title="Componete IA que se move para ponto de destino. " alt="" coords="151,259,241,285"/>
+<area shape="rect" id="node8" href="$classAIQuimic.html" title="Componete IA que reproduz o comportamento do estudande de quimica. " alt="" coords="158,309,234,336"/>
+<area shape="rect" id="node9" href="$classDragAndDrop.html" title="Classe responsável por arrastar e posicionar Objetos. " alt="" coords="145,360,247,387"/>
+<area shape="rect" id="node10" href="$classHitPoints.html" title="HitPoints" alt="" coords="158,411,234,437"/>
+<area shape="rect" id="node11" href="$classShooter.html" title="Shooter" alt="" coords="163,461,229,488"/>
+<area shape="rect" id="node12" href="$classWaveManager.html" title="Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves..." alt="" coords="143,512,249,539"/>
 </map>

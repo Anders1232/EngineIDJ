@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['hitpoints',['HitPoints',['../classHitPoints.html',1,'']]]
+  ['game',['Game',['../classGame.html',1,'']]],
+  ['gameobject',['GameObject',['../classGameObject.html',1,'']]],
+  ['gameresources',['GameResources',['../classGameResources.html',1,'']]]
 ];

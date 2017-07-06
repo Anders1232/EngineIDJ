@@ -8,11 +8,12 @@
 #include "Error.h"
 
 #define TIME_BETWEEN_SPAWN (0.8)
+#define TIME_BETWEEN_WAVES (5.0)
 
 int WaveManager::waveCount = 0;
 
 
-WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
+WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap), waveStartSound("audio/Acoes/Inicio de Wave.wav"), betweenWavesTimer(), waitingForTheNextWave(true) {
 	endWave=false;
 	enemiesLeft = 0;
 	playerLifes = 30;
@@ -52,7 +53,6 @@ void WaveManager::StartWave(){
 	enemyIndex = 0;
 	endWave = false;
 	++waveCount;
-
 }
 
 
@@ -69,9 +69,19 @@ void WaveManager::Update(float dt){
 			victory = true;
 			return;
 		}else{
+			if(!waitingForTheNextWave){
+				waitingForTheNextWave= true;
+				betweenWavesTimer.Restart();
+				waveStartSound.Play(1);
+			}
+			else{
+				betweenWavesTimer.Update(dt);
+				if(TIME_BETWEEN_WAVES > betweenWavesTimer.Get()){
+					++waveIndex;
+					StartWave();
+				}
+			}
 			REPORT_I_WAS_HERE;
-			++waveIndex;
-			StartWave();
 		}
 	}else{
 		if(enemyIndex <= maxNumberOfEnemiesInSpawnPoint){

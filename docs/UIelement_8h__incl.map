@@ -1,8 +1,8 @@
 <map id="Engine/include/UIelement.h" name="Engine/include/UIelement.h">
 <area shape="rect" id="node2" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="335,80,401,107"/>
 <area shape="rect" id="node7" href="$Rect_8h.html" title="Rect.h" alt="" coords="88,155,149,181"/>
-<area shape="rect" id="node8" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="139,229,201,256"/>
+<area shape="rect" id="node8" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="139,229,202,256"/>
 <area shape="rect" id="node3" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="152,304,259,331"/>
 <area shape="rect" id="node6" href="$Color_8h.html" title="Color.h" alt="" coords="224,155,288,181"/>
-<area shape="rect" id="node10" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="312,155,423,181"/>
+<area shape="rect" id="node10" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="312,155,424,181"/>
 </map>
