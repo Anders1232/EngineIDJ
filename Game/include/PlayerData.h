@@ -29,7 +29,8 @@ class PlayerData: public Component{
 		void GoldUpdate(int amount);
 		void PointsUpdate(int amount);
 		static PlayerData& GetInstance(void);
-		void DecrementLife();
+		void DecrementLife(void);
+		void CountNextWave(int wave);
 		/** 
 			\brief Pegar vidas Restantes.
 			\return playerLifes: vidas restantes.
@@ -44,6 +45,7 @@ class PlayerData: public Component{
 		UItext playerGold;/**<Representa ouro do jogador. Renderizado como um atributo no quadro de pontos.*/
 		UItext playerKills;/**<Numero de inimigos mortos pelo jogador. Renderizado como um atributo no quadro de pontos.*/
 		UItext playerLifes;/**<Numero de vidas do jogador. Renderizado como um atributo no quadro de pontos.*/
+		UItext playerWave;/**<Contador de waves do jogador.*/
 
 		int gold;/**<Representa a quantidade de ouro deo jogador. Ouro usado para comprar torres e ganho matando inimigos.*/
 		uint kills;/**<Contador de inimigos matados.*/

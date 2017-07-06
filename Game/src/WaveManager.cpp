@@ -11,12 +11,11 @@
 #define TIME_BETWEEN_SPAWN (0.8) //tempo entre spawn de inimigos
 #define TIME_BETWEEN_WAVE (10.0) //tempo entre waves
 #define WAVE_INDEX_INITIALIZE -1 //contador em update vai ja iniciar primeira wave com index 0
-int WaveManager::waveCount = 0;
-
 
 WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 	endWave=true;
 	enemiesLeft = 0;
+	waveCount = 0;
 	REPORT_DEBUG2(1, "Buscando spawn points.");
 	spawnGroups= tileMap.GetTileGroups(SPAWN_POINT);
 	REPORT_DEBUG2(1, "Buscando end points.");
@@ -53,6 +52,7 @@ void WaveManager::StartWave(){
 	endWave = false;
 	++waveCount;
 	printf("Wave %d Start!", waveCount);
+	PlayerData::GetInstance().CountNextWave(waveCount);
 
 }
 
