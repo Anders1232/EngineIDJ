@@ -79,7 +79,7 @@ void WaveManager::Update(float dt){
 			}else{
 
 				//waiting for next wave...
-				printf("Next wave start in %f WAVEINDEX: %d\n", waveTimer.Get(), waveIndex);
+				printf("Next wave start in %f \n", TIME_BETWEEN_WAVE - waveTimer.Get());
 
 			}
 		}
