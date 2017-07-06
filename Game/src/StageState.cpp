@@ -668,3 +668,20 @@ GameObject* StageState::FindNearestGO(Vec2 origin, std::string targetType, float
 	return(closerObj);
 }
 
+std::vector<GameObject*>* StageState::FindNearestGOs(Vec2 origin, std::string targetType, float range){
+	vector<GameObject*> *objectsInRange= new vector<GameObject*>();
+	for(unsigned int i = 0; i < objectArray.size(); i ++){
+		std::unique_ptr<GameObject> &gameObjectInAnalisis= objectArray[i];
+		if(nullptr != gameObjectInAnalisis){
+			if(gameObjectInAnalisis->Is(targetType)){
+				double distance = origin.VecDistance(gameObjectInAnalisis->box.Center()).Magnitude();
+				if(distance <= range){
+					objectsInRange->push_back(gameObjectInAnalisis.get());
+				}
+			}
+		}
+	}
+	return(objectsInRange);
+}
+
+
