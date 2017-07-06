@@ -6,6 +6,7 @@
 #include "GameResources.h"
 #include "ManhattanDistance.h"
 #include <list>
+#include "Enemy.h"
 
 /**
 	\brief Componete IA que se move para ponto de destino

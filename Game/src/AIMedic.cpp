@@ -40,13 +40,13 @@ AIMedic::~AIMedic(void){
 
 AIMedic::AIEvent AIMedic::ComputeEvents(){
 	if(actualState == AIState::WALKING){
-		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+		if(((Enemy&)associated).GetEvent() == Enemy::Event::STUN){
 			return AIEvent::STUN;
 		}
 		else if(pathIndex == path->size()){
 			return AIEvent::PATH_BLOCKED;
 		}
-		else if(false){// Aqui verifica-se a colisão com o elemento de fumaça
+		else if(((Enemy&)associated.GetEvent() == Enemy::Event::SMOKE)){
 			return AIEvent::SMOKE;
 		}
 		else{return NONE;}

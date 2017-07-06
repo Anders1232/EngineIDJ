@@ -36,7 +36,7 @@ AIArt::~AIArt(void){
 
 AIArt::AIEvent AIArt::ComputeEvents(){
 	if(actualState == AIState::WALKING){
-		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+		if((Enemy&)associated.GetEvent() == Enemy::Event::STUN){
 			return AIEvent::STUN;
 		}
 		else if(pathIndex == path->size()){
@@ -45,7 +45,7 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 		else{return NONE;}
 	}
 	else if(actualState == AIState::WAITING){
-		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+		if((Enemy&)associated.GetEvent() == Enemy::Event::STUN){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::STUN;
 		}
 		else if(!path->empty()){
@@ -55,7 +55,7 @@ AIArt::AIEvent AIArt::ComputeEvents(){
 		else{return NONE;}
 	}
 	else if(actualState == AIState::STUNNED){
-		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+		if((Enemy&)associated.GetEvent() != Enemy::Event::STUN){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::NOT_STUN;
 		}
 		else if(pathIndex == path->size()){
