@@ -20,6 +20,7 @@ enum ComponentType{
 	WAVE_MANAGER,
 	SIZE,
 	PLAYER_DATA,
+	SHOOTER,
 	COMPONENT_TYPE_SIZE
 };
 

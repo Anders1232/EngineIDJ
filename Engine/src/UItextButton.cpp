@@ -33,6 +33,9 @@ void UItextButton::ConfigColors(SDL_Color disabled, SDL_Color enabled, SDL_Color
 }
 
 void UItextButton::SetUIbuttonState(UIbutton::State newState) {
+
+	if(newState == actualState) return;
+
 	switch(newState) {
 		case UIbutton::State::DISABLED : {
 			SetColor(disabledColor);

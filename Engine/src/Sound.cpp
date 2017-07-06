@@ -4,8 +4,8 @@
 Sound::Sound(): sound(nullptr), channel(-1) {
 }
 
-Sound::Sound(string file): sound(nullptr), channel(-1) {
-	Open(file);
+Sound::Sound(string file): sound(Resources::GetSound(file)), channel(-1) {
+//	Open(file);
 }
 
 void Sound::Play(int times) {

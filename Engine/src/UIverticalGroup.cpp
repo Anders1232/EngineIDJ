@@ -8,7 +8,8 @@ void UIverticalGroup::Update(float dt, Rect parentCanvas) {
 	UIcanvas::Update(dt, parentCanvas);
 	const unsigned int n = groupedElements.size();
 	if(n > 0) {
-		float pad = padding/box.y;
+
+		float pad = padding/box.h;
 		float delta = ( 1. - pad*(n-1) ) / n;
 		float j = 0;
 		for(unsigned int i = 0; i < n; i++, j+=delta+pad) {

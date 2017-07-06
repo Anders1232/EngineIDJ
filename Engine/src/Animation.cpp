@@ -7,8 +7,8 @@ Animation::Animation(
 		string sprite, int frameCount,
 		float frameTime, bool ends
 		) : GameObject(), endTimer(), timeLimit(frameCount*frameTime)
-		, oneTimeOnly(ends), sp(sprite, frameTime, frameCount) {
-	box= Vec2(x, y);
+		, oneTimeOnly(ends), sp(sprite,false, frameTime,frameCount ) {
+	box= Vec2(x - sp.GetWidth()/2, y - sp.GetHeight()/2);
 	this->rotation = rotation;
 }
 
