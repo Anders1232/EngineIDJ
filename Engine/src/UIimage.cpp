@@ -21,9 +21,11 @@ void UIimage::Render(bool debugRender) const {
 	UIelement::Render(debugRender);
 
 	if(nullptr != sp) {
-		sp->Render(box, angle, false);
+		if(box.w > 0 && box.h > 0) {
+			sp->Render(box, angle, false);
+		}
 	} else {
-		Error("Alguma classe filha de UIimage não foi corretamente inicializada.")
+		Error("Alguma classe filha de UIimage nao foi corretamente inicializada.")
 	}
 }
 

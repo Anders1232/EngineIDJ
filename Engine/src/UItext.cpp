@@ -38,15 +38,17 @@ void UItext::Update(float dt, Rect parentCanvas) {
 
 void UItext::Render(bool debugRender) const {
 	UIelement::Render(debugRender);
-	if(isStrobe ? textTime.Get() < timeShown : true) {
-		SDL_Rect srcRect;
-		srcRect.x = 0;
-		srcRect.y = 0;
-		srcRect.w = kernelSize.x;
-		srcRect.h = kernelSize.y;
-		SDL_Rect destRect = box;
-		if(0 != SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &srcRect, &destRect) ) {
-			Error("Render error: " << SDL_GetError());
+	if(box.w > 0 && box.h > 0) {
+		if(isStrobe ? textTime.Get() < timeShown : true) {
+			SDL_Rect srcRect;
+			srcRect.x = 0;
+			srcRect.y = 0;
+			srcRect.w = kernelSize.x;
+			srcRect.h = kernelSize.y;
+			SDL_Rect destRect = box;
+			if(0 != SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &srcRect, &destRect) ) {
+				Error("Render error: " << SDL_GetError());
+			}
 		}
 	}
 }
