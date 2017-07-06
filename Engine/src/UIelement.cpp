@@ -88,6 +88,7 @@ Rect UIelement::ComputeBox(Rect boundingBox) {
 	if (-1 == boundingBox.x && -1 == boundingBox.y && -1 == boundingBox.w && -1 == boundingBox.h) {
 		boundingBox = this->boundingBox;
 	}
+	Rect box;
 	box.w = kernelSize.x;
 	box.h = kernelSize.y;
 

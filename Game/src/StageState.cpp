@@ -120,10 +120,14 @@ void StageState::SetupUI() {
 	towerBtn1.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData("Normal (Art)", "$1", "10 HP", "Projetil (3/s)");
+																	it->SetUILife(0.75);
+																	it->SetUIWaveProgress(0);
 																} );
 	towerBtn1.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData();
+																	it->SetUILife(1);
+																	it->SetUIWaveProgress(1);
 																} );
 	towerBtn1.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
@@ -137,10 +141,14 @@ void StageState::SetupUI() {
 	towerBtn2.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData("Tentaculo (Soc)", "$10", "10 segundos", "Stun");
+																	it->SetUILife(0.5);
+																	it->SetUIWaveProgress(0.25);
 																} );
 	towerBtn2.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData();
+																	it->SetUILife(1);
+																	it->SetUIWaveProgress(1);
 																} );
 	towerBtn2.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
@@ -154,10 +162,14 @@ void StageState::SetupUI() {
 	towerBtn3.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData("Eletrico (Eng)", "$100", "20 HP/segundo", "Proximidade");
+																	it->SetUILife(0.25);
+																	it->SetUIWaveProgress(0.5);
 																} );
 	towerBtn3.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData();
+																	it->SetUILife(1);
+																	it->SetUIWaveProgress(1);
 																} );
 	towerBtn3.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
@@ -171,10 +183,14 @@ void StageState::SetupUI() {
 	towerBtn4.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData("Nuke (Med)", "$9999", "+Inf HP", "Area");
+																	it->SetUILife(0);
+																	it->SetUIWaveProgress(0.75);
 																} );
 	towerBtn4.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData();
+																	it->SetUILife(1);
+																	it->SetUIWaveProgress(1);
 																} );
 	towerBtn4.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
@@ -192,6 +208,7 @@ void StageState::SetupUI() {
 	health.SetOffsets( {(float)(30.+healthIcon.GetSpriteWidth())/2, 0.},
 					   {120., 25.} );
 
+	healthIcon.SetCenter( {.725, 0.5} );
 	healthIcon.SetAnchors( {0., 0.1},
 						   {0., 0.9} );
 
@@ -207,11 +224,12 @@ void StageState::SetupUI() {
 	healthbarBar.SetSpriteColorMultiplier({180, 225, 149, 255});
 
 
-	wave.SetAnchors( {(float)(30.+healthIcon.GetSpriteWidth())/(2*winSize.x), (float)10./winSize.y},
-					 {(float)150./winSize.x, (float)35./winSize.y} );
-	wave.SetOffsets( {(float)(30.+waveIcon.GetSpriteWidth())/2, 0.},
-					 {120., 25.} );
+	wave.SetAnchors( {(float)(30.+healthIcon.GetSpriteWidth())/(2*winSize.x), (float)35./winSize.y},
+					 {(float)150./winSize.x, (float)60./winSize.y} );
+	wave.SetOffsets( {(float)(30.+waveIcon.GetSpriteWidth())/2, 25.},
+					 {120., 50.} );
 
+	waveIcon.SetCenter( {.725, 0.5} );
 	waveIcon.SetAnchors( {0., 0.1},
 						 {0., 0.9} );
 
@@ -406,15 +424,15 @@ void StageState::RenderUI(void) const {
 	}
 	openMenuBtn.Render();
 
-	health.Render(true);
+	// health.Render(true);
 	healthbarBg.Render();
 	healthbarBar.Render();
 	healthIcon.Render();
 
 	// wave.Render(true);
-	// wavebarBg.Render();
-	// wavebarBar.Render();
-	// waveIcon.Render();
+	wavebarBg.Render();
+	wavebarBar.Render();
+	waveIcon.Render();
 
 	menuIsShowing = this->menuIsShowing;
 }
@@ -458,8 +476,6 @@ void StageState::ToggleMenu(void) {
 		menuBg.SetOffsets( {menuBgOffsets.x+menuBgDim.x, menuBgOffsets.y},
 						   {menuBgOffsets.w+menuBgDim.x, menuBgOffsets.h});
 	}
-
-	// openMenuBtn.angle = 180*menuIsShowing;
 }
 
 void StageState::SetTowerInfoData(string name, string cost, string damage, string damageType) {
@@ -476,4 +492,18 @@ void StageState::CreateTower(Tower::TowerType towerType) {
 	Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE));
 	newTower->AddComponent(new DragAndDrop(tileMap, mousePos, false, true));
 	AddObject(newTower);
+}
+
+void StageState::SetUILife(float lifePercent) {
+	lifePercent = (lifePercent < 0) ? 0 : ((lifePercent > 1) ? 1 : lifePercent);
+	Rect oldAnchor = healthbarBar.GetAnchors();
+	healthbarBar.SetAnchors( {oldAnchor.x, oldAnchor.y},
+							 {lifePercent, oldAnchor.h} );
+}
+
+void StageState::SetUIWaveProgress(float waveProgressPercent) {
+	waveProgressPercent = (waveProgressPercent < 0) ? 0 : ((waveProgressPercent > 1) ? 1 : waveProgressPercent);
+	Rect oldAnchor = wavebarBar.GetAnchors();
+	wavebarBar.SetAnchors( {oldAnchor.x, oldAnchor.y},
+							 {waveProgressPercent, oldAnchor.h} );
 }

@@ -38,6 +38,8 @@ class StageState: public State {
 		void Pause(void);
 		void Resume(void);
 		void ShowLightning(float dt);
+		void SetUILife(float lifePercent);
+		void SetUIWaveProgress(float waveProgressPercent);
 	private:
 		void SetupUI(void);
 		void UpdateUI(float dt);
