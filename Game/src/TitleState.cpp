@@ -24,7 +24,8 @@ TitleState::TitleState()
 		, playBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Jogar")
 		, editorBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Editor de Fases", UIbutton::State::DISABLED)
 		, configBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, std::string("Configura") + (char)0xE7 /*ç*/ + (char)0xF5 /*õ*/ + "es", UIbutton::State::DISABLED)
-		, exitBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Sair") {
+		, exitBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Sair")
+		, titleMusic("audio/trilha_sonora/main_title_.ogg") {
 	SetupUI();
 }
 
@@ -75,6 +76,7 @@ void TitleState::SetupUI(void) {
 	optionsGroup.groupedElements.push_back(&editorBtn);
 	optionsGroup.groupedElements.push_back(&configBtn);
 	optionsGroup.groupedElements.push_back(&exitBtn);
+	titleMusic.Play(2);
 }
 
 void TitleState::Update(float dt) {

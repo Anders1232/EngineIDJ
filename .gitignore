@@ -48,6 +48,8 @@ cmake-build-debug/
 .idea/EngineIDJ.iml
 .idea/modules.xml
 .idea/workspace.xml
+cmake-build-debug/*
+
 
 #arquivos da IDE qt
 EngineIDJ.files

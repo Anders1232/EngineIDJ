@@ -80,13 +80,13 @@ class GameObject{
 			
 			Deve ser usado no State que o contém para o eliminar da sua estrutura de manipulação de gameObject e destruí-lo.
 		*/
-		bool IsDead(void);
+		virtual bool IsDead(void);
 		/**
 			\brief Solicita que o GameObject seja destruído.
 			
 			Uma vez que esse método é chamado, futuras chamadas ao IsDead devem retornar verdadeiro.
 		*/
-		void RequestDelete(void);
+		virtual void RequestDelete(void);
 		/**
 			\brief Notifica Colisão
 			\param other Referência para o gameobject com o qual se colidiu.

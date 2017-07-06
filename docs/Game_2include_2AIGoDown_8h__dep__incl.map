@@ -1,9 +1,0 @@
-<map id="Game/include/AIGoDown.h" name="Game/include/AIGoDown.h">
-<area shape="rect" id="node2" href="$StageState_8h.html" title="Game/include/StageState.h" alt="" coords="97,80,279,107"/>
-<area shape="rect" id="node7" href="$AIGoDown_8cpp.html" title="Game/src/AIGoDown.cpp" alt="" coords="303,80,475,107"/>
-<area shape="rect" id="node8" href="$Enemy_8cpp.html" title="Game/src/Enemy.cpp" alt="" coords="500,80,648,107"/>
-<area shape="rect" id="node3" href="$EndState_8h.html" title="Game/include/EndState.h" alt="" coords="5,155,176,181"/>
-<area shape="rect" id="node5" href="$StageState_8cpp.html" title="Game/src/StageState.cpp" alt="" coords="200,155,373,181"/>
-<area shape="rect" id="node6" href="$TitleState_8cpp.html" title="Game/src/TitleState.cpp" alt="" coords="398,155,561,181"/>
-<area shape="rect" id="node4" href="$EndState_8cpp.html" title="Game/src/EndState.cpp" alt="" coords="9,229,172,256"/>
-</map>

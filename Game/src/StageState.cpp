@@ -45,10 +45,13 @@ StageState::StageState(void)
 		, tileSet(120, 120,"map/tileset_vf.png")
 		, tileMap("map/tileMap.txt", &tileSet)
 		, inputManager(INPUT_MANAGER)
-		, music("audio/stageState.ogg")
+        , music("audio/trilha_sonora/loop_1.ogg")
 		, isLightning(false)
+		, isThundering(false)
 		, lightningTimer()
 		, lightningColor(255, 255, 255, 0)
+		, nightSound("audio/Ambiente/Barulho_noite.wav")
+		, thunderSound("audio/Ambiente/Trovao.wav")
 		, frameRateCounter(0)
 		, HUDcanvas()
 		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
@@ -71,6 +74,7 @@ StageState::StageState(void)
 		, waveIcon("img/UI/HUD/inimigo00.png", UIelement::BehaviorType::FILL)
 		, wavebarBg("img/UI/HUD/hudvida.png")
 		, wavebarBar("img/UI/HUD/hudvida.png") {
+
 	GameResources::SetTileMap(&tileMap);
 	REPORT_I_WAS_HERE;
 	music.Play(10);
@@ -85,6 +89,7 @@ StageState::StageState(void)
 	lightningInterval = rand() % (LIGHTINING_MAX_INTERVAL - LIGHTINING_MIN_INTERVAL) + LIGHTINING_MIN_INTERVAL;
 	REPORT_DEBUG(" Proximo relampago sera em " << lightningInterval << " segundos.");
 	InitializeObstacles();
+	nightSound.Play(-1);
 
 	SetupUI();
 }
@@ -242,6 +247,7 @@ void StageState::SetupUI() {
 	wavebarBar.SetOffsets( {(float)2., 0.},
 						   {(float)-2., 0.} );
 	wavebarBar.SetSpriteColorMultiplier({154, 148, 104, 255});
+
 }
 
 StageState::~StageState(void) {
@@ -250,6 +256,8 @@ StageState::~StageState(void) {
 	obstacleArray.clear();
 	tileMap.RemoveObserver(this);
 	GameResources::Clear();
+	TEMP_REPORT_I_WAS_HERE;
+	nightSound.Stop();
 }
 
 void StageState::Update(float dt){
@@ -260,8 +268,18 @@ void StageState::Update(float dt){
 	if(inputManager.QuitRequested()) {
 		quitRequested = true;
 	}
-	
-	UpdateArray(dt);
+	//fazendo o prórpio loop de atualização ao invés do UpdateArray pois estamos fazendo checagens adicionais
+	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
+		objectArray.at(cont)->Update(dt);
+		if(objectArray.at(cont)->IsDead()) {
+			int64_t objOnTileMap= tileMap.Have(objectArray[cont].get());
+			if(0 <= objOnTileMap){
+				tileMap.RemoveGO(objOnTileMap);
+			}
+			objectArray.erase(objectArray.begin()+cont);
+			cont--;
+		}
+	}
 
 	if(!objectArray.empty()){
 		for(uint count1 = 0; count1 < objectArray.size()-1; count1++) {
@@ -269,14 +287,12 @@ void StageState::Update(float dt){
 				if(Collision::IsColliding(objectArray[count1]->box, objectArray[count2]->box, objectArray[count1]->rotation, objectArray[count2]->rotation) ) {
 					objectArray[count1]->NotifyCollision(*objectArray[count2]);
 					objectArray[count2]->NotifyCollision(*objectArray[count1]);
-					REPORT_I_WAS_HERE;
 				}
 			}
 		}
 	}
-	REPORT_I_WAS_HERE;
+
 	Camera::Update(dt);
-	REPORT_I_WAS_HERE;
 
 	// Game Over Conditions
 	if(waveManager->GetLifesLeft() == 0){
@@ -310,7 +326,6 @@ void StageState::Update(float dt){
 			REPORT_I_WAS_HERE;
 		}
 	}
-	
 	if(INPUT_MANAGER.KeyPress('=')) {
 		Game &game = Game::GetInstance();
 		game.SetMaxFramerate(game.GetMaxFramerate()+5);
@@ -333,10 +348,15 @@ void StageState::Update(float dt){
 		Resources::ChangeSoundVolume(STAGE_STATE_DELTA_VOLUME);
 	}
 	if(isLightning){
+		if(!isThundering){
+			thunderSound.Play(1);
+			isThundering = true;
+		}
 		ShowLightning(dt);
 	}
 	else{
 		isLightning = false;
+		isThundering = false;
 		lightningTimer.Update(dt);
 		if(lightningTimer.Get() > lightningInterval){
 			isLightning = true;
@@ -522,7 +542,7 @@ void StageState::CreateTower(Tower::TowerType towerType) {
 	ToggleMenu();
 
 	Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
-	Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE));
+	Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), TOWER_BASE_HP);
 	newTower->AddComponent(new DragAndDrop(tileMap, mousePos, *newTower, false, false));
 	AddObject(newTower);
 }
@@ -642,3 +662,22 @@ void StageState::InitializeObstacles(void){
 	}
 	delete benchTiles;
 }
+
+GameObject* StageState::FindNearestGO(Vec2 origin, std::string targetType, float range){
+	GameObject* closerObj = nullptr;
+	double closerObjDistance = std::numeric_limits<double>::max();
+	for(unsigned int i = 0; i < objectArray.size(); i ++){
+		std::unique_ptr<GameObject> &gameObjectInAnalisis= objectArray[i];
+		if(nullptr != gameObjectInAnalisis){
+			if(gameObjectInAnalisis->Is(targetType)){
+				double distance = origin.VecDistance(gameObjectInAnalisis->box.Center()).Magnitude();
+				if(distance < closerObjDistance && distance <= range){
+					closerObjDistance = distance;
+					closerObj = gameObjectInAnalisis.get();
+				}
+			}
+		}
+	}
+	return(closerObj);
+}
+

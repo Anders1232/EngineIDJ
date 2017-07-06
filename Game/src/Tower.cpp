@@ -3,18 +3,21 @@
 #include "Camera.h"
 #include "DragAndDrop.h"
 #include "Error.h"
+#include "Shooter.h"
+#include "Game.h"
+#include "StageState.h"
+
 
 typedef unsigned int uint;
 
-Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize)
+Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize,int hp)
 		: sp(type == TowerType::MEDICINE ? "img/tower/torre_fumaca.png" :
 			type == TowerType::SOCIOLOGY ? "img/tower/torre_fumaca.png" :
 			type == TowerType::ENGINEERING ? "img/tower/torre_fumaca.png" :
 			type == TowerType::ARTS ? "img/tower/torre_fumaca.png" :
 			type == TowerType::COMPUTATION ? "img/tower/torre_fumaca.png":
 			"",
-			true)
-		, hitpoints(TOWER_BASE_HP) {
+			true){
 	box.x = pos.x;
 	box.y = pos.y;
 	sp.ScaleX(tileSize.x/sp.GetWidth());
@@ -22,6 +25,11 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize)
 	sp.colorMultiplier = Color( 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 127 + 127*(float)rand()/RAND_MAX );
 	box.w = sp.GetWidth();
 	box.h = sp.GetHeight();
+	StageState& stageState= (StageState&)Game::GetInstance().GetCurrentState();
+	AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 80, 500, "img/minionbullet1.png"));
+
+	hitpoints = new HitPoints(hp,*this);
+	components.push_back(hitpoints);
 }
 
 Tower::~Tower() {
@@ -32,7 +40,7 @@ Tower::~Tower() {
 }
 
 void Tower::Damage(int damage) {
-	hitpoints = hitpoints - damage;
+	hitpoints->Damage(damage);
 }
 
 void Tower::Update(float dt ) {
@@ -46,14 +54,12 @@ void Tower::Render(void) {
 }
 
 bool Tower::IsDead(void) {
-	 return 0 >= hitpoints;
+	 return 0 >= hitpoints->GetHp();
 }
 
 void Tower::RequestDelete(void) {
-	hitpoints = 0;
+	hitpoints->RequestDelete();
 }
-
-void Tower::NotifyCollision(GameObject &object) {}
 
 Rect Tower::GetWorldRenderedRect() const {
 	return Camera::WorldToScreen(box);
@@ -61,4 +67,13 @@ Rect Tower::GetWorldRenderedRect() const {
 
 bool Tower::Is(string type) {
 	return "Tower" == type;
+}
+
+void Tower::NotifyCollision(GameObject &object){
+
+	if(object.Is("Bullet")){
+		if(((Bullet&)object).getTargetType() == "Tower"){
+			hitpoints->Damage(TOWER_BULLET_DAMAGE);
+		}
+	}
 }

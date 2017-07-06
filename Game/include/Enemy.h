@@ -10,12 +10,13 @@
 #include "Error.h"
 #include "WaveData.h"
 #include "HitPoints.h"
+#include "Sound.h"
 #include "WaveManager.h"
 //#include "componentType.h"
 
 #define BASE_HIT_POINTS 100
 #define DIFICULTY_CONSTANT 12
-
+#define ENEMY_BULLET_DAMAGE 10
 #define ENEMY_MOVE_SPEED (10000.)
 #define ENEMY_HOSTILE_MOVE_SPEED (16000.)
 #define ENEMY_QUIMIC_MOVE_SPEED (11000.)
@@ -143,6 +144,7 @@ class Enemy : public GameObject
 		HitPoints *hitpoints;/**< Ponteiro para a componente HitPoints. Usada para chamada com argumentos. */
 		uint baseHP, endPoint; /**< Respectivamentes a vida base do inimigo e seu ponto de destino. */
 		EnemyDirections direction; /**< Direçao para aonde a sprite do inimigo esta voltada. Norte, Sul, Leste ou Oeste */
+		Sound walkingSound;
 };
 
 #endif // ENEMY_H

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['editortext',['editorText',['../classTitleState.html#a185eed7d7df60087c99687d8e759ae57',1,'TitleState']]],
+  ['editorbtn',['editorBtn',['../classTitleState.html#a468e113354356b45a1496cec4708c594',1,'TitleState']]],
+  ['element_5facess',['ELEMENT_ACESS',['../Error_8h.html#a6d8c56e124633e4711b56cd083bcd571',1,'Error.h']]],
   ['enabled',['ENABLED',['../classUIbutton.html#a71ae76c484581a7ef587a33e7a03c708a94a68ceacaa4b025827d492197037e3d',1,'UIbutton']]],
   ['enabled_5fcolor',['ENABLED_COLOR',['../TitleState_8cpp.html#a3b0592e63bd2fe81fd435ec928a6d9fa',1,'TitleState.cpp']]],
   ['enabledcallback',['enabledCallback',['../classUIbutton.html#a753b91488ba779e330ab250280382ac5',1,'UIbutton']]],
@@ -11,7 +12,7 @@ var searchData=
   ['end_5fpoint',['END_POINT',['../TileMap_8h.html#a77dbd277a6165072dfd333ba484bb14e',1,'TileMap.h']]],
   ['end_5fstate_5fdelta_5fvolume',['END_STATE_DELTA_VOLUME',['../EndState_8h.html#a8c776b55093efb545c75f4a409cb93b6',1,'EndState.h']]],
   ['end_5fstate_5ffont_5fsize',['END_STATE_FONT_SIZE',['../EndState_8h.html#a072640bf35e47c51689c7e84ca5fe4b4',1,'EndState.h']]],
-  ['endgroups',['endGroups',['../classStageState.html#affb942ecaa817ddf00171c252eda54e2',1,'StageState']]],
+  ['endgroups',['endGroups',['../classWaveManager.html#ac78e216589fb409b3084158740bb0d9a',1,'WaveManager']]],
   ['endpoint',['endPoint',['../classEnemy.html#a0511a098dc101077664f5529416be4c0',1,'Enemy::endPoint()'],['../structEnemySpawnData.html#a7abd0c754c1d38f630b8e944e8ae0871',1,'EnemySpawnData::endPoint()']]],
   ['endstate',['EndState',['../classEndState.html',1,'EndState'],['../classEndState.html#a14303ccf71d755d28f5a0e79f40c69b4',1,'EndState::EndState()']]],
   ['endstate_2ecpp',['EndState.cpp',['../EndState_8cpp.html',1,'']]],
@@ -21,13 +22,14 @@ var searchData=
   ['endstatedata_2eh',['EndStateData.h',['../EndStateData_8h.html',1,'']]],
   ['endstatedata_5fh',['ENDSTATEDATA_H',['../EndStateData_8cpp.html#a9edd4bf921815da65de27af8a8ad6ff4',1,'EndStateData.cpp']]],
   ['endtimer',['endTimer',['../classAnimation.html#ad4e2674025e4f91143e574c09e213e38',1,'Animation']]],
-  ['endwave',['EndWave',['../classWaveManager.html#a50348ec5262024b3f5386f849bf02172',1,'WaveManager::EndWave()'],['../classWaveManager.html#a12a0514d03f34f6457936220b5e13484',1,'WaveManager::endWave()']]],
+  ['endwave',['endWave',['../classWaveManager.html#a12a0514d03f34f6457936220b5e13484',1,'WaveManager::endWave()'],['../classWaveManager.html#a50348ec5262024b3f5386f849bf02172',1,'WaveManager::EndWave()']]],
   ['enemiesleft',['enemiesLeft',['../classWaveManager.html#a6b3d40032ffbd30f9b906baf80ad54bf',1,'WaveManager']]],
-  ['enemy',['Enemy',['../classEnemy.html',1,'Enemy'],['../classEnemy.html#aa3ca97cfe0394ae64ec3c0c32a30556e',1,'Enemy::Enemy(Vec2 position, EnemyType type, int life)'],['../classEnemy.html#a1efbdb39464746f3f4f78e9680011ca6',1,'Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint)']]],
+  ['enemy',['Enemy',['../classEnemy.html',1,'Enemy'],['../classEnemy.html#aa3ca97cfe0394ae64ec3c0c32a30556e',1,'Enemy::Enemy(Vec2 position, EnemyType type, int life)'],['../classEnemy.html#a7ff2b8e10328a369dc944b0647241c04',1,'Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint, TileMap &amp;tileMap, WaveManager &amp;wManager)']]],
   ['enemy_2ecpp',['Enemy.cpp',['../Enemy_8cpp.html',1,'']]],
   ['enemy_2eh',['Enemy.h',['../Enemy_8h.html',1,'']]],
   ['enemy_5farquitet_5fmove_5fspeed',['ENEMY_ARQUITET_MOVE_SPEED',['../Enemy_8h.html#ae7a3e05eb407fd0046c3aa7922a86bf2',1,'Enemy.h']]],
   ['enemy_5fart_5fmove_5fspeed',['ENEMY_ART_MOVE_SPEED',['../Enemy_8h.html#a278281feb72149404945ee41ef6ff4fa',1,'Enemy.h']]],
+  ['enemy_5fbullet_5fdamage',['ENEMY_BULLET_DAMAGE',['../Enemy_8h.html#afc5ba32f0ee74c419d247622ad55583d',1,'Enemy.h']]],
   ['enemy_5fdirections_5fsize',['ENEMY_DIRECTIONS_SIZE',['../Enemy_8h.html#afe40ed1e5294188d5a3b983708134ac5a7eb9964fa5b45c0ac626e7a13dfe5ad7',1,'Enemy.h']]],
   ['enemy_5fengineer_5fmove_5fspeed',['ENEMY_ENGINEER_MOVE_SPEED',['../Enemy_8h.html#a8c3c441a6beee5e34de58c97577ce36a',1,'Enemy.h']]],
   ['enemy_5fhostile_5fmove_5fspeed',['ENEMY_HOSTILE_MOVE_SPEED',['../Enemy_8h.html#aef0ac017334833e090c009891c1fb75c',1,'Enemy.h']]],
@@ -51,5 +53,5 @@ var searchData=
   ['espace_5fkey',['ESPACE_KEY',['../InputManager_8h.html#a0d0c61d1e55887fd9a927e7f81e2deb8',1,'InputManager.h']]],
   ['event_5fnum',['EVENT_NUM',['../classAIArt.html#a908c35ce823a181d935a117c7e3c13b0a0490fbb3d5800e3a220d825c2f5e500b',1,'AIArt::EVENT_NUM()'],['../classAIEngineer.html#a42993e9cd857a8544512b75ce847244ca618552e1747158feadb724e9af3aacec',1,'AIEngineer::EVENT_NUM()'],['../classAIMedic.html#a4fb99fde39ac9787436a705921341cbea183ace11648ad4e6320c298b67fa9fc9',1,'AIMedic::EVENT_NUM()'],['../classAIQuimic.html#ae2dc7bd95be489ab4b5c4acf00939161ac269fe8e1114ebfe101bdde0499ba391',1,'AIQuimic::EVENT_NUM()']]],
   ['exit',['Exit',['../classTitleState.html#a8bcfae8ce02f52acc8a33c55c9954327',1,'TitleState']]],
-  ['exittext',['exitText',['../classTitleState.html#a383e9e1aab0c306dadd4aa69b248761d',1,'TitleState']]]
+  ['exitbtn',['exitBtn',['../classTitleState.html#a4a18d6494c1d666cb10064934ab108a2',1,'TitleState']]]
 ];

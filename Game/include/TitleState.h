@@ -9,6 +9,7 @@
 #include "UItextButton.h"
 #include "UIverticalGroup.h"
 #include "State.h"
+#include "Music.h"
 
 class TitleState: public State {
 	public:
@@ -31,10 +32,12 @@ class TitleState: public State {
 		UIimage overlay;
 		UIimage title;
 		UIverticalGroup optionsGroup;
+
 		UItextButton playBtn;
 		UItextButton editorBtn;
 		UItextButton configBtn;
 		UItextButton exitBtn;
+		Music titleMusic;
 };
 
 #endif // TITLESTATE_H

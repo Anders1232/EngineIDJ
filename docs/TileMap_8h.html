@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.7"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
 <title>Projeto IDJ - Towers Of Madness: Referência do Arquivo Engine/include/TileMap.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -31,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.8.7 -->
+<!-- Gerado por Doxygen 1.8.8 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </script>
@@ -99,21 +99,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
 <code>#include &quot;<a class="el" href="Tileset_8h.html">Tileset.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Vec2_8h.html">Vec2.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="GameObject_8h.html">GameObject.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="AStarHeuristic_8h.html">AStarHeuristic.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Resources_8h.html">Resources.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="TileMapObserver_8h.html">TileMapObserver.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="NearestGOFinder_8h.html">NearestGOFinder.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Gráfico de dependência de inclusões para TileMap.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="TileMap_8h__incl.svg" width="1131" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="TileMap_8h__incl.svg" width="1471" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com este arquivo:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="TileMap_8h__dep__incl.svg" width="2479" height="486"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="TileMap_8h__dep__incl.svg" width="2572" height="486"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -121,6 +124,10 @@ Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com
 Componentes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html">TileMap</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe que modela o <a class="el" href="classTileMap.html" title="Classe que modela o TileMap. ">TileMap</a>.  <a href="classTileMap.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap_1_1LessThanByHeuristic.html">TileMap::LessThanByHeuristic</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap_1_1AStarPryorityQueue.html">TileMap::AStarPryorityQueue&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -133,9 +140,7 @@ Definições e Macros</h2></td></tr>
 <tr class="separator:a22d205877ba623d755a2c7306a45170a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a452dbcc2cd05223f6accd20d93ac1304"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TileMap_8h.html#a452dbcc2cd05223f6accd20d93ac1304">WALKABLE_LAYER</a>&#160;&#160;&#160;(0)</td></tr>
 <tr class="separator:a452dbcc2cd05223f6accd20d93ac1304"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6aeee621be81253740f9d2c9b6569aca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TileMap_8h.html#a6aeee621be81253740f9d2c9b6569aca">SMILE_TILE_SET</a>&#160;&#160;&#160;(14)</td></tr>
-<tr class="separator:a6aeee621be81253740f9d2c9b6569aca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77dbd277a6165072dfd333ba484bb14e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TileMap_8h.html#a77dbd277a6165072dfd333ba484bb14e">END_POINT</a>&#160;&#160;&#160;(17)</td></tr>
+<tr class="memitem:a77dbd277a6165072dfd333ba484bb14e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TileMap_8h.html#a77dbd277a6165072dfd333ba484bb14e">END_POINT</a>&#160;&#160;&#160;(74)</td></tr>
 <tr class="separator:a77dbd277a6165072dfd333ba484bb14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Definições e macros</h2>
@@ -156,19 +161,7 @@ Definições e Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define END_POINT&#160;&#160;&#160;(17)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6aeee621be81253740f9d2c9b6569aca"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SMILE_TILE_SET&#160;&#160;&#160;(14)</td>
+          <td class="memname">#define END_POINT&#160;&#160;&#160;(74)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -214,9 +207,9 @@ Definições e Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 23 de Junho de 2017 00:02:58 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Quinta, 6 de Julho de 2017 18:50:47 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.7
+</a> 1.8.8
 </small></address>
 </body>
 </html>
