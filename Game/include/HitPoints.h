@@ -7,7 +7,7 @@
 
 class HitPoints : public Component{
 	public:
-		HitPoints(uint baseHp,GameObject &associated);
+		HitPoints(uint baseHp,GameObject &associated, float scaleX);
 		~HitPoints();
 		void Update(float dt);
 		void Damage(int damage);
