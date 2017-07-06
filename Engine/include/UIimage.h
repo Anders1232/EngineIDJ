@@ -20,6 +20,7 @@ class UIimage : public UIelement {
 		void SetSpriteScale(float scale);
 		void SetSpriteColorMultiplier(Color scale, SDL_BlendMode blendMode = ALPHA_BLEND);
 		bool Is(std::string UItype) const;
+		float angle;
 	protected:
 		UIimage(UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
 		Sprite* sp;

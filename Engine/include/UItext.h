@@ -65,7 +65,7 @@ class UItext : public UIelement {
 
 			Destrói o Text, a textura interna também é destruída para não ter memory leak.
 		*/
-		~UItext();
+		virtual ~UItext();
 		/**
 			\brief Update
 

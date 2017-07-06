@@ -14,6 +14,7 @@ class UIimageButton : public UIimage, public UIbutton {
 	public:
 		UIimageButton(UIbutton::State initialState = UIbutton::State::ENABLED, UIelement::BehaviorType behavior = UIelement::BehaviorType::FIT);
 		virtual ~UIimageButton();
+		void Update(float dt, Rect parentCanvas);
 		void SetUIbuttonState(UIbutton::State newState);
 		void SetStateSprite(UIbutton::State state, Sprite* sprite);
 		const Sprite& GetStateSprite(UIbutton::State state) const;
