@@ -24,7 +24,8 @@ TitleState::TitleState()
 		, playText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Play")
 		, editorText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Editor de Fases", UIbutton::State::DISABLED)
 		, configText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Configuracoes", UIbutton::State::DISABLED)
-		, exitText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Exit") {
+		, exitText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Exit")
+		, titleMusic("audio/trilha_sonora/main_title_.ogg"){
 	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
 
 	lua.SetSpriteScale(0.75);
@@ -66,6 +67,7 @@ TitleState::TitleState()
 	optionsGroup.groupedElements.push_back(&editorText);
 	optionsGroup.groupedElements.push_back(&configText);
 	optionsGroup.groupedElements.push_back(&exitText);
+	titleMusic.Play(2);
 }
 
 void TitleState::Update(float dt) {

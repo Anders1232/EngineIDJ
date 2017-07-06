@@ -5,7 +5,7 @@
 
 EndState::EndState(EndStateData stateData)
 		: bg( (stateData.playerVictory) ? "img/win.jpg" : "img/lose.jpg")
-		, music( (stateData.playerVictory) ? "audio/endStateWin.ogg" : "audio/endStateLose.ogg")
+		, music( (stateData.playerVictory) ? "audio/tela_de_vitoria_derrota/vitoria.ogg" : "audio/tela_de_vitoria_derrota/derrota.ogg")
 		, instruction("font/Call me maybe.ttf",
 					END_STATE_FONT_SIZE,
 					BLENDED,
