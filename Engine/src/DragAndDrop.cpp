@@ -5,8 +5,8 @@
 #include "InputManager.h"
 #include "TileMap.h"
 
-DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, GameObject &associated, bool redrag, bool forceDrag, bool dragOnActionHold)
-		: dragOnHold(dragOnActionHold),associatedInitialPos(associatedInitialPos), tileMap(map), redrag(redrag), forceDrag(forceDrag), associated(associated) {
+DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, GameObject &associated, bool redrag, bool dragOnActionHold)
+		: dragOnHold(dragOnActionHold),associatedInitialPos(associatedInitialPos), tileMap(map), redrag(redrag), associated(associated) {
 }
 
 void DragAndDrop::Update(float dt) {
@@ -17,9 +17,8 @@ void DragAndDrop::Update(float dt) {
 		} else {
 			tileMap.InsertGO(&associated);
 		}
-		forceDrag = false;
 		associated.RemoveComponent(DRAG_AND_DROP);
-	} else if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON) || forceDrag) {
+	} else if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON) || !dragOnHold) {
 		Vec2 mousePos= Camera::ScreenToWorld(inputManager.GetMousePos() );
 		associated.box= mousePos-Vec2(associated.box.w/2, associated.box.h/2);
 	} 

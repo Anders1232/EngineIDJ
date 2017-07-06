@@ -539,7 +539,7 @@ void StageState::CreateTower(Tower::TowerType towerType) {
 
 	Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
 	Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE));
-	newTower->AddComponent(new DragAndDrop(tileMap, mousePos, *newTower, false, true));
+	newTower->AddComponent(new DragAndDrop(tileMap, mousePos, *newTower, false, false));
 	AddObject(newTower);
 }
 
