@@ -37,7 +37,6 @@ void WaveManager::StartWave(){
 	enemiesLeft=0;
 	maxNumberOfEnemiesInSpawnPoint=0;
 	int numberOfEnemiesInSpawnPoint;
-	REPORT_I_WAS_HERE;
 	for (uint i = 0; i < wavesAndEnemysData->first[waveIndex].spawnPointsData.size(); i++){
 		numberOfEnemiesInSpawnPoint=0;
 		for (uint j = 0; j < wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData.size(); j++){
@@ -52,6 +51,8 @@ void WaveManager::StartWave(){
 	enemyIndex = 0;
 	endWave = false;
 	++waveCount;
+	printf("Wave %d Start!", waveCount);
+
 
 }
 
@@ -65,7 +66,6 @@ void WaveManager::Update(float dt){
 
 	if(EndWave()){
 		if(totalWaves==waveCount){ //Check Game over Condition
-			//Ao invés de não fazer nada deve-ser informar o fim de jogo
 			victory = true;
 			return;
 		}else{
@@ -113,6 +113,7 @@ void WaveManager::Update(float dt){
 			}
 		}
 	}
+	printf("enemiesLeft: %d\n", enemiesLeft);
 	if (0 >= enemiesLeft){
 		endWave = true;
 	}
@@ -137,6 +138,7 @@ bool WaveManager::Is(ComponentType type) const{
 
 void WaveManager::NotifyEnemyGotToHisDestiny(){
 	PlayerData::GetInstance().DecrementLife();
+	--enemiesLeft;
 }
 
 void WaveManager::NotifyEnemyGotKilled(){
