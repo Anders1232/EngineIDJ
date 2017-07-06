@@ -90,7 +90,6 @@ PlayerData& PlayerData::GetInstance(void){
 void PlayerData::DecrementLife(){
 	--lifes;
 	playerLifes.SetText("Lifes: " + std::to_string(lifes));
-	std::cout << "Lifes: " + std::to_string(lifes)<< "\n";
 	PointsUpdate(LIFE_LOST);
 }
 
