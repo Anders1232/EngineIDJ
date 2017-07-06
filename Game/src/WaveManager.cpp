@@ -159,7 +159,6 @@ bool WaveManager::Is(ComponentType type) const{
 }
 
 void WaveManager::NotifyEnemyGotToHisDestiny(){
-	TEMP_REPORT_I_WAS_HERE;
 	--playerLifes;
 }
 

@@ -1,4 +1,5 @@
 #include "Obstacle.h"
+#include "Error.h"
 
 Obstacle::Obstacle(std::string path, Vec2 position) : GameObject(), sp(path){
 	box = position;
@@ -30,3 +31,6 @@ void Obstacle::SpriteScaleY(float scaleY){
 	sp.ScaleY(scaleY);
 }
 
+void Obstacle::RequestDelete(){
+	REPORT_DEBUG2(1, "[WARNING] Should not get here until StageState ends.");
+}

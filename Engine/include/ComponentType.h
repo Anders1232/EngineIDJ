@@ -18,7 +18,8 @@ enum ComponentType{
 	AI_QUIMIC,
 	AI_ENGINEER,
 	WAVE_MANAGER,
-	SIZE,
+	SHOOTER,
+//	SIZE,
 	COMPONENT_TYPE_SIZE
 };
 

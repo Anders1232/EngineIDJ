@@ -1,6 +1,7 @@
 #ifndef WAVE_H
 #define WAVE_H
 
+#include <memory>
 #include "GameObject.h"
 #include "Timer.h"
 #include "TileMap.h"
@@ -9,6 +10,7 @@
 #include "Error.h"
 #include "Sound.h"
 #include <memory>
+
 using std::vector;
 
 /**

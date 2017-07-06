@@ -38,7 +38,7 @@ class Sprite {
 
 			Uma instância de sprite é criada. A escala inicial(X e Y) é 1.0. o método Open é chamado para carregar a imagem.
 		*/
-		Sprite(std::string file, bool highlighted= false, float frameTime=1, int frameCount=1);
+		Sprite(std::string file, bool highlighted = false, float frameTime=1, int frameCount=1);
 		/**
 			\brief Destrutor
 
