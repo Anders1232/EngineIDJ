@@ -1,5 +1,6 @@
 #include <algorithm>
 #include "AIQuimic.h"
+#include "Shooter.h"
 
 AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associated,WaveManager& wManager):speed(speed),destTile(dest), pathIndex(0),tileMap(tileMap),associated(associated),waveManager(wManager){
 	heuristic = new ManhattanDistance();
@@ -8,7 +9,6 @@ AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associat
 	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 	vecSpeed = Vec2(0.0,0.0);
 	lastDistance = std::numeric_limits<float>::max();
-	bulletsCoolDown = Timer();
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
 	dfa[AIState::WALKING][AIEvent::PATH_BLOCKED] = AIState::SENDING_BOMB;
@@ -31,6 +31,8 @@ AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associat
 	actualState = AIState::WALKING;
 	
 	tileMap.ObserveMapChanges(this);
+	shooter= new Shooter(associated, tileMap, "Tower", 500000, 2.5, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 50, 500, "img/minionbullet1.png");
+	associated.AddComponent(shooter);
 }
 
 AIQuimic::~AIQuimic(void){
@@ -87,20 +89,7 @@ AIQuimic::AIEvent AIQuimic::ComputeEvents(){
 void AIQuimic::Update(float dt){
 	AIEvent actualTransition = ComputeEvents();
 	actualState = dfa[actualState][actualTransition];
-	bulletsCoolDown.Update(dt);
 	if(actualState == AIState::WALKING){
-
-		if(bulletsCoolDown.Get() > QUIMIC_MAX_BULLET_COOLDOWN){
-			bulletsCoolDown.Restart();
-			GameObject* target = tileMap.FindNearestGO(associated.box.Center(),std::string("Tower"));
-			if(target != nullptr){
-				Vec2 distance = associated.box.Center().VecDistance(target->box.Center());
-				float angle = std::atan2(distance.y,distance.x);
-				Bullet* bullet = new Bullet(associated.box.Center().x,associated.box.Center().y,angle,BULLET_VEL,BULLET_REACH,std::string("img/minionbullet2.png"),std::string("Tower"),1,3);
-				Game::GetInstance().GetCurrentState().AddObject(bullet);
-			}
-		}
-
 		if(pathIndex != path->size()){
 			tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
 			float distance = associated.box.Center().VecDistance(tempDestination).Magnitude();
@@ -153,16 +142,7 @@ void AIQuimic::Update(float dt){
 	}
 	else if(actualState == AIState::SENDING_BOMB){
 		if(tileMap.GetCoordTilePos(Vec2(associated.box.x,associated.box.y), false, 0) != destTile){
-			if(bulletsCoolDown.Get() > QUIMIC_MAX_BULLET_COOLDOWN){
-				bulletsCoolDown.Restart();
-				GameObject* target = tileMap.FindNearestGO(associated.box.Center(),std::string("Tower"));
-				if(target != nullptr){
-					Vec2 distance = associated.box.Center().VecDistance(target->box.Center());
-					float angle = std::atan2(distance.y,distance.x);
-					Bullet* bullet = new Bullet(associated.box.Center().x,associated.box.Center().y,angle,BULLET_VEL,BULLET_REACH,std::string("img/minionbullet2.png"),std::string("Tower"),0.5,3);
-					Game::GetInstance().GetCurrentState().AddObject(bullet);
-				}
-			}
+			shooter->SetActive(true);
 		}
 		else{
 			associated.RequestDelete();

@@ -1,6 +1,7 @@
 #ifndef AIQUIMIC_H
 #define AIQUIMIC_H
 
+#include <list>
 #include "Component.h"
 #include "TileMap.h"
 #include "GameResources.h"
@@ -8,7 +9,7 @@
 #include "Bullet.h"
 #include "Game.h"
 #include "Timer.h"
-#include <list>
+#include "Shooter.h"
 
 #define QUIMIC_MAX_BULLET_COOLDOWN 10.0
 
@@ -58,9 +59,9 @@ class AIQuimic : public Component, public TileMapObserver
 		TileMap& tileMap;
 		GameObject &associated;
 		WaveManager& waveManager;
-		Timer bulletsCoolDown;
 		AIState actualState;
-		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM]; 
+		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM];
+		Shooter *shooter;
 };
 
 #endif 
