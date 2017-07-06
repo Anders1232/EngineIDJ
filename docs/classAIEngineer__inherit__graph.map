@@ -1,3 +1,4 @@
 <map id="AIEngineer" name="AIEngineer">
-<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="5,5,93,32"/>
+<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="5,5,95,32"/>
+<area shape="rect" id="node3" href="$classTileMapObserver.html" title="TileMapObserver" alt="" coords="119,5,240,32"/>
 </map>

@@ -1,6 +1,6 @@
 <map id="UIgridGroup" name="UIgridGroup">
-<area shape="rect" id="node2" href="$classUIcanvas.html" title="UIcanvas" alt="" coords="82,349,160,376"/>
-<area shape="rect" id="node3" href="$classUIelement.html" title="UIelement" alt="" coords="80,272,161,299"/>
-<area shape="rect" id="node4" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="5,139,56,165"/>
-<area shape="rect" id="node6" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="87,139,137,165"/>
+<area shape="rect" id="node2" href="$classUIcanvas.html" title="UIcanvas" alt="" coords="41,361,120,388"/>
+<area shape="rect" id="node3" href="$classUIelement.html" title="UIelement" alt="" coords="69,272,151,299"/>
+<area shape="rect" id="node4" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="21,139,73,165"/>
+<area shape="rect" id="node6" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="106,139,157,165"/>
 </map>
