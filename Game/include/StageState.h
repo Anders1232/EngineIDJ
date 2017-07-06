@@ -14,6 +14,7 @@
 #include "TileMap.h"
 #include "Tileset.h"
 #include "Timer.h"
+#include "Tower.h"
 #include "WaveManager.h"
 #include "UIcanvas.h"
 #include "UIimageButton.h"
@@ -46,6 +47,7 @@ class StageState: public State {
 							  string damage = TOWERDAMAGE_DEFAULT_TEXT,
 							  string damageType = TOWERDAMGETYPE_DEFAULT_TEXT
 		);
+		void CreateTower(Tower::TowerType towerType);
 		TileSet tileSet;
 		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;

@@ -4,7 +4,6 @@
 #include "EndStateData.h"
 #include "Enemy.h"
 #include "Error.h"
-#include "Tower.h"
 #include "Game.h"
 #include "GameResources.h"
 #include "Vec2.h"
@@ -105,52 +104,68 @@ StageState::StageState(void)
 	towerBtn1.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn1.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
 	towerBtn1.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
-																		StageState* it = static_cast<StageState*>(ptr);
-																		it->SetTowerInfoData("Normal", "$1", "10 HP", "Tiro Unico");
-																	} );
+																	StageState* it = static_cast<StageState*>(ptr);
+																	it->SetTowerInfoData("Normal (Art)", "$1", "10 HP", "Projetil (3/s)");
+																} );
 	towerBtn1.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
-																		StageState* it = static_cast<StageState*>(ptr);
-																		it->SetTowerInfoData();
-																	} );
+																	StageState* it = static_cast<StageState*>(ptr);
+																	it->SetTowerInfoData();
+																} );
+	towerBtn1.SetClickCallback(this, [] (void* ptr) {
+											StageState* it = static_cast<StageState*>(ptr);
+											it->CreateTower(Tower::TowerType::ARTS);
+										} );
 
 	towerBtn2.SetCenter({0.5, 0.});
 	towerBtn2.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn2.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn2.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
 	towerBtn2.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
-																		StageState* it = static_cast<StageState*>(ptr);
-																		it->SetTowerInfoData("Tentaculo", "$10", "10 segundos", "Stun");
-																	} );
+																	StageState* it = static_cast<StageState*>(ptr);
+																	it->SetTowerInfoData("Tentaculo (Soc)", "$10", "10 segundos", "Stun");
+																} );
 	towerBtn2.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
-																		StageState* it = static_cast<StageState*>(ptr);
-																		it->SetTowerInfoData();
-																	} );
+																	StageState* it = static_cast<StageState*>(ptr);
+																	it->SetTowerInfoData();
+																} );
+	towerBtn2.SetClickCallback(this, [] (void* ptr) {
+											StageState* it = static_cast<StageState*>(ptr);
+											it->CreateTower(Tower::TowerType::SOCIOLOGY);
+										} );
 
 	towerBtn3.SetCenter({0.5, 0.});
 	towerBtn3.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn3.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn3.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
 	towerBtn3.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
-																		StageState* it = static_cast<StageState*>(ptr);
-																		it->SetTowerInfoData("Eletrico", "$100", "20 HP/segundo", "Proximidade");
-																	} );
+																	StageState* it = static_cast<StageState*>(ptr);
+																	it->SetTowerInfoData("Eletrico (Eng)", "$100", "20 HP/segundo", "Proximidade");
+																} );
 	towerBtn3.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
-																		StageState* it = static_cast<StageState*>(ptr);
-																		it->SetTowerInfoData();
-																	} );
+																	StageState* it = static_cast<StageState*>(ptr);
+																	it->SetTowerInfoData();
+																} );
+	towerBtn3.SetClickCallback(this, [] (void* ptr) {
+											StageState* it = static_cast<StageState*>(ptr);
+											it->CreateTower(Tower::TowerType::ENGINEERING);
+										} );
 
 	towerBtn4.SetCenter({0.5, 0.});
 	towerBtn4.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn4.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn4.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
 	towerBtn4.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
-																		StageState* it = static_cast<StageState*>(ptr);
-																		it->SetTowerInfoData("Nuke", "$9999", "+Inf HP", "Area");
-																	} );
+																	StageState* it = static_cast<StageState*>(ptr);
+																	it->SetTowerInfoData("Nuke (Med)", "$9999", "+Inf HP", "Area");
+																} );
 	towerBtn4.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
-																		StageState* it = static_cast<StageState*>(ptr);
-																		it->SetTowerInfoData();
-																	} );
+																	StageState* it = static_cast<StageState*>(ptr);
+																	it->SetTowerInfoData();
+																} );
+	towerBtn4.SetClickCallback(this, [] (void* ptr) {
+											StageState* it = static_cast<StageState*>(ptr);
+											it->CreateTower(Tower::TowerType::MEDICINE);
+										} );
 
 	towersBtnGroup.groupedElements.push_back(&towerBtn1);
 	towersBtnGroup.groupedElements.push_back(&towerBtn2);
@@ -386,4 +401,13 @@ void StageState::SetTowerInfoData(string name, string cost, string damage, strin
 	towerCost.SetText(cost);
 	towerDamage.SetText(damage);
 	towerDamageType.SetText(damageType);
+}
+
+void StageState::CreateTower(Tower::TowerType towerType) {
+	ToggleMenu();
+
+	Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
+	Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE));
+	newTower->AddComponent(new DragAndDrop(tileMap, mousePos, false, true));
+	AddObject(newTower);
 }
