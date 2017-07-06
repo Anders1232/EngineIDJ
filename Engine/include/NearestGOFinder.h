@@ -10,6 +10,7 @@ class NearestGOFinder{
 	public:
 		virtual GameObject* FindNearestGO(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max()) = 0;
 		virtual std::vector<GameObject*>* FindNearestGOs(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max()) = 0;
+		//lembrando que é responsabilidade do chamador a desalocação
 		virtual ~NearestGOFinder(){};
 };
 
