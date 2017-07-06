@@ -7,8 +7,7 @@
 #include "NearestGOFinder.h"
 #include "Timer.h"
 
-class Shooter : public Component
-{
+class Shooter : public Component{
 	public:
 		enum TargetPolicy{
 			ALWAYS_NEAREST,
