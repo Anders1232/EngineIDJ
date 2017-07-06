@@ -193,7 +193,7 @@ class TileMap: public NearestGOFinder{
 		std::list<int>* AStar(int originTile,int destTile,AStarHeuristic* heuristic,std::map<int, double> weightMap);
 		void ObserveMapChanges(TileMapObserver *);
 		void RemoveObserver(TileMapObserver *);
-		GameObject* FindNearestGO(Vec2 origin,std::string objectDestType);
+		GameObject* FindNearestGO(Vec2 origin,std::string objectDestType, float range= std::numeric_limits<float>::max());
 	protected:
 		/**
 			\brief Carrega um arquivo das informações do timeMap.
