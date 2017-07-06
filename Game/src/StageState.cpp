@@ -31,7 +31,7 @@ StageState::StageState(void)
 		, tileSet(120, 120,"map/tileset_vf.png")
 		, tileMap("map/tileMap.txt", &tileSet)
 		, inputManager(INPUT_MANAGER)
-		, music("audio/stageState.ogg")
+		, music("audio/trilha_sonora/loop_1.ogg")
 		, isLightning(false)
 		, lightningTimer()
 		, lightningColor(255, 255, 255, 0){
