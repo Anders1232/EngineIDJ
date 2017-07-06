@@ -60,14 +60,6 @@ void WaveManager::StartWave(){
 bool WaveManager::EndWave(){
 	return endWave;
 }
-void WaveManager::WaveCounter(float dt){
-    if(waveCounterStarted){
-        waveTimer.Update(dt);
-    }else{
-        waveTimer.Restart();
-        waveCounterStarted = true;
-    }
-}
 
 void WaveManager::Update(float dt){
 	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
@@ -79,8 +71,8 @@ void WaveManager::Update(float dt){
 			return;
 		}else{
 
-            WaveCounter(dt);
-			if(TIME_BETWEEN_WAVE < waveTimer.Get()) {
+            waveTimer.Update(dt);
+            if(TIME_BETWEEN_WAVE < waveTimer.Get()) {
 				++waveIndex;
 				StartWave();
 
@@ -128,11 +120,14 @@ void WaveManager::Update(float dt){
 				enemyIndex++;
 			}
 		}
-	}
-	if (0 >= enemiesLeft){
-		endWave = true;
 
+        if (0 >= enemiesLeft){
+            endWave = true;
+            waveTimer.Restart();
+            //bounty level complete
+        }
 	}
+
 }
 
 void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint endPoint, uint indexOfTheEnemyToSpawn ){

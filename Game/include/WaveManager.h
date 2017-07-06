@@ -85,10 +85,6 @@ class WaveManager : public Component {
 			
 		*/
 		void SpawnEnemy(int tileMapPosition, int enemyId,uint baseHP, uint endPoint, uint indexOfTheEnemyToSpawn);
-        /**
-             \brief Trata o contador para a proxima wave.
-        */
-        void WaveCounter(float dt);
 
         vector<vector<int>> *spawnGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
 		vector<vector<int>> *endGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
@@ -105,7 +101,6 @@ class WaveManager : public Component {
 
 		int maxNumberOfEnemiesInSpawnPoint; /**<Numero maximo de um tipo de inimigo dentro de uma SpawnGroup. */
 		bool victory;/**< Verdadeiro se o jogador passou por todas as waves com vidas restantes. */
-        bool waveCounterStarted;/**< Verdadeiro se o contador para proxima wave iniciou. */
 
 
 };
