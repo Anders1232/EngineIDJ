@@ -135,14 +135,10 @@ void StageState::SetupUI() {
 	towerBtn1.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData("Normal (Art)", "$1", "10 HP", "Projetil (3/s)");
-																	it->SetUILife(0.75);
-																	it->SetUIWaveProgress(0);
 																} );
 	towerBtn1.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData();
-																	it->SetUILife(1);
-																	it->SetUIWaveProgress(1);
 																} );
 	towerBtn1.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
@@ -156,14 +152,10 @@ void StageState::SetupUI() {
 	towerBtn2.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData("Tentaculo (Soc)", "$10", "10 segundos", "Stun");
-																	it->SetUILife(0.5);
-																	it->SetUIWaveProgress(0.25);
 																} );
 	towerBtn2.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData();
-																	it->SetUILife(1);
-																	it->SetUIWaveProgress(1);
 																} );
 	towerBtn2.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
@@ -177,14 +169,10 @@ void StageState::SetupUI() {
 	towerBtn3.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData("Eletrico (Eng)", "$100", "20 HP/segundo", "Proximidade");
-																	it->SetUILife(0.25);
-																	it->SetUIWaveProgress(0.5);
 																} );
 	towerBtn3.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData();
-																	it->SetUILife(1);
-																	it->SetUIWaveProgress(1);
 																} );
 	towerBtn3.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
@@ -198,14 +186,10 @@ void StageState::SetupUI() {
 	towerBtn4.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData("Nuke (Med)", "$9999", "+Inf HP", "Area");
-																	it->SetUILife(0);
-																	it->SetUIWaveProgress(0.75);
 																} );
 	towerBtn4.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData();
-																	it->SetUILife(1);
-																	it->SetUIWaveProgress(1);
 																} );
 	towerBtn4.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
