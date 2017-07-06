@@ -82,7 +82,11 @@ class StageState: public State {
 		UIimage healthIcon;
 		UIimage healthbarBg;
 		UIimage healthbarBar;
+
 		UIcanvas wave;
+		UIimage waveIcon;
+		UIimage wavebarBg;
+		UIimage wavebarBar;
 };
 
 #include "EndState.h"

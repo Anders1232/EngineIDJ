@@ -54,7 +54,10 @@ StageState::StageState(void)
 		, healthIcon("img/UI/HUD/vida00.png", UIelement::BehaviorType::FILL)
 		, healthbarBg("img/UI/HUD/hudvida.png")
 		, healthbarBar("img/UI/HUD/hudvida.png")
-		, wave() {
+		, wave()
+		, waveIcon("img/UI/HUD/inimigo00.png", UIelement::BehaviorType::FILL)
+		, wavebarBg("img/UI/HUD/hudvida.png")
+		, wavebarBar("img/UI/HUD/hudvida.png") {
 	REPORT_I_WAS_HERE;
 	tileMap = TileMap(std::string("map/tileMap.txt"), &tileSet);
 	
@@ -202,6 +205,26 @@ void StageState::SetupUI() {
 	healthbarBar.SetOffsets( {(float)2., 0.},
 							 {(float)-2., 0.} );
 	healthbarBar.SetSpriteColorMultiplier({180, 225, 149, 255});
+
+
+	wave.SetAnchors( {(float)(30.+healthIcon.GetSpriteWidth())/(2*winSize.x), (float)10./winSize.y},
+					 {(float)150./winSize.x, (float)35./winSize.y} );
+	wave.SetOffsets( {(float)(30.+waveIcon.GetSpriteWidth())/2, 0.},
+					 {120., 25.} );
+
+	waveIcon.SetAnchors( {0., 0.1},
+						 {0., 0.9} );
+
+	wavebarBg.SetAnchors( {0., 0.3},
+						  {1., 0.7} );
+	wavebarBg.SetSpriteColorMultiplier({0, 0, 0, 255});
+	
+	Rect waveBox = wave.ComputeBox(wave.ComputeBoundingbox( {0., 0., winSize.x, winSize.y} ));
+	wavebarBar.SetAnchors( {(float)0., (float)0.3+2/waveBox.h},
+						   {(float)1., (float)0.7-2/waveBox.h} );
+	wavebarBar.SetOffsets( {(float)2., 0.},
+						   {(float)-2., 0.} );
+	wavebarBar.SetSpriteColorMultiplier({154, 148, 104, 255});
 }
 
 StageState::~StageState(void) {
@@ -335,6 +358,9 @@ void StageState::UpdateUI(float dt) {
 	healthbarBar.Update(dt, health);
 
 	wave.Update(dt, HUDcanvas);
+	waveIcon.Update(dt, wave);
+	wavebarBg.Update(dt, wave);
+	wavebarBar.Update(dt, wave);
 }
 
 void StageState::Render(void) const {
@@ -386,6 +412,9 @@ void StageState::RenderUI(void) const {
 	healthIcon.Render();
 
 	// wave.Render(true);
+	// wavebarBg.Render();
+	// wavebarBar.Render();
+	// waveIcon.Render();
 
 	menuIsShowing = this->menuIsShowing;
 }
