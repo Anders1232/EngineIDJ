@@ -188,6 +188,7 @@ class Sprite {
 		SDL_Rect clipRect;/**< Recorte do sprite que será exibido na tela.*/
 		float scaleX;/**< Escala horizontal do sprite.*/
 		float scaleY;/**< Escala vertical do sprite.*/
+		bool highlightable;
 };
 
 #include "InputManager.h"

@@ -10,10 +10,11 @@
 
 class UIverticalGroup : public UIcanvas {
 	public:
-		UIverticalGroup(UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
+		UIverticalGroup(UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH, float padding = 0);
 		virtual void Update(float dt, Rect parentCanvas);
 		bool Is(std::string UItype) const;
 		std::vector<UIelement*> groupedElements;
+		float padding;
 };
 
 #endif // UIVERTICALGROUP_H

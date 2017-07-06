@@ -10,7 +10,6 @@ Engine/include/DragAndDrop.h
 Engine/include/Error.h
 Engine/include/Game.h
 Engine/include/GameObject.h
-Engine/include/HitPoints.h
 Engine/include/InputManager.h
 Engine/include/ManhattanDistance.h
 Engine/include/Music.h
@@ -46,7 +45,6 @@ Engine/src/Component.cpp
 Engine/src/DragAndDrop.cpp
 Engine/src/Game.cpp
 Engine/src/GameObject.cpp
-Engine/src/HitPoints.cpp
 Engine/src/InputManager.cpp
 Engine/src/ManhattanDistance.cpp
 Engine/src/Music.cpp
@@ -84,8 +82,13 @@ Game/include/EndState.h
 Game/include/EndStateData.h
 Game/include/Enemy.h
 Game/include/GameResources.h
+<<<<<<< HEAD
 Game/include/Obstacle.h
 Game/include/Shooter.h
+=======
+Game/include/HitPoints.h
+Game/include/Obstacle.h
+>>>>>>> e306770610cce64f04a391fe977ac716649355b9
 Game/include/StageState.h
 Game/include/TitleState.h
 Game/include/Tower.h
@@ -104,9 +107,15 @@ Game/src/EndState.cpp
 Game/src/EndStateData.cpp
 Game/src/Enemy.cpp
 Game/src/GameResources.cpp
+<<<<<<< HEAD
 Game/src/main.cpp
 Game/src/Obstacle.cpp
 Game/src/Shooter.cpp
+=======
+Game/src/HitPoints.cpp
+Game/src/main.cpp
+Game/src/Obstacle.cpp
+>>>>>>> e306770610cce64f04a391fe977ac716649355b9
 Game/src/StageState.cpp
 Game/src/TitleState.cpp
 Game/src/Tower.cpp
