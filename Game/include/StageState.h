@@ -78,7 +78,6 @@ class StageState: public State {
 		UIimageButton towerBtn3;
 		UIimageButton towerBtn4;
 
-		UIverticalGroup gameInfo;
 		UIcanvas health;
 		UIimage healthIcon;
 		UIimage healthbarBg;

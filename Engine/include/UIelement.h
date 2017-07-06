@@ -25,7 +25,7 @@ class UIelement {
 		virtual bool Is(std::string UItype) const;
 		Rect GetBoundingBox(void) const;
 		Rect ComputeBoundingbox(Rect parentCanvas);
-		Rect ComputeBox();
+		Rect ComputeBox(Rect boundingBox = {-1.,-1.,-1.,-1.});
 		operator Rect() const;
 	protected:
 		UIelement(BehaviorType behavior = BehaviorType::STRETCH, Vec2 center = Vec2(0.5, 0.5));

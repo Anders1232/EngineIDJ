@@ -50,9 +50,8 @@ StageState::StageState(void)
 		, towerBtn2()
 		, towerBtn3()
 		, towerBtn4()
-		, gameInfo()
 		, health()
-		, healthIcon("img/UI/HUD/vida00.png", UIelement::BehaviorType::FIT)
+		, healthIcon("img/UI/HUD/vida00.png", UIelement::BehaviorType::FILL)
 		, healthbarBg("img/UI/HUD/hudvida.png")
 		, healthbarBar("img/UI/HUD/hudvida.png")
 		, wave() {
@@ -73,6 +72,8 @@ StageState::StageState(void)
 }
 
 void StageState::SetupUI() {
+	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
+
 	// Side Menu
 	menuIsShowing = false;
 
@@ -183,17 +184,24 @@ void StageState::SetupUI() {
 	towersBtnGroup.groupedElements.push_back(&towerBtn4);
 
 	// Game Info
-	gameInfo.SetAnchors( {0., 0.},
-						 {0.3, 0.175});
-	gameInfo.SetOffsets( {30., 0.1},
-						 {110., 0.});
+	health.SetAnchors( {(float)(30.+healthIcon.GetSpriteWidth())/(2*winSize.x), (float)10./winSize.y},
+					   {(float)300./winSize.x, (float)35./winSize.y} );
+	health.SetOffsets( {(float)(30.+healthIcon.GetSpriteWidth())/2, 0.},
+					   {120., 25.} );
 
-	gameInfo.groupedElements.push_back(&health);
-	gameInfo.groupedElements.push_back(&wave);
+	healthIcon.SetAnchors( {0., 0.1},
+						   {0., 0.9} );
 
-	healthIcon.SetCenter( {0., 0.5} );
-	healthIcon.SetOffsets( {0., 6.},
-						   {0., -6.});
+	healthbarBg.SetAnchors( {0., 0.3},
+							 {1., 0.7} );
+	healthbarBg.SetSpriteColorMultiplier({0, 0, 0, 255});
+	
+	Rect healthBox = health.ComputeBox(health.ComputeBoundingbox( {0., 0., winSize.x, winSize.y} ));
+	healthbarBar.SetAnchors( {(float)0., (float)0.3+2/healthBox.h},
+							 {(float)1., (float)0.7-2/healthBox.h} );
+	healthbarBar.SetOffsets( {(float)2., 0.},
+							 {(float)-2., 0.} );
+	healthbarBar.SetSpriteColorMultiplier({180, 225, 149, 255});
 }
 
 StageState::~StageState(void) {
@@ -321,12 +329,12 @@ void StageState::UpdateUI(float dt) {
 	towerBtn4.Update(dt, towersBtnGroup);
 
 
-	gameInfo.Update(dt, HUDcanvas);
-
-	health.Update(dt, gameInfo);
+	health.Update(dt, HUDcanvas);
 	healthIcon.Update(dt, health);
+	healthbarBg.Update(dt, health);
+	healthbarBar.Update(dt, health);
 
-	wave.Update(dt, gameInfo);
+	wave.Update(dt, HUDcanvas);
 }
 
 void StageState::Render(void) const {
@@ -372,9 +380,9 @@ void StageState::RenderUI(void) const {
 	}
 	openMenuBtn.Render();
 
-	gameInfo.Render(true);
-
 	health.Render(true);
+	healthbarBg.Render();
+	healthbarBar.Render();
 	healthIcon.Render();
 
 	// wave.Render(true);
