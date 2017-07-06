@@ -73,7 +73,9 @@ class WaveManager : public Component {
 			Retorna true se a condiçao de vitoria foi satisfeita.
 		*/
 		bool Victory();
-	private:
+
+
+    private:
 		/**
 			\brief Criar um novo inimigo no mapa.
 			\param tileMapPosition: Posição do tileMap. Usado para calcular a posição exata de spawn do inimigo.
@@ -83,11 +85,16 @@ class WaveManager : public Component {
 			
 		*/
 		void SpawnEnemy(int tileMapPosition, int enemyId,uint baseHP, uint endPoint, uint indexOfTheEnemyToSpawn);
-		vector<vector<int>> *spawnGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
+        /**
+             \brief Trata o contador para a proxima wave.
+        */
+        void WaveCounter(float dt);
+
+        vector<vector<int>> *spawnGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
 		vector<vector<int>> *endGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
 		static int waveCount; /**<Contador de waves restantes. Também usado para nivelar as waves.*/
 		Timer spawnTimer; /**<Contador para o cooldown de respawn. **/
-		
+		Timer waveTimer; /**<Contador para o inicio da proxima wave. **/
 		int enemiesLeft;/**<Contador de inimigos restantes da wave atual.*/
 
 		TileMap &tileMap;/**<Endereço de TileMap. Usado para conseguir spwanGroups */
@@ -98,8 +105,9 @@ class WaveManager : public Component {
 
 		int maxNumberOfEnemiesInSpawnPoint; /**<Numero maximo de um tipo de inimigo dentro de uma SpawnGroup. */
 		bool victory;/**< Verdadeiro se o jogador passou por todas as waves com vidas restantes. */
+        bool waveCounterStarted;/**< Verdadeiro se o contador para proxima wave iniciou. */
 
-		
+
 };
 
 #endif

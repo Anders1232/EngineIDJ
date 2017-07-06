@@ -9,7 +9,7 @@
 #include "PlayerData.h"
 
 #define TIME_BETWEEN_SPAWN (0.8)
-
+#define TIME_BETWEEN_WAVE (5.0)
 int WaveManager::waveCount = 0;
 
 
@@ -52,7 +52,7 @@ void WaveManager::StartWave(){
 	endWave = false;
 	++waveCount;
 	printf("Wave %d Start!", waveCount);
-
+    waveCounterStarted = false;
 
 }
 
@@ -60,18 +60,34 @@ void WaveManager::StartWave(){
 bool WaveManager::EndWave(){
 	return endWave;
 }
- 
+void WaveManager::WaveCounter(float dt){
+    if(waveCounterStarted){
+        waveTimer.Update(dt);
+    }else{
+        waveTimer.Restart();
+        waveCounterStarted = true;
+    }
+}
+
 void WaveManager::Update(float dt){
 	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
 
 	if(EndWave()){
+
 		if(totalWaves==waveCount){ //Check Game over Condition
 			victory = true;
 			return;
 		}else{
-			REPORT_I_WAS_HERE;
-			++waveIndex;
-			StartWave();
+
+            WaveCounter(dt);
+			if(TIME_BETWEEN_WAVE < waveTimer.Get()) {
+				++waveIndex;
+				StartWave();
+
+			}else{
+				//waiting for next wave...
+				printf("Next wave start in %f\n", waveTimer.Get());
+			}
 		}
 	}else{
 		if(enemyIndex <= maxNumberOfEnemiesInSpawnPoint){
@@ -113,9 +129,9 @@ void WaveManager::Update(float dt){
 			}
 		}
 	}
-	printf("enemiesLeft: %d\n", enemiesLeft);
 	if (0 >= enemiesLeft){
 		endWave = true;
+
 	}
 }
 

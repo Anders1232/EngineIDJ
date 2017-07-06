@@ -35,8 +35,8 @@ class PlayerData: public Component{
 			\return playerLifes: vidas restantes.
 			Retorna as vidas restantes do jogador.
 		*/
-		int GetLifes();
-	private:
+		int GetLifes(void);
+    private:
 		UIcanvas HUDcanvas;/**<Representa a area renderizavel na tela. Usado para renderizar o Quadro de pontos.*/
 		UIverticalGroup playerTable;/**<Representa a Quadro de pontos. Usado para agrupar quantidade de vidas, ouro, pontos e mortes.*/
 		UItext boardName;/**<Nome do Quadro de pontos. Renderizado como um atributo no quadro de pontos.*/
@@ -49,7 +49,6 @@ class PlayerData: public Component{
 		uint kills;/**<Contador de inimigos matados.*/
 		int lifes;/**<Contador de vidas do jogador. Representa uma tolerancia de quantos inimigos ainda podem passar.*/
 		int points;/**<Contador de pontos do jogador. Pontuaçao do jogador. Matar inimigos e passar de wave aumenta os pontos e deixar inimigos passarem os diminui.*/
-
 };
 
 
