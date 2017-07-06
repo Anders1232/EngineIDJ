@@ -52,7 +52,6 @@ class GameObject{
 		/**
 			\brief Remove componente a um gameobjet.
 			\param type Tipo do componente a ser removido.
-			
 			Se a não existir um componente desse tipo no GameObject nada será feito.
 		*/
 		void RemoveComponent(ComponentType type);

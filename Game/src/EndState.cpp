@@ -1,5 +1,6 @@
 #include "EndState.h"
-
+#include "InputManager.h"
+#include "StageState.h"
 #include "Camera.h"
 
 EndState::EndState(EndStateData stateData)
@@ -27,7 +28,6 @@ EndState::EndState(EndStateData stateData)
 void EndState::Update(float dt) {
 	instruction.Update(dt);
 	InputManager &inputManager = InputManager::GetInstance();
-
 	if(inputManager.QuitRequested()) {
 		quitRequested = true;
 	}

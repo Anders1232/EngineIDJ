@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['music_2ecpp',['Music.cpp',['../Music_8cpp.html',1,'']]],
-  ['music_2eh',['Music.h',['../Music_8h.html',1,'']]]
+  ['inputmanager_2ecpp',['InputManager.cpp',['../InputManager_8cpp.html',1,'']]],
+  ['inputmanager_2eh',['InputManager.h',['../InputManager_8h.html',1,'']]]
 ];

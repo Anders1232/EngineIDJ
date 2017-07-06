@@ -1,7 +1,7 @@
 <map id="UIimage" name="UIimage">
-<area shape="rect" id="node2" href="$classUIelement.html" title="UIelement" alt="" coords="130,304,213,331"/>
-<area shape="rect" id="node3" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="5,155,57,181"/>
-<area shape="rect" id="node5" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="93,155,143,181"/>
-<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="646,304,702,331"/>
-<area shape="rect" id="node12" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="771,155,825,181"/>
+<area shape="rect" id="node2" href="$classUIelement.html" title="UIelement" alt="" coords="129,304,211,331"/>
+<area shape="rect" id="node3" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="5,155,56,181"/>
+<area shape="rect" id="node5" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="92,155,143,181"/>
+<area shape="rect" id="node7" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="645,304,700,331"/>
+<area shape="rect" id="node12" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="771,155,824,181"/>
 </map>

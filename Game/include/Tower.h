@@ -28,12 +28,10 @@ class Tower : public GameObject{
 		
 		Tower(TowerType, Vec2 pos, Vec2 tileSize);
 		void Damage(int damage);
-	
 		void Update(float dt );
 		void Render(void);
 		bool IsDead(void);
 		void RequestDelete(void);
-		
 		void NotifyCollision(GameObject &other);
 		Rect GetWorldRenderedRect(void) const;
 		bool Is(string type);
