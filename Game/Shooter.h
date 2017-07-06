@@ -26,6 +26,7 @@ class Shooter : public Component
 			ALWAYS_NEAREST,
 			SHOOT_UNTIL_OUT_OF_RANGE
 		};
+		void SetActive(bool active);
 	private:
 		GameObject &associated;
 		NearestGOFinder &finder;

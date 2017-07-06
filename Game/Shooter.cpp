@@ -49,3 +49,8 @@ void Shooter::Update(float dt){
 		}
 	}
 }
+
+void Shooter::SetActive(bool active){
+	this->active= active;
+}
+
