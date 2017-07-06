@@ -89,6 +89,18 @@ void AIQuimic::Update(float dt){
 	actualState = dfa[actualState][actualTransition];
 	bulletsCoolDown.Update(dt);
 	if(actualState == AIState::WALKING){
+
+		if(bulletsCoolDown.Get() > QUIMIC_MAX_BULLET_COOLDOWN){
+			bulletsCoolDown.Restart();
+			GameObject* target = tileMap.FindNearestGO(associated.box.Center(),std::string("Tower"));
+			if(target != nullptr){
+				Vec2 distance = associated.box.Center().VecDistance(target->box.Center());
+				float angle = std::atan2(distance.y,distance.x);
+				Bullet* bullet = new Bullet(associated.box.Center().x,associated.box.Center().y,angle,BULLET_VEL,BULLET_REACH,std::string("img/minionbullet2.png"),std::string("Tower"),1,3);
+				Game::GetInstance().GetCurrentState().AddObject(bullet);
+			}
+		}
+
 		if(pathIndex != path->size()){
 			tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
 			float distance = associated.box.Center().VecDistance(tempDestination).Magnitude();
@@ -147,7 +159,7 @@ void AIQuimic::Update(float dt){
 				if(target != nullptr){
 					Vec2 distance = associated.box.Center().VecDistance(target->box.Center());
 					float angle = std::atan2(distance.y,distance.x);
-					Bullet* bullet = new Bullet(associated.box.Center().x,associated.box.Center().y,angle,BULLET_VEL,BULLET_REACH,std::string("img/minionbullet2.png"),std::string("Tower"),0.1,3);
+					Bullet* bullet = new Bullet(associated.box.Center().x,associated.box.Center().y,angle,BULLET_VEL,BULLET_REACH,std::string("img/minionbullet2.png"),std::string("Tower"),0.5,3);
 					Game::GetInstance().GetCurrentState().AddObject(bullet);
 				}
 			}
