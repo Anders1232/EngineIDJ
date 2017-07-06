@@ -48,7 +48,10 @@ void Shooter::Update(float dt){
 			}
 			if(nullptr!= target){
 				Vec2 origin= associated.box.Center();
+				Vec2 startDistanceFromOrigin(associated.box.w/2, 0);
 				float angle= (target->box.Center()-origin).Inclination();
+				startDistanceFromOrigin= startDistanceFromOrigin.Rotate(angle);
+				origin = origin + startDistanceFromOrigin;
 				Game::GetInstance().GetCurrentState().AddObject(new Bullet(origin.x, origin.y, angle, bulletSpeed, bulletMaxDistance, bulletSprite, targetType));
 			}
 		}
