@@ -4,25 +4,20 @@
 #include "Camera.h"
 
 EndState::EndState(EndStateData stateData)
-		: bg( (stateData.playerVictory) ? "img/win.jpg" : "img/lose.jpg")
+		: bg( (stateData.playerVictory) ? "img/UI/end-game/prototipo-menu-vitoria.png" : "img/UI/end-game/prototipo-menu-derrota.png")
 		, music( (stateData.playerVictory) ? "audio/endStateWin.ogg" : "audio/endStateLose.ogg")
-		, instruction("font/Call me maybe.ttf",
+		, instruction("font/SHPinscher-Regular.otf",
 					END_STATE_FONT_SIZE,
 					BLENDED,
-					{255, 255, 255, 255},
+					{255, 80, 80, 255},
 					true) {
 	music.Play(0);
-	instruction.SetText("Press Esc to go to menu or Space to play again!");
+	instruction.SetText("Press Space to go to menu or Esc to close the game");
 	instruction.SetTimeShown(0.6);
 	instruction.SetStrobeFrequency(1.0);
 
 	Vec2 pos = Game::GetInstance().GetWindowDimensions();
-	if(stateData.playerVictory) {
-		instruction.SetPos(0, pos.y*0.005, true);
-	}
-	else {
-		instruction.SetPos(0, pos.y-instruction.GetSize().y, true);
-	}
+	instruction.SetPos(0, pos.y-instruction.GetSize().y, true);
 }
 
 void EndState::Update(float dt) {
@@ -32,11 +27,10 @@ void EndState::Update(float dt) {
 		quitRequested = true;
 	}
 	if(ActionManager::EscapeAction()) {
-		popRequested =true;
+		quitRequested =true;
 	}
 	if(ActionManager::StartAction()) {
 		popRequested = true;
-		Game::GetInstance().Push(new StageState());
 	}
 }
 
