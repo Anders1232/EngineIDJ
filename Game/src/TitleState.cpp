@@ -12,7 +12,7 @@
 
 TitleState::TitleState()
 		: State()
-		, canvas({1024,600}, UIelement::BehaviorType::FIT)
+		, canvas({1024,600}, UIelement::BehaviorType::STRETCH)
 		, bg("img/UI/main-menu/bg.png", UIelement::BehaviorType::STRETCH)
 		, lua("img/UI/main-menu/lua.png", UIelement::BehaviorType::FIT)
 		/*, nuvemA("img/UI/main-menu/nuvemA.png", UIelement::BehaviorType::FILL)*/
@@ -21,11 +21,12 @@ TitleState::TitleState()
 		, overlay("img/UI/main-menu/overlay.png", UIelement::BehaviorType::STRETCH)
 		, title("img/UI/main-menu/title.png", UIelement::BehaviorType::FIT)
 		, optionsGroup()
-		, playText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Play")
-		, editorText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Editor de Fases", UIbutton::State::DISABLED)
-		, configText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Configuracoes", UIbutton::State::DISABLED)
-		, exitText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Exit")
+		, playBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Jogar")
+		, editorBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Editor de Fases", UIbutton::State::DISABLED)
+		, configBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, std::string("Configura") + (char)0xE7 /*ç*/ + (char)0xF5 /*õ*/ + "es", UIbutton::State::DISABLED)
+		, exitBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Sair")
 		, titleMusic("audio/trilha_sonora/main_title_.ogg"){
+
 	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
 
 	lua.SetSpriteScale(0.75);
@@ -48,25 +49,25 @@ TitleState::TitleState()
 	optionsGroup.SetAnchors( {0.3, 0.45},
 						  {0.7, 0.9} );
 	
-	playText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
-	playText.SetClickCallback( this, [] (void* caller) {
+	playBtn.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
+	playBtn.SetClickCallback( this, [] (void* caller) {
 									Game::GetInstance().Push(new StageState());
 								} );
 	
-	editorText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
+	editorBtn.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
 	
-	configText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
+	configBtn.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
 	
-	exitText.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
-	exitText.SetClickCallback( this, [] (void* caller) {
+	exitBtn.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
+	exitBtn.SetClickCallback( this, [] (void* caller) {
 									TitleState* titleState = static_cast<TitleState*>(caller);
 									titleState->Exit();
 								} );
-	
-	optionsGroup.groupedElements.push_back(&playText);
-	optionsGroup.groupedElements.push_back(&editorText);
-	optionsGroup.groupedElements.push_back(&configText);
-	optionsGroup.groupedElements.push_back(&exitText);
+
+	optionsGroup.groupedElements.push_back(&playBtn);
+	optionsGroup.groupedElements.push_back(&editorBtn);
+	optionsGroup.groupedElements.push_back(&configBtn);
+	optionsGroup.groupedElements.push_back(&exitBtn);
 	titleMusic.Play(2);
 }
 
@@ -89,10 +90,11 @@ void TitleState::RenderUI(void) const {
 	icc.Render();
 	overlay.Render();
 	title.Render();
-	playText.Render();
-	editorText.Render();
-	configText.Render();
-	exitText.Render();
+	// optionsGroup.Render();
+	playBtn.Render();
+	editorBtn.Render();
+	configBtn.Render();
+	exitBtn.Render();
 }
 
 void TitleState::Pause(void) {}
@@ -103,30 +105,8 @@ void TitleState::Resume(void) {
 }
 
 void TitleState::UpdateUI(float dt) {
-	Vec2 mousePos = INPUT_MANAGER.GetMousePos();
-
-	UItextButton* btnTxtVec[] = {&playText, &editorText, &configText, &exitText, nullptr};
-
-	for(int i = 0; nullptr != btnTxtVec[i]; i++) {
-		if(btnTxtVec[i]->GetUIbuttonState() != UIbutton::State::DISABLED) {
-			if(mousePos.IsInRect(btnTxtVec[i]->GetBoundingBox())) {
-				if(INPUT_MANAGER.IsMouseDown(LEFT_MOUSE_BUTTON)) {
-					btnTxtVec[i]->SetUIbuttonState(UIbutton::State::PRESSED);
-				} else {
-					btnTxtVec[i]->SetUIbuttonState(UIbutton::State::HIGHLIGHTED);
-				}
-				if(INPUT_MANAGER.MouseRelease(LEFT_MOUSE_BUTTON)) {
-					btnTxtVec[i]->Click();
-				}
-			} else {
-				btnTxtVec[i]->SetUIbuttonState(UIbutton::State::ENABLED);
-			}
-		}	
-	}
-
-	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
-	Rect titleCanvas(0., 0., winSize.x, winSize.y);
-	canvas.Update(dt, titleCanvas);
+	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
+	canvas.Update(dt, winSize);
 	bg.Update(dt, canvas);
 	lua.Update(dt, canvas);
 	nuvemB.Update(dt, canvas);
@@ -134,10 +114,10 @@ void TitleState::UpdateUI(float dt) {
 	overlay.Update(dt, canvas);
 	title.Update(dt, canvas);
 	optionsGroup.Update(dt, canvas);
-	playText.Update(dt, optionsGroup);
-	editorText.Update(dt, optionsGroup);
-	configText.Update(dt, optionsGroup);
-	exitText.Update(dt, optionsGroup);
+	playBtn.Update(dt, optionsGroup);
+	editorBtn.Update(dt, optionsGroup);
+	configBtn.Update(dt, optionsGroup);
+	exitBtn.Update(dt, optionsGroup);
 }
 
 void TitleState::Exit() {

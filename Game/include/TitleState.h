@@ -31,10 +31,11 @@ class TitleState: public State {
 		UIimage overlay;
 		UIimage title;
 		UIverticalGroup optionsGroup;
-		UItextButton playText;
-		UItextButton editorText;
-		UItextButton configText;
-		UItextButton exitText;
+
+		UItextButton playBtn;
+		UItextButton editorBtn;
+		UItextButton configBtn;
+		UItextButton exitBtn;
 		Music titleMusic;
 };
 
