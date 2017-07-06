@@ -150,6 +150,8 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	}
 	hitpoints = new HitPoints(baseHP,*this, enemyData.scaleX);
 	components.push_back(hitpoints);
+	box.w= sp[EnemyDirections::DOWN][3].GetWidth();
+	box.h= sp[EnemyDirections::DOWN][3].GetHeight();
 }
 
 Enemy::~Enemy(){
@@ -190,7 +192,6 @@ void Enemy::RequestDelete(void) {
 }
 
 void Enemy::NotifyCollision(GameObject &object) {
-
 	if(object.Is("Bullet")){
 		if(((Bullet&)object).getTargetType() == "Enemy"){
 			hitpoints->Damage(ENEMY_BULLET_DAMAGE);
