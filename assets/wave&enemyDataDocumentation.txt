@@ -1,28 +1,29 @@
 	--ENEMIES--
-    Toco //name
-        QUIMIC //type
-        img/enemy/teste-cor.png //path
-        1.0 //scaleX
-        1.0 //scaleY
-        12  //gold
-    Ladeira //name
-        ART //type
-        img/enemy/teste-cor.png //path
-        1.0 //scaleX
-        1.0 //scaleY
-        14  //gold
-    Madeira
-        QUIMIC
-        img/enemy/teste-cor.png
-        1.0
-        1.0
-        10
-    Ladeira
-        ART
-        img/enemy/teste-cor.png
-        1.0
-        1.0
-        11
+        Quimico_maroto //nome
+            QUIMIC  //type
+            enemy   //path
+            1.0     //scaleX
+            1.0     //scaleY
+            15      //gold
+        Toco //name
+            QUIMIC  //type
+            enemy   //path
+            1.0     //scaleX
+            1.0     //scaleY
+            12      //gold
+        Arte_na_praia     //name
+            ART     //type
+            enemy //path
+            1.0 //scaleX
+            1.0 //scaleY
+            14  //gold
+        Spy_zappin_mah_sentry
+            ENGINNER
+            enemy
+            1.0
+            1.0
+            10
+
 --WAVES--
 Wave1            //wave n
     SpawnPoint:0 //spawnpoint
@@ -46,5 +47,5 @@ Wave1            //wave n
             10
             150
             1
-wave 2
+Wave 2
     ...

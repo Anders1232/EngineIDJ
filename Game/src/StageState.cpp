@@ -314,9 +314,10 @@ void StageState::RenderUI(void) const {
 		towerBtn4.Render(true);
 	}
 
-	playerData.Render();
 	openMenuBtn.Render();
 	menuIsShowing = this->menuIsShowing;
+	playerData.Render();
+
 }
 
 void StageState::Pause(void) {}

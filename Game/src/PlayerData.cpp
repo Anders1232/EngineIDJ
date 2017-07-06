@@ -18,8 +18,9 @@ PlayerData::PlayerData(): HUDcanvas(),
 	kills = 0;
 	lifes = TOTAL_LIFES;
 	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
-	playerTable.SetAnchors({0.0,0.0},{0.0,0.0} );
-	playerTable.SetOffsets( { 0.0, -160.0}, { 240., 200.} );
+	playerTable.SetAnchors({0.2,0.2},{0.20,0.20} );
+//	playerTable.SetOffsets( { 40.0, -160.0}, { 240., 200.} );
+	playerTable.SetOffsets( { 0.0, 0.0}, { 240., 200.} );
 	playerTable.groupedElements.emplace_back(&boardName);
 	playerTable.groupedElements.emplace_back(&playerPoints);
 	playerTable.groupedElements.emplace_back(&playerGold);
@@ -34,18 +35,21 @@ PlayerData::~PlayerData(){
 }
 
 void PlayerData::Render() const{
+	playerTable.Render(true);
+
 	boardName.Render(true);
 
-	playerPoints.Render();
-	playerGold.Render();
-	playerKills.Render();
-	playerLifes.Render();
+	playerPoints.Render(true);
+	playerGold.Render(true);
+	playerKills.Render(true);
+	playerLifes.Render(true);
 }
 void PlayerData::Update(float dt){
 	Rect winSize(0.0, 0.0, Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
 	
 	HUDcanvas.Update(dt, winSize);
 	playerTable.Update(dt, HUDcanvas);
+
 	boardName.Update(dt, playerTable);
 	playerPoints.Update(dt, playerTable);
 	playerGold.Update(dt, playerTable);
