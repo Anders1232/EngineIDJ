@@ -6,6 +6,7 @@
 #include "GameResources.h"
 #include "ManhattanDistance.h"
 #include "WaveManager.h"
+#include "Enemy.h"
 #include <list>
 #include <algorithm>
 
@@ -40,7 +41,7 @@ class AIArt : public Component, public TileMapObserver
 		void NotifyTileMapChanged(int tilePosition);
 	private:
 		enum AIState{WALKING,WAITING,STUNNED,STATE_NUM};
-		enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,STUN,NOT_STUN,EVENT_NUM}; 
+		enum AIEvent{NONE=0,PATH_BLOCKED,PATH_FREE,STUN,NOT_STUN,EVENT_NUM}; 
 		AIEvent ComputeEvents();
 		float speed;/**< Velocidade de movimento do GameObject com esse componente.*/
 		float actualTileweight;

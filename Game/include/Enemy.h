@@ -52,6 +52,7 @@ enum EnemyDirections{
 	ENEMY_DIRECTIONS_SIZE=4
 };
 
+enum Event{NONE,SMOKE,HEALER,STUN,EVENT_NUM}; 
 
 /**
 	\brief Classe que modela inimigos
@@ -134,6 +135,9 @@ class Enemy : public GameObject
 			
 		*/
 		EnemyType GetType(void) const;
+
+		void NotifyEvent(Event e);
+		Event GetLastEvent(Event e);
 	private:
 		void UpdateEnemyDirection(Vec2 lastPosition);
 		EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
@@ -143,6 +147,7 @@ class Enemy : public GameObject
 		HitPoints *hitpoints;/**< Ponteiro para a componente HitPoints. Usada para chamada com argumentos. */
 		uint baseHP, endPoint; /**< Respectivamentes a vida base do inimigo e seu ponto de destino. */
 		EnemyDirections direction; /**< Direçao para aonde a sprite do inimigo esta voltada. Norte, Sul, Leste ou Oeste */
+		Event lastEvent;
 };
 
 #endif // ENEMY_H

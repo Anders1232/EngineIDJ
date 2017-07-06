@@ -199,6 +199,18 @@ void Enemy::NotifyCollision(GameObject &object) {
 	}
 }
 
+void Enemy::NotifyEvent(Event e){
+
+	lastEvent = e;
+
+}
+
+Event Enemy::GetLastEvent(Event e){
+
+	return(lastEvent);
+	
+}
+
 bool Enemy::Is(string type) {
 	return type == "Enemy";
 }
