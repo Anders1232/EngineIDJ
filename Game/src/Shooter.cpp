@@ -35,7 +35,6 @@ void Shooter::Update(float dt){
 	if(active){
 		timerBetweetShoots.Update(dt);
 		if(timerBetweetShoots.Get() > betweetShootsTime){
-			TEMP_REPORT_I_WAS_HERE;
 			timerBetweetShoots.Restart();
 			if(nullptr == target || TargetPolicy::ALWAYS_NEAREST == policy){
 				target= finder.FindNearestGO(associated.box.Center(), targetType, range);
@@ -49,7 +48,10 @@ void Shooter::Update(float dt){
 			}
 			if(nullptr!= target){
 				Vec2 origin= associated.box.Center();
+				Vec2 startDistanceFromOrigin(associated.box.w/2, 0);
 				float angle= (target->box.Center()-origin).Inclination();
+				startDistanceFromOrigin= startDistanceFromOrigin.Rotate(angle);
+				origin = origin + startDistanceFromOrigin;
 				Game::GetInstance().GetCurrentState().AddObject(new Bullet(origin.x, origin.y, angle, bulletSpeed, bulletMaxDistance, bulletSprite, targetType));
 			}
 		}
