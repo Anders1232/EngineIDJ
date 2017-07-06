@@ -260,8 +260,18 @@ void StageState::Update(float dt){
 	if(inputManager.QuitRequested()) {
 		quitRequested = true;
 	}
-	
-	UpdateArray(dt);
+	//fazendo o prórpio loop de atualização ao invés do UpdateArray pois estamos fazendo checagens adicionais
+	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
+		objectArray.at(cont)->Update(dt);
+		if(objectArray.at(cont)->IsDead()) {
+			int64_t objOnTileMap= tileMap.Have(objectArray[cont].get());
+			if(0 <= objOnTileMap){
+				tileMap.RemoveGO(objOnTileMap);
+			}
+			objectArray.erase(objectArray.begin()+cont);
+			cont--;
+		}
+	}
 
 	if(!objectArray.empty()){
 		for(uint count1 = 0; count1 < objectArray.size()-1; count1++) {
@@ -269,14 +279,12 @@ void StageState::Update(float dt){
 				if(Collision::IsColliding(objectArray[count1]->box, objectArray[count2]->box, objectArray[count1]->rotation, objectArray[count2]->rotation) ) {
 					objectArray[count1]->NotifyCollision(*objectArray[count2]);
 					objectArray[count2]->NotifyCollision(*objectArray[count1]);
-					REPORT_I_WAS_HERE;
 				}
 			}
 		}
 	}
-	REPORT_I_WAS_HERE;
+
 	Camera::Update(dt);
-	REPORT_I_WAS_HERE;
 
 	// Game Over Conditions
 	if(waveManager->GetLifesLeft() == 0){
@@ -310,7 +318,6 @@ void StageState::Update(float dt){
 			REPORT_I_WAS_HERE;
 		}
 	}
-	
 	if(INPUT_MANAGER.KeyPress('=')) {
 		Game &game = Game::GetInstance();
 		game.SetMaxFramerate(game.GetMaxFramerate()+5);
@@ -522,7 +529,7 @@ void StageState::CreateTower(Tower::TowerType towerType) {
 	ToggleMenu();
 
 	Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
-	Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE));
+	Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), TOWER_BASE_HP);
 	newTower->AddComponent(new DragAndDrop(tileMap, mousePos, *newTower, false, false));
 	AddObject(newTower);
 }
@@ -642,3 +649,22 @@ void StageState::InitializeObstacles(void){
 	}
 	delete benchTiles;
 }
+
+GameObject* StageState::FindNearestGO(Vec2 origin, std::string targetType, float range){
+	GameObject* closerObj = nullptr;
+	double closerObjDistance = std::numeric_limits<double>::max();
+	for(unsigned int i = 0; i < objectArray.size(); i ++){
+		std::unique_ptr<GameObject> &gameObjectInAnalisis= objectArray[i];
+		if(nullptr != gameObjectInAnalisis){
+			if(gameObjectInAnalisis->Is(targetType)){
+				double distance = origin.VecDistance(gameObjectInAnalisis->box.Center()).Magnitude();
+				if(distance < closerObjDistance && distance <= range){
+					closerObjDistance = distance;
+					closerObj = gameObjectInAnalisis.get();
+				}
+			}
+		}
+	}
+	return(closerObj);
+}
+

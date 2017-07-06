@@ -24,6 +24,8 @@
 #include "UItext.h"
 #include "UIverticalGroup.h"
 #include "WaveManager.h"
+#include "Obstacle.h"
+#include "NearestGOFinder.h"
 
 #define TOWERNAME_DEFAULT_TEXT " "
 #define TOWERCOST_DEFAULT_TEXT " "
@@ -32,7 +34,7 @@
 
 using std::vector;
 
-class StageState: public State, public TileMapObserver {
+class StageState: public State, public TileMapObserver, public NearestGOFinder {
 	public:
 		StageState(void);
 		~StageState(void);
@@ -44,6 +46,7 @@ class StageState: public State, public TileMapObserver {
 		void SetUILife(float lifePercent);
 		void SetUIWaveProgress(float waveProgressPercent);
 		void NotifyTileMapChanged(int tilePosition);
+		GameObject* FindNearestGO(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max());
 	private:
 		void SetupUI(void);
 		void UpdateUI(float dt);

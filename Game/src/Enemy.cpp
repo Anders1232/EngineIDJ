@@ -145,11 +145,13 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			components.emplace_back(new AIMedic(ENEMY_QUIMIC_MOVE_SPEED, endPoint, tileMap, *this, wManager));
 			break;
 		default:
-			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";
+			Error("Unkown Enemy type: "<< enemyData.enemyType << END_LINE);
 			break;
 	}
 	hitpoints = new HitPoints(baseHP,*this, enemyData.scaleX);
 	components.push_back(hitpoints);
+	box.w= sp[EnemyDirections::DOWN][3].GetWidth();
+	box.h= sp[EnemyDirections::DOWN][3].GetHeight();
 }
 
 Enemy::~Enemy(){
@@ -190,13 +192,11 @@ void Enemy::RequestDelete(void) {
 }
 
 void Enemy::NotifyCollision(GameObject &object) {
-/*
-	if (object.Is("Bullet")){
-		if( ( (Bullet&)object).GetTargetsPlayer()==false){
-			hp->Damage(DMG); 
+	if(object.Is("Bullet")){
+		if(((Bullet&)object).getTargetType() == "Enemy"){
+			hitpoints->Damage(ENEMY_BULLET_DAMAGE);
 		}
 	}
-*/	
 }
 
 bool Enemy::Is(string type) {

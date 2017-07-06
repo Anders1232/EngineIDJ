@@ -3,12 +3,12 @@
 #include "Error.h"
 
 Bullet::Bullet(float x,float y,float angle,float speed,float maxDistance,std::string sprite,std::string targetType,float frameTime,int frameCount)
-: sp(sprite, frameTime, frameCount),targetType(targetType){
-	box.x= Camera::pos.x + x -sp.GetWidth()/2;
-	box.y= Camera::pos.y + y -sp.GetHeight()/2;
+: sp(sprite,false,frameTime, frameCount),targetType(targetType){
+	box.x= x;
+	box.y= y;
 	box.w= sp.GetWidth();
 	box.h= sp.GetHeight();
-	rotation= angle*CONVERSAO_GRAUS_RADIANOS;
+	rotation= angle;
 	this->speed= Vec2::FromPolarCoord(speed, angle);
 	distanceLeft= maxDistance;
 }
@@ -18,9 +18,11 @@ void Bullet::Update(float dt){
 	distanceLeft-= speed.Magnitude()*dt;
 	sp.Update(dt);
 }
+
 void Bullet::Render(void){
-	sp.Render(Rect(box.x,box.y,sp.GetWidth(),sp.GetHeight()),rotation,false);
+	sp.Render(Rect(box.x,box.y,sp.GetWidth(),sp.GetHeight()),rotation*CONVERSAO_GRAUS_RADIANOS);
 }
+
 bool Bullet::IsDead(void){
 	return (distanceLeft<=0);
 }
@@ -29,9 +31,19 @@ Bullet::~Bullet(){
 }
 
 void Bullet::NotifyCollision(GameObject &other){
-	if(other.Is(targetType)){distanceLeft= 0;}
+	if(other.Is(targetType)){
+		distanceLeft= 0;
+		Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/explosion.png",5,0.1,true));
+		RequestDelete();
+	}
 }
 
 bool Bullet::Is(string type){
 	return type=="Bullet";
+}
+
+std::string Bullet::getTargetType(){
+
+	return targetType;
+
 }
