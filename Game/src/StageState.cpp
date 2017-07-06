@@ -205,7 +205,7 @@ void StageState::Update(float dt) {
 	Camera::Update(dt);
 	REPORT_I_WAS_HERE;
 
-	//Game Over Conditions
+	// Game Over Conditions
 	if(waveManager->GetLifesLeft() == 0){
 		popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(false)));
@@ -226,26 +226,16 @@ void StageState::Update(float dt) {
 		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos());
 		std::cout << WHERE << "O mouse está no tile " << tileMap.GetTileMousePos(mousePos, true, 0) << ", cada layer tem " << tileMap.GetHeight()*tileMap.GetHeight() << " tiles." << END_LINE;
 	}
-	if(INPUT_MANAGER.MousePress(RIGHT_MOUSE_BUTTON)){
-		REPORT_I_WAS_HERE;
+	if(INPUT_MANAGER.MousePress(RIGHT_MOUSE_BUTTON)) {
 		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos());
 		int position = tileMap.GetTileMousePos(mousePos, false, COLLISION_LAYER);
-		GameObject *go= tileMap.GetGO(position);
-		if(nullptr == go){
-			std::cout<<WHERE<<"\t[WARNING] Expected GameObject" END_LINE;
-		}
-		else{
+		GameObject *go = tileMap.GetGO(position);
+		if(nullptr != go) {
 			go->AddComponent(new DragAndDrop(tileMap,mousePos));
 			REPORT_I_WAS_HERE;
 		}
 	}
-	if(INPUT_MANAGER.KeyPress('e')) {
-		printf("Tower criado\n");
-		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
-		Tower *newTower= new Tower(static_cast<Tower::TowerType>(rand() % TOTAL_TOWER_TYPES), mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE));
-		AddObject(newTower);
-		tileMap.InsertGO(newTower);
-	}
+	
 	if(INPUT_MANAGER.KeyPress('=')) {
 		Game &game = Game::GetInstance();
 		game.SetMaxFramerate(game.GetMaxFramerate()+5);
