@@ -79,8 +79,18 @@ void StageState::Update(float dt){
 	if(inputManager.QuitRequested()) {
 		quitRequested = true;
 	}
-	
-	UpdateArray(dt);
+	//fazendo o prórpio loop de atualização ao invés do UpdateArray pois estamos fazendo checagens adicionais
+	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
+		objectArray.at(cont)->Update(dt);
+		if(objectArray.at(cont)->IsDead()) {
+			int64_t objOnTileMap= tileMap.Have(objectArray[cont].get());
+			if(0 <= objOnTileMap){
+				tileMap.RemoveGO(objOnTileMap);
+			}
+			objectArray.erase(objectArray.begin()+cont);
+			cont--;
+		}
+	}
 
 	if(!objectArray.empty()){
 		for(uint count1 = 0; count1 < objectArray.size()-1; count1++) {

@@ -546,3 +546,12 @@ void TileMap::ReportChanges(int tileChanged){
 	}
 }
 
+int64_t TileMap::Have(GameObject *obj){
+	for(int64_t i=0; i < (int64_t)gameObjectMatrix.size(); i++){
+		if(gameObjectMatrix[i] == obj){
+			return i;
+		}
+	}
+	return -1;
+}
+

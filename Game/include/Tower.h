@@ -9,7 +9,7 @@
 #ifndef TOWER_H
 #define TOWER_H
 
-#define TOWER_BASE_HP (500)
+#define TOWER_BASE_HP (100)
 #define TOTAL_TOWER_TYPES 5
 #define TOWER_BULLET_DAMAGE 10
 
