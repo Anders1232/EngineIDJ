@@ -18,5 +18,4 @@ void AIShooterTower::Update(float dt){
 }
 
 bool AIShooterTower::Is(std::string type) const{
-	return type == "Tower";
 }

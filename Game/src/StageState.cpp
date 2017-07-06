@@ -88,14 +88,12 @@ void StageState::Update(float dt){
 				if(Collision::IsColliding(objectArray[count1]->box, objectArray[count2]->box, objectArray[count1]->rotation, objectArray[count2]->rotation) ) {
 					objectArray[count1]->NotifyCollision(*objectArray[count2]);
 					objectArray[count2]->NotifyCollision(*objectArray[count1]);
-					REPORT_I_WAS_HERE;
 				}
 			}
 		}
 	}
-	REPORT_I_WAS_HERE;
+
 	Camera::Update(dt);
-	REPORT_I_WAS_HERE;
 
 	//Game Over Conditions
 	if(waveManager->GetLifesLeft() == 0){
