@@ -8,13 +8,14 @@
 #include "Error.h"
 #include "PlayerData.h"
 
-#define TIME_BETWEEN_SPAWN (0.8)
-#define TIME_BETWEEN_WAVE (5.0)
+#define TIME_BETWEEN_SPAWN (0.8) //tempo entre spawn de inimigos
+#define TIME_BETWEEN_WAVE (10.0) //tempo entre waves
+#define WAVE_INDEX_INITIALIZE -1 //contador em update vai ja iniciar primeira wave com index 0
 int WaveManager::waveCount = 0;
 
 
 WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
-	endWave=false;
+	endWave=true;
 	enemiesLeft = 0;
 	REPORT_DEBUG2(1, "Buscando spawn points.");
 	spawnGroups= tileMap.GetTileGroups(SPAWN_POINT);
@@ -22,10 +23,10 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap) {
 	endGroups= tileMap.GetTileGroups(END_POINT);
 	wavesAndEnemysData = GameResources::GetWaveData("assets/wave&enemyData.txt");
 	enemyIndex = 0;
-	waveIndex=0;
+	waveIndex= WAVE_INDEX_INITIALIZE;
 	totalWaves = wavesAndEnemysData->first.size();
 	victory = false;
-	StartWave();
+
 }
 
 WaveManager::~WaveManager(){
@@ -61,7 +62,6 @@ bool WaveManager::EndWave(){
 }
 
 void WaveManager::Update(float dt){
-	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
 
 	if(EndWave()){
 
@@ -72,16 +72,22 @@ void WaveManager::Update(float dt){
 
             waveTimer.Update(dt);
             if(TIME_BETWEEN_WAVE < waveTimer.Get()) {
+
 				++waveIndex;
 				StartWave();
 
 			}else{
+
 				//waiting for next wave...
-				printf("Next wave start in %f\n", waveTimer.Get());
+				printf("Next wave start in %f WAVEINDEX: %d\n", waveTimer.Get(), waveIndex);
+
 			}
 		}
 	}else{
+		WaveData currentWave = wavesAndEnemysData->first[waveIndex];
+
 		if(enemyIndex <= maxNumberOfEnemiesInSpawnPoint){
+
 			spawnTimer.Update(dt);
 			if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){ // spawn cooldown
 				//spawn 1 enemy at each existing spawn group
