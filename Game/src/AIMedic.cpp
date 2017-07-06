@@ -40,22 +40,22 @@ AIMedic::~AIMedic(void){
 
 AIMedic::AIEvent AIMedic::ComputeEvents(){
 	if(actualState == AIState::WALKING){
-		if(((Enemy&)associated).GetEvent() == Enemy::Event::STUN){
+		if(((Enemy&)associated).GetLastEvent() == Enemy::Event::STUN){
 			return AIEvent::STUN;
 		}
 		else if(pathIndex == path->size()){
 			return AIEvent::PATH_BLOCKED;
 		}
-		else if(((Enemy&)associated.GetEvent() == Enemy::Event::SMOKE)){
+		else if(((Enemy&)associated).GetLastEvent() == Enemy::Event::SMOKE){
 			return AIEvent::SMOKE;
 		}
 		else{return NONE;}
 	}
 	else if(actualState == AIState::WALKING_SLOWLY){
-		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+		if(((Enemy&)associated).GetLastEvent() == Enemy::Event::STUN){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::STUN;
 		}
-		else if(false){// Aqui verifica-se o fim da colisão com o elemento de fumaça
+		else if(((Enemy&)associated).GetLastEvent() != Enemy::Event::SMOKE){// Aqui verifica-se o fim da colisão com o elemento de fumaça
 			return AIEvent::NOT_SMOKE;
 		}
 		else if(pathIndex == path->size()){
@@ -64,7 +64,7 @@ AIMedic::AIEvent AIMedic::ComputeEvents(){
 		else{return NONE;}
 	}
 	else if(actualState == AIState::WAITING){
-		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+		if(((Enemy&)associated).GetLastEvent() == Enemy::Event::STUN){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::STUN;
 		}
 		else if(!path->empty()){
@@ -74,7 +74,7 @@ AIMedic::AIEvent AIMedic::ComputeEvents(){
 		else{return NONE;}
 	}
 	else if(actualState == AIState::STUNNED){
-		if(false){// Aqui verifica-se o fim da colisão com o elemento estonteante
+		if(((Enemy&)associated).GetLastEvent() != Enemy::Event::STUN){// Aqui verifica-se o fim da colisão com o elemento estonteante
 			return AIEvent::NOT_STUN;
 		}
 		else if(pathIndex == path->size()){

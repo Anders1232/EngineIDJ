@@ -42,22 +42,22 @@ AIEngineer::~AIEngineer(void){
 
 AIEngineer::AIEvent AIEngineer::ComputeEvents(){
 	if(actualState == AIState::WALKING){
-		if((Enemy&)associated.GetEvent() == Enemy::Event::STUN){// Aqui verifica-se a colisão com o elemento estonteante
+		if(((Enemy&)associated).GetLastEvent() == Enemy::Event::STUN){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::STUN;
 		}
 		else if(pathIndex == path->size()){
 			return AIEvent::PATH_BLOCKED;
 		}
-		else if((Enemy&)associated.GetEvent() == Enemy::Event::SMOKE){// Aqui verifica-se a colisão com o elemento de fumaça
+		else if(((Enemy&)associated).GetLastEvent() == Enemy::Event::SMOKE){// Aqui verifica-se a colisão com o elemento de fumaça
 			return AIEvent::SMOKE;
 		}
 		else{return NONE;}
 	}
 	else if(actualState == AIState::WALKING_SLOWLY){
-		if((Enemy&)associated.GetEvent() == Enemy::Event::STUN){// Aqui verifica-se a colisão com o elemento estonteante
+		if(((Enemy&)associated).GetLastEvent() == Enemy::Event::STUN){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::STUN;
 		}
-		else if((Enemy&)associated.GetEvent() != Enemy::Event::SMOKE){// Aqui verifica-se o fim da colisão com o elemento de fumaça
+		else if(((Enemy&)associated).GetLastEvent() != Enemy::Event::SMOKE){// Aqui verifica-se o fim da colisão com o elemento de fumaça
 			return AIEvent::NOT_SMOKE;
 		}
 		else if(pathIndex == path->size()){
@@ -66,17 +66,16 @@ AIEngineer::AIEvent AIEngineer::ComputeEvents(){
 		else{return NONE;}
 	}
 	else if(actualState == AIState::BUILDING_BARRIER){
-		((Enemy&)associated.GetEvent() == Enemy::Event::STUN){// Aqui verifica-se a colisão com o elemento estonteante
+		if(((Enemy&)associated).GetLastEvent() == Enemy::Event::STUN){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::STUN;
 		}
 		else if(!path->empty()){
-			//std::cout << "PATH_FREE" << std::endl;
 			return AIEvent::PATH_FREE;
 		}
 		else{return NONE;}
 	}
 	else if(actualState == AIState::STUNNED){
-		if((Enemy&)associated.GetEvent() != Enemy::Event::STUN){// Aqui verifica-se o fim da colisão com o elemento estonteante
+		if(((Enemy&)associated).GetLastEvent() != Enemy::Event::STUN){// Aqui verifica-se o fim da colisão com o elemento estonteante
 			return AIEvent::NOT_STUN;
 		}
 		else if(pathIndex == path->size()){

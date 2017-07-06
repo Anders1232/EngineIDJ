@@ -52,8 +52,6 @@ enum EnemyDirections{
 	ENEMY_DIRECTIONS_SIZE=4
 };
 
-enum Event{NONE,SMOKE,HEALER,STUN,EVENT_NUM}; 
-
 /**
 	\brief Classe que modela inimigos
 	
@@ -136,8 +134,9 @@ class Enemy : public GameObject
 		*/
 		EnemyType GetType(void) const;
 
+		enum Event{NONE,SMOKE,HEALER,STUN,EVENT_NUM}; 
 		void NotifyEvent(Event e);
-		Event GetLastEvent(Event e);
+		Event GetLastEvent();
 	private:
 		void UpdateEnemyDirection(Vec2 lastPosition);
 		EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/

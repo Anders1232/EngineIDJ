@@ -205,7 +205,7 @@ void Enemy::NotifyEvent(Event e){
 
 }
 
-Event Enemy::GetLastEvent(Event e){
+Enemy::Event Enemy::GetLastEvent(){
 
 	return(lastEvent);
 	
