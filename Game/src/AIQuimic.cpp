@@ -163,7 +163,6 @@ void AIQuimic::Update(float dt){
 					Game::GetInstance().GetCurrentState().AddObject(bullet);
 				}
 			}
-			
 		}
 		else{
 			associated.RequestDelete();

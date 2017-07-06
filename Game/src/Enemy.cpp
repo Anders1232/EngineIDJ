@@ -145,7 +145,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			components.emplace_back(new AIMedic(ENEMY_QUIMIC_MOVE_SPEED, endPoint, tileMap, *this, wManager));
 			break;
 		default:
-			std::cout << "Unkown Enemy type: "<< enemyData.enemyType << "\n";
+			Error("Unkown Enemy type: "<< enemyData.enemyType << END_LINE);
 			break;
 	}
 	hitpoints = new HitPoints(baseHP,*this, enemyData.scaleX);

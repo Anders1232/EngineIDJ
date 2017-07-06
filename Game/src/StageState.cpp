@@ -358,3 +358,22 @@ void StageState::InitializeObstacles(void){
 	delete benchTiles;
 }
 
+GameObject* StageState::FindNearestGO(Vec2 origin, std::string targetType, float range){
+	GameObject* closerObj = nullptr;
+	double closerObjDistance = std::numeric_limits<double>::max();
+	for(unsigned int i = 0; i < objectArray.size(); i ++){
+		std::unique_ptr<GameObject> &gameObjectInAnalisis= objectArray[i];
+		if(nullptr != gameObjectInAnalisis){
+			if(gameObjectInAnalisis->Is(targetType)){
+				double distance = origin.VecDistance(gameObjectInAnalisis->box.Center()).Magnitude();
+				if(distance < closerObjDistance && distance <= range){
+					closerObjDistance = distance;
+					closerObj = gameObjectInAnalisis.get();
+				}
+			}
+		}
+	}
+	return(closerObj);
+}
+
+

@@ -18,20 +18,24 @@ void Bullet::Update(float dt){
 	distanceLeft-= speed.Magnitude()*dt;
 	sp.Update(dt);
 }
+
 void Bullet::Render(void){
-	sp.Render(Rect(box.x,box.y,sp.GetWidth(),sp.GetHeight()),rotation,false);
+	sp.Render(Rect(box.x,box.y,sp.GetWidth(),sp.GetHeight()),rotation*CONVERSAO_GRAUS_RADIANOS);
 }
+
 bool Bullet::IsDead(void){
 	return (distanceLeft<=0);
 }
 
 Bullet::~Bullet(){
+	TEMP_REPORT_I_WAS_HERE;
 }
 
 void Bullet::NotifyCollision(GameObject &other){
 	if(other.Is(targetType)){
 		distanceLeft= 0;
 		Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/explosion.png",5,0.1,true));
+		RequestDelete();
 	}
 }
 

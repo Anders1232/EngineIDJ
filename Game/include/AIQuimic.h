@@ -10,7 +10,7 @@
 #include "Timer.h"
 #include <list>
 
-#define QUIMIC_MAX_BULLET_COOLDOWN 2.0
+#define QUIMIC_MAX_BULLET_COOLDOWN 10.0
 
 /**
 	\brief Componete IA que reproduz o comportamento do estudande de quimica

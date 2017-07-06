@@ -18,10 +18,11 @@
 #include "AIPrintPath.h"
 #include "WaveManager.h"
 #include "Obstacle.h"
+#include "NearestGOFinder.h"
 
 using std::vector;
 
-class StageState: public State, public TileMapObserver {
+class StageState: public State, public TileMapObserver, public NearestGOFinder {
 	public:
 		StageState(void);
 		~StageState(void);
@@ -31,6 +32,7 @@ class StageState: public State, public TileMapObserver {
 		void Resume(void);
 		void ShowLightning(float dt);
 		void NotifyTileMapChanged(int tilePosition);
+		GameObject* FindNearestGO(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max());
 	private:
 		TileSet tileSet;
 		TileMap tileMap;/**< Mapa de tiles do jogo. */
