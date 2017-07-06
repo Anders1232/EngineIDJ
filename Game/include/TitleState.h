@@ -19,12 +19,13 @@ class TitleState: public State {
 		void Resume(void);
 		void Exit(void);
 	private:
+		void SetupUI(void);
 		void UpdateUI(float dt);
 		void RenderUI() const;
 		UIcanvas canvas;
 		UIimage bg;
 		UIimage lua;
-		// UIimage nuvemA;
+		UIimage nuvemA;
 		UIimage nuvemB;
 		UIimage icc;
 		UIimage overlay;
