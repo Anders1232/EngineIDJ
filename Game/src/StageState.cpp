@@ -106,7 +106,7 @@ StageState::StageState(void)
 	towerBtn1.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
 	towerBtn1.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																		StageState* it = static_cast<StageState*>(ptr);
-																		it->SetTowerInfoData("Normal", "$1", "10", "Tiro Unico");
+																		it->SetTowerInfoData("Normal", "$1", "10 HP", "Tiro Unico");
 																	} );
 	towerBtn1.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																		StageState* it = static_cast<StageState*>(ptr);
@@ -119,7 +119,7 @@ StageState::StageState(void)
 	towerBtn2.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
 	towerBtn2.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																		StageState* it = static_cast<StageState*>(ptr);
-																		it->SetTowerInfoData("Tentaculo", "$10", "0", "Stun");
+																		it->SetTowerInfoData("Tentaculo", "$10", "10 segundos", "Stun");
 																	} );
 	towerBtn2.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																		StageState* it = static_cast<StageState*>(ptr);
@@ -132,7 +132,7 @@ StageState::StageState(void)
 	towerBtn3.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
 	towerBtn3.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																		StageState* it = static_cast<StageState*>(ptr);
-																		it->SetTowerInfoData("Eletrico", "$100", "1/s", "Veneno");
+																		it->SetTowerInfoData("Eletrico", "$100", "20 HP/segundo", "Proximidade");
 																	} );
 	towerBtn3.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																		StageState* it = static_cast<StageState*>(ptr);
@@ -145,7 +145,7 @@ StageState::StageState(void)
 	towerBtn4.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
 	towerBtn4.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																		StageState* it = static_cast<StageState*>(ptr);
-																		it->SetTowerInfoData("Nuke", "$9999", "+Inf", "Area");
+																		it->SetTowerInfoData("Nuke", "$9999", "+Inf HP", "Area");
 																	} );
 	towerBtn4.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																		StageState* it = static_cast<StageState*>(ptr);
