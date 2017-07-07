@@ -16,6 +16,7 @@ var searchData=
   ['_7einputmanager',['~InputManager',['../classInputManager.html#af518290877dd183606709d5852db5491',1,'InputManager']]],
   ['_7enearestgofinder',['~NearestGOFinder',['../classNearestGOFinder.html#a3694d2b8598dd6a366464802c59a6786',1,'NearestGOFinder']]],
   ['_7eobstacle',['~Obstacle',['../classObstacle.html#a8acaa9d02c4e9536f8a9d6f41cf38501',1,'Obstacle']]],
+  ['_7eplayerdata',['~PlayerData',['../classPlayerData.html#a253ae40fb805d8ff0cf9d884ab504d8a',1,'PlayerData']]],
   ['_7esprite',['~Sprite',['../classSprite.html#a8accab430f9d90ae5117b57d67e32b84',1,'Sprite']]],
   ['_7estagestate',['~StageState',['../classStageState.html#aaf42c9072c4d2503c8566135ef2a10da',1,'StageState']]],
   ['_7estate',['~State',['../classState.html#a42d951e307f5b6d1966e15f417cc4101',1,'State']]],

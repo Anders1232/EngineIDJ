@@ -22,4 +22,4 @@ class HitPoints : public Component{
 		GameObject &associated;
 };
 
-#endif
+#endif // HITPOINTS_H

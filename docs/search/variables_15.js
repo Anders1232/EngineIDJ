@@ -1,7 +1,6 @@
 var searchData=
 [
   ['w',['w',['../classRect.html#a049f7ee5e7eb0475229bf3ed9b3bad44',1,'Rect']]],
-  ['waitingforthenextwave',['waitingForTheNextWave',['../classWaveManager.html#ab35034b294467422f57f9ddd66bc0d5e',1,'WaveManager']]],
   ['walkingsound',['walkingSound',['../classEnemy.html#a4963ce3edb401c78d9d889bb96bdb182',1,'Enemy']]],
   ['wave',['wave',['../classStageState.html#abd2ba0bf21956ff83e69df7d65733c34',1,'StageState']]],
   ['wavebarbar',['wavebarBar',['../classStageState.html#a87df404a9b039875a625e7c333daa591',1,'StageState']]],
@@ -10,11 +9,12 @@ var searchData=
   ['wavedatamap',['waveDataMap',['../classGameResources.html#aff026a07eb417bbac6ab584abeef7014',1,'GameResources']]],
   ['waveicon',['waveIcon',['../classStageState.html#ac296039e7b16873289a1c3ec50f3fcf1',1,'StageState']]],
   ['waveindex',['waveIndex',['../classWaveManager.html#aa7a730d790a379589b8366b8652d67ef',1,'WaveManager']]],
-  ['wavemanager',['waveManager',['../classAIArt.html#a814e687d119c563c152aea49f6a3b977',1,'AIArt::waveManager()'],['../classAIEngineer.html#a394c05c00062b4879efdadb24175a347',1,'AIEngineer::waveManager()'],['../classAIGoDown.html#a3f3f71ad83ef09d6c1d12f48d6895292',1,'AIGoDown::waveManager()'],['../classAIMedic.html#a292dc4ecb0ade04df7456c5289a87e4c',1,'AIMedic::waveManager()'],['../classAIQuimic.html#ac6686873dd1282bbeae662bbf21695b8',1,'AIQuimic::waveManager()'],['../classStageState.html#a7d5afbe51d732ebe0e21bf6eff394a0f',1,'StageState::waveManager()']]],
+  ['wavemanager',['waveManager',['../classAIArt.html#a814e687d119c563c152aea49f6a3b977',1,'AIArt::waveManager()'],['../classAIEngineer.html#a394c05c00062b4879efdadb24175a347',1,'AIEngineer::waveManager()'],['../classAIGoDown.html#a3f3f71ad83ef09d6c1d12f48d6895292',1,'AIGoDown::waveManager()'],['../classAIMedic.html#a292dc4ecb0ade04df7456c5289a87e4c',1,'AIMedic::waveManager()'],['../classAIQuimic.html#ac6686873dd1282bbeae662bbf21695b8',1,'AIQuimic::waveManager()'],['../classEnemy.html#a8e63e9d3f6bd1d14d343b8e5dd42c005',1,'Enemy::waveManager()'],['../classStageState.html#a7d5afbe51d732ebe0e21bf6eff394a0f',1,'StageState::waveManager()']]],
   ['wavename',['waveName',['../structWaveData.html#a763662257fce043d8f04dbbe300431c4',1,'WaveData']]],
   ['waves',['waves',['../classStageState.html#a623b3279c9ec443c003b48ea0551ee8c',1,'StageState']]],
   ['wavesandenemysdata',['wavesAndEnemysData',['../classWaveManager.html#a901e502d64f7c64c72f87cf8cd41deca',1,'WaveManager']]],
   ['wavestartsound',['waveStartSound',['../classWaveManager.html#af9eab868b6560b64496b9f02ef262d38',1,'WaveManager']]],
+  ['wavetimer',['waveTimer',['../classWaveManager.html#ae3386460e7f7e382d8b54e08e7330cec',1,'WaveManager']]],
   ['wavetotalenemies',['waveTotalEnemies',['../classWaveManager.html#ab8af4ebd0ddd0ef92664d0c6de9ae425',1,'WaveManager']]],
   ['weightdatamap',['weightDataMap',['../classGameResources.html#a391f58d552194f20000f3a43746a9034',1,'GameResources']]],
   ['width',['width',['../classSprite.html#a0a3364944c5e361fc9e7ae406224d682',1,'Sprite']]],

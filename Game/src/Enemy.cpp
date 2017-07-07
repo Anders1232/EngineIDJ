@@ -158,7 +158,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	hitpoints = new HitPoints(baseHP,*this, enemyData.scaleX);
 	components.push_back(hitpoints);
 
-	walkingSound.Play(-1);
+	walkingSound.Play(0);
 
 	box.w= sp[EnemyDirections::DOWN][3].GetWidth();
 	box.h= sp[EnemyDirections::DOWN][3].GetHeight();

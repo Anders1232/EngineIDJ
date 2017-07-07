@@ -48,6 +48,7 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		void Render(void) const;
 		void Pause(void);
 		void Resume(void);
+		void LoadAssets(void) const;
 		void ShowLightning(float dt);
 		void SetUILife(float lifePercent);
 		void SetUIWaveProgress(float waveProgressPercent);
@@ -100,6 +101,7 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 
 		UIimage menuBg;
 		UIimageButton openMenuBtn;
+		Sound menuMove;
 
 		UIverticalGroup towerInfoGroup;
 		UItext towerName;

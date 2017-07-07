@@ -15,12 +15,12 @@ void UIbutton::Update(float dt, bool mouseIsInside) {
 	if(actualState != UIbutton::State::DISABLED) {
 		if(mouseIsInside) {
 			if(INPUT_MANAGER.IsMouseDown(LEFT_MOUSE_BUTTON)) {
-			SetUIbuttonState(UIbutton::State::PRESSED);
+				SetUIbuttonState(UIbutton::State::PRESSED);
 			} else {
-			SetUIbuttonState(UIbutton::State::HIGHLIGHTED);
+				SetUIbuttonState(UIbutton::State::HIGHLIGHTED);
 			}
 			if(INPUT_MANAGER.MouseRelease(LEFT_MOUSE_BUTTON)) {
-			Click();
+				Click();
 			}
 		} else if (UIbutton::State::ENABLED != actualState) {
 			SetUIbuttonState(UIbutton::State::ENABLED);

@@ -41,7 +41,7 @@ var searchData=
   ['setuibuttonstate',['SetUIbuttonState',['../classUIbutton.html#a6353edb4e0ff39c8bbb9b5d56ef019f6',1,'UIbutton::SetUIbuttonState()'],['../classUIimageButton.html#a01f25e3ea02d9c7389ac2506f61b90a7',1,'UIimageButton::SetUIbuttonState()'],['../classUItextButton.html#aa2da0b0af9d1d5b93c29b7cc3be6268c',1,'UItextButton::SetUIbuttonState()']]],
   ['setuilife',['SetUILife',['../classStageState.html#a6e69d5c989b5d2cd1b83db18e8653f60',1,'StageState']]],
   ['setuiwaveprogress',['SetUIWaveProgress',['../classStageState.html#aab13dfa471d70be22421ee0d307f4ef9',1,'StageState']]],
-  ['setupui',['SetupUI',['../classStageState.html#a3fe890cd14ae45a5d2ad748687c9fc4c',1,'StageState']]],
+  ['setupui',['SetupUI',['../classStageState.html#a3fe890cd14ae45a5d2ad748687c9fc4c',1,'StageState::SetupUI()'],['../classTitleState.html#aed2bf8c7743d70de0349eba4d18779b8',1,'TitleState::SetupUI()']]],
   ['setwidthandheight',['SetWidthAndHeight',['../classRect.html#a5751026840c842f72e1f79cb82d9554c',1,'Rect']]],
   ['setwindowborderless',['SetWindowBorderless',['../classGame.html#ac475e8854b7620b906ec178e3bce85a1',1,'Game']]],
   ['setwindowcentered',['SetWindowCentered',['../classGame.html#abce856957b17b9cad64810faefde1a45',1,'Game']]],
@@ -61,7 +61,9 @@ var searchData=
   ['spritescaley',['SpriteScaleY',['../classObstacle.html#a90733e09965a465d4d865d9c7423a21e',1,'Obstacle']]],
   ['stagestate',['StageState',['../classStageState.html#a83447a9a485bd3cf9f2c0d293343ec42',1,'StageState']]],
   ['startaction',['StartAction',['../classActionManager.html#ae3da833a8f3d476ba588a9ed7e61aeac',1,'ActionManager']]],
-  ['startwave',['StartWave',['../classWaveManager.html#aa56d31703d3d02067e75debabbfae300',1,'WaveManager']]],
+  ['startfinalloop',['StartFinalLoop',['../EndState_8cpp.html#a130adaecec8a7cc61544e3f1e35d27d4',1,'EndState.cpp']]],
+  ['startloop',['StartLoop',['../classEndState.html#a2328162c9b53738277d211d5c0451f41',1,'EndState']]],
+  ['startwave',['StartWave',['../classWaveManager.html#a038b01286ee2774ff0df6cfc88aafcae',1,'WaveManager']]],
   ['state',['State',['../classState.html#aef73d18751fc737c6b4f0893660a0d81',1,'State']]],
   ['stop',['Stop',['../classMusic.html#a76ee0c7654f3048045e1f1b7fde334c3',1,'Music::Stop()'],['../classSound.html#ae391c15fe26a0091e601be32eef0bce5',1,'Sound::Stop()']]]
 ];

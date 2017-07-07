@@ -6,6 +6,7 @@ var searchData=
   ['channel',['channel',['../classSound.html#af3895edf5a39772f1de32cfbfff90909',1,'Sound']]],
   ['clickcaller',['clickCaller',['../classUIbutton.html#a36a02ab3637fa8719e7613d448779681',1,'UIbutton']]],
   ['clickedcallback',['clickedCallback',['../classUIbutton.html#ae497d5dc01918e1e8b6678be354a211b',1,'UIbutton']]],
+  ['clicksound',['clickSound',['../classTitleState.html#a323dc824ec5c4932ea3098d6f117cc57',1,'TitleState']]],
   ['cliprect',['clipRect',['../classSprite.html#a3451a65b4cd1b2ff3c11448dbdde43ac',1,'Sprite']]],
   ['color',['color',['../classText.html#ab0f771bd18d8e968f7aaee4a4e26e385',1,'Text::color()'],['../classUItext.html#aa814c6cdd64b27e2ac5f86cdca9e9647',1,'UItext::color()']]],
   ['colormultiplier',['colorMultiplier',['../classSprite.html#a050950c25cc2f8bd812feabaf5aaad82',1,'Sprite']]],

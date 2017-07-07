@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['rect',['Rect',['../classRect.html',1,'']]],
-  ['resources',['Resources',['../classResources.html',1,'']]]
+  ['playerdata',['PlayerData',['../classPlayerData.html',1,'']]]
 ];

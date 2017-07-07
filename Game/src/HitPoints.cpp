@@ -1,7 +1,10 @@
 #include "HitPoints.h"
 
-
-HitPoints::HitPoints(uint hp,GameObject &associated, float scaleX) : healthBar("img/effect/health_bar.png"), healthColor("img/effect/health_color.png"),associated(associated){
+HitPoints::HitPoints(uint hp,GameObject &associated, float scaleX)
+		: healthBar("img/effect/health_bar.png")
+		, healthColor("img/effect/health_color.png")
+		, associated(associated) {
+			
 	this->hp = (int)hp;
 	healthBar.SetScaleX(scaleX);
 	healthColor.SetScaleX(scaleX);

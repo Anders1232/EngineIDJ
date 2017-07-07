@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.8"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
 <title>Projeto IDJ - Towers Of Madness: Referência da Classe StageState</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -31,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.8.8 -->
+<!-- Gerado por Doxygen 1.8.7 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </script>
@@ -87,6 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <a href="#pub-methods">Métodos Públicos</a> &#124;
 <a href="#pri-methods">Métodos Privados</a> &#124;
 <a href="#pri-attribs">Atributos Privados</a> &#124;
+<a href="#pri-static-attribs">Atributos Privados Estáticos</a> &#124;
 <a href="classStageState-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
 <div class="title">Referência da Classe StageState</div>  </div>
@@ -97,13 +98,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="dynheader">
 Diagrama de Hierarquia para StageState:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classStageState__inherit__graph.svg" width="359" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classStageState__inherit__graph.svg" width="358" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <div class="dynheader">
 Diagrama de colaboração para StageState:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classStageState__coll__graph.svg" width="1959" height="2180"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classStageState__coll__graph.svg" width="1995" height="2212"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
@@ -125,6 +126,9 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a1ca42c08929c560284b04a08362e0c8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#a1ca42c08929c560284b04a08362e0c8c">Resume</a> (void)</td></tr>
 <tr class="memdesc:a1ca42c08929c560284b04a08362e0c8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Despausa o <a class="el" href="classState.html" title="Classe virtual que modela um estado do jogo. ">State</a>.  <a href="#a1ca42c08929c560284b04a08362e0c8c">Mais...</a><br /></td></tr>
 <tr class="separator:a1ca42c08929c560284b04a08362e0c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf04316b912448488ce28d238f37f558"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#abf04316b912448488ce28d238f37f558">LoadAssets</a> (void) const </td></tr>
+<tr class="memdesc:abf04316b912448488ce28d238f37f558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega os assets do estado.  <a href="#abf04316b912448488ce28d238f37f558">Mais...</a><br /></td></tr>
+<tr class="separator:abf04316b912448488ce28d238f37f558"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaae782ee54ae1d767579e4b86e928ead"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#aaae782ee54ae1d767579e4b86e928ead">ShowLightning</a> (float dt)</td></tr>
 <tr class="separator:aaae782ee54ae1d767579e4b86e928ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e69d5c989b5d2cd1b83db18e8653f60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#a6e69d5c989b5d2cd1b83db18e8653f60">SetUILife</a> (float lifePercent)</td></tr>
@@ -135,6 +139,8 @@ Métodos Públicos</h2></td></tr>
 <tr class="separator:a86e8a98f6b0ee96c0ac8bb7d6e79daa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3e82ac7bd5b7e7ce56dcea547f6d64e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGameObject.html">GameObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#ad3e82ac7bd5b7e7ce56dcea547f6d64e">FindNearestGO</a> (<a class="el" href="classVec2.html">Vec2</a> origin, std::string targetType, float range=std::numeric_limits&lt; float &gt;::max())</td></tr>
 <tr class="separator:ad3e82ac7bd5b7e7ce56dcea547f6d64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9da713e372a10abf64b45593b9ddc84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlayerData.html">PlayerData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#aa9da713e372a10abf64b45593b9ddc84">GetPlayerDataInstance</a> (void)</td></tr>
+<tr class="separator:aa9da713e372a10abf64b45593b9ddc84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classState"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classState')"><img src="closed.png" alt="-"/>&#160;Métodos Públicos inherited from <a class="el" href="classState.html">State</a></td></tr>
 <tr class="memitem:aef73d18751fc737c6b4f0893660a0d81 inherit pub_methods_classState"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#aef73d18751fc737c6b4f0893660a0d81">State</a> (void)</td></tr>
 <tr class="memdesc:aef73d18751fc737c6b4f0893660a0d81 inherit pub_methods_classState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor.  <a href="#aef73d18751fc737c6b4f0893660a0d81">Mais...</a><br /></td></tr>
@@ -207,6 +213,8 @@ Atributos Privados</h2></td></tr>
 <tr class="separator:a569d9a92003019d0a5c9af257372edef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0323ecd465fd6ec4817e48f2a95474e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSound.html">Sound</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#ab0323ecd465fd6ec4817e48f2a95474e">thunderSound</a></td></tr>
 <tr class="separator:ab0323ecd465fd6ec4817e48f2a95474e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac867893ff5a2df098f699534fff80d88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSound.html">Sound</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#ac867893ff5a2df098f699534fff80d88">towerMenuSounds</a></td></tr>
+<tr class="separator:ac867893ff5a2df098f699534fff80d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25c7425434e4b6cabee5892f6a80e9f2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#a25c7425434e4b6cabee5892f6a80e9f2">frameRateCounter</a></td></tr>
 <tr class="separator:a25c7425434e4b6cabee5892f6a80e9f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada0a256961ac6b0ea37e48bb2acab400"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTimer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#ada0a256961ac6b0ea37e48bb2acab400">frameRateTimer</a></td></tr>
@@ -219,6 +227,8 @@ Atributos Privados</h2></td></tr>
 <tr class="separator:a25974d31114ddc2a6db8a0719feab564"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa53ecc81a670350edee8b1b092c1ea97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUIimageButton.html">UIimageButton</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#aa53ecc81a670350edee8b1b092c1ea97">openMenuBtn</a></td></tr>
 <tr class="separator:aa53ecc81a670350edee8b1b092c1ea97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097e1e27a1fb88d07801ec3087e4476c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSound.html">Sound</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#a097e1e27a1fb88d07801ec3087e4476c">menuMove</a></td></tr>
+<tr class="separator:a097e1e27a1fb88d07801ec3087e4476c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30dd11bd7966e5e65f2778f5da7432ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUIverticalGroup.html">UIverticalGroup</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#a30dd11bd7966e5e65f2778f5da7432ca">towerInfoGroup</a></td></tr>
 <tr class="separator:a30dd11bd7966e5e65f2778f5da7432ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a126e18d885ae43fa5efdf5716d26fe40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUItext.html">UItext</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#a126e18d885ae43fa5efdf5716d26fe40">towerName</a></td></tr>
@@ -255,6 +265,11 @@ Atributos Privados</h2></td></tr>
 <tr class="separator:aa3e3806a837824f0fc611a4bebb9ba04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87df404a9b039875a625e7c333daa591"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUIimage.html">UIimage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#a87df404a9b039875a625e7c333daa591">wavebarBar</a></td></tr>
 <tr class="separator:a87df404a9b039875a625e7c333daa591"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Atributos Privados Estáticos</h2></td></tr>
+<tr class="memitem:ac91535d33f420bf8321fb1f2e89bfd98"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classPlayerData.html">PlayerData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStageState.html#ac91535d33f420bf8321fb1f2e89bfd98">pData</a> = nullptr</td></tr>
+<tr class="separator:ac91535d33f420bf8321fb1f2e89bfd98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -398,6 +413,22 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aa9da713e372a10abf64b45593b9ddc84"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPlayerData.html">PlayerData</a> &amp; StageState::GetPlayerDataInstance </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a30638166f1f58ea4afdf8e97db224f09"></a>
 <div class="memitem">
 <div class="memproto">
@@ -419,6 +450,35 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abf04316b912448488ce28d238f37f558"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StageState::LoadAssets </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Carrega os assets do estado. </p>
+<p>Carrega os assets do estado. </p>
+
+<p>Implementa <a class="el" href="classState.html#a60c55c31895344bb499f28a22724fab9">State</a>.</p>
 
 </div>
 </div>
@@ -1085,6 +1145,26 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a097e1e27a1fb88d07801ec3087e4476c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSound.html">Sound</a> StageState::menuMove</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a60c8325a1df466aff9f24ea167178350"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1159,6 +1239,26 @@ Additional Inherited Members</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac91535d33f420bf8321fb1f2e89bfd98"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPlayerData.html">PlayerData</a> * StageState::pData = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1386,6 +1486,27 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ac867893ff5a2df098f699534fff80d88"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSound.html">Sound</a> StageState::towerMenuSounds</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Som referente a compra, venda e construçao de torre. </p>
+
+</div>
+</div>
 <a class="anchor" id="a126e18d885ae43fa5efdf5716d26fe40"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1554,9 +1675,9 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quinta, 6 de Julho de 2017 18:50:47 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 7 de Julho de 2017 03:22:51 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.8
+</a> 1.8.7
 </small></address>
 </body>
 </html>

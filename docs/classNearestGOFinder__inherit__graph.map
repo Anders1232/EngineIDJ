@@ -1,4 +1,4 @@
 <map id="NearestGOFinder" name="NearestGOFinder">
-<area shape="rect" id="node2" href="$classStageState.html" title="StageState" alt="" coords="5,80,92,107"/>
-<area shape="rect" id="node3" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="116,80,184,107"/>
+<area shape="rect" id="node2" href="$classStageState.html" title="StageState" alt="" coords="5,80,91,107"/>
+<area shape="rect" id="node3" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="115,80,183,107"/>
 </map>

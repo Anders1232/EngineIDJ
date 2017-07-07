@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.8"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
 <title>Projeto IDJ - Towers Of Madness: Referência do Arquivo Game/src/WaveManager.cpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -31,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.8.8 -->
+<!-- Gerado por Doxygen 1.8.7 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </script>
@@ -99,10 +99,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <code>#include &quot;<a class="el" href="Enemy_8h.html">Enemy.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="GameResources_8h.html">GameResources.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Error_8h.html">Error.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="PlayerData_8h.html">PlayerData.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="StageState_8h.html">StageState.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Gráfico de dependência de inclusões para WaveManager.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="WaveManager_8cpp__incl.svg" width="2674" height="710"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="WaveManager_8cpp__incl.svg" width="3939" height="859"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -110,8 +112,10 @@ Gráfico de dependência de inclusões para WaveManager.cpp:</div>
 Definições e Macros</h2></td></tr>
 <tr class="memitem:aa3a4dfd0c7ae050e26574b1fd87764e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WaveManager_8cpp.html#aa3a4dfd0c7ae050e26574b1fd87764e7">TIME_BETWEEN_SPAWN</a>&#160;&#160;&#160;(0.8)</td></tr>
 <tr class="separator:aa3a4dfd0c7ae050e26574b1fd87764e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39d7317695460abf9a31b8e2774e1436"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WaveManager_8cpp.html#a39d7317695460abf9a31b8e2774e1436">TIME_BETWEEN_WAVES</a>&#160;&#160;&#160;(5.0)</td></tr>
-<tr class="separator:a39d7317695460abf9a31b8e2774e1436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d421b122a51e53299cdb90367ae7b68"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WaveManager_8cpp.html#a5d421b122a51e53299cdb90367ae7b68">TIME_BETWEEN_WAVE</a>&#160;&#160;&#160;(10.0)</td></tr>
+<tr class="separator:a5d421b122a51e53299cdb90367ae7b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a484df0aabf5bd70c97c2061e6dd2cfa9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WaveManager_8cpp.html#a484df0aabf5bd70c97c2061e6dd2cfa9">WAVE_INDEX_INITIALIZE</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="separator:a484df0aabf5bd70c97c2061e6dd2cfa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Definições e macros</h2>
 <a class="anchor" id="aa3a4dfd0c7ae050e26574b1fd87764e7"></a>
@@ -126,12 +130,24 @@ Definições e Macros</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a39d7317695460abf9a31b8e2774e1436"></a>
+<a class="anchor" id="a5d421b122a51e53299cdb90367ae7b68"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TIME_BETWEEN_WAVES&#160;&#160;&#160;(5.0)</td>
+          <td class="memname">#define TIME_BETWEEN_WAVE&#160;&#160;&#160;(10.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a484df0aabf5bd70c97c2061e6dd2cfa9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WAVE_INDEX_INITIALIZE&#160;&#160;&#160;-1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -141,9 +157,9 @@ Definições e Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quinta, 6 de Julho de 2017 18:50:47 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 7 de Julho de 2017 03:22:50 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.8
+</a> 1.8.7
 </small></address>
 </body>
 </html>

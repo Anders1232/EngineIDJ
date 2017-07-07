@@ -35,7 +35,7 @@ WaveManager::~WaveManager(){
 	delete endGroups;
 }
 
-void WaveManager::StartWave(){
+void WaveManager::StartWave(void){
 	enemiesLeft=0;
 	maxNumberOfEnemiesInSpawnPoint=0;
 	int numberOfEnemiesInSpawnPoint;
@@ -60,7 +60,7 @@ void WaveManager::StartWave(){
 }
 
 
-bool WaveManager::EndWave(){
+bool WaveManager::EndWave(void) const{
 	return endWave;
 }
 
@@ -172,10 +172,10 @@ void WaveManager::NotifyEnemyGotKilled(){
 	--enemiesLeft;
 }
 
-int WaveManager::GetEnemiesLeft(){
+int WaveManager::GetEnemiesLeft(void){
 	return enemiesLeft;
 }
 
-bool WaveManager::Victory(){
+bool WaveManager::Victory(void){
 	return victory;
 }

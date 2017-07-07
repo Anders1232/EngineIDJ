@@ -12,10 +12,11 @@
 
 TitleState::TitleState()
 		: State()
+		, clickSound("audio/Interface/Click1.wav")
 		, canvas({1024,600}, UIelement::BehaviorType::STRETCH)
 		, bg("img/UI/main-menu/bg.png", UIelement::BehaviorType::STRETCH)
 		, lua("img/UI/main-menu/lua.png", UIelement::BehaviorType::FIT)
-		/*, nuvemA("img/UI/main-menu/nuvemA.png", UIelement::BehaviorType::FILL)*/
+		, nuvemA("img/UI/main-menu/nuvemA.png", UIelement::BehaviorType::FILL)
 		, nuvemB("img/UI/main-menu/nuvemB.png", UIelement::BehaviorType::FILL)
 		, icc("img/UI/main-menu/icc.png", UIelement::BehaviorType::STRETCH)
 		, overlay("img/UI/main-menu/overlay.png", UIelement::BehaviorType::STRETCH)
@@ -25,14 +26,25 @@ TitleState::TitleState()
 		, editorBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Editor de Fases", UIbutton::State::DISABLED)
 		, configBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, std::string("Configura") + (char)0xE7 /*ç*/ + (char)0xF5 /*õ*/ + "es", UIbutton::State::DISABLED)
 		, exitBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Sair")
-		, titleMusic("audio/trilha_sonora/main_title_.ogg"){
+		, titleMusic("audio/trilha_sonora/main_title_.ogg") {
+	Resources::ChangeMusicVolume(0);
+	Resources::ChangeSoundVolume(0);
+	
+	SetupUI();
+}
 
+void TitleState::SetupUI(void) {
 	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
 
 	lua.SetSpriteScale(0.75);
 	lua.SetAnchors( {(float)(0.5 - (lua.GetSpriteWidth()/2.+30.)/winSize.x), (float)(60./winSize.y)},
 					{(float)(0.5 + (lua.GetSpriteWidth()/2.-30.)/winSize.x), (float)(60. + lua.GetSpriteHeight())/winSize.y } );
 	
+	nuvemA.SetCenter({0.5, 0.1});
+	nuvemA.SetSpriteScale(0.6);
+	nuvemA.SetAnchors( {0., (float)20./winSize.y},
+					   {(float)nuvemA.GetSpriteWidth()/winSize.x, (float)(20.+nuvemA.GetSpriteHeight())/winSize.y } );
+
 	nuvemB.SetSpriteScale(0.7);
 	nuvemB.SetAnchors( {(float)(1. - (nuvemB.GetSpriteWidth()+110.)/winSize.x), (float)(70./winSize.y)},
 					   {(float)(1. - 110./winSize.x), (float)(70.+nuvemB.GetSpriteHeight())/winSize.y } );
@@ -51,7 +63,8 @@ TitleState::TitleState()
 	
 	playBtn.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
 	playBtn.SetClickCallback( this, [] (void* caller) {
-									Game::GetInstance().Push(new StageState());
+									TitleState* titleState = static_cast<TitleState*>(caller);
+									titleState->Play();
 								} );
 	
 	editorBtn.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
@@ -68,8 +81,12 @@ TitleState::TitleState()
 	optionsGroup.groupedElements.push_back(&editorBtn);
 	optionsGroup.groupedElements.push_back(&configBtn);
 	optionsGroup.groupedElements.push_back(&exitBtn);
+<<<<<<< HEAD
 
 	titleMusic.Play(2);
+=======
+	titleMusic.Play(0);
+>>>>>>> e1b8f47c25aacc0842ba506f0f6a2ba6a5adfdbc
 }
 
 void TitleState::Update(float dt) {
@@ -80,36 +97,12 @@ void TitleState::Update(float dt) {
 	UpdateUI(dt);
 }
 
-void TitleState::Render(void) const {
-	RenderUI();
-}
-
-void TitleState::RenderUI(void) const {
-	bg.Render();
-	lua.Render();
-	nuvemB.Render();
-	icc.Render();
-	overlay.Render();
-	title.Render();
-	// optionsGroup.Render();
-	playBtn.Render();
-	editorBtn.Render();
-	configBtn.Render();
-	exitBtn.Render();
-}
-
-void TitleState::Pause(void) {}
-
-void TitleState::Resume(void) {
-	Camera::ForceLogZoom(0.0);
-	Camera::pos = Vec2(0, 0);
-}
-
 void TitleState::UpdateUI(float dt) {
 	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
 	canvas.Update(dt, winSize);
 	bg.Update(dt, canvas);
 	lua.Update(dt, canvas);
+	nuvemA.Update(dt, canvas);
 	nuvemB.Update(dt, canvas);
 	icc.Update(dt, canvas);
 	overlay.Update(dt, canvas);
@@ -121,6 +114,53 @@ void TitleState::UpdateUI(float dt) {
 	exitBtn.Update(dt, optionsGroup);
 }
 
+void TitleState::Render(void) const {
+	RenderUI();
+}
+
+void TitleState::RenderUI(void) const {
+	bg.Render();
+	lua.Render();
+	nuvemA.Render();
+	nuvemB.Render();
+	icc.Render();
+	overlay.Render();
+	title.Render();
+	// optionsGroup.Render(true);
+	playBtn.Render();
+	editorBtn.Render();
+	configBtn.Render();
+	exitBtn.Render();
+}
+
+void TitleState::Pause(void) {
+}
+
+void TitleState::Resume(void) {
+	Camera::ForceLogZoom(0.0);
+	Camera::pos = Vec2(0, 0);
+}
+
+void TitleState::Play(void) {
+	clickSound.Play(1);
+	Game::GetInstance().Push(new StageState());
+}
+
 void TitleState::Exit() {
+	clickSound.Play(1);
 	popRequested = true;
+}
+
+void TitleState::LoadAssets(void) const{
+	Resources::GetImage("img/title.jpg");
+	Resources::GetImage("img/UI/main-menu/bg.png");
+	Resources::GetImage("img/UI/main-menu/lua.png");
+	Resources::GetImage("img/UI/main-menu/nuvemA.png");
+	Resources::GetImage("img/UI/main-menu/nuvemB.png");
+	Resources::GetImage("img/UI/main-menu/icc.png");
+	Resources::GetImage("img/UI/main-menu/overlay.png");
+	Resources::GetImage("img/UI/main-menu/title.png");
+	Resources::GetMusic("audio/trilha_sonora/main_title_.ogg");
+	Resources::GetMusic("audio/Interface/Click1.wav");
+	Resources::GetFont("font/SHPinscher-Regular.otf", 95);
 }
