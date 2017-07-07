@@ -170,7 +170,7 @@ void WaveManager::NotifyEnemyGotKilled(void){
 int WaveManager::GetLifesLeft(void){
 	return playerLifes;
 }
-<<<<<<< HEAD
+
 int WaveManager::GetEnemiesLeft(void){
 	return enemiesLeft;
 }

@@ -53,7 +53,7 @@ class WaveManager : public Component {
 			\brief Verifica Fim de wave.
 			Verifica se a flag de fim de wave foi acionada. Retorna endWave.
 		*/
-		bool EndWave(void);
+		bool EndWave(void) const;
 		/** 
 			\brief Inimigo Chegou ao Destino.
 			Recebe uma notificação da componente HitPoints, se o inimigo foi destruido por chegar ao destino e decrementa o contador de vidas.
