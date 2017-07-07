@@ -184,17 +184,19 @@ void Enemy::Update(float dt) {
 		components[i]->Update(dt);
 	}
 	UpdateEnemyDirection(positionBefore);
-	if(hitpoints->GetHp() < 0) {
-		dead = true;
-	}
+
 	if(eventTimer.Get() > MAX_EVENT_TIME){
 		lastEvent = Event::NONE;
 	}
-	eventTimer.Update(dt);
-	waveManager.NotifyEnemyGotKilled();
-	//PlayerData::GetInstance().GoldUpdate(gold);
-	((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().GoldUpdate(gold);
-	((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().NotifyKillsUpdate(gold);
+	if(hitpoints->GetHp() < 0) {
+		dead = true;
+
+		eventTimer.Update(dt);
+		waveManager.NotifyEnemyGotKilled();
+		//PlayerData::GetInstance().GoldUpdate(gold);
+		((StageState &) Game::GetInstance().GetCurrentState()).GetPlayerDataInstance().GoldUpdate(gold);
+		((StageState &) Game::GetInstance().GetCurrentState()).GetPlayerDataInstance().NotifyKillsUpdate(gold);
+	}
 }
 
 
