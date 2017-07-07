@@ -186,7 +186,9 @@ void Enemy::Update(float dt) {
 		waveManager.NotifyEnemyGotKilled();
 		//PlayerData::GetInstance().GoldUpdate(gold);
 		((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().GoldUpdate(gold);
-	}
+        ((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().NotifyKillsUpdate(gold);
+
+    }
 }
 
 void Enemy::Render(void) {

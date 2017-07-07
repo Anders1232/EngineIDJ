@@ -81,12 +81,8 @@ void TitleState::SetupUI(void) {
 	optionsGroup.groupedElements.push_back(&editorBtn);
 	optionsGroup.groupedElements.push_back(&configBtn);
 	optionsGroup.groupedElements.push_back(&exitBtn);
-<<<<<<< HEAD
 
-	titleMusic.Play(2);
-=======
 	titleMusic.Play(0);
->>>>>>> e1b8f47c25aacc0842ba506f0f6a2ba6a5adfdbc
 }
 
 void TitleState::Update(float dt) {

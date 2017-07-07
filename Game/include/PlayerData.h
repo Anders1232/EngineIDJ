@@ -26,7 +26,7 @@ class PlayerData: public Component{
 		void Render() const;
 		void Update(float dt);
 		bool Is(ComponentType type) const;
-		void NotifyKillsUpdate(int wave, EnemyData enemyData);
+		void NotifyKillsUpdate(int gold);
 		void NotifyLifeLost(int wave, EnemyData enemyData);
 		void GoldUpdate(int amount, bool winPoints=true);
 		void PointsUpdate(int amount);

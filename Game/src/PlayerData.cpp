@@ -37,9 +37,9 @@ PlayerData::~PlayerData(){
 void PlayerData::Render() const{
 	playerTable.Render();
 
-	boardName.Render();
+	//boardName.Render();
 
-	playerPoints.Render();
+	//playerPoints.Render();
 	playerGold.Render();
 	playerKills.Render();
 	playerLifes.Render();
@@ -65,9 +65,9 @@ bool PlayerData::Is(ComponentType type) const{
 	return type == PLAYER_DATA;
 }
 
-void PlayerData::NotifyKillsUpdate(int wave, EnemyData enemyData){
+void PlayerData::NotifyKillsUpdate(int gold){
 	++kills;
-	PointsUpdate(enemyData.gold + (2 * wave) );
+    playerKills.SetText("Kills: " + std::to_string(kills));
 }
 
 void PlayerData::NotifyLifeLost(int wave, EnemyData enemyData){
