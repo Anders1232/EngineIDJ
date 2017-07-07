@@ -29,6 +29,7 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
 
 #ifdef SORTEAR_TORRES
 	int sorteio = rand()%3;
+	sorteio = 0; 
 	if(0 == sorteio){
 		AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/minionbullet1.png",3,2));
 	}

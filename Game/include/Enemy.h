@@ -15,6 +15,7 @@
 //#include "componentType.h"
 
 #define BASE_HIT_POINTS 100
+#define MAX_EVENT_TIME 100
 #define DIFICULTY_CONSTANT 12
 #define ENEMY_BULLET_DAMAGE 10
 #define ENEMY_MOVE_SPEED (10000.)
@@ -149,6 +150,7 @@ class Enemy : public GameObject
 		EnemyDirections direction; /**< Direçao para aonde a sprite do inimigo esta voltada. Norte, Sul, Leste ou Oeste */
 		Event lastEvent;
 		Sound walkingSound;
+		Timer eventTimer;
 };
 
 #endif // ENEMY_H

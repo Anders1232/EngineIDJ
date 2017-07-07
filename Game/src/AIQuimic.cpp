@@ -62,6 +62,7 @@ AIQuimic::AIEvent AIQuimic::ComputeEvents(){
 			return AIEvent::NOT_SMOKE;
 		}
 		else if(pathIndex == path->size()){
+			TEMP_REPORT_I_WAS_HERE;
 			return AIEvent::PATH_BLOCKED;
 		}
 		else{return NONE;}
@@ -115,9 +116,21 @@ void AIQuimic::Update(float dt){
 				associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
 				lastDistance = distance;
 			}
+
+			if((*path)[path->size() - 1] != destTile){
+
+				shooter->SetActive(true);
+
+			}
+			else{
+
+				shooter->SetActive(false);
+
+			}
 		}
 	}
 	else if(actualState == AIState::WALKING_SLOWLY){
+		shooter->SetActive(false);
 		if(pathIndex != path->size()){
 			tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
 			float distance = associated.box.Center().VecDistance(tempDestination).Magnitude();
@@ -154,6 +167,7 @@ void AIQuimic::Update(float dt){
 		}
 	}
 	else if(actualState == AIState::STUNNED){
+		shooter->SetActive(false);
 		//Aqui executa animações do efeito estonteante
 	}
 }
