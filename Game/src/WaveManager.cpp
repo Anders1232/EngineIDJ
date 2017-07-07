@@ -169,7 +169,7 @@ void WaveManager::NotifyEnemyGotToHisDestiny(){
 	((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().DecrementLife();
 
 	--enemiesLeft;
-	((StageState&)Game::GetInstance().GetCurrentState()).SetUIWaveProgress( enemiesLeft/waveTotalEnemies );
+	((StageState&)Game::GetInstance().GetCurrentState()).SetUIWaveProgress( ((float)enemiesLeft)/(float)waveTotalEnemies );
 	((StageState&)Game::GetInstance().GetCurrentState()).SetUILife();
 
 }
