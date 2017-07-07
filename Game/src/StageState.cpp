@@ -682,10 +682,46 @@ GameObject* StageState::FindNearestGO(Vec2 origin, std::string targetType, float
 }
 
 void StageState::LoadAssets(void) const{
-	Resources::GetImage("img/ocean.jpg");
+	Resources::GetImage("./img/obstacle/banco_h.png");
+	Resources::GetImage("map/tileset_vf.png");
+	Resources::GetImage("img/UI/HUD/vida00.png");
+	Resources::GetImage("img/UI/HUD/inimigo00.png");
+	Resources::GetImage("img/UI/HUD/hudvida.png");
+	Resources::GetImage("img/UI/HUD/openmenu.png");
+	Resources::GetImage("img/UI/HUD/openmenu-clicked.png");
+	Resources::GetImage("img/UI/HUD/botaotorre.png");
+	Resources::GetImage("img/UI/HUD/botaotorre-clicked.png");
+	Resources::GetImage("./img/obstacle/arvore4.png");
+	Resources::GetImage("./img/obstacle/arvore3.png");
+	Resources::GetImage("./img/obstacle/arvore2.png");
+	Resources::GetImage("./img/obstacle/arvore1.png");
+	Resources::GetImage("./img/obstacle/posteLuz.png");
+	Resources::GetImage("img/tower/torre_fumaca.png");
+	Resources::GetImage("img/tower/torrefumaca.png");
+	Resources::GetImage("img/tower/torre-anti-bomba.png");
+	Resources::GetImage("img/tower/torrestun.png");
+	Resources::GetImage("img/tower/torrechoque_lvl1.png");
+	Resources::GetImage();
+	Resources::GetImage();
+	Resources::GetImage();
+	Resources::GetMusic();
+	Resources::GetMusic();
+	Resources::GetSound();
+	Resources::GetSound();
+	Resources::GetSound();
+	Resources::GetSound();
+	Resources::GetSound();
+	Resources::GetSound();
+	Resources::GetSound();
+	Resources::GetSound();
+	Resources::GetFont("font/SHPinscher-Regular.otf", 95);
+	Resources::GetFont();
+	Resources::GetFont();
+	Resources::GetFont();
+	Resources::GetFont();
 	Resources::GetImage("img/map/tileset_v2.png");
 	Resources::GetMusic("audio/stageState.ogg");
-	// Resources::GetImage();
-	// Resources::GetFont();
-	// Resources::GetSound();
+	Resources::GetImage();
+	Resources::GetFont();
+	Resources::GetSound();
 }
