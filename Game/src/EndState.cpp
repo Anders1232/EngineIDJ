@@ -11,7 +11,8 @@ void StartFinalLoop() {
 }
 
 EndState::EndState(EndStateData stateData)
-		: bg( (stateData.playerVictory) ? "img/UI/end-game/prototipo-menu-vitoria.png" : "img/UI/end-game/prototipo-menu-derrota.png")
+		: HUDcanvas()
+		, bg( (stateData.playerVictory) ? "img/UI/end-game/win.jpg" : "img/UI/end-game/lose.jpg")
 		, music("audio/tela_de_vitoria_derrota/loop_tela_vitoria_derrota.ogg")
 		, intro( (stateData.playerVictory) ? "audio/tela_de_vitoria_derrota/vitoria.ogg" : "audio/tela_de_vitoria_derrota/derrota.ogg")
 		, instruction("font/SHPinscher-Regular.otf",
@@ -25,6 +26,10 @@ EndState::EndState(EndStateData stateData)
 	intro.Play(1);
 	Mix_HookMusicFinished(StartFinalLoop);
 
+	SetupUI();
+}
+
+void EndState::SetupUI() {
 	instruction.SetText("Press Space to go to menu or Esc to close the game");
 	instruction.SetTimeShown(0.6);
 	instruction.SetStrobeFrequency(1.0);
@@ -45,10 +50,23 @@ void EndState::Update(float dt) {
 	if(ActionManager::StartAction()) {
 		popRequested = true;
 	}
+
+	UpdateUI(dt);
+}
+
+void EndState::UpdateUI(float dt) {
+	// Rect winSize = Game::GetInstance().GetWindowDimensions();
+
+	// HUDcanvas.Update(dt, winSize);
+	// bg.Update(dt, HUDcanvas);
 }
 
 void EndState::Render() const {
-	bg.Render(Rect(0,0,0,0), 0 , false);
+	RenderUI();
+}
+
+void EndState::RenderUI() const {
+	bg.Render();
 	instruction.Render();
 }
 
@@ -65,8 +83,8 @@ void EndState::StartLoop() {
 }
 
 void EndState::LoadAssets(void) const{
-	Resources::GetImage("img/UI/end-game/prototipo-menu-vitoria.png");
-	Resources::GetImage("img/UI/end-game/prototipo-menu-derrota.png");
+	Resources::GetImage("img/UI/end-game/win.jpg");
+	Resources::GetImage("img/UI/end-game/lose.jpg");
 	Resources::GetFont("font/SHPinscher-Regular.otf", 32);
 	Resources::GetMusic("audio/tela_de_vitoria_derrota/vitoria.ogg");
 	Resources::GetMusic("audio/tela_de_vitoria_derrota/derrota.ogg");
