@@ -13,9 +13,9 @@ Aura::Aura(GameObject &associated,
 		finder(finder),
 		targetType(targetType){
 	if(Enemy::Event::SMOKE == auraType){
-		sp= Sprite("img/SpriteSheets/aura_spritesheet.png", false, 0.3f, 7);
+		sp= Sprite("img/tower/Fumaça_spritesheet.png", false, 0.3f, 8);
 		sp.colorMultiplier= Color(179, 150, 120);
-		sp2= Sprite("img/SpriteSheets/aura_spritesheet.png", false, 0.3f, 7);
+		sp2= Sprite("img/tower/Fumaça_spritesheet.png", false, 0.3f, 8);
 		sp2.colorMultiplier= Color(179, 150, 120);
 		sp2.SetFrame(3);
 	}
@@ -33,9 +33,13 @@ Aura::Aura(GameObject &associated,
 		sp2.ScaleX(auraRange/(float)sp2.GetWidth());
 		sp2.ScaleY(auraRange/(float)sp2.GetHeight());
 	}
+	sp.colorMultiplier.a= 115;
+	sp2.colorMultiplier.a= 115;
 }
 
 void Aura::Update(float dt){
+	sp.Update(dt);
+	sp2.Update(dt);
 	notificationTimer.Update(dt);
 	if(notificationTimer.Get() > timeBetweetNotifications){
 		notificationTimer.Restart();
