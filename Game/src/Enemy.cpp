@@ -11,7 +11,7 @@
 #include "PlayerData.h"
 #include "StageState.h"
 #include "Game.h"
-
+  
 Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint, TileMap & tileMap, WaveManager &wManager) :
 		  sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE)
 		, dead(false)

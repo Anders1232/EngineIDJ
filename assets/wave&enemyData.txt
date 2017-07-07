@@ -1,30 +1,6 @@
 --ENEMIES--
-    Quimico_maroto
+    estudante_engenheiro
         ENGINEER
-        enemy
-        0.5
-        0.5
-        15
-    Arte_na_praia
-        ART
-        enemy
-        0.5
-        0.5
-        10
-    Arquiteto_calouro
-        ARQUITET
-        enemy
-        0.5
-        0.5
-        15
-    Engenheiro
-        ENGINEER
-        enemy
-        0.5
-        0.5
-        10
-    Medico_maroto
-        MEDIC
         enemy
         0.5
         0.5
@@ -34,15 +10,39 @@
         enemy
         0.5
         0.5
+        11
+    Arquiteto
+        ARQUITET
+        enemy
+        0.5
+        0.5
+        14
+    Arte_cartaz_icc
+        ART
+        enemy
+        0.5
+        0.5
+        16
+    Medico_maroto
+        MEDIC
+        enemy
+        0.5
+        0.5
+        18
+    Arte_na_praia
+        ENGINEER
+        enemy
+        0.5
+        0.5
         12
     Arquiteto_calouro
-        ARQUITET
+        QUIMIC
         enemy
         0.5
         0.5
         12
     Engenheiro
-        ENGINEER
+        ARQUITET
         enemy
         0.5
         0.5
@@ -53,51 +53,147 @@ Wave1
     SpawnPoint:0
             0
             5
-            100
+            80
             0
 
-            4
-            2
-            100
+            1
+            5
+            60
             1
 
     SpawnPoint:1
             0
-            10
-            40
-            0
+            5
+            80
+            1
 
+            1
+            5
+            60
+            0
 
 Wave2
     SpawnPoint:0
             0
-            3
-            100
+            15
+            80
             0
 
-            3
-            0
-            100
-            4
+            1
+            15
+            70
+            1
 
     SpawnPoint:1
             0
             15
-            120
-            0
+            100
+            1
 
-    SpawnPoint:2
-            3
-            5
-            1000
+            1
+            15
+            80
             0
 
             2
+            4
+            125
+            0
+
+Wave3
+    SpawnPoint:0
+            2
+            10
+            130
+            1
+
+            3
+            8
+            110
+            1
+
+            4
+            3
+            90
+            1
+
+    SpawnPoint:2
+            2
+            10
+            130
+            0
+
+            3
+            8
+            110
+            0
+
+            4
+            3
+            90
+            0
+
+Wave4
+    SpawnPoint:0
+            4
+            3
+            100
+            1
+
             5
+            10
+            160
+            1
+
+            6
+            3
+            100
+            0
+    SpawnPoint:1
+            4
+            3
             100
             0
 
-            2
+            5
+            10
+            160
             0
+
+            6
+            3
+            100
+            1
+
+Wave5
+    SpawnPoint:0
+            7
+            2
+            220
+            1
+
+            4
+            3
+            220
+            1
+
+            6
+            4
+            120
+            0
+
+    SpawnPoint:1
+            7
+            2
+            220
+            0
+
+            4
+            3
+            220
+            0
+
+            6
+            4
             120
             1

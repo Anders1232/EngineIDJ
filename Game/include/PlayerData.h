@@ -13,7 +13,7 @@
 #define PLAYER_DATA_INSTANCE PlayerData::GetInstance()
 
 #define TOTAL_LIFES 30;
-#define START_MONEY 15;
+#define START_MONEY 150;
 /**
 	\brief Classe PlayerData armazena os dados do Jogador e exibe o quadro de pontos, vidas e gold do mesmo.
 
