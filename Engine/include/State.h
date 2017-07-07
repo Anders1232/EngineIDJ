@@ -73,6 +73,12 @@ class State {
 			Verdadeiro se o State solicitou o encerramento do programa, falso caso contrário.
 		*/
 		bool QuitRequested(void);
+		/** 
+			\brief Carrega os assets do estado
+			
+			Carrega os assets do estado.
+		*/
+		virtual void LoadAssets(void) const = 0;
 	protected:
 		/**
 			\brief Atualiza o estado de cada GameObject no vetor de GameObjects.
@@ -88,12 +94,6 @@ class State {
 			Percorre todos os GameObjects do vetor de GameObjects chamando o método Render de cada um deles.
 		*/
 		virtual void RenderArray(void) const;
-		/** 
-			\brief Carrega os assets do estado
-			
-			Carrega os assets do estado.
-		*/
-		virtual void LoadAssets(void) = 0;
 		bool popRequested;/**< Armazena a informação se o state solicitou desempilhamento.*/
 		bool quitRequested;/**< Armazena a informação se o state solicitou que o jogo seja fechado.*/
 		std::vector<std::unique_ptr<GameObject>> objectArray;/**< Vetor de GameObjects.*/

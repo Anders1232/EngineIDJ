@@ -147,7 +147,7 @@ void StageState::SetupUI() {
 																} );
 	towerBtn1.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
-											it->CreateTower(Tower::TowerType::ARTS);
+											it->CreateTower(Tower::TowerType::SMOKE);
 										} );
 
 	towerBtn2.SetCenter({0.5, 0.});
@@ -164,7 +164,7 @@ void StageState::SetupUI() {
 																} );
 	towerBtn2.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
-											it->CreateTower(Tower::TowerType::SOCIOLOGY);
+											it->CreateTower(Tower::TowerType::ANTIBOMB);
 										} );
 
 	towerBtn3.SetCenter({0.5, 0.});
@@ -181,7 +181,7 @@ void StageState::SetupUI() {
 																} );
 	towerBtn3.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
-											it->CreateTower(Tower::TowerType::ENGINEERING);
+											it->CreateTower(Tower::TowerType::SHOCK);
 										} );
 
 	towerBtn4.SetCenter({0.5, 0.});
@@ -198,7 +198,7 @@ void StageState::SetupUI() {
 																} );
 	towerBtn4.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
-											it->CreateTower(Tower::TowerType::MEDICINE);
+											it->CreateTower(Tower::TowerType::STUN);
 										} );
 
 	towersBtnGroup.groupedElements.push_back(&towerBtn1);
