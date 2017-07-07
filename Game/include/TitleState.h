@@ -34,6 +34,7 @@ class TitleState: public State {
 		Timer introTimer;
 		bool finishedEclipse;
 		bool finishedFadeIn;
+		bool forceEnd;
 
 		Sound clickSound;
 

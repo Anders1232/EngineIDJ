@@ -7,7 +7,7 @@
 
 #include <cfloat>
 
-#define ECLIPSE_DURATION	3.5 // s
+#define ECLIPSE_DURATION	5 // s
 #define OVERLAY_FADEIN_DURATION	2 // s
 #define MAX_SPEED			20 // px/s
 #define MIN_SPEED			5 // px/s
@@ -29,7 +29,7 @@ TitleState::TitleState()
 		, nuvemB("img/UI/main-menu/nuvemB.png", UIelement::BehaviorType::FILL)
 		, icc("img/UI/main-menu/icc.png", UIelement::BehaviorType::STRETCH)
 		, overlay("img/UI/main-menu/overlay.png", UIelement::BehaviorType::STRETCH)
-		, title("img/UI/main-menu/title.png", UIelement::BehaviorType::FIT)
+		, title("img/UI/main-menu/spritesheettitle.png", 1./5., 5, UIelement::BehaviorType::FIT)
 		, optionsGroup()
 		, playBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Jogar")
 		, editorBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Editor de Fases", UIbutton::State::DISABLED)
@@ -41,6 +41,7 @@ TitleState::TitleState()
 	introTimer.Restart();
 	finishedEclipse = false;
 	finishedFadeIn = false;
+	forceEnd = false;
 	
 	SetupUI();
 }
@@ -100,17 +101,28 @@ void TitleState::Update(float dt) {
 	if(INPUT_MANAGER.QuitRequested()) {
 		quitRequested = true;
 	}
+	if(INPUT_MANAGER.KeyRelease(ESCAPE_KEY)) {
+		forceEnd = true;
+	}
 
 	introTimer.Update(dt);
-	if(!finishedEclipse && introTimer.Get() >= ECLIPSE_DURATION) {
+	if(forceEnd || (!finishedEclipse && introTimer.Get() >= ECLIPSE_DURATION)) {
 		finishedEclipse = true;
 		lua.GetSprite().SetFrameTime(FLT_MAX);
+		lua.GetSprite().SetFrame(7);
+		Color c = overlay.GetSprite().colorMultiplier;
+		c.a = 180;
+		overlay.GetSprite().colorMultiplier = c;
 		introTimer.Restart();
 	}
-	if(finishedEclipse && ! finishedFadeIn && introTimer.Get() >= OVERLAY_FADEIN_DURATION) {
+	if(forceEnd || (finishedEclipse && ! finishedFadeIn && introTimer.Get() >= OVERLAY_FADEIN_DURATION)) {
 		finishedFadeIn = true;
+		Color c = title.GetSprite().colorMultiplier;
+		c.a = 255;
+		title.GetSprite().colorMultiplier = c;
 		introTimer.Restart();
 	}
+	forceEnd = false;
 
 	UpdateUI(dt);
 }
@@ -118,9 +130,15 @@ void TitleState::Update(float dt) {
 void TitleState::UpdateUI(float dt) {
 	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
 
-	if(finishedEclipse && !finishedFadeIn) {
+	if(!finishedEclipse) {
 		Color c = overlay.GetSprite().colorMultiplier;
-		overlay.GetSprite().colorMultiplier = {c.r, c.g, c.b, 155*introTimer.Get()/OVERLAY_FADEIN_DURATION};
+		overlay.GetSprite().colorMultiplier = {c.r, c.g, c.b, (unsigned char)(180*introTimer.Get()/ECLIPSE_DURATION)};
+	}
+
+	if(finishedEclipse && !finishedFadeIn) {
+		Color c = title.GetSprite().colorMultiplier;
+		c.a = 255*introTimer.Get()/OVERLAY_FADEIN_DURATION;
+		title.GetSprite().colorMultiplier = c;
 	}
 
 	canvas.Update(dt, winSize);
@@ -146,8 +164,8 @@ void TitleState::MoveClouds(float dt) {
 	Rect box = nuvemA;
 	Rect offsets = nuvemA.GetOffsets();
 	if (box.x + box.w < 0) {
-		offsets.x = winSize.x - (nuvemA.GetBoundingBox().x + nuvemA.GetBoundingBox().w);
-		offsets.w = offsets.x + nuvemA.GetSprite().GetWidth();
+		offsets.x += winSize.x + nuvemA.GetSprite().GetWidth();
+		offsets.w += winSize.x + nuvemA.GetSprite().GetWidth();
 		speedNuvemA = std::rand() % (MAX_SPEED - MIN_SPEED) + MIN_SPEED;
 	}
 	nuvemA.SetOffsets( {offsets.x-dt*speedNuvemA, offsets.y}, {offsets.w-dt*speedNuvemA, offsets.h});
@@ -155,8 +173,8 @@ void TitleState::MoveClouds(float dt) {
 	box = nuvemB;
 	offsets = nuvemB.GetOffsets();
 	if (box.x + box.w < 0) {
-		offsets.x = winSize.x - (nuvemB.GetBoundingBox().x + nuvemB.GetBoundingBox().w);
-		offsets.w = offsets.x + nuvemB.GetSprite().GetWidth();
+		offsets.x += winSize.x + nuvemB.GetSprite().GetWidth();
+		offsets.w += winSize.x + nuvemB.GetSprite().GetWidth();
 		speedNuvemB = std::rand() % (MAX_SPEED - MIN_SPEED) + MIN_SPEED;
 	}
 	nuvemB.SetOffsets( {offsets.x-dt*speedNuvemB, offsets.y}, {offsets.w-dt*speedNuvemB, offsets.h});
@@ -169,17 +187,19 @@ void TitleState::Render(void) const {
 void TitleState::RenderUI(void) const {
 	bg.Render();
 	lua.Render();
-	nuvemA.Render(true);
-	nuvemB.Render(true);
+	nuvemA.Render();
+	nuvemB.Render();
 	icc.Render();
 	overlay.Render();
-	if(finishedEclipse && finishedFadeIn) {
+	if(finishedEclipse) {
 		title.Render();
-		// optionsGroup.Render(true);
-		playBtn.Render();
-		editorBtn.Render();
-		configBtn.Render();
-		exitBtn.Render();
+		if(finishedFadeIn) {
+			// optionsGroup.Render(true);
+			playBtn.Render();
+			editorBtn.Render();
+			configBtn.Render();
+			exitBtn.Render();
+		}
 	}
 }
 
