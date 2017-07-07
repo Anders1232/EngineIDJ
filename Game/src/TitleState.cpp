@@ -126,4 +126,12 @@ void TitleState::Exit() {
 
 void TitleState::LoadAssets(void) const{
 	Resources::GetImage("img/title.jpg");
+	Resources::GetImage("img/UI/main-menu/bg.png");
+	Resources::GetImage("img/UI/main-menu/lua.png");
+	Resources::GetImage("img/UI/main-menu/nuvemB.png");
+	Resources::GetImage("img/UI/main-menu/icc.png");
+	Resources::GetImage("img/UI/main-menu/overlay.png");
+	Resources::GetImage("img/UI/main-menu/title.png");
+	Resources::GetMusic("audio/trilha_sonora/main_title_.ogg");
+	Resources::GetFont("font/SHPinscher-Regular.otf", 95);
 }
