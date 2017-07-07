@@ -152,7 +152,7 @@ void StageState::SetupUI() {
 
 	towerBtn1.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
-																	it->SetTowerInfoData("Normal (Art)", "$1", "10 HP", "Projetil (3/s)");
+																	it->SetTowerInfoData("Fumaca (Art)", "$1", "10 HP", "Projetil (3/s)");
 																} );
 	towerBtn1.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
