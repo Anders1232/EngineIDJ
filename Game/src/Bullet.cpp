@@ -34,15 +34,24 @@ Bullet::~Bullet(){
 void Bullet::NotifyCollision(GameObject &other){
 	if(other.Is(targetType)){
 		distanceLeft= 0;
-		if(other.Is("Tower")){
-			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/SpriteSheets/explosao_spritesheet.png",9,0.1,true));
+		if(Is("Bullet")){
+			if(other.Is("Tower") || other.Is("BOMB")){
+
+				Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/SpriteSheets/explosao_spritesheet.png",9,0.1,true));
+
+			}
 		}
-		else if(other.Is("BOMB")){
-			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/SpriteSheets/explosao_spritesheet.png",9,0.1,true));
-			other.RequestDelete();
+		else if(Is("BOMB")){
+			if(other.Is("Bullet")){
+
+				Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/SpriteSheets/anti-bomba_ativ_spritesheet.png",11,0.2,true));
+
+			}
 		}
 		else{
-			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/explosion.png",5,0.1,true));
+
+			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/SpriteSheets/explosao_spritesheet.png",9,0.1,true));
+
 		}
 		RequestDelete();
 	}
