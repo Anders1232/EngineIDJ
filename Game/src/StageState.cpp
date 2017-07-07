@@ -681,7 +681,7 @@ GameObject* StageState::FindNearestGO(Vec2 origin, std::string targetType, float
 	return(closerObj);
 }
 
-void StageState::LoadAssets(void){
+void StageState::LoadAssets(void) const{
 	Resources::GetImage("img/ocean.jpg");
 	Resources::GetImage("img/map/tileset_v2.png");
 	Resources::GetMusic("audio/stageState.ogg");

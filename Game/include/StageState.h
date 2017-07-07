@@ -43,7 +43,7 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		void Render(void) const;
 		void Pause(void);
 		void Resume(void);
-		void LoadAssets(void);
+		void LoadAssets(void) const;
 		void ShowLightning(float dt);
 		void SetUILife(float lifePercent);
 		void SetUIWaveProgress(float waveProgressPercent);

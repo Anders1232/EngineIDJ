@@ -137,7 +137,6 @@ void WaveManager::Update(float dt){
 	}
 	REPORT_I_WAS_HERE;
 	if (0 >= enemiesLeft){
-		LoadNextAssets();
 		endWave = true;
 	}
 }
@@ -177,12 +176,4 @@ int WaveManager::GetEnemiesLeft(void){
 
 bool WaveManager::Victory(void){
 	return victory;
-}
-
-void WaveManager::LoadNextAssets(void){
-	// WaveData currentWave = wavesAndEnemysData->first[waveIndex + 1];
-	// Resources::GetImage();
-	// Resources::GetFont();
-	// Resources::GetMusic();
-	// Resources::GetSound();
 }

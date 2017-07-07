@@ -124,6 +124,6 @@ void TitleState::Exit() {
 	popRequested = true;
 }
 
-void TitleState::LoadAssets(void){
+void TitleState::LoadAssets(void) const{
 	Resources::GetImage("img/title.jpg");
 }

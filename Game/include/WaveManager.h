@@ -92,12 +92,6 @@ class WaveManager : public Component {
 			
 		*/
 		void SpawnEnemy(int tileMapPosition, int enemyId,uint baseHP, uint endPoint, uint indexOfTheEnemyToSpawn);
-		/** 
-			\brief Carrega os assets da wave
-			
-			Carrega os assets da wave seguinte assim que ela acaba.
-		*/
-		void LoadNextAssets(void);
 
 		vector<vector<int>> *spawnGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
 		vector<vector<int>> *endGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
