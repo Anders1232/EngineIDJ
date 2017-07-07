@@ -63,7 +63,7 @@ void Tower::Update(float dt ) {
 }
 
 void Tower::Render(void) {
-	sp.Render(Rect(box.x + sp.GetWidth()/2,box.y + sp.GetHeight(),sp.GetWidth(),sp.GetHeight()));
+	sp.Render(box);
 	for(uint i=0; i< components.size(); i++){
 		(components[i])->Render();
 	}

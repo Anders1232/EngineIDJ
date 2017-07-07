@@ -13,9 +13,24 @@ void DragAndDrop::Update(float dt) {
 	InputManager &inputManager= InputManager::GetInstance();
 	if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON)) {
 		if(redrag) {
-			tileMap.InsertGO(&associated, associatedInitialPos);
-		} else {
-			tileMap.InsertGO(&associated);
+			if(associated.Is("Tower")){
+				associated.box = associated.box+Vec2(associated.box.w/4, (associated.box.h-60) );
+				tileMap.InsertGO(&associated, associatedInitialPos);
+				associated.box = associated.box-Vec2(associated.box.w/4, (associated.box.h-60) );
+			}
+			else{
+				tileMap.InsertGO(&associated, associatedInitialPos);
+			}
+		}
+		else {
+			if(associated.Is("Tower")){
+				associated.box = associated.box+Vec2(associated.box.w/4, (associated.box.h-60) );
+				tileMap.InsertGO(&associated, associatedInitialPos);
+				associated.box = associated.box-Vec2(associated.box.w/4, (associated.box.h-60) );
+			}
+			else{
+				tileMap.InsertGO(&associated);
+			}
 		}
 		associated.RemoveComponent(DRAG_AND_DROP);
 	} else if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON) || !dragOnHold) {
