@@ -42,6 +42,7 @@ class Tower : public GameObject{
 		Sprite sp;
 		HitPoints *hitpoints;
 		bool isDraging;
+		TowerType type;
 };
 
 #endif // TOWER_H

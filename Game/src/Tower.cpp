@@ -16,7 +16,13 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
 			type == TowerType::STUN ? "img/tower/torrestun.png" :
 			type == TowerType::SHOCK ? "img/tower/torrechoque_lvl1.png" :
 			"",
-			true){
+			true,
+			0.5,
+			type == TowerType::SMOKE ? 1:
+			type == TowerType::ANTIBOMB ? 8:
+			type == TowerType::STUN ? 1:
+			type == TowerType::SHOCK ? 8: 1)
+			,type(type){
 	box.x = pos.x;
 	box.y = pos.y;
 	sp.ScaleX(2*tileSize.x/sp.GetWidth());
