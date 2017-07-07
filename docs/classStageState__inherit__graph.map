@@ -1,5 +1,0 @@
-<map id="StageState" name="StageState">
-<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="5,5,59,32"/>
-<area shape="rect" id="node3" href="$classTileMapObserver.html" title="TileMapObserver" alt="" coords="83,5,205,32"/>
-<area shape="rect" id="node4" href="$classNearestGOFinder.html" title="NearestGOFinder" alt="" coords="229,5,353,32"/>
-</map>

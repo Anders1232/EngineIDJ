@@ -18,6 +18,7 @@ class TitleState: public State {
 		void Render(void) const;
 		void Pause(void);
 		void Resume(void);
+		void LoadAssets(void) const;
 		void Exit(void);
 	private:
 		void UpdateUI(float dt);

@@ -22,10 +22,10 @@ class Tower : public GameObject{
 			Enumeração com os tipos de torres possíveis.
 		*/
 		typedef enum TowerType : int{
-			MEDICINE=0,
-			SOCIOLOGY,
-			ENGINEERING,
-			ARTS,
+			SMOKE=0,
+			ANTIBOMB,
+			STUN,
+			SHOCK,
 			COMPUTATION
 		} TowerType;
 		
