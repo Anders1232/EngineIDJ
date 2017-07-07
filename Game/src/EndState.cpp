@@ -63,3 +63,12 @@ void EndState::StartLoop() {
 	music.Play(0);
 	Mix_HookMusicFinished(NULL);
 }
+
+void EndState::LoadAssets(void) const{
+	Resources::GetImage("img/UI/end-game/prototipo-menu-vitoria.png");
+	Resources::GetImage("img/UI/end-game/prototipo-menu-derrota.png");
+	Resources::GetFont("font/SHPinscher-Regular.otf", 32);
+	Resources::GetMusic("audio/tela_de_vitoria_derrota/vitoria.ogg");
+	Resources::GetMusic("audio/tela_de_vitoria_derrota/derrota.ogg");
+	Resources::GetMusic("audio/tela_de_vitoria_derrota/loop_tela_vitoria_derrota.ogg");
+}

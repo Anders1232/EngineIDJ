@@ -21,6 +21,7 @@ class TitleState: public State {
 		void Resume(void);
 		void Play(void);
 		void Exit(void);
+		void LoadAssets(void) const;
 	private:
 		void SetupUI(void);
 		void UpdateUI(float dt);

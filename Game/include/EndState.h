@@ -18,6 +18,7 @@ class EndState: public State {
 		void Pause();
 		void Resume();
 		void StartLoop(void);
+		void LoadAssets(void) const;
 	private:
 		Sprite bg;
 		Music music;
