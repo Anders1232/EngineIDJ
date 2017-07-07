@@ -17,6 +17,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 		  sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE)
 		, dead(false)
 		, direction(EnemyDirections::DOWN)
+		, lastEvent(Enemy::Event::NONE)
 		, walkingSound("audio/Ambiente/andando2.wav")
 		, waveManager(wManager){
 	box = position;
