@@ -42,13 +42,13 @@ class Music {
 			\brief Toca a música.
 			\param times Número de vezes que a música deve repetir.
 
-			Toca a música. Caso times seja -1, o sem será tocado indefinidamente.
+			Toca a música. Caso times seja 0, o sem será tocado indefinidamente.
 		*/
 		void Play(int times);
 		/**
 			\brief Interrompe a música.
 
-			Interrompe a eecução da música associado à instância.
+			Interrompe a execução da música associado à instância.
 		*/
 		void Stop(void);
 		/**

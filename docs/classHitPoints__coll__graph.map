@@ -1,0 +1,7 @@
+<map id="HitPoints" name="HitPoints">
+<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="491,81,580,108"/>
+<area shape="rect" id="node3" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="488,132,583,159"/>
+<area shape="rect" id="node4" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="237,56,288,83"/>
+<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="507,353,563,380"/>
+<area shape="rect" id="node13" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="236,327,289,353"/>
+</map>
