@@ -36,7 +36,7 @@ PlayerData::~PlayerData(){
 }
 
 void PlayerData::Render() const{
-	playerTable.Render(true);
+	playerTable.Render();
 
 	boardName.Render();
 

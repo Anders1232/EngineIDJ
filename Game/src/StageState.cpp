@@ -54,6 +54,7 @@ StageState::StageState(void)
 		, lightningColor(255, 255, 255, 0)
 		, nightSound("audio/Ambiente/Barulho_noite.wav")
 		, thunderSound("audio/Ambiente/Trovao.wav")
+		, towerMenuSounds("audio/Acoes/Dinheiro1.wav")
 		, frameRateCounter(0)
 		, HUDcanvas()
 		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
@@ -558,7 +559,8 @@ void StageState::CreateTower(Tower::TowerType towerType) {
 		AddObject(newTower);
 		PlayerData::GetInstance().GoldUpdate(-10/*Tower Cost*/, false);
 		//som de dinheiros
-
+		towerMenuSounds.Open("audio/Acoes/Dinheiro1.wav");
+        towerMenuSounds.Play(1);
 	} else {
         REPORT_I_WAS_HERE;
 		printf("You need more gold!");

@@ -88,6 +88,7 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		void RenderObstacleArray(void) const;
 		Sound nightSound;
 		Sound thunderSound;
+		Sound towerMenuSounds; /**< Som referente a compra, venda e construçao de torre. */
 
 		int frameRateCounter;
 		Timer frameRateTimer;
