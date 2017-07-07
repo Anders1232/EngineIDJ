@@ -8,6 +8,7 @@
 #include "Error.h"
 #include "AIGoDown.h"
 #include "HitPoints.h"
+#include "Timer.h"
 
 Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint, TileMap & tileMap, WaveManager &wManager)
 	: sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE), dead(false), direction(EnemyDirections::DOWN), walkingSound("audio/Ambiente/andando2.wav"){
@@ -15,6 +16,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	this->enemyIndex = enemyIndex; 
 	this->baseHP = baseHP; 
 	this->endPoint = endPoint;
+	eventTimer = Timer();
 
 	for(uint i=0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 		sp[i]= vector<Sprite>();
@@ -122,7 +124,6 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			break;
 		case EnemyType::QUIMIC:
 			REPORT_DEBUG("Enemy type: QUIMIC "<< enemyData.enemyType);
-			std::cout << "Enemy type: QUIMIC "<< endl;
 			type = EnemyType::QUIMIC;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
@@ -178,6 +179,10 @@ void Enemy::Update(float dt) {
 	if(hitpoints->GetHp() < 0){
 		dead = true;
 	}
+	if(eventTimer.Get() > MAX_EVENT_TIME){
+		lastEvent = Event::NONE;
+	}
+	eventTimer.Update(dt);
 }
 
 void Enemy::Render(void) {
@@ -210,6 +215,7 @@ void Enemy::NotifyCollision(GameObject &object) {
 void Enemy::NotifyEvent(Event e){
 
 	lastEvent = e;
+	eventTimer.Restart();
 
 }
 
