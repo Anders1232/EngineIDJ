@@ -12,6 +12,7 @@
 
 TitleState::TitleState()
 		: State()
+		, clickSound("audio/interface/Click1.wav")
 		, canvas({1024,600}, UIelement::BehaviorType::STRETCH)
 		, bg("img/UI/main-menu/bg.png", UIelement::BehaviorType::STRETCH)
 		, lua("img/UI/main-menu/lua.png", UIelement::BehaviorType::FIT)
@@ -26,6 +27,9 @@ TitleState::TitleState()
 		, configBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, std::string("Configura") + (char)0xE7 /*ç*/ + (char)0xF5 /*õ*/ + "es", UIbutton::State::DISABLED)
 		, exitBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Sair")
 		, titleMusic("audio/trilha_sonora/main_title_.ogg") {
+	Resources::ChangeMusicVolume(0);
+	Resources::ChangeSoundVolume(0);
+	
 	SetupUI();
 }
 
@@ -59,7 +63,8 @@ void TitleState::SetupUI(void) {
 	
 	playBtn.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
 	playBtn.SetClickCallback( this, [] (void* caller) {
-									Game::GetInstance().Push(new StageState());
+									TitleState* titleState = static_cast<TitleState*>(caller);
+									titleState->Play();
 								} );
 	
 	editorBtn.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
@@ -76,7 +81,7 @@ void TitleState::SetupUI(void) {
 	optionsGroup.groupedElements.push_back(&editorBtn);
 	optionsGroup.groupedElements.push_back(&configBtn);
 	optionsGroup.groupedElements.push_back(&exitBtn);
-	titleMusic.Play(2);
+	titleMusic.Play(0);
 }
 
 void TitleState::Update(float dt) {
@@ -123,13 +128,20 @@ void TitleState::RenderUI(void) const {
 	exitBtn.Render();
 }
 
-void TitleState::Pause(void) {}
+void TitleState::Pause(void) {
+}
 
 void TitleState::Resume(void) {
 	Camera::ForceLogZoom(0.0);
 	Camera::pos = Vec2(0, 0);
 }
 
+void TitleState::Play(void) {
+	clickSound.Play(1);
+	Game::GetInstance().Push(new StageState());
+}
+
 void TitleState::Exit() {
+	clickSound.Play(1);
 	popRequested = true;
 }

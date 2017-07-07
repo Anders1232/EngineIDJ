@@ -45,7 +45,7 @@ StageState::StageState(void)
 		, tileSet(120, 120,"map/tileset_vf.png")
 		, tileMap("map/tileMap.txt", &tileSet)
 		, inputManager(INPUT_MANAGER)
-        , music("audio/trilha_sonora/loop_1.ogg")
+		, music("audio/trilha_sonora/loop_1.ogg")
 		, isLightning(false)
 		, isThundering(false)
 		, lightningTimer()
@@ -56,6 +56,7 @@ StageState::StageState(void)
 		, HUDcanvas()
 		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
 		, openMenuBtn()
+		, menuMove("audio/interface/Click1.wav")
 		, towerInfoGroup()
 		, towerName("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERNAME_DEFAULT_TEXT)
 		, towerCost("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERCOST_DEFAULT_TEXT)
@@ -74,10 +75,12 @@ StageState::StageState(void)
 		, waveIcon("img/UI/HUD/inimigo00.png", UIelement::BehaviorType::FILL)
 		, wavebarBg("img/UI/HUD/hudvida.png")
 		, wavebarBar("img/UI/HUD/hudvida.png") {
+	Resources::ChangeMusicVolume(0);
+	Resources::ChangeSoundVolume(0);
 
 	GameResources::SetTileMap(&tileMap);
 	REPORT_I_WAS_HERE;
-	music.Play(10);
+	music.Play(0);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
 	Camera::ForceLogZoom(CAM_START_ZOOM);
 	GameObject* waveManagerGO= new GameObject();
@@ -89,7 +92,7 @@ StageState::StageState(void)
 	lightningInterval = rand() % (LIGHTINING_MAX_INTERVAL - LIGHTINING_MIN_INTERVAL) + LIGHTINING_MIN_INTERVAL;
 	REPORT_DEBUG(" Proximo relampago sera em " << lightningInterval << " segundos.");
 	InitializeObstacles();
-	nightSound.Play(-1);
+	nightSound.Play(0);
 
 	SetupUI();
 }
@@ -469,9 +472,13 @@ void StageState::RenderUI(void) const {
 	menuIsShowing = this->menuIsShowing;
 }
 
-void StageState::Pause(void) {}
+void StageState::Pause(void) {
+	nightSound.Stop();
+	thunderSound.Stop();
+}
 
 void StageState::Resume(void) {
+	nightSound.Play(0);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
 	Camera::ForceLogZoom(CAM_START_ZOOM);
 }
@@ -519,6 +526,7 @@ void StageState::RenderObstacleArray(void) const {
 
 void StageState::ToggleMenu(void) {
 	menuIsShowing = !menuIsShowing;
+	menuMove.Play(1);
 
 	Rect menuBgOffsets = menuBg.GetOffsets();
 	Vec2 menuBgDim = menuBg.GetSpriteDimensions();

@@ -9,6 +9,7 @@
 #include "UItextButton.h"
 #include "UIverticalGroup.h"
 #include "State.h"
+#include "Sound.h"
 #include "Music.h"
 
 class TitleState: public State {
@@ -18,11 +19,15 @@ class TitleState: public State {
 		void Render(void) const;
 		void Pause(void);
 		void Resume(void);
+		void Play(void);
 		void Exit(void);
 	private:
 		void SetupUI(void);
 		void UpdateUI(float dt);
 		void RenderUI() const;
+
+		Sound clickSound;
+
 		UIcanvas canvas;
 		UIimage bg;
 		UIimage lua;
