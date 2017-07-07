@@ -20,8 +20,13 @@ void DragAndDrop::Update(float dt) {
 		associated.RemoveComponent(DRAG_AND_DROP);
 	} else if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON) || !dragOnHold) {
 		Vec2 mousePos= Camera::ScreenToWorld(inputManager.GetMousePos() );
-		associated.box= mousePos-Vec2(associated.box.w/2, associated.box.h);
-	} 
+		if(associated.Is("Tower")){
+			associated.box= mousePos-Vec2(associated.box.w/2, associated.box.h);
+		}
+		else{
+			associated.box= mousePos-Vec2(associated.box.w/2, associated.box.h/2);
+		}
+	}
 }
 
 bool DragAndDrop::Is(ComponentType type) const {
