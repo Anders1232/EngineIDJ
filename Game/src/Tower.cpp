@@ -10,14 +10,12 @@
 
 #define SORTEAR_TORRES
 
-typedef unsigned int uint;
-
-Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize,int hp)
-		: sp(type == TowerType::MEDICINE ? "img/tower/torre_fumaca.png" :
-			type == TowerType::SOCIOLOGY ? "img/tower/torre_fumaca.png" :
-			type == TowerType::ENGINEERING ? "img/tower/torre_fumaca.png" :
-			type == TowerType::ARTS ? "img/tower/torre_fumaca.png" :
-			type == TowerType::COMPUTATION ? "img/tower/torre_fumaca.png":
+Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
+		: sp(type == TowerType::SMOKE ? "img/tower/torre_fumaca.png" :
+			type == TowerType::ANTIBOMB ? "img/tower/torre-anti-bomba.png" :
+			type == TowerType::STUN ? "img/tower/torrestun.png" :
+			type == TowerType::SHOCK ? "img/tower/torrechoque_lvl1.png" :
+			type == TowerType::COMPUTATION ? "img/tower/torrefumaca.png":
 			"",
 			true){
 	box.x = pos.x;

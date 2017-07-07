@@ -123,6 +123,7 @@ void Game::Push(State* state) {
 		std::cout << WHERE << "[WARNING]Não era para ter um state aqui...\n";
 	}
 	storedState = state;
+	storedState->LoadAssets();
 }
 
 void Game::Run(void) {

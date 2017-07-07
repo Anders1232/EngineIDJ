@@ -51,3 +51,11 @@ void EndState::Resume() {
 	Camera::ForceLogZoom(0.0);
 	Camera::pos = Vec2(0, 0);
 }
+
+void EndState::LoadAssets(void) const{
+	Resources::GetImage("img/win.jpg");
+	Resources::GetImage("img/lose.jpg");
+	Resources::GetFont("font/Call me maybe.ttf", 32);
+	Resources::GetMusic("audio/tela_de_vitoria_derrota/vitoria.ogg");
+	Resources::GetMusic("audio/tela_de_vitoria_derrota/derrota.ogg");
+}
