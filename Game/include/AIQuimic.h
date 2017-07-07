@@ -10,6 +10,7 @@
 #include "Game.h"
 #include "Timer.h"
 #include "Shooter.h"
+#include "Enemy.h"
 
 #define QUIMIC_MAX_BULLET_COOLDOWN 10.0
 
@@ -60,6 +61,9 @@ class AIQuimic : public Component, public TileMapObserver
 		TileMap& tileMap;
 		GameObject &associated;
 		WaveManager& waveManager;
+		Timer getPathTimer;
+		int randomMaxTimer;
+
 		AIState actualState;
 		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM];
 		Shooter *shooter;

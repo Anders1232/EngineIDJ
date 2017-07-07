@@ -7,6 +7,7 @@
 #include <queue>
 #include <limits>
 #include <map>
+#include <vector>
 #include <functional>
 #include <algorithm>
 #include "Tileset.h"
@@ -194,6 +195,7 @@ class TileMap: public NearestGOFinder{
 		void ObserveMapChanges(TileMapObserver *);
 		void RemoveObserver(TileMapObserver *);
 		GameObject* FindNearestGO(Vec2 origin,std::string objectDestType, float range= std::numeric_limits<float>::max());
+		std::vector<GameObject*>* FindNearestGOs(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max());
 		/**
 			\brief Vê se um dado objeto está no tileMap
 			\param obj Objeto o qual se quer sabe se está no tileMap

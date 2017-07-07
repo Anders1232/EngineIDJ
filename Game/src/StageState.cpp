@@ -728,9 +728,26 @@ GameObject* StageState::FindNearestGO(Vec2 origin, std::string targetType, float
 	return(closerObj);
 }
 
+std::vector<GameObject*>* StageState::FindNearestGOs(Vec2 origin, std::string targetType, float range){
+	vector<GameObject*> *objectsInRange= new vector<GameObject*>();
+	for(unsigned int i = 0; i < objectArray.size(); i ++){
+		std::unique_ptr<GameObject> &gameObjectInAnalisis= objectArray[i];
+		if(nullptr != gameObjectInAnalisis){
+			if(gameObjectInAnalisis->Is(targetType)){
+				double distance = origin.VecDistance(gameObjectInAnalisis->box.Center()).Magnitude();
+				if(distance <= range){
+					objectsInRange->push_back(gameObjectInAnalisis.get());
+				}
+			}
+		}
+	}
+	return(objectsInRange);
+}
+
 PlayerData& StageState::GetPlayerDataInstance(void){
 	return *pData;
 }
+
 void StageState::LoadAssets(void) const{
 	Resources::GetImage("./map/tileset_vf.png");
 	Resources::GetImage("./img/UI/HUD/menu.png");
@@ -768,6 +785,8 @@ void StageState::LoadAssets(void) const{
 	Resources::GetImage("./img/enemy/cabeca_esq.png");
 	Resources::GetImage("./img/enemy/cabelo_esq.png");
 	Resources::GetImage("./img/enemy/torso_esq.png");
+	Resources::GetImage("./img/SpriteSheets/explosao_spritesheet.png");
+	Resources::GetImage("./img/explosion.png");
 	Resources::GetMusic("./audio/trilha_sonora/loop_1.ogg");
 	Resources::GetSound("./audio/Acoes/Inicio de Wave.wav");
 	Resources::GetSound("./audio/Ambiente/Barulho_noite.wav");

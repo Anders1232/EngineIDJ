@@ -25,8 +25,7 @@ class Tower : public GameObject{
 			SMOKE=0,
 			ANTIBOMB,
 			STUN,
-			SHOCK,
-			COMPUTATION
+			SHOCK
 		} TowerType;
 		
 		Tower(TowerType type, Vec2 pos, Vec2 tileSize,int hp);

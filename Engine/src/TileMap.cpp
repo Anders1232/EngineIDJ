@@ -522,6 +522,23 @@ GameObject* TileMap::FindNearestGO(Vec2 origin, std::string objectDestType, floa
 	return(closerObj);
 }
 
+std::vector<GameObject*>* TileMap::FindNearestGOs(Vec2 origin, std::string targetType, float range){
+	vector<GameObject*> *objectsInRange= new vector<GameObject*>();
+	for(unsigned int i = 0; i < gameObjectMatrix.size(); i ++){
+		GameObject *gameObjectInAnalisis= gameObjectMatrix[i];
+		if(nullptr != gameObjectInAnalisis){
+			if(gameObjectInAnalisis->Is(targetType)){
+				double distance = origin.VecDistance(gameObjectInAnalisis->box.Center()).Magnitude();
+				if(distance <= range){
+					objectsInRange->push_back(gameObjectInAnalisis);
+				}
+			}
+		}
+	}
+	return(objectsInRange);
+}
+
+
 GameObject* TileMap::GetGO(int index){
 	return gameObjectMatrix.at(index);
 }

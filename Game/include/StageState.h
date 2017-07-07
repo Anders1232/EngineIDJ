@@ -54,6 +54,7 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		void SetUIWaveProgress(float waveProgressPercent);
 		void NotifyTileMapChanged(int tilePosition);
 		GameObject* FindNearestGO(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max());
+		std::vector<GameObject*>* FindNearestGOs(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max());
 		PlayerData& GetPlayerDataInstance(void);
 	private:
 
