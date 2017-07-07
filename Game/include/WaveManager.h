@@ -103,7 +103,8 @@ class WaveManager : public Component {
 
 		int maxNumberOfEnemiesInSpawnPoint; /**<Numero maximo de um tipo de inimigo dentro de uma SpawnGroup. */
 		bool victory;/**< Verdadeiro se o jogador passou por todas as waves com vidas restantes. */
-		Sound waveStartSound;
+		Sound waveEnemiesSound;
+		Sound waveEventSound;
 
 };
 

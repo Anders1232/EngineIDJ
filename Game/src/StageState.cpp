@@ -342,6 +342,7 @@ void StageState::Update(float dt){
 		if(nullptr != go) {
 			go->AddComponent(new DragAndDrop(tileMap, mousePos, *go));
 			REPORT_I_WAS_HERE;
+
 		}
 	}
 	if(INPUT_MANAGER.KeyPress('=')) {
@@ -576,7 +577,7 @@ void StageState::CreateTower(Tower::TowerType towerType) {
 		newTower->AddComponent(new DragAndDrop(tileMap, mousePos, *newTower, false, false));
 		AddObject(newTower);
 		//PlayerData::GetInstance().GoldUpdate(-10/*Tower Cost*/, false);
-        GetPlayerDataInstance().GoldUpdate(-10/*Tower Cost*/, false);
+        GetPlayerDataInstance().GoldUpdate(-30/*Tower Cost*/, false);
 		//som de dinheiros
 		towerMenuSounds.Open("audio/Acoes/Dinheiro1.wav");
         towerMenuSounds.Play(1);

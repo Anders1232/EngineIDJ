@@ -14,7 +14,9 @@
 #define WAVE_INDEX_INITIALIZE -1 //contador em update vai ja iniciar primeira wave com index 0
 #define RESET_WAVE_PROGRESS 1.0 //Enche novamente a barra de progresso da wave.
 
-WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap), waveStartSound("audio/Acoes/Inicio de Wave.wav") {
+WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap),
+															 waveEnemiesSound("audio/Acoes/Inicio de Wave.wav"),
+															 waveEventSound("audio/Acoes/Inicio de Wave.wav") {
 	endWave=true;
 
 	enemiesLeft = 0;
@@ -81,13 +83,14 @@ void WaveManager::Update(float dt){
             if(TIME_BETWEEN_WAVE < waveTimer.Get()) {
 
 				++waveIndex;
-				waveStartSound.Play(1);
+				waveEventSound.Open("audio/Acoes/Inicio de Wave.wav");
+				waveEventSound.Play(1);
 				StartWave();
 
 			}else{
 
 				//waiting for next wave...
-				printf("Next wave start in %f \n", TIME_BETWEEN_WAVE - waveTimer.Get());
+				//printf("Next wave start in %f \n", TIME_BETWEEN_WAVE - waveTimer.Get());
 
 			}
 		}
@@ -142,6 +145,8 @@ void WaveManager::Update(float dt){
             //PlayerData::GetInstance().GoldUpdate((int)income);
 			((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().GoldUpdate((int)income);
 
+			waveEventSound.Open("audio/Acoes/Level_Up.wav");
+			waveEventSound.Play(1);
         }
 	}
 
@@ -172,6 +177,8 @@ void WaveManager::NotifyEnemyGotToHisDestiny(){
 	((StageState&)Game::GetInstance().GetCurrentState()).SetUIWaveProgress( ((float)enemiesLeft)/(float)waveTotalEnemies );
 	((StageState&)Game::GetInstance().GetCurrentState()).SetUILife();
 
+	waveEnemiesSound.Open("audio/Acoes/perdeu1.wav");
+	waveEnemiesSound.Play(1);
 }
 
 void WaveManager::NotifyEnemyGotKilled(){
