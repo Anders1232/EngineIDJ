@@ -45,7 +45,7 @@ StageState::StageState(void)
 		, tileSet(120, 120,"map/tileset_vf.png")
 		, tileMap("map/tileMap.txt", &tileSet)
 		, inputManager(INPUT_MANAGER)
-        , music("audio/trilha_sonora/loop_1.ogg")
+		, music("audio/trilha_sonora/loop_1.ogg")
 		, isLightning(false)
 		, isThundering(false)
 		, lightningTimer()
@@ -596,8 +596,7 @@ void StageState::InitializeObstacles(void){
 						if(treeTilesVector[j+1] == (index+1) ){
 							//tem uma linha e uma coluna a partir do tile sendo processado
 							bool isSqare=false;
-							if( (baixo+1) != treeTilesVector.end())
-							{
+							if( (baixo+1) != treeTilesVector.end()){
 								if(*(baixo+1) == (*baixo)+1){
 									//é um quadrado
 									isSqare = true;
