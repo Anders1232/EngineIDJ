@@ -39,7 +39,7 @@ EndState::EndState(EndStateData stateData)
 }
 
 void EndState::SetupUI(EndStateData stateData) {
-	bg.SetSpriteColorMultiplier( {255, 255, 255, 200} );
+	bg.GetSprite().colorMultiplier = {255, 255, 255, 200};
 
 	venceuText.SetAnchors( {0.2, 0.},
 						   {0.8, 0.4});
