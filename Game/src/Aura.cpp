@@ -26,8 +26,12 @@ Aura::Aura(GameObject &associated,
 	}
 	else if(Enemy::Event::HEALER == auraType){
 		sp= Sprite("img/SpriteSheets/aura_spritesheet.png", false, 0.3f, 7);
-//		sp2("img/SpriteSheets/aura_spritesheet.png", false, 0.3f, 7);
-//		sp2.SetFrame(3);
+	}
+	sp.ScaleX(auraRange/(float)sp.GetWidth());
+	sp.ScaleY(auraRange/(float)sp.GetHeight());
+	if(Enemy::Event::HEALER != auraType){
+		sp2.ScaleX(auraRange/(float)sp2.GetWidth());
+		sp2.ScaleY(auraRange/(float)sp2.GetHeight());
 	}
 }
 
