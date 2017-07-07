@@ -127,6 +127,7 @@ void AIArt::Update(float dt){
 
 void AIArt::NotifyTileMapChanged(int tilePosition){
 	if(path->end() != std::find(path->begin()+pathIndex, path->end(), tilePosition)){
+		pathIndex= 0;
 		Vec2 originCoord= associated.box.Center();
 		path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 		if(path->size() > 0){

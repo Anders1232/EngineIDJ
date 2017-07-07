@@ -1,6 +1,9 @@
 #ifndef COLOR_H
 #define COLOR_H
 
+#define INCLUDE_SDL
+#include "SDL_include.h"
+
 /**
 	\brief Struct para armazenar informações de cor
 
@@ -22,6 +25,7 @@ struct Color {
 			Essa struct representa uma cor de 8 bits. Ou seja, cada canal pode receber um número entre 0 (inclusive) e 255 (inclusive).
 		*/
 		Color( unsigned char r, unsigned char g, unsigned char b, unsigned char a = 255 );
+		operator SDL_Color();
 };
 
 #endif // COLOR_H

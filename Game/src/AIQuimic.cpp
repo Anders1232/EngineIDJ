@@ -117,16 +117,11 @@ void AIQuimic::Update(float dt){
 				associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
 				lastDistance = distance;
 			}
-
 			if((*path)[path->size() - 1] != destTile){
-
 				shooter->SetActive(true);
-
 			}
 			else{
-
 				shooter->SetActive(false);
-
 			}
 		}
 	}
@@ -193,6 +188,7 @@ void AIQuimic::Update(float dt){
 
 void AIQuimic::NotifyTileMapChanged(int tilePosition){
 	if(path->end() != std::find(path->begin()+pathIndex, path->end(), tilePosition)){
+		pathIndex= 0;
 		Vec2 originCoord= associated.box.Center();
 		path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 		if(path->size() > 0){

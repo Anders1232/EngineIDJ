@@ -12,13 +12,11 @@
 class UIimage : public UIelement {
 	public:
 		UIimage(std::string file, UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
+		UIimage(std::string file, float frameTime, int frameCount, UIelement::BehaviorType behavior = UIelement::BehaviorType::STRETCH);
 		virtual ~UIimage();
+		virtual void Update(float dt, Rect parentCanvas);
 		virtual void Render(bool debugRender = false) const;
-		float GetSpriteWidth(void);
-		float GetSpriteHeight(void);
-		Vec2 GetSpriteDimensions(void);
-		void SetSpriteScale(float scale);
-		void SetSpriteColorMultiplier(Color scale, SDL_BlendMode blendMode = ALPHA_BLEND);
+		Sprite& GetSprite(void);
 		bool Is(std::string UItype) const;
 		float angle;
 	protected:
