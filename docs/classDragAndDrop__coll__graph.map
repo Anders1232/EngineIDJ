@@ -1,0 +1,11 @@
+<map id="DragAndDrop" name="DragAndDrop">
+<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="1169,77,1259,104"/>
+<area shape="rect" id="node3" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="701,13,753,40"/>
+<area shape="rect" id="node5" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="857,179,952,205"/>
+<area shape="rect" id="node6" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="539,127,590,153"/>
+<area shape="rect" id="node13" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="537,561,593,588"/>
+<area shape="rect" id="node9" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1180,720,1248,747"/>
+<area shape="rect" id="node10" href="$classNearestGOFinder.html" title="NearestGOFinder" alt="" coords="843,645,967,672"/>
+<area shape="rect" id="node12" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="873,747,936,773"/>
+<area shape="rect" id="node18" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="233,640,287,667"/>
+</map>

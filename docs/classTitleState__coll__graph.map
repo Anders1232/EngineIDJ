@@ -1,0 +1,17 @@
+<map id="TitleState" name="TitleState">
+<area shape="rect" id="node2" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="570,1555,623,1581"/>
+<area shape="rect" id="node33" href="$classUIbutton.html" title="Classe virtual que modela o comportamento de um botão na interface gráfica. " alt="" coords="889,1440,961,1467"/>
+<area shape="rect" id="node14" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="569,224,625,251"/>
+<area shape="rect" id="node26" href="$classUItext.html" title="Classe que modela textos. " alt="" coords="896,1024,955,1051"/>
+<area shape="rect" id="node5" href="$classMusic.html" title="Classe que modela músicas. " alt="" coords="1192,1613,1249,1640"/>
+<area shape="rect" id="node7" href="$classUIcanvas.html" title="UIcanvas" alt="" coords="886,573,965,600"/>
+<area shape="rect" id="node23" href="$classUIverticalGroup.html" title="UIverticalGroup" alt="" coords="1164,663,1277,689"/>
+<area shape="rect" id="node8" href="$classUIelement.html" title="UIelement" alt="" coords="555,573,638,600"/>
+<area shape="rect" id="node13" href="$classUIimage.html" title="UIimage" alt="" coords="890,379,961,405"/>
+<area shape="rect" id="node9" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="251,467,303,493"/>
+<area shape="rect" id="node11" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="252,656,303,683"/>
+<area shape="rect" id="node31" href="$classTimer.html" title="Temporizador. " alt="" coords="415,899,469,925"/>
+<area shape="rect" id="node21" href="$classSound.html" title="Classe que modela sons. " alt="" coords="567,747,626,773"/>
+<area shape="rect" id="node19" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="251,51,304,77"/>
+<area shape="rect" id="node25" href="$classUItextButton.html" title="UItextButton" alt="" coords="1173,1133,1269,1160"/>
+</map>
