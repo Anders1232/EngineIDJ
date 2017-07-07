@@ -143,12 +143,12 @@ void AIQuimic::Update(float dt){
 				if(pathIndex != path->size()){
 					tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
 					lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
-					actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER)) * 2;
+					actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER)) * 3;
 					vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed /actualTileweight);
 				}
 			}
 			else if(vecSpeed.Magnitude() == 0.0){
-				actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER)) * 2;
+				actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER)) * 3;
 				vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / actualTileweight);
 			}
 			else{
@@ -159,15 +159,18 @@ void AIQuimic::Update(float dt){
 		}
 	}
 	else if(actualState == AIState::SENDING_BOMB){
-		if(tileMap.GetCoordTilePos(Vec2(associated.box.x,associated.box.y), false, 0) != destTile){
+		if(tileMap.GetCoordTilePos(associated.box.Center(), false, 0) != destTile){
 			shooter->SetActive(true);
-			
+
 			if(getPathTimer.Get() > randomMaxTimer){
 				getPathTimer.Restart();
 				randomMaxTimer = rand()%3;
 				Vec2 originCoord= associated.box.Center();
 				path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+				TEMP_REPORT_I_WAS_HERE;
+				std::cout << destTile << " " << tileMap.GetCoordTilePos(originCoord, false, 0) << std::endl;
 				if(path->size() > 0){
+					TEMP_REPORT_I_WAS_HERE;
 					pathIndex = 0;
 					tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
 					vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / actualTileweight);

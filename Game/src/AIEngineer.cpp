@@ -129,12 +129,12 @@ void AIEngineer::Update(float dt){
 				if(pathIndex != path->size()){
 					tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
 					lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
-					actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER)) * 2;
+					actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER)) * 3;
 					vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed /actualTileweight);
 				}
 			}
 			else if(vecSpeed.Magnitude() == 0.0){
-				actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER)) * 2;
+				actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER)) * 3;
 				vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / actualTileweight);
 			}
 			else{
@@ -145,7 +145,7 @@ void AIEngineer::Update(float dt){
 		}
 	}
 	else if(actualState == AIState::BUILDING_BARRIER){
-		if(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) != destTile){
+		if(tileMap.GetCoordTilePos(associated.box.Center(), false, 0) != destTile){
 			//Executa aqui código para o inimigo construir barreiras para se defender de bombas
 			if(getPathTimer.Get() > randomMaxTimer){
 				getPathTimer.Restart();

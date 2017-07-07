@@ -98,7 +98,7 @@ void AIArt::Update(float dt){
 		}
 	}
 	else if(actualState == AIState::WAITING){
-		if(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) == destTile){
+		if(tileMap.GetCoordTilePos(associated.box.Center(), false, 0) == destTile){
 			associated.RequestDelete();
 			waveManager.NotifyEnemyGotToHisDestiny();
 		}
