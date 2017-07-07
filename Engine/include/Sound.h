@@ -39,7 +39,7 @@ class Sound {
 			\param times Número de vezes que a música deve repetir.
 
 			Toca o som, num canal arbritário. Caso essa instância de Sound já esteja com um som sendo tocado, esse som é interrompido.
-			Caso times seja -1, o sem será tocado indefinidamente.
+			Caso times seja 0, o sem será tocado indefinidamente.
 		*/
 		void Play(int times);
 		/**
