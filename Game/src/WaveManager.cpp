@@ -6,27 +6,29 @@
 #include "Enemy.h"
 #include "GameResources.h"
 #include "Error.h"
+#include "PlayerData.h"
+#include "StageState.h"
 
-#define TIME_BETWEEN_SPAWN (0.8)
-#define TIME_BETWEEN_WAVES (5.0)
+#define TIME_BETWEEN_SPAWN (0.8) //tempo entre spawn de inimigos
+#define TIME_BETWEEN_WAVE (10.0) //tempo entre waves
+#define WAVE_INDEX_INITIALIZE -1 //contador em update vai ja iniciar primeira wave com index 0
+#define RESET_WAVE_PROGRESS 1.0 //Enche novamente a barra de progresso da wave.
 
-int WaveManager::waveCount = 0;
+WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap), waveStartSound("audio/Acoes/Inicio de Wave.wav") {
+	endWave=true;
 
-
-WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap), waveStartSound("audio/Acoes/Inicio de Wave.wav"), betweenWavesTimer(), waitingForTheNextWave(true) {
-	endWave=false;
 	enemiesLeft = 0;
-	playerLifes = 30;
+	waveCount = 0;
 	REPORT_DEBUG2(1, "Buscando spawn points.");
 	spawnGroups= tileMap.GetTileGroups(SPAWN_POINT);
 	REPORT_DEBUG2(1, "Buscando end points.");
 	endGroups= tileMap.GetTileGroups(END_POINT);
 	wavesAndEnemysData = GameResources::GetWaveData("assets/wave&enemyData.txt");
 	enemyIndex = 0;
-	waveIndex=0;
+	waveIndex= WAVE_INDEX_INITIALIZE;
 	totalWaves = wavesAndEnemysData->first.size();
 	victory = false;
-	StartWave();
+
 }
 
 WaveManager::~WaveManager(){
@@ -38,7 +40,6 @@ void WaveManager::StartWave(void){
 	enemiesLeft=0;
 	maxNumberOfEnemiesInSpawnPoint=0;
 	int numberOfEnemiesInSpawnPoint;
-	REPORT_I_WAS_HERE;
 	for (uint i = 0; i < wavesAndEnemysData->first[waveIndex].spawnPointsData.size(); i++){
 		numberOfEnemiesInSpawnPoint=0;
 		for (uint j = 0; j < wavesAndEnemysData->first[waveIndex].spawnPointsData[i].enemySpawnData.size(); j++){
@@ -53,38 +54,48 @@ void WaveManager::StartWave(void){
 	enemyIndex = 0;
 	endWave = false;
 	++waveCount;
+
+	printf("Wave %d Start!", waveCount);
+	//PlayerData::GetInstance().CountNextWave(waveCount);
+	((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().CountNextWave(waveCount);
+	((StageState&)Game::GetInstance().GetCurrentState()).SetUIWaveProgress(RESET_WAVE_PROGRESS);
+
 }
 
 
 bool WaveManager::EndWave(void) const{
 	return endWave;
 }
- 
+
 void WaveManager::Update(float dt){
-	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
 
 	if(EndWave()){
+
 		if(totalWaves==waveCount){ //Check Game over Condition
-			//Ao invés de não fazer nada deve-ser informar o fim de jogo
+
 			victory = true;
 			return;
+
 		}else{
-			if(!waitingForTheNextWave){
-				waitingForTheNextWave= true;
-				betweenWavesTimer.Restart();
+            waveTimer.Update(dt);
+            if(TIME_BETWEEN_WAVE < waveTimer.Get()) {
+
+				++waveIndex;
 				waveStartSound.Play(1);
+				StartWave();
+
+			}else{
+
+				//waiting for next wave...
+				printf("Next wave start in %f \n", TIME_BETWEEN_WAVE - waveTimer.Get());
+
 			}
-			else{
-				betweenWavesTimer.Update(dt);
-				if(TIME_BETWEEN_WAVES > betweenWavesTimer.Get()){
-					++waveIndex;
-					StartWave();
-				}
-			}
-			REPORT_I_WAS_HERE;
 		}
 	}else{
+		WaveData currentWave = wavesAndEnemysData->first[waveIndex];
+
 		if(enemyIndex <= maxNumberOfEnemiesInSpawnPoint){
+
 			spawnTimer.Update(dt);
 			if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){ // spawn cooldown
 				//spawn 1 enemy at each existing spawn group
@@ -92,26 +103,17 @@ void WaveManager::Update(float dt){
 					uint enemiesCounter= enemyIndex;
 					uint indexOfTheEnemyToSpawn=0;
 					bool breaked= false;
-					REPORT_I_WAS_HERE;
 					while(enemiesCounter >= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn).numberOfEnemies){
-						REPORT_I_WAS_HERE;
 						if(indexOfTheEnemyToSpawn>= currentWave.spawnPointsData.at(i).enemySpawnData.size()){
-							REPORT_I_WAS_HERE;
 							breaked= true;
-							REPORT_I_WAS_HERE;
 							break;
 						}
-						REPORT_I_WAS_HERE;
 						enemiesCounter-= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn).numberOfEnemies;
 						indexOfTheEnemyToSpawn++;
-						REPORT_I_WAS_HERE;
 						if(indexOfTheEnemyToSpawn>= currentWave.spawnPointsData.at(i).enemySpawnData.size()){
-							REPORT_I_WAS_HERE;
 							breaked= true;
-							REPORT_I_WAS_HERE;
 							break;
 						}
-						REPORT_I_WAS_HERE;
 					}
 					if(breaked){
 						continue;
@@ -127,18 +129,22 @@ void WaveManager::Update(float dt){
 					int endTilePosition= (*endGroups).at(enemyToSpawn.endPoint).at(endPosition);
 					SpawnEnemy( (*spawnGroups).at(i).at(spawnPosition), enemyToSpawn.enemyIndex, enemyToSpawn.baseHP, endTilePosition, indexOfTheEnemyToSpawn );
 				}
-				REPORT_I_WAS_HERE;
 				spawnTimer.Restart();
 				enemyIndex++;
 			}
-			REPORT_I_WAS_HERE;
 		}
-		REPORT_I_WAS_HERE;
+
+        if (0 >= enemiesLeft){
+            endWave = true;
+            waveTimer.Restart();
+            //bounty level complete
+            float income = (waveCount* 5)+100;
+            //PlayerData::GetInstance().GoldUpdate((int)income);
+			((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().GoldUpdate((int)income);
+
+        }
 	}
-	REPORT_I_WAS_HERE;
-	if (0 >= enemiesLeft){
-		endWave = true;
-	}
+
 }
 
 void WaveManager::SpawnEnemy(int tileMapPosition, int enemyId, uint baseHP, uint endPoint, uint indexOfTheEnemyToSpawn ){
@@ -158,16 +164,21 @@ bool WaveManager::Is(ComponentType type) const{
 	return type == WAVE_MANAGER;
 }
 
-void WaveManager::NotifyEnemyGotToHisDestiny(void){
-	--playerLifes;
-}
+void WaveManager::NotifyEnemyGotToHisDestiny(){
+	//PlayerData::GetInstance().DecrementLife();
+	((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().DecrementLife();
 
-void WaveManager::NotifyEnemyGotKilled(void){
 	--enemiesLeft;
+	((StageState&)Game::GetInstance().GetCurrentState()).SetUIWaveProgress( ((float)enemiesLeft)/(float)waveTotalEnemies );
+	((StageState&)Game::GetInstance().GetCurrentState()).SetUILife();
+
 }
 
-int WaveManager::GetLifesLeft(void){
-	return playerLifes;
+void WaveManager::NotifyEnemyGotKilled(){
+	--enemiesLeft;
+	printf("enemiesLeft: %d waveTotalEnemies: %d", enemiesLeft, waveTotalEnemies);
+	((StageState&)Game::GetInstance().GetCurrentState()).SetUIWaveProgress( ((float)enemiesLeft)/(float)waveTotalEnemies );
+
 }
 
 int WaveManager::GetEnemiesLeft(void){

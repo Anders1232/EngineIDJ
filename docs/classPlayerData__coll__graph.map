@@ -1,0 +1,10 @@
+<map id="PlayerData" name="PlayerData">
+<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="967,44,1057,71"/>
+<area shape="rect" id="node3" href="$classUItext.html" title="Classe que modela textos. " alt="" coords="695,283,753,309"/>
+<area shape="rect" id="node4" href="$classUIelement.html" title="UIelement" alt="" coords="423,131,505,157"/>
+<area shape="rect" id="node17" href="$classUIcanvas.html" title="UIcanvas" alt="" coords="685,119,763,145"/>
+<area shape="rect" id="node5" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="157,168,209,195"/>
+<area shape="rect" id="node7" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="157,257,208,284"/>
+<area shape="rect" id="node15" href="$classTimer.html" title="Temporizador. " alt="" coords="281,64,335,91"/>
+<area shape="rect" id="node18" href="$classUIverticalGroup.html" title="UIverticalGroup" alt="" coords="955,95,1069,121"/>
+</map>

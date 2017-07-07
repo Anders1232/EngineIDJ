@@ -10,6 +10,7 @@
 #include "Error.h"
 #include "Game.h"
 #include "GameResources.h"
+#include "Vec2.h"
 #include "Obstacle.h"
 #include "Vec2.h"
 
@@ -40,18 +41,22 @@
 
 #define TOWER_INFO_TXT_COLOR {199,159,224,255} // Purple-ish white
 
+PlayerData* StageState::pData = nullptr;
+
 StageState::StageState(void)
 		: State()
 		, tileSet(120, 120,"map/tileset_vf.png")
 		, tileMap("map/tileMap.txt", &tileSet)
 		, inputManager(INPUT_MANAGER)
-		, music("audio/trilha_sonora/loop_1.ogg")
+		//, playerData(PLAYER_DATA_INSTANCE)
+        , music("audio/trilha_sonora/loop_1.ogg")
 		, isLightning(false)
 		, isThundering(false)
 		, lightningTimer()
 		, lightningColor(255, 255, 255, 0)
 		, nightSound("audio/Ambiente/Barulho_noite.wav")
 		, thunderSound("audio/Ambiente/Trovao.wav")
+		, towerMenuSounds("audio/Acoes/Dinheiro1.wav")
 		, frameRateCounter(0)
 		, HUDcanvas()
 		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
@@ -78,20 +83,24 @@ StageState::StageState(void)
 	Resources::ChangeMusicVolume(0);
 	Resources::ChangeSoundVolume(0);
 
+	pData = new PlayerData();
 	GameResources::SetTileMap(&tileMap);
+
 	REPORT_I_WAS_HERE;
 	music.Play(0);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
 	Camera::ForceLogZoom(CAM_START_ZOOM);
-	GameObject* waveManagerGO= new GameObject();
-	waveManager= new WaveManager(tileMap, "assets/wave&enemyData.txt");
-	waveManagerGO->AddComponent(waveManager);
-	AddObject(waveManagerGO);
-	
+
+	GameObject* StageComponents = new GameObject();
+	waveManager = new WaveManager(tileMap, "assets/wave&enemyData.txt");
+	StageComponents->AddComponent(waveManager);
+	AddObject(StageComponents);
+
 	tileMap.ObserveMapChanges(this);
 	lightningInterval = rand() % (LIGHTINING_MAX_INTERVAL - LIGHTINING_MIN_INTERVAL) + LIGHTINING_MIN_INTERVAL;
 	REPORT_DEBUG(" Proximo relampago sera em " << lightningInterval << " segundos.");
 	InitializeObstacles();
+
 	nightSound.Play(0);
 
 	SetupUI();
@@ -140,6 +149,7 @@ void StageState::SetupUI() {
 	towerBtn1.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn1.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn1.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+
 	towerBtn1.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData("Normal (Art)", "$1", "10 HP", "Projetil (3/s)");
@@ -157,6 +167,7 @@ void StageState::SetupUI() {
 	towerBtn2.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn2.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn2.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+
 	towerBtn2.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData("Tentaculo (Soc)", "$10", "10 segundos", "Stun");
@@ -174,6 +185,7 @@ void StageState::SetupUI() {
 	towerBtn3.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn3.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn3.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+
 	towerBtn3.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData("Eletrico (Eng)", "$100", "20 HP/segundo", "Proximidade");
@@ -191,6 +203,7 @@ void StageState::SetupUI() {
 	towerBtn4.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn4.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn4.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+
 	towerBtn4.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
 																	it->SetTowerInfoData("Nuke (Med)", "$9999", "+Inf HP", "Area");
@@ -258,9 +271,11 @@ StageState::~StageState(void) {
 	objectArray.clear();
 	obstacleArray.clear();
 	tileMap.RemoveObserver(this);
+	TEMP_REPORT_I_WAS_HERE;
 	GameResources::Clear();
 	TEMP_REPORT_I_WAS_HERE;
 	nightSound.Stop();
+	delete pData;
 }
 
 void StageState::Update(float dt){
@@ -271,6 +286,7 @@ void StageState::Update(float dt){
 	if(inputManager.QuitRequested()) {
 		quitRequested = true;
 	}
+
 	//fazendo o prórpio loop de atualização ao invés do UpdateArray pois estamos fazendo checagens adicionais
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 		objectArray.at(cont)->Update(dt);
@@ -294,18 +310,17 @@ void StageState::Update(float dt){
 			}
 		}
 	}
-
 	Camera::Update(dt);
 
-	// Game Over Conditions
-	if(waveManager->GetLifesLeft() == 0){
-		popRequested = true;
+	//Game Over Conditions
+	//if(PlayerData::GetInstance().GetLifes() <= 0){
+    if (GetPlayerDataInstance().GetLifes() <= 0){
+        popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(false)));
 	}else if(waveManager->Victory()){
 		popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(true)));
 	}
-
 
 	if(INPUT_MANAGER.KeyPress('r')) {
 		popRequested = true;
@@ -415,6 +430,9 @@ void StageState::UpdateUI(float dt) {
 	waveIcon.Update(dt, wave);
 	wavebarBg.Update(dt, wave);
 	wavebarBar.Update(dt, wave);
+
+    //playerData.Update(dt);
+    GetPlayerDataInstance().Update(dt);
 }
 
 void StageState::Render(void) const {
@@ -470,6 +488,8 @@ void StageState::RenderUI(void) const {
 	waveIcon.Render();
 
 	menuIsShowing = this->menuIsShowing;
+	//playerData.Render();
+    pData->Render();
 }
 
 void StageState::Pause(void) {
@@ -548,22 +568,42 @@ void StageState::SetTowerInfoData(string name, string cost, string damage, strin
 
 void StageState::CreateTower(Tower::TowerType towerType) {
 	ToggleMenu();
+	//if (PlayerData::GetInstance().GetPlayerGold() >= 10/*Tower Cost*/) {
+    if (GetPlayerDataInstance().GetPlayerGold() >= 10 /*Tower Cost*/){
 
-	Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
-	Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), TOWER_BASE_HP);
-	newTower->AddComponent(new DragAndDrop(tileMap, mousePos, *newTower, false, false));
-	AddObject(newTower);
+		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos()) - Vec2(TOWER_LINEAR_SIZE / 2, TOWER_LINEAR_SIZE / 2);
+		Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), TOWER_BASE_HP);
+		newTower->AddComponent(new DragAndDrop(tileMap, mousePos, *newTower, false, false));
+		AddObject(newTower);
+		//PlayerData::GetInstance().GoldUpdate(-10/*Tower Cost*/, false);
+        GetPlayerDataInstance().GoldUpdate(-10/*Tower Cost*/, false);
+		//som de dinheiros
+		towerMenuSounds.Open("audio/Acoes/Dinheiro1.wav");
+        towerMenuSounds.Play(1);
+
+	} else {
+        REPORT_I_WAS_HERE;
+		printf("You need more gold!");
+
+	}
 }
 
-void StageState::SetUILife(float lifePercent) {
-	lifePercent = (lifePercent < 0) ? 0 : ((lifePercent > 1) ? 1 : lifePercent);
+void StageState::SetUILife() {
+
+    float lifes = GetPlayerDataInstance().GetLifes();
+    float totalLifes = TOTAL_LIFES;
+    float lifePercent = lifes/totalLifes;
+
+    lifePercent = (lifePercent < 0) ? 0 : ((lifePercent > 1) ? 1 : lifePercent);
 	Rect oldAnchor = healthbarBar.GetAnchors();
 	healthbarBar.SetAnchors( {oldAnchor.x, oldAnchor.y},
 							 {lifePercent, oldAnchor.h} );
 }
 
 void StageState::SetUIWaveProgress(float waveProgressPercent) {
-	waveProgressPercent = (waveProgressPercent < 0) ? 0 : ((waveProgressPercent > 1) ? 1 : waveProgressPercent);
+    printf("chegouuu waveProgressPercent: %f", waveProgressPercent);
+
+    waveProgressPercent = (waveProgressPercent < 0) ? 0 : ((waveProgressPercent > 1) ? 1 : waveProgressPercent);
 	Rect oldAnchor = wavebarBar.GetAnchors();
 	wavebarBar.SetAnchors( {oldAnchor.x, oldAnchor.y},
 							 {waveProgressPercent, oldAnchor.h} );
@@ -702,6 +742,10 @@ std::vector<GameObject*>* StageState::FindNearestGOs(Vec2 origin, std::string ta
 		}
 	}
 	return(objectsInRange);
+}
+
+PlayerData& StageState::GetPlayerDataInstance(void){
+	return *pData;
 }
 
 void StageState::LoadAssets(void) const{

@@ -21,6 +21,7 @@ void UIimage::Render(bool debugRender) const {
 	UIelement::Render(debugRender);
 
 	if(nullptr != sp) {
+
 		if(box.w > 0 && box.h > 0) {
 			sp->Render(box, angle, false);
 		}

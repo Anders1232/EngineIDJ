@@ -1,7 +1,9 @@
 <map id="Game/include/EndState.h" name="Game/include/EndState.h">
-<area shape="rect" id="node2" href="$StageState_8h.html" title="Game/include/StageState.h" alt="" coords="187,80,370,107"/>
+<area shape="rect" id="node2" href="$StageState_8h.html" title="Game/include/StageState.h" alt="" coords="361,80,543,107"/>
 <area shape="rect" id="node3" href="$EndState_8cpp.html" title="Game/src/EndState.cpp" alt="" coords="5,155,168,181"/>
-<area shape="rect" id="node4" href="$StageState_8cpp.html" title="Game/src/StageState.cpp" alt="" coords="192,155,365,181"/>
-<area shape="rect" id="node5" href="$TitleState_8cpp.html" title="Game/src/TitleState.cpp" alt="" coords="390,155,554,181"/>
-<area shape="rect" id="node6" href="$Tower_8cpp.html" title="Game/src/Tower.cpp" alt="" coords="579,155,723,181"/>
+<area shape="rect" id="node4" href="$Enemy_8cpp.html" title="Game/src/Enemy.cpp" alt="" coords="192,155,340,181"/>
+<area shape="rect" id="node5" href="$StageState_8cpp.html" title="Game/src/StageState.cpp" alt="" coords="365,155,539,181"/>
+<area shape="rect" id="node6" href="$TitleState_8cpp.html" title="Game/src/TitleState.cpp" alt="" coords="563,155,727,181"/>
+<area shape="rect" id="node7" href="$Tower_8cpp.html" title="Game/src/Tower.cpp" alt="" coords="752,155,896,181"/>
+<area shape="rect" id="node8" href="$WaveManager_8cpp.html" title="Game/src/WaveManager.cpp" alt="" coords="920,155,1112,181"/>
 </map>

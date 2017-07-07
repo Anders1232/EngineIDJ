@@ -3,13 +3,13 @@
 #include "InputManager.h"
 
 UIbutton::UIbutton(UIbutton::State initialState, bool interactOnBoundingBox)
-		: interactOnBoundingBox(interactOnBoundingBox)
-		, actualState(initialState)
-		, disabledCallback(nullptr)
-		, enabledCallback(nullptr)
-		, highlightedCallback(nullptr)
-		, pressedCallback(nullptr)
-		, clickedCallback(nullptr) {}
+				: interactOnBoundingBox(interactOnBoundingBox)
+				, actualState(initialState)
+				, disabledCallback(nullptr)
+				, enabledCallback(nullptr)
+				, highlightedCallback(nullptr)
+				, pressedCallback(nullptr)
+				, clickedCallback(nullptr) {}
 
 void UIbutton::Update(float dt, bool mouseIsInside) {
 	if(actualState != UIbutton::State::DISABLED) {
