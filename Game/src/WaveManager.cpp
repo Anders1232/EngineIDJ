@@ -79,8 +79,8 @@ void WaveManager::Update(float dt){
 			return;
 
 		}else{
-            waveTimer.Update(dt);
-            if(TIME_BETWEEN_WAVE < waveTimer.Get()) {
+		    waveTimer.Update(dt);
+		    if(TIME_BETWEEN_WAVE < waveTimer.Get()) {
 
 				++waveIndex;
 				waveEventSound.Open("audio/Acoes/Inicio de Wave.wav");
@@ -137,17 +137,17 @@ void WaveManager::Update(float dt){
 			}
 		}
 
-        if (0 >= enemiesLeft){
-            endWave = true;
-            waveTimer.Restart();
-            //bounty level complete
-            float income = (waveCount* 5)+100;
-            //PlayerData::GetInstance().GoldUpdate((int)income);
+	    if (0 >= enemiesLeft){
+		    endWave = true;
+		    waveTimer.Restart();
+			//bounty level complete
+		    float income = (waveCount* 5)+100;
+			//PlayerData::GetInstance().GoldUpdate((int)income);
 			((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().GoldUpdate((int)income);
 
 			waveEventSound.Open("audio/Acoes/Level_Up.wav");
 			waveEventSound.Play(1);
-        }
+		}
 	}
 
 }

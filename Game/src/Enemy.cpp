@@ -34,26 +34,33 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	std::string basePath= "img/"+enemyData.spFolder;
 	basePath= basePath+ "/";
 
-	sp[EnemyDirections::UP].emplace_back(basePath+"perna_tras.png", true, 0., 1);
-	sp[EnemyDirections::UP].emplace_back(basePath+"cabeca_tras.png", true, 0., 1);
-	sp[EnemyDirections::UP].emplace_back(basePath+"cabelo_tras.png", true, 0., 1);
-	sp[EnemyDirections::UP].emplace_back(basePath+"torso_tras.png", true, 0., 1);
+	sp[EnemyDirections::UP].emplace_back(basePath+"torso_tras.png", true, 0.25, 4);
+	sp[EnemyDirections::UP].emplace_back(basePath+"perna_tras.png", true, 0.25, 4);
+	sp[EnemyDirections::UP].emplace_back(basePath+"braco_tras.png", true, 0.25, 4);
+	sp[EnemyDirections::UP].emplace_back(basePath+"cabeca_tras.png", true, 0.25, 4);
+	sp[EnemyDirections::UP].emplace_back(basePath+"manga_tras.png", true, 0.25, 4);
+	sp[EnemyDirections::UP].emplace_back(basePath+"cabelo_tras.png", true, 0.25, 4);
 	
-	box = position;
-	sp[EnemyDirections::RIGHT].emplace_back(basePath+"perna_dir.png", true, 0., 1);
-	sp[EnemyDirections::RIGHT].emplace_back(basePath+"cabeca_dir.png", true, 0., 1);
-	sp[EnemyDirections::RIGHT].emplace_back(basePath+"cabelo_dir.png", true, 0., 1);
-	sp[EnemyDirections::RIGHT].emplace_back(basePath+"torso_dir.png", true, 0., 1);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"torso_dir.png", true, 0.25, 4);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"perna_dir.png", true, 0.25, 4);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"braco_dir.png", true, 0.25, 4);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"cabeca_dir.png", true, 0.25, 4);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"manga_dir.png", true, 0.25, 4);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"cabelo_dir.png", true, 0.25, 4);
 
-	sp[EnemyDirections::DOWN].emplace_back(basePath+"perna_frente.png", true, 0., 1);
-	sp[EnemyDirections::DOWN].emplace_back(basePath+"cabeca_frente.png", true, 0., 1);
-	sp[EnemyDirections::DOWN].emplace_back(basePath+"cabelo_frente.png", true, 0., 1);
-	sp[EnemyDirections::DOWN].emplace_back(basePath+"torso_frente.png", true, 0., 1);
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"torso_frente.png", true, 0.25, 4);
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"perna_frente.png", true, 0.25, 4);
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"braco_frente.png", true, 0.25, 4);
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"cabeca_frente.png", true, 0.25, 4);
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"manga_frente.png", true, 0.25, 4);
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"cabelo_frente.png", true, 0.25, 4);
 	
-	sp[EnemyDirections::LEFT].emplace_back(basePath+"perna_esq.png", true, 0., 1);
-	sp[EnemyDirections::LEFT].emplace_back(basePath+"cabeca_esq.png", true, 0., 1);
-	sp[EnemyDirections::LEFT].emplace_back(basePath+"cabelo_esq.png", true, 0., 1);
-	sp[EnemyDirections::LEFT].emplace_back(basePath+"torso_esq.png", true, 0., 1);
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"torso_esq.png", true, 0.25, 4);
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"perna_esq.png", true, 0.25, 4);
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"braco_esq.png", true, 0.25, 4);
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"cabeca_esq.png", true, 0.25, 4);
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"manga_esq.png", true, 0.25, 4);
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"cabelo_esq.png", true, 0.25, 4);
 	
 	for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 		for(uint i2= 0; i2 < sp[i].size(); i2++){
@@ -195,8 +202,14 @@ void Enemy::Update(float dt) {
 		eventTimer.Update(dt);
 		waveManager.NotifyEnemyGotKilled();
 		//PlayerData::GetInstance().GoldUpdate(gold);
-		((StageState &) Game::GetInstance().GetCurrentState()).GetPlayerDataInstance().GoldUpdate(gold);
-		((StageState &) Game::GetInstance().GetCurrentState()).GetPlayerDataInstance().NotifyKillsUpdate(gold);
+		((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().GoldUpdate(gold);
+		((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().NotifyKillsUpdate(gold);
+
+	}
+	for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
+		for(uint i2= 0; i2 < sp[i].size(); i2++){
+			sp[i][i2].Update(dt);
+		}
 	}
 }
 

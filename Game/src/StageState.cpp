@@ -49,7 +49,7 @@ StageState::StageState(void)
 		, tileMap("map/tileMap.txt", &tileSet)
 		, inputManager(INPUT_MANAGER)
 		//, playerData(PLAYER_DATA_INSTANCE)
-        , music("audio/trilha_sonora/loop_1.ogg")
+		, music("audio/trilha_sonora/loop_1.ogg")
 		, isLightning(false)
 		, isThundering(false)
 		, lightningTimer()
@@ -315,7 +315,7 @@ void StageState::Update(float dt){
 	//Game Over Conditions
 	//if(PlayerData::GetInstance().GetLifes() <= 0){
     if (GetPlayerDataInstance().GetLifes() <= 0){
-        popRequested = true;
+	    popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(false)));
 	}else if(waveManager->Victory()){
 		popRequested = true;
@@ -432,7 +432,7 @@ void StageState::UpdateUI(float dt) {
 	wavebarBg.Update(dt, wave);
 	wavebarBar.Update(dt, wave);
 
-    //playerData.Update(dt);
+	//playerData.Update(dt);
     GetPlayerDataInstance().Update(dt);
 }
 
@@ -577,13 +577,13 @@ void StageState::CreateTower(Tower::TowerType towerType) {
 		newTower->AddComponent(new DragAndDrop(tileMap, mousePos, *newTower, false, false));
 		AddObject(newTower);
 		//PlayerData::GetInstance().GoldUpdate(-10/*Tower Cost*/, false);
-        GetPlayerDataInstance().GoldUpdate(-30/*Tower Cost*/, false);
+	    GetPlayerDataInstance().GoldUpdate(-30/*Tower Cost*/, false);
 		//som de dinheiros
 		towerMenuSounds.Open("audio/Acoes/Dinheiro1.wav");
-        towerMenuSounds.Play(1);
+	    towerMenuSounds.Play(1);
 
 	} else {
-        REPORT_I_WAS_HERE;
+	    REPORT_I_WAS_HERE;
 		printf("You need more gold!");
 
 	}
