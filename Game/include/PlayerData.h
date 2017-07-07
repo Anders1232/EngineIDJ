@@ -11,7 +11,7 @@
 #define PLAYER_DATA_INSTANCE PlayerData::GetInstance()
 
 #define TOTAL_LIFES 30;
-
+#define START_MONEY 15;
 /**
 	\brief Classe PlayerData armazena os dados do Jogador e exibe o quadro de pontos, vidas e gold do mesmo.
 
@@ -26,11 +26,12 @@ class PlayerData: public Component{
 		bool Is(ComponentType type) const;
 		void NotifyKillsUpdate(int wave, EnemyData enemyData);
 		void NotifyLifeLost(int wave, EnemyData enemyData);
-		void GoldUpdate(int amount);
+		void GoldUpdate(int amount, bool winPoints=true);
 		void PointsUpdate(int amount);
 		static PlayerData& GetInstance(void);
 		void DecrementLife(void);
 		void CountNextWave(int wave);
+		int GetPlayerGold();
 		/** 
 			\brief Pegar vidas Restantes.
 			\return playerLifes: vidas restantes.

@@ -8,7 +8,7 @@
 #include "StageState.h"
 
 
-typedef unsigned int uint;
+
 
 Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize,int hp)
 		: sp(type == TowerType::MEDICINE ? "img/tower/torre_fumaca.png" :

@@ -550,11 +550,20 @@ void StageState::SetTowerInfoData(string name, string cost, string damage, strin
 
 void StageState::CreateTower(Tower::TowerType towerType) {
 	ToggleMenu();
+	if (PlayerData::GetInstance().GetPlayerGold() > 10/*Tower Cost*/) {
 
-	Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
-	Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), TOWER_BASE_HP);
-	newTower->AddComponent(new DragAndDrop(tileMap, mousePos, *newTower, false, false));
-	AddObject(newTower);
+		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos()) - Vec2(TOWER_LINEAR_SIZE / 2, TOWER_LINEAR_SIZE / 2);
+		Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), TOWER_BASE_HP);
+		newTower->AddComponent(new DragAndDrop(tileMap, mousePos, *newTower, false, false));
+		AddObject(newTower);
+		PlayerData::GetInstance().GoldUpdate(-10/*Tower Cost*/, false);
+		//som de dinheiros
+
+	} else {
+        REPORT_I_WAS_HERE;
+		printf("You need more gold!");
+
+	}
 }
 
 void StageState::SetUILife(float lifePercent) {

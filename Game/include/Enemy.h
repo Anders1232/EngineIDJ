@@ -145,6 +145,8 @@ class Enemy : public GameObject
 		uint baseHP, endPoint; /**< Respectivamentes a vida base do inimigo e seu ponto de destino. */
 		EnemyDirections direction; /**< Direçao para aonde a sprite do inimigo esta voltada. Norte, Sul, Leste ou Oeste */
 		Sound walkingSound;
+		WaveManager &waveManager;
+		int gold;
 };
 
 #endif // ENEMY_H

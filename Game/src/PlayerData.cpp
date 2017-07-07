@@ -9,13 +9,13 @@ PlayerData::PlayerData(): HUDcanvas(),
 						playerTable(),
 						boardName("font/SHPinscher-Regular.otf", 45, UItext::TextStyle::BLENDED, {255,255,255,255}, "Player Board", UIelement::BehaviorType::FIT ,false),
 						playerPoints("font/SHPinscher-Regular.otf", 45, UItext::TextStyle::BLENDED, {255,255,255,255}, "Points: 0", UIelement::BehaviorType::FIT ,false),
-						playerGold("font/SHPinscher-Regular.otf", 45, UItext::TextStyle::BLENDED, {255,255,255,255}, "Gold: 0", UIelement::BehaviorType::FIT ,false),
+						playerGold("font/SHPinscher-Regular.otf", 45, UItext::TextStyle::BLENDED, {255,255,255,255}, "Gold: 15", UIelement::BehaviorType::FIT ,false),
 						playerKills("font/SHPinscher-Regular.otf", 45, UItext::TextStyle::BLENDED, {255,255,255,255}, "Kills: 0", UIelement::BehaviorType::FIT ,false),
 						playerLifes("font/SHPinscher-Regular.otf", 45, UItext::TextStyle::BLENDED, {255,255,255,255},"Lifes: 30", UIelement::BehaviorType::FIT ,false),
 						playerWave("font/SHPinscher-Regular.otf", 45, UItext::TextStyle::BLENDED, {255,255,255,255},"Wave: 1", UIelement::BehaviorType::FIT ,false){
 
 	points = 0;
-	gold = 0;
+	gold = START_MONEY;
 	kills = 0;
 	lifes = TOTAL_LIFES;
 	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
@@ -77,16 +77,20 @@ void PlayerData::NotifyLifeLost(int wave, EnemyData enemyData){
 }
 
 // decrementa para compra e incrementa pra ganho.
-void PlayerData::GoldUpdate(int amount){
+void PlayerData::GoldUpdate(int amount, bool winPoints){
 	this->gold += amount; 
 	playerGold.SetText("Gold: " + std::to_string(gold));
-	PointsUpdate(gold);
+
+    if(winPoints) {
+        PointsUpdate(gold);
+    }
 }
 
 // decrementa para perda de vida e incrementa pra kills.
 void PlayerData::PointsUpdate(int amount){
 	points += amount;
-	playerPoints.SetText("Points: " + std::to_string(points));
+    playerPoints.SetText("Points: " + std::to_string(points));
+
 }
 
 PlayerData& PlayerData::GetInstance(void){
@@ -107,4 +111,8 @@ int PlayerData::GetLifes(){
 
 void PlayerData::CountNextWave(int wave){
 	playerWave.SetText("Wave: " + std::to_string(wave) );
+}
+
+int PlayerData::GetPlayerGold(){
+	return gold;
 }
