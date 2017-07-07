@@ -8,9 +8,12 @@
 #include "Text.h"
 #include "UIcanvas.h"
 #include "UIimage.h"
+#include "UItext.h"
+#include "UIverticalGroup.h"
+#include "UItextButton.h"
 #include "Rect.h"
+#include "Vec2.h"
 
-#define END_STATE_FONT_SIZE (40)
 #define END_STATE_DELTA_VOLUME (1) //11*11 = 121 ~128
 
 class EndState: public State {
@@ -23,14 +26,20 @@ class EndState: public State {
 		void StartLoop(void);
 		void LoadAssets(void) const;
 	private:
-		void SetupUI(void);
+		void SetupUI(EndStateData stateData);
 		void UpdateUI(float dt);
 		void RenderUI(void) const;
-		UIcanvas HUDcanvas;
-		UIimage bg;
+		void Close(void);
+		void MainMenu(void);
 		Music music;
 		Music intro;
-		Text instruction;
+
+		UIcanvas HUDcanvas;
+		UIimage bg;
+		UItext venceuText;
+		UIverticalGroup optionsGroup;
+		UItextButton playBtn;
+		UItextButton exitBtn;
 };
 
 #endif // ENDSTATE_H
