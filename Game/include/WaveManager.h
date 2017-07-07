@@ -64,13 +64,7 @@ class WaveManager : public Component {
 			Recebe uma notificação se o inimigo foi destruido e decrementa o contador de inimigos restantes.
 		*/
 		void NotifyEnemyGotKilled(void);
-		/** 
-			\brief Pegar vidas Restantes.
-			\return playerLifes: vidas restantes.
-			Retorna as vidas restantes da wave atual.
-		*/						
-		int GetLifesLeft(void);
-		/** 
+		/**
 			\brief Pegar inimigos Restantes.
 			\return enemiesLeft: Inimigos restantes.
 			Retorna os inimigos restantes da wave atual.
@@ -81,6 +75,7 @@ class WaveManager : public Component {
 			\return victory: verdadeiro se as waves acabaram.
 			Retorna true se a condiçao de vitoria foi satisfeita.
 		*/
+
 		bool Victory(void);
 	private:
 		/**
@@ -95,11 +90,10 @@ class WaveManager : public Component {
 
 		vector<vector<int>> *spawnGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
 		vector<vector<int>> *endGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
-		static int waveCount; /**<Contador de waves restantes. Também usado para nivelar as waves.*/
+		int waveCount; /**<Contador de waves restantes. Também usado para nivelar as waves.*/
 		Timer spawnTimer; /**<Contador para o cooldown de respawn. **/
-		
+		Timer waveTimer; /**<Contador para o inicio da proxima wave. **/
 		int enemiesLeft;/**<Contador de inimigos restantes da wave atual.*/
-		int playerLifes;/**<Contador de inimigos restantes da wave atual.*/
 
 		TileMap &tileMap;/**<Endereço de TileMap. Usado para conseguir spwanGroups */
 		bool endWave; /**<Flag de fim da wave atual. true se a level acabou.*/
@@ -110,8 +104,7 @@ class WaveManager : public Component {
 		int maxNumberOfEnemiesInSpawnPoint; /**<Numero maximo de um tipo de inimigo dentro de uma SpawnGroup. */
 		bool victory;/**< Verdadeiro se o jogador passou por todas as waves com vidas restantes. */
 		Sound waveStartSound;
-		Timer betweenWavesTimer;
-		bool waitingForTheNextWave;
+
 };
 
 #endif // WAVE_H

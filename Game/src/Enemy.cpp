@@ -8,14 +8,21 @@
 #include "Error.h"
 #include "AIGoDown.h"
 #include "HitPoints.h"
+#include "PlayerData.h"
+#include "StageState.h"
+#include "Game.h"
 
-Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint, TileMap & tileMap, WaveManager &wManager)
-	: sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE), dead(false), direction(EnemyDirections::DOWN), walkingSound("audio/Ambiente/andando2.wav"){
+Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint, TileMap & tileMap, WaveManager &wManager) :
+		  sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE)
+		, dead(false)
+		, direction(EnemyDirections::DOWN)
+		, walkingSound("audio/Ambiente/andando2.wav")
+		, waveManager(wManager){
 	box = position;
 	this->enemyIndex = enemyIndex; 
 	this->baseHP = baseHP; 
 	this->endPoint = endPoint;
-
+	this->gold = enemyData.gold;
 	for(uint i=0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 		sp[i]= vector<Sprite>();
 	}
@@ -174,9 +181,14 @@ void Enemy::Update(float dt) {
 		components[i]->Update(dt);
 	}
 	UpdateEnemyDirection(positionBefore);
-	if(hitpoints->GetHp() < 0){
+	if(hitpoints->GetHp() < 0) {
 		dead = true;
-	}
+		waveManager.NotifyEnemyGotKilled();
+		//PlayerData::GetInstance().GoldUpdate(gold);
+		((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().GoldUpdate(gold);
+        ((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().NotifyKillsUpdate(gold);
+
+    }
 }
 
 void Enemy::Render(void) {

@@ -1,5 +1,5 @@
 <map id="Game/include/AIQuimic.h" name="Game/include/AIQuimic.h">
 <area shape="rect" id="node2" href="$AIQuimic_8cpp.html" title="Game/src/AIQuimic.cpp" alt="" coords="5,80,168,107"/>
-<area shape="rect" id="node3" href="$Enemy_8cpp.html" title="Game/src/Enemy.cpp" alt="" coords="192,80,341,107"/>
+<area shape="rect" id="node3" href="$Enemy_8cpp.html" title="Game/src/Enemy.cpp" alt="" coords="192,80,340,107"/>
 <area shape="rect" id="node4" href="$StageState_8cpp.html" title="Game/src/StageState.cpp" alt="" coords="365,80,539,107"/>
 </map>

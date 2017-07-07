@@ -24,5 +24,5 @@ var searchData=
   ['hitpoints_2eh',['HitPoints.h',['../HitPoints_8h.html',1,'']]],
   ['hostile',['HOSTILE',['../Enemy_8h.html#ac3e413a86119db4b031458c7259e268ea5e344b55f70ed8001ac9e7bb5d226851',1,'Enemy.h']]],
   ['hp',['hp',['../classHitPoints.html#a6d470de7a4934c51ab0983b4dcf7f21a',1,'HitPoints']]],
-  ['hudcanvas',['HUDcanvas',['../classStageState.html#afc725d490d2fd4c6d11c8251c7e1d9be',1,'StageState']]]
+  ['hudcanvas',['HUDcanvas',['../classPlayerData.html#ac00becd96af0829895b58582cc5587fb',1,'PlayerData::HUDcanvas()'],['../classStageState.html#afc725d490d2fd4c6d11c8251c7e1d9be',1,'StageState::HUDcanvas()']]]
 ];

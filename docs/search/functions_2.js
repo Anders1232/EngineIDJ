@@ -18,5 +18,6 @@ var searchData=
   ['computebox',['ComputeBox',['../classUIelement.html#ac9bae84e8114dbe54cc6f635dff4c9a0',1,'UIelement']]],
   ['computeevents',['ComputeEvents',['../classAIArt.html#a40cadec03222d7f187c20eba7c23a5f2',1,'AIArt::ComputeEvents()'],['../classAIEngineer.html#a09e7dbb239f4693359bc4e576776af34',1,'AIEngineer::ComputeEvents()'],['../classAIMedic.html#a9512bf5a7f5cb174fd505ff2afb38a7e',1,'AIMedic::ComputeEvents()'],['../classAIQuimic.html#a42ca5d689875bf6f87e63ef7677bb345',1,'AIQuimic::ComputeEvents()']]],
   ['configcolors',['ConfigColors',['../classUItextButton.html#ad06b434f3904906c67b5f50882ba013e',1,'UItextButton']]],
+  ['countnextwave',['CountNextWave',['../classPlayerData.html#a8a2441b53df3d7fb91b9623504a82907',1,'PlayerData']]],
   ['createtower',['CreateTower',['../classStageState.html#aec1559b1e8a1a138337d2ae73aadc2cf',1,'StageState']]]
 ];

@@ -319,7 +319,7 @@ vector<vector<int>>* TileMap::GetTileGroups(int tileType) const {
 		}
 		REPORT_I_WAS_HERE;
 	}
-#if DEBUG
+#ifdef DEBUG
 	std::cout << WHERE << "\tNumero de tile groups achados: " << (*tilePoints).size() << END_LINE;
 	for(uint i = 0; i < (*tilePoints).size(); i++) {
 		std::cout << WHERE << "\tTile groups " << i <<" tem tamanho " << (*tilePoints)[i].size() << END_LINE;

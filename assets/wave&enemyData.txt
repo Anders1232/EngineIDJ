@@ -1,83 +1,77 @@
 --ENEMIES--
     Quimico_maroto
-        QUIMIC
+        ENGINEER
         enemy
         0.5
         0.5
-    Medico_maroto
-        MEDIC
-        enemy
-        0.5
-        0.5
+        15
     Arte_na_praia
         ART
         enemy
         0.5
         0.5
+        10
     Arquiteto_calouro
         ARQUITET
         enemy
         0.5
         0.5
+        15
     Engenheiro
         ENGINEER
         enemy
         0.5
         0.5
+        10
+    Medico_maroto
+        MEDIC
+        enemy
+        0.5
+        0.5
+        11
+    Arte_na_praia
+        ART
+        enemy
+        0.5
+        0.5
+        12
+    Arquiteto_calouro
+        ARQUITET
+        enemy
+        0.5
+        0.5
+        12
+    Engenheiro
+        ENGINEER
+        enemy
+        0.5
+        0.5
+        12
+
 --WAVES--
 Wave1
     SpawnPoint:0
             0
-            0
+            5
             100
             0
 
             4
-            5
+            2
             100
-            5
+            1
 
     SpawnPoint:1
             0
-            0
-            120
-            0
-
-            4
-            5
-            100
-            5
-
-    SpawnPoint:2
-            3
-            3
-            100
+            10
+            40
             0
 
-            2
-            0
-            120
-            1
-            
-            1
-            0
-            150
-            2
 
-            0
-            2
-            100
-            3
-
-            4
-            5
-            100
-            5
-
-Wave1
+Wave2
     SpawnPoint:0
             0
-            0
+            3
             100
             0
 
@@ -88,13 +82,18 @@ Wave1
 
     SpawnPoint:1
             0
-            0
+            15
             120
             0
 
     SpawnPoint:2
             3
+            5
+            1000
             0
+
+            2
+            5
             100
             0
 
@@ -102,15 +101,3 @@ Wave1
             0
             120
             1
-            
-            1
-            0
-            150
-            2
-
-            0
-            2
-            100
-            3
-
-

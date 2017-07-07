@@ -5,7 +5,7 @@
 
 UIelement::UIelement(BehaviorType behavior, Vec2 center)
 		 : kernelSize(1,1)
-		 , behavior(behavior) {
+		 , behavior(behavior){
 	SetCenter(center);
 	SetAnchors( {0.,0.}, {1.,1.} );
 	SetOffsets( {0.,0.}, {0.,0.} );
