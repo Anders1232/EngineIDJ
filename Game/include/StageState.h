@@ -91,6 +91,7 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 
 		UIimage menuBg;
 		UIimageButton openMenuBtn;
+		Sound menuMove;
 
 		UIverticalGroup towerInfoGroup;
 		UItext towerName;

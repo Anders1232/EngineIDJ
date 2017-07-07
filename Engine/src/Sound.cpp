@@ -12,12 +12,12 @@ void Sound::Play(int times) {
 	if(-1 != channel) {
 		Stop();
 	}
-	channel= Mix_PlayChannel(channel, sound.get(), times-1);
+	channel = Mix_PlayChannel(channel, sound.get(), times-1);
 }
 
 void Sound::Stop(void) {
 	Mix_HaltChannel(channel);
-	channel= -1;
+	channel = -1;
 }
 
 void Sound::Open(string file) {

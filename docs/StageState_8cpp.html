@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Projeto IDJ - Towers Of Madness: Referência do Arquivo Game/src/StageState.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projeto IDJ - Towers Of Madness
+   </div>
+   <div id="projectbrief">TowerDefenseLovecraftnianoZombicida</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definições e Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c33286056d2acf479cd8641ef845fec1.html">Game</a></li><li class="navelem"><a class="el" href="dir_d858f423bf5825f9a3db826b6a54a3cc.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definições e Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo StageState.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="StageState_8h.html">StageState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="AIArt_8h.html">AIArt.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="AIEngineer_8h.html">AIEngineer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="AIMedic_8h.html">AIMedic.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="AIQuimic_8h.html">AIQuimic.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Camera_8h.html">Camera.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Collision_8h.html">Collision.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="EndStateData_8h.html">EndStateData.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Enemy_8h.html">Enemy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Error_8h.html">Error.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Game_8h.html">Game.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="GameResources_8h.html">GameResources.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Obstacle_8h.html">Obstacle.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Vec2_8h.html">Vec2.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SDL__include_8h.html">SDL_include.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para StageState.cpp:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="StageState_8cpp__incl.svg" width="4286" height="859"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:a440753f5afc6c6c9674481b90a08d5bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a440753f5afc6c6c9674481b90a08d5bb">INCLUDE_SDL</a></td></tr>
+<tr class="separator:a440753f5afc6c6c9674481b90a08d5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a178a233c88ab10d88d20403c843b5dd7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a178a233c88ab10d88d20403c843b5dd7">INCLUDE_SDL_IMAGE</a></td></tr>
+<tr class="separator:a178a233c88ab10d88d20403c843b5dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe00519554148588e358a11accc564c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#abe00519554148588e358a11accc564c3">STATE_RENDER_X</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:abe00519554148588e358a11accc564c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26d380fdb1639d132e2c0eee5b533315"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a26d380fdb1639d132e2c0eee5b533315">STATE_RENDER_Y</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a26d380fdb1639d132e2c0eee5b533315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b3bf4a4b5ae1e21ee8d8134377a2d0e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a2b3bf4a4b5ae1e21ee8d8134377a2d0e">FACE_LINEAR_SIZE</a>&#160;&#160;&#160;30</td></tr>
+<tr class="separator:a2b3bf4a4b5ae1e21ee8d8134377a2d0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ef95dcc696568b2b2c856681079ba89"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a0ef95dcc696568b2b2c856681079ba89">TIME_BETWEEN_SPAWNS</a>&#160;&#160;&#160;(8.)</td></tr>
+<tr class="separator:a0ef95dcc696568b2b2c856681079ba89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa36454fb50ff803104734eece82589ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#aa36454fb50ff803104734eece82589ca">TOWER_LINEAR_SIZE</a>&#160;&#160;&#160;120</td></tr>
+<tr class="separator:aa36454fb50ff803104734eece82589ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dbb658cc722b8012e13d00f54f4bde4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a5dbb658cc722b8012e13d00f54f4bde4">STAGE_STATE_DELTA_VOLUME</a>&#160;&#160;&#160;(1)</td></tr>
+<tr class="separator:a5dbb658cc722b8012e13d00f54f4bde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58f35e25c13bb24aa54a987cd1ce803d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a58f35e25c13bb24aa54a987cd1ce803d">CAM_START_X</a>&#160;&#160;&#160;300</td></tr>
+<tr class="separator:a58f35e25c13bb24aa54a987cd1ce803d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23bfb27612786648f85c1d4e8268178b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a23bfb27612786648f85c1d4e8268178b">CAM_START_Y</a>&#160;&#160;&#160;300</td></tr>
+<tr class="separator:a23bfb27612786648f85c1d4e8268178b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f9c38f1221c38679673d781cbefada8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a3f9c38f1221c38679673d781cbefada8">CAM_START_ZOOM</a>&#160;&#160;&#160;-1.75</td></tr>
+<tr class="separator:a3f9c38f1221c38679673d781cbefada8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ae6a2fad6e7d4d6932b99af02f1b53f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a1ae6a2fad6e7d4d6932b99af02f1b53f">MAX_TIME_LIGHTINING_RISE</a>&#160;&#160;&#160;0.1</td></tr>
+<tr class="separator:a1ae6a2fad6e7d4d6932b99af02f1b53f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cd38758a40bb76ae2cf9d5eedc46672"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a6cd38758a40bb76ae2cf9d5eedc46672">MAX_TIME_LIGHTINING</a>&#160;&#160;&#160;0.3</td></tr>
+<tr class="separator:a6cd38758a40bb76ae2cf9d5eedc46672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dc2fcc508e5031c49437abc405df1cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a5dc2fcc508e5031c49437abc405df1cd">MAX_TIME_LIGHTINING_FADE</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a5dc2fcc508e5031c49437abc405df1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71be6ceeda354649f58518f25dcaec60"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a71be6ceeda354649f58518f25dcaec60">LIGHTINING_MIN_INTERVAL</a>&#160;&#160;&#160;30</td></tr>
+<tr class="separator:a71be6ceeda354649f58518f25dcaec60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45f806a152f5f09011bff8847347fef2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a45f806a152f5f09011bff8847347fef2">LIGHTINING_MAX_INTERVAL</a>&#160;&#160;&#160;60</td></tr>
+<tr class="separator:a45f806a152f5f09011bff8847347fef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a031612298f568ef059ba175bf04db794"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a031612298f568ef059ba175bf04db794">TREE_1_TILESET_INDEX</a>&#160;&#160;&#160;70</td></tr>
+<tr class="separator:a031612298f568ef059ba175bf04db794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98364d31079b2b362ef04337802da761"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a98364d31079b2b362ef04337802da761">TREE_2_TILESET_INDEX</a>&#160;&#160;&#160;71</td></tr>
+<tr class="separator:a98364d31079b2b362ef04337802da761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9459ae27c7bf59500ea3bb9a64891f39"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a9459ae27c7bf59500ea3bb9a64891f39">TREE_3_TILESET_INDEX</a>&#160;&#160;&#160;72</td></tr>
+<tr class="separator:a9459ae27c7bf59500ea3bb9a64891f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b4d1ee75e3abd1c33effdb29860783e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a6b4d1ee75e3abd1c33effdb29860783e">POLE_TILESET_INDEX</a>&#160;&#160;&#160;73</td></tr>
+<tr class="separator:a6b4d1ee75e3abd1c33effdb29860783e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fa6e4aeea35602375dfc98b1a696c80"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a6fa6e4aeea35602375dfc98b1a696c80">BENCH_TILESET_INDEX</a>&#160;&#160;&#160;76</td></tr>
+<tr class="separator:a6fa6e4aeea35602375dfc98b1a696c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d478c8dcf47c227c569e5ca8fdfe13b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StageState_8cpp.html#a8d478c8dcf47c227c569e5ca8fdfe13b">TOWER_INFO_TXT_COLOR</a>&#160;&#160;&#160;{199,159,224,255}</td></tr>
+<tr class="separator:a8d478c8dcf47c227c569e5ca8fdfe13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Definições e macros</h2>
+<a class="anchor" id="a6fa6e4aeea35602375dfc98b1a696c80"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BENCH_TILESET_INDEX&#160;&#160;&#160;76</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a58f35e25c13bb24aa54a987cd1ce803d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CAM_START_X&#160;&#160;&#160;300</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a23bfb27612786648f85c1d4e8268178b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CAM_START_Y&#160;&#160;&#160;300</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3f9c38f1221c38679673d781cbefada8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CAM_START_ZOOM&#160;&#160;&#160;-1.75</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2b3bf4a4b5ae1e21ee8d8134377a2d0e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FACE_LINEAR_SIZE&#160;&#160;&#160;30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a440753f5afc6c6c9674481b90a08d5bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INCLUDE_SDL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a178a233c88ab10d88d20403c843b5dd7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INCLUDE_SDL_IMAGE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a45f806a152f5f09011bff8847347fef2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIGHTINING_MAX_INTERVAL&#160;&#160;&#160;60</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a71be6ceeda354649f58518f25dcaec60"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIGHTINING_MIN_INTERVAL&#160;&#160;&#160;30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6cd38758a40bb76ae2cf9d5eedc46672"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_TIME_LIGHTINING&#160;&#160;&#160;0.3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5dc2fcc508e5031c49437abc405df1cd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_TIME_LIGHTINING_FADE&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1ae6a2fad6e7d4d6932b99af02f1b53f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_TIME_LIGHTINING_RISE&#160;&#160;&#160;0.1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6b4d1ee75e3abd1c33effdb29860783e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POLE_TILESET_INDEX&#160;&#160;&#160;73</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5dbb658cc722b8012e13d00f54f4bde4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STAGE_STATE_DELTA_VOLUME&#160;&#160;&#160;(1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abe00519554148588e358a11accc564c3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STATE_RENDER_X&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a26d380fdb1639d132e2c0eee5b533315"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STATE_RENDER_Y&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0ef95dcc696568b2b2c856681079ba89"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TIME_BETWEEN_SPAWNS&#160;&#160;&#160;(8.)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8d478c8dcf47c227c569e5ca8fdfe13b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TOWER_INFO_TXT_COLOR&#160;&#160;&#160;{199,159,224,255}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa36454fb50ff803104734eece82589ca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TOWER_LINEAR_SIZE&#160;&#160;&#160;120</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a031612298f568ef059ba175bf04db794"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TREE_1_TILESET_INDEX&#160;&#160;&#160;70</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a98364d31079b2b362ef04337802da761"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TREE_2_TILESET_INDEX&#160;&#160;&#160;71</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9459ae27c7bf59500ea3bb9a64891f39"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TREE_3_TILESET_INDEX&#160;&#160;&#160;72</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sexta, 7 de Julho de 2017 01:40:39 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>
