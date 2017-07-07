@@ -12,7 +12,7 @@
 
 TitleState::TitleState()
 		: State()
-		, clickSound("audio/interface/Click1.wav")
+		, clickSound("audio/Interface/Click1.wav")
 		, canvas({1024,600}, UIelement::BehaviorType::STRETCH)
 		, bg("img/UI/main-menu/bg.png", UIelement::BehaviorType::STRETCH)
 		, lua("img/UI/main-menu/lua.png", UIelement::BehaviorType::FIT)
@@ -156,6 +156,6 @@ void TitleState::LoadAssets(void) const{
 	Resources::GetImage("img/UI/main-menu/overlay.png");
 	Resources::GetImage("img/UI/main-menu/title.png");
 	Resources::GetMusic("audio/trilha_sonora/main_title_.ogg");
-	Resources::GetMusic("audio/interface/Click1.wav");
+	Resources::GetMusic("audio/Interface/Click1.wav");
 	Resources::GetFont("font/SHPinscher-Regular.otf", 95);
 }

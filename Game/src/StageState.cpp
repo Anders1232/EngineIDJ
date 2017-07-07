@@ -56,7 +56,7 @@ StageState::StageState(void)
 		, HUDcanvas()
 		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
 		, openMenuBtn()
-		, menuMove("audio/interface/Click1.wav")
+		, menuMove("audio/Interface/Click1.wav")
 		, towerInfoGroup()
 		, towerName("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERNAME_DEFAULT_TEXT)
 		, towerCost("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERCOST_DEFAULT_TEXT)
@@ -730,7 +730,7 @@ void StageState::LoadAssets(void) const{
 	Resources::GetSound("./audio/Ambiente/Barulho_noite.wav");
 	Resources::GetSound("./audio/Ambiente/Trovao.wav");
 	Resources::GetSound("./audio/Ambiente/andando2.wav");
-	Resources::GetSound("./audio/interface/Click1.wav");
+	Resources::GetSound("./audio/Interface/Click1.wav");
 	Resources::GetFont("./font/SHPinscher-Regular.otf", 95);
 	// Resources::GetImage();
 	// Resources::GetMusic();
