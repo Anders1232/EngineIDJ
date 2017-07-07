@@ -54,7 +54,7 @@ Game::Game(std::string title,int width, int height)
 		Error(SDL_GetError());
 	}
 
-	renderer = SDL_CreateRenderer(window, -1, 0);
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if(nullptr == renderer) {
 		Error(SDL_GetError());
 	}
@@ -100,9 +100,9 @@ Game::~Game() {
 	TTF_Quit();
 	Mix_CloseAudio();
 	Mix_Quit();
-	IMG_Quit();
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
+	IMG_Quit();
 	SDL_Quit();
 }
 
@@ -149,6 +149,10 @@ void Game::Run(void) {
 		CalculateDeltaTime();
 		inputManager.Update();
 		stateStack.top()->Update(GetDeltaTime());
+		if(-1 == SDL_SetRenderDrawColor(renderer, CLEAR_COLOR)) {
+			Error(SDL_GetError());
+		}
+		SDL_RenderClear(renderer);
 		stateStack.top()->Render();
 		SDL_RenderPresent(renderer);
 		UpdateStack();
@@ -173,12 +177,11 @@ float Game::GetDeltaTime(void) const {
 }
 
 void Game::UpdateStack(void) {
+	bool popped = false;
 	if(stateStack.top()->PopRequested()) {
 		stateStack.pop();
 		Resources::ClearResources();
-		if(!stateStack.empty()) {
-			stateStack.top()->Resume();
-		}
+		popped = true;
 	}
 
 	if(nullptr != storedState) {
@@ -187,6 +190,10 @@ void Game::UpdateStack(void) {
 		}
 		stateStack.push(std::unique_ptr<State>(storedState));
 		storedState = nullptr;
+	}
+
+	if(!stateStack.empty() && popped) {
+		stateStack.top()->Resume();
 	}
 }
 
@@ -264,4 +271,8 @@ bool Game::GetWindowMaximized(void) const{
 
 bool Game::GetWindowBorderless(void) const{
 	return SDL_GetWindowFlags(window) & SDL_WINDOW_BORDERLESS;
+}
+
+unsigned int Game::GetTicks(void){
+	return frameStart;
 }

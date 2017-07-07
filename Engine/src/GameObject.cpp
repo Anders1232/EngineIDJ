@@ -2,15 +2,21 @@
 #include "Error.h"
 #include "Camera.h"
 
-GameObject::~GameObject(){
+GameObject::GameObject(void): rotation(0.), dead(false){
 }
 
-GameObject::GameObject(void): rotation(0.), dead(false){
+
+GameObject::~GameObject(){
+	REPORT_I_WAS_HERE;
+	for(uint i = 0; i < components.size(); i++) {
+		delete components[i];
+	}
+	components.clear();
 }
 
 void GameObject::Update(float dt){
 	for(uint i=0; i < components.size(); i++){
-		components[i]->Update(*this, dt);
+		components[i]->Update(dt);
 	}
 }
 
@@ -44,12 +50,21 @@ void GameObject::AddComponent(Component* component){
 }
 
 void GameObject::RemoveComponent(ComponentType type){
-	for(unsigned int i = 0;i < components.size();i++){
+	for(uint i = 0; i < components.size();i++){
 		if(components[i]->Is(type)){
 			delete components[i];
 			components.erase(components.begin() + i);
 			return;
 		}
 	}
+}
+
+Component& GameObject::GetComponent(ComponentType type){
+	for(uint i = 0; i < components.size();i++){
+		if(components[i]->Is(type)){
+			return *(components[i]);
+		}
+	}
+	Error("Component not found!");
 }
 

@@ -1,44 +1,116 @@
 --ENEMIES--
-    Marcelo_ladeira
+    Quimico_maroto
         QUIMIC
-        img/enemy/teste-cor.png
-        1.0
-        1.0
-    Ladeira_Marcelo
+        enemy
+        0.5
+        0.5
+    Medico_maroto
+        MEDIC
+        enemy
+        0.5
+        0.5
+    Arte_na_praia
         ART
-        img/enemy/teste-cor.png
-        1.0
-        1.0
-    Madeira_ladeira
-        QUIMIC
-        img/enemy/teste-cor.png
-        1.0
-        1.0
-    Ladeira_Madeira
-        ART
-        img/enemy/teste-cor.png
-        1.0
-        1.0
+        enemy
+        0.5
+        0.5
+    Arquiteto_calouro
+        ARQUITET
+        enemy
+        0.5
+        0.5
+    Engenheiro
+        ENGINEER
+        enemy
+        0.5
+        0.5
 --WAVES--
 Wave1
     SpawnPoint:0
             0
-            5
+            0
             100
             0
-            
-            1
+
+            4
             5
-            120
-            1
+            100
+            5
 
     SpawnPoint:1
             0
-            10
+            0
             120
             0
+
+            4
+            5
+            100
+            5
+
+    SpawnPoint:2
+            3
+            3
+            100
+            0
+
+            2
+            0
+            120
+            1
             
             1
-            10
+            0
             150
+            2
+
+            0
+            2
+            100
+            3
+
+            4
+            5
+            100
+            5
+
+Wave1
+    SpawnPoint:0
+            0
+            0
+            100
+            0
+
+            3
+            0
+            100
+            4
+
+    SpawnPoint:1
+            0
+            0
+            120
+            0
+
+    SpawnPoint:2
+            3
+            0
+            100
+            0
+
+            2
+            0
+            120
             1
+            
+            1
+            0
+            150
+            2
+
+            0
+            2
+            100
+            3
+
+

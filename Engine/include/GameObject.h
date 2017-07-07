@@ -42,9 +42,17 @@ class GameObject{
 		*/
 		void AddComponent(Component* component);
 		/**
-			\brief Remove componente a um gameobjet.
-			\param type tipo do componente a ser adicionado.
+			\brief Obtém componente
+			\param type tipo do componente a ser buscado.
+			\todo Verificar viabilidade de lançar exceção ao invés de fechar o jogo.
 			
+			Se não existir um componente do tipo informado Error() será chamado
+		*/
+		Component& GetComponent(ComponentType type);
+		/**
+			\brief Remove componente a um gameobjet.
+			\param type Tipo do componente a ser removido.
+			Se a não existir um componente desse tipo no GameObject nada será feito.
 		*/
 		void RemoveComponent(ComponentType type);
 		/**
@@ -52,7 +60,7 @@ class GameObject{
 			
 			Basicamente é para obrigar quem implementar de usar um destrutor.
 		*/
-		~GameObject(void);
+		virtual ~GameObject(void);
 		/**
 			\brief Atualizar estado.
 			\param dt tempo transcorrido desde a última chamada ao método.
@@ -72,13 +80,13 @@ class GameObject{
 			
 			Deve ser usado no State que o contém para o eliminar da sua estrutura de manipulação de gameObject e destruí-lo.
 		*/
-		bool IsDead(void);
+		virtual bool IsDead(void);
 		/**
 			\brief Solicita que o GameObject seja destruído.
 			
 			Uma vez que esse método é chamado, futuras chamadas ao IsDead devem retornar verdadeiro.
 		*/
-		void RequestDelete(void);
+		virtual void RequestDelete(void);
 		/**
 			\brief Notifica Colisão
 			\param other Referência para o gameobject com o qual se colidiu.
@@ -104,7 +112,7 @@ class GameObject{
 		float rotation;/**< Rotação do GameObject.*/
 	protected:
 		std::vector<Component* > components;/**< Vetor de componentes, que provêem funcionalidades adicionais.*/
-		bool dead;
+		bool dead;/**<Booleano informado se o GameObject deve ser destruído. Faz-se necessário para que a mecânia de RequestDelete e IsDead funcione num GameObject. */
 };
 
 #endif // GAMEOBJECT_H

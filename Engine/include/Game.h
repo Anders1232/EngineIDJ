@@ -21,6 +21,7 @@
 
 #define MIXER_CHUCK_SIZE 1024
 #define INITIAL_FRAMERATE 60
+#define CLEAR_COLOR 0,0,0,255
 
 /**
 	\brief Classe que modela o todo-poderoso Jogo
@@ -214,6 +215,12 @@ class Game {
 			Retorna true se a janela estiver sem bordas ou false se estiver com bordas.
 		*/
 		bool GetWindowBorderless(void) const;
+		/**
+			\brief Obtém timeStamp atual.
+
+			Retorna o timestamp atual. 
+		*/
+		unsigned int GetTicks(void);
 	private:
 		/**
 			\brief Calcula o tempo transcorrido desde a última chamada a essa função

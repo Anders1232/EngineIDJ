@@ -5,7 +5,7 @@
 #include "Game.h"
 #include "Resources.h"
 
-// Alterar esses valores altera a parte da textura que será renderizada
+//Alterar esses valores altera a parte da textura que será renderizada
 #define SPRITE_OPEN_X (0)
 #define SPRITE_OPEN_Y (0)
 #define HIGHLIGHT 30
@@ -16,13 +16,16 @@ Sprite::Sprite(std::string file, bool highlighted, float frameTime, int frameCou
 		: colorMultiplier(255, 255, 255), blendMode(ALPHA_BLEND)
 		, frameCount(frameCount)
 		, currentFrame(0), timeElapsed(0)
-		, frameTime(frameTime), scaleX(1.), scaleY(1.) {
-	if(highlighted){
-		colorMultiplier = Color(225, 225, 225);
+		, frameTime(frameTime), clipRect()
+		, scaleX(1.), scaleY(1.)
+		, highlightable(highlighted) {
+	if(highlightable) {
+		colorMultiplier = Color(255-HIGHLIGHT, 255-HIGHLIGHT, 255-HIGHLIGHT);
 	}
 	REPORT_I_WAS_HERE;
 	if(file.empty()) {
 		texture = nullptr;
+		REPORT_I_WAS_HERE;
 	} else {
 		Open(file);
 	}
@@ -93,7 +96,7 @@ void Sprite::Render(Rect world, float angle, bool isCoordOnWorld) const {
 	}
 
 	SDL_Rect dst = world;
-	if(InputManager::GetInstance().GetMousePos().IsInRect(dst)){
+	if(highlightable && InputManager::GetInstance().GetMousePos().IsInRect(dst)){
 		Color colorHighlighted(	(colorMultiplier.r + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.r + HIGHLIGHT),
 								(colorMultiplier.g + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.g + HIGHLIGHT),
 								(colorMultiplier.b + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.b + HIGHLIGHT) );

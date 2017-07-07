@@ -22,12 +22,12 @@ class Collision {
 						 Vec2( a.x + a.w, a.y + a.h ),
 						 Vec2( a.x + a.w, a.y ),
 						 Vec2( a.x, a.y )
-					   };
+					};
 			Vec2 B[] = { Vec2( b.x, b.y + b.h ),
 						 Vec2( b.x + b.w, b.y + b.h ),
 						 Vec2( b.x + b.w, b.y ),
 						 Vec2( b.x, b.y )
-					   };
+					};
 			for (auto& v : A) {
 				v = Rotate(v - a.Center(), angleOfA) + a.Center();
 			}
