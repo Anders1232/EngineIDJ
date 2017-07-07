@@ -9,11 +9,13 @@
 #include "UItextButton.h"
 #include "UIcanvas.h"
 #include "UIverticalGroup.h"
+#include "UIhorizontalGroup.h"
+#include "UIimage.h"
 
 #define PLAYER_DATA_INSTANCE PlayerData::GetInstance()
 
 #define TOTAL_LIFES 30;
-#define START_MONEY 15;
+#define START_MONEY 150;
 /**
 	\brief Classe PlayerData armazena os dados do Jogador e exibe o quadro de pontos, vidas e gold do mesmo.
 
@@ -44,6 +46,8 @@ class PlayerData: public Component{
 
 		UIcanvas HUDcanvas;/**<Representa a area renderizavel na tela. Usado para renderizar o Quadro de pontos.*/
 		UIverticalGroup playerTable;/**<Representa a Quadro de pontos. Usado para agrupar quantidade de vidas, ouro, pontos e mortes.*/
+		UIhorizontalGroup goldInfo;
+		UIimage coin;
 		UItext boardName;/**<Nome do Quadro de pontos. Renderizado como um atributo no quadro de pontos.*/
 		UItext playerPoints;/**<Nome do Quadro de pontos. Renderizado como um atributo no quadro de pontos.*/
 		UItext playerGold;/**<Representa ouro do jogador. Renderizado como um atributo no quadro de pontos.*/
