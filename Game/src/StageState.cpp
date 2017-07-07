@@ -588,15 +588,22 @@ void StageState::CreateTower(Tower::TowerType towerType) {
 	}
 }
 
-void StageState::SetUILife(float lifePercent) {
-	lifePercent = (lifePercent < 0) ? 0 : ((lifePercent > 1) ? 1 : lifePercent);
+void StageState::SetUILife() {
+
+    float lifes = GetPlayerDataInstance().GetLifes();
+    float totalLifes = TOTAL_LIFES;
+    float lifePercent = lifes/totalLifes;
+
+    lifePercent = (lifePercent < 0) ? 0 : ((lifePercent > 1) ? 1 : lifePercent);
 	Rect oldAnchor = healthbarBar.GetAnchors();
 	healthbarBar.SetAnchors( {oldAnchor.x, oldAnchor.y},
 							 {lifePercent, oldAnchor.h} );
 }
 
 void StageState::SetUIWaveProgress(float waveProgressPercent) {
-	waveProgressPercent = (waveProgressPercent < 0) ? 0 : ((waveProgressPercent > 1) ? 1 : waveProgressPercent);
+    printf("chegouuu waveProgressPercent: %f", waveProgressPercent);
+
+    waveProgressPercent = (waveProgressPercent < 0) ? 0 : ((waveProgressPercent > 1) ? 1 : waveProgressPercent);
 	Rect oldAnchor = wavebarBar.GetAnchors();
 	wavebarBar.SetAnchors( {oldAnchor.x, oldAnchor.y},
 							 {waveProgressPercent, oldAnchor.h} );

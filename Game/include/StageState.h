@@ -50,7 +50,7 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		void Resume(void);
 		void LoadAssets(void) const;
 		void ShowLightning(float dt);
-		void SetUILife(float lifePercent);
+		void SetUILife();
 		void SetUIWaveProgress(float waveProgressPercent);
 		void NotifyTileMapChanged(int tilePosition);
 		GameObject* FindNearestGO(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max());

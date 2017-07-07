@@ -59,13 +59,14 @@ Wave1
             4
             2
             100
-            5
+            1
 
     SpawnPoint:1
             0
-            5
+            10
             40
-            5
+            0
+
 
 Wave2
     SpawnPoint:0

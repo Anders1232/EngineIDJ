@@ -21,10 +21,10 @@ PlayerData::PlayerData(): HUDcanvas(),
 	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
 	playerTable.SetAnchors({0.01,0.01},{0.01,0.01} );
 	playerTable.SetOffsets( { 0.0, 120.0}, { 220., 260.} );
+    playerTable.groupedElements.emplace_back(&playerGold);
+    playerTable.groupedElements.emplace_back(&playerKills);
 	playerTable.groupedElements.emplace_back(&boardName);
 	playerTable.groupedElements.emplace_back(&playerPoints);
-	playerTable.groupedElements.emplace_back(&playerGold);
-	playerTable.groupedElements.emplace_back(&playerKills);
 	playerTable.groupedElements.emplace_back(&playerLifes);
 	playerTable.groupedElements.emplace_back(&playerWave);
 
@@ -42,8 +42,8 @@ void PlayerData::Render() const{
 	//playerPoints.Render();
 	playerGold.Render();
 	playerKills.Render();
-	playerLifes.Render();
-	playerWave.Render();
+	//playerLifes.Render();
+	//playerWave.Render();
 }
 void PlayerData::Update(float dt){
 	Rect winSize(0.0, 0.0, Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);

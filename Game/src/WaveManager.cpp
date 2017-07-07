@@ -12,6 +12,7 @@
 #define TIME_BETWEEN_SPAWN (0.8) //tempo entre spawn de inimigos
 #define TIME_BETWEEN_WAVE (10.0) //tempo entre waves
 #define WAVE_INDEX_INITIALIZE -1 //contador em update vai ja iniciar primeira wave com index 0
+#define RESET_WAVE_PROGRESS 1.0 //Enche novamente a barra de progresso da wave.
 
 WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap), waveStartSound("audio/Acoes/Inicio de Wave.wav") {
 	endWave=true;
@@ -57,6 +58,8 @@ void WaveManager::StartWave(void){
 	printf("Wave %d Start!", waveCount);
 	//PlayerData::GetInstance().CountNextWave(waveCount);
 	((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().CountNextWave(waveCount);
+	((StageState&)Game::GetInstance().GetCurrentState()).SetUIWaveProgress(RESET_WAVE_PROGRESS);
+
 }
 
 
@@ -166,10 +169,16 @@ void WaveManager::NotifyEnemyGotToHisDestiny(){
 	((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().DecrementLife();
 
 	--enemiesLeft;
+	((StageState&)Game::GetInstance().GetCurrentState()).SetUIWaveProgress( enemiesLeft/waveTotalEnemies );
+	((StageState&)Game::GetInstance().GetCurrentState()).SetUILife();
+
 }
 
 void WaveManager::NotifyEnemyGotKilled(){
 	--enemiesLeft;
+	printf("enemiesLeft: %d waveTotalEnemies: %d", enemiesLeft, waveTotalEnemies);
+	((StageState&)Game::GetInstance().GetCurrentState()).SetUIWaveProgress( ((float)enemiesLeft)/(float)waveTotalEnemies );
+
 }
 
 int WaveManager::GetEnemiesLeft(void){
