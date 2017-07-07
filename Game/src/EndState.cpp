@@ -11,6 +11,9 @@ EndState::EndState(EndStateData stateData)
 					BLENDED,
 					{255, 80, 80, 255},
 					true) {
+	Resources::ChangeMusicVolume(0);
+	Resources::ChangeSoundVolume(0);
+	
 	music.Play(0);
 	instruction.SetText("Press Space to go to menu or Esc to close the game");
 	instruction.SetTimeShown(0.6);
