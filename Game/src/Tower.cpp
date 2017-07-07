@@ -17,9 +17,9 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
 			true){
 	box.x = pos.x;
 	box.y = pos.y;
-	sp.ScaleX(tileSize.x/sp.GetWidth());
-	sp.ScaleY(tileSize.y/sp.GetHeight());
-	sp.colorMultiplier = Color( 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 127 + 127*(float)rand()/RAND_MAX );
+	sp.ScaleX(1.5*tileSize.x/sp.GetWidth());
+	sp.ScaleY(3.5*tileSize.y/sp.GetHeight());
+	//sp.colorMultiplier = Color( 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 127 + 127*(float)rand()/RAND_MAX );
 	box.w = sp.GetWidth();
 	box.h = sp.GetHeight();
 	StageState& stageState= (StageState&)Game::GetInstance().GetCurrentState();
@@ -27,6 +27,8 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
 
 	hitpoints = new HitPoints(hp,*this);
 	components.push_back(hitpoints);
+	// sp.SetScaleX(2);
+	// sp.SetScaleY(3);
 }
 
 Tower::~Tower() {
