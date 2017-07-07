@@ -7,8 +7,8 @@
 
 #include <cfloat>
 
-#define ECLIPSE_DURATION	5 // s
-#define OVERLAY_FADEIN_DURATION	2 // s
+#define ECLIPSE_DURATION	6.5 // s
+#define OVERLAY_FADEIN_DURATION	4 // s
 #define MAX_SPEED			20 // px/s
 #define MIN_SPEED			5 // px/s
 #define DISABLED_COLOR		{ 70, 70, 70,100} // Dark Gray
