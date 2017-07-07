@@ -75,20 +75,16 @@ Game/include/AIGoTo.h
 Game/include/AIMedic.h
 Game/include/AIPrintPath.h
 Game/include/AIQuimic.h
-Game/include/AIShooterTower.h
+Game/include/Aura.h
 Game/include/Bullet.h
 Game/include/Defines.h
 Game/include/EndState.h
 Game/include/EndStateData.h
 Game/include/Enemy.h
 Game/include/GameResources.h
-<<<<<<< HEAD
-Game/include/Obstacle.h
-Game/include/Shooter.h
-=======
 Game/include/HitPoints.h
 Game/include/Obstacle.h
->>>>>>> e306770610cce64f04a391fe977ac716649355b9
+Game/include/Shooter.h
 Game/include/StageState.h
 Game/include/TitleState.h
 Game/include/Tower.h
@@ -101,21 +97,16 @@ Game/src/AIGoTo.cpp
 Game/src/AIMedic.cpp
 Game/src/AIPrintPath.cpp
 Game/src/AIQuimic.cpp
-Game/src/AIShooterTower.cpp
+Game/src/Aura.cpp
 Game/src/Bullet.cpp
 Game/src/EndState.cpp
 Game/src/EndStateData.cpp
 Game/src/Enemy.cpp
 Game/src/GameResources.cpp
-<<<<<<< HEAD
-Game/src/main.cpp
-Game/src/Obstacle.cpp
-Game/src/Shooter.cpp
-=======
 Game/src/HitPoints.cpp
 Game/src/main.cpp
 Game/src/Obstacle.cpp
->>>>>>> e306770610cce64f04a391fe977ac716649355b9
+Game/src/Shooter.cpp
 Game/src/StageState.cpp
 Game/src/TitleState.cpp
 Game/src/Tower.cpp

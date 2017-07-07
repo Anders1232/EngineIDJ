@@ -2,8 +2,9 @@
 #include "Camera.h"
 #include "Error.h"
 
-Bullet::Bullet(float x,float y,float angle,float speed,float maxDistance,std::string sprite,std::string targetType,float frameTime,int frameCount)
-: sp(sprite,false,frameTime, frameCount),targetType(targetType){
+Bullet::Bullet(float x, float y, float angle, float speed, float maxDistance, std::string sprite, std::string targetType, float scale, float frameTime, int frameCount, bool isBomb)
+: sp(sprite,false,frameTime, frameCount),targetType(targetType), isBomb(isBomb){
+	sp.SetScale(scale);
 	box.x= x;
 	box.y= y;
 	box.w= sp.GetWidth();
@@ -33,17 +34,29 @@ Bullet::~Bullet(){
 void Bullet::NotifyCollision(GameObject &other){
 	if(other.Is(targetType)){
 		distanceLeft= 0;
-		Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/explosion.png",5,0.1,true));
+		if(other.Is("Tower")){
+			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/SpriteSheets/explosao_spritesheet.png",9,0.1,true));
+		}
+		else if(other.Is("BOMB")){
+			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/SpriteSheets/explosao_spritesheet.png",9,0.1,true));
+			other.RequestDelete();
+		}
+		else{
+			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/explosion.png",5,0.1,true));
+		}
 		RequestDelete();
 	}
 }
 
 bool Bullet::Is(string type){
-	return type=="Bullet";
+	if(isBomb){
+		return "BOMB" ==  type;
+	}
+	else{
+		return "Bullet" == type;
+	};
 }
 
 std::string Bullet::getTargetType(){
-
 	return targetType;
-
 }

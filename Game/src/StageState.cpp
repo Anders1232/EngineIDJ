@@ -114,16 +114,16 @@ void StageState::SetupUI() {
 
 	menuBg.SetAnchors( {1., 0.5},
 					   {1., 0.5});
-	menuBg.SetOffsets( {-10., (float)(-menuBg.GetSpriteHeight()/2.)},
-					   {(float)menuBg.GetSpriteWidth()-(float)10., (float)(menuBg.GetSpriteHeight()/2.)});
+	menuBg.SetOffsets( {-10., (float)(-menuBg.GetSprite().GetHeight()/2.)},
+					   {(float)menuBg.GetSprite().GetWidth()-(float)10., (float)(menuBg.GetSprite().GetHeight()/2.)});
 
 	openMenuBtn.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/openmenu.png"));
 	openMenuBtn.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/openmenu.png"));
 	openMenuBtn.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/openmenu-clicked.png"));
 	openMenuBtn.SetAnchors( {0., 0.},
 							{0., 0.} );
-	openMenuBtn.SetOffsets( {(float)-(openMenuBtn.GetStateSpriteWidth(UIbutton::State::ENABLED)), (float)10.},
-							{0., openMenuBtn.GetStateSpriteHeight(UIbutton::State::ENABLED)+(float)10.} );
+	openMenuBtn.SetOffsets( {(float)-(openMenuBtn.GetStateSprite(UIbutton::State::ENABLED).GetWidth()), (float)10.},
+							{0., openMenuBtn.GetStateSprite(UIbutton::State::ENABLED).GetHeight()+(float)10.} );
 	openMenuBtn.SetClickCallback(this, [] (void* ptr) {
 												StageState* it = static_cast<StageState*>(ptr);
 												it->ToggleMenu();
@@ -223,9 +223,9 @@ void StageState::SetupUI() {
 	towersBtnGroup.groupedElements.push_back(&towerBtn4);
 
 	// Game Info
-	health.SetAnchors( {(float)(30.+healthIcon.GetSpriteWidth())/(2*winSize.x), (float)10./winSize.y},
+	health.SetAnchors( {(float)(30.+healthIcon.GetSprite().GetWidth())/(2*winSize.x), (float)10./winSize.y},
 					   {(float)300./winSize.x, (float)35./winSize.y} );
-	health.SetOffsets( {(float)(30.+healthIcon.GetSpriteWidth())/2, 0.},
+	health.SetOffsets( {(float)(30.+healthIcon.GetSprite().GetWidth())/2, 0.},
 					   {120., 25.} );
 
 	healthIcon.SetCenter( {.725, 0.5} );
@@ -234,19 +234,19 @@ void StageState::SetupUI() {
 
 	healthbarBg.SetAnchors( {0., 0.3},
 							 {1., 0.7} );
-	healthbarBg.SetSpriteColorMultiplier({0, 0, 0, 255});
+	healthbarBg.GetSprite().colorMultiplier = {0, 0, 0, 255};
 	
 	Rect healthBox = health.ComputeBox(health.ComputeBoundingbox( {0., 0., winSize.x, winSize.y} ));
 	healthbarBar.SetAnchors( {(float)0., (float)0.3+2/healthBox.h},
 							 {(float)1., (float)0.7-2/healthBox.h} );
 	healthbarBar.SetOffsets( {(float)2., 0.},
 							 {(float)-2., 0.} );
-	healthbarBar.SetSpriteColorMultiplier({180, 225, 149, 255});
+	healthbarBar.GetSprite().colorMultiplier = {180, 225, 149, 255};
 
 
-	wave.SetAnchors( {(float)(30.+healthIcon.GetSpriteWidth())/(2*winSize.x), (float)35./winSize.y},
+	wave.SetAnchors( {(float)(30.+healthIcon.GetSprite().GetWidth())/(2*winSize.x), (float)35./winSize.y},
 					 {(float)150./winSize.x, (float)60./winSize.y} );
-	wave.SetOffsets( {(float)(30.+waveIcon.GetSpriteWidth())/2, 25.},
+	wave.SetOffsets( {(float)(30.+waveIcon.GetSprite().GetWidth())/2, 25.},
 					 {120., 50.} );
 
 	waveIcon.SetCenter( {.725, 0.5} );
@@ -255,14 +255,14 @@ void StageState::SetupUI() {
 
 	wavebarBg.SetAnchors( {0., 0.3},
 						  {1., 0.7} );
-	wavebarBg.SetSpriteColorMultiplier({0, 0, 0, 255});
+	wavebarBg.GetSprite().colorMultiplier = {0, 0, 0, 255};
 	
 	Rect waveBox = wave.ComputeBox(wave.ComputeBoundingbox( {0., 0., winSize.x, winSize.y} ));
 	wavebarBar.SetAnchors( {(float)0., (float)0.3+2/waveBox.h},
 						   {(float)1., (float)0.7-2/waveBox.h} );
 	wavebarBar.SetOffsets( {(float)2., 0.},
 						   {(float)-2., 0.} );
-	wavebarBar.SetSpriteColorMultiplier({154, 148, 104, 255});
+	wavebarBar.GetSprite().colorMultiplier = {154, 148, 104, 255};
 
 }
 
@@ -550,7 +550,7 @@ void StageState::ToggleMenu(void) {
 	menuMove.Play(1);
 
 	Rect menuBgOffsets = menuBg.GetOffsets();
-	Vec2 menuBgDim = menuBg.GetSpriteDimensions();
+	Vec2 menuBgDim = {(float)menuBg.GetSprite().GetWidth(), (float)menuBg.GetSprite().GetHeight()};
 	if(menuIsShowing) {
 		menuBg.SetOffsets( {menuBgOffsets.x-menuBgDim.x, menuBgOffsets.y},
 						   {menuBgOffsets.w-menuBgDim.x, menuBgOffsets.h});
@@ -729,9 +729,26 @@ GameObject* StageState::FindNearestGO(Vec2 origin, std::string targetType, float
 	return(closerObj);
 }
 
+std::vector<GameObject*>* StageState::FindNearestGOs(Vec2 origin, std::string targetType, float range){
+	vector<GameObject*> *objectsInRange= new vector<GameObject*>();
+	for(unsigned int i = 0; i < objectArray.size(); i ++){
+		std::unique_ptr<GameObject> &gameObjectInAnalisis= objectArray[i];
+		if(nullptr != gameObjectInAnalisis){
+			if(gameObjectInAnalisis->Is(targetType)){
+				double distance = origin.VecDistance(gameObjectInAnalisis->box.Center()).Magnitude();
+				if(distance <= range){
+					objectsInRange->push_back(gameObjectInAnalisis.get());
+				}
+			}
+		}
+	}
+	return(objectsInRange);
+}
+
 PlayerData& StageState::GetPlayerDataInstance(void){
 	return *pData;
 }
+
 void StageState::LoadAssets(void) const{
 	Resources::GetImage("./map/tileset_vf.png");
 	Resources::GetImage("./img/UI/HUD/menu.png");
@@ -769,6 +786,8 @@ void StageState::LoadAssets(void) const{
 	Resources::GetImage("./img/enemy/cabeca_esq.png");
 	Resources::GetImage("./img/enemy/cabelo_esq.png");
 	Resources::GetImage("./img/enemy/torso_esq.png");
+	Resources::GetImage("./img/SpriteSheets/explosao_spritesheet.png");
+	Resources::GetImage("./img/explosion.png");
 	Resources::GetMusic("./audio/trilha_sonora/loop_1.ogg");
 	Resources::GetSound("./audio/Acoes/Inicio de Wave.wav");
 	Resources::GetSound("./audio/Ambiente/Barulho_noite.wav");

@@ -45,6 +45,7 @@ class Component{
 			Declaração necessária para que não houvesse undefined behaviour na deleção dos filhos de Component, pois não estando declarado seria assumido a existência do construtor default aqui(que não seria virtual)
 		*/
 		virtual ~Component(void){};
+		virtual void Render(void){};
 };
 
 #endif

@@ -21,6 +21,10 @@ enum ComponentType{
 	SIZE,
 	PLAYER_DATA,
 	SHOOTER,
+	STUN_AURA,
+	SLOW_AURA,
+	HEAL_AURA,
+//	SIZE,
 	COMPONENT_TYPE_SIZE
 };
 

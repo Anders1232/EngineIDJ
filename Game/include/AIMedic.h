@@ -6,6 +6,8 @@
 #include "GameResources.h"
 #include "ManhattanDistance.h"
 #include <list>
+#include "Enemy.h"
+#include "Timer.h"
 
 /**
 	\brief Componete IA que se move para ponto de destino
@@ -56,6 +58,8 @@ class AIMedic : public Component, public TileMapObserver
 		TileMap& tileMap;
 		GameObject &associated;
 		WaveManager &waveManager;
+		Timer getPathTimer;
+		int randomMaxTimer;
 
 		AIState actualState;
 		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM]; 
