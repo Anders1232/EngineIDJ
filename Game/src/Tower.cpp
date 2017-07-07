@@ -68,7 +68,20 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
 		}
 	}
 #else
-	AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/minionbullet1.png",3,2));
+	switch(type){
+		case TowerType::SMOKE:
+			AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/spritesheets/fumaça_spritesheet.png", 8, 1));
+			break;
+		case TowerType::ANTIBOMB:
+			AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/spritesheets/anti-bomba_ativ_spritesheet.png", 11, 1));
+			break;
+		case TowerType::STUN:
+			AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/spritesheets/stun_spritesheet.png", 8, 1));
+			break;
+		case TowerType::SHOCK:
+			AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/spritesheets/bullet_choquelvl1.png", 4, 1));
+			break;
+	}
 #endif
 
 	hitpoints = new HitPoints(hp,*this);
