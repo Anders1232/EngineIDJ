@@ -11,6 +11,7 @@
 #include "State.h"
 #include "Sound.h"
 #include "Music.h"
+#include "Timer.h"
 
 class TitleState: public State {
 	public:
@@ -26,6 +27,13 @@ class TitleState: public State {
 		void SetupUI(void);
 		void UpdateUI(float dt);
 		void RenderUI() const;
+		void MoveClouds(float dt);
+		float speedNuvemA;
+		float speedNuvemB;
+
+		Timer introTimer;
+		bool finishedEclipse;
+		bool finishedFadeIn;
 
 		Sound clickSound;
 

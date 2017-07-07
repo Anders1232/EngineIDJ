@@ -5,6 +5,12 @@
 #include "InputManager.h"
 #include "StageState.h"
 
+#include <cfloat>
+
+#define ECLIPSE_DURATION	3.5 // s
+#define OVERLAY_FADEIN_DURATION	2 // s
+#define MAX_SPEED			20 // px/s
+#define MIN_SPEED			5 // px/s
 #define DISABLED_COLOR		{ 70, 70, 70,100} // Dark Gray
 #define ENABLED_COLOR		{164,133,166,255} // Purple
 #define HIGHLIGHTED_COLOR	{227,196,230,255} // Purple-ish white
@@ -12,10 +18,13 @@
 
 TitleState::TitleState()
 		: State()
+		, speedNuvemA(std::rand() % (MAX_SPEED - MIN_SPEED) + MIN_SPEED)
+		, speedNuvemB(std::rand() % (MAX_SPEED - MIN_SPEED) + MIN_SPEED)
+		, introTimer()
 		, clickSound("audio/Interface/Click1.wav")
 		, canvas({1024,600}, UIelement::BehaviorType::STRETCH)
 		, bg("img/UI/main-menu/bg.png", UIelement::BehaviorType::STRETCH)
-		, lua("img/UI/main-menu/lua.png", UIelement::BehaviorType::FIT)
+		, lua("img/UI/main-menu/spritesheetlua.png", ECLIPSE_DURATION/8., 8, UIelement::BehaviorType::FIT)
 		, nuvemA("img/UI/main-menu/nuvemA.png", UIelement::BehaviorType::FILL)
 		, nuvemB("img/UI/main-menu/nuvemB.png", UIelement::BehaviorType::FILL)
 		, icc("img/UI/main-menu/icc.png", UIelement::BehaviorType::STRETCH)
@@ -29,6 +38,9 @@ TitleState::TitleState()
 		, titleMusic("audio/trilha_sonora/main_title_.ogg") {
 	Resources::ChangeMusicVolume(0);
 	Resources::ChangeSoundVolume(0);
+	introTimer.Restart();
+	finishedEclipse = false;
+	finishedFadeIn = false;
 	
 	SetupUI();
 }
@@ -36,30 +48,30 @@ TitleState::TitleState()
 void TitleState::SetupUI(void) {
 	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
 
-	lua.SetSpriteScale(0.75);
-	lua.SetAnchors( {(float)(0.5 - (lua.GetSpriteWidth()/2.+30.)/winSize.x), (float)(60./winSize.y)},
-					{(float)(0.5 + (lua.GetSpriteWidth()/2.-30.)/winSize.x), (float)(60. + lua.GetSpriteHeight())/winSize.y } );
+	lua.GetSprite().SetScale(0.75);
+	lua.SetAnchors( {(float)(0.5 - (lua.GetSprite().GetWidth()/2.+30.)/winSize.x), (float)(60./winSize.y)},
+					{(float)(0.5 + (lua.GetSprite().GetWidth()/2.-30.)/winSize.x), (float)(60. + lua.GetSprite().GetHeight())/winSize.y } );
 	
 	nuvemA.SetCenter({0.5, 0.1});
-	nuvemA.SetSpriteScale(0.6);
+	nuvemA.GetSprite().SetScale(0.6);
 	nuvemA.SetAnchors( {0., (float)20./winSize.y},
-					   {(float)nuvemA.GetSpriteWidth()/winSize.x, (float)(20.+nuvemA.GetSpriteHeight())/winSize.y } );
+					   {(float)nuvemA.GetSprite().GetWidth()/winSize.x, (float)(20.+nuvemA.GetSprite().GetHeight())/winSize.y } );
 
-	nuvemB.SetSpriteScale(0.7);
-	nuvemB.SetAnchors( {(float)(1. - (nuvemB.GetSpriteWidth()+110.)/winSize.x), (float)(70./winSize.y)},
-					   {(float)(1. - 110./winSize.x), (float)(70.+nuvemB.GetSpriteHeight())/winSize.y } );
+	nuvemB.GetSprite().SetScale(0.7);
+	nuvemB.SetAnchors( {(float)(1. - (nuvemB.GetSprite().GetWidth()+110.)/winSize.x), (float)(70./winSize.y)},
+					   {(float)(1. - 110./winSize.x), (float)(70.+nuvemB.GetSprite().GetHeight())/winSize.y } );
 	
 	icc.SetAnchors( {0., (float)(80./winSize.y)},
 					{1., 1.});
 	
-	overlay.SetSpriteColorMultiplier({255,255,255,135});
+	overlay.GetSprite().colorMultiplier = {255,255,255,0};
 	
-	title.SetSpriteScale(0.7);
-	title.SetAnchors( {(float)(0.5 - (title.GetSpriteWidth()/2.)/winSize.x), (float)(60./winSize.y)},
-					  {(float)(0.5 + (title.GetSpriteWidth()/2.)/winSize.x), (float)(60. + title.GetSpriteHeight())/winSize.y } );
+	title.GetSprite().SetScale(0.7);
+	title.SetAnchors( {(float)(0.5 - (title.GetSprite().GetWidth()/2.)/winSize.x), (float)(60./winSize.y)},
+					  {(float)(0.5 + (title.GetSprite().GetWidth()/2.)/winSize.x), (float)(60. + title.GetSprite().GetHeight())/winSize.y } );
 	
 	optionsGroup.SetAnchors( {0.3, 0.45},
-						  {0.7, 0.9} );
+							 {0.7, 0.9} );
 	
 	playBtn.ConfigColors(DISABLED_COLOR, ENABLED_COLOR, HIGHLIGHTED_COLOR, PRESSED_COLOR);
 	playBtn.SetClickCallback( this, [] (void* caller) {
@@ -89,11 +101,28 @@ void TitleState::Update(float dt) {
 		quitRequested = true;
 	}
 
+	introTimer.Update(dt);
+	if(!finishedEclipse && introTimer.Get() >= ECLIPSE_DURATION) {
+		finishedEclipse = true;
+		lua.GetSprite().SetFrameTime(FLT_MAX);
+		introTimer.Restart();
+	}
+	if(finishedEclipse && ! finishedFadeIn && introTimer.Get() >= OVERLAY_FADEIN_DURATION) {
+		finishedFadeIn = true;
+		introTimer.Restart();
+	}
+
 	UpdateUI(dt);
 }
 
 void TitleState::UpdateUI(float dt) {
 	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
+
+	if(finishedEclipse && !finishedFadeIn) {
+		Color c = overlay.GetSprite().colorMultiplier;
+		overlay.GetSprite().colorMultiplier = {c.r, c.g, c.b, 155*introTimer.Get()/OVERLAY_FADEIN_DURATION};
+	}
+
 	canvas.Update(dt, winSize);
 	bg.Update(dt, canvas);
 	lua.Update(dt, canvas);
@@ -107,6 +136,30 @@ void TitleState::UpdateUI(float dt) {
 	editorBtn.Update(dt, optionsGroup);
 	configBtn.Update(dt, optionsGroup);
 	exitBtn.Update(dt, optionsGroup);
+
+	MoveClouds(dt);
+}
+
+void TitleState::MoveClouds(float dt) {
+	Vec2 winSize = Game::GetInstance().GetWindowDimensions();
+
+	Rect box = nuvemA;
+	Rect offsets = nuvemA.GetOffsets();
+	if (box.x + box.w < 0) {
+		offsets.x = winSize.x - (nuvemA.GetBoundingBox().x + nuvemA.GetBoundingBox().w);
+		offsets.w = offsets.x + nuvemA.GetSprite().GetWidth();
+		speedNuvemA = std::rand() % (MAX_SPEED - MIN_SPEED) + MIN_SPEED;
+	}
+	nuvemA.SetOffsets( {offsets.x-dt*speedNuvemA, offsets.y}, {offsets.w-dt*speedNuvemA, offsets.h});
+
+	box = nuvemB;
+	offsets = nuvemB.GetOffsets();
+	if (box.x + box.w < 0) {
+		offsets.x = winSize.x - (nuvemB.GetBoundingBox().x + nuvemB.GetBoundingBox().w);
+		offsets.w = offsets.x + nuvemB.GetSprite().GetWidth();
+		speedNuvemB = std::rand() % (MAX_SPEED - MIN_SPEED) + MIN_SPEED;
+	}
+	nuvemB.SetOffsets( {offsets.x-dt*speedNuvemB, offsets.y}, {offsets.w-dt*speedNuvemB, offsets.h});
 }
 
 void TitleState::Render(void) const {
@@ -116,16 +169,18 @@ void TitleState::Render(void) const {
 void TitleState::RenderUI(void) const {
 	bg.Render();
 	lua.Render();
-	nuvemA.Render();
-	nuvemB.Render();
+	nuvemA.Render(true);
+	nuvemB.Render(true);
 	icc.Render();
 	overlay.Render();
-	title.Render();
-	// optionsGroup.Render(true);
-	playBtn.Render();
-	editorBtn.Render();
-	configBtn.Render();
-	exitBtn.Render();
+	if(finishedEclipse && finishedFadeIn) {
+		title.Render();
+		// optionsGroup.Render(true);
+		playBtn.Render();
+		editorBtn.Render();
+		configBtn.Render();
+		exitBtn.Render();
+	}
 }
 
 void TitleState::Pause(void) {
