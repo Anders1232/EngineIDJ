@@ -166,11 +166,11 @@ void AIEngineer::Update(float dt){
 
 void AIEngineer::NotifyTileMapChanged(int tilePosition){
 	if(path->end() != std::find(path->begin()+pathIndex, path->end(), tilePosition)){
+		pathIndex= 0;
 		Vec2 originCoord= associated.box.Center();
 		path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
 		tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
 		vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / actualTileweight);
-		pathIndex= 0;
 		lastDistance = std::numeric_limits<float>::max();
 	}
 }
