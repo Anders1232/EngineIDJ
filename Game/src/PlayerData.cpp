@@ -90,7 +90,7 @@ void PlayerData::NotifyLifeLost(int wave, EnemyData enemyData){
 // decrementa para compra e incrementa pra ganho.
 void PlayerData::GoldUpdate(int amount, bool winPoints){
 	this->gold += amount; 
-	playerGold.SetText("Gold: " + std::to_string(gold));
+	playerGold.SetText(std::to_string(gold));
 
     if(winPoints) {
         PointsUpdate(gold);
