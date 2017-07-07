@@ -11,9 +11,9 @@
 #define SORTEAR_TORRES
 
 Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
-		: sp(type == TowerType::SMOKE ? "img/SpriteSheets/torre_fumaca.png" :
+		: sp(type == TowerType::SMOKE ? "img/tower/torre_fumaca.png" :
 			type == TowerType::ANTIBOMB ? "img/SpriteSheets/anti-bomba.png" :
-			type == TowerType::STUN ? "img/SpriteSheets/torrestun.png" :
+			type == TowerType::STUN ? "img/tower/torrestun.png" :
 			type == TowerType::SHOCK ? "img/SpriteSheets/torrechoque_lvl1.png" :
 			"",
 			true,
