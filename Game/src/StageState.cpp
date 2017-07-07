@@ -264,6 +264,7 @@ StageState::~StageState(void) {
 	objectArray.clear();
 	obstacleArray.clear();
 	tileMap.RemoveObserver(this);
+	TEMP_REPORT_I_WAS_HERE;
 	GameResources::Clear();
 	TEMP_REPORT_I_WAS_HERE;
 	nightSound.Stop();

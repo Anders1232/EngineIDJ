@@ -4,10 +4,12 @@
 
 #include "GameObject.h"
 #include "WaveManager.h"
+#include "UIelement.h"
 #include "UItext.h"
 #include "UItextButton.h"
 #include "UIcanvas.h"
 #include "UIverticalGroup.h"
+
 #define PLAYER_DATA_INSTANCE PlayerData::GetInstance()
 
 #define TOTAL_LIFES 30;
@@ -19,8 +21,7 @@
 */
 class PlayerData: public Component{
 	public:
-		PlayerData();
-		~PlayerData();
+
 		void Render() const;
 		void Update(float dt);
 		bool Is(ComponentType type) const;
@@ -39,6 +40,8 @@ class PlayerData: public Component{
 		*/
 		int GetLifes(void);
     private:
+        PlayerData();
+        ~PlayerData();
 		UIcanvas HUDcanvas;/**<Representa a area renderizavel na tela. Usado para renderizar o Quadro de pontos.*/
 		UIverticalGroup playerTable;/**<Representa a Quadro de pontos. Usado para agrupar quantidade de vidas, ouro, pontos e mortes.*/
 		UItext boardName;/**<Nome do Quadro de pontos. Renderizado como um atributo no quadro de pontos.*/

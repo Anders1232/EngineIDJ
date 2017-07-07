@@ -3,7 +3,7 @@
 #include "Error.h"
 #include "Game.h"
 
-#define LIFE_LOST -11
+#define LIFE_LOST_POINTS -11
 
 PlayerData::PlayerData(): HUDcanvas(), 
 						playerTable(),
@@ -32,7 +32,6 @@ PlayerData::PlayerData(): HUDcanvas(),
 }
 
 PlayerData::~PlayerData(){
-
 }
 
 void PlayerData::Render() const{
@@ -102,7 +101,7 @@ PlayerData& PlayerData::GetInstance(void){
 void PlayerData::DecrementLife(){
 	--lifes;
 	playerLifes.SetText("Lifes: " + std::to_string(lifes));
-	PointsUpdate(LIFE_LOST);
+	PointsUpdate(LIFE_LOST_POINTS);
 }
 
 int PlayerData::GetLifes(){
