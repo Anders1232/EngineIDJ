@@ -14,7 +14,7 @@
 class Bullet: public GameObject
 {
 	public:
-		Bullet(float x,float y,float angle,float speed,float maxDistance,std::string sprite,std::string targetType,float scale = 1.0,float frameTime = 1,int frameCount = 1, bool isBomb= false);
+		Bullet(float x,float y,float angle,float speed,float maxDistance,std::string sprite,std::string targetType,float scale = 1.0,float frameTime = 0.1,int frameCount = 1, bool isBomb= false);
 		~Bullet(void);
 		void Update(float dt);
 		void Render(void);
