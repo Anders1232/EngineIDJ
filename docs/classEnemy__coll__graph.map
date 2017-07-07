@@ -1,9 +1,14 @@
 <map id="Enemy" name="Enemy">
-<area shape="rect" id="node2" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="488,113,583,140"/>
-<area shape="rect" id="node13" href="$classHitPoints.html" title="HitPoints" alt="" coords="731,541,807,568"/>
-<area shape="rect" id="node3" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="237,21,288,48"/>
-<area shape="rect" id="node15" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="507,720,563,747"/>
-<area shape="rect" id="node11" href="$classSound.html" title="Classe que modela sons. " alt="" coords="506,463,565,489"/>
-<area shape="rect" id="node14" href="$classComponent.html" title="Modela os componentes. " alt="" coords="491,596,580,623"/>
-<area shape="rect" id="node19" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="236,889,289,916"/>
+<area shape="rect" id="node2" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="862,149,957,176"/>
+<area shape="rect" id="node30" href="$classHitPoints.html" title="HitPoints" alt="" coords="1238,463,1314,489"/>
+<area shape="rect" id="node3" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="543,77,593,104"/>
+<area shape="rect" id="node17" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="540,540,596,567"/>
+<area shape="rect" id="node28" href="$classTimer.html" title="Temporizador. " alt="" coords="703,252,758,279"/>
+<area shape="rect" id="node9" href="$classWaveManager.html" title="Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves..." alt="" coords="1589,828,1696,855"/>
+<area shape="rect" id="node13" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1242,800,1310,827"/>
+<area shape="rect" id="node10" href="$classComponent.html" title="Modela os componentes. " alt="" coords="865,623,954,649"/>
+<area shape="rect" id="node16" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="878,876,941,903"/>
+<area shape="rect" id="node25" href="$classSound.html" title="Classe que modela sons. " alt="" coords="1247,1127,1305,1153"/>
+<area shape="rect" id="node14" href="$classNearestGOFinder.html" title="NearestGOFinder" alt="" coords="847,775,971,801"/>
+<area shape="rect" id="node21" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="236,535,289,561"/>
 </map>

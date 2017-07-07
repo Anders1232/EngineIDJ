@@ -65,6 +65,7 @@ var searchData=
   ['controllerstickupdate',['controllerStickUpdate',['../classInputManager.html#a5e6ccd1ed40908fa5663445ae9fb622d',1,'InputManager']]],
   ['controllerupdate',['controllerUpdate',['../classInputManager.html#a53817858b539f080e0cebad2b03cc0d2',1,'InputManager']]],
   ['conversao_5fgraus_5fradianos',['CONVERSAO_GRAUS_RADIANOS',['../Error_8h.html#ad7ac4f59c7725b4921af49f74536de8c',1,'Error.h']]],
+  ['countnextwave',['CountNextWave',['../classPlayerData.html#a8a2441b53df3d7fb91b9623504a82907',1,'PlayerData']]],
   ['createtower',['CreateTower',['../classStageState.html#aec1559b1e8a1a138337d2ae73aadc2cf',1,'StageState']]],
   ['currentframe',['currentFrame',['../classSprite.html#a556cfc67b1b98691aa2e5b41f076fded',1,'Sprite']]],
   ['currentlogzoom',['currentLogZoom',['../classCamera.html#a1e954aeda32920bf73cfa4fac8ca6f94',1,'Camera']]],

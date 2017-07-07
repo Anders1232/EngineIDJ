@@ -47,7 +47,6 @@ class TitleState: public State {
 		UIimage overlay;
 		UIimage title;
 		UIverticalGroup optionsGroup;
-
 		UItextButton playBtn;
 		UItextButton editorBtn;
 		UItextButton configBtn;

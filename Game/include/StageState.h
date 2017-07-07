@@ -24,6 +24,11 @@
 #include "UItext.h"
 #include "UIverticalGroup.h"
 #include "WaveManager.h"
+#include "PlayerData.h"
+#include "UIcanvas.h"
+#include "UIimageButton.h"
+#include "UIgridGroup.h"
+#include "UIverticalGroup.h"
 #include "Obstacle.h"
 #include "Sound.h"
 #include "NearestGOFinder.h"
@@ -45,11 +50,14 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		void Resume(void);
 		void LoadAssets(void) const;
 		void ShowLightning(float dt);
-		void SetUILife(float lifePercent);
+		void SetUILife();
 		void SetUIWaveProgress(float waveProgressPercent);
 		void NotifyTileMapChanged(int tilePosition);
 		GameObject* FindNearestGO(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max());
+		std::vector<GameObject*>* FindNearestGOs(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max());
+		PlayerData& GetPlayerDataInstance(void);
 	private:
+
 		void SetupUI(void);
 		void UpdateUI(float dt);
 		void RenderUI(void) const;
@@ -63,30 +71,33 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		TileSet tileSet;
 		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;
+		//PlayerData &playerData;/**< Armazena os dados do jogador e os exibe em tela. */
+
 		Music music;
 		
 		bool isLightning;
 		bool isThundering;
 		Timer lightningTimer;
 		Color lightningColor;
+
 		float lightningInterval;
 
 		WaveManager *waveManager;/**< Referencia para a WaveManager, gerenciador de waves. Essa Referência existe aqui por motivos de perfornance, para não ter que procurá-lo todo Update.*/
 		vector<int> waves;//vetor de waves a ser lido no arquivo
-		
+
 		void InitializeObstacles(void);
 		std::vector<std::unique_ptr<Obstacle>> obstacleArray;
 		void AddObstacle(Obstacle *obstacle);
 		void RenderObstacleArray(void) const;
 		Sound nightSound;
 		Sound thunderSound;
+		Sound towerMenuSounds; /**< Som referente a compra, venda e construçao de torre. */
 
 		int frameRateCounter;
 		Timer frameRateTimer;
 
-
 		bool menuIsShowing;
-		
+
 		UIcanvas HUDcanvas;
 
 		UIimage menuBg;
@@ -114,6 +125,8 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		UIimage waveIcon;
 		UIimage wavebarBg;
 		UIimage wavebarBar;
+
+		static PlayerData *pData;
 };
 
 #include "EndState.h"

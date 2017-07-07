@@ -1,0 +1,51 @@
+	--ENEMIES--
+        Quimico_maroto //nome
+            QUIMIC  //type
+            enemy   //path
+            1.0     //scaleX
+            1.0     //scaleY
+            15      //gold
+        Toco //name
+            QUIMIC  //type
+            enemy   //path
+            1.0     //scaleX
+            1.0     //scaleY
+            12      //gold
+        Arte_na_praia     //name
+            ART     //type
+            enemy //path
+            1.0 //scaleX
+            1.0 //scaleY
+            14  //gold
+        Spy_zappin_mah_sentry
+            ENGINNER
+            enemy
+            1.0
+            1.0
+            10
+
+--WAVES--
+Wave1            //wave n
+    SpawnPoint:0 //spawnpoint
+            0 	 //enemyId
+            5 	 //numberOfEnemies
+            100  //baseHP
+            0    //endpoint
+            
+            1    //ensemyId
+            5    //numberOfEnemies
+            120  //baseHP
+            1    //endpoint
+
+    SpawnPoint:1
+            0
+            10
+            120
+            0
+            
+            1
+            10
+            150
+            1
+Wave 2
+    ...

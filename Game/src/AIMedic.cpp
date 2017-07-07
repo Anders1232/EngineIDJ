@@ -9,6 +9,7 @@ AIMedic::AIMedic(float speed,int dest,TileMap& tilemap,GameObject &associated,Wa
 	actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER));
 	vecSpeed = Vec2(0.0,0.0);
 	lastDistance = std::numeric_limits<float>::max();
+	randomMaxTimer = 0;
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
 	dfa[AIState::WALKING][AIEvent::PATH_BLOCKED] = AIState::WAITING;
@@ -40,22 +41,22 @@ AIMedic::~AIMedic(void){
 
 AIMedic::AIEvent AIMedic::ComputeEvents(){
 	if(actualState == AIState::WALKING){
-		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+		if(((Enemy&)associated).GetLastEvent() == Enemy::Event::STUN){
 			return AIEvent::STUN;
 		}
 		else if(pathIndex == path->size()){
 			return AIEvent::PATH_BLOCKED;
 		}
-		else if(false){// Aqui verifica-se a colisão com o elemento de fumaça
+		else if(((Enemy&)associated).GetLastEvent() == Enemy::Event::SMOKE){
 			return AIEvent::SMOKE;
 		}
 		else{return NONE;}
 	}
 	else if(actualState == AIState::WALKING_SLOWLY){
-		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+		if(((Enemy&)associated).GetLastEvent() == Enemy::Event::STUN){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::STUN;
 		}
-		else if(false){// Aqui verifica-se o fim da colisão com o elemento de fumaça
+		else if(((Enemy&)associated).GetLastEvent() != Enemy::Event::SMOKE){// Aqui verifica-se o fim da colisão com o elemento de fumaça
 			return AIEvent::NOT_SMOKE;
 		}
 		else if(pathIndex == path->size()){
@@ -64,7 +65,7 @@ AIMedic::AIEvent AIMedic::ComputeEvents(){
 		else{return NONE;}
 	}
 	else if(actualState == AIState::WAITING){
-		if(false){// Aqui verifica-se a colisão com o elemento estonteante
+		if(((Enemy&)associated).GetLastEvent() == Enemy::Event::STUN){// Aqui verifica-se a colisão com o elemento estonteante
 			return AIEvent::STUN;
 		}
 		else if(!path->empty()){
@@ -74,7 +75,7 @@ AIMedic::AIEvent AIMedic::ComputeEvents(){
 		else{return NONE;}
 	}
 	else if(actualState == AIState::STUNNED){
-		if(false){// Aqui verifica-se o fim da colisão com o elemento estonteante
+		if(((Enemy&)associated).GetLastEvent() != Enemy::Event::STUN){// Aqui verifica-se o fim da colisão com o elemento estonteante
 			return AIEvent::NOT_STUN;
 		}
 		else if(pathIndex == path->size()){
@@ -92,8 +93,6 @@ void AIMedic::Update(float dt){
 	//enum AIEvent{NONE,PATH_BLOCKED,PATH_FREE,SMOKE,NOT_SMOKE,STUN,NOT_STUN,EVENT_NUM}; 
 
 	AIEvent actualTransition = ComputeEvents();
-	//std::cout << "Estado atual: " << actualState << std::endl;
-	//std::cout << "Transição atual : " << actualTransition << std::endl;
 	actualState = dfa[actualState][actualTransition];
 	if(actualState == AIState::WALKING){
 		if(pathIndex != path->size()){
@@ -134,12 +133,12 @@ void AIMedic::Update(float dt){
 				if(pathIndex != path->size()){
 					tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
 					lastDistance = associated.box.Center().VecDistance(tempDestination).Magnitude();
-					actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER)) * 2;
+					actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER)) * 3;
 					vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed /actualTileweight);
 				}
 			}
 			else if(vecSpeed.Magnitude() == 0.0){
-				actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER)) * 2;
+				actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER)) * 3;
 				vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / actualTileweight);
 			}
 			else{
@@ -150,27 +149,45 @@ void AIMedic::Update(float dt){
 		}
 	}
 	else if(actualState == AIState::WAITING){
-		if(tileMap.GetCoordTilePos(Vec2(associated.box.Center().x,associated.box.Center().y), false, 0) == destTile){
+		if(tileMap.GetCoordTilePos(associated.box.Center(), false, 0) == destTile){
 			associated.RequestDelete();
 			waveManager.NotifyEnemyGotToHisDestiny();
+		}
+		else{
+			if(getPathTimer.Get() > randomMaxTimer){
+				getPathTimer.Restart();
+				randomMaxTimer = rand()%3;
+				Vec2 originCoord= associated.box.Center();
+				path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+				TEMP_REPORT_I_WAS_HERE;
+				if(path->size() > 0){
+					TEMP_REPORT_I_WAS_HERE;
+					pathIndex = 0;
+					tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
+					vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / actualTileweight);
+					lastDistance = std::numeric_limits<float>::max();
+				}
+
+			}
+			getPathTimer.Update(dt);
 		}
 	}
 	else if(actualState == AIState::STUNNED){
 		//Aqui executa animações do efeito estonteante
 	}
-	else{
-		//Aqui executa animações de efeito de fumaça
-	}
 }
 
 void AIMedic::NotifyTileMapChanged(int tilePosition){
-	if(path->end() != std::find( (path->begin())+pathIndex, path->end(), tilePosition)){
+	if(path->end() != std::find(path->begin()+pathIndex, path->end(), tilePosition)){
 		pathIndex= 0;
 		Vec2 originCoord= associated.box.Center();
 		path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
-		tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
-		vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / actualTileweight);
-		lastDistance = std::numeric_limits<float>::max();
+		if(path->size() > 0){
+			pathIndex = 0;
+			tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
+			vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / actualTileweight);
+			lastDistance = std::numeric_limits<float>::max();
+		}
 	}
 }
 

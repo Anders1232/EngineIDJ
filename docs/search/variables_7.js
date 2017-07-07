@@ -16,5 +16,5 @@ var searchData=
   ['highlightedsprite',['highlightedSprite',['../classUIimageButton.html#ac918b8f291b13449829ee66ef284a9a5',1,'UIimageButton']]],
   ['hitpoints',['hitpoints',['../classEnemy.html#ad6ba903d0562cd0896f670d383efdab2',1,'Enemy::hitpoints()'],['../classTower.html#a32fa0af989b9cb667686070c158f4354',1,'Tower::hitpoints()']]],
   ['hp',['hp',['../classHitPoints.html#a6d470de7a4934c51ab0983b4dcf7f21a',1,'HitPoints']]],
-  ['hudcanvas',['HUDcanvas',['../classStageState.html#afc725d490d2fd4c6d11c8251c7e1d9be',1,'StageState']]]
+  ['hudcanvas',['HUDcanvas',['../classPlayerData.html#ac00becd96af0829895b58582cc5587fb',1,'PlayerData::HUDcanvas()'],['../classStageState.html#afc725d490d2fd4c6d11c8251c7e1d9be',1,'StageState::HUDcanvas()']]]
 ];

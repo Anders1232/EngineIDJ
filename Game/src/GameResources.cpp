@@ -89,7 +89,10 @@ void GameResources::ReadWaveData(std::string file){
 		float scaleX, scaleY;
 		ASSERT2(1 == fscanf(filePtr, "\t\t%f\n", &scaleX), "\tScaleX File format invalid! Expecting a float.");
 		ASSERT2(1 == fscanf(filePtr, "\t\t%f\n", &scaleY), "\tScaleY File format invalid! Expecting a float.");
-		newEntry->second.emplace_back(enemyName, enemyTypeIndex, scaleX, scaleY, spritePath);//vê se esse uso consegue instanciar a struct, caso contrário criar construtor
+		int gold;
+		ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &gold), "\tGold File format invalid! Expecting an int.");
+		newEntry->second.emplace_back(enemyName, enemyTypeIndex, scaleX, scaleY, spritePath, gold);//vê se esse uso consegue instanciar a struct, caso contrário criar construtor
+	
 	}
 	char waveName[WAVE_NAME_MAX_LENGHT+1];
 	waveName[WAVE_NAME_MAX_LENGHT]= '\0';
@@ -113,13 +116,13 @@ void GameResources::ReadWaveData(std::string file){
 			while(1 == fscanf(filePtr, "\t\t\t%d\n", &enemyIndex) ){
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 				int numberOfEnemies;
-				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &numberOfEnemies), "\tFile format invaled! Expecting a integer.");
+				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &numberOfEnemies), "\tFile format invalid! Expecting an integer.");
 				int enemyHP;
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
-				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &enemyHP), "\tFile format invaled! Expecting a integer.");
+				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &enemyHP), "\tFile format invalid! Expecting an integer.");
 				uint endPoint;
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
-				ASSERT2(1 == fscanf(filePtr, "\t\t%u\n", &endPoint), "\tFile format invaled! Expecting a integer.");
+				ASSERT2(1 == fscanf(filePtr, "\t\t%u\n", &endPoint), "\tFile format invalid! Expecting an integer.");
 				REPORT_DEBUG( "\t enemyIndex= " << enemyIndex);
 				REPORT_DEBUG( "\t numberOfEnemies= " << numberOfEnemies);
 				REPORT_DEBUG( "\t enemyHP= " << enemyHP);

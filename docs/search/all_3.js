@@ -3,6 +3,7 @@ var searchData=
   ['damage',['Damage',['../classHitPoints.html#a2a71f499597073e9aba5729261d3255b',1,'HitPoints::Damage()'],['../classTower.html#a106ad22999d0a1262223d120602cf9d8',1,'Tower::Damage()']]],
   ['dead',['dead',['../classGameObject.html#a69b2c28686d4cce93cf49fa7a8a5cb88',1,'GameObject::dead()'],['../classEnemy.html#a4b1b61e7bc79aca01f3e4b3ef19cb787',1,'Enemy::dead()']]],
   ['debug',['DEBUG',['../Error_8h.html#ad72dbcf6d0153db1b8d8a58001feed83',1,'Error.h']]],
+  ['decrementlife',['DecrementLife',['../classPlayerData.html#a3d237427eead45b968ebcac59249415e',1,'PlayerData']]],
   ['defines_2eh',['Defines.h',['../Defines_8h.html',1,'']]],
   ['dest',['dest',['../classAIPrintPath.html#ab58e50505b5f2da874cc81024ff3e48d',1,'AIPrintPath']]],
   ['desttile',['destTile',['../classTileMap_1_1LessThanByHeuristic.html#a99ecfb52822a5a191a5186075f516ab2',1,'TileMap::LessThanByHeuristic::destTile()'],['../classAIArt.html#a950d4c07d83a423096f9a7e56663eb8b',1,'AIArt::destTile()'],['../classAIEngineer.html#a38d1a488252a1473849e566c958478eb',1,'AIEngineer::destTile()'],['../classAIGoDown.html#aff14421506961fc0de8df729945c1f44',1,'AIGoDown::destTile()'],['../classAIGoTo.html#aacdb5137af6f27f365c006489b09edd6',1,'AIGoTo::destTile()'],['../classAIMedic.html#ab21d0e4dab17508e92ed3ffe99d00462',1,'AIMedic::destTile()'],['../classAIQuimic.html#af21cd98b8ff337f176b5187e32adc323',1,'AIQuimic::destTile()']]],

@@ -32,7 +32,7 @@ var searchData=
   ['gethp',['GetHp',['../classHitPoints.html#ae17e5852d07eed5c2c50626216384b3e',1,'HitPoints']]],
   ['getimage',['GetImage',['../classResources.html#a557aa346c974a8bce80017dbabd653d9',1,'Resources']]],
   ['getinstance',['GetInstance',['../classGame.html#a25d213802ed39215e3ab2cb04edf46c8',1,'Game::GetInstance()'],['../classInputManager.html#a1f095ed502f0bd09390d05cdc0acdcd9',1,'InputManager::GetInstance()']]],
-  ['getlifesleft',['GetLifesLeft',['../classWaveManager.html#afcf13d96b914c16eecaae975b9af9063',1,'WaveManager']]],
+  ['getlifes',['GetLifes',['../classPlayerData.html#acd78a6017570bd2f6340e461f622644e',1,'PlayerData']]],
   ['getlinearzoom',['GetLinearZoom',['../classCamera.html#a39817db4b58c96f1cd989e8abf2a9451',1,'Camera']]],
   ['getlogzoom',['GetLogZoom',['../classCamera.html#a7a91a7e6210714a5d079d3f4f0addc49',1,'Camera']]],
   ['getmaxframerate',['GetMaxFramerate',['../classGame.html#aafc542fc5f826d2eed771c8bd75d6930',1,'Game']]],
@@ -46,6 +46,8 @@ var searchData=
   ['getoffsets',['GetOffsets',['../classUIelement.html#af4a4767b6d38c0d807120a63d82b2adf',1,'UIelement']]],
   ['getpath',['GetPath',['../classGameResources.html#afd2616c917ad1117b68fbb0de28b25c4',1,'GameResources']]],
   ['getpathhitrate',['GetPathHitRate',['../classGameResources.html#ae211793d461b8c9122ae03afe33c6b92',1,'GameResources']]],
+  ['getplayerdatainstance',['GetPlayerDataInstance',['../classStageState.html#aa9da713e372a10abf64b45593b9ddc84',1,'StageState']]],
+  ['getplayergold',['GetPlayerGold',['../classPlayerData.html#a508348577e22d1f6e740afe08296a62f',1,'PlayerData']]],
   ['getrenderer',['GetRenderer',['../classGame.html#a5749c6fc2bf3c98a4dc9c11e33f96c8b',1,'Game']]],
   ['getsize',['GetSize',['../classText.html#aa2a449375e15e6abb2911fff0af26c66',1,'Text::GetSize()'],['../classUItext.html#a278e43f29be1d20a1d8b92db87be69bc',1,'UItext::GetSize()']]],
   ['getsound',['GetSound',['../classResources.html#ae6e4e0202dec020da8f6654f685e8b98',1,'Resources']]],
@@ -75,5 +77,7 @@ var searchData=
   ['getwindowfullscreen',['GetWindowFullscreen',['../classGame.html#ab578fc018939b5c1fe15b993856828ad',1,'Game']]],
   ['getwindowmaximized',['GetWindowMaximized',['../classGame.html#a73b7de2577d86f15887e091330513dc2',1,'Game']]],
   ['getworldrenderedrect',['GetWorldRenderedRect',['../classAnimation.html#a0c0ff21f388105a5ed1560de9071f895',1,'Animation::GetWorldRenderedRect()'],['../classGameObject.html#a6144b71795035bd65b81ed36abc19638',1,'GameObject::GetWorldRenderedRect()'],['../classEnemy.html#ac7f63bc4fdfa5cf88f85eec8e9053df2',1,'Enemy::GetWorldRenderedRect()'],['../classObstacle.html#aef77f3cdd2e392f90b455c3f39608493',1,'Obstacle::GetWorldRenderedRect()'],['../classTower.html#a70062b0fd7a5cc0f255173c93b431f99',1,'Tower::GetWorldRenderedRect()']]],
+  ['gold',['gold',['../classEnemy.html#a60960cd3657741ef085b56e25efe61e1',1,'Enemy::gold()'],['../classPlayerData.html#abdc40bb9eac8fd3cc4558cd7e769f7b6',1,'PlayerData::gold()'],['../structEnemyData.html#a31f45659374a6b0424a5e288d9463f1c',1,'EnemyData::gold()']]],
+  ['goldupdate',['GoldUpdate',['../classPlayerData.html#a30cea0f9e2578c9b089d12d673e0e75e',1,'PlayerData']]],
   ['groupedelements',['groupedElements',['../classUIgridGroup.html#ac4b1a4704061f63166384c111615f076',1,'UIgridGroup::groupedElements()'],['../classUIhorizontalGroup.html#a8b5ab60c1aaa1de277a683f9e242cda7',1,'UIhorizontalGroup::groupedElements()'],['../classUIverticalGroup.html#a07f80d254be2ae1a3f0e71d06a3de4fd',1,'UIverticalGroup::groupedElements()']]]
 ];
