@@ -51,6 +51,9 @@ void Tower::Update(float dt ) {
 
 void Tower::Render(void) {
 	sp.Render(box);
+	for(uint i=0; i< components.size(); i++){
+		(components[i])->Render();
+	}
 }
 
 bool Tower::IsDead(void) {
