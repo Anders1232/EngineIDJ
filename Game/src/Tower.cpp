@@ -31,7 +31,7 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
 			AddComponent(new Aura(*this, Enemy::Event::SMOKE, 800, 7.0, (NearestGOFinder&)stageState, "Enemy"));
 			break;
 		case TowerType::ANTIBOMB:
-			AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/SpriteSheets/anti-bomba_ativ_spritesheet.png", 11, 1));
+			AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "BOMB", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/SpriteSheets/anti-bomba_ativ_spritesheet.png", 11, 1));
 			break;
 		case TowerType::STUN:
 			AddComponent(new Aura(*this, Enemy::Event::STUN, 800, 7.0, (NearestGOFinder&)stageState, "Enemy"));
@@ -63,7 +63,7 @@ void Tower::Update(float dt ) {
 }
 
 void Tower::Render(void) {
-	sp.Render(box);
+	sp.Render(Rect(box.x + sp.GetWidth()/2,box.y + sp.GetHeight(),sp.GetWidth(),sp.GetHeight()));
 	for(uint i=0; i< components.size(); i++){
 		(components[i])->Render();
 	}
