@@ -75,6 +75,26 @@ bool Tower::IsDead(void) {
 
 void Tower::RequestDelete(void) {
 	hitpoints->RequestDelete();
+
+	switch(type){
+		case TowerType::SMOKE:
+			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/SpriteSheets/explosao_spritesheet.png",9,0.1,true));
+			break;
+		case TowerType::ANTIBOMB:
+			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/SpriteSheets/explosao_spritesheet.png",9,0.1,true));
+			break;
+		case TowerType::STUN:
+			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/SpriteSheets/explosao_spritesheet.png",9,0.1,true));
+			break;
+		case TowerType::SHOCK:
+			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/SpriteSheets/explosao_spritesheet.png",9,0.1,true));
+			break;
+		default:
+			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/SpriteSheets/explosao_spritesheet.png",9,0.1,true));
+			break;
+
+	}
+	
 }
 
 Rect Tower::GetWorldRenderedRect() const {
