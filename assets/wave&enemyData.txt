@@ -1,49 +1,49 @@
 --ENEMIES--
     estudante_engenheiro
         ENGINEER
-        enemy
+        enemy3
         0.5
         0.5
         11
     Arte_na_praia
         ART
-        enemy
+        enemy3
         0.5
         0.5
         11
     Arquiteto
         ARQUITET
-        enemy
+        enemy3
         0.5
         0.5
         14
     Arte_cartaz_icc
         ART
-        enemy
+        enemy3
         0.5
         0.5
         16
     Medico_maroto
         MEDIC
-        enemy
+        enemy3
         0.5
         0.5
         18
     Arte_na_praia
         ENGINEER
-        enemy
+        enemy3
         0.5
         0.5
         12
     Arquiteto_calouro
         QUIMIC
-        enemy
+        enemy3
         0.5
         0.5
         12
     Engenheiro
         ARQUITET
-        enemy
+        enemy3
         0.5
         0.5
         12
