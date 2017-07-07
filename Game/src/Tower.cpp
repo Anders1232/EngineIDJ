@@ -39,8 +39,7 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
 		AddComponent(new Aura(*this, Enemy::Event::SMOKE, 300, 1.0, (NearestGOFinder&)stageState, "Enemy"));
 	}
 	else{
-
-		AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "BOMB", 1000, 3.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 3000, "img/SpriteSheets/anti-bomba_idle.png", 5, 2.0));
+		AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "BOMB", 1000, 3.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 2500, 6000, "img/SpriteSheets/anti-bomba_idle.png", 5, 2.0));
 	}
 #else
 	AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/minionbullet1.png",3,2));
