@@ -184,6 +184,9 @@ void Enemy::Render(void) {
 	for(uint i=0; i< sp[direction].size(); i++){
 		sp[direction][i].Render(box);
 	}
+	for(uint i=0; i< components.size(); i++){
+		components[i]->Render();
+	}
 	hitpoints->Render();
 }
 
