@@ -104,6 +104,7 @@ Game::~Game() {
 	SDL_DestroyWindow(window);
 	IMG_Quit();
 	SDL_Quit();
+
 }
 
 Game& Game::GetInstance(void) {

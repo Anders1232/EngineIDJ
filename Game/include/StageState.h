@@ -53,6 +53,7 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		void SetUIWaveProgress(float waveProgressPercent);
 		void NotifyTileMapChanged(int tilePosition);
 		GameObject* FindNearestGO(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max());
+		PlayerData& GetPlayerDataInstance(void);
 	private:
 
 		void SetupUI(void);
@@ -68,7 +69,7 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		TileSet tileSet;
 		TileMap tileMap;/**< Mapa de tiles do jogo. */
 		InputManager &inputManager;
-		PlayerData &playerData;/**< Armazena os dados do jogador e os exibe em tela. */
+		//PlayerData &playerData;/**< Armazena os dados do jogador e os exibe em tela. */
 
 		Music music;
 		
@@ -121,6 +122,8 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		UIimage waveIcon;
 		UIimage wavebarBg;
 		UIimage wavebarBar;
+
+		static PlayerData *pData;
 };
 
 #include "EndState.h"

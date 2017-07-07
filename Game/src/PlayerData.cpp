@@ -92,10 +92,6 @@ void PlayerData::PointsUpdate(int amount){
 
 }
 
-PlayerData& PlayerData::GetInstance(void){
-	static PlayerData playerData;
-	return playerData;
-}
 
 
 void PlayerData::DecrementLife(){

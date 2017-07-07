@@ -9,6 +9,8 @@
 #include "AIGoDown.h"
 #include "HitPoints.h"
 #include "PlayerData.h"
+#include "StageState.h"
+#include "Game.h"
 
 Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint, TileMap & tileMap, WaveManager &wManager) :
 		  sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE)
@@ -182,7 +184,8 @@ void Enemy::Update(float dt) {
 	if(hitpoints->GetHp() < 0) {
 		dead = true;
 		waveManager.NotifyEnemyGotKilled();
-		PlayerData::GetInstance().GoldUpdate(gold);
+		//PlayerData::GetInstance().GoldUpdate(gold);
+		((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().GoldUpdate(gold);
 	}
 }
 

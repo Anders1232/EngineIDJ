@@ -7,6 +7,7 @@
 #include "GameResources.h"
 #include "Error.h"
 #include "PlayerData.h"
+#include "StageState.h"
 
 #define TIME_BETWEEN_SPAWN (0.8) //tempo entre spawn de inimigos
 #define TIME_BETWEEN_WAVE (10.0) //tempo entre waves
@@ -54,8 +55,8 @@ void WaveManager::StartWave(){
 	++waveCount;
 
 	printf("Wave %d Start!", waveCount);
-	PlayerData::GetInstance().CountNextWave(waveCount);
-
+	//PlayerData::GetInstance().CountNextWave(waveCount);
+	((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().CountNextWave(waveCount);
 }
 
 
@@ -135,7 +136,9 @@ void WaveManager::Update(float dt){
             waveTimer.Restart();
             //bounty level complete
             float income = (waveCount* 5)+100;
-            PlayerData::GetInstance().GoldUpdate((int)income);
+            //PlayerData::GetInstance().GoldUpdate((int)income);
+			((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().GoldUpdate((int)income);
+
         }
 	}
 
@@ -159,7 +162,9 @@ bool WaveManager::Is(ComponentType type) const{
 }
 
 void WaveManager::NotifyEnemyGotToHisDestiny(){
-	PlayerData::GetInstance().DecrementLife();
+	//PlayerData::GetInstance().DecrementLife();
+	((StageState&)Game::GetInstance().GetCurrentState() ).GetPlayerDataInstance().DecrementLife();
+
 	--enemiesLeft;
 }
 

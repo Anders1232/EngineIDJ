@@ -41,12 +41,14 @@
 
 #define TOWER_INFO_TXT_COLOR {199,159,224,255} // Purple-ish white
 
+PlayerData* StageState::pData = nullptr;
+
 StageState::StageState(void)
 		: State()
 		, tileSet(120, 120,"map/tileset_vf.png")
 		, tileMap("map/tileMap.txt", &tileSet)
 		, inputManager(INPUT_MANAGER)
-		, playerData(PLAYER_DATA_INSTANCE)
+		//, playerData(PLAYER_DATA_INSTANCE)
         , music("audio/trilha_sonora/loop_1.ogg")
 		, isLightning(false)
 		, isThundering(false)
@@ -78,6 +80,7 @@ StageState::StageState(void)
 		, wavebarBg("img/UI/HUD/hudvida.png")
 		, wavebarBar("img/UI/HUD/hudvida.png") {
 
+	pData = new PlayerData();
 	GameResources::SetTileMap(&tileMap);
 
 	music.Play(10);
@@ -268,6 +271,7 @@ StageState::~StageState(void) {
 	GameResources::Clear();
 	TEMP_REPORT_I_WAS_HERE;
 	nightSound.Stop();
+	delete pData;
 }
 
 void StageState::Update(float dt){
@@ -305,8 +309,9 @@ void StageState::Update(float dt){
 	Camera::Update(dt);
 
 	//Game Over Conditions
-	if(PlayerData::GetInstance().GetLifes() <= 0){
-		popRequested = true;
+	//if(PlayerData::GetInstance().GetLifes() <= 0){
+    if (GetPlayerDataInstance().GetLifes() <= 0){
+        popRequested = true;
 		Game::GetInstance().Push(new EndState(EndStateData(false)));
 	}else if(waveManager->Victory()){
 		popRequested = true;
@@ -422,7 +427,8 @@ void StageState::UpdateUI(float dt) {
 	wavebarBg.Update(dt, wave);
 	wavebarBar.Update(dt, wave);
 
-    playerData.Update(dt);
+    //playerData.Update(dt);
+    GetPlayerDataInstance().Update(dt);
 }
 
 void StageState::Render(void) const {
@@ -478,7 +484,8 @@ void StageState::RenderUI(void) const {
 	waveIcon.Render();
 
 	menuIsShowing = this->menuIsShowing;
-	playerData.Render();
+	//playerData.Render();
+    pData->Render();
 }
 
 void StageState::Pause(void) {}
@@ -552,16 +559,19 @@ void StageState::SetTowerInfoData(string name, string cost, string damage, strin
 
 void StageState::CreateTower(Tower::TowerType towerType) {
 	ToggleMenu();
-	if (PlayerData::GetInstance().GetPlayerGold() > 10/*Tower Cost*/) {
+	//if (PlayerData::GetInstance().GetPlayerGold() >= 10/*Tower Cost*/) {
+    if (GetPlayerDataInstance().GetPlayerGold() >= 10 /*Tower Cost*/){
 
 		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos()) - Vec2(TOWER_LINEAR_SIZE / 2, TOWER_LINEAR_SIZE / 2);
 		Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), TOWER_BASE_HP);
 		newTower->AddComponent(new DragAndDrop(tileMap, mousePos, *newTower, false, false));
 		AddObject(newTower);
-		PlayerData::GetInstance().GoldUpdate(-10/*Tower Cost*/, false);
+		//PlayerData::GetInstance().GoldUpdate(-10/*Tower Cost*/, false);
+        GetPlayerDataInstance().GoldUpdate(-10/*Tower Cost*/, false);
 		//som de dinheiros
 		towerMenuSounds.Open("audio/Acoes/Dinheiro1.wav");
         towerMenuSounds.Play(1);
+
 	} else {
         REPORT_I_WAS_HERE;
 		printf("You need more gold!");
@@ -703,3 +713,6 @@ GameObject* StageState::FindNearestGO(Vec2 origin, std::string targetType, float
 	return(closerObj);
 }
 
+PlayerData& StageState::GetPlayerDataInstance(void){
+	return *pData;
+}
