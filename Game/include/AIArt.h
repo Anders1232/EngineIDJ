@@ -9,6 +9,7 @@
 #include "Enemy.h"
 #include <list>
 #include <algorithm>
+#include "Timer.h"
 
 /**
 	\brief Componete IA que se move para ponto de destino
@@ -56,6 +57,9 @@ class AIArt : public Component, public TileMapObserver
 		TileMap& tileMap;
 		GameObject &associated;
 		WaveManager &waveManager;
+		Timer getPathTimer;
+		int randomMaxTimer;
+
 		AIState actualState;
 		AIState dfa[AIState::STATE_NUM][AIEvent::EVENT_NUM]; 
 };

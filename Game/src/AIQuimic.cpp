@@ -10,6 +10,7 @@ AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associat
 	actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path)[pathIndex],WALKABLE_LAYER));
 	vecSpeed = Vec2(0.0,0.0);
 	lastDistance = std::numeric_limits<float>::max();
+	randomMaxTimer = 0;
 
 	dfa[AIState::WALKING][AIEvent::STUN] = AIState::STUNNED;
 	dfa[AIState::WALKING][AIEvent::PATH_BLOCKED] = AIState::SENDING_BOMB;
@@ -160,6 +161,21 @@ void AIQuimic::Update(float dt){
 	else if(actualState == AIState::SENDING_BOMB){
 		if(tileMap.GetCoordTilePos(Vec2(associated.box.x,associated.box.y), false, 0) != destTile){
 			shooter->SetActive(true);
+			
+			if(getPathTimer.Get() > randomMaxTimer){
+				getPathTimer.Restart();
+				randomMaxTimer = rand()%3;
+				Vec2 originCoord= associated.box.Center();
+				path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+				if(path->size() > 0){
+					pathIndex = 0;
+					tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
+					vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / actualTileweight);
+					lastDistance = std::numeric_limits<float>::max();
+				}
+
+			}
+			getPathTimer.Update(dt);
 		}
 		else{
 			associated.RequestDelete();
@@ -173,13 +189,15 @@ void AIQuimic::Update(float dt){
 }
 
 void AIQuimic::NotifyTileMapChanged(int tilePosition){
-	if(path->end() != std::find( (path->begin())+pathIndex, path->end(), tilePosition)){
+	if(path->end() != std::find(path->begin()+pathIndex, path->end(), tilePosition)){
 		Vec2 originCoord= associated.box.Center();
 		path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
-		tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
-		vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / actualTileweight);
-		pathIndex= 0;
-		lastDistance = std::numeric_limits<float>::max();
+		if(path->size() > 0){
+			pathIndex = 0;
+			tempDestination = Vec2(tileMap.GetTileSize().x * ((*path)[pathIndex] % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path)[pathIndex] / tileMap.GetWidth()));
+			vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / actualTileweight);
+			lastDistance = std::numeric_limits<float>::max();
+		}
 	}
 }
 

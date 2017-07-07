@@ -15,7 +15,7 @@
 //#include "componentType.h"
 
 #define BASE_HIT_POINTS 100
-#define MAX_EVENT_TIME 100
+#define MAX_EVENT_TIME 5
 #define DIFICULTY_CONSTANT 12
 #define ENEMY_BULLET_DAMAGE 10
 #define ENEMY_MOVE_SPEED (10000.)

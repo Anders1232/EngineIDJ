@@ -49,11 +49,11 @@ void Aura::Update(float dt){
 
 void Aura::Render(void){
 	Vec2 startPoint= associated.box;
-	startPoint= startPoint - Vec2(sp.GetWidth()/2, sp.GetHeight()/2);
+	startPoint= startPoint - Vec2((-associated.box.w + sp.GetWidth())/2, (-associated.box.w + sp.GetHeight())/2);
 	sp.Render(Rect(startPoint.x, startPoint.y, sp.GetWidth(), sp.GetHeight()));
 	if(Enemy::Event::HEALER != auraType){
 		startPoint= associated.box;
-		startPoint= startPoint - Vec2(sp2.GetWidth()/2, sp2.GetHeight()/2);
+		startPoint= startPoint -  Vec2((-associated.box.w + sp.GetWidth())/2, (-associated.box.w + sp.GetHeight())/2);
 		sp2.Render(Rect(startPoint.x, startPoint.y, sp2.GetWidth(), sp2.GetHeight()));
 	}
 }
