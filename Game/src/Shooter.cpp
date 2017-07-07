@@ -12,7 +12,9 @@ Shooter::Shooter(GameObject &associated,
 		bool active,
 		float bulletSpeed,
 		float bulletMaxDistance,
-		std::string bulletSprite):
+		std::string bulletSprite,
+		int frameRate,
+		float bulletScale):
 	associated(associated),
 	finder(finder),
 	active(active),
@@ -24,7 +26,9 @@ Shooter::Shooter(GameObject &associated,
 	policy(policy),
 	bulletSpeed(bulletSpeed),
 	bulletMaxDistance(bulletMaxDistance),
-	bulletSprite(bulletSprite){
+	bulletSprite(bulletSprite),
+	bulletFrameRate(frameRate),
+	bulletScale(bulletScale){
 }
 
 bool Shooter::Is(ComponentType type) const{
@@ -52,7 +56,7 @@ void Shooter::Update(float dt){
 				float angle= (target->box.Center()-origin).Inclination();
 				startDistanceFromOrigin= startDistanceFromOrigin.Rotate(angle);
 				origin = origin + startDistanceFromOrigin;
-				Game::GetInstance().GetCurrentState().AddObject(new Bullet(origin.x, origin.y, angle, bulletSpeed, bulletMaxDistance, bulletSprite, targetType));
+				Game::GetInstance().GetCurrentState().AddObject(new Bullet(origin.x, origin.y, angle, bulletSpeed, bulletMaxDistance, bulletSprite, targetType,bulletScale,0.2,bulletFrameRate));
 			}
 		}
 	}

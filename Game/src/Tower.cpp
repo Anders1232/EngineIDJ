@@ -26,7 +26,7 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize,int hp)
 	box.w = sp.GetWidth();
 	box.h = sp.GetHeight();
 	StageState& stageState= (StageState&)Game::GetInstance().GetCurrentState();
-	AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 80, 500, "img/minionbullet1.png"));
+	AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/minionbullet1.png",3,2));
 
 	hitpoints = new HitPoints(hp,*this);
 	components.push_back(hitpoints);

@@ -22,7 +22,9 @@ class Shooter : public Component{
 				bool active,
 				float bulletSpeed,
 				float bulletMaxDistance,
-				std::string bulletSprite);
+				std::string bulletSprite,
+				int frameRate,
+				float bulletScale);
 		void Update(float dt);
 		bool Is(ComponentType type) const;
 		void SetActive(bool active);
@@ -36,6 +38,8 @@ class Shooter : public Component{
 		Timer timerBetweetShoots;
 		GameObject *target;
 		Shooter::TargetPolicy policy;
+		int bulletFrameRate;
+		float bulletScale;
 		
 		//agora os argumentos que precisam ser enviados ao construtor de bullet
 		float bulletSpeed;
