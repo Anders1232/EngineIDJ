@@ -122,6 +122,7 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			break;
 		case EnemyType::QUIMIC:
 			REPORT_DEBUG("Enemy type: QUIMIC "<< enemyData.enemyType);
+			std::cout << "Enemy type: QUIMIC "<< endl;
 			type = EnemyType::QUIMIC;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
