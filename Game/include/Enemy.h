@@ -15,6 +15,7 @@
 //#include "componentType.h"
 
 #define BASE_HIT_POINTS 100
+#define MAX_EVENT_TIME 3
 #define DIFICULTY_CONSTANT 12
 #define ENEMY_BULLET_DAMAGE 10
 #define ENEMY_MOVE_SPEED (10000.)
@@ -52,7 +53,6 @@ enum EnemyDirections{
 	LEFT=3,
 	ENEMY_DIRECTIONS_SIZE=4
 };
-
 
 /**
 	\brief Classe que modela inimigos
@@ -135,6 +135,10 @@ class Enemy : public GameObject
 			
 		*/
 		EnemyType GetType(void) const;
+
+		enum Event{NONE,SMOKE,HEALER,STUN,EVENT_NUM}; 
+		void NotifyEvent(Event e);
+		Event GetLastEvent();
 	private:
 		void UpdateEnemyDirection(Vec2 lastPosition);
 		EnemyType type;/**< Tipos de inimigos, no momento não está sendo utilizado.*/
@@ -144,7 +148,9 @@ class Enemy : public GameObject
 		HitPoints *hitpoints;/**< Ponteiro para a componente HitPoints. Usada para chamada com argumentos. */
 		uint baseHP, endPoint; /**< Respectivamentes a vida base do inimigo e seu ponto de destino. */
 		EnemyDirections direction; /**< Direçao para aonde a sprite do inimigo esta voltada. Norte, Sul, Leste ou Oeste */
+		Event lastEvent;
 		Sound walkingSound;
+		Timer eventTimer;
 		WaveManager &waveManager;
 		int gold;
 };

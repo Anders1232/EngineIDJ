@@ -116,13 +116,13 @@ void GameResources::ReadWaveData(std::string file){
 			while(1 == fscanf(filePtr, "\t\t\t%d\n", &enemyIndex) ){
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 				int numberOfEnemies;
-				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &numberOfEnemies), "\tFile format invaled! Expecting a integer.");
+				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &numberOfEnemies), "\tFile format invalid! Expecting an integer.");
 				int enemyHP;
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
-				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &enemyHP), "\tFile format invaled! Expecting a integer.");
+				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &enemyHP), "\tFile format invalid! Expecting an integer.");
 				uint endPoint;
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
-				ASSERT2(1 == fscanf(filePtr, "\t\t%u\n", &endPoint), "\tFile format invaled! Expecting a integer.");
+				ASSERT2(1 == fscanf(filePtr, "\t\t%u\n", &endPoint), "\tFile format invalid! Expecting an integer.");
 				REPORT_DEBUG( "\t enemyIndex= " << enemyIndex);
 				REPORT_DEBUG( "\t numberOfEnemies= " << numberOfEnemies);
 				REPORT_DEBUG( "\t enemyHP= " << enemyHP);
