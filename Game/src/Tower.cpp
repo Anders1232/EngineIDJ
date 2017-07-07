@@ -31,13 +31,13 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
 			AddComponent(new Aura(*this, Enemy::Event::SMOKE, 800, 7.0, (NearestGOFinder&)stageState, "Enemy"));
 			break;
 		case TowerType::ANTIBOMB:
-			AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/spritesheets/anti-bomba_ativ_spritesheet.png", 11, 1));
+			AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/SpriteSheets/anti-bomba_ativ_spritesheet.png", 11, 1));
 			break;
 		case TowerType::STUN:
 			AddComponent(new Aura(*this, Enemy::Event::STUN, 800, 7.0, (NearestGOFinder&)stageState, "Enemy"));
 			break;
 		case TowerType::SHOCK:
-			AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/spritesheets/bullet_choquelvl1.png", 4, 1));
+			AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/SpriteSheets/bullet_choquelvl1.png", 4, 1));
 			break;
 	}
 
