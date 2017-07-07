@@ -9,6 +9,7 @@ var searchData=
   ['maxspeed',['maxSpeed',['../classCamera.html#a1f02ea6332c710065fa256ed52acd6f1',1,'Camera']]],
   ['menubg',['menuBg',['../classStageState.html#a25974d31114ddc2a6db8a0719feab564',1,'StageState']]],
   ['menuisshowing',['menuIsShowing',['../classStageState.html#a6f1da12f2505f34b5267b46b57b468dc',1,'StageState']]],
+  ['menumove',['menuMove',['../classStageState.html#a097e1e27a1fb88d07801ec3087e4476c',1,'StageState']]],
   ['minlogzoom',['minLogZoom',['../classCamera.html#aaa2f4cf2d33d02125df97ead5904b192',1,'Camera']]],
   ['minspeed',['minSpeed',['../classCamera.html#a6c5fe02b8b21a7c9784f970f08b4864a',1,'Camera']]],
   ['mousescroolstate',['mouseScroolState',['../classInputManager.html#a9c9d5ed1da1b205d9311ec4a9bab06ea',1,'InputManager']]],

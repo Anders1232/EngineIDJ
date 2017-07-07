@@ -34,7 +34,7 @@ WaveManager::~WaveManager(){
 	delete endGroups;
 }
 
-void WaveManager::StartWave(){
+void WaveManager::StartWave(void){
 	enemiesLeft=0;
 	maxNumberOfEnemiesInSpawnPoint=0;
 	int numberOfEnemiesInSpawnPoint;
@@ -56,7 +56,7 @@ void WaveManager::StartWave(){
 }
 
 
-bool WaveManager::EndWave(){
+bool WaveManager::EndWave(void) const{
 	return endWave;
 }
  
@@ -158,22 +158,22 @@ bool WaveManager::Is(ComponentType type) const{
 	return type == WAVE_MANAGER;
 }
 
-void WaveManager::NotifyEnemyGotToHisDestiny(){
+void WaveManager::NotifyEnemyGotToHisDestiny(void){
 	--playerLifes;
 }
 
-void WaveManager::NotifyEnemyGotKilled(){
+void WaveManager::NotifyEnemyGotKilled(void){
 	--enemiesLeft;
 }
 
-int WaveManager::GetLifesLeft(){
+int WaveManager::GetLifesLeft(void){
 	return playerLifes;
 }
 
-int WaveManager::GetEnemiesLeft(){
+int WaveManager::GetEnemiesLeft(void){
 	return enemiesLeft;
 }
 
-bool WaveManager::Victory(){
+bool WaveManager::Victory(void){
 	return victory;
 }

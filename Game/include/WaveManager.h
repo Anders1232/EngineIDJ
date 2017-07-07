@@ -48,40 +48,40 @@ class WaveManager : public Component {
 			\brief Inicializa um nova wave.
 			reinicia os atributos da classe (enemyIndex, endWave e waveCount) para executar uma nova wave e conta o novo número de inimigos restantes.
 		*/
-		void StartWave();
+		void StartWave(void);
 		/** 
 			\brief Verifica Fim de wave.
 			Verifica se a flag de fim de wave foi acionada. Retorna endWave.
 		*/
-		bool EndWave();
+		bool EndWave(void) const;
 		/** 
 			\brief Inimigo Chegou ao Destino.
 			Recebe uma notificação da componente HitPoints, se o inimigo foi destruido por chegar ao destino e decrementa o contador de vidas.
 		*/
-		void NotifyEnemyGotToHisDestiny();
+		void NotifyEnemyGotToHisDestiny(void);
 		/**
 			\brief Inimigo Destruido.
 			Recebe uma notificação se o inimigo foi destruido e decrementa o contador de inimigos restantes.
 		*/
-		void NotifyEnemyGotKilled();
+		void NotifyEnemyGotKilled(void);
 		/** 
 			\brief Pegar vidas Restantes.
 			\return playerLifes: vidas restantes.
 			Retorna as vidas restantes da wave atual.
-		*/
-		int GetLifesLeft();
+		*/						
+		int GetLifesLeft(void);
 		/** 
 			\brief Pegar inimigos Restantes.
 			\return enemiesLeft: Inimigos restantes.
 			Retorna os inimigos restantes da wave atual.
-		*/
-		int GetEnemiesLeft();
+		*/		
+		int GetEnemiesLeft(void);
 		/** 
 			\brief Condiçao de Vitoria.
 			\return victory: verdadeiro se as waves acabaram.
 			Retorna true se a condiçao de vitoria foi satisfeita.
 		*/
-		bool Victory();
+		bool Victory(void);
 	private:
 		/**
 			\brief Criar um novo inimigo no mapa.
@@ -92,6 +92,7 @@ class WaveManager : public Component {
 			
 		*/
 		void SpawnEnemy(int tileMapPosition, int enemyId,uint baseHP, uint endPoint, uint indexOfTheEnemyToSpawn);
+
 		vector<vector<int>> *spawnGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
 		vector<vector<int>> *endGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
 		static int waveCount; /**<Contador de waves restantes. Também usado para nivelar as waves.*/
@@ -111,7 +112,6 @@ class WaveManager : public Component {
 		Sound waveStartSound;
 		Timer betweenWavesTimer;
 		bool waitingForTheNextWave;
-
 };
 
-#endif
+#endif // WAVE_H

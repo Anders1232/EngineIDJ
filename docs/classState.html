@@ -139,6 +139,9 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a1645048aadaadad50404ff1868e11bb2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a1645048aadaadad50404ff1868e11bb2">QuitRequested</a> (void)</td></tr>
 <tr class="memdesc:a1645048aadaadad50404ff1868e11bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa se o state solicitou que o jogo seja fechado.  <a href="#a1645048aadaadad50404ff1868e11bb2">Mais...</a><br /></td></tr>
 <tr class="separator:a1645048aadaadad50404ff1868e11bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60c55c31895344bb499f28a22724fab9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a60c55c31895344bb499f28a22724fab9">LoadAssets</a> (void) const =0</td></tr>
+<tr class="memdesc:a60c55c31895344bb499f28a22724fab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega os assets do estado.  <a href="#a60c55c31895344bb499f28a22724fab9">Mais...</a><br /></td></tr>
+<tr class="separator:a60c55c31895344bb499f28a22724fab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Métodos Protegidos</h2></td></tr>
@@ -235,6 +238,35 @@ Atributos Protegidos</h2></td></tr>
 
 <p>Adiciona um <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> ao vetor de GameObjects. </p>
 <p>No processo o ponteiro para esse gameobject é transformado em um unique_ptr. </p>
+
+</div>
+</div>
+<a class="anchor" id="a60c55c31895344bb499f28a22724fab9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void State::LoadAssets </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Carrega os assets do estado. </p>
+<p>Carrega os assets do estado. </p>
+
+<p>Implementado por <a class="el" href="classStageState.html#abf04316b912448488ce28d238f37f558">StageState</a>, <a class="el" href="classTitleState.html#adb5854ae3acb558d7a16d722d8c81e6a">TitleState</a> e <a class="el" href="classEndState.html#a73da0a20db27fc84ecd0671b1c18ec33">EndState</a>.</p>
 
 </div>
 </div>
@@ -529,7 +561,7 @@ Atributos Protegidos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quinta, 6 de Julho de 2017 18:50:47 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 7 de Julho de 2017 01:40:39 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

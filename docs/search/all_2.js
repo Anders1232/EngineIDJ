@@ -33,6 +33,7 @@ var searchData=
   ['click',['Click',['../classUIbutton.html#a147fdd93cf1285f1d8e722d054125ad5',1,'UIbutton']]],
   ['clickcaller',['clickCaller',['../classUIbutton.html#a36a02ab3637fa8719e7613d448779681',1,'UIbutton']]],
   ['clickedcallback',['clickedCallback',['../classUIbutton.html#ae497d5dc01918e1e8b6678be354a211b',1,'UIbutton']]],
+  ['clicksound',['clickSound',['../classTitleState.html#a323dc824ec5c4932ea3098d6f117cc57',1,'TitleState']]],
   ['cliprect',['clipRect',['../classSprite.html#a3451a65b4cd1b2ff3c11448dbdde43ac',1,'Sprite']]],
   ['collision',['Collision',['../classCollision.html',1,'']]],
   ['collision_2eh',['Collision.h',['../Collision_8h.html',1,'']]],

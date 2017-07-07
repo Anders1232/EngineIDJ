@@ -45,7 +45,7 @@ StageState::StageState(void)
 		, tileSet(120, 120,"map/tileset_vf.png")
 		, tileMap("map/tileMap.txt", &tileSet)
 		, inputManager(INPUT_MANAGER)
-        , music("audio/trilha_sonora/loop_1.ogg")
+		, music("audio/trilha_sonora/loop_1.ogg")
 		, isLightning(false)
 		, isThundering(false)
 		, lightningTimer()
@@ -56,6 +56,7 @@ StageState::StageState(void)
 		, HUDcanvas()
 		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
 		, openMenuBtn()
+		, menuMove("audio/Interface/Click1.wav")
 		, towerInfoGroup()
 		, towerName("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERNAME_DEFAULT_TEXT)
 		, towerCost("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERCOST_DEFAULT_TEXT)
@@ -74,10 +75,12 @@ StageState::StageState(void)
 		, waveIcon("img/UI/HUD/inimigo00.png", UIelement::BehaviorType::FILL)
 		, wavebarBg("img/UI/HUD/hudvida.png")
 		, wavebarBar("img/UI/HUD/hudvida.png") {
+	Resources::ChangeMusicVolume(0);
+	Resources::ChangeSoundVolume(0);
 
 	GameResources::SetTileMap(&tileMap);
 	REPORT_I_WAS_HERE;
-	music.Play(10);
+	music.Play(0);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
 	Camera::ForceLogZoom(CAM_START_ZOOM);
 	GameObject* waveManagerGO= new GameObject();
@@ -89,7 +92,7 @@ StageState::StageState(void)
 	lightningInterval = rand() % (LIGHTINING_MAX_INTERVAL - LIGHTINING_MIN_INTERVAL) + LIGHTINING_MIN_INTERVAL;
 	REPORT_DEBUG(" Proximo relampago sera em " << lightningInterval << " segundos.");
 	InitializeObstacles();
-	nightSound.Play(-1);
+	nightSound.Play(0);
 
 	SetupUI();
 }
@@ -147,7 +150,7 @@ void StageState::SetupUI() {
 																} );
 	towerBtn1.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
-											it->CreateTower(Tower::TowerType::ARTS);
+											it->CreateTower(Tower::TowerType::SMOKE);
 										} );
 
 	towerBtn2.SetCenter({0.5, 0.});
@@ -164,7 +167,7 @@ void StageState::SetupUI() {
 																} );
 	towerBtn2.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
-											it->CreateTower(Tower::TowerType::SOCIOLOGY);
+											it->CreateTower(Tower::TowerType::ANTIBOMB);
 										} );
 
 	towerBtn3.SetCenter({0.5, 0.});
@@ -181,7 +184,7 @@ void StageState::SetupUI() {
 																} );
 	towerBtn3.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
-											it->CreateTower(Tower::TowerType::ENGINEERING);
+											it->CreateTower(Tower::TowerType::SHOCK);
 										} );
 
 	towerBtn4.SetCenter({0.5, 0.});
@@ -198,7 +201,7 @@ void StageState::SetupUI() {
 																} );
 	towerBtn4.SetClickCallback(this, [] (void* ptr) {
 											StageState* it = static_cast<StageState*>(ptr);
-											it->CreateTower(Tower::TowerType::MEDICINE);
+											it->CreateTower(Tower::TowerType::STUN);
 										} );
 
 	towersBtnGroup.groupedElements.push_back(&towerBtn1);
@@ -469,9 +472,13 @@ void StageState::RenderUI(void) const {
 	menuIsShowing = this->menuIsShowing;
 }
 
-void StageState::Pause(void) {}
+void StageState::Pause(void) {
+	nightSound.Stop();
+	thunderSound.Stop();
+}
 
 void StageState::Resume(void) {
+	nightSound.Play(0);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
 	Camera::ForceLogZoom(CAM_START_ZOOM);
 }
@@ -519,6 +526,7 @@ void StageState::RenderObstacleArray(void) const {
 
 void StageState::ToggleMenu(void) {
 	menuIsShowing = !menuIsShowing;
+	menuMove.Play(1);
 
 	Rect menuBgOffsets = menuBg.GetOffsets();
 	Vec2 menuBgDim = menuBg.GetSpriteDimensions();
@@ -596,8 +604,7 @@ void StageState::InitializeObstacles(void){
 						if(treeTilesVector[j+1] == (index+1) ){
 							//tem uma linha e uma coluna a partir do tile sendo processado
 							bool isSqare=false;
-							if( (baixo+1) != treeTilesVector.end())
-							{
+							if( (baixo+1) != treeTilesVector.end()){
 								if(*(baixo+1) == (*baixo)+1){
 									//é um quadrado
 									isSqare = true;
@@ -697,4 +704,54 @@ std::vector<GameObject*>* StageState::FindNearestGOs(Vec2 origin, std::string ta
 	return(objectsInRange);
 }
 
-
+void StageState::LoadAssets(void) const{
+	Resources::GetImage("./map/tileset_vf.png");
+	Resources::GetImage("./img/UI/HUD/menu.png");
+	Resources::GetImage("./img/UI/HUD/vida00.png");
+	Resources::GetImage("./img/UI/HUD/inimigo00.png");
+	Resources::GetImage("./img/UI/HUD/hudvida.png");
+	Resources::GetImage("./img/UI/HUD/openmenu.png");
+	Resources::GetImage("./img/UI/HUD/openmenu-clicked.png");
+	Resources::GetImage("./img/UI/HUD/botaotorre.png");
+	Resources::GetImage("./img/UI/HUD/botaotorre-clicked.png");
+	Resources::GetImage("./img/obstacle/arvore1.png");
+	Resources::GetImage("./img/obstacle/arvore2.png");
+	Resources::GetImage("./img/obstacle/arvore3.png");
+	Resources::GetImage("./img/obstacle/arvore4.png");
+	Resources::GetImage("./img/obstacle/banco_h.png");
+	Resources::GetImage("./img/obstacle/posteLuz.png");
+	Resources::GetImage("./img/tower/torre_fumaca.png");
+	Resources::GetImage("./img/tower/torrefumaca.png");
+	Resources::GetImage("./img/tower/torre-anti-bomba.png");
+	Resources::GetImage("./img/tower/torrestun.png");
+	Resources::GetImage("./img/tower/torrechoque_lvl1.png");
+	Resources::GetImage("./img/enemy/perna_tras.png");
+	Resources::GetImage("./img/enemy/cabeca_tras.png");
+	Resources::GetImage("./img/enemy/cabelo_tras.png");
+	Resources::GetImage("./img/enemy/torso_tras.png");
+	Resources::GetImage("./img/enemy/perna_dir.png");
+	Resources::GetImage("./img/enemy/cabeca_dir.png");
+	Resources::GetImage("./img/enemy/cabelo_dir.png");
+	Resources::GetImage("./img/enemy/torso_dir.png");
+	Resources::GetImage("./img/enemy/perna_frente.png");
+	Resources::GetImage("./img/enemy/cabeca_frente.png");
+	Resources::GetImage("./img/enemy/cabelo_frente.png");
+	Resources::GetImage("./img/enemy/torso_frente.png");
+	Resources::GetImage("./img/enemy/perna_esq.png");
+	Resources::GetImage("./img/enemy/cabeca_esq.png");
+	Resources::GetImage("./img/enemy/cabelo_esq.png");
+	Resources::GetImage("./img/enemy/torso_esq.png");
+	Resources::GetImage("./img/SpriteSheets/explosao_spritesheet.png");
+	Resources::GetImage("./img/explosion.png");
+	Resources::GetMusic("./audio/trilha_sonora/loop_1.ogg");
+	Resources::GetSound("./audio/Acoes/Inicio de Wave.wav");
+	Resources::GetSound("./audio/Ambiente/Barulho_noite.wav");
+	Resources::GetSound("./audio/Ambiente/Trovao.wav");
+	Resources::GetSound("./audio/Ambiente/andando2.wav");
+	Resources::GetSound("./audio/Interface/Click1.wav");
+	Resources::GetFont("./font/SHPinscher-Regular.otf", 95);
+	// Resources::GetImage();
+	// Resources::GetMusic();
+	// Resources::GetSound();
+	// Resources::GetFont();
+}

@@ -10,14 +10,12 @@
 
 #define SORTEAR_TORRES
 
-typedef unsigned int uint;
-
-Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize,int hp)
-		: sp(type == TowerType::MEDICINE ? "img/tower/torre_fumaca.png" :
-			type == TowerType::SOCIOLOGY ? "img/tower/torre_fumaca.png" :
-			type == TowerType::ENGINEERING ? "img/tower/torre_fumaca.png" :
-			type == TowerType::ARTS ? "img/tower/torre_fumaca.png" :
-			type == TowerType::COMPUTATION ? "img/tower/torre_fumaca.png":
+Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
+		: sp(type == TowerType::SMOKE ? "img/tower/torre_fumaca.png" :
+			type == TowerType::ANTIBOMB ? "img/tower/torre-anti-bomba.png" :
+			type == TowerType::STUN ? "img/tower/torrestun.png" :
+			type == TowerType::SHOCK ? "img/tower/torrechoque_lvl1.png" :
+			type == TowerType::COMPUTATION ? "img/tower/torrefumaca.png":
 			"",
 			true){
 	box.x = pos.x;
@@ -30,15 +28,19 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize,int hp)
 	StageState& stageState= (StageState&)Game::GetInstance().GetCurrentState();
 
 #ifdef SORTEAR_TORRES
-	int sorteio = rand()%3;
+	int sorteio = rand()%4;
 	if(0 == sorteio){
 		AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/minionbullet1.png",3,2));
 	}
 	else if (1 == sorteio){
 		AddComponent(new Aura(*this, Enemy::Event::SMOKE, 300, 7.0, (NearestGOFinder&)stageState, "Enemy"));
 	}
+	else if (2 == sorteio){
+		AddComponent(new Aura(*this, Enemy::Event::SMOKE, 300, 1.0, (NearestGOFinder&)stageState, "Enemy"));
+	}
 	else{
-		AddComponent(new Aura(*this, Enemy::Event::STUN, 300, 7.0, (NearestGOFinder&)stageState, "Enemy"));
+
+		AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "BOMB", 1000, 3.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 3000, "img/SpriteSheets/anti-bomba_idle.png", 5, 2.0));
 	}
 #else
 	AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "Enemy", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/minionbullet1.png",3,2));
