@@ -5,14 +5,14 @@
         0.5
         0.5
         11
-    Arte_na_praia
+    Desenhista_de_Ensino_Medio
         ART
         enemy3
         0.5
         0.5
         11
     Arquiteto
-        QUIMIC
+        ARQUITECT
         enemy3
         0.5
         0.5
@@ -24,7 +24,7 @@
         0.5
         16
     Medico_maroto
-        QUIMIC
+        MEDIC
         enemy3
         0.5
         0.5
@@ -36,13 +36,13 @@
         0.5
         12
     Arquiteto_calouro
-        QUIMIC
+        ARQUITECT
         enemy3
         0.5
         0.5
         12
     Engenheiro
-        ART
+        ENGINEER
         enemy3
         0.5
         0.5
@@ -51,7 +51,7 @@
 --WAVES--
 Wave1
     SpawnPoint:0
-            0
+            2
             5
             80
             0
