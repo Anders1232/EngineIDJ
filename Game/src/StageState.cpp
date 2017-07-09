@@ -742,7 +742,6 @@ void StageState::LoadAssets(void) const{
 	Resources::GetImage("./img/enemy/cabelo_esq.png");
 	Resources::GetImage("./img/enemy/torso_esq.png");
 	Resources::GetImage("./img/SpriteSheets/explosao_spritesheet.png");
-	Resources::GetImage("./img/explosion.png");
 	Resources::GetMusic("./audio/trilha_sonora/loop_1.ogg");
 	Resources::GetSound("./audio/Acoes/Inicio de Wave.wav");
 	Resources::GetSound("./audio/Ambiente/Barulho_noite.wav");

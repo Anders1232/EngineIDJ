@@ -42,7 +42,7 @@ void Bullet::NotifyCollision(GameObject &other){
 			other.RequestDelete();
 		}
 		else{
-			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"img/explosion.png",5,0.1,true));
+			Game::GetInstance().GetCurrentState().AddObject(new Animation(box.x,box.y,rotation,"./img/SpriteSheets/explosao_spritesheet.png",9,0.1,true));
 		}
 		RequestDelete();
 	}
