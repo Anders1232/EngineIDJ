@@ -52,6 +52,7 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		void ShowLightning(float dt);
 		void SetUILife();
 		void SetUIWaveProgress(float waveProgressPercent);
+		void SetUIMoney(int coins);
 		void NotifyTileMapChanged(int tilePosition);
 		GameObject* FindNearestGO(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max());
 		std::vector<GameObject*>* FindNearestGOs(Vec2 origin, std::string targetType, float range= std::numeric_limits<float>::max());
@@ -125,6 +126,10 @@ class StageState: public State, public TileMapObserver, public NearestGOFinder {
 		UIimage waveIcon;
 		UIimage wavebarBg;
 		UIimage wavebarBar;
+
+		UIcanvas money;
+		UIimage moneyIcon;
+		UItext moneyText;
 
 		static PlayerData *pData;
 };

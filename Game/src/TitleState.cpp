@@ -29,7 +29,7 @@ TitleState::TitleState()
 		, nuvemB("img/UI/main-menu/nuvemB.png", UIelement::BehaviorType::FILL)
 		, icc("img/UI/main-menu/icc.png", UIelement::BehaviorType::STRETCH)
 		, overlay("img/UI/main-menu/overlay.png", UIelement::BehaviorType::STRETCH)
-		, title("img/UI/main-menu/SpriteSheetTitle.png", 1./5., 5, UIelement::BehaviorType::FIT)
+		, title("img/UI/main-menu/spritesheettitle.png", 1./5., 5, UIelement::BehaviorType::FIT)
 		, optionsGroup()
 		, playBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Jogar")
 		, editorBtn("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, {255,255,255,255}, "Editor de Fases", UIbutton::State::DISABLED)
@@ -223,14 +223,13 @@ void TitleState::Exit() {
 }
 
 void TitleState::LoadAssets(void) const{
-	Resources::GetImage("img/title.jpg");
 	Resources::GetImage("img/UI/main-menu/bg.png");
 	Resources::GetImage("img/UI/main-menu/lua.png");
 	Resources::GetImage("img/UI/main-menu/nuvemA.png");
 	Resources::GetImage("img/UI/main-menu/nuvemB.png");
 	Resources::GetImage("img/UI/main-menu/icc.png");
 	Resources::GetImage("img/UI/main-menu/overlay.png");
-	Resources::GetImage("img/UI/main-menu/title.png");
+	Resources::GetImage("img/UI/main-menu/spritesheettitle.png");
 	Resources::GetMusic("audio/trilha_sonora/main_title_.ogg");
 	Resources::GetMusic("audio/Interface/Click1.wav");
 	Resources::GetFont("font/SHPinscher-Regular.otf", 95);

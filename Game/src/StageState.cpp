@@ -39,7 +39,8 @@
 #define POLE_TILESET_INDEX 73
 #define BENCH_TILESET_INDEX 76
 
-#define TOWER_INFO_TXT_COLOR {199,159,224,255} // Purple-ish white
+#define TOWER_INFO_TXT_COLOR	{199,159,224,255} // Purple-ish white
+#define MONEY_TXT_COLOR			{186,179, 62,255}
 
 PlayerData* StageState::pData = nullptr;
 
@@ -73,13 +74,16 @@ StageState::StageState(void)
 		, towerBtn3()
 		, towerBtn4()
 		, health()
-		, healthIcon("img/UI/HUD/vida00.png", UIelement::BehaviorType::FILL)
+		, healthIcon("img/UI/HUD/CoraçãoHUD_spritesheet.png", 1./4, 8, UIelement::BehaviorType::FILL)
 		, healthbarBg("img/UI/HUD/hudvida.png")
 		, healthbarBar("img/UI/HUD/hudvida.png")
 		, wave()
-		, waveIcon("img/UI/HUD/inimigo00.png", UIelement::BehaviorType::FILL)
+		, waveIcon("img/UI/HUD/inimigoHUD_spritesheet.png", 1./4, 5, UIelement::BehaviorType::FILL)
 		, wavebarBg("img/UI/HUD/hudvida.png")
-		, wavebarBar("img/UI/HUD/hudvida.png") {
+		, wavebarBar("img/UI/HUD/hudvida.png")
+		, money()
+		, moneyIcon("img/UI/HUD/spritesheetmoeda_HUD.png", 1./4, 4, UIelement::BehaviorType::FILL)
+		, moneyText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, MONEY_TXT_COLOR, "+Inf") {
 	Resources::ChangeMusicVolume(0);
 	Resources::ChangeSoundVolume(0);
 
@@ -264,6 +268,22 @@ void StageState::SetupUI() {
 						   {(float)-2., 0.} );
 	wavebarBar.GetSprite().colorMultiplier = {154, 148, 104, 255};
 
+
+	money.SetAnchors( {(float)(30.+healthIcon.GetSprite().GetWidth())/(2*winSize.x), (float)60./winSize.y},
+					  {(float)150./winSize.x, (float)85./winSize.y} );
+	money.SetOffsets( {(float)(7.5+moneyIcon.GetSprite().GetWidth()/2.), 60.},
+					  {120., 70.} );
+	
+	moneyIcon.SetCenter( {1., 0.5} );
+	moneyIcon.SetAnchors( {0., 0.},
+						 {0., 1.} );
+
+	moneyText.SetAnchors( {0., 0.},
+						  {1., 1.});
+	moneyText.SetOffsets( {12.5, 0.},
+						  {0., 0.});
+	moneyText.SetCenter( {0., .5} );
+
 }
 
 StageState::~StageState(void) {
@@ -432,8 +452,13 @@ void StageState::UpdateUI(float dt) {
 	wavebarBg.Update(dt, wave);
 	wavebarBar.Update(dt, wave);
 
+	money.Update(dt, HUDcanvas);
+	moneyIcon.Update(dt, money);
+	moneyText.Update(dt, money);
+
 	//playerData.Update(dt);
     GetPlayerDataInstance().Update(dt);
+	SetUIMoney(GetPlayerDataInstance().GetPlayerGold());
 }
 
 void StageState::Render(void) const {
@@ -488,9 +513,13 @@ void StageState::RenderUI(void) const {
 	wavebarBar.Render();
 	waveIcon.Render();
 
+	// money.Render(true);
+	moneyIcon.Render();
+	moneyText.Render();
+
 	menuIsShowing = this->menuIsShowing;
 	//playerData.Render();
-    pData->Render();
+    // pData->Render();
 }
 
 void StageState::Pause(void) {
@@ -602,12 +631,16 @@ void StageState::SetUILife() {
 }
 
 void StageState::SetUIWaveProgress(float waveProgressPercent) {
-    printf("chegouuu waveProgressPercent: %f", waveProgressPercent);
+    printf("chegou waveProgressPercent: %f", waveProgressPercent);
 
     waveProgressPercent = (waveProgressPercent < 0) ? 0 : ((waveProgressPercent > 1) ? 1 : waveProgressPercent);
 	Rect oldAnchor = wavebarBar.GetAnchors();
 	wavebarBar.SetAnchors( {oldAnchor.x, oldAnchor.y},
 							 {waveProgressPercent, oldAnchor.h} );
+}
+
+void StageState::SetUIMoney(int coins) {
+	moneyText.SetText(std::to_string(coins));
 }
 
 void StageState::InitializeObstacles(void){
@@ -787,7 +820,6 @@ void StageState::LoadAssets(void) const{
 	Resources::GetImage("./img/enemy/cabelo_esq.png");
 	Resources::GetImage("./img/enemy/torso_esq.png");
 	Resources::GetImage("./img/SpriteSheets/explosao_spritesheet.png");
-	Resources::GetImage("./img/explosion.png");
 	Resources::GetMusic("./audio/trilha_sonora/loop_1.ogg");
 	Resources::GetSound("./audio/Acoes/Inicio de Wave.wav");
 	Resources::GetSound("./audio/Ambiente/Barulho_noite.wav");

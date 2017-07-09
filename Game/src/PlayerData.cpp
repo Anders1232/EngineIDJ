@@ -42,33 +42,33 @@ PlayerData::~PlayerData(){
 }
 
 void PlayerData::Render() const{
-	playerTable.Render();
-    goldInfo.Render();
+	// playerTable.Render();
+    // goldInfo.Render();
 	//boardName.Render();
 
 	//playerPoints.Render();
-    coin.Render();
-	playerGold.Render();
-	playerKills.Render();
+    // coin.Render();
+	// playerGold.Render();
+	// playerKills.Render();
 	//playerLifes.Render();
 	//playerWave.Render();
 }
 void PlayerData::Update(float dt){
-	Rect winSize(0.0, 0.0, Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
+	// Rect winSize(0.0, 0.0, Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
 	
-	HUDcanvas.Update(dt, winSize);
-	playerTable.Update(dt, HUDcanvas);
-    goldInfo.Update(dt, HUDcanvas);
+	// HUDcanvas.Update(dt, winSize);
+	// playerTable.Update(dt, HUDcanvas);
+    // goldInfo.Update(dt, HUDcanvas);
 
     //boardName.Update(dt, playerTable);
-    coin.Update(dt, goldInfo);
-    playerGold.Update(dt, goldInfo);
+    // coin.Update(dt, goldInfo);
+    // playerGold.Update(dt, goldInfo);
 
-	playerPoints.Update(dt, playerTable);
+	// playerPoints.Update(dt, playerTable);
 
-    playerKills.Update(dt, playerTable);
-	playerLifes.Update(dt, playerTable);
-	playerWave.Update(dt, playerTable);
+    // playerKills.Update(dt, playerTable);
+	// playerLifes.Update(dt, playerTable);
+	// playerWave.Update(dt, playerTable);
 
 
 }
