@@ -37,8 +37,8 @@ void DragAndDrop::Update(float dt) {
 				tileMap.InsertGO(&associated);
 			}
 		}
-		associated.RemoveComponent(DRAG_AND_DROP);
 		dragNDrop.Play(1);
+		associated.RemoveComponent(DRAG_AND_DROP);
 	} else if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON) || !dragOnHold) {
 		Vec2 mousePos= Camera::ScreenToWorld(inputManager.GetMousePos() );
 		if(associated.Is("Tower")){
