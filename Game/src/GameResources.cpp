@@ -149,8 +149,8 @@ EnemyType GameResources::GetEnemyTypeFromString(std::string str){
 	else if("ENGINEER" == str){
 		return EnemyType::ENGINEER;
 	}
-	else if("ARQUITET" == str){
-		return EnemyType::ARQUITET;
+	else if("ARQUITECT" == str){
+		return EnemyType::ARQUITECT;
 	}
 	else if("ART" == str){
 		return EnemyType::ART;
@@ -219,8 +219,8 @@ std::string GameResources::GetEnemyTypeStringFromType(EnemyType type){
 	else if(EnemyType::ENGINEER == type){
 		return "ENGINEER";
 	}
-	else if(EnemyType::ARQUITET == type){
-		return "ARQUITET";
+	else if(EnemyType::ARQUITECT == type){
+		return "ARQUITECT";
 	}
 	else if(EnemyType::ART == type){
 		return "ART";

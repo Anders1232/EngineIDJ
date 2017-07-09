@@ -1,11 +1,12 @@
 #include "Sound.h"
 #include "Resources.h"
+#include "Error.h"
 
 Sound::Sound(): sound(nullptr), channel(-1) {
 }
 
-Sound::Sound(string file): sound(Resources::GetSound(file)), channel(-1) {
-//	Open(file);
+Sound::Sound(string file): channel(-1) {
+	Open(file);
 }
 
 void Sound::Play(int times) {
@@ -13,10 +14,15 @@ void Sound::Play(int times) {
 		Stop();
 	}
 	channel = Mix_PlayChannel(channel, sound.get(), times-1);
+	if(-1 == channel) {
+		Error(Mix_GetError());
+	}
 }
 
 void Sound::Stop(void) {
-	Mix_HaltChannel(channel);
+	if(channel > -1) {
+		Mix_HaltChannel(channel);
+	}
 	channel = -1;
 }
 

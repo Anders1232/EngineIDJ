@@ -112,9 +112,9 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 			}
 			components.emplace_back(new AIEngineer(ENEMY_ENGINEER_MOVE_SPEED, endPoint, tileMap , *this, wManager));
 			break;
-		case EnemyType::ARQUITET:
-			REPORT_DEBUG("Enemy type: ARQUITET "<< enemyData.enemyType);
-			type = EnemyType::ARQUITET;
+		case EnemyType::ARQUITECT:
+			REPORT_DEBUG("Enemy type: ARQUITECT "<< enemyData.enemyType);
+			type = EnemyType::ARQUITECT;
 			for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 				for(uint i2= 0; i2 < sp[i].size(); i2++){
 					sp[i][i2].colorMultiplier.r = 255;

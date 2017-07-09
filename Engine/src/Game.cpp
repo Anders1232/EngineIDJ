@@ -76,6 +76,9 @@ Game::Game(std::string title,int width, int height)
 		Error("Loading Mix_OpenAudio failed: " << Mix_GetError());
 	}
 
+	int numAllocatedChannels = Mix_AllocateChannels(1024);
+	REPORT_DEBUG2(1, " Succesfully allocated " << numAllocatedChannels << " out of 1024 tried channels.");
+
 	if(0 != TTF_Init()) {
 		Error("Loading TTF_Init failed: " << TTF_GetError());
 	}

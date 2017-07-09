@@ -823,6 +823,7 @@ void StageState::LoadAssets(void) const{
 	Resources::GetImage("./img/SpriteSheets/explosao_spritesheet.png");
 	Resources::GetMusic("./audio/trilha_sonora/loop_1.ogg");
 	Resources::GetSound("./audio/Acoes/Inicio de Wave.wav");
+	Resources::GetSound("./audio/Acoes/Consertando1.wav");
 	Resources::GetSound("./audio/Ambiente/Barulho_noite.wav");
 	Resources::GetSound("./audio/Ambiente/Trovao.wav");
 	Resources::GetSound("./audio/Ambiente/andando2.wav");
