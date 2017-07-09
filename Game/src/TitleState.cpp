@@ -111,16 +111,14 @@ void TitleState::Update(float dt) {
 		finishedEclipse = true;
 		lua.GetSprite().SetFrameTime(FLT_MAX);
 		lua.GetSprite().SetFrame(7);
-		Color c = overlay.GetSprite().colorMultiplier;
+		Color& c = overlay.GetSprite().colorMultiplier;
 		c.a = 180;
-		overlay.GetSprite().colorMultiplier = c;
 		introTimer.Restart();
 	}
 	if(forceEnd || (finishedEclipse && ! finishedFadeIn && introTimer.Get() >= OVERLAY_FADEIN_DURATION)) {
 		finishedFadeIn = true;
-		Color c = title.GetSprite().colorMultiplier;
+		Color& c = title.GetSprite().colorMultiplier;
 		c.a = 255;
-		title.GetSprite().colorMultiplier = c;
 		introTimer.Restart();
 	}
 	forceEnd = false;
@@ -132,14 +130,13 @@ void TitleState::UpdateUI(float dt) {
 	Rect winSize(0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y);
 
 	if(!finishedEclipse) {
-		Color c = overlay.GetSprite().colorMultiplier;
-		overlay.GetSprite().colorMultiplier = {c.r, c.g, c.b, (unsigned char)(180*introTimer.Get()/ECLIPSE_DURATION)};
+		Color& c = overlay.GetSprite().colorMultiplier;
+		c.a = (unsigned char)(180*introTimer.Get()/ECLIPSE_DURATION);
 	}
 
 	if(finishedEclipse && !finishedFadeIn) {
-		Color c = title.GetSprite().colorMultiplier;
+		Color& c = title.GetSprite().colorMultiplier;
 		c.a = 255*introTimer.Get()/OVERLAY_FADEIN_DURATION;
-		title.GetSprite().colorMultiplier = c;
 	}
 
 	canvas.Update(dt, winSize);
