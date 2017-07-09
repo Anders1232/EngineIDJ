@@ -24,11 +24,11 @@ void GameObject::Update(float dt){
 void GameObject::Render(void){
 	REPORT_DEBUG("\t GameObject::Render called!");
 	
-	for(uint i=0; i < components.size(); i++){
-		//if(components[i].Is(PLAYER_DATA)){
-		//	components[i]->Render();
-		//}
-	}
+	// for(uint i=0; i < components.size(); i++){
+	// 	if(components[i].Is(PLAYER_DATA)){
+	// 		components[i]->Render();
+	// 	}
+	// }
 
 }
 
