@@ -17,27 +17,37 @@ DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, GameObject &ass
 void DragAndDrop::Update(float dt) {
 	InputManager &inputManager= InputManager::GetInstance();
 	if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON)) {
+		bool success = false;
 		if(redrag) {
 			if(associated.Is("Tower")){
 				associated.box = associated.box+Vec2(associated.box.w/4, (associated.box.h-60) );
-				tileMap.InsertGO(&associated, associatedInitialPos);
+				success = tileMap.InsertGO(&associated, associatedInitialPos);
 				associated.box = associated.box-Vec2(associated.box.w/4, (associated.box.h-60) );
 			}
 			else{
-				tileMap.InsertGO(&associated, associatedInitialPos);
+				success = tileMap.InsertGO(&associated, associatedInitialPos);
+			}
+			if(!success) {
+				int tileIndex = tileMap.GetCoordTilePos(associatedInitialPos, false, 0);
+				int line = tileIndex / tileMap.GetWidth();
+				int column = tileIndex % tileMap.GetWidth();
+				Vec2 tileSize = tileMap.GetTileSize();
+				Vec2 pos = Vec2(column*tileSize.x, line*tileSize.y) - Vec2(associated.box.w/4, (associated.box.h-60) );
+				associated.box = Rect(pos.x, pos.y, associated.box.w, associated.box.h);
 			}
 		}
 		else {
 			if(associated.Is("Tower")){
 				associated.box = associated.box+Vec2(associated.box.w/4, (associated.box.h-60) );
-				tileMap.InsertGO(&associated, associatedInitialPos);
+				success = tileMap.InsertGO(&associated, true);
 				associated.box = associated.box-Vec2(associated.box.w/4, (associated.box.h-60) );
 			}
 			else{
-				tileMap.InsertGO(&associated);
+				success = tileMap.InsertGO(&associated, true);
 			}
+			if(!success) { return; }
 		}
-		dragNDrop.Play(1);
+		if(success) { dragNDrop.Play(1); }
 		associated.RemoveComponent(DRAG_AND_DROP);
 	} else if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON) || !dragOnHold) {
 		Vec2 mousePos= Camera::ScreenToWorld(inputManager.GetMousePos() );
