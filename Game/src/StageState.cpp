@@ -708,6 +708,7 @@ void StageState::InitializeObstacles(void){
 					}
 				}
 				if(nullptr != tree){
+					tree->box = tree->box - Vec2(tree->box.w/2, tree->box.h/2);
 					tileMap.InsertGO(tree, false);
 					AddObstacle(tree);
 				}
@@ -726,6 +727,7 @@ void StageState::InitializeObstacles(void){
 			Obstacle* pole = new Obstacle("./img/obstacle/poste_aceso.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 			tileMap.InsertGO(pole, false);
 			AddObstacle(pole);
+			pole->box = pole->box - Vec2((float)5.5*pole->box.w/14., (float)5*pole->box.h/28.);
 			pole->SpriteScaleY(2.2);
 			pole->box.y= pole->box.y - 1.2*tileMap.GetTileSize().y;
 			pole->box.h= 2.2*tileMap.GetTileSize().y;
