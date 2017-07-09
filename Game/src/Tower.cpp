@@ -17,9 +17,9 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
 			type == TowerType::SHOCK ? "img/SpriteSheets/torrechoque_lvl1.png" :
 			"",
 			true,
-			0.5,
+			0.25,
 			type == TowerType::SMOKE ? 1:
-			type == TowerType::ANTIBOMB ? 8:
+			type == TowerType::ANTIBOMB ? 9:
 			type == TowerType::STUN ? 1:
 			type == TowerType::SHOCK ? 8: 1)
 			,type(type){
@@ -63,6 +63,7 @@ void Tower::Damage(int damage) {
 }
 
 void Tower::Update(float dt ) {
+	sp.Update(dt);
 	for(uint count = 0; count < components.size(); count++) {
 		components[count]->Update(dt);
 	}

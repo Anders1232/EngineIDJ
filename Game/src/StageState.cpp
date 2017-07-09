@@ -156,7 +156,7 @@ void StageState::SetupUI() {
 
 	towerBtn1.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
-																	it->SetTowerInfoData("Fumaca (Art)", "$1", "10 HP", "Projetil (3/s)");
+																	it->SetTowerInfoData("Fumaca", "$30", "Slow", "Area");
 																} );
 	towerBtn1.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
@@ -174,7 +174,7 @@ void StageState::SetupUI() {
 
 	towerBtn2.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
-																	it->SetTowerInfoData("Tentaculo (Soc)", "$10", "10 segundos", "Stun");
+																	it->SetTowerInfoData("Tentaculos", "$30", "1 tiro/2s", "Anti-Bomba");
 																} );
 	towerBtn2.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
@@ -192,7 +192,7 @@ void StageState::SetupUI() {
 
 	towerBtn3.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
-																	it->SetTowerInfoData("Eletrico (Eng)", "$100", "20 HP/segundo", "Proximidade");
+																	it->SetTowerInfoData("Bobina", "$30", "1 tiro/2s", "Dano");
 																} );
 	towerBtn3.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
@@ -210,7 +210,7 @@ void StageState::SetupUI() {
 
 	towerBtn4.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
-																	it->SetTowerInfoData("Torre de Stun (Med) ", "$9999", "+Inf HP", "Area");
+																	it->SetTowerInfoData("Monolito", "$30", "Stun", "Area");
 																} );
 	towerBtn4.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
@@ -283,7 +283,7 @@ void StageState::SetupUI() {
 	moneyText.SetOffsets( {12.5, 0.},
 						  {0., 0.});
 	moneyText.SetCenter( {0., .5} );
-
+	SetUIMoney(GetPlayerDataInstance().GetPlayerGold());
 }
 
 StageState::~StageState(void) {
@@ -599,7 +599,7 @@ void StageState::SetTowerInfoData(string name, string cost, string damage, strin
 void StageState::CreateTower(Tower::TowerType towerType) {
 	ToggleMenu();
 	//if (PlayerData::GetInstance().GetPlayerGold() >= 10/*Tower Cost*/) {
-    if (GetPlayerDataInstance().GetPlayerGold() >= 10 /*Tower Cost*/){
+    if (GetPlayerDataInstance().GetPlayerGold() >= 30 /*Tower Cost*/){
 
 		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos()) - Vec2(TOWER_LINEAR_SIZE / 2, TOWER_LINEAR_SIZE / 2);
 		Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), TOWER_BASE_HP);
@@ -785,8 +785,9 @@ PlayerData& StageState::GetPlayerDataInstance(void){
 void StageState::LoadAssets(void) const{
 	Resources::GetImage("./map/tileset_vf.png");
 	Resources::GetImage("./img/UI/HUD/menu.png");
-	Resources::GetImage("./img/UI/HUD/vida00.png");
-	Resources::GetImage("./img/UI/HUD/inimigo00.png");
+	Resources::GetImage("./img/UI/HUD/CoraçãoHUD_spritesheet.png");
+	Resources::GetImage("./img/UI/HUD/inimigoHUD_spritesheet.png");
+	Resources::GetImage("./img/UI/HUD/spritesheetmoeda_HUD.png");
 	Resources::GetImage("./img/UI/HUD/hudvida.png");
 	Resources::GetImage("./img/UI/HUD/openmenu.png");
 	Resources::GetImage("./img/UI/HUD/openmenu-clicked.png");
