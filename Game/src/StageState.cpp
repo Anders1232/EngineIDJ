@@ -632,6 +632,7 @@ void StageState::InitializeObstacles(void){
 			for(uint j = 0; j < treeTilesVector.size(); j++){
 				Obstacle* tree= nullptr;
 				index = treeTilesVector[j];
+				Vec2 offset(0,0);
 				if(treeTilesVector.size() <= (j+1) ){
 					//checar as alternativas gerará um seg fault
 					tree = new Obstacle("./img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
@@ -659,6 +660,9 @@ void StageState::InitializeObstacles(void){
 								treeTilesVector.erase(baixo);
 							}
 						}
+						if(nullptr != tree) {
+							offset = Vec2(tree->box.w/2, tree->box.h/2);
+						}
 					}
 					if(nullptr == tree){
 						if(treeTilesVector[j+1] == index+1){
@@ -675,7 +679,7 @@ void StageState::InitializeObstacles(void){
 				if(nullptr != tree){
 					tileMap.InsertGO(tree, false);
 					AddObstacle(tree);
-					tree->box = tree->box - Vec2(tree->box.w/2, tree->box.h/2);
+					tree->box = tree->box - offset;
 				}
 				else{
 					REPORT_DEBUG2(1, "\t[WARNING] Couldn't place a tree on tileMap!");
