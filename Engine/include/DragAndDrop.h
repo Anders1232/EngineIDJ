@@ -3,6 +3,7 @@
 
 #include "Component.h"
 #include "TileMap.h"
+#include "Sound.h"
 /**
 	\brief Classe responsável por arrastar e posicionar Objetos.
 
@@ -40,6 +41,7 @@ class DragAndDrop : public Component{
 		TileMap &tileMap;/**< TileMap no qual o GameObject será inserido após o drag.*/
 		bool redrag;/**<Informa se é um drag inicial ou um redrag*/
 		GameObject &associated;
+		Sound dragNDrop;
 };
 
 #endif // DRAGANDDROP_H

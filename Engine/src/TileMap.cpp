@@ -165,14 +165,14 @@ int TileMap::GetCoordTilePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 	return y*mapWidth+x;
 }
 
-void TileMap::InsertGO(GameObject* obj, bool checkCollision) {
+bool TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 	int position = GetCoordTilePos(mousePos, false, 0);
 	REPORT_DEBUG("\t position = " << position << "\t of " << mapHeight*mapWidth << " tiles.");
 	if(0 > position) {
 		std::cout << WHERE << "[ERROR] Tried to put the gameObject on an invalid tileMap position." << END_LINE;
 		obj->RequestDelete();
-		return;
+		return false;
 	}
 	if(checkCollision){
 		if(-1 == AtLayer(position, COLLISION_LAYER)) {
@@ -189,10 +189,12 @@ void TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 		else if(0 > AtLayer(position, COLLISION_LAYER)) {
 			REPORT_DEBUG("\ttentado inserir objeto em posição inválida, pois nela está" << tileMatrix[position+(COLLISION_LAYER * mapWidth*mapHeight)]);
 			obj->RequestDelete();
+			return false;
 		}
 		else {
 			REPORT_DEBUG("\ttentado inserir objeto em posição já ocupada!");
 			obj->RequestDelete();
+			return false;
 		}
 	}
 	else{
@@ -205,16 +207,17 @@ void TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 		obj->box.y = line*tileSet->GetTileHeight();
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
 	}
+	return true;
 }
 
-void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
+bool TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 	Vec2 mousePos = Camera::ScreenToWorld(InputManager::GetInstance().GetMousePos());
 	int position = GetCoordTilePos(mousePos, false, 0);
 	REPORT_DEBUG("\t position = " << position << "\t of " << mapHeight*mapWidth << " tiles.");
 	if(0 > position) {
 		std::cout << WHERE << "[ERROR] Tried to put the gameObject on an invalid tileMap position." << END_LINE;
 		//obj->box = initialPos;
-		return;
+		return false;
 	}
 	int initialTile = GetCoordTilePos(initialPos, false, 0);
 	if(-1 == AtLayer(position, COLLISION_LAYER)) {
@@ -233,7 +236,9 @@ void TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 		int column = initialTile % GetWidth();
 		obj->box.x = column*tileSet->GetTileWidth();
 		obj->box.y = line*tileSet->GetTileHeight();
+		return false;
 	}
+	return true;
 }
 
 void TileMap::RemoveGO(int position){
