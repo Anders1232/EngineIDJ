@@ -105,7 +105,11 @@ StageState::StageState(void)
 	SetupUI();
 
 	SetUILife(PLAYER_DATA_INSTANCE.GetLifes()/TOTAL_LIFES);
-	SetUIWaveProgress(waveManager->GetEnemiesLeft()/waveManager->GetWaveTotalEnemies());
+	if(waveManager->GetWaveTotalEnemies() > 0) {
+		SetUIWaveProgress(waveManager->GetEnemiesLeft()/waveManager->GetWaveTotalEnemies());
+	} else {
+		SetUIWaveProgress(0.);
+	}
 	SetUIMoney(PLAYER_DATA_INSTANCE.GetGold());
 }
 
@@ -402,7 +406,11 @@ void StageState::Update(float dt){
 	}
 
 	SetUILife(PLAYER_DATA_INSTANCE.GetLifes()/TOTAL_LIFES);
-	SetUIWaveProgress(waveManager->GetEnemiesLeft()/waveManager->GetWaveTotalEnemies());
+	if(waveManager->GetWaveTotalEnemies() > 0) {
+		SetUIWaveProgress(waveManager->GetEnemiesLeft()/waveManager->GetWaveTotalEnemies());
+	} else {
+		SetUIWaveProgress(0.);
+	}
 	SetUIMoney(PLAYER_DATA_INSTANCE.GetGold());
 
 	UpdateUI(dt);
