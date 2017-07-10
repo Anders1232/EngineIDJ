@@ -25,26 +25,26 @@ Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, ui
 	std::string basePath= "img/"+enemyData.spFolder;
 	basePath= basePath+ "/";
 
-	sp[EnemyDirections::UP].emplace_back(basePath+"perna_tras.png", true, 0., 1);
-	sp[EnemyDirections::UP].emplace_back(basePath+"cabeca_tras.png", true, 0., 1);
-	sp[EnemyDirections::UP].emplace_back(basePath+"cabelo_tras.png", true, 0., 1);
-	sp[EnemyDirections::UP].emplace_back(basePath+"torso_tras.png", true, 0., 1);
+	sp[EnemyDirections::UP].emplace_back(basePath+"perna_tras.png", true, 0.5, 4);
+	sp[EnemyDirections::UP].emplace_back(basePath+"cabeca_tras.png", true, 0.5, 4);
+	sp[EnemyDirections::UP].emplace_back(basePath+"cabelo_tras.png", true, 0.5, 4);
+	sp[EnemyDirections::UP].emplace_back(basePath+"torso_tras.png", true, 0.5, 4);
 	
 	box = position;
-	sp[EnemyDirections::RIGHT].emplace_back(basePath+"perna_dir.png", true, 0., 1);
-	sp[EnemyDirections::RIGHT].emplace_back(basePath+"cabeca_dir.png", true, 0., 1);
-	sp[EnemyDirections::RIGHT].emplace_back(basePath+"cabelo_dir.png", true, 0., 1);
-	sp[EnemyDirections::RIGHT].emplace_back(basePath+"torso_dir.png", true, 0., 1);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"perna_dir.png", true, 0.5, 4);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"cabeca_dir.png", true, 0.5, 4);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"cabelo_dir.png", true, 0.5, 4);
+	sp[EnemyDirections::RIGHT].emplace_back(basePath+"torso_dir.png", true, 0.5, 4);
 
-	sp[EnemyDirections::DOWN].emplace_back(basePath+"perna_frente.png", true, 0., 1);
-	sp[EnemyDirections::DOWN].emplace_back(basePath+"cabeca_frente.png", true, 0., 1);
-	sp[EnemyDirections::DOWN].emplace_back(basePath+"cabelo_frente.png", true, 0., 1);
-	sp[EnemyDirections::DOWN].emplace_back(basePath+"torso_frente.png", true, 0., 1);
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"perna_frente.png", true, 0.5, 4);
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"cabeca_frente.png", true, 0.5, 4);
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"cabelo_frente.png", true, 0.5, 4);
+	sp[EnemyDirections::DOWN].emplace_back(basePath+"torso_frente.png", true, 0.5, 4);
 	
-	sp[EnemyDirections::LEFT].emplace_back(basePath+"perna_esq.png", true, 0., 1);
-	sp[EnemyDirections::LEFT].emplace_back(basePath+"cabeca_esq.png", true, 0., 1);
-	sp[EnemyDirections::LEFT].emplace_back(basePath+"cabelo_esq.png", true, 0., 1);
-	sp[EnemyDirections::LEFT].emplace_back(basePath+"torso_esq.png", true, 0., 1);
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"perna_esq.png", true, 0.5, 4);
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"cabeca_esq.png", true, 0.5, 4);
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"cabelo_esq.png", true, 0.5, 4);
+	sp[EnemyDirections::LEFT].emplace_back(basePath+"torso_esq.png", true, 0.5, 4);
 	
 	for(uint i =0; i < EnemyDirections::ENEMY_DIRECTIONS_SIZE; i++){
 		for(uint i2= 0; i2 < sp[i].size(); i2++){
@@ -170,6 +170,9 @@ Enemy::~Enemy(){
 }
 
 void Enemy::Update(float dt) {
+	for(uint i=0; i< sp[direction].size(); i++){
+		sp[direction][i].Update(dt);
+	}
 	int forLimit = components.size();
 	Vec2 positionBefore= box;
 	for(int i = 0; i < forLimit; i++){
