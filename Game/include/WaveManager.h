@@ -76,6 +76,7 @@ class WaveManager : public Component {
 			Retorna os inimigos restantes da wave atual.
 		*/		
 		int GetEnemiesLeft(void);
+		int GetWaveTotalEnemies(void);
 		/** 
 			\brief Condiçao de Vitoria.
 			\return victory: verdadeiro se as waves acabaram.

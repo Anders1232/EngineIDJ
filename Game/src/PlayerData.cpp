@@ -5,6 +5,22 @@
 
 #define LIFE_LOST_POINTS -11
 
+PlayerData* PlayerData::instance = nullptr;
+
+PlayerData& PlayerData::GetInstance(void) {
+	if (nullptr == PlayerData::instance) {
+		PlayerData::instance = new PlayerData();
+	}
+	return *PlayerData::instance;
+}
+
+void PlayerData::Reset(void) {
+	if (nullptr != PlayerData::instance) {
+		delete PlayerData::instance;
+	}
+	PlayerData::instance = new PlayerData();
+}
+
 PlayerData::PlayerData() {
 	points = 0;
 	gold = START_MONEY;
@@ -12,7 +28,7 @@ PlayerData::PlayerData() {
 	lifes = TOTAL_LIFES;
 }
 
-PlayerData::~PlayerData(){
+PlayerData::~PlayerData() {
 }
 
 void PlayerData::Render() const {
@@ -25,14 +41,9 @@ bool PlayerData::Is(ComponentType type) const{
 	return type == PLAYER_DATA;
 }
 
-void PlayerData::NotifyKillsUpdate(int wave, EnemyData enemyData) {
+void PlayerData::IncrementKills(void){
 	++kills;
-	PointsUpdate( 1 * (enemyData.gold + (2 * wave)) );
-}
-
-void PlayerData::NotifyLifeLost(int wave, EnemyData enemyData) {
-	--lifes;
-	PointsUpdate( -1 * (enemyData.gold + (2 * wave)) );
+	GoldUpdate(-LIFE_LOST_POINTS, true);
 }
 
 // decrementa para compra e incrementa pra ganho.
@@ -54,10 +65,18 @@ void PlayerData::DecrementLife(){
 	PointsUpdate(LIFE_LOST_POINTS);
 }
 
-int PlayerData::GetLifes(){
+int PlayerData::GetLifes(void) {
 	return lifes;
 }
 
-int PlayerData::GetPlayerGold(){
+int PlayerData::GetGold(void) {
 	return gold;
+}
+
+int PlayerData::GetKills(void) {
+	return kills;
+}
+
+int PlayerData::GetPoints(void) {
+	return points;
 }

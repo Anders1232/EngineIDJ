@@ -6,6 +6,7 @@
 #include "Enemy.h"
 #include "GameResources.h"
 #include "Error.h"
+#include "PlayerData.h"
 
 #define TIME_BETWEEN_SPAWN (0.8)
 #define TIME_BETWEEN_WAVES (5.0)
@@ -138,6 +139,8 @@ void WaveManager::Update(float dt){
 	REPORT_I_WAS_HERE;
 	if (0 >= enemiesLeft){
 		endWave = true;
+		float income = (waveCount* 5)+100;
+		PLAYER_DATA_INSTANCE.GoldUpdate(income);
 	}
 }
 
@@ -160,10 +163,12 @@ bool WaveManager::Is(ComponentType type) const{
 
 void WaveManager::NotifyEnemyGotToHisDestiny(void){
 	--playerLifes;
+	PLAYER_DATA_INSTANCE.DecrementLife();
 }
 
 void WaveManager::NotifyEnemyGotKilled(void){
 	--enemiesLeft;
+	PLAYER_DATA_INSTANCE.IncrementKills();
 }
 
 int WaveManager::GetLifesLeft(void){
@@ -172,6 +177,10 @@ int WaveManager::GetLifesLeft(void){
 
 int WaveManager::GetEnemiesLeft(void){
 	return enemiesLeft;
+}
+
+int WaveManager::GetWaveTotalEnemies(void) {
+ return waveTotalEnemies;
 }
 
 bool WaveManager::Victory(void){

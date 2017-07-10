@@ -21,28 +21,25 @@
 
 	 PlayerData funciona como uma singleton e eh chamada em StageState e WaveManager.
 */
-class PlayerData: public Component{
+class PlayerData: public Component {
 	public:
-        PlayerData();
+		static PlayerData& GetInstance(void);
         ~PlayerData();
 		void Render() const;
 		void Update(float dt);
 		bool Is(ComponentType type) const;
-		void NotifyKillsUpdate(int wave, EnemyData enemyData);
-		void NotifyLifeLost(int wave, EnemyData enemyData);
+		static void Reset(void);
 		void GoldUpdate(int amount, bool winPoints=true);
 		void PointsUpdate(int amount);
+		void IncrementKills(void);
 		void DecrementLife(void);
-		void CountNextWave(int wave);
-		int GetPlayerGold();
-		/** 
-			\brief Pegar vidas Restantes.
-			\return playerLifes: vidas restantes.
-			Retorna as vidas restantes do jogador.
-		*/
+		int GetGold(void);
 		int GetLifes(void);
+		int GetKills(void);
+		int GetPoints(void);
     private:
-
+        PlayerData();
+		static PlayerData* instance;
 		int gold;/**<Representa a quantidade de ouro deo jogador. Ouro usado para comprar torres e ganho matando inimigos.*/
 		uint kills;/**<Contador de inimigos matados.*/
 		int lifes;/**<Contador de vidas do jogador. Representa uma tolerancia de quantos inimigos ainda podem passar.*/

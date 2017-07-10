@@ -12,6 +12,7 @@
 #include "GameResources.h"
 #include "Obstacle.h"
 #include "Vec2.h"
+#include "PlayerData.h"
 
 #define INCLUDE_SDL
 #define INCLUDE_SDL_IMAGE
@@ -100,8 +101,12 @@ StageState::StageState(void)
 	InitializeObstacles();
 
 	nightSound.Play(0);
-
+	
 	SetupUI();
+
+	SetUILife(PLAYER_DATA_INSTANCE.GetLifes()/TOTAL_LIFES);
+	SetUIWaveProgress(waveManager->GetEnemiesLeft()/waveManager->GetWaveTotalEnemies());
+	SetUIMoney(PLAYER_DATA_INSTANCE.GetGold());
 }
 
 void StageState::SetupUI() {
@@ -396,6 +401,10 @@ void StageState::Update(float dt){
 		}
 	}
 
+	SetUILife(PLAYER_DATA_INSTANCE.GetLifes()/TOTAL_LIFES);
+	SetUIWaveProgress(waveManager->GetEnemiesLeft()/waveManager->GetWaveTotalEnemies());
+	SetUIMoney(PLAYER_DATA_INSTANCE.GetGold());
+
 	UpdateUI(dt);
 
 	REPORT_DEBUG("\tFrame rate: " << Game::GetInstance().GetCurrentFramerate() << "/" << Game::GetInstance().GetMaxFramerate());
@@ -584,10 +593,16 @@ void StageState::SetTowerInfoData(string name, string cost, string damage, strin
 void StageState::CreateTower(Tower::TowerType towerType) {
 	ToggleMenu();
 
-	Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
-	Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), TOWER_BASE_HP);
-	newTower->AddComponent(new DragAndDrop(tileMap, mousePos, *newTower, false, false));
-	AddObject(newTower);
+	if( PLAYER_DATA_INSTANCE.GetGold() >= 30 ) {
+		Vec2 mousePos = Camera::ScreenToWorld(INPUT_MANAGER.GetMousePos())-Vec2(TOWER_LINEAR_SIZE/2, TOWER_LINEAR_SIZE/2);
+		Tower *newTower = new Tower(towerType, mousePos, Vec2(TOWER_LINEAR_SIZE, TOWER_LINEAR_SIZE), TOWER_BASE_HP);
+		newTower->AddComponent(new DragAndDrop(tileMap, mousePos, *newTower, false, false));
+		AddObject(newTower);
+		PLAYER_DATA_INSTANCE.GoldUpdate(-30, false);
+		towerMenuSounds.Play(1);
+	} else {
+		printf("Not enough gold! Need more gold!\n");
+	}
 }
 
 void StageState::SetUILife(float lifePercent) {
