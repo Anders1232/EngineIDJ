@@ -12,17 +12,20 @@
 
 Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
 		: sp(type == TowerType::SMOKE ? "img/tower/torre_fumaca.png" :
-			type == TowerType::ANTIBOMB ? "img/tower/torre-anti-bomba.png" :
+			type == TowerType::ANTIBOMB ? "img/SpriteSheets/anti-bomba.png" :
 			type == TowerType::STUN ? "img/tower/torrestun.png" :
-			type == TowerType::SHOCK ? "img/tower/torrechoque_lvl1.png" :
-			type == TowerType::COMPUTATION ? "img/tower/torrefumaca.png":
+			type == TowerType::SHOCK ? "img/SpriteSheets/torrechoque_lvl1.png" :
 			"",
-			true){
+			true,
+			0.25,
+			type == TowerType::SMOKE ? 1:
+			type == TowerType::ANTIBOMB ? 9:
+			type == TowerType::STUN ? 1:
+			type == TowerType::SHOCK ? 8: 1) {
 	box.x = pos.x;
 	box.y = pos.y;
 	sp.ScaleX(tileSize.x/sp.GetWidth());
 	sp.ScaleY(tileSize.y/sp.GetHeight());
-	sp.colorMultiplier = Color( 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 255*(float)rand()/RAND_MAX, 127 + 127*(float)rand()/RAND_MAX );
 	box.w = sp.GetWidth();
 	box.h = sp.GetHeight();
 	StageState& stageState= (StageState&)Game::GetInstance().GetCurrentState();
@@ -32,7 +35,6 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
 			AddComponent(new Aura(*this, Enemy::Event::SMOKE, 400, 7.0, (NearestGOFinder&)stageState, "Enemy"));
 			break;
 		case TowerType::ANTIBOMB:
-//			AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "BOMB", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/SpriteSheets/anti-bomba_ativ_spritesheet.png", 11, 1));
 			AddComponent(new Shooter(*this, (NearestGOFinder&)stageState, "BOMB", 5000, 2.0, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 5000, "img/SpriteSheets/anti-bomba_idle.png", 11, 1));
 			break;
 		case TowerType::STUN:
@@ -61,6 +63,7 @@ void Tower::Damage(int damage) {
 }
 
 void Tower::Update(float dt ) {
+	sp.Update(dt);
 	for(uint count = 0; count < components.size(); count++) {
 		components[count]->Update(dt);
 	}

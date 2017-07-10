@@ -26,8 +26,8 @@ void DragAndDrop::Update(float dt) {
 		if(success) { dragNDrop.Play(1); }
 		associated.RemoveComponent(DRAG_AND_DROP);
 	} else if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON) || !dragOnHold) {
-		Vec2 mousePos= Camera::ScreenToWorld(inputManager.GetMousePos() );
-		associated.box= mousePos-Vec2(associated.box.w/2, associated.box.h/2);
+		Vec2 mousePos = Camera::ScreenToWorld(inputManager.GetMousePos() );
+		associated.box = mousePos-Vec2(associated.box.w/2, associated.box.h/2);
 	} 
 }
 
