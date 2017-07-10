@@ -6,6 +6,7 @@ HitPoints::HitPoints(uint hp,GameObject &associated, float scaleX)
 		, associated(associated) {
 			
 	this->hp = (int)hp;
+	maxHp = (int)hp;
 	healthBar.SetScaleX(scaleX);
 	healthColor.SetScaleX(scaleX);
 }
@@ -15,6 +16,10 @@ HitPoints::~HitPoints(){
 
 
 void HitPoints::Update(float dt){
+	Color& c = healthColor.colorMultiplier;
+	c.r = 255*(1-(float)hp/maxHp);
+	c.b = 0;
+	c.g = 255*((float)hp/maxHp);
 }
 
 void HitPoints::Render(){

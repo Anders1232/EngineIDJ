@@ -17,6 +17,7 @@ class HitPoints : public Component{
 		void Render();
 	private:
 		int hp;
+		int maxHp;
 		Sprite healthBar;
 		Sprite healthColor;
 		GameObject &associated;
