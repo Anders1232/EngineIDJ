@@ -26,6 +26,14 @@ class TitleState: public State {
 		void SetupUI(void);
 		void UpdateUI(float dt);
 		void RenderUI() const;
+		void MoveClouds(float dt);
+		float speedNuvemA;
+		float speedNuvemB;
+
+		Timer introTimer;
+		bool finishedEclipse;
+		bool finishedFadeIn;
+		bool forceEnd;
 
 		Sound clickSound;
 
@@ -38,7 +46,6 @@ class TitleState: public State {
 		UIimage overlay;
 		UIimage title;
 		UIverticalGroup optionsGroup;
-
 		UItextButton playBtn;
 		UItextButton editorBtn;
 		UItextButton configBtn;

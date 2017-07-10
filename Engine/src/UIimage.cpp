@@ -9,6 +9,13 @@ UIimage::UIimage(std::string file, UIelement::BehaviorType behavior)
 	angle = 0;
 }
 
+UIimage::UIimage(std::string file, float frameTime, int frameCount, UIelement::BehaviorType behavior)
+		 : UIelement(behavior) {
+	sp = new Sprite(file, false, frameTime, frameCount);
+	kernelSize = Vec2(sp->GetWidth(), sp->GetHeight());
+	angle = 0;
+}
+
 UIimage::UIimage(UIelement::BehaviorType behavior) : UIelement(behavior), angle(0), sp(nullptr) {}
 
 UIimage::~UIimage() {
@@ -17,10 +24,16 @@ UIimage::~UIimage() {
 	}
 }
 
+void UIimage::Update(float dt, Rect parentCanvas) {
+	UIelement::Update(dt, parentCanvas);
+	sp->Update(dt);
+}
+
 void UIimage::Render(bool debugRender) const {
 	UIelement::Render(debugRender);
 
 	if(nullptr != sp) {
+
 		if(box.w > 0 && box.h > 0) {
 			sp->Render(box, angle, false);
 		}
@@ -29,26 +42,8 @@ void UIimage::Render(bool debugRender) const {
 	}
 }
 
-float UIimage::GetSpriteWidth(void) {
-	return kernelSize.x;
-}
-
-float UIimage::GetSpriteHeight(void) {
-	return kernelSize.y;
-}
-
-Vec2 UIimage::GetSpriteDimensions(void) {
-	return kernelSize;
-}
-
-void UIimage::SetSpriteScale(float scale) {
-	sp->SetScale(scale);
-	kernelSize = Vec2(sp->GetWidth(), sp->GetHeight());
-}
-
-void UIimage::SetSpriteColorMultiplier(Color color, SDL_BlendMode blendMode) {
-	sp->colorMultiplier = color;
-	sp->blendMode = blendMode;
+Sprite& UIimage::GetSprite(void) {
+	return *sp;
 }
 
 bool UIimage::Is(std::string UItype) const {

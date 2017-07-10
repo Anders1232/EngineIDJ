@@ -38,20 +38,22 @@
 #define POLE_TILESET_INDEX 73
 #define BENCH_TILESET_INDEX 76
 
-#define TOWER_INFO_TXT_COLOR {199,159,224,255} // Purple-ish white
+#define TOWER_INFO_TXT_COLOR	{199,159,224,255} // Purple-ish white
+#define MONEY_TXT_COLOR			{186,179, 62,255}
 
 StageState::StageState(void)
 		: State()
 		, tileSet(120, 120,"map/tileset_vf.png")
 		, tileMap("map/tileMap.txt", &tileSet)
 		, inputManager(INPUT_MANAGER)
-		, music("audio/trilha_sonora/loop_1.ogg")
+		, music("audio/trilha_sonora/loop_3_atualizado.ogg")
 		, isLightning(false)
 		, isThundering(false)
 		, lightningTimer()
 		, lightningColor(255, 255, 255, 0)
 		, nightSound("audio/Ambiente/Barulho_noite.wav")
 		, thunderSound("audio/Ambiente/Trovao.wav")
+		, towerMenuSounds("audio/Acoes/Dinheiro1.wav")
 		, frameRateCounter(0)
 		, HUDcanvas()
 		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
@@ -68,13 +70,16 @@ StageState::StageState(void)
 		, towerBtn3()
 		, towerBtn4()
 		, health()
-		, healthIcon("img/UI/HUD/vida00.png", UIelement::BehaviorType::FILL)
+		, healthIcon("img/UI/HUD/CoraçãoHUD_spritesheet.png", 1./4, 8, UIelement::BehaviorType::FILL)
 		, healthbarBg("img/UI/HUD/hudvida.png")
 		, healthbarBar("img/UI/HUD/hudvida.png")
 		, wave()
-		, waveIcon("img/UI/HUD/inimigo00.png", UIelement::BehaviorType::FILL)
+		, waveIcon("img/UI/HUD/inimigoHUD_spritesheet.png", 1./4, 5, UIelement::BehaviorType::FILL)
 		, wavebarBg("img/UI/HUD/hudvida.png")
-		, wavebarBar("img/UI/HUD/hudvida.png") {
+		, wavebarBar("img/UI/HUD/hudvida.png")
+		, money()
+		, moneyIcon("img/UI/HUD/spritesheetmoeda_HUD.png", 1./4, 4, UIelement::BehaviorType::FILL)
+		, moneyText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, MONEY_TXT_COLOR, "+Inf") {
 	Resources::ChangeMusicVolume(0);
 	Resources::ChangeSoundVolume(0);
 
@@ -83,6 +88,7 @@ StageState::StageState(void)
 	music.Play(0);
 	Camera::pos = Vec2(CAM_START_X, CAM_START_Y);
 	Camera::ForceLogZoom(CAM_START_ZOOM);
+
 	GameObject* waveManagerGO= new GameObject();
 	waveManager= new WaveManager(tileMap, "assets/wave&enemyData.txt");
 	waveManagerGO->AddComponent(waveManager);
@@ -92,6 +98,7 @@ StageState::StageState(void)
 	lightningInterval = rand() % (LIGHTINING_MAX_INTERVAL - LIGHTINING_MIN_INTERVAL) + LIGHTINING_MIN_INTERVAL;
 	REPORT_DEBUG(" Proximo relampago sera em " << lightningInterval << " segundos.");
 	InitializeObstacles();
+
 	nightSound.Play(0);
 
 	SetupUI();
@@ -105,16 +112,16 @@ void StageState::SetupUI() {
 
 	menuBg.SetAnchors( {1., 0.5},
 					   {1., 0.5});
-	menuBg.SetOffsets( {-10., (float)(-menuBg.GetSpriteHeight()/2.)},
-					   {(float)menuBg.GetSpriteWidth()-(float)10., (float)(menuBg.GetSpriteHeight()/2.)});
+	menuBg.SetOffsets( {-10., (float)(-menuBg.GetSprite().GetHeight()/2.)},
+					   {(float)menuBg.GetSprite().GetWidth()-(float)10., (float)(menuBg.GetSprite().GetHeight()/2.)});
 
 	openMenuBtn.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/openmenu.png"));
 	openMenuBtn.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/openmenu.png"));
 	openMenuBtn.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/openmenu-clicked.png"));
 	openMenuBtn.SetAnchors( {0., 0.},
 							{0., 0.} );
-	openMenuBtn.SetOffsets( {(float)-(openMenuBtn.GetStateSpriteWidth(UIbutton::State::ENABLED)), (float)10.},
-							{0., openMenuBtn.GetStateSpriteHeight(UIbutton::State::ENABLED)+(float)10.} );
+	openMenuBtn.SetOffsets( {(float)-(openMenuBtn.GetStateSprite(UIbutton::State::ENABLED).GetWidth()), (float)10.},
+							{0., openMenuBtn.GetStateSprite(UIbutton::State::ENABLED).GetHeight()+(float)10.} );
 	openMenuBtn.SetClickCallback(this, [] (void* ptr) {
 												StageState* it = static_cast<StageState*>(ptr);
 												it->ToggleMenu();
@@ -140,9 +147,10 @@ void StageState::SetupUI() {
 	towerBtn1.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn1.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
 	towerBtn1.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+
 	towerBtn1.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
-																	it->SetTowerInfoData("Normal (Art)", "$1", "10 HP", "Projetil (3/s)");
+																	it->SetTowerInfoData("Fumaca", "$30", "Slow", "Area");
 																} );
 	towerBtn1.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
@@ -154,12 +162,13 @@ void StageState::SetupUI() {
 										} );
 
 	towerBtn2.SetCenter({0.5, 0.});
-	towerBtn2.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
-	towerBtn2.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
-	towerBtn2.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+	towerBtn2.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaoantibomba.png"));
+	towerBtn2.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaoantibomba.png"));
+	towerBtn2.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaoantibomba-clicked.png"));
+
 	towerBtn2.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
-																	it->SetTowerInfoData("Tentaculo (Soc)", "$10", "10 segundos", "Stun");
+																	it->SetTowerInfoData("Tentaculos", "$30", "1 tiro/2s", "Anti-Bomba");
 																} );
 	towerBtn2.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
@@ -171,12 +180,13 @@ void StageState::SetupUI() {
 										} );
 
 	towerBtn3.SetCenter({0.5, 0.});
-	towerBtn3.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
-	towerBtn3.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
-	towerBtn3.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+	towerBtn3.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaochoque.png"));
+	towerBtn3.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaochoque.png"));
+	towerBtn3.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaochoque-clicked.png"));
+
 	towerBtn3.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
-																	it->SetTowerInfoData("Eletrico (Eng)", "$100", "20 HP/segundo", "Proximidade");
+																	it->SetTowerInfoData("Bobina", "$30", "1 tiro/2s", "Dano");
 																} );
 	towerBtn3.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
@@ -188,12 +198,13 @@ void StageState::SetupUI() {
 										} );
 
 	towerBtn4.SetCenter({0.5, 0.});
-	towerBtn4.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
-	towerBtn4.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
-	towerBtn4.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+	towerBtn4.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaostun.png"));
+	towerBtn4.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaostun.png"));
+	towerBtn4.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaostun-clicked.png"));
+
 	towerBtn4.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
-																	it->SetTowerInfoData("Nuke (Med)", "$9999", "+Inf HP", "Area");
+																	it->SetTowerInfoData("Monolito", "$30", "Stun", "Area");
 																} );
 	towerBtn4.SetCallback(UIbutton::State::ENABLED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
@@ -210,9 +221,9 @@ void StageState::SetupUI() {
 	towersBtnGroup.groupedElements.push_back(&towerBtn4);
 
 	// Game Info
-	health.SetAnchors( {(float)(30.+healthIcon.GetSpriteWidth())/(2*winSize.x), (float)10./winSize.y},
+	health.SetAnchors( {(float)(30.+healthIcon.GetSprite().GetWidth())/(2*winSize.x), (float)10./winSize.y},
 					   {(float)300./winSize.x, (float)35./winSize.y} );
-	health.SetOffsets( {(float)(30.+healthIcon.GetSpriteWidth())/2, 0.},
+	health.SetOffsets( {(float)(30.+healthIcon.GetSprite().GetWidth())/2, 0.},
 					   {120., 25.} );
 
 	healthIcon.SetCenter( {.725, 0.5} );
@@ -221,19 +232,19 @@ void StageState::SetupUI() {
 
 	healthbarBg.SetAnchors( {0., 0.3},
 							 {1., 0.7} );
-	healthbarBg.SetSpriteColorMultiplier({0, 0, 0, 255});
+	healthbarBg.GetSprite().colorMultiplier = {0, 0, 0, 255};
 	
 	Rect healthBox = health.ComputeBox(health.ComputeBoundingbox( {0., 0., winSize.x, winSize.y} ));
 	healthbarBar.SetAnchors( {(float)0., (float)0.3+2/healthBox.h},
 							 {(float)1., (float)0.7-2/healthBox.h} );
 	healthbarBar.SetOffsets( {(float)2., 0.},
 							 {(float)-2., 0.} );
-	healthbarBar.SetSpriteColorMultiplier({180, 225, 149, 255});
+	healthbarBar.GetSprite().colorMultiplier = {180, 225, 149, 255};
 
 
-	wave.SetAnchors( {(float)(30.+healthIcon.GetSpriteWidth())/(2*winSize.x), (float)35./winSize.y},
+	wave.SetAnchors( {(float)(30.+healthIcon.GetSprite().GetWidth())/(2*winSize.x), (float)35./winSize.y},
 					 {(float)150./winSize.x, (float)60./winSize.y} );
-	wave.SetOffsets( {(float)(30.+waveIcon.GetSpriteWidth())/2, 25.},
+	wave.SetOffsets( {(float)(30.+waveIcon.GetSprite().GetWidth())/2, 25.},
 					 {120., 50.} );
 
 	waveIcon.SetCenter( {.725, 0.5} );
@@ -242,15 +253,30 @@ void StageState::SetupUI() {
 
 	wavebarBg.SetAnchors( {0., 0.3},
 						  {1., 0.7} );
-	wavebarBg.SetSpriteColorMultiplier({0, 0, 0, 255});
+	wavebarBg.GetSprite().colorMultiplier = {0, 0, 0, 255};
 	
 	Rect waveBox = wave.ComputeBox(wave.ComputeBoundingbox( {0., 0., winSize.x, winSize.y} ));
 	wavebarBar.SetAnchors( {(float)0., (float)0.3+2/waveBox.h},
 						   {(float)1., (float)0.7-2/waveBox.h} );
 	wavebarBar.SetOffsets( {(float)2., 0.},
 						   {(float)-2., 0.} );
-	wavebarBar.SetSpriteColorMultiplier({154, 148, 104, 255});
+	wavebarBar.GetSprite().colorMultiplier = {154, 148, 104, 255};
 
+
+	money.SetAnchors( {(float)(30.+healthIcon.GetSprite().GetWidth())/(2*winSize.x), (float)60./winSize.y},
+					  {(float)150./winSize.x, (float)85./winSize.y} );
+	money.SetOffsets( {(float)(7.5+moneyIcon.GetSprite().GetWidth()/2.), 60.},
+					  {120., 70.} );
+	
+	moneyIcon.SetCenter( {1., 0.5} );
+	moneyIcon.SetAnchors( {0., 0.},
+						 {0., 1.} );
+
+	moneyText.SetAnchors( {0., 0.},
+						  {1., 1.});
+	moneyText.SetOffsets( {12.5, 0.},
+						  {0., 0.});
+	moneyText.SetCenter( {0., .5} );
 }
 
 StageState::~StageState(void) {
@@ -271,6 +297,7 @@ void StageState::Update(float dt){
 	if(inputManager.QuitRequested()) {
 		quitRequested = true;
 	}
+
 	//fazendo o prórpio loop de atualização ao invés do UpdateArray pois estamos fazendo checagens adicionais
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 		objectArray.at(cont)->Update(dt);
@@ -415,6 +442,10 @@ void StageState::UpdateUI(float dt) {
 	waveIcon.Update(dt, wave);
 	wavebarBg.Update(dt, wave);
 	wavebarBar.Update(dt, wave);
+
+	money.Update(dt, HUDcanvas);
+	moneyIcon.Update(dt, money);
+	moneyText.Update(dt, money);
 }
 
 void StageState::Render(void) const {
@@ -468,6 +499,10 @@ void StageState::RenderUI(void) const {
 	wavebarBg.Render();
 	wavebarBar.Render();
 	waveIcon.Render();
+
+	// money.Render(true);
+	moneyIcon.Render();
+	moneyText.Render();
 
 	menuIsShowing = this->menuIsShowing;
 }
@@ -529,7 +564,7 @@ void StageState::ToggleMenu(void) {
 	menuMove.Play(1);
 
 	Rect menuBgOffsets = menuBg.GetOffsets();
-	Vec2 menuBgDim = menuBg.GetSpriteDimensions();
+	Vec2 menuBgDim = {(float)menuBg.GetSprite().GetWidth(), (float)menuBg.GetSprite().GetHeight()};
 	if(menuIsShowing) {
 		menuBg.SetOffsets( {menuBgOffsets.x-menuBgDim.x, menuBgOffsets.y},
 						   {menuBgOffsets.w-menuBgDim.x, menuBgOffsets.h});
@@ -567,6 +602,10 @@ void StageState::SetUIWaveProgress(float waveProgressPercent) {
 	Rect oldAnchor = wavebarBar.GetAnchors();
 	wavebarBar.SetAnchors( {oldAnchor.x, oldAnchor.y},
 							 {waveProgressPercent, oldAnchor.h} );
+}
+
+void StageState::SetUIMoney(int coins) {
+	moneyText.SetText(std::to_string(coins));
 }
 
 void StageState::InitializeObstacles(void){
@@ -707,8 +746,9 @@ std::vector<GameObject*>* StageState::FindNearestGOs(Vec2 origin, std::string ta
 void StageState::LoadAssets(void) const{
 	Resources::GetImage("./map/tileset_vf.png");
 	Resources::GetImage("./img/UI/HUD/menu.png");
-	Resources::GetImage("./img/UI/HUD/vida00.png");
-	Resources::GetImage("./img/UI/HUD/inimigo00.png");
+	Resources::GetImage("./img/UI/HUD/CoraçãoHUD_spritesheet.png");
+	Resources::GetImage("./img/UI/HUD/inimigoHUD_spritesheet.png");
+	Resources::GetImage("./img/UI/HUD/spritesheetmoeda_HUD.png");
 	Resources::GetImage("./img/UI/HUD/hudvida.png");
 	Resources::GetImage("./img/UI/HUD/openmenu.png");
 	Resources::GetImage("./img/UI/HUD/openmenu-clicked.png");
@@ -744,6 +784,7 @@ void StageState::LoadAssets(void) const{
 	Resources::GetImage("./img/SpriteSheets/explosao_spritesheet.png");
 	Resources::GetMusic("./audio/trilha_sonora/loop_1.ogg");
 	Resources::GetSound("./audio/Acoes/Inicio de Wave.wav");
+	Resources::GetSound("./audio/Acoes/Consertando1.wav");
 	Resources::GetSound("./audio/Ambiente/Barulho_noite.wav");
 	Resources::GetSound("./audio/Ambiente/Trovao.wav");
 	Resources::GetSound("./audio/Ambiente/andando2.wav");
