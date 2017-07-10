@@ -647,7 +647,7 @@ void StageState::InitializeObstacles(void){
 								if(*(baixo+1) == (*baixo)+1){
 									//é um quadrado
 									isSqare = true;
-									tree = new Obstacle("./img/obstacle/arvore4.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+									tree = new Obstacle("./img/obstacle/arvore4_1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 									treeTilesVector.erase(baixo+1);
 									treeTilesVector.erase(baixo);
 									treeTilesVector.erase(treeTilesVector.begin()+(j+1) );
@@ -655,7 +655,7 @@ void StageState::InitializeObstacles(void){
 							}
 							if(!isSqare){
 								//é uma coluna
-								tree = new Obstacle("./img/obstacle/arvore3.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+								tree = new Obstacle("./img/obstacle/arvore4_2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 								treeTilesVector.erase(baixo);
 							}
 						}
@@ -663,18 +663,19 @@ void StageState::InitializeObstacles(void){
 					if(nullptr == tree){
 						if(treeTilesVector[j+1] == index+1){
 							//é uma linha
-							tree = new Obstacle("./img/obstacle/arvore2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+							tree = new Obstacle("./img/obstacle/arvore1_2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 							treeTilesVector.erase(treeTilesVector.begin()+(j+1) );
 						}
 						else{
 							//é apenas um tile
-							tree = new Obstacle("./img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+							tree = new Obstacle("./img/obstacle/arvore1_1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 						}
 					}
 				}
 				if(nullptr != tree){
 					tileMap.InsertGO(tree, false);
 					AddObstacle(tree);
+					tree->box = tree->box - Vec2(tree->box.w/2, tree->box.h/2);
 				}
 				else{
 					REPORT_DEBUG2(1, "\t[WARNING] Couldn't place a tree on tileMap!");
@@ -688,13 +689,10 @@ void StageState::InitializeObstacles(void){
 	for(uint i = 0; i < poleTiles->size(); i++){
 		for(uint j = 0; j < poleTiles->at(i).size(); j++){
 			index = poleTiles->at(i)[j];
-			Obstacle* pole = new Obstacle("./img/obstacle/posteLuz.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+			Obstacle* pole = new Obstacle("./img/obstacle/poste_aceso.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 			tileMap.InsertGO(pole, false);
 			AddObstacle(pole);
-			pole->SpriteScaleY(2.2);
-			pole->box.y= pole->box.y - 1.2*tileMap.GetTileSize().y;
-			pole->box.h= 2.2*tileMap.GetTileSize().y;
-			pole->box.x-= pole->box.w/4;
+			pole->box = pole->box - Vec2((float)10.5*pole->box.w/16., (float)5.5*pole->box.h/8.);
 		}
 	}
 	delete poleTiles;
