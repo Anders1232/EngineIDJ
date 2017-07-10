@@ -102,7 +102,7 @@ Diagrama de Hierarquia para EndState:</div>
 <div class="dynheader">
 Diagrama de colaboração para EndState:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classEndState__coll__graph.svg" width="759" height="1060"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEndState__coll__graph.svg" width="759" height="1028"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
@@ -122,6 +122,11 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a27e54374f84da806d7bd8bfc985d41b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEndState.html#a27e54374f84da806d7bd8bfc985d41b9">Resume</a> ()</td></tr>
 <tr class="memdesc:a27e54374f84da806d7bd8bfc985d41b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Despausa o <a class="el" href="classState.html" title="Classe virtual que modela um estado do jogo. ">State</a>.  <a href="#a27e54374f84da806d7bd8bfc985d41b9">Mais...</a><br /></td></tr>
 <tr class="separator:a27e54374f84da806d7bd8bfc985d41b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2328162c9b53738277d211d5c0451f41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEndState.html#a2328162c9b53738277d211d5c0451f41">StartLoop</a> (void)</td></tr>
+<tr class="separator:a2328162c9b53738277d211d5c0451f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73da0a20db27fc84ecd0671b1c18ec33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEndState.html#a73da0a20db27fc84ecd0671b1c18ec33">LoadAssets</a> (void) const </td></tr>
+<tr class="memdesc:a73da0a20db27fc84ecd0671b1c18ec33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega os assets do estado.  <a href="#a73da0a20db27fc84ecd0671b1c18ec33">Mais...</a><br /></td></tr>
+<tr class="separator:a73da0a20db27fc84ecd0671b1c18ec33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classState"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classState')"><img src="closed.png" alt="-"/>&#160;Métodos Públicos inherited from <a class="el" href="classState.html">State</a></td></tr>
 <tr class="memitem:aef73d18751fc737c6b4f0893660a0d81 inherit pub_methods_classState"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#aef73d18751fc737c6b4f0893660a0d81">State</a> (void)</td></tr>
 <tr class="memdesc:aef73d18751fc737c6b4f0893660a0d81 inherit pub_methods_classState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor.  <a href="#aef73d18751fc737c6b4f0893660a0d81">Mais...</a><br /></td></tr>
@@ -145,6 +150,8 @@ Atributos Privados</h2></td></tr>
 <tr class="separator:aeb91899a27b89589e22685a888d4ba0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad053a1cc844baf965edafc3607da6868"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMusic.html">Music</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEndState.html#ad053a1cc844baf965edafc3607da6868">music</a></td></tr>
 <tr class="separator:ad053a1cc844baf965edafc3607da6868"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30b5184db61c13a362dd33ff7dbf34f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMusic.html">Music</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEndState.html#a30b5184db61c13a362dd33ff7dbf34f6">intro</a></td></tr>
+<tr class="separator:a30b5184db61c13a362dd33ff7dbf34f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbc4bcbbf722307b2ea222b5a85a0e8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classText.html">Text</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEndState.html#acbc4bcbbf722307b2ea222b5a85a0e8d">instruction</a></td></tr>
 <tr class="separator:acbc4bcbbf722307b2ea222b5a85a0e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -184,6 +191,35 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="a73da0a20db27fc84ecd0671b1c18ec33"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EndState::LoadAssets </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Carrega os assets do estado. </p>
+<p>Carrega os assets do estado. </p>
+
+<p>Implementa <a class="el" href="classState.html#a60c55c31895344bb499f28a22724fab9">State</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ac0cc5426e529a4d8572b38e8a87d2d3e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -268,6 +304,22 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a2328162c9b53738277d211d5c0451f41"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EndState::StartLoop </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a0fabb275706a8324521ed1e88efda11d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -344,6 +396,26 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a30b5184db61c13a362dd33ff7dbf34f6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMusic.html">Music</a> EndState::intro</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ad053a1cc844baf965edafc3607da6868"></a>
 <div class="memitem">
 <div class="memproto">
@@ -371,7 +443,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 20 de Junho de 2017 22:05:42 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 7 de Julho de 2017 01:40:39 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

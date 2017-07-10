@@ -54,7 +54,7 @@ Game::Game(std::string title,int width, int height)
 		Error(SDL_GetError());
 	}
 
-	renderer = SDL_CreateRenderer(window, -1, 0);
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if(nullptr == renderer) {
 		Error(SDL_GetError());
 	}
@@ -75,6 +75,9 @@ Game::Game(std::string title,int width, int height)
 	if(0 != Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, MIXER_CHUCK_SIZE)) {
 		Error("Loading Mix_OpenAudio failed: " << Mix_GetError());
 	}
+
+	int numAllocatedChannels = Mix_AllocateChannels(1024);
+	REPORT_DEBUG2(1, " Succesfully allocated " << numAllocatedChannels << " out of 1024 tried channels.");
 
 	if(0 != TTF_Init()) {
 		Error("Loading TTF_Init failed: " << TTF_GetError());
@@ -100,9 +103,9 @@ Game::~Game() {
 	TTF_Quit();
 	Mix_CloseAudio();
 	Mix_Quit();
-	IMG_Quit();
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
+	IMG_Quit();
 	SDL_Quit();
 }
 
@@ -123,6 +126,7 @@ void Game::Push(State* state) {
 		std::cout << WHERE << "[WARNING]Não era para ter um state aqui...\n";
 	}
 	storedState = state;
+	storedState->LoadAssets();
 }
 
 void Game::Run(void) {
@@ -149,6 +153,10 @@ void Game::Run(void) {
 		CalculateDeltaTime();
 		inputManager.Update();
 		stateStack.top()->Update(GetDeltaTime());
+		if(-1 == SDL_SetRenderDrawColor(renderer, CLEAR_COLOR)) {
+			Error(SDL_GetError());
+		}
+		SDL_RenderClear(renderer);
 		stateStack.top()->Render();
 		SDL_RenderPresent(renderer);
 		UpdateStack();
@@ -173,12 +181,11 @@ float Game::GetDeltaTime(void) const {
 }
 
 void Game::UpdateStack(void) {
+	bool popped = false;
 	if(stateStack.top()->PopRequested()) {
 		stateStack.pop();
 		Resources::ClearResources();
-		if(!stateStack.empty()) {
-			stateStack.top()->Resume();
-		}
+		popped = true;
 	}
 
 	if(nullptr != storedState) {
@@ -187,6 +194,10 @@ void Game::UpdateStack(void) {
 		}
 		stateStack.push(std::unique_ptr<State>(storedState));
 		storedState = nullptr;
+	}
+
+	if(!stateStack.empty() && popped) {
+		stateStack.top()->Resume();
 	}
 }
 
@@ -264,4 +275,8 @@ bool Game::GetWindowMaximized(void) const{
 
 bool Game::GetWindowBorderless(void) const{
 	return SDL_GetWindowFlags(window) & SDL_WINDOW_BORDERLESS;
+}
+
+unsigned int Game::GetTicks(void){
+	return frameStart;
 }

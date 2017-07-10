@@ -139,6 +139,9 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a1645048aadaadad50404ff1868e11bb2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a1645048aadaadad50404ff1868e11bb2">QuitRequested</a> (void)</td></tr>
 <tr class="memdesc:a1645048aadaadad50404ff1868e11bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa se o state solicitou que o jogo seja fechado.  <a href="#a1645048aadaadad50404ff1868e11bb2">Mais...</a><br /></td></tr>
 <tr class="separator:a1645048aadaadad50404ff1868e11bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60c55c31895344bb499f28a22724fab9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a60c55c31895344bb499f28a22724fab9">LoadAssets</a> (void) const =0</td></tr>
+<tr class="memdesc:a60c55c31895344bb499f28a22724fab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega os assets do estado.  <a href="#a60c55c31895344bb499f28a22724fab9">Mais...</a><br /></td></tr>
+<tr class="separator:a60c55c31895344bb499f28a22724fab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Métodos Protegidos</h2></td></tr>
@@ -238,6 +241,35 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a60c55c31895344bb499f28a22724fab9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void State::LoadAssets </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Carrega os assets do estado. </p>
+<p>Carrega os assets do estado. </p>
+
+<p>Implementado por <a class="el" href="classStageState.html#abf04316b912448488ce28d238f37f558">StageState</a>, <a class="el" href="classTitleState.html#adb5854ae3acb558d7a16d722d8c81e6a">TitleState</a> e <a class="el" href="classEndState.html#a73da0a20db27fc84ecd0671b1c18ec33">EndState</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ae9fa377b30f06fdd809a1557bfbc190a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -263,7 +295,7 @@ Atributos Protegidos</h2></td></tr>
 <p>Pausa o <a class="el" href="classState.html" title="Classe virtual que modela um estado do jogo. ">State</a>. </p>
 <p>Esse método realizar as ações necessárias para pausar o <a class="el" href="classState.html" title="Classe virtual que modela um estado do jogo. ">State</a> para que outro <a class="el" href="classState.html" title="Classe virtual que modela um estado do jogo. ">State</a> seja empilhado sobre ele. </p>
 
-<p>Implementado por <a class="el" href="classStageState.html#a7551ce8a236840e075f6f38f44140e59">StageState</a>, <a class="el" href="classEndState.html#ac0cc5426e529a4d8572b38e8a87d2d3e">EndState</a> e <a class="el" href="classTitleState.html#acd67f9c5e70d8aba7cccb6449fa6f383">TitleState</a>.</p>
+<p>Implementado por <a class="el" href="classStageState.html#a7551ce8a236840e075f6f38f44140e59">StageState</a>, <a class="el" href="classTitleState.html#acd67f9c5e70d8aba7cccb6449fa6f383">TitleState</a> e <a class="el" href="classEndState.html#ac0cc5426e529a4d8572b38e8a87d2d3e">EndState</a>.</p>
 
 </div>
 </div>
@@ -330,7 +362,7 @@ Atributos Protegidos</h2></td></tr>
 <p>Renderiza os elmentos do jogo. </p>
 <p>Aqui deve ser colocado o código que rederiza os elementos jogo na ordem que for desejada. Pode-se fazer o uso do RenderArray por praticidade. </p>
 
-<p>Implementado por <a class="el" href="classStageState.html#a6539a58d85b9367d6c027c3348f1b538">StageState</a>, <a class="el" href="classEndState.html#a1c876f3d062547988ac482f9c84d4b14">EndState</a> e <a class="el" href="classTitleState.html#a5b7c34e4f33459f93e2b9f4bc95d83cf">TitleState</a>.</p>
+<p>Implementado por <a class="el" href="classStageState.html#a6539a58d85b9367d6c027c3348f1b538">StageState</a>, <a class="el" href="classTitleState.html#a5b7c34e4f33459f93e2b9f4bc95d83cf">TitleState</a> e <a class="el" href="classEndState.html#a1c876f3d062547988ac482f9c84d4b14">EndState</a>.</p>
 
 </div>
 </div>
@@ -386,7 +418,7 @@ Atributos Protegidos</h2></td></tr>
 <p>Despausa o <a class="el" href="classState.html" title="Classe virtual que modela um estado do jogo. ">State</a>. </p>
 <p>Esse método realizar as ações necessárias para o <a class="el" href="classState.html" title="Classe virtual que modela um estado do jogo. ">State</a> seja despausado pois o <a class="el" href="classState.html" title="Classe virtual que modela um estado do jogo. ">State</a> que estava sobre ele na pilha foi desempilhado. </p>
 
-<p>Implementado por <a class="el" href="classStageState.html#a1ca42c08929c560284b04a08362e0c8c">StageState</a>, <a class="el" href="classEndState.html#a27e54374f84da806d7bd8bfc985d41b9">EndState</a> e <a class="el" href="classTitleState.html#a97e07af49ceb37c838f435f8f12f0ce1">TitleState</a>.</p>
+<p>Implementado por <a class="el" href="classStageState.html#a1ca42c08929c560284b04a08362e0c8c">StageState</a>, <a class="el" href="classTitleState.html#a97e07af49ceb37c838f435f8f12f0ce1">TitleState</a> e <a class="el" href="classEndState.html#a27e54374f84da806d7bd8bfc985d41b9">EndState</a>.</p>
 
 </div>
 </div>
@@ -421,7 +453,7 @@ Atributos Protegidos</h2></td></tr>
 </dl>
 <p>Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras paster que forem julgadas necessárias. Pode-se fazer o uso do <a class="el" href="classState.html#abb605ec5fe585d227fbf267e0e6c80a9" title="Atualiza o estado de cada GameObject no vetor de GameObjects. ">UpdateArray()</a> por praticidade. </p>
 
-<p>Implementado por <a class="el" href="classStageState.html#ae77d7d804ee36c434faf52ace163e85a">StageState</a>, <a class="el" href="classEndState.html#a0fabb275706a8324521ed1e88efda11d">EndState</a> e <a class="el" href="classTitleState.html#a11c14c15e072eff738fd48f3f0b7c1bf">TitleState</a>.</p>
+<p>Implementado por <a class="el" href="classStageState.html#ae77d7d804ee36c434faf52ace163e85a">StageState</a>, <a class="el" href="classTitleState.html#a11c14c15e072eff738fd48f3f0b7c1bf">TitleState</a> e <a class="el" href="classEndState.html#a0fabb275706a8324521ed1e88efda11d">EndState</a>.</p>
 
 </div>
 </div>
@@ -529,7 +561,7 @@ Atributos Protegidos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 20 de Junho de 2017 22:05:42 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 7 de Julho de 2017 01:40:39 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

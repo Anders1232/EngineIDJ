@@ -1,3 +1,21 @@
 <map id="Gráfico de Hierarquia de Classes" name="Gráfico de Hierarquia de Classes">
-<area shape="rect" id="node1" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="5,5,68,32"/>
+<area shape="rect" id="node1" href="$classComponent.html" title="Modela os componentes. " alt="" coords="23,461,112,488"/>
+<area shape="rect" id="node2" href="$classAIArt.html" title="Componete IA que se move para ponto de destino. " alt="" coords="205,259,257,285"/>
+<area shape="rect" id="node3" href="$classAIEngineer.html" title="Componete IA que se move para ponto de destino. " alt="" coords="187,309,274,336"/>
+<area shape="rect" id="node4" href="$classAIGoDown.html" title="Componete IA que se move para baixo. " alt="" coords="187,563,274,589"/>
+<area shape="rect" id="node5" href="$classAIGoTo.html" title="Componete IA que se move para ponto de destino. " alt="" coords="197,613,264,640"/>
+<area shape="rect" id="node6" href="$classAIMedic.html" title="Componete IA que se move para ponto de destino. " alt="" coords="195,360,266,387"/>
+<area shape="rect" id="node7" href="$classAIPrintPath.html" title="Componete IA que se move para ponto de destino. " alt="" coords="186,664,275,691"/>
+<area shape="rect" id="node8" href="$classAIQuimic.html" title="Componete IA que reproduz o comportamento do estudande de quimica. " alt="" coords="193,208,269,235"/>
+<area shape="rect" id="node9" href="$classDragAndDrop.html" title="Classe responsável por arrastar e posicionar Objetos. " alt="" coords="180,715,281,741"/>
+<area shape="rect" id="node10" href="$classHitPoints.html" title="HitPoints" alt="" coords="193,411,269,437"/>
+<area shape="rect" id="node11" href="$classShooter.html" title="Shooter" alt="" coords="197,461,264,488"/>
+<area shape="rect" id="node12" href="$classWaveManager.html" title="Classe que gerencia as waves do jogo. Responsavel por iniciar, encerrar e contar as waves..." alt="" coords="177,512,284,539"/>
+<area shape="rect" id="node13" href="$classNearestGOFinder.html" title="NearestGOFinder" alt="" coords="5,31,129,57"/>
+<area shape="rect" id="node14" href="$classStageState.html" title="StageState" alt="" coords="187,56,274,83"/>
+<area shape="rect" id="node15" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="197,5,265,32"/>
+<area shape="rect" id="node16" href="$classState.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="41,107,94,133"/>
+<area shape="rect" id="node17" href="$classEndState.html" title="EndState" alt="" coords="193,157,269,184"/>
+<area shape="rect" id="node18" href="$classTitleState.html" title="TitleState" alt="" coords="191,107,270,133"/>
+<area shape="rect" id="node19" href="$classTileMapObserver.html" title="TileMapObserver" alt="" coords="7,259,128,285"/>
 </map>

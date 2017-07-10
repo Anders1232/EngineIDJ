@@ -107,7 +107,7 @@ Diagrama de Hierarquia para WaveManager:</div>
 <div class="dynheader">
 Diagrama de colaboração para WaveManager:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classWaveManager__coll__graph.svg" width="1539" height="706"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classWaveManager__coll__graph.svg" width="1598" height="916"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
@@ -119,30 +119,33 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:abead530485a53219fd0fd27146cdb33f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#abead530485a53219fd0fd27146cdb33f">~WaveManager</a> ()</td></tr>
 <tr class="memdesc:abead530485a53219fd0fd27146cdb33f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor. Destrói o ponteiro de spawnGroups.  <a href="#abead530485a53219fd0fd27146cdb33f">Mais...</a><br /></td></tr>
 <tr class="separator:abead530485a53219fd0fd27146cdb33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af03a0b16b8649875d370ecd97b607ebc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#af03a0b16b8649875d370ecd97b607ebc">Update</a> (<a class="el" href="classGameObject.html">GameObject</a> &amp;associated, float dt)</td></tr>
-<tr class="memdesc:af03a0b16b8649875d370ecd97b607ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza estado. Atualiza o estado da wave atual.  <a href="#af03a0b16b8649875d370ecd97b607ebc">Mais...</a><br /></td></tr>
-<tr class="separator:af03a0b16b8649875d370ecd97b607ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4ce36fc37b9a973fd4556ef621f548a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#ad4ce36fc37b9a973fd4556ef621f548a">Update</a> (float dt)</td></tr>
+<tr class="memdesc:ad4ce36fc37b9a973fd4556ef621f548a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza estado. Atualiza o estado da wave atual.  <a href="#ad4ce36fc37b9a973fd4556ef621f548a">Mais...</a><br /></td></tr>
+<tr class="separator:ad4ce36fc37b9a973fd4556ef621f548a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f7b6ac70478d5ce9543cc988e6f5a10"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a1f7b6ac70478d5ce9543cc988e6f5a10">Is</a> (<a class="el" href="ComponentType_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0">ComponentType</a> type) const </td></tr>
 <tr class="memdesc:a1f7b6ac70478d5ce9543cc988e6f5a10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipo Retorna o tipo da componente se é igual a WAVE_MANAGER. true ou false.  <a href="#a1f7b6ac70478d5ce9543cc988e6f5a10">Mais...</a><br /></td></tr>
 <tr class="separator:a1f7b6ac70478d5ce9543cc988e6f5a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa56d31703d3d02067e75debabbfae300"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#aa56d31703d3d02067e75debabbfae300">StartWave</a> ()</td></tr>
-<tr class="memdesc:aa56d31703d3d02067e75debabbfae300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa um nova wave. reinicia os atributos da classe (enemyIndex, endWave e waveCount) para executar uma nova wave e conta o novo número de inimigos restantes.  <a href="#aa56d31703d3d02067e75debabbfae300">Mais...</a><br /></td></tr>
-<tr class="separator:aa56d31703d3d02067e75debabbfae300"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50348ec5262024b3f5386f849bf02172"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a50348ec5262024b3f5386f849bf02172">EndWave</a> ()</td></tr>
-<tr class="memdesc:a50348ec5262024b3f5386f849bf02172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica Fim de wave. Verifica se a flag de fim de wave foi acionada. Retorna endWave.  <a href="#a50348ec5262024b3f5386f849bf02172">Mais...</a><br /></td></tr>
-<tr class="separator:a50348ec5262024b3f5386f849bf02172"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa19e180ce6afba1fad0b92ab25a3dba5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#aa19e180ce6afba1fad0b92ab25a3dba5">NotifyEnemyGotToHisDestiny</a> ()</td></tr>
-<tr class="memdesc:aa19e180ce6afba1fad0b92ab25a3dba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inimigo Chegou ao Destino. Recebe uma notificação da componente <a class="el" href="classHitPoints.html">HitPoints</a>, se o inimigo foi destruido por chegar ao destino e decrementa o contador de vidas.  <a href="#aa19e180ce6afba1fad0b92ab25a3dba5">Mais...</a><br /></td></tr>
-<tr class="separator:aa19e180ce6afba1fad0b92ab25a3dba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a565c7b86ea66365e8fbc552c5918ce82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a565c7b86ea66365e8fbc552c5918ce82">NotifyEnemyGotKilled</a> ()</td></tr>
-<tr class="memdesc:a565c7b86ea66365e8fbc552c5918ce82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inimigo Destruido. Recebe uma notificação se o inimigo foi destruido e decrementa o contador de inimigos restantes.  <a href="#a565c7b86ea66365e8fbc552c5918ce82">Mais...</a><br /></td></tr>
-<tr class="separator:a565c7b86ea66365e8fbc552c5918ce82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1409142aba1b106a0c2826ca2cbb97a7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a1409142aba1b106a0c2826ca2cbb97a7">GetLifesLeft</a> ()</td></tr>
-<tr class="memdesc:a1409142aba1b106a0c2826ca2cbb97a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pegar vidas Restantes.  <a href="#a1409142aba1b106a0c2826ca2cbb97a7">Mais...</a><br /></td></tr>
-<tr class="separator:a1409142aba1b106a0c2826ca2cbb97a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cefa420665f27cfbec19c34fbdba628"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a7cefa420665f27cfbec19c34fbdba628">GetEnemiesLeft</a> ()</td></tr>
-<tr class="memdesc:a7cefa420665f27cfbec19c34fbdba628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pegar inimigos Restantes.  <a href="#a7cefa420665f27cfbec19c34fbdba628">Mais...</a><br /></td></tr>
-<tr class="separator:a7cefa420665f27cfbec19c34fbdba628"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a038b01286ee2774ff0df6cfc88aafcae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a038b01286ee2774ff0df6cfc88aafcae">StartWave</a> (void)</td></tr>
+<tr class="memdesc:a038b01286ee2774ff0df6cfc88aafcae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa um nova wave. reinicia os atributos da classe (enemyIndex, endWave e waveCount) para executar uma nova wave e conta o novo número de inimigos restantes.  <a href="#a038b01286ee2774ff0df6cfc88aafcae">Mais...</a><br /></td></tr>
+<tr class="separator:a038b01286ee2774ff0df6cfc88aafcae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfc57489f64fcc705ffa9ed5bb176cf5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#adfc57489f64fcc705ffa9ed5bb176cf5">EndWave</a> (void) const </td></tr>
+<tr class="memdesc:adfc57489f64fcc705ffa9ed5bb176cf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica Fim de wave. Verifica se a flag de fim de wave foi acionada. Retorna endWave.  <a href="#adfc57489f64fcc705ffa9ed5bb176cf5">Mais...</a><br /></td></tr>
+<tr class="separator:adfc57489f64fcc705ffa9ed5bb176cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e4038156a1905fc79f3a4ea9e4cce3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a9e4038156a1905fc79f3a4ea9e4cce3f">NotifyEnemyGotToHisDestiny</a> (void)</td></tr>
+<tr class="memdesc:a9e4038156a1905fc79f3a4ea9e4cce3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inimigo Chegou ao Destino. Recebe uma notificação da componente <a class="el" href="classHitPoints.html">HitPoints</a>, se o inimigo foi destruido por chegar ao destino e decrementa o contador de vidas.  <a href="#a9e4038156a1905fc79f3a4ea9e4cce3f">Mais...</a><br /></td></tr>
+<tr class="separator:a9e4038156a1905fc79f3a4ea9e4cce3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833571dc072b463c5917922ac7d2f901"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a833571dc072b463c5917922ac7d2f901">NotifyEnemyGotKilled</a> (void)</td></tr>
+<tr class="memdesc:a833571dc072b463c5917922ac7d2f901"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inimigo Destruido. Recebe uma notificação se o inimigo foi destruido e decrementa o contador de inimigos restantes.  <a href="#a833571dc072b463c5917922ac7d2f901">Mais...</a><br /></td></tr>
+<tr class="separator:a833571dc072b463c5917922ac7d2f901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcf13d96b914c16eecaae975b9af9063"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#afcf13d96b914c16eecaae975b9af9063">GetLifesLeft</a> (void)</td></tr>
+<tr class="memdesc:afcf13d96b914c16eecaae975b9af9063"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pegar vidas Restantes.  <a href="#afcf13d96b914c16eecaae975b9af9063">Mais...</a><br /></td></tr>
+<tr class="separator:afcf13d96b914c16eecaae975b9af9063"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae972d63eaf8b881f359dcde75f9097c6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#ae972d63eaf8b881f359dcde75f9097c6">GetEnemiesLeft</a> (void)</td></tr>
+<tr class="memdesc:ae972d63eaf8b881f359dcde75f9097c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pegar inimigos Restantes.  <a href="#ae972d63eaf8b881f359dcde75f9097c6">Mais...</a><br /></td></tr>
+<tr class="separator:ae972d63eaf8b881f359dcde75f9097c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24a5d1fcfb583868e72362006f32dae0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a24a5d1fcfb583868e72362006f32dae0">Victory</a> (void)</td></tr>
+<tr class="memdesc:a24a5d1fcfb583868e72362006f32dae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Condiçao de Vitoria.  <a href="#a24a5d1fcfb583868e72362006f32dae0">Mais...</a><br /></td></tr>
+<tr class="separator:a24a5d1fcfb583868e72362006f32dae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classComponent')"><img src="closed.png" alt="-"/>&#160;Métodos Públicos inherited from <a class="el" href="classComponent.html">Component</a></td></tr>
 <tr class="memitem:ae18722fd3bbb40cef7daf1b94aabb397 inherit pub_methods_classComponent"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#ae18722fd3bbb40cef7daf1b94aabb397">~Component</a> (void)</td></tr>
 <tr class="memdesc:ae18722fd3bbb40cef7daf1b94aabb397 inherit pub_methods_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor.  <a href="#ae18722fd3bbb40cef7daf1b94aabb397">Mais...</a><br /></td></tr>
@@ -150,14 +153,16 @@ Métodos Públicos</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Métodos Privados</h2></td></tr>
-<tr class="memitem:aab65a107a231828cf45d1da8d9bb1566"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#aab65a107a231828cf45d1da8d9bb1566">SpawnEnemy</a> (int tileMapPosition, int enemyId, <a class="el" href="Error_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> baseHP, <a class="el" href="Error_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> endPoint)</td></tr>
-<tr class="memdesc:aab65a107a231828cf45d1da8d9bb1566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Criar um novo inimigo no mapa.  <a href="#aab65a107a231828cf45d1da8d9bb1566">Mais...</a><br /></td></tr>
-<tr class="separator:aab65a107a231828cf45d1da8d9bb1566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a135e5e07f215646456c2f5e754ee9a43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a135e5e07f215646456c2f5e754ee9a43">SpawnEnemy</a> (int tileMapPosition, int enemyId, <a class="el" href="Error_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> baseHP, <a class="el" href="Error_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> endPoint, <a class="el" href="Error_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> indexOfTheEnemyToSpawn)</td></tr>
+<tr class="memdesc:a135e5e07f215646456c2f5e754ee9a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Criar um novo inimigo no mapa.  <a href="#a135e5e07f215646456c2f5e754ee9a43">Mais...</a><br /></td></tr>
+<tr class="separator:a135e5e07f215646456c2f5e754ee9a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Atributos Privados</h2></td></tr>
 <tr class="memitem:a09ade817ca7b744f1f00a6bf2eecbae6"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; int &gt; &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a09ade817ca7b744f1f00a6bf2eecbae6">spawnGroups</a></td></tr>
 <tr class="separator:a09ade817ca7b744f1f00a6bf2eecbae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac78e216589fb409b3084158740bb0d9a"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; int &gt; &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#ac78e216589fb409b3084158740bb0d9a">endGroups</a></td></tr>
+<tr class="separator:ac78e216589fb409b3084158740bb0d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba881a7a8545c3ae65df0b49c64c2895"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTimer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#aba881a7a8545c3ae65df0b49c64c2895">spawnTimer</a></td></tr>
 <tr class="separator:aba881a7a8545c3ae65df0b49c64c2895"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b3d40032ffbd30f9b906baf80ad54bf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a6b3d40032ffbd30f9b906baf80ad54bf">enemiesLeft</a></td></tr>
@@ -182,6 +187,14 @@ Atributos Privados</h2></td></tr>
 <tr class="separator:ab8af4ebd0ddd0ef92664d0c6de9ae425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64c49de73005706f16187749699f9d0a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a64c49de73005706f16187749699f9d0a">maxNumberOfEnemiesInSpawnPoint</a></td></tr>
 <tr class="separator:a64c49de73005706f16187749699f9d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42df89d474859a0b17ab6afd53424a51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#a42df89d474859a0b17ab6afd53424a51">victory</a></td></tr>
+<tr class="separator:a42df89d474859a0b17ab6afd53424a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9eab868b6560b64496b9f02ef262d38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSound.html">Sound</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#af9eab868b6560b64496b9f02ef262d38">waveStartSound</a></td></tr>
+<tr class="separator:af9eab868b6560b64496b9f02ef262d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ff95f5fa2286b6b2fd86fc5193ea4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTimer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#aa3ff95f5fa2286b6b2fd86fc5193ea4c">betweenWavesTimer</a></td></tr>
+<tr class="separator:aa3ff95f5fa2286b6b2fd86fc5193ea4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab35034b294467422f57f9ddd66bc0d5e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaveManager.html#ab35034b294467422f57f9ddd66bc0d5e">waitingForTheNextWave</a></td></tr>
+<tr class="separator:ab35034b294467422f57f9ddd66bc0d5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Atributos Privados Estáticos</h2></td></tr>
@@ -245,15 +258,16 @@ Atributos Privados Estáticos</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Métodos</h2>
-<a class="anchor" id="a50348ec5262024b3f5386f849bf02172"></a>
+<a class="anchor" id="adfc57489f64fcc705ffa9ed5bb176cf5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool WaveManager::EndWave </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -262,13 +276,14 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7cefa420665f27cfbec19c34fbdba628"></a>
+<a class="anchor" id="ae972d63eaf8b881f359dcde75f9097c6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int WaveManager::GetEnemiesLeft </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -280,13 +295,14 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1409142aba1b106a0c2826ca2cbb97a7"></a>
+<a class="anchor" id="afcf13d96b914c16eecaae975b9af9063"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int WaveManager::GetLifesLeft </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -332,13 +348,14 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a565c7b86ea66365e8fbc552c5918ce82"></a>
+<a class="anchor" id="a833571dc072b463c5917922ac7d2f901"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void WaveManager::NotifyEnemyGotKilled </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -349,13 +366,14 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa19e180ce6afba1fad0b92ab25a3dba5"></a>
+<a class="anchor" id="a9e4038156a1905fc79f3a4ea9e4cce3f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void WaveManager::NotifyEnemyGotToHisDestiny </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -366,7 +384,7 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aab65a107a231828cf45d1da8d9bb1566"></a>
+<a class="anchor" id="a135e5e07f215646456c2f5e754ee9a43"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -395,7 +413,13 @@ Atributos Privados Estáticos</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="Error_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
-          <td class="paramname"><em>endPoint</em>&#160;</td>
+          <td class="paramname"><em>endPoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Error_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
+          <td class="paramname"><em>indexOfTheEnemyToSpawn</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -423,13 +447,14 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa56d31703d3d02067e75debabbfae300"></a>
+<a class="anchor" id="a038b01286ee2774ff0df6cfc88aafcae"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void WaveManager::StartWave </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -440,7 +465,7 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af03a0b16b8649875d370ecd97b607ebc"></a>
+<a class="anchor" id="ad4ce36fc37b9a973fd4556ef621f548a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -450,19 +475,9 @@ Atributos Privados Estáticos</h2></td></tr>
         <tr>
           <td class="memname">void WaveManager::Update </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classGameObject.html">GameObject</a> &amp;&#160;</td>
-          <td class="paramname"><em>associated</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dt</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>dt</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -475,17 +490,76 @@ Atributos Privados Estáticos</h2></td></tr>
 <p>Atualiza estado. Atualiza o estado da wave atual. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">associated.</td><td>So recebe este argumento por ser um componente. Mas como wave nao faz parte de um <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a>, ele recebe o parametro EmptyGameObject em que nao é usada. </td></tr>
     <tr><td class="paramname">dt</td><td>tempo dt, é usado para fazer o spawn de tempos em tempos dos inimigos. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implementa <a class="el" href="classComponent.html#a0e159ba9d0cdeb481f8cc87c8ad99660">Component</a>.</p>
+<p>Implementa <a class="el" href="classComponent.html#a990f6e7cd155934d322e2595f211a64c">Component</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a24a5d1fcfb583868e72362006f32dae0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WaveManager::Victory </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Condiçao de Vitoria. </p>
+<dl class="section return"><dt>Retorna</dt><dd>victory: verdadeiro se as waves acabaram. Retorna true se a condiçao de vitoria foi satisfeita. </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="aa3ff95f5fa2286b6b2fd86fc5193ea4c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTimer.html">Timer</a> WaveManager::betweenWavesTimer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac78e216589fb409b3084158740bb0d9a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;vector&lt;int&gt; &gt;* WaveManager::endGroups</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint. </p>
+
+</div>
+</div>
 <a class="anchor" id="a12a0514d03f34f6457936220b5e13484"></a>
 <div class="memitem">
 <div class="memproto">
@@ -565,6 +639,7 @@ Atributos Privados Estáticos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Numero maximo de um tipo de inimigo dentro de uma SpawnGroup. </p>
 
 </div>
 </div>
@@ -673,6 +748,47 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a42df89d474859a0b17ab6afd53424a51"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WaveManager::victory</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Verdadeiro se o jogador passou por todas as waves com vidas restantes. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab35034b294467422f57f9ddd66bc0d5e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WaveManager::waitingForTheNextWave</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a393dd32c231c18d444ed25cb5dcfa33a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -735,6 +851,26 @@ Atributos Privados Estáticos</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="af9eab868b6560b64496b9f02ef262d38"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSound.html">Sound</a> WaveManager::waveStartSound</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ab8af4ebd0ddd0ef92664d0c6de9ae425"></a>
 <div class="memitem">
 <div class="memproto">
@@ -763,7 +899,7 @@ Atributos Privados Estáticos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 20 de Junho de 2017 22:05:42 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 7 de Julho de 2017 01:40:39 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

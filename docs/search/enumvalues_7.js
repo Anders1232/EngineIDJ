@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['neutral',['NEUTRAL',['../Enemy_8h.html#ac3e413a86119db4b031458c7259e268eaf46d14eb9d5d71afc9f6e747689fcb56',1,'Enemy.h']]]
+  ['left',['LEFT',['../Enemy_8h.html#afe40ed1e5294188d5a3b983708134ac5adb45120aafd37a973140edee24708065',1,'Enemy.h']]]
 ];
