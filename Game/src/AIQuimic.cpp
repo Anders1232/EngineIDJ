@@ -117,16 +117,11 @@ void AIQuimic::Update(float dt){
 				associated.box.y = (associated.box.Center().y + (vecSpeed.MemberMult(dt)).y - associated.box.h/2);
 				lastDistance = distance;
 			}
-
 			if((*path)[path->size() - 1] != destTile){
-
 				shooter->SetActive(true);
-
 			}
 			else{
-
 				shooter->SetActive(false);
-
 			}
 		}
 	}
@@ -161,7 +156,6 @@ void AIQuimic::Update(float dt){
 	else if(actualState == AIState::SENDING_BOMB){
 		if(tileMap.GetCoordTilePos(associated.box.Center(), false, 0) != destTile){
 			shooter->SetActive(true);
-
 			if(getPathTimer.Get() > randomMaxTimer){
 				getPathTimer.Restart();
 				randomMaxTimer = rand()%3;
@@ -173,7 +167,6 @@ void AIQuimic::Update(float dt){
 					vecSpeed = associated.box.Center().VecDistance(tempDestination).Normalize().MemberMult(speed / actualTileweight);
 					lastDistance = std::numeric_limits<float>::max();
 				}
-
 			}
 			getPathTimer.Update(dt);
 		}
@@ -185,6 +178,9 @@ void AIQuimic::Update(float dt){
 	else if(actualState == AIState::STUNNED){
 		shooter->SetActive(false);
 		//Aqui executa animações do efeito estonteante
+	}
+	if(tileMap.GetCoordTilePos(associated.box, false, 0) == destTile){
+		waveManager.NotifyEnemyGotToHisDestiny();
 	}
 }
 

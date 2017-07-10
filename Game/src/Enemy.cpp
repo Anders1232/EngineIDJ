@@ -11,7 +11,7 @@
 #include "Timer.h"
 
 Enemy::Enemy(Vec2 position, int enemyIndex, EnemyData enemyData, uint baseHP, uint endPoint, TileMap & tileMap, WaveManager &wManager)
-	: sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE), dead(false), direction(EnemyDirections::DOWN), walkingSound("audio/Ambiente/andando2.wav"){
+	: sp(EnemyDirections::ENEMY_DIRECTIONS_SIZE), dead(false), direction(EnemyDirections::DOWN), lastEvent(Enemy::Event::NONE), walkingSound("audio/Ambiente/andando2.wav"), wManager(wManager){
 	box = position;
 	this->enemyIndex = enemyIndex; 
 	this->baseHP = baseHP; 
@@ -208,6 +208,9 @@ void Enemy::NotifyCollision(GameObject &object) {
 	if(object.Is("Bullet")){
 		if(((Bullet&)object).getTargetType() == "Enemy"){
 			hitpoints->Damage(ENEMY_BULLET_DAMAGE);
+			if(0 >= hitpoints->GetHp()){
+				wManager.NotifyEnemyGotKilled();
+			}
 		}
 	}
 }
@@ -220,9 +223,7 @@ void Enemy::NotifyEvent(Event e){
 }
 
 Enemy::Event Enemy::GetLastEvent(){
-
 	return(lastEvent);
-	
 }
 
 bool Enemy::Is(string type) {

@@ -151,6 +151,7 @@ class Enemy : public GameObject
 		Event lastEvent;
 		Sound walkingSound;
 		Timer eventTimer;
+		WaveManager &wManager;
 };
 
 #endif // ENEMY_H
