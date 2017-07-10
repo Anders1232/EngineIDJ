@@ -29,9 +29,11 @@ Aura::Aura(GameObject &associated,
 	}
 	sp.ScaleX(auraRange/(float)sp.GetWidth());
 	sp.ScaleY(auraRange/(float)sp.GetHeight());
+	sp.colorMultiplier.a= 110;
 	if(Enemy::Event::HEALER != auraType){
 		sp2.ScaleX(auraRange/(float)sp2.GetWidth());
 		sp2.ScaleY(auraRange/(float)sp2.GetHeight());
+		sp2.colorMultiplier.a=110;
 	}
 }
 
