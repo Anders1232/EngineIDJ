@@ -48,9 +48,7 @@ Impedir que os infetados cheguem à reitoria e à biblioteca.
 - SDL2_mixer
 - SDL2_TTF
 - SDL2_image
-- MingW32/MSYS2 **(Windows)**
-
-Devido a quantidade de recursos pesados no repositório, este suporta a extensão `git lfs`. É **extremamente recomendável** instalá-lo e utilizá-lo para clonar o repositório.
+- MingW **(Windows)**
 
 Caso queira um lista mais completa, mas com dependẽncias que são utilizadas internamente pela própria SDL2 no Linux, a saída do ldd do jogo é:
 
