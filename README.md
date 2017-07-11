@@ -42,13 +42,22 @@ Impedir que os infetados cheguem à reitoria e à biblioteca.
 	- Bruno Gomes
 - Músicos:
 	- Luiz Bastos
-  
+
+---
+
 #### Dependências:
 - SDL2
 - SDL2_mixer
 - SDL2_TTF
 - SDL2_image
 - MingW **(Windows)**
+- git lfs*
+
+*O vídeo de gameplay do nosso jogo está nesse repositório. Como ele é grande (approx. 100 MB), clonar o repositório se tornou um processo demorado (e impossível porquê o git reclama de arquivos > 50 MB). Usamos então o git lfs para conseguir armazenar o vídeo e, caso desejado, pular o seu download ao fazer o clone.
+
+**O download e instalação do git lfs somente se faz necessário se, e somente se, se deseje baixar o vídeo ao fazer o clone.** Se desejar fazer o download do vídeo pelo navegador, basta clicar para obter o raw dele.
+
+*P.S.: Se você tiver o git lfs instalado e ***não*** quiser baixar o vídeo, terá que pular a etapa de smudge.*
 
 Caso queira um lista mais completa, mas com dependẽncias que são utilizadas internamente pela própria SDL2 no Linux, a saída do ldd do jogo é:
 
@@ -129,7 +138,7 @@ Caso queira um lista mais completa, mas com dependẽncias que são utilizadas i
 		libresolv.so.2 => /lib/x86_64-linux-gnu/libresolv.so.2 (0x00007fcc6972c000)  
 		libgpg-error.so.0 => /lib/x86_64-linux-gnu/libgpg-error.so.0 (0x00007fcc69515000)  
   
-#### Como compilar
+## Como compilar
 **No linux:**
 Após instalar as dependências, baixe o projeto no github e rode o comando:  
 
