@@ -149,7 +149,7 @@ int TileMap::GetCoordTilePos(Vec2 const &mousePos, bool affecteedByZoom, int lay
 	int y, yDir = mapHeight-1, yEsq = 0;
 	while(1){//uma simplesBusca binária
 		y = (yEsq+yDir)/2;
-		if(y*tileWidth <= position.y) {
+		if(y*tileHeight <= position.y) {
 			if(position.y < (y+1)*tileHeight) {
 				break;
 			} else {

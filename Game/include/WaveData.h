@@ -44,7 +44,7 @@ struct SpawnPointData{
 
 struct WaveData{
 	public:
-//		WaveData();
+		WaveData() {};
 		std::string waveName;
 		std::vector<SpawnPointData> spawnPointsData;
 		

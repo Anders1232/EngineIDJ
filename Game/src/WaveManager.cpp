@@ -13,9 +13,14 @@
 
 int WaveManager::waveCount = 0;
 
-
-WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap), waveStartSound("audio/Acoes/Inicio de Wave.wav"), betweenWavesTimer(), waitingForTheNextWave(true) {
-	endWave=false;
+WaveManager::WaveManager(TileMap& tileMap, string waveFile)
+		: tileMap(tileMap)
+		, waveStartSound("audio/Acoes/Inicio de Wave.wav")
+		, levelUpSound("audio/Acoes/Level Up.wav")
+		, lostEnemySound("audio/Acoes/perdeu1.wav")
+		, betweenWavesTimer()
+		, waitingForTheNextWave(false) {
+	endWave=true;
 	enemiesLeft = 0;
 	playerLifes = 30;
 	REPORT_DEBUG2(1, "Buscando spawn points.");
@@ -24,10 +29,10 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap), w
 	endGroups= tileMap.GetTileGroups(END_POINT);
 	wavesAndEnemysData = GameResources::GetWaveData("assets/wave&enemyData.txt");
 	enemyIndex = 0;
-	waveIndex=0;
+	waveIndex=-1;
 	totalWaves = wavesAndEnemysData->first.size();
 	victory = false;
-	StartWave();
+	// StartWave();
 }
 
 WaveManager::~WaveManager(){
@@ -62,8 +67,6 @@ bool WaveManager::EndWave(void) const{
 }
  
 void WaveManager::Update(float dt){
-	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
-
 	if(EndWave()){
 		if(totalWaves==waveCount){ //Check Game over Condition
 			//Ao invés de não fazer nada deve-ser informar o fim de jogo
@@ -79,6 +82,7 @@ void WaveManager::Update(float dt){
 				betweenWavesTimer.Update(dt);
 				if(TIME_BETWEEN_WAVES > betweenWavesTimer.Get()){
 					++waveIndex;
+					waveStartSound.Play(1);
 					StartWave();
 				}
 			}
@@ -89,6 +93,7 @@ void WaveManager::Update(float dt){
 			spawnTimer.Update(dt);
 			if(TIME_BETWEEN_SPAWN < spawnTimer.Get()){ // spawn cooldown
 				//spawn 1 enemy at each existing spawn group
+				WaveData currentWave = wavesAndEnemysData->first[waveIndex];
 				for (uint i = 0; i < currentWave.spawnPointsData.size(); i++){
 					uint enemiesCounter= enemyIndex;
 					uint indexOfTheEnemyToSpawn=0;
@@ -140,6 +145,7 @@ void WaveManager::Update(float dt){
 	if (0 >= enemiesLeft){
 		endWave = true;
 		float income = (waveCount* 5)+100;
+		levelUpSound.Play(1);
 		PLAYER_DATA_INSTANCE.GoldUpdate(income);
 	}
 }
@@ -164,6 +170,7 @@ bool WaveManager::Is(ComponentType type) const{
 void WaveManager::NotifyEnemyGotToHisDestiny(void){
 	--playerLifes;
 	PLAYER_DATA_INSTANCE.DecrementLife();
+	lostEnemySound.Play(1);
 }
 
 void WaveManager::NotifyEnemyGotKilled(void){
