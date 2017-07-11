@@ -504,7 +504,7 @@ std::list<int> *TileMap::AStar(int originTile,int destTile,AStarHeuristic* heuri
 }
 
 void TileMap::ShowPath(std::shared_ptr<std::vector<int> > path){
-	for(uint i; i <path->size(); ++i){
+	for(uint i = 0; i <path->size(); ++i){
 		tileMatrix[i + (WALKABLE_LAYER*mapWidth*mapHeight)] = END_POINT;
 	}
 }

@@ -66,11 +66,9 @@ void GameResources::ReadWaveData(std::string file){
 	}
 	std::shared_ptr<std::pair<std::vector<WaveData>, std::vector<EnemyData> > > newEntry(new std::pair<std::vector<WaveData>, std::vector<EnemyData> >() );
 
-	char readEnemyType[ENEMY_TYPE_MAX_STRING_SIZE+1];
-	readEnemyType[ENEMY_TYPE_MAX_STRING_SIZE]= '\0';
+	char readEnemyType[ENEMY_TYPE_MAX_STRING_SIZE+1] = {0};
 
-	char enemyName[ENEMY_MAX_NAME_LENGHT+1];
-	enemyName[ENEMY_MAX_NAME_LENGHT]= '\0';
+	char enemyName[ENEMY_MAX_NAME_LENGHT+1] = {0};
 	fscanf(filePtr, "--ENEMIES--\n");
 	ASSERT2(0 == ferror(filePtr), "\tFile format invalid! Expecting \"--ENEMIES--\".");
 	
@@ -82,8 +80,7 @@ void GameResources::ReadWaveData(std::string file){
 		
 		ASSERT2(1 == fscanf(filePtr, "\t\t%s\n", readEnemyType), "\tFile format invalid! Expecting a string");
 		enemyTypeIndex= GetEnemyTypeFromString(readEnemyType);
-		char spritePath[ENEMY_MAX_SPRITE_NAME_LENGHT+1];
-		spritePath[ENEMY_MAX_SPRITE_NAME_LENGHT]= '\0';
+		char spritePath[ENEMY_MAX_SPRITE_NAME_LENGHT+1] = {0};
 		//para dicionar mais sprites necessita-se duplicar essas linhas
 		ASSERT2( (1 == fscanf(filePtr, "\t\t%s\n", spritePath) ), "\tFile format invalid! Expecting a string with sprite file." );
 		float scaleX, scaleY;
@@ -93,8 +90,7 @@ void GameResources::ReadWaveData(std::string file){
 		ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &gold), "\tGold File format invalid! Expecting an int.");
 		newEntry->second.emplace_back(enemyName, enemyTypeIndex, scaleX, scaleY, spritePath, gold);//vê se esse uso consegue instanciar a struct, caso contrário criar construtor
 	}
-	char waveName[WAVE_NAME_MAX_LENGHT+1];
-	waveName[WAVE_NAME_MAX_LENGHT]= '\0';
+	char waveName[WAVE_NAME_MAX_LENGHT+1] = {0};
 	vector<WaveData> &waveVec= newEntry->first;
 	while(1== fscanf(filePtr, " %s\n", waveName) ){
 		REPORT_DEBUG("\t waveName= " << waveName);
@@ -115,13 +111,13 @@ void GameResources::ReadWaveData(std::string file){
 			while(1 == fscanf(filePtr, "\t\t\t%d\n", &enemyIndex) ){
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
 				int numberOfEnemies;
-				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &numberOfEnemies), "\tFile format invaled! Expecting a integer.");
+				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &numberOfEnemies), "\tFile format invalid! Expecting a integer.");
 				int enemyHP;
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
-				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &enemyHP), "\tFile format invaled! Expecting a integer.");
+				ASSERT2(1 == fscanf(filePtr, "\t\t%d\n", &enemyHP), "\tFile format invalid! Expecting a integer.");
 				uint endPoint;
 				ASSERT2(0 == ferror(filePtr), "\tFile format invalid!.");
-				ASSERT2(1 == fscanf(filePtr, "\t\t%u\n", &endPoint), "\tFile format invaled! Expecting a integer.");
+				ASSERT2(1 == fscanf(filePtr, "\t\t%u\n", &endPoint), "\tFile format invalid! Expecting a integer.");
 				REPORT_DEBUG( "\t enemyIndex= " << enemyIndex);
 				REPORT_DEBUG( "\t numberOfEnemies= " << numberOfEnemies);
 				REPORT_DEBUG( "\t enemyHP= " << enemyHP);
@@ -253,10 +249,10 @@ std::shared_ptr<std::vector<int> > GameResources::GetPath(EnemyType type, AStarH
 	std::map<int, double> weightMap= GetWeightData(weightDataFile)->operator [](type);
 	std::list<int>*pathList= tileMap->AStar(origin, dest, heuristic, weightMap);
 	std::vector<int> *pathVector= new std::vector<int>(pathList->begin(), pathList->end());
-	delete pathList;
 	std::shared_ptr<std::vector<int>> newPath(pathVector);
 	std::pair<uint, std::shared_ptr<std::vector<int> > > newEntry= std::make_pair(lastMapUpdate, newPath);
 	pathMap[index]= newEntry;
+	delete pathList;
 	return newPath;
 }
 

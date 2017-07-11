@@ -8,8 +8,8 @@
 #include "Error.h"
 #include "PlayerData.h"
 
-#define TIME_BETWEEN_SPAWN (0.8)
-#define TIME_BETWEEN_WAVES (5.0)
+#define TIME_BETWEEN_SPAWN 0.8
+#define TIME_BETWEEN_WAVES 5.0
 
 int WaveManager::waveCount = 0;
 
@@ -21,7 +21,7 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile)
 		, betweenWavesTimer()
 		, waitingForTheNextWave(false) {
 	endWave=true;
-	enemiesLeft = 0;
+	enemiesLeft = 1;
 	playerLifes = 30;
 	REPORT_DEBUG2(1, "Buscando spawn points.");
 	spawnGroups= tileMap.GetTileGroups(SPAWN_POINT);
@@ -76,11 +76,10 @@ void WaveManager::Update(float dt){
 			if(!waitingForTheNextWave){
 				waitingForTheNextWave= true;
 				betweenWavesTimer.Restart();
-				waveStartSound.Play(1);
 			}
 			else{
 				betweenWavesTimer.Update(dt);
-				if(TIME_BETWEEN_WAVES > betweenWavesTimer.Get()){
+				if(TIME_BETWEEN_WAVES < betweenWavesTimer.Get()){
 					++waveIndex;
 					waveStartSound.Play(1);
 					StartWave();
