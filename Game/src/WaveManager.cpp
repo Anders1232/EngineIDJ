@@ -13,8 +13,6 @@
 
 int WaveManager::waveCount = 0;
 
-
-<<<<<<< HEAD
 WaveManager::WaveManager(TileMap& tileMap, string waveFile)
 		: tileMap(tileMap)
 		, waveStartSound("audio/Acoes/Inicio de Wave.wav")
@@ -23,10 +21,6 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile)
 		, betweenWavesTimer()
 		, waitingForTheNextWave(false) {
 	endWave=true;
-=======
-WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap), waveStartSound("audio/Acoes/Inicio de Wave.wav"), betweenWavesTimer(), waitingForTheNextWave(true) {
-	endWave=false;
->>>>>>> master
 	enemiesLeft = 0;
 	playerLifes = 30;
 	REPORT_DEBUG2(1, "Buscando spawn points.");
@@ -38,11 +32,7 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile): tileMap(tileMap), w
 	waveIndex=-1;
 	totalWaves = wavesAndEnemysData->first.size();
 	victory = false;
-<<<<<<< HEAD
 	// StartWave();
-=======
-	StartWave();
->>>>>>> master
 }
 
 WaveManager::~WaveManager(){
@@ -77,11 +67,6 @@ bool WaveManager::EndWave(void) const{
 }
  
 void WaveManager::Update(float dt){
-<<<<<<< HEAD
-=======
-	WaveData currentWave = wavesAndEnemysData->first[waveIndex];
->>>>>>> master
-
 	if(EndWave()){
 		if(totalWaves==waveCount){ //Check Game over Condition
 			//Ao invés de não fazer nada deve-ser informar o fim de jogo
@@ -97,10 +82,7 @@ void WaveManager::Update(float dt){
 				betweenWavesTimer.Update(dt);
 				if(TIME_BETWEEN_WAVES > betweenWavesTimer.Get()){
 					++waveIndex;
-<<<<<<< HEAD
 					waveStartSound.Play(1);
-=======
->>>>>>> master
 					StartWave();
 				}
 			}
