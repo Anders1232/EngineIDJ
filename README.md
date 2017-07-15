@@ -154,7 +154,7 @@ Após instalar as dependências, baixe o projeto no github e rode o comando:
 
 O executável terá o nome JOGO.exe
 
-Esse jogo está sobre a licensa Apache versão 2.0, escrita acima.
+Esse jogo está sobre a licensa LGPL versão 3.0, escrita acima.
   
 Screenshots do jogo podem ser vistas em: [https://unbgames.lappis.rocks/games/11/Towers%20of%20Madness](https://unbgames.lappis.rocks/games/11/Towers%20of%20Madness)
 
