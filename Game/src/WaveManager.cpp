@@ -79,7 +79,7 @@ void WaveManager::Update(float dt){
 			}
 			else{
 				betweenWavesTimer.Update(dt);
-				if(TIME_BETWEEN_WAVES < betweenWavesTimer.Get()){
+				if(TIME_BETWEEN_WAVES < betweenWavesTimer.Get() && INPUT_MANAGER.KeyPress('n')){
 					++waveIndex;
 					waveStartSound.Play(1);
 					StartWave();
@@ -141,9 +141,9 @@ void WaveManager::Update(float dt){
 		REPORT_I_WAS_HERE;
 	}
 	REPORT_I_WAS_HERE;
-	if (0 >= enemiesLeft){
+	if (0 >= enemiesLeft && !endWave){
 		endWave = true;
-		float income = (waveCount* 5)+100;
+		float income = (waveCount * 5)+100;
 		levelUpSound.Play(1);
 		PLAYER_DATA_INSTANCE.GoldUpdate(income);
 	}
@@ -167,14 +167,17 @@ bool WaveManager::Is(ComponentType type) const{
 }
 
 void WaveManager::NotifyEnemyGotToHisDestiny(void){
+	--enemiesLeft;
 	--playerLifes;
 	PLAYER_DATA_INSTANCE.DecrementLife();
 	lostEnemySound.Play(1);
 }
 
 void WaveManager::NotifyEnemyGotKilled(void){
-	--enemiesLeft;
-	PLAYER_DATA_INSTANCE.IncrementKills();
+	if( enemiesLeft > 0 ) {
+		--enemiesLeft;
+		PLAYER_DATA_INSTANCE.IncrementKills();
+	}
 }
 
 int WaveManager::GetLifesLeft(void){

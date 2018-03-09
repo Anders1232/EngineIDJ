@@ -84,6 +84,8 @@ StageState::StageState(void)
 	Resources::ChangeMusicVolume(0);
 	Resources::ChangeSoundVolume(0);
 
+	PlayerData::Reset();
+
 	GameResources::SetTileMap(&tileMap);
 	REPORT_I_WAS_HERE;
 	music.Play(0);
@@ -104,9 +106,9 @@ StageState::StageState(void)
 	
 	SetupUI();
 
-	SetUILife(PLAYER_DATA_INSTANCE.GetLifes()/TOTAL_LIFES);
+	SetUILife((float)PLAYER_DATA_INSTANCE.GetLifes()/(float)TOTAL_LIFES);
 	if(waveManager->GetWaveTotalEnemies() > 0) {
-		SetUIWaveProgress(waveManager->GetEnemiesLeft()/waveManager->GetWaveTotalEnemies());
+		SetUIWaveProgress((float)waveManager->GetEnemiesLeft()/(float)waveManager->GetWaveTotalEnemies());
 	} else {
 		SetUIWaveProgress(0.);
 	}
@@ -405,9 +407,9 @@ void StageState::Update(float dt){
 		}
 	}
 
-	SetUILife(PLAYER_DATA_INSTANCE.GetLifes()/TOTAL_LIFES);
+	SetUILife((float)PLAYER_DATA_INSTANCE.GetLifes()/(float)TOTAL_LIFES);
 	if(waveManager->GetWaveTotalEnemies() > 0) {
-		SetUIWaveProgress(waveManager->GetEnemiesLeft()/waveManager->GetWaveTotalEnemies());
+		SetUIWaveProgress((float)waveManager->GetEnemiesLeft()/(float)waveManager->GetWaveTotalEnemies());
 	} else {
 		SetUIWaveProgress(0.);
 	}

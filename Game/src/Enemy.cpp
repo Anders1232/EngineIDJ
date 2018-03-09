@@ -212,6 +212,7 @@ void Enemy::NotifyCollision(GameObject &object) {
 		if(((Bullet&)object).getTargetType() == "Enemy"){
 			hitpoints->Damage(ENEMY_BULLET_DAMAGE);
 			if(0 >= hitpoints->GetHp()){
+				dead = true;
 				wManager.NotifyEnemyGotKilled();
 			}
 		}
@@ -242,22 +243,14 @@ EnemyType Enemy::GetType(void) const{
 }
 
 void Enemy::UpdateEnemyDirection(Vec2 lastPosition){
-	int inclination= ( (int)( (lastPosition-(Vec2)box).Inclination()*CONVERSAO_GRAUS_RADIANOS) )%360;
-	if(0 > inclination){
-		inclination+=360;
-	}
-	REPORT_DEBUG("\t inclinação= "<<inclination);
-	if(45 <= inclination && 135 > inclination){
-		direction= EnemyDirections::UP;
-	}
-	if(135 <= inclination && 225 > inclination){
-		direction= EnemyDirections::RIGHT;
-	}
-	if(225 <= inclination && 315 > inclination){
-		direction= EnemyDirections::DOWN;
-	}
-	else{
-		direction= EnemyDirections::LEFT;
+	if(lastPosition == (Vec2)box) return;
+	float inc = ((Vec2)box - lastPosition).Inclination();
+	if ( 3.141/4 > inc && -3.141/4 < inc ) {
+		direction = EnemyDirections::RIGHT;
+	} else if ( 3*3.142/4 >= inc && -3*3.142/4 <= inc ) {
+		direction = inc >= 0 ? EnemyDirections::DOWN : EnemyDirections::UP;
+	} else {
+		direction = EnemyDirections::LEFT;
 	}
 }
 

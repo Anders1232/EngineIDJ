@@ -24,7 +24,7 @@
 class PlayerData: public Component {
 	public:
 		static PlayerData& GetInstance(void);
-        ~PlayerData();
+		~PlayerData();
 		void Render() const;
 		void Update(float dt);
 		bool Is(ComponentType type) const;
