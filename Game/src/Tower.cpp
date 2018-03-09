@@ -24,8 +24,8 @@ Tower::Tower(TowerType type, Vec2 pos, Vec2 tileSize, int hp)
 			type == TowerType::SHOCK ? 8: 1) {
 	box.x = pos.x;
 	box.y = pos.y;
-	sp.ScaleX(tileSize.x/sp.GetWidth());
-	sp.ScaleY(tileSize.y/sp.GetHeight());
+	// sp.ScaleX(tileSize.x/sp.GetWidth());
+	// sp.ScaleY(tileSize.y/sp.GetHeight());
 	box.w = sp.GetWidth();
 	box.h = sp.GetHeight();
 	StageState& stageState= (StageState&)Game::GetInstance().GetCurrentState();

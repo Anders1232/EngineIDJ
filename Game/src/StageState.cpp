@@ -721,7 +721,8 @@ void StageState::InitializeObstacles(void){
 			Obstacle* pole = new Obstacle("./img/obstacle/poste_aceso.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 			tileMap.InsertGO(pole, false);
 			AddObstacle(pole);
-			pole->box = pole->box - Vec2((float)10.5*pole->box.w/16., (float)5.5*pole->box.h/8.);
+			// pole->box = pole->box - Vec2((float)10.5*pole->box.w/16., (float)5.5*pole->box.h/8.);
+			pole->box = pole->box - Vec2((float)10.5*pole->box.w/16., 55);
 		}
 	}
 	delete poleTiles;
@@ -731,6 +732,7 @@ void StageState::InitializeObstacles(void){
 			Obstacle* bench = new Obstacle("./img/obstacle/banco_h.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 			tileMap.InsertGO(bench, false);
 			AddObstacle(bench);
+			bench->box = bench->box - Vec2(0, -40);
 		}
 	}
 	delete benchTiles;
