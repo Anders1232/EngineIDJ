@@ -84,7 +84,6 @@ endif
 
 clean:
 	$(RMDIR) $(BIN_PATH) $(DEP_PATH)
-	$(RM) $(EXEC)
 
 .PHONY: debug clean release again
 #regra pra debug

@@ -183,7 +183,7 @@ bool TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 			int column = position % GetWidth();
 			obj->box.x = column*tileSet->GetTileWidth();
 			// obj->box.y = line*tileSet->GetTileHeight();
-			obj->box.y = line*tileSet->GetTileHeight() - 3*obj->box.h/5+25;
+			obj->box.y = line*tileSet->GetTileHeight() - 5*obj->box.h/8;
 			//TODO: aqui ajudar a box para ficar exatamente no tileMap
 			ReportChanges(position);
 		}
@@ -206,7 +206,7 @@ bool TileMap::InsertGO(GameObject* obj, bool checkCollision) {
 		int column = tilePos % GetWidth();
 		obj->box.x = column*tileSet->GetTileWidth();
 		// obj->box.y = line*tileSet->GetTileHeight();
-		obj->box.y = line*tileSet->GetTileHeight() - 3*obj->box.h/5+25;
+		obj->box.y = line*tileSet->GetTileHeight() - 5*obj->box.h/8;
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
 	}
 	return true;
@@ -230,7 +230,7 @@ bool TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 		int column = position % GetWidth();
 		obj->box.x = column*tileSet->GetTileWidth();
 		// obj->box.y = line*tileSet->GetTileHeight();
-		obj->box.y = line*tileSet->GetTileHeight() - 3*obj->box.h/5+25;
+		obj->box.y = line*tileSet->GetTileHeight() - 5*obj->box.h/8;
 		RemoveGO(initialTile);
 		//TODO: aqui ajudar a box para ficar exatamente no tileMap
 	}
@@ -239,7 +239,7 @@ bool TileMap::InsertGO(GameObject* obj,Vec2 initialPos) {
 		int column = initialTile % GetWidth();
 		obj->box.x = column*tileSet->GetTileWidth();
 		// obj->box.y = line*tileSet->GetTileHeight();
-		obj->box.y = line*tileSet->GetTileHeight() - 3*obj->box.h/5+25;
+		obj->box.y = line*tileSet->GetTileHeight() - 5*obj->box.h/8;
 		return false;
 	}
 	return true;

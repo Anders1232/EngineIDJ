@@ -4,9 +4,9 @@
 
 AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associated,WaveManager& wManager):speed(speed),destTile(dest), pathIndex(0),tileMap(tileMap),associated(associated),waveManager(wManager){
 	heuristic = new ManhattanDistance();
-	tileWeightMap = (*GameResources::GetWeightData("map/WeightData.txt"))[((Enemy&)associated).GetType()];
+	tileWeightMap = (*GameResources::GetWeightData("./assets/map/WeightData.txt"))[((Enemy&)associated).GetType()];
 	Vec2 originCoord= associated.box.Center();
-	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+	path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "./assets/map/WeightData.txt");
 	actualTileweight = tileWeightMap.at(tileMap.AtLayer((*path).at(pathIndex),WALKABLE_LAYER));
 	vecSpeed = Vec2(0.0,0.0);
 	lastDistance = std::numeric_limits<float>::max();
@@ -33,7 +33,7 @@ AIQuimic::AIQuimic(float speed, int dest, TileMap &tileMap, GameObject &associat
 	actualState = AIState::WALKING;
 	
 	tileMap.ObserveMapChanges(this);
-	shooter= new Shooter(associated, tileMap, "Tower",500000, 2.5, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 500000, "img/SpriteSheets/bomba_spritesheet.png",2,3.0);
+	shooter= new Shooter(associated, tileMap, "Tower",500000, 2.5, Shooter::TargetPolicy::ALWAYS_NEAREST, true, 500, 500000, "./assets/img/SpriteSheets/bomba_spritesheet.png",2,3.0);
 	associated.AddComponent(shooter);
 }
 
@@ -160,7 +160,7 @@ void AIQuimic::Update(float dt){
 				getPathTimer.Restart();
 				randomMaxTimer = rand()%3;
 				Vec2 originCoord= associated.box.Center();
-				path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+				path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "./assets/map/WeightData.txt");
 				pathIndex = 0;
 				if(path->size() > 0){
 					tempDestination = Vec2(tileMap.GetTileSize().x * ((*path).at(pathIndex) % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path).at(pathIndex) / tileMap.GetWidth()));
@@ -187,7 +187,7 @@ void AIQuimic::Update(float dt){
 void AIQuimic::NotifyTileMapChanged(int tilePosition){
 	if(path->end() != std::find(path->begin()+pathIndex, path->end(), tilePosition)){
 		Vec2 originCoord= associated.box.Center();
-		path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "map/WeightData.txt");
+		path= GameResources::GetPath(((Enemy&)associated).GetType(), heuristic, tileMap.GetCoordTilePos(originCoord, false, 0), destTile, "./assets/map/WeightData.txt");
 		pathIndex = 0;
 		if(path->size() > 0){
 			tempDestination = Vec2(tileMap.GetTileSize().x * ((*path).at(pathIndex) % tileMap.GetWidth()),tileMap.GetTileSize().y*((*path).at(pathIndex) / tileMap.GetWidth()));

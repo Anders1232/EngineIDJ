@@ -44,43 +44,43 @@
 
 StageState::StageState(void)
 		: State()
-		, tileSet(120, 120,"map/tileset_vf.png")
-		, tileMap("map/tileMap.txt", &tileSet)
+		, tileSet(120, 120,"./assets/map/tileset_vf.png")
+		, tileMap("./assets/map/tileMap.txt", &tileSet)
 		, inputManager(INPUT_MANAGER)
-		, music("audio/trilha_sonora/loop_3_atualizado.ogg")
+		, music("./assets/audio/trilha_sonora/loop_3_atualizado.ogg")
 		, isLightning(false)
 		, isThundering(false)
 		, lightningTimer()
 		, lightningColor(255, 255, 255, 0)
-		, nightSound("audio/Ambiente/Barulho_noite.wav")
-		, thunderSound("audio/Ambiente/Trovao.wav")
-		, towerMenuSounds("audio/Acoes/Dinheiro1.wav")
+		, nightSound("./assets/audio/Ambiente/Barulho_noite.wav")
+		, thunderSound("./assets/audio/Ambiente/Trovao.wav")
+		, towerMenuSounds("./assets/audio/Acoes/Dinheiro1.wav")
 		, frameRateCounter(0)
 		, HUDcanvas()
-		, menuBg("img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
+		, menuBg("./assets/img/UI/HUD/menu.png", UIelement::BehaviorType::FIT)
 		, openMenuBtn()
-		, menuMove("audio/Interface/Click1.wav")
+		, menuMove("./assets/audio/Interface/Click1.wav")
 		, towerInfoGroup()
-		, towerName("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERNAME_DEFAULT_TEXT)
-		, towerCost("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERCOST_DEFAULT_TEXT)
-		, towerDamage("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERDAMAGE_DEFAULT_TEXT)
-		, towerDamageType("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERDAMGETYPE_DEFAULT_TEXT)
+		, towerName("./assets/font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERNAME_DEFAULT_TEXT)
+		, towerCost("./assets/font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERCOST_DEFAULT_TEXT)
+		, towerDamage("./assets/font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERDAMAGE_DEFAULT_TEXT)
+		, towerDamageType("./assets/font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, TOWER_INFO_TXT_COLOR, TOWERDAMGETYPE_DEFAULT_TEXT)
 		, towersBtnGroup(UIgridGroup::ConstraintType::FIXED_N_COLS, 2, UIgridGroup::BehaviorOnLess::NORMAL)
 		, towerBtn1()
 		, towerBtn2()
 		, towerBtn3()
 		, towerBtn4()
 		, health()
-		, healthIcon("img/UI/HUD/CoraçãoHUD_spritesheet.png", 1./4, 8, UIelement::BehaviorType::FILL)
-		, healthbarBg("img/UI/HUD/hudvida.png")
-		, healthbarBar("img/UI/HUD/hudvida.png")
+		, healthIcon("./assets/img/UI/HUD/CoraçãoHUD_spritesheet.png", 1./4, 8, UIelement::BehaviorType::FILL)
+		, healthbarBg("./assets/img/UI/HUD/hudvida.png")
+		, healthbarBar("./assets/img/UI/HUD/hudvida.png")
 		, wave()
-		, waveIcon("img/UI/HUD/inimigoHUD_spritesheet.png", 1./4, 5, UIelement::BehaviorType::FILL)
-		, wavebarBg("img/UI/HUD/hudvida.png")
-		, wavebarBar("img/UI/HUD/hudvida.png")
+		, waveIcon("./assets/img/UI/HUD/inimigoHUD_spritesheet.png", 1./4, 5, UIelement::BehaviorType::FILL)
+		, wavebarBg("./assets/img/UI/HUD/hudvida.png")
+		, wavebarBar("./assets/img/UI/HUD/hudvida.png")
 		, money()
-		, moneyIcon("img/UI/HUD/spritesheetmoeda_HUD.png", 1./4, 4, UIelement::BehaviorType::FILL)
-		, moneyText("font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, MONEY_TXT_COLOR, "+Inf") {
+		, moneyIcon("./assets/img/UI/HUD/spritesheetmoeda_HUD.png", 1./4, 4, UIelement::BehaviorType::FILL)
+		, moneyText("./assets/font/SHPinscher-Regular.otf", 95, UItext::TextStyle::BLENDED, MONEY_TXT_COLOR, "+Inf") {
 	Resources::ChangeMusicVolume(0);
 	Resources::ChangeSoundVolume(0);
 
@@ -93,7 +93,7 @@ StageState::StageState(void)
 	Camera::ForceLogZoom(CAM_START_ZOOM);
 
 	GameObject* waveManagerGO= new GameObject();
-	waveManager= new WaveManager(tileMap, "assets/wave&enemyData.txt");
+	waveManager= new WaveManager(tileMap, "./assets/data/wave&enemyData.txt");
 	waveManagerGO->AddComponent(waveManager);
 	AddObject(waveManagerGO);
 	
@@ -126,9 +126,9 @@ void StageState::SetupUI() {
 	menuBg.SetOffsets( {-10., (float)(-menuBg.GetSprite().GetHeight()/2.)},
 					   {(float)menuBg.GetSprite().GetWidth()-(float)10., (float)(menuBg.GetSprite().GetHeight()/2.)});
 
-	openMenuBtn.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/openmenu.png"));
-	openMenuBtn.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/openmenu.png"));
-	openMenuBtn.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/openmenu-clicked.png"));
+	openMenuBtn.SetStateSprite(UIbutton::State::ENABLED, new Sprite("./assets/img/UI/HUD/openmenu.png"));
+	openMenuBtn.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("./assets/img/UI/HUD/openmenu.png"));
+	openMenuBtn.SetStateSprite(UIbutton::State::PRESSED, new Sprite("./assets/img/UI/HUD/openmenu-clicked.png"));
 	openMenuBtn.SetAnchors( {0., 0.},
 							{0., 0.} );
 	openMenuBtn.SetOffsets( {(float)-(openMenuBtn.GetStateSprite(UIbutton::State::ENABLED).GetWidth()), (float)10.},
@@ -155,9 +155,9 @@ void StageState::SetupUI() {
 	towersBtnGroup.padding = Vec2(10., 10.);
 
 	towerBtn1.SetCenter({0.5, 0.});
-	towerBtn1.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaotorre.png"));
-	towerBtn1.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaotorre.png"));
-	towerBtn1.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaotorre-clicked.png"));
+	towerBtn1.SetStateSprite(UIbutton::State::ENABLED, new Sprite("./assets/img/UI/HUD/botaotorre.png"));
+	towerBtn1.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("./assets/img/UI/HUD/botaotorre.png"));
+	towerBtn1.SetStateSprite(UIbutton::State::PRESSED, new Sprite("./assets/img/UI/HUD/botaotorre-clicked.png"));
 
 	towerBtn1.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
@@ -173,9 +173,9 @@ void StageState::SetupUI() {
 										} );
 
 	towerBtn2.SetCenter({0.5, 0.});
-	towerBtn2.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaoantibomba.png"));
-	towerBtn2.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaoantibomba.png"));
-	towerBtn2.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaoantibomba-clicked.png"));
+	towerBtn2.SetStateSprite(UIbutton::State::ENABLED, new Sprite("./assets/img/UI/HUD/botaoantibomba.png"));
+	towerBtn2.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("./assets/img/UI/HUD/botaoantibomba.png"));
+	towerBtn2.SetStateSprite(UIbutton::State::PRESSED, new Sprite("./assets/img/UI/HUD/botaoantibomba-clicked.png"));
 
 	towerBtn2.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
@@ -191,9 +191,9 @@ void StageState::SetupUI() {
 										} );
 
 	towerBtn3.SetCenter({0.5, 0.});
-	towerBtn3.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaochoque.png"));
-	towerBtn3.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaochoque.png"));
-	towerBtn3.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaochoque-clicked.png"));
+	towerBtn3.SetStateSprite(UIbutton::State::ENABLED, new Sprite("./assets/img/UI/HUD/botaochoque.png"));
+	towerBtn3.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("./assets/img/UI/HUD/botaochoque.png"));
+	towerBtn3.SetStateSprite(UIbutton::State::PRESSED, new Sprite("./assets/img/UI/HUD/botaochoque-clicked.png"));
 
 	towerBtn3.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
@@ -209,9 +209,9 @@ void StageState::SetupUI() {
 										} );
 
 	towerBtn4.SetCenter({0.5, 0.});
-	towerBtn4.SetStateSprite(UIbutton::State::ENABLED, new Sprite("img/UI/HUD/botaostun.png"));
-	towerBtn4.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("img/UI/HUD/botaostun.png"));
-	towerBtn4.SetStateSprite(UIbutton::State::PRESSED, new Sprite("img/UI/HUD/botaostun-clicked.png"));
+	towerBtn4.SetStateSprite(UIbutton::State::ENABLED, new Sprite("./assets/img/UI/HUD/botaostun.png"));
+	towerBtn4.SetStateSprite(UIbutton::State::HIGHLIGHTED, new Sprite("./assets/img/UI/HUD/botaostun.png"));
+	towerBtn4.SetStateSprite(UIbutton::State::PRESSED, new Sprite("./assets/img/UI/HUD/botaostun-clicked.png"));
 
 	towerBtn4.SetCallback(UIbutton::State::HIGHLIGHTED, this, [] (void* ptr) {
 																	StageState* it = static_cast<StageState*>(ptr);
@@ -660,7 +660,7 @@ void StageState::InitializeObstacles(void){
 				Vec2 offset(0,0);
 				if(treeTilesVector.size() <= (j+1) ){
 					//checar as alternativas gerará um seg fault
-					tree = new Obstacle("./img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+					tree = new Obstacle("./assets/img/obstacle/arvore1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 				}
 				else{
 					auto baixo= std::find(treeTilesVector.begin(), treeTilesVector.end(),treeTilesVector[j]+tileMap.GetWidth());
@@ -673,7 +673,7 @@ void StageState::InitializeObstacles(void){
 								if(*(baixo+1) == (*baixo)+1){
 									//é um quadrado
 									isSqare = true;
-									tree = new Obstacle("./img/obstacle/arvore4_1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+									tree = new Obstacle("./assets/img/obstacle/arvore4_1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 									treeTilesVector.erase(baixo+1);
 									treeTilesVector.erase(baixo);
 									treeTilesVector.erase(treeTilesVector.begin()+(j+1) );
@@ -681,7 +681,7 @@ void StageState::InitializeObstacles(void){
 							}
 							if(!isSqare){
 								//é uma coluna
-								tree = new Obstacle("./img/obstacle/arvore4_2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+								tree = new Obstacle("./assets/img/obstacle/arvore4_2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 								treeTilesVector.erase(baixo);
 							}
 						}
@@ -692,12 +692,12 @@ void StageState::InitializeObstacles(void){
 					if(nullptr == tree){
 						if(treeTilesVector[j+1] == index+1){
 							//é uma linha
-							tree = new Obstacle("./img/obstacle/arvore1_2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+							tree = new Obstacle("./assets/img/obstacle/arvore1_2.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 							treeTilesVector.erase(treeTilesVector.begin()+(j+1) );
 						}
 						else{
 							//é apenas um tile
-							tree = new Obstacle("./img/obstacle/arvore1_1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+							tree = new Obstacle("./assets/img/obstacle/arvore1_1.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 						}
 					}
 				}
@@ -718,21 +718,21 @@ void StageState::InitializeObstacles(void){
 	for(uint i = 0; i < poleTiles->size(); i++){
 		for(uint j = 0; j < poleTiles->at(i).size(); j++){
 			index = poleTiles->at(i)[j];
-			Obstacle* pole = new Obstacle("./img/obstacle/poste_aceso.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+			Obstacle* pole = new Obstacle("./assets/img/obstacle/poste_aceso.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 			tileMap.InsertGO(pole, false);
 			AddObstacle(pole);
 			// pole->box = pole->box - Vec2((float)10.5*pole->box.w/16., (float)5.5*pole->box.h/8.);
-			pole->box = pole->box - Vec2((float)10.5*pole->box.w/16., 55);
+			pole->box = pole->box - Vec2((float)10.5*pole->box.w/16., 45);
 		}
 	}
 	delete poleTiles;
 	for(uint i = 0; i < benchTiles->size(); i++){
 		for(uint j = 0; j < benchTiles->at(i).size(); j++){
 			index = benchTiles->at(i)[j];
-			Obstacle* bench = new Obstacle("./img/obstacle/banco_h.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
+			Obstacle* bench = new Obstacle("./assets/img/obstacle/banco_h.png", Vec2(index%mapWidth*tileWidth, index/mapWidth*tileHeight));
 			tileMap.InsertGO(bench, false);
 			AddObstacle(bench);
-			bench->box = bench->box - Vec2(0, -40);
+			bench->box = bench->box - Vec2(0, -70);
 		}
 	}
 	delete benchTiles;
@@ -773,52 +773,52 @@ std::vector<GameObject*>* StageState::FindNearestGOs(Vec2 origin, std::string ta
 }
 
 void StageState::LoadAssets(void) const{
-	Resources::GetImage("./map/tileset_vf.png");
-	Resources::GetImage("./img/UI/HUD/menu.png");
-	Resources::GetImage("./img/UI/HUD/CoraçãoHUD_spritesheet.png");
-	Resources::GetImage("./img/UI/HUD/inimigoHUD_spritesheet.png");
-	Resources::GetImage("./img/UI/HUD/spritesheetmoeda_HUD.png");
-	Resources::GetImage("./img/UI/HUD/hudvida.png");
-	Resources::GetImage("./img/UI/HUD/openmenu.png");
-	Resources::GetImage("./img/UI/HUD/openmenu-clicked.png");
-	Resources::GetImage("./img/UI/HUD/botaotorre.png");
-	Resources::GetImage("./img/UI/HUD/botaotorre-clicked.png");
-	Resources::GetImage("./img/obstacle/arvore1.png");
-	Resources::GetImage("./img/obstacle/arvore2.png");
-	Resources::GetImage("./img/obstacle/arvore3.png");
-	Resources::GetImage("./img/obstacle/arvore4.png");
-	Resources::GetImage("./img/obstacle/banco_h.png");
-	Resources::GetImage("./img/obstacle/posteLuz.png");
-	Resources::GetImage("./img/tower/torre_fumaca.png");
-	Resources::GetImage("./img/tower/torrefumaca.png");
-	Resources::GetImage("./img/tower/torre-anti-bomba.png");
-	Resources::GetImage("./img/tower/torrestun.png");
-	Resources::GetImage("./img/tower/torrechoque_lvl1.png");
-	Resources::GetImage("./img/enemy/perna_tras.png");
-	Resources::GetImage("./img/enemy/cabeca_tras.png");
-	Resources::GetImage("./img/enemy/cabelo_tras.png");
-	Resources::GetImage("./img/enemy/torso_tras.png");
-	Resources::GetImage("./img/enemy/perna_dir.png");
-	Resources::GetImage("./img/enemy/cabeca_dir.png");
-	Resources::GetImage("./img/enemy/cabelo_dir.png");
-	Resources::GetImage("./img/enemy/torso_dir.png");
-	Resources::GetImage("./img/enemy/perna_frente.png");
-	Resources::GetImage("./img/enemy/cabeca_frente.png");
-	Resources::GetImage("./img/enemy/cabelo_frente.png");
-	Resources::GetImage("./img/enemy/torso_frente.png");
-	Resources::GetImage("./img/enemy/perna_esq.png");
-	Resources::GetImage("./img/enemy/cabeca_esq.png");
-	Resources::GetImage("./img/enemy/cabelo_esq.png");
-	Resources::GetImage("./img/enemy/torso_esq.png");
-	Resources::GetImage("./img/SpriteSheets/explosao_spritesheet.png");
-	Resources::GetMusic("./audio/trilha_sonora/loop_1.ogg");
-	Resources::GetSound("./audio/Acoes/Inicio de Wave.wav");
-	Resources::GetSound("./audio/Acoes/Consertando1.wav");
-	Resources::GetSound("./audio/Ambiente/Barulho_noite.wav");
-	Resources::GetSound("./audio/Ambiente/Trovao.wav");
-	Resources::GetSound("./audio/Ambiente/andando2.wav");
-	Resources::GetSound("./audio/Interface/Click1.wav");
-	Resources::GetFont("./font/SHPinscher-Regular.otf", 95);
+	Resources::GetImage("./assets/map/tileset_vf.png");
+	Resources::GetImage("./assets/img/UI/HUD/menu.png");
+	Resources::GetImage("./assets/img/UI/HUD/CoraçãoHUD_spritesheet.png");
+	Resources::GetImage("./assets/img/UI/HUD/inimigoHUD_spritesheet.png");
+	Resources::GetImage("./assets/img/UI/HUD/spritesheetmoeda_HUD.png");
+	Resources::GetImage("./assets/img/UI/HUD/hudvida.png");
+	Resources::GetImage("./assets/img/UI/HUD/openmenu.png");
+	Resources::GetImage("./assets/img/UI/HUD/openmenu-clicked.png");
+	Resources::GetImage("./assets/img/UI/HUD/botaotorre.png");
+	Resources::GetImage("./assets/img/UI/HUD/botaotorre-clicked.png");
+	Resources::GetImage("./assets/img/obstacle/arvore1.png");
+	Resources::GetImage("./assets/img/obstacle/arvore2.png");
+	Resources::GetImage("./assets/img/obstacle/arvore3.png");
+	Resources::GetImage("./assets/img/obstacle/arvore4.png");
+	Resources::GetImage("./assets/img/obstacle/banco_h.png");
+	Resources::GetImage("./assets/img/obstacle/posteLuz.png");
+	Resources::GetImage("./assets/img/tower/torre_fumaca.png");
+	Resources::GetImage("./assets/img/tower/torrefumaca.png");
+	Resources::GetImage("./assets/img/tower/torre-anti-bomba.png");
+	Resources::GetImage("./assets/img/tower/torrestun.png");
+	Resources::GetImage("./assets/img/tower/torrechoque_lvl1.png");
+	Resources::GetImage("./assets/img/enemy/perna_tras.png");
+	Resources::GetImage("./assets/img/enemy/cabeca_tras.png");
+	Resources::GetImage("./assets/img/enemy/cabelo_tras.png");
+	Resources::GetImage("./assets/img/enemy/torso_tras.png");
+	Resources::GetImage("./assets/img/enemy/perna_dir.png");
+	Resources::GetImage("./assets/img/enemy/cabeca_dir.png");
+	Resources::GetImage("./assets/img/enemy/cabelo_dir.png");
+	Resources::GetImage("./assets/img/enemy/torso_dir.png");
+	Resources::GetImage("./assets/img/enemy/perna_frente.png");
+	Resources::GetImage("./assets/img/enemy/cabeca_frente.png");
+	Resources::GetImage("./assets/img/enemy/cabelo_frente.png");
+	Resources::GetImage("./assets/img/enemy/torso_frente.png");
+	Resources::GetImage("./assets/img/enemy/perna_esq.png");
+	Resources::GetImage("./assets/img/enemy/cabeca_esq.png");
+	Resources::GetImage("./assets/img/enemy/cabelo_esq.png");
+	Resources::GetImage("./assets/img/enemy/torso_esq.png");
+	Resources::GetImage("./assets/img/SpriteSheets/explosao_spritesheet.png");
+	Resources::GetMusic("./assets/audio/trilha_sonora/loop_1.ogg");
+	Resources::GetSound("./assets/audio/Acoes/Inicio de Wave.wav");
+	Resources::GetSound("./assets/audio/Acoes/Consertando1.wav");
+	Resources::GetSound("./assets/audio/Ambiente/Barulho_noite.wav");
+	Resources::GetSound("./assets/audio/Ambiente/Trovao.wav");
+	Resources::GetSound("./assets/audio/Ambiente/andando2.wav");
+	Resources::GetSound("./assets/audio/Interface/Click1.wav");
+	Resources::GetFont("./assets/font/SHPinscher-Regular.otf", 95);
 	// Resources::GetImage();
 	// Resources::GetMusic();
 	// Resources::GetSound();

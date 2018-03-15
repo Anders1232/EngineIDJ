@@ -1,12 +1,15 @@
 #include "WaveManager.h"
 #include "TileMap.h"
-#include "InputManager.h"
 #include "Vec2.h"
 #include "Game.h"
 #include "Enemy.h"
 #include "GameResources.h"
 #include "Error.h"
 #include "PlayerData.h"
+
+#ifdef DEBUG
+#include "InputManager.h"
+#endif
 
 #define TIME_BETWEEN_SPAWN 0.8
 #define TIME_BETWEEN_WAVES 5.0
@@ -15,9 +18,9 @@ int WaveManager::waveCount = 0;
 
 WaveManager::WaveManager(TileMap& tileMap, string waveFile)
 		: tileMap(tileMap)
-		, waveStartSound("audio/Acoes/Inicio de Wave.wav")
-		, levelUpSound("audio/Acoes/Level Up.wav")
-		, lostEnemySound("audio/Acoes/perdeu1.wav")
+		, waveStartSound("./assets/audio/Acoes/Inicio de Wave.wav")
+		, levelUpSound("./assets/audio/Acoes/Level Up.wav")
+		, lostEnemySound("./assets/audio/Acoes/perdeu1.wav")
 		, betweenWavesTimer()
 		, waitingForTheNextWave(false) {
 	endWave=true;
@@ -27,7 +30,7 @@ WaveManager::WaveManager(TileMap& tileMap, string waveFile)
 	spawnGroups= tileMap.GetTileGroups(SPAWN_POINT);
 	REPORT_DEBUG2(1, "Buscando end points.");
 	endGroups= tileMap.GetTileGroups(END_POINT);
-	wavesAndEnemysData = GameResources::GetWaveData("assets/wave&enemyData.txt");
+	wavesAndEnemysData = GameResources::GetWaveData("./assets/data/wave&enemyData.txt");
 	enemyIndex = 0;
 	waveIndex=-1;
 	totalWaves = wavesAndEnemysData->first.size();
@@ -79,7 +82,11 @@ void WaveManager::Update(float dt){
 			}
 			else{
 				betweenWavesTimer.Update(dt);
-				if(TIME_BETWEEN_WAVES < betweenWavesTimer.Get() && INPUT_MANAGER.KeyPress('n')){
+				if(TIME_BETWEEN_WAVES < betweenWavesTimer.Get()
+				#ifdef DEBUG
+				&& INPUT_MANAGER.KeyPress('n')
+				#endif
+				){
 					++waveIndex;
 					waveStartSound.Play(1);
 					StartWave();

@@ -11,7 +11,7 @@ DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, GameObject &ass
 			, tileMap(map)
 			, redrag(redrag)
 			, associated(associated)
-			, dragNDrop("audio/Acoes/Consertando1.wav") {
+			, dragNDrop("./assets/audio/Acoes/Consertando1.wav") {
 }
 
 void DragAndDrop::Update(float dt) {
@@ -28,7 +28,7 @@ void DragAndDrop::Update(float dt) {
 	} else if(inputManager.IsMouseDown(RIGHT_MOUSE_BUTTON) || !dragOnHold) {
 		Vec2 mousePos = Camera::ScreenToWorld(inputManager.GetMousePos() );
 		// associated.box = mousePos-Vec2(associated.box.w/2, associated.box.h/2);
-		associated.box = mousePos-Vec2(25, 3*associated.box.h/5);
+		associated.box = mousePos-Vec2(associated.box.w/2, 3*associated.box.h/4);
 	} 
 }
 
