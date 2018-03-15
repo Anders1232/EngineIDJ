@@ -25,12 +25,12 @@ Impedir que os infetados cheguem à reitoria e à biblioteca.
 #### Controles:
 - `W A S D` para movimentação da câmera  
 - Rodinha do mouse para zoom  
-- Botão direito do mouse para confirmar a posição das torres
+- Botão direito do mouse para pegar e confirmar a posição das torres
 - Botão esquerdo do mouse para interagir com a UI
-- `[` para reduzir o volume da música e `]` para aumentar o volume da música  
-- `,` para reduzir o volume dos efeitos sonoros e `.` para aumentar o volume dos efeitos sonoros.  
-- `-` para reduzir o frame rate máximo em 5, e `=` para aumentar o frame rate máximo em 5  
-  
+- `[` para reduzir o volume da música e `]` para aumentar o volume da música
+- `,` para reduzir o volume dos efeitos sonoros e `.` para aumentar o volume dos efeitos sonoros.
+- `-` para reduzir o frame rate máximo em 5, e `=` para aumentar o frame rate máximo em 5 (default = 60)
+
 #### Equipe de desenvolvimento:
 - Programadores:
 	- Daniel Barbosa
