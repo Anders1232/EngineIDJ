@@ -61,7 +61,7 @@ Game::Game(std::string title,int width, int height)
 
 	result = Mix_Init(MIX_INIT_MP3 | MIX_INIT_OGG);
 	if(0 == result) {
-		Error("Loading Mix_Init failed: " << Mix_GetError());
+//		Error("Loading Mix_Init failed: " << Mix_GetError());
 	}
 
 /*	if(0 == (result & MIX_INIT_MP3 ) ) {
@@ -69,7 +69,7 @@ Game::Game(std::string title,int width, int height)
 	}*/
 	
 	if(0 == (result & MIX_INIT_OGG)) {
-		Error("Loading MIX_INIT_OGG failed: " << Mix_GetError());
+//		Error("Loading MIX_INIT_OGG failed: " << Mix_GetError());
 	}
 
 	if(0 != Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, MIXER_CHUCK_SIZE)) {
