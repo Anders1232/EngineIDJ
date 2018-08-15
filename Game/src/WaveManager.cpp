@@ -98,7 +98,7 @@ void WaveManager::Update(float dt){
 					uint indexOfTheEnemyToSpawn=0;
 					bool breaked= false;
 					REPORT_I_WAS_HERE;
-					while(enemiesCounter >= currentWave.spawnPointsData.at(i).enemySpawnData.at(indexOfTheEnemyToSpawn).numberOfEnemies){
+					while(enemiesCounter >= GetNumberOfEnemiesToSpawn(currentWave, i, indexOfTheEnemyToSpawn) ){
 						REPORT_I_WAS_HERE;
 						if(indexOfTheEnemyToSpawn>= currentWave.spawnPointsData.at(i).enemySpawnData.size()){
 							REPORT_I_WAS_HERE;
@@ -192,3 +192,11 @@ int WaveManager::GetWaveTotalEnemies(void) {
 bool WaveManager::Victory(void){
 	return victory;
 }
+
+uint WaveManager::GetNumberOfEnemiesToSpawn(WaveData &wave, uint index, uint indexOfTheEnemyToSpawn){
+	SpawnPointData& analizedSpawnData= wave.spawnPointsData.at(index);
+	EnemySpawnData& currentEnemySpawn= analizedSpawnData.enemySpawnData.at(indexOfTheEnemyToSpawn);
+	return currentEnemySpawn.numberOfEnemies;
+	
+}
+

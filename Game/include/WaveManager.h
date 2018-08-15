@@ -93,6 +93,7 @@ class WaveManager : public Component {
 			
 		*/
 		void SpawnEnemy(int tileMapPosition, int enemyId,uint baseHP, uint endPoint, uint indexOfTheEnemyToSpawn);
+		unsigned int GetNumberOfEnemiesToSpawn(WaveData &wave, uint index, uint indexOfTheEnemyToSpawn);
 
 		vector<vector<int>> *spawnGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
 		vector<vector<int>> *endGroups;/**<Armazena o vetor de SpawnGroup, cada spawnGroup armazena um vetor de spawnPoint.*/
